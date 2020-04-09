@@ -1,28 +1,22 @@
 ---
-title: Utilisation de la commande Add-DriverGroupFilter
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+title: Add-DriverGroupFilter
+description: Rubrique relative aux commandes Windows pour Add-DriverGroupFilter, qui ajoute un filtre à un groupe de pilotes sur un serveur.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a66c5e68-99ea-4e47-b68d-8109633ae336
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a332c804fd3c78598eb9b1a6ba8cb5bdae0b3f1c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6a62baf85462d4340d61196bc154efd6d852f1f7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71363832"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80832112"
 ---
-# <a name="using-the-add-drivergroupfilter-command"></a>Utilisation de la commande Add-DriverGroupFilter
-
-
+# <a name="add-drivergroupfilter"></a>Add-DriverGroupFilter
 
 Ajoute un filtre à un groupe de pilotes sur un serveur.
 
@@ -32,7 +26,7 @@ Ajoute un filtre à un groupe de pilotes sur un serveur.
 WDSUTIL /Add-DriverGroupFilter /DriverGroup:<Group Name> [/Server:<Server name>] /FilterType:<Filter Type> /Policy:{Include | Exclude} /Value:<Value> [/Value:<Value> ...]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |         Paramètre          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,7 +36,7 @@ WDSUTIL /Add-DriverGroupFilter /DriverGroup:<Group Name> [/Server:<Server name>]
 |     [/Policy : {include      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                             Exclure}]                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |     [/Value :\<> de valeur]      | Spécifie la valeur client qui correspond à **/FilterType**. Vous pouvez spécifier plusieurs valeurs pour un seul type. Consultez la liste suivante pour connaître les valeurs valides pour **ChassisType**. Pour plus d’informations sur l’obtention des valeurs de tous les autres types de filtres, voir [filtres de groupes de pilotes](https://go.microsoft.com/fwlink/?LinkID=155158) (<https://go.microsoft.com/fwlink/?LinkID=155158>).</br>**Autres**</br>**UnknownChassis**</br>**Bureau**</br>**LowProfileDesktop**</br>**PizzaBox**</br>**Tour**</br>**410**</br>**Portatif**</br>**)**</br>**Équipés**</br>**Poche**</br>**DockingStation**</br>**AllInOne**</br>**Sous-bloc-notes**</br>**SpaceSaving**</br>**LunchBox**</br>**MainSystemChassis**</br>**ExpansionChassis**</br>**Sous-châssis**</br>**BusExpansionChassis**</br>**PeripheralChassis**</br>**StorageChassis**</br>**RackMountChassis**</br>**SealedCaseComputer**</br>**MultiSystemChassis**</br>**CompactPci**</br>**AdvancedTca** |
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour ajouter un filtre à un groupe de pilotes, tapez l’un des éléments suivants :
 ```
@@ -52,7 +46,7 @@ WDSUTIL /Add-DriverGroupFilter /DriverGroup:PrinterDrivers /FilterType:Manufactu
 WDSUTIL /Add-DriverGroupFilter /DriverGroup:PrinterDrivers /FilterType:Manufacturer /Policy:Include /Value:Name1 /FilterType:ChassisType /Policy:Exclude /Value:Tower /Value:MiniTower
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 

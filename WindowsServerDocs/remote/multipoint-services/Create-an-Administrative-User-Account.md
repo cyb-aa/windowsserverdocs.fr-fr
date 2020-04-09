@@ -1,27 +1,23 @@
 ---
 title: Créer un compte d’utilisateur administratif
 description: Créer un compte avec des privilèges d’administrateur dans MultiPoint services
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8ce4c5a9-3dec-412f-910b-54a252f8f209
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 6737f7b96396a13aa18485095e0687425cf8b93e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 72b7517d35d18064806d3df35f2f9ed7b636df8d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389699"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859772"
 ---
 # <a name="create-an-administrative-user-account"></a>Créer un compte d’utilisateur administratif
-Créez des *comptes d’utilisateur administratif* pour les personnes qui gèrent le système MultiPoint Services. Pour voir qui dispose d’un accès administrateur, dans le gestionnaire MultiPoint, cliquez sur l’onglet **utilisateurs** . Les comptes d’utilisateur administratif sont affichés dans la colonne Type de compte comme **Administrateur**. Les *utilisateurs administratifs* ont accès à toutes les tâches du gestionnaire multipoint qui modifient les paramètres du bureau et du système, par exemple :  
+Créez des *comptes d’utilisateur administratif* pour les personnes qui gèrent le système MultiPoint Services. Pour voir qui dispose d’un accès administrateur, dans le gestionnaire MultiPoint, cliquez sur l’onglet **utilisateurs** . les comptes d’utilisateur d’administration s’affichent dans la colonne **type de compte** en tant qu' **administrateur**. Les *utilisateurs administratifs* ont accès à toutes les tâches du gestionnaire multipoint qui modifient les paramètres du bureau et du système, par exemple :  
   
 -   Création de comptes  
   

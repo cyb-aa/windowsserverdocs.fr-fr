@@ -3,19 +3,19 @@ ms.assetid: 898d72f1-01e7-4b87-8eb3-a8e0e2e6e6da
 title: Ajout de serveurs ou de lecteurs aux espaces de stockage direct
 ms.prod: windows-server
 ms.author: cosdar
-ms.manager: dongill
+manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 11/06/2017
 description: Ajout de serveurs ou de lecteurs à un cluster espaces de stockage direct
 ms.localizationpriority: medium
-ms.openlocfilehash: f5fb9da903bb76de3a075fa7feeeaba468d802c2
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: be79a2d3e0e8c56afc409298518d967c9bc80453
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465623"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859122"
 ---
 # <a name="adding-servers-or-drives-to-storage-spaces-direct"></a>Ajout de serveurs ou de lecteurs aux espaces de stockage direct
 
@@ -23,7 +23,7 @@ ms.locfileid: "77465623"
 
 Cette rubrique décrit comment ajouter des serveurs ou des lecteurs aux espaces de stockage direct.
 
-## <a name="adding-servers"></a>Ajout de serveurs
+## <a name="adding-servers"></a><a name="adding-servers"></a>Ajout de serveurs
 
 L’ajout de serveurs, qui est souvent appelé montée en charge, permet d’ajouter de la capacité de stockage en vue d’améliorer les performances et de profiter d’une plus grande efficacité de stockage. Dans le cas d’un déploiement hyper-convergé, l’ajout de serveurs fournit également une plus grande quantité de ressources de calcul pour votre charge de travail.
 
@@ -162,11 +162,11 @@ Si votre déploiement utilise la tolérance de panne de châssis ou de rack, vou
    Set-ClusterFaultDomain -Name <NewNode> -Parent <ParentName> 
    ```
 
-   Pour plus d’informations, voir [Reconnaissance des domaines d’erreur dans Windows Server 2016](../../failover-clustering/fault-domains.md).
+   Pour plus d’informations, consultez [Reconnaissance des domaines d’erreur dans Windows Server 2016](../../failover-clustering/fault-domains.md).
 
 3. Ajoutez le serveur au cluster, comme décrit dans [Ajout de serveurs](#adding-servers). Quand le nouveau serveur rejoint le cluster, il est automatiquement associé (par son nom) au domaine d’erreur de l’espace réservé.
 
-## <a name="adding-drives"></a>Ajout de lecteurs
+## <a name="adding-drives"></a><a name="adding-drives"></a>Ajout de lecteurs
 
 L’ajout de lecteurs, également appelé montée en puissance, permet d’ajouter de la capacité de stockage et également d’améliorer les performances. Si vous avez des emplacements disponibles, vous pouvez ajouter des lecteurs à chaque serveur pour augmenter votre capacité de stockage sans ajout de serveurs. Vous pouvez ajouter des lecteurs de cache ou de capacité de manière indépendante, à tout moment.
 

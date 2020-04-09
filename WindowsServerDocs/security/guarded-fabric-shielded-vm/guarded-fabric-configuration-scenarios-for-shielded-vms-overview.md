@@ -1,19 +1,19 @@
 ---
 title: Déployer des machines virtuelles protégées
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 5d1a06c9-24e1-4e14-9c9a-efb2adbfeddd
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: f7892dabb028b99cb4cb1c9045764a8e36aba7dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f4550f8a92330c8f483e332ab9e4b36fda853b0a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386767"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856862"
 ---
 # <a name="deploy-shielded-vms"></a>Déployer des machines virtuelles protégées
 
@@ -34,9 +34,9 @@ Les rubriques suivantes décrivent comment un locataire peut travailler avec des
 
 4. Créer une machine virtuelle protégée :
  
-    - Utilisation de **Windows Azure Pack**: [Déployer une machine virtuelle protégée à l’aide de Windows Azure Pack](guarded-fabric-shielded-vm-windows-azure-pack.md)
+    - Utilisation de **Windows Azure Pack**: [déployer une machine virtuelle protégée à l’aide de Windows Azure Pack](guarded-fabric-shielded-vm-windows-azure-pack.md)
 
-    - Utilisation de **Virtual Machine Manager**: [Déployer une machine virtuelle protégée à l’aide de Virtual Machine Manager](guarded-fabric-tenant-deploys-shielded-vm-using-vmm.md)
+    - Utilisation de **Virtual Machine Manager**: [déployer une machine virtuelle protégée à l’aide de Virtual Machine Manager](guarded-fabric-tenant-deploys-shielded-vm-using-vmm.md)
 
 ## <a name="next-step"></a>Étape suivante
 

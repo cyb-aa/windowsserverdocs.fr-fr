@@ -2,22 +2,19 @@
 title: Affichage et gestion des mises à jour
 description: Rubrique Windows Server Update Service (WSUS)-comment afficher et gérer les mises à jour dans la console WSUS
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ac70192b-0309-4385-b697-2e8eda51911c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: de2d12ad34ba11f948baa390546747a6bf4b635c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a2a9f7e1f1f3f648a0cba22d599ccc64e7b424d8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361492"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828442"
 ---
 # <a name="viewing-and-managing-updates"></a>Affichage et gestion des mises à jour
 
@@ -98,7 +95,7 @@ Votre nouvel affichage apparaît dans le volet de l’arborescence sous mises à
 
     -   La barre de titre affiche le titre de la mise à jour ; par exemple, la mise à jour de sécurité pour Windows Media Player 9 (KB911565).
 
-    -   La section état affiche l’état d’installation de la mise à jour (les ordinateurs sur lesquels elle doit être installée, les ordinateurs sur lesquels elle a été installée avec des erreurs, les ordinateurs sur lesquels elle a été installée ou n’est pas applicable) et les ordinateurs qui n’ont pas signalé État de la mise à jour), ainsi que des informations générales (date de publication des numéros KB et MSRC, etc.).
+    -   La section état affiche l’état d’installation de la mise à jour (les ordinateurs sur lesquels elle doit être installée, les ordinateurs sur lesquels elle a été installée avec des erreurs, les ordinateurs sur lesquels elle a été installée ou non) et les ordinateurs qui n’ont pas signalé d’État pour la mise à jour), ainsi que les informations générales (date de publication des numéros KB et MSRC).
 
     -   La section Description affiche une brève description de la mise à jour.
 
@@ -123,7 +120,7 @@ Notez que vous ne pouvez effectuer cette procédure que sur une seule mise à jo
 ## <a name="managing-updates-with-wsus"></a>Gestion des mises à jour avec WSUS
 Les mises à jour sont utilisées pour la mise à jour ou la fourniture d’un remplacement de fichier complet pour les logiciels installés sur un ordinateur. Chaque mise à jour disponible sur Microsoft Update est constituée de deux composants :
 
--   Métadonnées : fournit des informations sur la mise à jour. Par exemple, les métadonnées fournissent des informations sur les propriétés d’une mise à jour, ce qui vous permet de savoir ce que la mise à jour est utile. Les métadonnées incluent également les termes du contrat de licence logiciel Microsoft. Le package de métadonnées téléchargé pour une mise à jour est généralement plus petit que le package de fichiers de mise à jour réel.
+-   Métadonnées : fournit des informations sur la mise à jour. Par exemple, les métadonnées fournissent des informations sur les propriétés d’une mise à jour, qui vous permet de savoir l’utilité de la mise à jour. Les métadonnées incluent également les Termes du contrat de licence logiciel Microsoft. Le package de métadonnées téléchargé pour une mise à jour est généralement plus petit que le package des fichiers de mise à jour.
 
 -   Fichiers de mise à jour : fichiers réels requis pour installer une mise à jour sur un ordinateur.
 

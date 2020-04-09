@@ -2,25 +2,23 @@
 title: Gérer des machines virtuelles Windows avec PowerShell direct
 description: Fournit des instructions sur l’utilisation de PowerShell direct pour gérer des machines virtuelles sans avoir recours à un réseau ou à une connexion distante.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b5715c02-a90f-4de9-a71e-0fc09093ba2d
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: f42e221b073cf199117f85ea96beef4997bbbbc5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c4a051de2d8f62c38ae0c44b1a62d5bf9df339e8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392746"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859432"
 ---
 # <a name="manage-windows-virtual-machines-with-powershell-direct"></a>Gérer des machines virtuelles Windows avec PowerShell direct
 
->S'applique à : Windows 10, Windows Server 2016, Windows Server 2019
+>S’applique à : Windows 10, Windows Server 2016, Windows Server 2019
   
 Vous pouvez utiliser PowerShell direct pour gérer à distance une machine virtuelle Windows 10, Windows Server 2016 ou Windows Server 2019 à partir d’un hôte Hyper-V Windows 10, Windows Server 2016 ou Windows Server 2019. PowerShell direct permet la gestion de Windows PowerShell à l’intérieur d’un ordinateur virtuel, indépendamment de la configuration réseau ou des paramètres de gestion à distance sur l’hôte Hyper-V ou l’ordinateur virtuel. Pour les administrateurs Hyper-V, cela facilite la génération de scripts et l’automatisation de la gestion et de la configuration des machines virtuelles.  
   

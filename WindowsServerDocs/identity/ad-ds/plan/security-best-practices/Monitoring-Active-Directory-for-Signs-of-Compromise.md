@@ -1,7 +1,6 @@
 ---
 ms.assetid: a7ef2fba-b05c-4be2-93b2-b9456244c3ad
 title: Surveillance des signes de compromission d'Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e51b7ea151db1ca5d53a8cacef3b042e345175de
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 1d00ab702ab6b4ff4307f96f9e266a1cb3420197
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949634"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821142"
 ---
 # <a name="monitoring-active-directory-for-signs-of-compromise"></a>Surveillance des signes de compromission d'Active Directory
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 *Numéro de loi cinq : externes vigilance est le prix de la sécurité.* - [10 lois immuables de l’administration de la sécurité](https://technet.microsoft.com/library/cc722488.aspx)  
   
@@ -51,7 +50,7 @@ Avant Windows Vista et Windows Server 2008, Windows avait seulement neuf catégo
 * Accès au service d’annuaire  
 * Événements de connexion  
 * Accès aux objets  
-* Modification de stratégie  
+* Modification de la stratégie  
 * Utilisation des privilèges  
 * Suivi des processus  
 * Événements système  
@@ -101,7 +100,7 @@ Les événements système sont presque une catégorie générique de rattrapage,
 
 À compter de Windows Vista et de Windows Server 2008, Microsoft a amélioré la façon dont les sélections de catégories du journal des événements peuvent être effectuées en créant des sous-catégories sous chaque catégorie d’audit principale. Les sous-catégories permettent à l’audit d’être beaucoup plus granulaire qu’en utilisant les catégories principales. En utilisant des sous-catégories, vous pouvez activer uniquement des parties d’une catégorie principale particulière et ignorer la génération d’événements pour lesquels vous n’avez pas d’utilisation. Chaque sous-catégorie d’audit peut être activée pour la réussite, l’échec, ou la réussite et l’échec.  
   
-Pour répertorier toutes les sous-catégories d’audit disponibles, examinez le conteneur de stratégie d’audit avancé dans un objet stratégie de groupe ou tapez la commande suivante à l’invite de commandes sur n’importe quel ordinateur exécutant Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008, Windows 8, Windows 7 ou Windows Vista :  
+Pour répertorier toutes les sous-catégories d’audit disponibles, examinez le conteneur de la stratégie d’audit avancée dans un objet stratégie de groupe ou tapez la commande suivante à l’invite de commandes sur n’importe quel ordinateur exécutant Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008, Windows 8, Windows 7 ou Windows Vista :  
   
 `auditpol /list /subcategory:*`
   
@@ -121,7 +120,7 @@ Chaque catégorie principale a plusieurs sous-catégories. Vous trouverez ci-des
 ### <a name="auditing-subcategories-descriptions"></a>Descriptions des sous-catégories d’audit  
 Les sous-catégories de stratégie d’audit activent les types de message de journal des événements suivants :  
   
-#### <a name="account-logon"></a>Connexion de compte  
+#### <a name="account-logon"></a>Ouverture de session de compte  
   
 ##### <a name="credential-validation"></a>Validation des informations d'identification  
 Cette sous-catégorie signale les résultats des tests de validation sur les informations d’identification soumises pour une demande d’ouverture de session de compte d’utilisateur. Ces événements se produisent sur l’ordinateur qui fait autorité pour les informations d’identification. Pour les comptes de domaine, le contrôleur de domaine fait autorité, tandis que pour les comptes locaux, l’ordinateur local fait autorité.  
@@ -201,7 +200,7 @@ Cette sous-catégorie fournit des informations détaillées sur les informations
 ##### <a name="logon"></a>Ouverture de session  
 Cette sous-catégorie signale quand un utilisateur tente de se connecter au système. Ces événements se produisent sur l’ordinateur auquel vous accédez. Pour les ouvertures de session interactives, la génération de ces événements se produit sur l’ordinateur qui est connecté à. Si une ouverture de session réseau a lieu pour accéder à un partage, ces événements sont générés sur l’ordinateur qui héberge la ressource accédée. Si ce paramètre est configuré sur **aucun audit**, il est difficile, voire impossible, de déterminer quel utilisateur a accédé ou a tenté d’accéder aux ordinateurs de l’organisation.  
   
-##### <a name="network-policy-server"></a>Serveur NPS \(Network Policy Server\)  
+##### <a name="network-policy-server"></a>Serveur NPS (Network Policy Server)  
 Cette sous-catégorie signale les événements générés par les demandes d’accès utilisateur RADIUS (IAS) et protection d’accès réseau (NAP). Ces demandes peuvent être **accordées**, **refusées**, **ignorées**, **mises en quarantaine**, **verrouillées**et **déverrouillées**. L’audit de ce paramètre entraîne un volume moyen ou élevé d’enregistrements sur les serveurs NPS et IAS.  
   
 ##### <a name="ipsec-main-mode"></a>Mode principal IPsec  
@@ -213,7 +212,7 @@ Cette sous-catégorie signale les résultats d’AuthIP lors des négociations e
 ##### <a name="other-logonlogoff-events"></a>Autres événements d’ouverture/de fermeture de session  
 Cette sous-catégorie signale d’autres événements liés à l’ouverture et à la fermeture de session, tels que les déconnexions et les reconnexions de Services Bureau à distance session, à l’aide de RunAs pour exécuter des processus sous un compte différent, et pour le verrouillage et le déverrouillage d’une station de travail.  
   
-##### <a name="logoff"></a>Fermer la session  
+##### <a name="logoff"></a>Fermeture de session  
 Cette sous-catégorie signale qu’un utilisateur se déconnecte du système. Ces événements se produisent sur l’ordinateur auquel vous accédez. Pour les ouvertures de session interactives, la génération de ces événements se produit sur l’ordinateur qui est connecté à. Si une ouverture de session réseau a lieu pour accéder à un partage, ces événements sont générés sur l’ordinateur qui héberge la ressource accédée. Si ce paramètre est configuré sur **aucun audit**, il est difficile, voire impossible, de déterminer quel utilisateur a accédé ou a tenté d’accéder aux ordinateurs de l’organisation.  
   
 ##### <a name="account-lockout"></a>Verrouillage de compte  
@@ -225,7 +224,7 @@ Cette sous-catégorie signale les résultats du protocole IKE et AuthIP lors des
 ##### <a name="special-logon"></a>Ouverture de session spéciale  
 Cette sous-catégorie signale qu’une ouverture de session spéciale est utilisée. Une ouverture de session spéciale est une ouverture de session disposant de privilèges d’administrateur et qui peut être utilisée pour élever un processus à un niveau supérieur.  
   
-#### <a name="policy-change"></a>Modification de stratégie  
+#### <a name="policy-change"></a>Modification de la stratégie  
   
 ##### <a name="audit-policy-change"></a>Modification de la stratégie d’audit  
 Cette sous-catégorie signale les modifications apportées à la stratégie d’audit, y compris les modifications SACL.  
@@ -248,10 +247,10 @@ Cette sous-catégorie signale d’autres types de modifications de stratégie de
 #### <a name="privilege-use"></a>Utilisation des privilèges  
   
 ##### <a name="sensitive-privilege-use"></a>Utilisation des privilèges sensibles  
-Cette sous-catégorie signale qu’un compte d’utilisateur ou un service utilise un privilège sensible. Un privilège sensible comprend les droits d’utilisateur suivants : agir en tant que partie du système d’exploitation, sauvegarder des fichiers et des répertoires, créer un objet jeton, déboguer des programmes, activer les comptes d’ordinateur et d’utilisateur à approuver pour la délégation, générer des audits de sécurité, emprunter l’identité d’un client après l’authentification, charger et décharger des pilotes de périphériques, gérer le journal d’audit et de sécurité, modifier les valeurs de l’environnement du microprogramme, remplacer un jeton au niveau du processus, restaurer des fichiers et des répertoires et prendre possession de fichiers ou d’autres objets. L’audit de cette sous-catégorie crée un volume élevé d’événements.  
+Cette sous-catégorie signale qu’un compte d’utilisateur ou un service utilise un privilège sensible. Un privilège sensible comprend les droits d’utilisateur suivants : agir en tant que partie du système d’exploitation, sauvegarder des fichiers et des répertoires, créer un objet de jeton, déboguer des programmes, activer des comptes d’ordinateur et d’utilisateur à approuver pour la délégation, générer des audits de sécurité, emprunter l’identité d’un client après l’authentification, charger et décharger des pilotes de périphériques, gérer le journal d’audit et de sécurité , restaurer des fichiers et des répertoires et prendre possession de fichiers ou d’autres objets. L’audit de cette sous-catégorie crée un volume élevé d’événements.  
   
 ##### <a name="nonsensitive-privilege-use"></a>Utilisation des privilèges non sensibles  
-Cette sous-catégorie signale qu’un compte d’utilisateur ou un service utilise un privilège non sensible. Un privilège non sensible comprend les droits d’utilisateur suivants : accéder au gestionnaire d’informations d’identification en tant qu’appelant approuvé, accéder à cet ordinateur à partir du réseau, ajouter des stations de travail au domaine, ajuster les quotas de mémoire pour un processus, autoriser l’ouverture d’une session locale, autoriser l’ouverture de session via une connexion distante Services Bureau, contourner la vérification de parcours, modifier l’heure système, créer un fichier d’échange, créer des objets globaux, créer des objets partagés permanents, créer des liens symboliques, interdire l’accès à cet ordinateur à partir du réseau, interdire l’ouverture d’une session en tant que tâche, interdire l’ouverture d’une session en tant que service, interdire l’ouverture d’une session locale, interdire l’ouverture d’une session via Services Bureau à distance, forcer l’arrêt à partir d’un système distant, augmenter une plage de travail de processus, augmenter la priorité de planification, verrouiller les pages en mémoire, ouvrir une session en tant que tâche, ouvrir une session en tant que service, modifier l’étiquette d’un objet, effectuer un volume tâches de maintenance, profiler un processus unique, profiler les performances du système, supprimer l’ordinateur de la station d’accueil, arrêter le système et synchroniser les données du service d’annuaire. L’audit de cette sous-catégorie crée un très gros volume d’événements.  
+Cette sous-catégorie signale qu’un compte d’utilisateur ou un service utilise un privilège non sensible. Les privilèges non sensibles incluent les droits d’utilisateur suivants : accéder au gestionnaire d’informations d’identification en tant qu’appelant approuvé, accéder à cet ordinateur à partir du réseau, ajouter des stations de travail au domaine, ajuster les quotas de mémoire pour un processus, autoriser l’ouverture d’une session locale, autoriser la connexion via Services Bureau à distance, ignorer la vérification de parcours, modifier l’heure système , interdire l’accès à cet ordinateur à partir du réseau, interdire l’ouverture d’une session en tant que tâche, interdire l’ouverture d’une session en tant que service, interdire l’ouverture d’une session locale, interdire l’ouverture de session par Services Bureau à distance, forcer l’arrêt à partir d’un système distant, augmenter une plage de travail de processus, augmenter la priorité de planification, verrouiller les pages en mémoire , effectuez des tâches de maintenance de volume, profilez un processus unique, profilez les performances du système, retirez l’ordinateur de la station d’accueil, arrêtez le système et synchronisez les données du service d’annuaire. L’audit de cette sous-catégorie crée un très gros volume d’événements.  
   
 ##### <a name="other-privilege-use-events"></a>Autres événements d’utilisation de privilège  
 Ce paramètre de stratégie de sécurité n’est pas utilisé actuellement.  
@@ -263,7 +262,7 @@ Cette sous-catégorie signale l’accès aux objets du système de fichiers. Seu
   
 Si le paramètre Auditer l’accès aux objets est configuré sur **succès**, une entrée d’audit est générée chaque fois qu’un utilisateur accède à un objet avec une liste SACL spécifiée. Si ce paramètre de stratégie est configuré sur **échec**, une entrée d’audit est générée chaque fois qu’un utilisateur échoue dans une tentative d’accès à un objet avec une liste SACL spécifiée.  
   
-##### <a name="registry"></a>Registry  
+##### <a name="registry"></a>Registre  
 Cette sous-catégorie signale les accès aux objets du Registre. Seuls les objets de Registre avec SACL entraînent la génération d’événements d’audit et uniquement lorsqu’ils sont accessibles de manière à correspondre à leurs entrées SACL. En soi, ce paramètre de stratégie ne provoque pas l’audit de tous les événements.  
   
 ##### <a name="kernel-object"></a>Objet de noyau  
@@ -293,7 +292,7 @@ Cette sous-catégorie signale quand les connexions sont autorisées ou bloquées
 ##### <a name="other-object-access-events"></a>Autres événements d’accès aux objets  
 Cette sous-catégorie signale d’autres événements liés à l’accès aux objets, tels que les travaux de Planificateur de tâches et les objets COM+.  
   
-#### <a name="system"></a>Système  
+#### <a name="system"></a>System  
   
 ##### <a name="security-state-change"></a>Changement d’état de sécurité  
 Cette sous-catégorie signale les modifications de l’état de sécurité du système, par exemple lorsque le sous-système de sécurité démarre et s’arrête.  
@@ -388,7 +387,7 @@ Nous vous recommandons d’activer et de configurer les sous-catégories à la p
   
 Les sous-catégories d’audit peuvent être configurées à l’aide de plusieurs méthodes, notamment stratégie de groupe et le programme de ligne de commande, auditpol. exe.  
   
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
   
 * [Audit de sécurité avancé dans Windows 7 et Windows Server 2008 R2](https://social.technet.microsoft.com/wiki/contents/articles/advanced-security-auditing-in-windows-7-and-windows-server-2008-r2.aspx)  
   

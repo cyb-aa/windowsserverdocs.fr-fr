@@ -1,6 +1,5 @@
 ---
 title: Récupération de la forêt Active Directory-récupération de Windows Server 2003
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: 43a2034cb707d4333abdce5f5b2b09d6c4b5a33a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 05fece3093d36073358d0d1822559c5b030085d7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390062"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823342"
 ---
 # <a name="ad-forest-recovery---windows-server-2003-recovery"></a>Récupération de la forêt Active Directory-récupération de Windows Server 2003
 

@@ -2,22 +2,18 @@
 title: Supprimer des enregistrements de ressources DNS
 description: Cette rubrique fait partie du Guide de gestion des adresses IP (IPAM) de Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ipam
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 366e6fd5-d563-4de3-9551-5614cbb8f2cb
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 8c93af6a5d43086320ab27982f7a0c0308ee551d
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: a5658e53aebf9f6fa20a5de9f3f7cb5a0287b408
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80312463"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860672"
 ---
 # <a name="delete-dns-resource-records"></a>Supprimer des enregistrements de ressources DNS
 

@@ -2,30 +2,29 @@
 title: Réserver un ou plusieurs réseaux virtuels externes pour une utilisation exclusive par les machines virtuelles
 description: Fournit des instructions pour résoudre le problème signalé par cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: f7732258-93f1-44e8-835b-5ad2d1c45cd9
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: a72f3d616bb0c520e49c27f90686196463f25953
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c371743f20f8192b682ff68045c5d72e9e0f7e8d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364780"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861802"
 ---
 # <a name="reserve-one-or-more-external-virtual-networks-for-exclusive-use-by-virtual-machines"></a>Réserver un ou plusieurs réseaux virtuels externes pour une utilisation exclusive par les machines virtuelles
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d'informations sur les meilleures pratiques et les analyses, consultez [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
 |**Va**|Error|  
 |**Catégorie**|Configuration|  
@@ -40,7 +39,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 *Les performances de mise en réseau peuvent être détériorées dans le système d’exploitation de gestion.*  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
   
 *Utilisez le gestionnaire de commutateur virtuel pour arrêter le partage d’un réseau virtuel externe avec le système d’exploitation de gestion.*  
   
@@ -48,7 +47,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 1.  Ouvrez le Gestionnaire Hyper-V. Cliquez sur **Démarrer**, pointez sur **Outils d'administration**, puis cliquez sur **Gestionnaire Hyper-V**.  
   
-2.  Dans le menu **Actions** , cliquez sur **Gestionnaire de commutateur virtuel**.  
+2.  Dans le menu **Actions**, cliquez sur **Gestionnaire de commutateur virtuel**.  
   
 3.  Sous **commutateurs virtuels**, cliquez sur le nom du commutateur virtuel externe.  
   

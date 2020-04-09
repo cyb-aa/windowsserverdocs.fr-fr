@@ -1,15 +1,15 @@
 ---
 title: Schémas de document JSON HCN (Host Compute Network)
-description: ''
 ms.author: jmesser
 author: jmesser81
+ms.prod: windows-server
 ms.date: 11/05/2018
-ms.openlocfilehash: b8676fbab1776144cbbe68604f56d1230a04a145
-ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
+ms.openlocfilehash: 0cb29dd1b8b602080f0e0036904b91b0768b8996
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70031540"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859852"
 ---
 # <a name="hcn-json-document-schemas"></a>Schémas de document HCN JSON
 

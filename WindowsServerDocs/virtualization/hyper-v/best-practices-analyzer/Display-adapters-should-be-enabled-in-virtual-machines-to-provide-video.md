@@ -2,20 +2,19 @@
 title: Les adaptateurs d’affichage doivent être activés sur les machines virtuelles pour fournir des fonctionnalités vidéo
 description: Version en ligne du texte de cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: ac5992e6-3c0b-46c2-a48e-6ef37b679228
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 0c515c7fb1ed160dfee1e1b7303022082e936157
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1821aae18b1712ba7d839ca9f42318edc5ef8a35
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364907"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80862002"
 ---
 # <a name="display-adapters-should-be-enabled-in-virtual-machines-to-provide-video-capabilities"></a>Les adaptateurs d’affichage doivent être activés sur les machines virtuelles pour fournir des fonctionnalités vidéo
 
@@ -27,7 +26,7 @@ ms.locfileid: "71364907"
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
 |**Va**|Avertissement|  
 |**Catégorie**|Configuration|  

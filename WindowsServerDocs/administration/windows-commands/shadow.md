@@ -1,38 +1,35 @@
 ---
 title: shadow
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour Shadow, qui vous permet de contrôler à distance une session active d’un autre utilisateur sur un serveur hôte de session Bureau à distance.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f81d9717-6883-4e14-9508-4b2a87e48ea7 Lizap
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cb2fad4b0a553e736755f2dc56e5d88297a1fef5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 90c3202d810257cc94c73b88c5c1627901f54af0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383959"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834332"
 ---
 # <a name="shadow"></a>shadow
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Vous permet de contrôler à distance une session active d’un autre utilisateur sur un serveur hôte de session Bureau à distance (hôte de session Bureau à distance).
-pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
+Vous permet de contrôler à distance une session active d’un autre utilisateur sur un serveur hôte de session Bureau à distance.
+
+Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntaxe
 ```
 shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
 |\<NomSession >|Spécifie le nom de la session que vous souhaitez contrôler à distance.|
@@ -50,7 +47,7 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 -   La session de console ne peut pas contrôler à distance une autre session et ne peut pas être contrôlée à distance par une autre session.
 -   Lorsque vous souhaitez terminer le contrôle à distance (occultation), appuyez sur CTRL +\* (à l’aide de \* à partir du pavé numérique uniquement).
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 -   Pour occulter la session 93, tapez :
     ```
     shadow 93
@@ -60,6 +57,6 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
     shadow ACCTG01
     ```
 
-#### <a name="additional-references"></a>Références supplémentaires
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-[ &#40;services Bureau à distance&#41; référence de commande des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)
+## <a name="additional-references"></a>Références supplémentaires
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+la [référence de commande services Bureau à distance (services Terminal Server)](remote-desktop-services-terminal-services-command-reference.md)

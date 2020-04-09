@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7671e0c9-faf0-40de-808a-62f54645f891
 title: Mise à niveau vers ADFS dans Windows Server2016
-description: ''
 author: billmath
 manager: femila
 ms.date: 04/09/2018
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 913e45e52c5c6c137d2bf798bb5b86a65f9d1caa
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.openlocfilehash: 4c13a3ecbcc6ade1455c10dde5f6a89e0303e161
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517574"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857632"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Mise à niveau vers AD FS dans Windows Server 2016 à l'aide d'une base de données WID
 
@@ -152,13 +151,13 @@ Cela terminera la mise à niveau des serveurs WAP.
 
 
 > [!NOTE] 
-> Un problème PRT connu existe dans AD FS 2019 si Windows Hello entreprise avec une approbation de certificat hybride est exécuté. Vous pouvez rencontrer cette erreur dans les journaux des événements d’administration ADFS : réception d’une requête OAuth non valide. Le client « nom » est interdit d’accéder à la ressource avec l’étendue « UGS ». Pour corriger cette erreur : 
-> 1. Lancez AD FS Management Console. Brose aux « services Description de l’étendue des > Services »
-> 2. Cliquez avec le bouton droit sur « Description de l’étendue », puis sélectionnez « Ajouter une description d’étendue »
-> 3. Sous Nom tapez « UGS », puis cliquez sur Appliquer > OK
-> 4. Lancer PowerShell en tant qu’administrateur
-> 5. Exécutez la commande « AdfsApplicationPermission ». Recherchez le ScopeNames : {OpenID, aza} qui contient ClientRoleIdentifier. Prenez note de la ObjectIdentifier.
-> 6. Exécutez la commande « Set-AdfsApplicationPermission-TargetIdentifier < ObjectIdentifier de l’étape 5 >-paramètre addscope «UGS ».
+> Un problème PRT connu existe dans AD FS 2019 si Windows Hello entreprise avec une approbation de certificat hybride est exécuté. Vous pouvez rencontrer cette erreur dans les journaux des événements d’administration ADFS : réception d’une requête OAuth non valide. Le client « NOM » n’est pas autorisé à accéder à la ressource avec l’étendue « ugs ». Pour corriger cette erreur : 
+> 1. Lancez la console de gestion AD FS. Accédez à « Services > Descriptions d’étendue ».
+> 2. Cliquez avec le bouton droit sur « Descriptions d’étendue » et sélectionnez « Ajouter une description d’étendue ».
+> 3. Sous le nom, tapez « ugs » et cliquez sur Appliquer > OK.
+> 4. Lancez PowerShell en tant qu’administrateur.
+> 5. Exécutez la commande « Get-AdfsApplicationPermission ». Recherchez l’élément ScopeNames :{openid, aza} qui contient le ClientRoleIdentifier. Notez la valeur de ObjectIdentifier.
+> 6. Exécutez la commande « Set-AdfsApplicationPermission -TargetIdentifier <ObjectIdentifier de l’étape 5> -AddScope 'ugs'
 > 7. Redémarrez le service ADFS.
-> 8. Sur le client : redémarrez le client. L’utilisateur doit être invité à approvisionner WHFB.
-> 9. Si la fenêtre de configuration ne s’affiche pas, vous devez collecter les journaux de suivi NGC et résoudre les problèmes.
+> 8. Sur le client : redémarrez le client. L’utilisateur est invité à provisionner WHFB.
+> 9. Si la fenêtre de provisionnement ne s’affiche pas, collectez les journaux de suivi NGC pour un dépannage supplémentaire.

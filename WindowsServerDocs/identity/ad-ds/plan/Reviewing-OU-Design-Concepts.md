@@ -1,7 +1,6 @@
 ---
 ms.assetid: 41b56704-c6f9-4d29-af97-62123e300565
 title: Examen des concepts d’unité d’organisation
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 6dc2cbb7ddff8725876f8dd4ec2760e828fd4e4c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 67f8ef3ec37146002f3e099caa459fc209fcf5b7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402517"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821973"
 ---
 # <a name="reviewing-ou-design-concepts"></a>Examen des concepts d’unité d’organisation
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 La structure de l’unité d’organisation d’un domaine comprend les éléments suivants :  
   
@@ -42,7 +41,7 @@ Par exemple, vous pouvez créer une unité d’organisation appelée ResourceOU 
   
 Vous pouvez affiner davantage votre structure d’unité d’organisation en créant des sous-arborescences d’unités d’organisation à des fins spécifiques, telles que l’application d’stratégie de groupe ou pour limiter la visibilité des objets protégés afin que seuls certains utilisateurs puissent les voir. Par exemple, si vous devez appliquer des stratégie de groupe à un groupe sélectionné d’utilisateurs ou de ressources, vous pouvez ajouter ces utilisateurs ou ressources à une unité d’organisation, puis appliquer des stratégie de groupe à cette UO. Vous pouvez également utiliser la hiérarchie d’unités d’organisation pour permettre une délégation supplémentaire du contrôle administratif.  
   
-Bien qu’il n’existe aucune limite technique quant au nombre de niveaux dans votre structure d’unité d’organisation, nous vous recommandons de limiter votre structure d’UO à une profondeur inférieure ou égale à 10 niveaux. Il n’existe aucune limite technique quant au nombre d’unités d’organisation à chaque niveau. Notez que les applications prenant en charge les Active Directory Domain Services (AD DS) peuvent avoir des restrictions sur le nombre de caractères utilisés dans le nom unique (autrement dit, le chemin d’accès LDAP (Lightweight Directory Access Protocol) complet à l’objet dans le répertoire) ou sur le Profondeur de l’unité d’organisation dans la hiérarchie.  
+Bien qu’il n’existe aucune limite technique quant au nombre de niveaux dans votre structure d’unité d’organisation, nous vous recommandons de limiter votre structure d’UO à une profondeur inférieure ou égale à 10 niveaux. Il n’existe aucune limite technique quant au nombre d’unités d’organisation à chaque niveau. Notez que les applications prenant en charge les Active Directory Domain Services (AD DS) peuvent avoir des restrictions sur le nombre de caractères utilisés dans le nom unique (autrement dit, le chemin d’accès LDAP (Lightweight Directory Access Protocol) complet à l’objet dans l’annuaire) ou sur la profondeur d’UO dans la hiérarchie.  
   
 La structure d’unité d’organisation dans AD DS n’est pas destinée à être visible par les utilisateurs finaux. La structure d’UO est un outil d’administration pour les administrateurs de service et pour les administrateurs de données, et il est facile à modifier. Passez en revue et mettez à jour la conception de votre structure d’UO pour refléter les modifications apportées à votre structure administrative et pour prendre en charge l’administration basée sur des stratégies.  
   

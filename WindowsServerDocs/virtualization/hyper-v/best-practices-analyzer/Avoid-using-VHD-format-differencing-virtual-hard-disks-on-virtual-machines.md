@@ -2,20 +2,19 @@
 title: Évitez d’utiliser des disques durs virtuels de différenciation au format VHD sur des machines virtuelles qui exécutent des charges de travail serveur dans un environnement de production
 description: Version en ligne du texte de cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 272de33d-2708-4679-8564-ee28848a2839
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 7b6bee685a72f8f9af2e16ffe7ac5cc1e1f22a4f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a11959266db4c9f3da73123c41a211198f27b9a5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366432"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857722"
 ---
 # <a name="avoid-using-vhd-format-differencing-virtual-hard-disks-on-virtual-machines-that-run-server-workloads-in-a-production-environment"></a>Évitez d’utiliser des disques durs virtuels de différenciation au format VHD sur des machines virtuelles qui exécutent des charges de travail serveur dans un environnement de production
 
@@ -25,9 +24,9 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -35,7 +34,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ## <a name="issue"></a>**Problème**  
 *Une ou plusieurs machines virtuelles utilisent des disques durs virtuels de différenciation au format VHD.*  
   
-## <a name="impact"></a>**Impact**  
+## <a name="impact"></a>**Effet**  
 *Les disques durs virtuels de différenciation au format VHD peuvent rencontrer des problèmes de cohérence en cas de panne de courant. Des problèmes de cohérence peuvent se produire si le disque physique effectue une mise à jour incomplète ou incorrecte d’un secteur dans un fichier. vhd en cours de modification en cas de panne de courant. Cela affecte les machines virtuelles suivantes :*  
   
 \<liste des machines virtuelles >  

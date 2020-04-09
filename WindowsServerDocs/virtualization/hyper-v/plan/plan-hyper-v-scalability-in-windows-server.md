@@ -2,20 +2,18 @@
 title: Planifier l’extensibilité d’Hyper-V dans Windows Server 2016 et Windows Server 2019
 description: Répertorie le nombre maximal pris en charge pour les composants que vous pouvez ajouter ou supprimer dans Hyper-V et les machines virtuelles, comme la quantité de mémoire et le nombre de processeurs virtuels.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 09/28/2016
-ms.openlocfilehash: 493f7926a6ef686e6d47c1a3120a65ed0799b0db
-ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
+ms.openlocfilehash: 2eb75283f68a1d1e0c05397b67d9c012d0adc899
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71934952"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860752"
 ---
 # <a name="plan-for-hyper-v-scalability-in-windows-server-2016-and-windows-server-2019"></a>Planifier l’extensibilité d’Hyper-V dans Windows Server 2016 et Windows Server 2019
 
@@ -31,14 +29,14 @@ Les valeurs maximales pour la mémoire et les processeurs logiques représentent
 ## <a name="maximums-for-virtual-machines"></a>Valeurs maximales pour les machines virtuelles  
 Ces valeurs maximales s’appliquent à chaque ordinateur virtuel. Tous les composants ne sont pas disponibles dans les deux générations de machines virtuelles. Pour une comparaison des générations, consultez [dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?](should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v.md) 
   
-|Component|Durée maximum|Remarques|  
+|Component|Maximum|Remarques|  
 |-------------|-----------|---------|  
 |Points de contrôle|50|Le nombre réel peut être inférieur, selon le stockage disponible. Chaque point de contrôle est stocké sous la forme d’un fichier. avhd qui utilise le stockage physique.|  
 |Mémoire|12 to pour la génération 2 ; <br>1 to pour la génération 1|Vérifiez la configuration requise du système d’exploitation spécifique pour déterminer les capacités minimales et recommandées.|  
-|Ports série (COM)|2|Aucun.|  
+|Ports série (COM)|2|None.|  
 |Taille des disques physiques connectés directement à un ordinateur virtuel|Varie|La taille maximale est fonction du système d’exploitation invité.|  
 |Carte Fibre Channel virtuelle|4|En guise de meilleure pratique, nous vous recommandons de connecter chaque carte Fibre Channel virtuelle à un SAN virtuel différent.|  
-|Lecteurs de disquettes virtuels|1 lecteur de disquettes virtuel|Aucun.|
+|Lecteurs de disquettes virtuels|1 lecteur de disquettes virtuel|None.|
 |Capacité du disque dur virtuel|64 to pour le format VHDX ;<br>2040 Go pour le format VHD|Chaque disque dur virtuel est stocké sur un média physique en tant que fichier .vhdx ou .vhd, selon le format utilisé par le disque dur virtuel.|  
 |Disques virtuels IDE|4|Le disque de démarrage (parfois appelé « disque de démarrage ») doit être attaché à l’un des périphériques IDE. Il peut s’agir d’un disque dur virtuel ou d’un disque physique connecté directement à un ordinateur virtuel.|  
 |Processeurs virtuels|240 pour la génération 2 ;<br>64 pour la génération 1 ;<br>320 disponible pour le système d’exploitation hôte (partition racine)|Le nombre de processeurs virtuels pris en charge par un système d’exploitation invité pourrait être inférieur. Pour plus d’informations, consultez les informations publiées pour le système d’exploitation spécifique.|
@@ -49,18 +47,18 @@ Ces valeurs maximales s’appliquent à chaque ordinateur virtuel. Tous les comp
 ## <a name="maximums-for-hyper-v-hosts"></a>Valeurs maximales pour les hôtes Hyper-V  
 Ces valeurs maximales s’appliquent à chaque hôte Hyper-V.  
   
-|Component|Durée maximum|Remarques|  
+|Component|Maximum|Remarques|  
 |-------------|-----------|---------|  
-|Processeurs logiques|512|Les deux doivent être activés dans le microprogramme :<br /><br />-Virtualisation assistée par matériel<br />-Prévention de l’exécution des données (DEP) appliquée par le matériel<br /><br />Le système d’exploitation hôte (partition racine) ne voit que les processeurs logiques 320 maximum|  
-|Mémoire|24 To|Aucun.|  
+|Processeurs logiques|512|Les deux doivent être activés dans le microprogramme :<p>-Virtualisation assistée par matériel<br />-Prévention de l’exécution des données (DEP) appliquée par le matériel<p>Le système d’exploitation hôte (partition racine) ne voit que les processeurs logiques 320 maximum|  
+|Mémoire|24 To|None.|  
 |Association de cartes réseau|Aucune limite imposée par Hyper-V.|Pour plus d’informations, consultez [Association de cartes réseau](../../../networking/technologies/nic-teaming/NIC-Teaming.md).|  
-|Cartes réseau physiques|Aucune limite imposée par Hyper-V.|Aucun.|  
-|Ordinateurs virtuels en cours d'exécution par serveur|1024|Aucun.|  
+|Cartes réseau physiques|Aucune limite imposée par Hyper-V.|None.|  
+|Ordinateurs virtuels en cours d'exécution par serveur|1024|None.|  
 |Stockage|Limité par ce qui est pris en charge par le système d’exploitation hôte. Aucune limite imposée par Hyper-V.|**Remarque :** Microsoft prend en charge le stockage NAS (Network-Attached Storage) lors de l’utilisation de SMB 3,0. Le stockage NFS n'est pas pris en charge.|
 |Ports de commutateurs de réseau virtuel par serveur|Variable ; aucune limite imposée par Hyper-V.|La limite pratique varie en fonction des ressources informatiques disponibles.|  
-|Processeurs virtuels par processeur logique|Aucun ratio imposé par Hyper-V.|Aucun.|  
-|Processeurs virtuels par serveur|2 048|Aucun.|  
-|Réseaux de zone de stockage virtuels|Aucune limite imposée par Hyper-V.|Aucun.|  
+|Processeurs virtuels par processeur logique|Aucun ratio imposé par Hyper-V.|None.|  
+|Processeurs virtuels par serveur|2 048|None.|  
+|Réseaux de zone de stockage virtuels|Aucune limite imposée par Hyper-V.|None.|  
 |Commutateurs virtuels|Variable ; aucune limite imposée par Hyper-V.|La limite pratique varie en fonction des ressources informatiques disponibles.|  
  
 ## <a name="failover-clusters-and-hyper-v"></a>Clusters de basculement et Hyper-V  
@@ -68,7 +66,7 @@ Ce tableau répertorie les valeurs maximales qui s’appliquent lors de l’util
 
 Pour en savoir plus sur les mises à jour du clustering de basculement, notamment les nouvelles fonctionnalités des machines virtuelles, consultez [Nouveautés du clustering de basculement dans Windows Server 2016](../../../failover-clustering/whats-new-in-failover-clustering.md).
 
-|Component|Durée maximum|Remarques|  
+|Component|Maximum|Remarques|  
 |-------------|-----------|---------|  
 |Nœuds par cluster|64|Tenez compte des nœuds à réserver pour le basculement, ainsi que des tâches de maintenance telles que l’application de mises à jour. Nous vous recommandons de planifier suffisamment de ressources pour prévoir la réservation d’un nœud pour le basculement, ce qui signifie qu’il reste inactif jusqu’à ce qu’un autre nœud y bascule. (On parle parfois de nœud passif). Vous pouvez augmenter ce nombre si vous souhaitez réserver des nœuds supplémentaires. Il n’existe aucun quotient ou multiplicateur recommandé de nœuds réservés pour les nœuds actifs. la seule exigence est que le nombre total de nœuds dans un cluster ne peut pas dépasser la valeur maximale de 64.|  
 |Ordinateurs virtuels exécutés simultanément par nœud|8 000 par cluster|Plusieurs facteurs peuvent affecter le nombre réel de machines virtuelles que vous pouvez exécuter en même temps sur un nœud, par exemple :<br />-Quantité de mémoire physique utilisée par chaque ordinateur virtuel.<br />-Bande passante de stockage et de mise en réseau.<br />-Nombre de piles de disques, ce qui affecte les performances d’e/s disque.|  

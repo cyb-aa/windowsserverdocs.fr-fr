@@ -1,24 +1,20 @@
 ---
 title: What's New for Managed Service Accounts
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-gmsa
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2f2a8b6b-c152-4c40-b712-bfabff0e408b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 82d0ce962dfab0f7c9e5180e4b471894f507fb26
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: facc816ef46ebeadb30ccabac9c0b3e6a896264d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950344"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856962"
 ---
 # <a name="what39s-new-for-managed-service-accounts"></a>Nouveautés&#39;pour les comptes de service administrés
 
@@ -28,10 +24,10 @@ Cette rubrique destinée aux professionnels de l’informatique décrit les modi
 
 Le compte de service administré est conçu pour fournir des services et effectuer des tâches, à l’image des services Windows et des pools d’applications IIS qui partagent leurs propres comptes de domaine, tout en supprimant la nécessité, pour un administrateur, de gérer manuellement les mots de passe de ces comptes. Il s’agit d’un compte de domaine administré qui fournit la gestion automatique des mots de passe.
 
-## <a name="versions"></a>Nouveautés des comptes de service administrés dans Windows Server 2012 et Windows 8
+## <a name="whats-new-for-managed-service-accounts-in-windows-server-2012-and-windows-8"></a><a name="versions"></a>Nouveautés des comptes de service administrés dans Windows Server 2012 et Windows 8
 Les éléments suivants décrivent les modifications apportées aux fonctionnalités de MSA dans Windows Server 2012 et Windows 8.
 
-### <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
+### <a name="group-managed-service-accounts"></a>Comptes de service administrés de groupe
 Lorsqu’un compte de domaine est configuré pour un serveur dans un domaine, l’ordinateur client peut s’authentifier auprès de ce service et s’y connecter. Auparavant, seuls deux types de compte pouvaient fournir une identité sans une gestion obligatoire du mot de passe. Toutefois, ces types de compte ont des limites :
 
 -   Le compte d’ordinateur est limité à un serveur de domaine et les mots de passe sont gérés par l’ordinateur.
@@ -48,12 +44,12 @@ Le compte de service administré de groupe résout ce problème, car le mot de p
 
 Sur les ordinateurs exécutant Windows Server 2012 ou Windows 8, un MSA de groupe peut être créé et géré par le biais du gestionnaire de contrôle des services afin que de nombreuses instances du service, telles que déployées sur une batterie de serveurs, puissent être gérées à partir d’un serveur. Les outils et utilitaires (par exemple le Gestionnaire de pool d’applications IIS) dont vous vous servez pour gérer les comptes de service administrés, peuvent être utilisés avec les comptes de service administrés de groupe. Les administrateurs de domaine peuvent déléguer la gestion des services aux administrateurs de services, qui peuvent gérer le cycle de vie complet d’un compte de service administré ou du compte de service administré de groupe. Les ordinateurs clients existants sont en mesure de s’authentifier auprès de ce type de service sans savoir à quelle instance de service ils ont affaire.
 
-### <a name="interoperability"></a>Fonctionnalités supprimées ou déconseillées
+### <a name="removed-or-deprecated-functionality"></a><a name="interoperability"></a>Fonctionnalités supprimées ou déconseillées
 Pour Windows Server 2012, les applets de commande Windows PowerShell gèrent par défaut les comptes de service administrés de groupe au lieu des comptes de service administrés de serveur.
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
--   [Vue d’ensemble des comptes de service administrés de groupe](group-managed-service-accounts-overview.md)
+-   [Présentation des comptes de service administrés de groupe](group-managed-service-accounts-overview.md)
 
 -   [Vue d’ensemble d’Active Directory Domain Services](active-directory-domain-services-overview.md)
 

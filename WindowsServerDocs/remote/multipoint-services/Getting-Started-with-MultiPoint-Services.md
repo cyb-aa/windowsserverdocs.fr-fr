@@ -1,24 +1,20 @@
 ---
 title: Prise en main avec MultiPoint services
 description: Présente MultiPoint services et vous le fait commencer à l’utiliser.
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aca5f0be-f253-46b5-b1e7-0bffa15f3227
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: cf31e62345b006ef9572a2ea97a23e3e0bf41b64
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2213c734831c1cde88ad0e2b6fb172f99a31b89c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395370"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859232"
 ---
 # <a name="getting-started-with-multipoint-services"></a>Prise en main avec MultiPoint services
 Votre système MultiPoint services permet à de nombreux utilisateurs d’utiliser plusieurs stations connectées physiquement à l’aide d’un concentrateur de station à un seul ordinateur. Chaque station se compose généralement d’un concentrateur de station, d’une souris, d’un clavier et d’un moniteur vidéo. Chaque utilisateur d’une station MultiPoint services rencontre une session de calcul Windows unique que vous pouvez gérer à l’aide du gestionnaire MultiPoint.  
@@ -59,14 +55,14 @@ Les types d’actions que vous pouvez effectuer à l’aide du gestionnaire Mult
   
 -   **Passage en mode console :** Vous pouvez modifier le système MultiPoint services en mode console afin d’installer de nouveaux logiciels sur votre système MultiPoint services. Vous pouvez spécifier que tous les utilisateurs peuvent exécuter le logiciel ou que vous seul pouvez utiliser le logiciel, en fonction des options d’installation et de licence du logiciel.  
   
--   **Dépannage** Si vous rencontrez des problèmes avec MultiPoint services, consultez la section [résolution des problèmes](Troubleshooting.md) pour trouver des rubriques qui peuvent vous aider à résoudre le problème.  
+-   **Résolution des problèmes :** Si vous rencontrez des problèmes avec MultiPoint services, consultez la section [résolution des problèmes](Troubleshooting.md) pour trouver des rubriques qui peuvent vous aider à résoudre le problème.  
   
 ## <a name="overview-of-multipoint-dashboard"></a>Vue d’ensemble du tableau de bord MultiPoint  
 Le tableau de bord MultiPoint offre une expérience de ruban dans laquelle vous pouvez choisir entre deux onglets pour accéder aux tâches quotidiennes courantes.  
   
 Les onglets sont les suivants :  
   
--   **Onglet dossier de démarrage :** Bloquer ou débloquer des stations, définir des options de limitation du Web, des postes de travail de projet sur d’autres postes de travail, lancer ou fermer des applications, communiquer via la messagerie instantanée, aider d’autres utilisateurs via le contrôle du Bureau à distance, ajuster les vues miniatures du bureau et activer ou désactiver messagerie instantanée et lancement automatique des applications. Pour plus d’informations, consultez la rubrique [gérer les postes de travail des utilisateurs à l’aide du tableau de bord multipoint](Manage-User-Desktops-Using-MultiPoint-Dashboard.md) .  
+-   **Onglet dossier de démarrage :** Bloquer ou débloquer des stations, définir des options de limitation du Web, des postes de travail de projet sur d’autres postes de travail, lancer ou fermer des applications, communiquer via la messagerie instantanée, aider d’autres utilisateurs via le contrôle du Bureau à distance, ajuster les vues miniatures du bureau et activer ou désactiver la messagerie instantanée et le lancement automatique des applications. Pour plus d’informations, consultez la rubrique [gérer les postes de travail des utilisateurs à l’aide du tableau de bord multipoint](Manage-User-Desktops-Using-MultiPoint-Dashboard.md) .  
   
 -   **Onglet systèmes :** Redémarrez, arrêtez ou remappez tous les systèmes ou les systèmes sélectionnés. Pour plus d’informations, consultez la rubrique [gérer les systèmes multipoint à l’aide du tableau de bord multipoint](Manage-MultiPoint-Systems-Using-MultiPoint-Dashboard.md) .  
   

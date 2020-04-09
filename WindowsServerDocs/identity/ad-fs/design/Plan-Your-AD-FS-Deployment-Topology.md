@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5c8c6cc0-0d22-4f27-a111-0aa90db7d6c8
 title: Planifier votre topologie de déploiement d’AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,18 +8,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 9cd036e9dd0b249197fb475504c9cad532ead0ea
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 53364e076a8c3b7d95e8c834a5a7621071ed6061
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408031"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858672"
 ---
 # <a name="plan-your-ad-fs-deployment-topology"></a>Planifier votre topologie de déploiement d’AD FS
 
 La première étape de la planification d’un déploiement de Services ADFS \(AD FS\) consiste à déterminer la topologie de déploiement appropriée pour répondre aux besoins de votre organisation.  
   
-Avant de lire cette rubrique, passez en revue la façon dont AD FS données sont stockées et répliquées sur d’autres serveurs de Fédération dans une batterie de serveurs de Fédération et assurez-vous que vous comprenez l’objectif de et les méthodes de réplication qui peuvent être utilisées pour les données sous-jacentes stockées dans le AD FS con. base de données guration.  
+Avant de lire cette rubrique, passez en revue la façon dont AD FS données sont stockées et répliquées sur d’autres serveurs de Fédération dans une batterie de serveurs de Fédération et assurez-vous que vous comprenez l’objectif de et les méthodes de réplication qui peuvent être utilisées pour les données sous-jacentes stockées dans la base de données de configuration AD FS.  
   
 Il existe deux types de base de données que vous pouvez utiliser pour stocker des données de configuration AD FS : base de données interne Windows \(WID\) et Microsoft SQL Server. Pour plus d'informations, consultez [Rôle de la base de données de configuration AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md). Passez en revue les différents avantages et limitations associés à l’utilisation de WID ou de SQL Server comme base de données de configuration de AD FS, ainsi que les différents scénarios d’application qu’ils prennent en charge, puis effectuez votre sélection.  
   
@@ -32,7 +31,7 @@ AD FS utilise une base de données pour stocker la configuration et, dans certai
   
 En règle générale, les deux types de base de données sont relativement équivalents. Toutefois, il existe quelques différences à connaître avant de commencer à lire des informations supplémentaires sur les différentes topologies de déploiement que vous pouvez utiliser avec AD FS. Le tableau suivant décrit les fonctionnalités et indique si elles sont prises en charge dans une base de données interne Windows et dans une base de données SQL Server.  
   
-||Fonctionnalité|Prise en charge par la base de données interne Windows ?|Prise en charge par SQL Server ?
+||Composant|Prise en charge par la base de données interne Windows ?|Prise en charge par SQL Server ?
 | --- | --- | --- |--- |
 |Fonctionnalités de AD FS|Déploiement d'une batterie de serveurs de fédération|Oui. Une batterie de serveurs WID a une limite de 30 serveurs de Fédération si vous avez 100 ou moins d’approbations de partie de confiance.</br></br>Une batterie de serveurs WID ne prend pas en charge la détection de relecture de jetons ou la résolution d’artefacts (partie du protocole SAML (Security Assertion Markup Language). |Oui. Vous pouvez déployer un nombre illimité de serveurs de fédération dans une batterie.  
 |Fonctionnalités de AD FS|Résolution d'artefacts SAML </br></br>**Remarque :** Cette fonctionnalité n’est pas requise pour les scénarios Microsoft Online Services, Microsoft Office 365, Microsoft Exchange ou Microsoft Office SharePoint.|Non|Oui  
@@ -53,7 +52,7 @@ L'impact sur les ressources matérielles d'un serveur de fédération déployé 
   
 À l'opposé, les serveurs de fédération déployés dans une batterie qui utilise la base de données SQL Server ne contiennent pas nécessairement une instance locale de la base de données de configuration AD FS. Ils sont donc susceptibles de solliciter un peu moins les ressources matérielles.  
   
-## <a name="BKMK_1"></a>Où placer un serveur de Fédération  
+## <a name="where-to-place-a-federation-server"></a><a name="BKMK_1"></a>Où placer un serveur de Fédération  
 En guise de meilleure pratique de sécurité, placez AD FS serveurs de Fédération devant un pare-feu et connectez-les à votre réseau d’entreprise pour empêcher l’exposition à partir d’Internet. Cela est important, car les serveurs de Fédération ont une autorisation complète pour accorder des jetons de sécurité. Par conséquent, ils doivent avoir le même niveau de protection qu’un contrôleur de domaine. Si un serveur de Fédération est compromis, un utilisateur malveillant a la possibilité d’émettre des jetons d’accès complets à toutes les applications Web et aux serveurs de Fédération protégés par AD FS.  
   
 > [!NOTE]  

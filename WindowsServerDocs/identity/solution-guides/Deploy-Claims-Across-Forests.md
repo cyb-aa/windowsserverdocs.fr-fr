@@ -1,7 +1,6 @@
 ---
 ms.assetid: ceb9ce18-5a94-4166-9edd-2685b81fc15f
 title: Déployer des revendications dans les forêts
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 21ddcbd3b71a8d623950f1600b654e04ecc41f1e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 99af1022870c891c75bb2008f57e8d8e171961ff
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357569"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861232"
 ---
 # <a name="deploy-claims-across-forests"></a>Déployer des revendications dans les forêts
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dans Windows Server 2012, un type de revendication est une assertion sur l’objet auquel il est associé. Les types de revendications sont définis par forêt dans Active Directory. Il existe de nombreux scénarios où un principal de sécurité doit pouvoir franchir une limite d’approbation pour accéder aux ressources dans une forêt approuvée. La transformation de revendications inter-forêts dans Windows Server 2012 vous permet de transformer les revendications de sortie et d’entrée qui parcourent les forêts de sorte que les revendications soient reconnues et acceptées dans les forêts d’approbation et approuvées. Voici certains scénarios réels de transformation des revendications :  
   
@@ -49,12 +48,12 @@ Vous trouverez ci-dessous les instructions disponibles pour ce scénario :
   
 -   [Langage de règles de transformation de revendications](Claims-Transformation-Rules-Language.md)  
   
-## <a name="BKMK_NEW"></a>Rôles et fonctionnalités inclus dans ce scénario  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>Rôles et fonctionnalités inclus dans ce scénario  
 Le tableau qui suit décrit les rôles et les fonctionnalités inclus dans ce scénario et détaille la manière dont ils prennent en charge ce dernier.  
   
 |Rôle/fonctionnalité|Prise en charge de ce scénario|  
 |-----------------|---------------------------------|  
-|Services de domaine Active Directory|Dans ce scénario, vous devez configurer deux forêts Active Directory avec une approbation bidirectionnelle. Les deux forêts contiennent des revendications. Vous définissez également des stratégies d’accès central sur la forêt de confiance où se trouvent les ressources.|  
+|Services de domaine Active Directory|Dans ce scénario, vous devez configurer deux forêts Active Directory avec une approbation bidirectionnelle. Les deux forêts contiennent des revendications. Vous définissez également des stratégies d’accès central sur la forêt de confiance où se trouvent les ressources.|  
 |Rôle des Services de fichiers et de stockage|Dans ce scénario, la classification des données est appliquée aux ressources sur les serveurs de fichiers. La stratégie d’accès central est appliquée au dossier auquel vous voulez autoriser l’utilisateur à accéder. Après la transformation, la revendication accorde à l’utilisateur l’accès aux ressources en fonction de la stratégie d’accès central qui s’applique au dossier sur le serveur de fichiers.|  
   
 

@@ -1,7 +1,6 @@
 ---
 ms.assetid: eefcc989-8763-45ee-8a64-3a97b4397160
-title: Opérations d'AD FS
-description: ''
+title: Opérations d'AD FS
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,20 +8,20 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2db9cd83ed08673835a38e443e90c5eb092f43ac
-ms.sourcegitcommit: b649047f161cb605df084f18b573f796a584753b
+ms.openlocfilehash: cdedcbd5b9491b57ee31170b781dc821853d058f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76162480"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815132"
 ---
-# <a name="ad-fs-operations"></a>Opérations d'AD FS
+# <a name="ad-fs-operations"></a>Opérations d'AD FS
 
 
 
 Ce document contient une liste de toutes les opérations de documentation pour AD FS. 
 
-## <a name="service-configuration"></a>Configuration de service
+## <a name="service-configuration"></a>Configuration du service
 - [Mettre à jour des certificats SSL dans AD FS et WAP 2016](../ad-fs/operations/Manage-SSL-Certificates-AD-FS-WAP-2016.md)
 - [Outil de restauration rapide AD FS](../ad-fs/operations/AD-FS-Rapid-Restore-Tool.md)
 - [Configurer une autre liaison de nom d’hôte pour l’authentification par certificat dans AD FS](../ad-fs/operations/AD-FS-support-for-alternate-hostname-binding-for-certificate-authentication.md)
@@ -55,7 +54,7 @@ Ce document contient une liste de toutes les opérations de documentation pour A
 - [Configurer une autre liaison de nom d’hôte pour l’authentification par certificat dans AD FS](../ad-fs/operations/AD-FS-support-for-alternate-hostname-binding-for-certificate-authentication.md)
 
 
-### <a name="device"></a>Périphérique
+### <a name="device"></a>Appareil
 - [Contrôles d’authentification des appareils dans AD FS](../ad-fs/operations/device-authentication-controls-in-AD-FS.md) 
 
 
@@ -78,7 +77,7 @@ Ce document contient une liste de toutes les opérations de documentation pour A
 - [Configurer AD FS pour envoyer les revendications d’expiration de mot de passe](../ad-fs/operations/Configure-AD-FS-to-Send-Password-Expiry-Claims.md)
 - [Configurer l’authentification basée sur les formulaires intranet pour les appareils qui ne prennent pas en charge WIA](../ad-fs/operations/Configure-intranet-forms-based-authentication-for-devices-that-do-not-support-WIA.md)
 
-## <a name="other"></a>Autre
+## <a name="other"></a>Autres
 - [Joindre un espace de travail à partir de n’importe quel appareil en utilisant l’authentification unique et l’authentification de second facteur transparente](../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
 - [Gérer les risques avec une authentification multifacteur supplémentaire pour les applications sensibles](../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 - [Gérer les risques avec le contrôle d’accès conditionnel](../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md)

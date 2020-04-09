@@ -2,7 +2,7 @@
 title: Vue d’ensemble des espaces de stockage direct
 ms.prod: windows-server
 ms.author: cosdar
-ms.manager: dongill
+manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
@@ -10,18 +10,18 @@ ms.date: 06/26/2019
 ms.assetid: 8bd0d09a-0421-40a4-b752-40ecb5350ffd
 description: Vue d’ensemble de espaces de stockage direct, une fonctionnalité de Windows Server qui vous permet de Clusterer des serveurs avec un stockage interne dans une solution de stockage définie par logiciel.
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e47adcebf7da87e9d3c96812f5d7d90ca00601b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b032d286398b3c1719d290ca83da8bbc9c6b9f85
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402840"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859132"
 ---
 # <a name="storage-spaces-direct-overview"></a>Vue d’ensemble des espaces de stockage direct
 
 >S’applique à : Windows Server 2019, Windows Server 2016
 
-Les espaces de stockage direct s’appuient sur des serveurs standard équipés de lecteurs locaux pour créer un stockage défini par logiciel hautement disponible et évolutif pour un coût nettement inférieur aux baies SAN ou NAS traditionnelles. Son architecture convergée ou hyper-convergée simplifie radicalement l’approvisionnement et le déploiement, alors que des fonctionnalités telles que la mise en cache, les niveaux de stockage et le codage d’effacement, ainsi que les dernières innovations matérielles telles que la mise en réseau RDMA et les lecteurs NVMe, offrent efficacité et performances inégalées.
+Les espaces de stockage direct s’appuient sur des serveurs standard équipés de lecteurs locaux pour créer un stockage défini par logiciel hautement disponible et évolutif pour un coût nettement inférieur aux baies SAN ou NAS traditionnelles. Son architecture convergée ou hyper-convergée simplifie radicalement l’approvisionnement et le déploiement, tandis que les fonctionnalités telles que la mise en cache, les niveaux de stockage et le codage d’effacement, ainsi que les dernières innovations matérielles, telles que la mise en réseau RDMA et les lecteurs NVMe, offrent une efficacité et des performances inégalées.
 
 Espaces de stockage direct est inclus dans les builds Windows Server 2019 Datacenter, Windows Server 2016 datacenter et [Windows Server Insider Preview](https://insider.windows.com/for-business-getting-started-server/). 
 
@@ -29,7 +29,7 @@ Pour d’autres applications d’espaces de stockage, telles que les clusters SA
 
 |       |       |
 |   -   |   -   |
-| **Comprendre**<br><ul><li>Vue d’ensemble (vous vous trouvez ici)</li><li>[Fonctionnement du cache](understand-the-cache.md)</li><li>[Tolérance de panne et efficacité du stockage](storage-spaces-fault-tolerance.md)<li>[Considérations relatives à la symétrie des lecteurs](drive-symmetry-considerations.md)</li><li>[Comprendre et contrôler la resynchronisation du stockage](understand-storage-resync.md)</li><li>[Présentation du quorum de cluster et du pool](understand-quorum.md)</li><li>[Jeux de clusters](cluster-sets.md)</li> | **Planification**<br><ul><li>[Configuration matérielle requise](storage-spaces-direct-hardware-requirements.md)</li><li>[Utilisation du cache de lecture en mémoire pour le volume partagé de cluster](csv-cache.md)</li><li>[Choisir des lecteurs](choosing-drives.md)</li><li>[Planifier les volumes](plan-volumes.md)</li><li>[Utiliser des clusters de machines virtuelles invités](storage-spaces-direct-in-vm.md)</li><li>[Récupération d'urgence](storage-spaces-direct-disaster-recovery.md)</li> |
+| **Comprendre**<br><ul><li>Vue d’ensemble (vous vous trouvez ici)</li><li>[Fonctionnement du cache](understand-the-cache.md)</li><li>[Tolérance de panne et efficacité du stockage](storage-spaces-fault-tolerance.md)<li>[Considérations relatives à la symétrie des lecteurs](drive-symmetry-considerations.md)</li><li>[Comprendre et contrôler la resynchronisation du stockage](understand-storage-resync.md)</li><li>[Présentation du quorum de cluster et du pool](understand-quorum.md)</li><li>[Jeux de clusters](cluster-sets.md)</li> | **Plan**<br><ul><li>[Configuration matérielle requise](storage-spaces-direct-hardware-requirements.md)</li><li>[Utilisation du cache de lecture en mémoire pour le volume partagé de cluster](csv-cache.md)</li><li>[Choisir des lecteurs](choosing-drives.md)</li><li>[Planifier les volumes](plan-volumes.md)</li><li>[Utiliser des clusters de machines virtuelles invités](storage-spaces-direct-in-vm.md)</li><li>[Récupération d'urgence](storage-spaces-direct-disaster-recovery.md)</li> |
 | **Déployer**<br><ul><li>[Déployer des espaces de stockage direct](deploy-storage-spaces-direct.md)</li><li>[Créer des volumes](create-volumes.md)</li><li>[Résilience imbriquée](nested-resiliency.md)</li><li>[Configurer le quorum](../../failover-clustering/manage-cluster-quorum.md)</li><li>[Mise à niveau d’un cluster d’espaces de stockage direct vers Windows Server 2019](upgrade-storage-spaces-direct-to-windows-server-2019.md)</li><li>[Comprendre et déployer la mémoire persistante](deploy-pmem.md)</li> | **Gérer**<br><ul><li>[Gérer avec Windows Admin Center](../../manage/windows-admin-center/use/manage-hyper-converged.md)</li><li>[Ajouter des serveurs ou des lecteurs](add-nodes.md)</li><li>[Mise d'un serveur hors connexion pour la maintenance](maintain-servers.md)</li><li>[Supprimer des serveurs](remove-servers.md)</li><li>[Étendre les volumes](resize-volumes.md)</li><li>[Supprimer des volumes](delete-volumes.md)</li><li>[Mettre à jour le microprogramme des disques](../update-firmware.md)</li><li>[Historique des performances](performance-history.md)</li><li>[Délimiter l'allocation des volumes](delimit-volume-allocation.md)</li><li>[Utiliser Azure Monitor sur un cluster hyper-convergé](configure-azure-monitor.md)</li> |
 | **Résolution des problèmes**<br><ul><li>[Scénarios de résolution des problèmes](troubleshooting-storage-spaces.md)</li><li>[Résoudre les problèmes d’intégrité et les États opérationnels](storage-spaces-states.md)</li><li>[Collecter les données de diagnostic avec espaces de stockage direct](data-collection.md)</li><li>[Gestion du contrôle d’intégrité de mémoire de classe stockage](Storage-class-memory-health.md)</li> | **Billets de blog récents**<br><ul><li>[13,7 millions e/s par seconde avec espaces de stockage direct : le nouvel enregistrement du secteur pour l’infrastructure hyper-convergée](https://blogs.technet.microsoft.com/filecab/2018/10/30/windows-server-2019-and-intel-optane-dc-persistent-memory/)</li><li>[Infrastructure hyper-convergée dans Windows Server 2019-l’horloge du compte à rebours démarre maintenant !](https://blogs.technet.microsoft.com/filecab/2018/10/02/hci-the-countdown-clock-starts-now/)</li><li>[Cinq grandes annonces du Windows Server Summit](https://blogs.technet.microsoft.com/filecab/2018/06/27/windows-server-summit-recap)</li><li>[10 000 espaces de stockage direct les clusters et le comptage...](https://blogs.technet.microsoft.com/filecab/2018/03/27/storage-spaces-direct-momentum/)</li> |
 
@@ -82,13 +82,13 @@ Les espaces de stockage direct ont été conçus pour deux types de déploiemen
 
 Les espaces de stockage direct sont une évolution des espaces de stockage inaugurés par Windows Server 2012. Ils tirent parti des nombreuses fonctionnalités de Windows Server que vous connaissez déjà, telles que le clustering de basculement, le système de fichiers de volume partagé de cluster (CSV), le protocole SMB3 (Server Message Block) et bien entendu les espaces de stockage. De même, ils introduisent de nouvelles technologies, plus particulièrement le Software Storage Bus.
 
-Voici une vue d’ensemble de la pile des espaces de stockage direct :
+Voici une vue d’ensemble de la pile d’espaces de stockage direct:
 
 ![Pile d’espaces de stockage direct](media/storage-spaces-direct-in-windows-server-2016/converged-full-stack.png)
 
 **Matériel de mise en réseau.** Les espaces de stockage direct utilisent SMB3, dont SMB Direct et SMB Multichannel, via une connexion Ethernet pour assurer la communication entre les serveurs. Nous recommandons fortement le 10+ GbE avec un accès direct à la mémoire à distance (RDMA), iWARP ou RoCE.
 
-**Matériel de stockage.** De 2 à 16serveurs équipés de disques SATA, SAS ou NVMe locaux. Chaque serveur doit disposer d’au moins 2 lecteurs SSD et au moins 4 lecteurs supplémentaires. Les appareils SATA et SAS doivent se trouver derrière un adaptateur de bus hôte/carte de bus hôte (HBA) et un expandeur SAS. Nous recommandons fortement les plateformes conçues avec soin et largement validées de nos partenaires (à venir).
+**Matériel de stockage.** De 2 à 16 serveurs équipés de lecteurs SATA, SAS ou NVMe locaux. Chaque serveur doit disposer d’au moins 2 lecteurs SSD et au moins 4 lecteurs supplémentaires. Les appareils SATA et SAS doivent se trouver derrière un adaptateur de bus hôte/carte de bus hôte (HBA) et un expandeur SAS. Nous recommandons fortement les plateformes conçues avec soin et largement validées de nos partenaires (à venir).
 
 **Clustering de basculement.** Les fonctionnalités de clustering intégrées à Windows Server servent à connecter les serveurs.
 
@@ -125,11 +125,11 @@ Les outils suivants peuvent être utilisés pour gérer et/ou surveiller espaces
 | Windows PowerShell                                                        | Ligne de commande | Inclus |
 | [System Center Virtual Machine Manager (SCVMM)](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-storage-spaces-direct-vmm) <br>& [Operations Manager (SCOM)](https://www.microsoft.com/download/details.aspx?id=54700) | Interface    | Payant     |
 
-## <a name="get-started"></a>Commencer
+## <a name="get-started"></a>Prise en main
 
 Essayez les espaces de stockage direct [dans Microsoft Azure](https://blogs.technet.microsoft.com/filecab/2016/05/05/s2dazuretp5/), ou téléchargez une version d’évaluation avec licence de 180 jours de Windows Server sur la page [Windows Server - Évaluations](https://go.microsoft.com/fwlink/?linkid=842602).
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Voir aussi
 
 - [Tolérance de panne et efficacité du stockage](storage-spaces-fault-tolerance.md)
 - [Réplica de stockage](../storage-replica/storage-replica-overview.md)

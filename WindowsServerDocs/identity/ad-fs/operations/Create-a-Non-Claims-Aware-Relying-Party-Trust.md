@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7b7ae389-5032-44f7-9c0a-94398c3e4d88
 title: Créer une approbation de partie de confiance qui ne prend pas en charge les revendications
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b0ea877170a07db6abe9ac82e72d1722600ec933
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c6886145e910b76edbe99549266d651cdd7c3edf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358110"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816922"
 ---
 # <a name="create-a-non-claims-aware-relying-party-trust"></a>Créer une approbation de partie de confiance ne prenant pas en charge les revendications
 
@@ -25,7 +24,7 @@ Une approbation de partie de confiance qui n’est pas\-revendications\-est une 
   
 Pour ajouter une nouvelle approbation de partie de confiance non\-revendications\-, à l’aide du\-du composant logiciel enfichable de gestion AD FS dans, effectuez la procédure suivante.  
   
-Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs** ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 ## <a name="to-create-a-non-claims-aware-relying-party-trust-manually"></a>Pour créer manuellement une approbation de partie de confiance ne prenant pas en charge les revendications 
 1. Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.  
@@ -48,7 +47,7 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 7. Dans la page **Prêt à ajouter l'approbation**, vérifiez les paramètres, puis cliquez sur **Suivant** pour enregistrer les informations de la nouvelle approbation de partie de confiance.  
    ![partie de confiance](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon5.PNG) 
 
-8. Dans la page **Terminer** , cliquez sur **Fermer**. Cette action affiche automatiquement la boîte de dialogue **Modifier les règles de revendication**.  
+8. Dans la page **Terminer**, cliquez sur **Fermer**. Cette action affiche automatiquement la boîte de dialogue **Modifier les règles de revendication**.  
 ![partie de confiance](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon6.PNG)  
   
 ## <a name="see-also"></a>Voir aussi  

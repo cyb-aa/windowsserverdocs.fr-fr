@@ -1,24 +1,20 @@
 ---
 title: Collecter les pilotes matériels et de périphériques nécessaires à l’installation
 description: Informations sur les pilotes que vous devez installer pour MultiPoint services
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4cf5fdbe-b871-4360-b003-d65ac43b491e
 author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: cfbb8c8b68768c72b869df539c93f05e7e01d256
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 57e47b357d5b6311c69cf54a74e3eaff7913da53
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394700"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858722"
 ---
 # <a name="collect-hardware-and-device-drivers-needed-for-the-installation"></a>Collecter les pilotes matériels et de périphériques nécessaires à l’installation
 Avant de commencer à déployer votre système MultiPoint services, vous aurez besoin des éléments suivants :  
@@ -34,4 +30,4 @@ Avant de commencer à déployer votre système MultiPoint services, vous aurez b
     > Pour une installation de MultiPoint services, vous devez installer la version 64 bits de tous les pilotes.  
   
 > [!TIP]  
-> Si vous installez MultiPoint services sur un ordinateur sur lequel une autre version de Windows est déjà installée, vous devez déterminer la marque et le modèle de la carte vidéo dans Device Manager avant de démarrer l’installation de Windows Server et vous assurer que vous pouvez obtenir des pilotes qui sont disponible pour Windows Server 2016. Ouvrez Device Manager, ouvrez **gestion** de l’ordinateur à partir de l’écran d' **Accueil** . Puis, dans l’arborescence de la console, cliquez sur **Device Manager**.
+> Si vous installez MultiPoint services sur un ordinateur sur lequel une autre version de Windows est déjà installée, vous devez déterminer la marque et le modèle de la carte vidéo dans Device Manager avant de démarrer l’installation de Windows Server et vous assurer que vous pouvez obtenir les pilotes disponibles pour Windows Server 2016. Ouvrez Device Manager, ouvrez **gestion** de l’ordinateur à partir de l’écran d' **Accueil** . Puis, dans l’arborescence de la console, cliquez sur **Device Manager**.

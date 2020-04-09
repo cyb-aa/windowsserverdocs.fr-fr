@@ -1,19 +1,19 @@
 ---
 title: Créer un disque de modèle d’ordinateur virtuel protégé Windows
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 9c8b84e8-1f5a-47a1-83ca-b1dbd801cb0b
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 01/29/2019
-ms.openlocfilehash: 04fdd52544b69d2c41abcbee00dd00b31bf5f21c
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 766ea9688b7f08914ca68a960cc21393963bd0e9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949784"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856772"
 ---
 # <a name="create-a-windows-shielded-vm-template-disk"></a>Créer un disque de modèle d’ordinateur virtuel protégé Windows
 
@@ -69,7 +69,7 @@ Effectuez les étapes suivantes sur un ordinateur exécutant Windows Server 2016
 
 4. Démarrez l' **Assistant disque de modèle** à partir du dossier **Outils d’administration** du menu Démarrer ou en tapant **TemplateDiskWizard. exe** dans une invite de commandes.
 
-5. Sur la page **certificat** , cliquez sur **Parcourir** pour afficher la liste des certificats. Sélectionnez le certificat avec lequel préparer le modèle de disque. Cliquez sur **OK** , puis sur **Suivant**.
+5. Sur la page **certificat** , cliquez sur **Parcourir** pour afficher la liste des certificats. Sélectionnez le certificat avec lequel préparer le modèle de disque. Cliquez sur **OK**, puis sur **Suivant**.
 
 6. Sur la page disque virtuel, cliquez sur **Parcourir** pour sélectionner le VHDX que vous avez préparé, puis cliquez sur **suivant**.
 
@@ -113,7 +113,7 @@ La petite icône de bouclier à côté du nom du disque désigne le disque en ta
 
 ## <a name="create-the-shielded-vm-template-in-vmm-using-the-prepared-template-disk"></a>Créer le modèle de machine virtuelle protégée dans VMM à l’aide du disque de modèle préparé
 
-Avec un disque de modèle préparé dans votre bibliothèque VMM, vous êtes prêt à créer un modèle de machine virtuelle pour les machines virtuelles protégées. Les modèles de machine virtuelle pour les machines virtuelles protégées diffèrent légèrement des modèles de machine virtuelle traditionnels dans la mesure où certains paramètres sont fixes (les machines virtuelles de génération 2, UEFI et le démarrage sécurisé sont activées, etc.) et d’autres ne sont pas disponibles (la personnalisation des locataires est limitée à quelques-unes, sélectionnez les propriétés de la machine virtuelle) . Pour créer le modèle d’ordinateur virtuel, procédez comme suit :
+Avec un disque de modèle préparé dans votre bibliothèque VMM, vous êtes prêt à créer un modèle de machine virtuelle pour les machines virtuelles protégées. Les modèles de machine virtuelle pour les machines virtuelles protégées diffèrent légèrement des modèles de machine virtuelle traditionnels dans la mesure où certains paramètres sont fixes (les machines virtuelles de génération 2, UEFI et le démarrage sécurisé activé, etc.) et d’autres ne sont pas disponibles (la personnalisation des locataires est limitée à quelques-unes, sélectionnez les propriétés de la machine virtuelle). Pour créer le modèle d’ordinateur virtuel, procédez comme suit :
 
 1. Dans l’espace de travail **bibliothèque** , cliquez sur **créer un modèle d’ordinateur virtuel** sous l’onglet dossier de démarrage en haut.
 
@@ -167,7 +167,7 @@ Save-VolumeSignatureCatalog -TemplateDiskPath 'C:\temp\MyLinuxTemplate.vhdx' -Vo
 > [!div class="nextstepaction"]
 > [Créer un fichier de données de protection](guarded-fabric-tenant-creates-shielding-data.md)
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
 - [Étapes de configuration du fournisseur de services d’hébergement pour les hôtes service Guardian et les machines virtuelles protégées](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Structure protégée et machines virtuelles dotées d’une protection maximale](guarded-fabric-and-shielded-vms-top-node.md)

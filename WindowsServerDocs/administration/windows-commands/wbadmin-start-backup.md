@@ -1,24 +1,20 @@
 ---
 title: Wbadmin start Backup
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour Wbadmin start Backup, qui crée une sauvegarde à l’aide des paramètres spécifiés.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 56f3e752-d99a-4c3d-8e97-10303c37dd78
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c8eb017e8bf49191c33cd2d9f0cf4a62b08ebb07
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: afce1cd70f5481410071ff48d427be73b178744a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362339"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829652"
 ---
 # <a name="wbadmin-start-backup"></a>Wbadmin start Backup
 
@@ -63,7 +59,7 @@ Wbadmin start backup
 [-quiet]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -76,13 +72,13 @@ Wbadmin start backup
 |-systemState|Pour Windows ° 7 et Windows Server 2008 R2 et versions ultérieures, crée une sauvegarde qui inclut l’état du système en plus de tous les autres éléments que vous avez spécifiés avec le paramètre **-include** . L’état du système contient les fichiers de démarrage (Boot. ini, NDTLDR, NTDetect.com), le Registre Windows, y compris les paramètres COM, le SYSVOL (stratégies de groupe et scripts d’ouverture de session), le Active Directory et NTDS. DIT sur les contrôleurs de domaine et, si le service de certificats est installé, le magasin de certificats. Si le rôle de serveur Web est installé sur votre serveur, le méta-annuaire IIS sera inclus. Si le serveur fait partie d’un cluster, les informations du service de cluster sont également incluses.|
 |-noVerify|Spécifie que les sauvegardes enregistrées sur un support amovible (tel qu’un DVD) ne sont pas vérifiées pour les erreurs. Si vous n’utilisez pas ce paramètre, les sauvegardes enregistrées sur des supports amovibles sont vérifiées pour les erreurs.|
 |-utilisateur|Si la sauvegarde est enregistrée dans un dossier partagé distant, spécifie le nom d’utilisateur avec une autorisation d’écriture sur le dossier.|
-|-Password|Spécifie le mot de passe pour le nom d’utilisateur fourni par le paramètre **-User**.|
+|-password|Spécifie le mot de passe pour le nom d’utilisateur fourni par le paramètre **-User**.|
 |-noInheritAcl|Applique les autorisations de liste de contrôle d’accès (ACL) qui correspondent aux informations d’identification fournies par les paramètres **-User** et **-password** à \\\\\<servername >\\\<nom_partage >\\WindowsImageBackup\\\<ComputerBackedUp >\\ (le dossier qui contient la sauvegarde). Pour accéder ultérieurement à la sauvegarde, vous devez utiliser ces informations d’identification ou être membre du groupe administrateurs ou opérateurs de sauvegarde sur l’ordinateur avec le dossier partagé. Si **-noInheritAcl** n’est pas utilisé, les autorisations de liste de contrôle d’accès du dossier partagé distant sont appliquées au dossier \\\<ComputerBackedUp > par défaut afin que toute personne ayant accès au dossier partagé distant puisse accéder à la sauvegarde.|
-|-vssFull|Effectue une sauvegarde complète à l’aide du Service VSS (VSS). Tous les fichiers sont sauvegardés, l’historique de chaque fichier est mis à jour pour refléter la sauvegarde et les journaux des sauvegardes précédentes peuvent être tronqués. Si ce paramètre n’est pas utilisé, **Wbadmin start Backup** effectue une sauvegarde de copie, mais l’historique des fichiers sauvegardés n’est pas mis à jour.</br>ATTENTION : n’utilisez pas ce paramètre si vous utilisez un produit autre que Sauvegarde Windows Server pour sauvegarder des applications qui se trouvent sur les volumes inclus dans la sauvegarde en cours. Cela peut potentiellement rompre le type incrémentiel, différentiel ou autre de sauvegarde créé par l’autre produit de sauvegarde en raison de l’historique sur lequel il repose pour déterminer la quantité de données à sauvegarder qui peut être manquante et qui peut effectuer une sauvegarde complète. inutilement.|
-|-vssCopy|Pour Windows 7 et Windows Server 2008 R2 et versions ultérieures, effectue une sauvegarde de copie à l’aide de VSS. Tous les fichiers sont sauvegardés, mais l’historique des fichiers en cours de sauvegarde n’est pas mis à jour, ce qui vous permet de conserver toutes les informations sur les fichiers qui ont été modifiés, supprimés, etc., ainsi que tous les fichiers journaux des applications. L’utilisation de ce type de sauvegarde n’affecte pas la séquence de sauvegardes incrémentielles et différentielles qui peuvent se produire indépendamment de cette sauvegarde de copie. Valeur par défaut.</br>AVERTISSEMENT : une sauvegarde de copie ne peut pas être utilisée pour les sauvegardes ou restaurations incrémentielles ou différentielles.|
+|-vssFull|Effectue une sauvegarde complète à l’aide du Service VSS (VSS). Tous les fichiers sont sauvegardés, l’historique de chaque fichier est mis à jour pour refléter la sauvegarde et les journaux des sauvegardes précédentes peuvent être tronqués. Si ce paramètre n’est pas utilisé, **Wbadmin start Backup** effectue une sauvegarde de copie, mais l’historique des fichiers sauvegardés n’est pas mis à jour.</br>ATTENTION : n’utilisez pas ce paramètre si vous utilisez un produit autre que Sauvegarde Windows Server pour sauvegarder des applications qui se trouvent sur les volumes inclus dans la sauvegarde en cours. Cela peut potentiellement rompre le type incrémentiel, différentiel ou autre de sauvegarde créé par l’autre produit de sauvegarde, car l’historique sur lequel il repose pour déterminer la quantité de données à sauvegarder peut être manquant et peut effectuer une sauvegarde complète inutilement.|
+|-vssCopy|Pour Windows 7 et Windows Server 2008 R2 et versions ultérieures, effectue une sauvegarde de copie à l’aide de VSS. Tous les fichiers sont sauvegardés, mais l’historique des fichiers en cours de sauvegarde n’est pas mis à jour, ce qui vous permet de conserver toutes les informations sur les fichiers qui ont été modifiés, supprimés, etc., ainsi que tous les fichiers journaux des applications. L’utilisation de ce type de sauvegarde n’affecte pas la séquence de sauvegardes incrémentielles et différentielles qui peuvent se produire indépendamment de cette sauvegarde de copie. Il s'agit de la valeur par défaut.</br>AVERTISSEMENT : une sauvegarde de copie ne peut pas être utilisée pour les sauvegardes ou restaurations incrémentielles ou différentielles.|
 |-quiet|Exécute la sous-commande sans invite à l’utilisateur.|
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Les exemples suivants montrent comment la commande **Wbadmin start Backup** peut être utilisée dans différents scénarios de sauvegarde :
 
@@ -107,7 +103,7 @@ Les exemples suivants montrent comment la commande **Wbadmin start Backup** peut
   wbadmin start backup –backupTarget: \\backupshare\backup1 -noinheritacl -nonrecurseinclude:d:\folder1
   ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

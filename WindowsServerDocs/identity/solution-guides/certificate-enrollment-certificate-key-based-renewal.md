@@ -1,27 +1,26 @@
 ---
 title: Configuration de service Web Inscription de certificats pour le renouvellement basé sur les clés de certificat sur un port personnalisé
-description: ''
 author: Deland-Han
 ms.author: delhan
 manager: dcscontentpm
 ms.date: 11/12/2019
 ms.topic: article
 ms.prod: windows-server
-ms.openlocfilehash: 3d3d08d6abe9daa571dd7365815c1fc61f926501
-ms.sourcegitcommit: e5df3fd267352528eaab5546f817d64d648b297f
+ms.openlocfilehash: a21a34448248658d2ceffcad07d2a4e6e17b9348
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74163104"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856342"
 ---
 # <a name="configuring-certificate-enrollment-web-service-for-certificate-key-based-renewal-on-a-custom-port"></a>Configuration de service Web Inscription de certificats pour le renouvellement basé sur les clés de certificat sur un port personnalisé
 
 > Auteurs : Jitesh Thakur, Meera Mohideen, conseillers techniques avec le groupe Windows.
 Ingénieur du support Ankit Tyagi avec le groupe Windows
 
-## <a name="summary"></a>Récapitulatif
+## <a name="summary"></a>Résumé
 
-Cet article fournit des instructions pas à pas pour implémenter les service Web Stratégie d’inscription de certificats (CEP) et les service Web Inscription de certificats (EC) sur un port personnalisé autre que 443 pour le renouvellement basé sur les clés de certificat afin de tirer parti de la fonctionnalité de renouvellement de CEP et EC.
+Cet article fournit des instructions pas à pas pour implémenter les service Web Stratégie d’inscription de certificats (CEP) et service Web Inscription de certificats (EC) sur un port personnalisé autre que 443 pour le renouvellement basé sur les clés de certificat afin de tirer parti de la fonctionnalité de renouvellement automatique de CEP et EC.
 
 Cet article explique également comment fonctionne CEP et EC et fournit des instructions de configuration.
 
@@ -48,7 +47,7 @@ Pour cet exemple, les instructions sont basées sur un environnement qui utilise
 
 ## <a name="configuration-instructions"></a>Instructions de configuration
 
-### <a name="overview"></a>Vue d'ensemble 
+### <a name="overview"></a>Overview 
 
 1. Configurez le modèle pour le renouvellement basé sur les clés.
 
@@ -224,7 +223,7 @@ Set-ADUser -Identity cepcessvc -Add @{'msDS-AllowedToDelegateTo'=@('HOST/CA1.con
    
    CN = ENTCA, CN = Services d’inscription, CN = Public Key Services, CN = Services, CN = Configuration, DC = contoso, DC = com
 
-3. Cliquez avec le bouton droit et modifiez l’objet de l’autorité de certification. Modifiez l’attribut **attribut mspki-inscription-** Servers à l’aide du port personnalisé avec les URI de serveur CEP et EC qui ont été trouvés dans les paramètres de l’application. Exemple :
+3. Cliquez avec le bouton droit et modifiez l’objet de l’autorité de certification. Modifiez l’attribut **attribut mspki-inscription-** Servers à l’aide du port personnalisé avec les URI de serveur CEP et EC qui ont été trouvés dans les paramètres de l’application. Par exemple :
 
    ```
    140https://cepces.contoso.com:49999/ENTCA_CES_UsernamePassword/service.svc/CES0   
@@ -279,7 +278,7 @@ Pour vous assurer que le renouvellement automatique fonctionne, vérifiez que le
 
 Ouvrez le magasin de certificats personnels de l’ordinateur et ajoutez la vue « certificats archivés ». Pour ce faire, ajoutez le composant logiciel enfichable compte d’ordinateur local à MMC. exe, mettez en surbrillance **certificats (ordinateur local)** en cliquant dessus, cliquez sur **Afficher** dans l' **onglet action** situé à droite ou en haut de la console MMC, cliquez sur **afficher les options**, sélectionnez **certificats archivés**, puis cliquez sur **OK**.
 
-### <a name="method-1"></a>Méthode 1 
+### <a name="method-1"></a>Méthode 1 : 
 
 Exécutez la commande suivante :
 
@@ -314,7 +313,7 @@ Une fois le test terminé, rétablissez la valeur d’origine du paramètre d’
 
 [Install-AdcsEnrollmentWebService](https://docs.microsoft.com/powershell/module/adcsdeployment/install-adcsenrollmentwebservice?view=win10-ps)
 
-Articles associés
+Voir aussi
 
 [Forum sur la sécurité de Windows Server](https://aka.ms/adcsforum)
 

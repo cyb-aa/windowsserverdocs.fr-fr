@@ -1,7 +1,6 @@
 ---
 ms.assetid: 8f994e2e-6c07-43f0-aef4-75f8b2c9a144
 title: Maintenance d’un environnement plus sécurisé
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: b058fb084b0c46010ba03a11a45e840aa902c7b5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a22b1a0d776540e8ee2f2c223a1087bd88adaa47
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367682"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821172"
 ---
 # <a name="maintaining-a-more-secure-environment"></a>Maintenance d’un environnement plus sécurisé
 
@@ -45,7 +44,7 @@ Si vous utilisez Active Directory pour enregistrer la propriété des données d
 ### <a name="implement-business-driven-lifecycle-management"></a>Implémenter la gestion du cycle de vie piloté par l’entreprise  
 La gestion du cycle de vie doit être implémentée pour toutes les données dans Active Directory. Par exemple, lorsqu’une nouvelle application est introduite dans un domaine Active Directory, le propriétaire de l’application doit, à intervalles réguliers, être supposé attester de l’utilisation continue de l’application. Lorsqu’une nouvelle version d’une application est publiée, le propriétaire de l’application doit être informé et déterminer si la nouvelle version doit être implémentée et à quel moment.  
   
-Si un dirigeant d’entreprise choisit de ne pas approuver le déploiement d’une nouvelle version d’une application, il doit également être informé de la date à laquelle la version actuelle n’est plus prise en charge et doit être chargée de déterminer si l’application doit être mis hors service ou remplacé. La conservation des applications héritées en cours d’exécution et non prises en charge ne doit pas être une option.  
+Si un propriétaire de l’entreprise décide de ne pas approuver le déploiement d’une nouvelle version d’une application, il doit également être informé de la date à laquelle la version actuelle n’est plus prise en charge et doit être chargée de déterminer si l’application est retirée ou remplacée. La conservation des applications héritées en cours d’exécution et non prises en charge ne doit pas être une option.  
   
 Lorsque des comptes d’utilisateurs sont créés dans Active Directory, leurs responsables d’enregistrement doivent être avertis lors de la création d’objets et requis pour attester de la validité du compte à intervalles réguliers. En implémentant un cycle de vie piloté par l’entreprise et en attestant régulièrement la validité des données, les personnes qui sont les mieux équipées pour identifier les anomalies dans les données sont les personnes qui révisent les données.  
   
@@ -60,7 +59,7 @@ Certaines organisations implémentent des stratégies de classification des donn
   
 Au sein de votre modèle de classification des données, vous devez inclure la classification des données AD DS telles que les suivantes.  
   
-### <a name="systems"></a>certifiés  
+### <a name="systems"></a>Systèmes  
 Vous devez non seulement classer les données, mais également leurs populations de serveurs. Pour chaque serveur, vous devez connaître le système d’exploitation installé, les rôles généraux fournis par le serveur, les applications en cours d’exécution sur le serveur, le propriétaire de l’enregistrement et le propriétaire de l’enregistrement, le cas échéant. Pour toutes les données ou applications qui s’exécutent sur le serveur, vous devez disposer d’une classification, et le serveur doit être sécurisé en fonction des besoins des charges de travail qu’il prend en charge et des classifications appliquées au système et aux données. Vous pouvez également regrouper les serveurs en fonction de la classification de leurs charges de travail, ce qui vous permet d’identifier rapidement les serveurs qui doivent être les plus étroitement surveillés et les plus rigoureusement configurés.  
   
 ### <a name="applications"></a>Applications  
@@ -69,11 +68,11 @@ Vous devez classer les applications par fonctionnalité (ce qu’elles font), la
 ### <a name="users"></a>Utilisateurs  
 Que vous appeliez des utilisateurs « VIP », des comptes critiques ou que vous utilisiez une étiquette différente, les comptes de vos installations Active Directory les plus susceptibles d’être ciblés par les attaquants doivent être marqués et surveillés. Dans la plupart des organisations, il n’est tout simplement pas possible de surveiller toutes les activités de tous les utilisateurs. Toutefois, si vous êtes en mesure d’identifier les comptes critiques dans votre installation Active Directory, vous pouvez surveiller les modifications apportées aux comptes, comme décrit précédemment dans ce document.  
   
-Vous pouvez également commencer à créer une base de données de « comportements attendus » pour ces comptes lorsque vous auditez les comptes. Par exemple, si vous constatez qu’un exécutif donné utilise sa station de travail sécurisée pour accéder aux données critiques de son bureau et de son bureau, mais rarement à partir d’autres emplacements, si vous constatez des tentatives d’accès aux données à l’aide de son compte à partir d’un ordinateur non autorisé ou d’un à mi-chemin de la planète où vous savez que le cadre n’est pas actuellement localisé, vous pouvez identifier et examiner plus rapidement ce comportement anormal.  
+Vous pouvez également commencer à créer une base de données de « comportements attendus » pour ces comptes lorsque vous auditez les comptes. Par exemple, si vous constatez qu’un exécutif donné utilise sa station de travail sécurisée pour accéder aux données critiques de son bureau et à partir de son bureau, mais rarement à partir d’autres emplacements, si vous voyez des tentatives d’accès à des données à l’aide de son compte à partir d’un ordinateur non autorisé ou d’un emplacement situé à mi-chemin de la planète dans laquelle vous savez que le  
   
 En intégrant les informations professionnelles à votre infrastructure, vous pouvez utiliser ces informations pour vous aider à identifier les faux positifs. Par exemple, si la direction est enregistrée dans un calendrier accessible au personnel informatique responsable de la surveillance de l’environnement, vous pouvez mettre en corrélation les tentatives de connexion avec les emplacements connus des dirigeants.  
   
-Supposons que la direction A se trouve normalement à Chicago et utilise une station de travail sécurisée pour accéder aux données critiques de l’entreprise à partir de son bureau, et qu’un événement est déclenché par une tentative d’accès aux données à partir d’une station de travail non sécurisée située à Atlanta. Si vous êtes en mesure de vérifier que le cadre est actuellement à Atlanta, vous pouvez résoudre l’événement en contactant le cadre ou l’Assistant du dirigeant pour déterminer si l’échec de l’accès a été le résultat de l’oubli de la direction de l’utilisation de la station de travail sécurisée pour Accédez aux données. En créant un programme qui utilise les approches décrites dans la section [planification de la compromission](../../../ad-ds/plan/security-best-practices/Planning-for-Compromise.md), vous pouvez commencer à créer une base de données de comportements attendus pour les comptes les plus « importants » dans votre installation Active Directory, qui peuvent potentiellement vous aider à détecter et à répondre plus rapidement aux attaques.  
+Supposons que la direction A se trouve normalement à Chicago et utilise une station de travail sécurisée pour accéder aux données critiques de l’entreprise à partir de son bureau, et qu’un événement est déclenché par une tentative d’accès aux données à partir d’une station de travail non sécurisée située à Atlanta. Si vous êtes en mesure de vérifier que le cadre est actuellement à Atlanta, vous pouvez résoudre l’événement en contactant le cadre ou l’Assistant du dirigeant pour déterminer si l’échec de l’accès a été le résultat de l’oubli de la direction de l’utilisation de la station de travail sécurisée pour accéder aux données. En créant un programme qui utilise les approches décrites dans la section [planification de la compromission](../../../ad-ds/plan/security-best-practices/Planning-for-Compromise.md), vous pouvez commencer à créer une base de données de comportements attendus pour les comptes les plus « importants » dans votre installation Active Directory, qui peuvent potentiellement vous aider à détecter et à répondre plus rapidement aux attaques.  
   
 
 

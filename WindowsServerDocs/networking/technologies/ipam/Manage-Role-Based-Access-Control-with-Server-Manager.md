@@ -2,22 +2,18 @@
 title: Gérer le contrôle d’accès en fonction du rôle avec le Gestionnaire de serveur
 description: Cette rubrique fait partie du Guide de gestion des adresses IP (IPAM) de Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ipam
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 77b6ac92-eaff-46d7-95db-ee6fc96742ed
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: a3fb0a4e09e348040a2e89f97c73371aca62bef0
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 6d84b275b76803347330666c7c8ce0995452ce1d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316798"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860632"
 ---
 # <a name="manage-role-based-access-control-with-server-manager"></a>Gérer le contrôle d’accès en fonction du rôle avec le Gestionnaire de serveur
 

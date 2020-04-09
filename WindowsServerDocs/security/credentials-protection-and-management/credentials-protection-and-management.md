@@ -1,28 +1,24 @@
 ---
-title: Gestion et protection des informations d’identification
+title: Gestion et protection des informations d'identification
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-credential-protection
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e457229c-0126-40fe-948c-101c943e1b57
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 31f0f89099a71f8ea6abcf0064113d6af9608c5a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c836da8f83510e6547e0e182ac06fd2151dd9c41
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403795"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857062"
 ---
-# <a name="credentials-protection-and-management"></a>Gestion et protection des informations d’identification
+# <a name="credentials-protection-and-management"></a>Gestion et protection des informations d'identification
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique destinée aux professionnels de l’informatique traite des fonctionnalités et des méthodes introduites dans Windows Server 2012 R2 et Windows 8.1 pour la protection des informations d’identification et les contrôles d’authentification de domaine pour réduire le vol des informations d’identification.
 
@@ -62,15 +58,15 @@ La nouvelle classe d’objets Active Directory, stratégie d’authentification,
 
 -   Utilisateur
 
--   Computer
+-   Ordinateur
 
 -   Compte de service administré
 
 -   Compte de service administré de groupe
 
-Pour plus d'informations, voir [Authentication Policies and Authentication Policy Silos](authentication-policies-and-authentication-policy-silos.md).
+Pour plus d'informations, voir [Stratégies d'authentification et silos de stratégies d'authentification](authentication-policies-and-authentication-policy-silos.md).
 
-Pour plus d’informations sur la configuration des comptes protégés, consultez [How to Configure Protected Accounts](how-to-configure-protected-accounts.md).
+Pour plus d'informations sur la configuration des comptes protégés, voir [Comment configurer des comptes protégés](how-to-configure-protected-accounts.md).
 
 ## <a name="see-also"></a>Voir aussi
 Pour plus d’informations sur l’autorité LSA et le processus LSASS, consultez la [Vue d’ensemble technique de l’authentification et de l’ouverture de session Windows](https://technet.microsoft.com/library/dn169029(v=ws.10).aspx).

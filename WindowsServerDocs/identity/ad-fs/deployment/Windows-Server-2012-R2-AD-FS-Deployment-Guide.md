@@ -1,7 +1,6 @@
 ---
 ms.assetid: 38816b32-84bd-4b19-9ab8-a05ec838a156
 title: Guide de déploiement des services AD FS Windows Server 2016 et 2012 R2
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,17 +8,17 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4f6b01a95c52d366ca1029281c10d6cc0edccaf4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c6b11edd181875d241f5f78928e3c9c427809747
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408265"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855812"
 ---
 # <a name="windows-server-ad-fs-deployment-guide"></a>Guide de déploiement de Windows Server AD FS
 
 
-Vous pouvez utiliser services ADFS \(AD FS\) avec le système d’exploitation Windows Server 2016 et 2012 R2 pour créer des solutions de gestion des identités fédérées qui étendent l’identification distribuée, l’authentification et les services d’autorisation\-aux applications basées sur le Web au-delà des limites de l’organisation et de la plateforme. En déployant AD FS, vous pouvez étendre les fonctionnalités de gestion des identités existantes de votre organisation à Internet.  
+Vous pouvez utiliser Services ADFS \(AD FS\) avec le système d’exploitation Windows Server 2016 et 2012 R2 pour créer des solutions de gestion des identités fédérées qui étendent les services d’identification, d’authentification et d’autorisation distribués aux applications basées sur les\-Web au-delà des limites de l’organisation et de la plateforme. En déployant AD FS, vous pouvez étendre les fonctionnalités de gestion des identités existantes de votre organisation à Internet.  
   
 -   [Déploiement d’une batterie de serveurs de fédération](Deploying-a-Federation-Server-Farm.md)  
   

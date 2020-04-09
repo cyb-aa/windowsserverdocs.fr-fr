@@ -2,22 +2,18 @@
 title: Étape 2 configurer le serveur RADIUS
 description: Cette rubrique fait partie du guide déployer l’accès à distance avec l’authentification par mot de passe à usage unique dans Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0326818f-9144-496c-b946-f82be4eefbd3
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 83c63e8d11b4f93b87e1f49f487342d3955f6372
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: c2f152d3558e34b6af945937bda61527b0c46dd4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313642"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858222"
 ---
 # <a name="step-2-configure-the-radius-server"></a>Étape 2 configurer le serveur RADIUS
 

@@ -2,20 +2,19 @@
 title: Windows Server 2016 doit être configuré avec au moins la quantité minimale de mémoire
 description: Fournit des instructions pour résoudre le problème signalé par cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: d324af73-af73-40b0-bd5b-8003ba3e921b
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: b3e4b29c11e2c501b9e9df6b1089a297dcced125
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dc5d95e7f974d41792221f1970049fb56011cada
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364367"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860942"
 ---
 # <a name="windows-server-2016-should-be-configured-with-at-least-the-minimum-amount-of-memory"></a>Windows Server 2016 doit être configuré avec au moins la quantité minimale de mémoire
 
@@ -25,9 +24,9 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Erreur|  
+|**Va**|Error|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.
@@ -35,7 +34,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ## <a name="issue"></a>**Problème**  
 *Une machine virtuelle exécutant Windows Server 2016 est configurée avec une quantité inférieure à la quantité minimale de RAM, soit 512 Mo.*  
   
-## <a name="impact"></a>**Impact**  
+## <a name="impact"></a>**Effet**  
 *Le système d’exploitation invité sur les ordinateurs virtuels suivants peut ne pas s’exécuter ou ne pas fonctionner de manière fiable :*  
   
 \<liste des machines virtuelles >  
@@ -49,7 +48,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 2.  Dans le volet de résultats, sous **machines virtuelles**, sélectionnez la machine virtuelle que vous souhaitez configurer. L’état de la machine virtuelle doit être défini sur **désactivé**. Si ce n’est pas le cas, cliquez avec le bouton droit sur l’ordinateur virtuel, puis cliquez sur **arrêter**.  
   
-3.  Dans le volet **Action**, sous le nom de l'ordinateur virtuel, cliquez sur **Paramètres**.  
+3.  Dans le volet **Action**, sous le nom de l’ordinateur virtuel, cliquez sur **Paramètres**.  
   
 4.  Dans le volet de navigation, cliquez sur **mémoire**.  
   

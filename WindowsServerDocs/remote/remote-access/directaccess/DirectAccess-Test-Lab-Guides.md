@@ -2,22 +2,18 @@
 title: Guides de laboratoire de Test de DirectAccess
 description: Cette rubrique fournit des liens vers les guides de laboratoire de test pour DirectAccess dans Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 931a75ac-80f8-434c-8789-1dffb308ee13
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: ce0782d9e2445cd908bb31ea46181c2e8070752d
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 14dacc16e49b4347621792cc625dbcdd773c0aba
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310815"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815632"
 ---
 # <a name="directaccess-test-lab-guides"></a>Guides de laboratoire de Test de DirectAccess
 

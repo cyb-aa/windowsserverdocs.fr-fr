@@ -2,20 +2,19 @@
 title: Mise hors connexion d'un serveur d'espaces de stockage direct pour la maintenance
 ms.prod: windows-server
 ms.author: eldenc
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 10/08/2018
-Keywords: Espaces de stockage directs, S2D, maintenance
 ms.assetid: 73dd8f9c-dcdb-4b25-8540-1d8707e9a148
 ms.localizationpriority: medium
-ms.openlocfilehash: 20439a06c255a73f20a297f765e6ed11abfde6f2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2ccf8d809354f96277701cd365966ba5e914f64b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402831"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857532"
 ---
 # <a name="taking-a-storage-spaces-direct-server-offline-for-maintenance"></a>Mise hors connexion d'un serveur d'espaces de stockage direct pour la maintenance
 
@@ -72,7 +71,7 @@ Pour ce faire dans le Gestionnaire du cluster de basculement, accédez à **Nœu
 
 ![Mettre le drainage en pause](media/maintain-servers/pause-drain.png)
 
-Tous les ordinateurs virtuels vont commencer la migration dynamique vers d’autres serveurs du cluster. Ce processus peut prendre quelques minutes.
+Tous les ordinateurs virtuels vont commencer la migration dynamique vers d’autres serveurs du cluster. Cela peut prendre quelques minutes.
 
    > [!NOTE]
    > Lorsque vous mettez en pause et drainez le nœud de cluster correctement, Windows effectue une vérification de sécurité automatique pour s'assurer que la procédure peut se poursuivre en toute sécurité. Si des volumes ne sont pas intègres, il arrête et vous avertit qu’il n’est pas sûr de continuer.
@@ -83,7 +82,7 @@ Tous les ordinateurs virtuels vont commencer la migration dynamique vers d’aut
 
 Une fois que le serveur a terminé le drainage, il est indiqué comme **En pause** dans le Gestionnaire du cluster de basculement et PowerShell.
 
-![Suspendu](media/maintain-servers/paused.png)
+![En pause](media/maintain-servers/paused.png)
 
 Vous pouvez maintenant le redémarrer ou l'arrêter en toute sécurité, comme vous le feriez normalement (par exemple, en utilisant les applets de commande PowerShell Restart-Computer ou Stop-Computer).
 

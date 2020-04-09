@@ -1,7 +1,6 @@
 ---
 ms.assetid: 11f36f2b-9981-4da0-9e7c-4eca78035f37
 title: Annexe D-sécurisation des comptes administrateur intégrés dans Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: cc91ccd00c951863f4f9802f3d669e36ff3f3d9a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3e0060e4b732fe77de4371c7b84b77da21de9e20
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367836"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821662"
 ---
 # <a name="appendix-d-securing-built-in-administrator-accounts-in-active-directory"></a>Annexe D : Sécurisation des comptes d’administrateur intégrés dans Active Directory
 
@@ -41,11 +40,11 @@ Pour le compte administrateur intégré dans chaque domaine de votre forêt, vou
 
     -   Dans un ou plusieurs objets de stratégie de groupe que vous créez et liez à des UO de station de travail et de serveur membre dans chaque domaine, ajoutez le compte d’administrateur de chaque domaine aux droits d’utilisateur suivants dans la stratégie d’autorisation \ paramètres d’utilisateur \ **stratégies d’autorisation \ stratégies d’autorisation**:  
 
-        -   Interdire l’accès à cet ordinateur à partir du réseau  
+        -   Refuser l'accès à un ordinateur à partir du réseau  
 
-        -   Interdire l’ouverture de session en tant que tâche  
+        -   Refuser l'ouverture de session en tant que tâche  
 
-        -   Interdire l’ouverture de session en tant que service  
+        -   Refuser l'ouverture de session en tant que service  
 
         -   Interdire l’ouverture de session par les services Bureau à distance  
 
@@ -59,16 +58,16 @@ Pour le compte administrateur intégré dans chaque domaine de votre forêt, vou
 
 -   Configurer des objets de stratégie de groupe pour restreindre les comptes administrateur sur les contrôleurs de domaine  
     -   Dans chaque domaine de la forêt, l’objet de stratégie de groupe des contrôleurs de domaine par défaut ou une stratégie liée à l’unité d’organisation des contrôleurs de domaine doit être modifié de façon à ajouter le compte d’administrateur de chaque domaine aux droits d’utilisateur suivants dans la stratégie d' **autorisation \ paramètres**d’utilisateur \ stratégies d’autorisation :   
-        -   Interdire l’accès à cet ordinateur à partir du réseau  
+        -   Refuser l'accès à un ordinateur à partir du réseau  
 
-        -   Interdire l’ouverture de session en tant que tâche  
+        -   Refuser l'ouverture de session en tant que tâche  
 
-        -   Interdire l’ouverture de session en tant que service  
+        -   Refuser l'ouverture de session en tant que service  
 
         -   Interdire l’ouverture de session par les services Bureau à distance  
 
 > [!NOTE]  
-> Ces paramètres garantissent que le compte administrateur intégré du domaine ne peut pas être utilisé pour se connecter à un contrôleur de domaine, même si le compte, s’il est activé, peut ouvrir une session localement sur les contrôleurs de domaine. Étant donné que ce compte ne doit être activé et utilisé que dans les scénarios de récupération d’urgence, il est prévu que l’accès physique à au moins un contrôleur de domaine soit disponible, ou que d’autres comptes disposant d’autorisations d’accès à distance aux contrôleurs de domaine puissent être servir.  
+> Ces paramètres garantissent que le compte administrateur intégré du domaine ne peut pas être utilisé pour se connecter à un contrôleur de domaine, même si le compte, s’il est activé, peut ouvrir une session localement sur les contrôleurs de domaine. Étant donné que ce compte ne doit être activé et utilisé que dans les scénarios de récupération d’urgence, il est prévu que l’accès physique à au moins un contrôleur de domaine soit disponible, ou que d’autres comptes disposant des autorisations d’accès à distance des contrôleurs de domaine puissent être utilisés.  
 
 -   Configurer l’audit des comptes d’administrateur  
 

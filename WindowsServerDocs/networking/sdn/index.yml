@@ -8,8 +8,8 @@ metadata:
   text: 'La mise en réseau SDN (Software Defined Networking) vous permet de gérer dynamiquement votre réseau de centre de données afin de répondre aux exigences de la charge de travail et des applications. Les stratégies de réseau peuvent être implémentées de façon cohérente à grande échelle, même lorsque vous déployez de nouvelles charges de travail ou déplacez des charges de travail sur des réseaux virtuels ou physiques.'
   keywords: 'Windows Server, Windows Server 2016, mise en réseau sdn, sdn'
   ms.localizationpriority: medium
-  author: eross-msft
-  ms.author: lizross
+  author: AnirbanPaul
+  ms.author: anpaul
   ms.date: 09/04/2018
   ms.topic: article
   ms.devlang: na

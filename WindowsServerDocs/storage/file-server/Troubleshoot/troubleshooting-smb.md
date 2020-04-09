@@ -3,16 +3,15 @@ title: Résolution avancée des problèmes liés au protocole SMB (Server Messag
 description: Présente les méthodes de résolution des problèmes du protocole SMB (Server Message Block).
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 433221f9846e9e071557b5537974b5739131742b
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 654cb1b0eea65457d521d201739721ed8c3c0203
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949693"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815192"
 ---
 # <a name="advanced-troubleshooting-server-message-block-smb"></a>Résolution avancée des problèmes liés au protocole SMB (Server Message Block)
 
@@ -31,7 +30,7 @@ Par exemple, si vous utilisez Windows Server 2016 pour atteindre un partage SMB 
 
 ### <a name="collect-data"></a>Collecte des données
 
-Avant de résoudre les problèmes liés à SMB, nous vous recommandons de commencer par collecter un suivi réseau sur les côtés client et serveur. Les consignes suivantes s'appliquent :
+Avant de résoudre les problèmes liés à SMB, nous vous recommandons de commencer par collecter un suivi réseau sur les côtés client et serveur. Les indications suivantes s’appliquent :
 
 - Sur les systèmes Windows, vous pouvez utiliser NetShell (Netsh), Moniteur réseau, l’analyseur de messages ou Wireshark pour collecter un suivi réseau.
 
@@ -68,7 +67,7 @@ Cette section décrit les étapes d’utilisation de NetShell pour collecter la 
    Start-NetEventSession trace
    ```
    
-2. Reproduire le problème.
+2. Reproduisez le problème.
 
 3. Arrêtez la trace en exécutant la commande suivante :
 
@@ -100,7 +99,7 @@ Vérifiez si TCP/IP rencontre l’un de ces problèmes :
 
 4. La fenêtre de réception TCP diminue. Cela peut être dû à un ralentissement du stockage ou à un autre problème qui empêche la récupération des données à partir de la mémoire tampon Winsock du pilote de fonction auxiliaire (AFD).
 
-S’il n’existe aucun problème de TCP/IP notable, recherchez les erreurs SMB. Pour cela, procédez comme suit :
+S’il n’existe aucun problème de TCP/IP notable, recherchez les erreurs SMB. Pour cela, procédez comme suit:
 
 1. Vérifiez toujours les erreurs SMB par rapport à la spécification du protocole MS-SMB2. De nombreuses erreurs SMB sont bénignes (non dangereuses). Reportez-vous aux informations suivantes pour déterminer la raison pour laquelle SMB a retourné l’erreur avant de conclure que l’erreur est liée à l’un des problèmes suivants :
 
@@ -129,7 +128,7 @@ Examinez les détails du protocole SMB réel dans la trace réseau pour comprend
 
 - Vous pouvez apprendre beaucoup sur ce que l’application tente de faire en examinant les commandes SMB.
 
-Comparez les commandes et les opérations à la spécification du protocole pour vous assurer que tout fonctionne correctement. Si ce n’est pas le cas, collectez des données qui sont plus proches ou à un niveau inférieur pour rechercher plus d’informations sur la cause racine. Pour cela, procédez comme suit :
+Comparez les commandes et les opérations à la spécification du protocole pour vous assurer que tout fonctionne correctement. Si ce n’est pas le cas, collectez des données qui sont plus proches ou à un niveau inférieur pour rechercher plus d’informations sur la cause racine. Pour cela, procédez comme suit:
 
 1. Collectez une capture de paquets standard.
 
@@ -137,7 +136,7 @@ Comparez les commandes et les opérations à la spécification du protocole pour
 
 3. Si toutes les autres options échouent, collectez t. cmd si vous soupçonnez que le problème se produit dans SMB lui-même, ou si aucune autre donnée n’est suffisante pour identifier une cause racine.
 
-Par exemple :
+Par exemple :
 
 - Vous constatez un ralentissement des transferts de fichiers vers un serveur de fichiers unique.
 

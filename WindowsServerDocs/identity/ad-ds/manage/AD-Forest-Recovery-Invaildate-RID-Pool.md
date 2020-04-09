@@ -1,6 +1,5 @@
 ---
 title: Récupération de la forêt Active Directory-invalidation du pool RID
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 2f5f84df-bd85-4ca4-bdd3-835bd1d45c11
 ms.technology: identity-adds
-ms.openlocfilehash: c3c477e21a455e5e5777da00b064ca7a02672571
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9e693f6f30fb721897eaaac89b3d146c57e0e63f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390410"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823922"
 ---
 # <a name="ad-forest-recovery---invalidating-the-current-rid-pool"></a>Récupération de la forêt Active Directory-invalidation du pool RID actuel  
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
 Utilisez la procédure suivante pour utiliser Windows PowerShell afin d’invalider le pool RID actuel sur un contrôleur de domaine. Windows PowerShell est activé par défaut sur Windows Server 2012 et Windows Server 2008 R2, mais pas sur Windows Server 2008 sur lequel il doit être installé à l’aide de l’option **Ajouter des fonctionnalités**. Il peut être [téléchargé](https://www.microsoft.com/download/details.aspx?id=20020) pour s’exécuter sur Windows Server 2003.  
 

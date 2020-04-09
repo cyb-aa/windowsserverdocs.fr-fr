@@ -4,14 +4,15 @@ ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 11/21/2018
-ms.openlocfilehash: 621d4175894bb235475155507a896a251dec0f7e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 50e35939031a74173fb031cf963af97bf8bb6dba
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386340"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856352"
 ---
 # <a name="upgrade-a-guarded-fabric-to-windows-server-2019"></a>Mise à niveau d’une structure protégée vers Windows Server 2019
 
@@ -54,8 +55,8 @@ Pour mettre à niveau votre cluster SGH, vous devez supprimer temporairement un 
 
 Pour mettre à niveau votre cluster SGH, procédez comme suit sur chaque nœud de votre cluster, un nœud à la fois :
 
-1.  Supprimez le serveur SGH de votre cluster en `Clear-HgsServer` exécutant dans une invite PowerShell avec élévation de privilèges. Cette applet de commande permet de supprimer le magasin de basculement SGH, les sites Web SGH et le nœud du cluster de basculement.
-2.  Si votre serveur SGH est un contrôleur de domaine (configuration par défaut), vous devez exécuter `adprep /forestprep` et `adprep /domainprep` sur le premier nœud en cours de mise à niveau pour préparer le domaine pour une mise à niveau du système d’exploitation. Pour plus d’informations, consultez la [documentation relative à la mise à niveau de Active Directory Domain Services](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/upgrade-domain-controllers#supported-in-place-upgrade-paths) .
+1.  Supprimez le serveur SGH de votre cluster en exécutant `Clear-HgsServer` dans une invite PowerShell avec élévation de privilèges. Cette applet de commande permet de supprimer le magasin de basculement SGH, les sites Web SGH et le nœud du cluster de basculement.
+2.  Si votre serveur SGH est un contrôleur de domaine (configuration par défaut), vous devez exécuter `adprep /forestprep` et `adprep /domainprep` sur le premier nœud mis à niveau pour préparer le domaine pour une mise à niveau du système d’exploitation. Pour plus d’informations, consultez la [documentation relative à la mise à niveau de Active Directory Domain Services](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/upgrade-domain-controllers#supported-in-place-upgrade-paths) .
 3.  Effectuez une [mise à niveau sur place](../../get-started-19/install-upgrade-migrate-19.md) vers Windows Server 2019.
 4.  Exécutez [Initialize-HgsServer](guarded-fabric-configure-additional-hgs-nodes.md) pour replacer le nœud dans le cluster.
 

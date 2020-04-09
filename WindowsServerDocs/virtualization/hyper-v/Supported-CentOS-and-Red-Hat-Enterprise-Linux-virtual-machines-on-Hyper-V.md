@@ -2,20 +2,18 @@
 title: Ordinateurs virtuels CentOS et Red Hat Enterprise Linux pris en charge sur Hyper-V
 description: Répertorie les versions de Linux Integration Services pour les distributions CentOS et Red Hat Enterprise prises en charge
 ms.prod: windows-server
-ms.service: na
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4bf8783d-dee5-4b3e-8cce-2b11b117c189
 author: danihalfin
 ms.author: vichen
 ms.date: 04/06/2020
-ms.openlocfilehash: 1452ee3e1c4e710a44e056d14f9c1ceab4000e9a
-ms.sourcegitcommit: 7f23b2753cd22815c8ebb0272aa99d47a88a7692
+ms.openlocfilehash: 5d30f373390ffa61ebe8710de82d20107456462b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80696177"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855982"
 ---
 # <a name="supported-centos-and-red-hat-enterprise-linux-virtual-machines-on-hyper-v"></a>Ordinateurs virtuels CentOS et Red Hat Enterprise Linux pris en charge sur Hyper-V
 

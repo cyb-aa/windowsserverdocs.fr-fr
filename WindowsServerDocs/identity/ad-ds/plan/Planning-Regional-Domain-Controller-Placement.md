@@ -1,7 +1,6 @@
 ---
 ms.assetid: eb600904-24b8-4488-a278-c1c971dc2f2d
 title: Planification de l’emplacement des contrôleurs de domaine régionaux
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 2508476f35462516f32877365cb15be919b5b6df
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cb1d83d5afca92de85c4de8b3e9125e119250f66
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408738"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822112"
 ---
 # <a name="planning-regional-domain-controller-placement"></a>Planification de l’emplacement des contrôleurs de domaine régionaux
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Pour garantir une rentabilité, prévoyez de placer le moins possible de contrôleurs de domaine régionaux. Tout d’abord, examinez la feuille de calcul « emplacements géographiques et liaisons de communication » (DSSTOPO_1. doc) utilisée pour la [collecte d’informations réseau](../../ad-ds/plan/Collecting-Network-Information.md) afin de déterminer si un emplacement est un Hub.  
   
@@ -80,6 +79,6 @@ Par exemple, imaginez un réseau dont les filiales sont connectées via des liai
   
 Si la réduction du coût de la maintenance des contrôleurs de domaine est plus importante que le trafic réseau, Centralisez les contrôleurs de domaine pour ce domaine et ne placez pas de contrôleurs de domaine régionaux à l’emplacement ou envisagez de placer les contrôleurs de domaine en lecture seule à l’emplacement.  
   
-Pour obtenir une feuille de calcul qui vous aide à documenter le placement des contrôleurs de domaine régionaux et le nombre d’utilisateurs pour chaque domaine représenté dans chaque emplacement, consultez [Outils d’aide pour le kit de déploiement de Windows Server 2003](https://go.microsoft.com/fwlink/?LinkID=102558), Télécharger Job_Aids_Designing_and_ Deploying_Directory_and_Security_Services. zip et ouvrez « emplacement du contrôleur de domaine » (DSSTOPO_4. doc).  
+Pour obtenir une feuille de calcul qui vous aide à documenter le placement des contrôleurs de domaine régionaux et le nombre d’utilisateurs pour chaque domaine représenté dans chaque emplacement, consultez [Outils d’aide pour le kit de déploiement de Windows Server 2003](https://go.microsoft.com/fwlink/?LinkID=102558), Télécharger Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip et ouvrez « emplacement du contrôleur de domaine » (DSSTOPO_4. doc).  
   
 Vous devrez vous référer aux informations sur les emplacements dans lesquels vous devez placer les contrôleurs de domaine régionaux lorsque vous déployez des domaines régionaux. Pour plus d’informations sur le déploiement de domaines régionaux, voir [déploiement de domaines régionaux Windows Server 2008](https://technet.microsoft.com/library/cc755118.aspx).  

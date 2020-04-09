@@ -1,24 +1,20 @@
 ---
 title: Kerberos Constrained Delegation Overview
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-kerberos
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 51923b0a-0c1a-47b2-93a0-d36f8e295589
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: e6e62effcb875c0e3a1cdd6c886f3d74923e1b94
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 07717743017c15a7bdabd3c3ce38d75a02980460
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403412"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858862"
 ---
 # <a name="kerberos-constrained-delegation-overview"></a>Kerberos Constrained Delegation Overview
 
@@ -42,7 +38,7 @@ L’implémentation Windows Server 2012 R2 et Windows Server 2012 du protocole K
 
 La délégation contrainte permet aux administrateurs de service de spécifier et d’appliquer les limites d’approbation d’application en limitant l’étendue dans laquelle les services d’application peuvent agir pour le compte d’un utilisateur. Les administrateurs de service peuvent spécifier les comptes de services frontaux qui peuvent effectuer une délégation sur leurs services principaux.
 
-En prenant en charge la délégation avec restriction entre les domaines dans Windows Server 2012 R2 et Windows Server 2012, les services frontaux tels que Microsoft Internet Security and Acceleration (ISA) Server, Microsoft Forefront Threat Management Gateway, Microsoft Exchange Outlook Accès web (OWA) et Microsoft SharePoint Server peuvent être configurés pour utiliser la délégation avec restriction pour s’authentifier auprès des serveurs dans d’autres domaines. Cela permet la prise en charge de solutions de service sur plusieurs domaines via une infrastructure Kerberos existante. La délégation Kerberos contrainte peut être gérée par les administrateurs de domaine ou les administrateurs de service.
+En prenant en charge la délégation restreinte entre les domaines de Windows Server 2012 R2 et Windows Server 2012, les services frontaux tels que Microsoft Internet Security and Acceleration (ISA) Server, Microsoft Forefront Threat Management Gateway, Microsoft Exchange Outlook Accès web (OWA) et Microsoft SharePoint Server peuvent être configurés pour utiliser la délégation avec restriction pour s’authentifier auprès des serveurs d’autres domaines. Cela permet la prise en charge de solutions de service sur plusieurs domaines via une infrastructure Kerberos existante. La délégation Kerberos contrainte peut être gérée par les administrateurs de domaine ou les administrateurs de service.
 
 ## <a name="resource-based-constrained-delegation-across-domains"></a>Délégation contrainte basée sur les ressources sur plusieurs domaines
 
@@ -83,7 +79,7 @@ Pour configurer un service de ressources pour autoriser l’accès à un service
 
 -   Pour configurer le service de ressources, utilisez les applets de commande **New-ADComputer**, **New-ADServiceAccount**, **New-ADUser**, **Set-ADComputer**, **Set-ADServiceAccount**et **Set-ADUser** avec le paramètre **PrincipalsAllowedToDelegateToAccount** .
 
-## <a name="BKMK_SOFT"></a>Configuration logicielle requise
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Configuration logicielle requise
 La délégation avec restriction basée sur les ressources peut uniquement être configurée sur un contrôleur de domaine exécutant Windows Server 2012 R2 et Windows Server 2012, mais elle peut être appliquée dans une forêt en mode mixte.
 
 Vous devez appliquer le correctif logiciel suivant à tous les contrôleurs de domaine exécutant Windows Server 2012 dans les domaines de compte d’utilisateur sur le chemin d’accès de référence entre les domaines frontaux et principaux qui exécutent des systèmes d’exploitation antérieurs à Windows Server : la délégation avec restriction basée sur les ressources KDC_ERR_POLICY échec dans les environnements disposant de contrôleurs de domaine Windows Server 2008 R2 (https://support.microsoft.com/en-gb/help/2665790/resource-based-constrained-delegation-kdc-err-policy-failure-in-enviro).

@@ -2,22 +2,18 @@
 title: Étape 2 planifier l’infrastructure multisite
 description: Cette rubrique fait partie du guide déployer plusieurs serveurs d’accès à distance dans un déploiement multisite dans Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 64c10107-cb03-41f3-92c6-ac249966f574
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 6e23c3c3d22509af46b1a1741b545a787be00bfc
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 61d4faafa91a685cad50b4f47aaad8efd9b9a500
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313881"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858342"
 ---
 # <a name="step-2-plan-the-multisite-infrastructure"></a>Étape 2 planifier l’infrastructure multisite
 

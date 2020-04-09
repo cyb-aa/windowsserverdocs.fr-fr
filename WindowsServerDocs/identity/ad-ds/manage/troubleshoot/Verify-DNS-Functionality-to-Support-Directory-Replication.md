@@ -1,22 +1,17 @@
 ---
 ms.assetid: 709353b0-b913-4367-8580-44745183e2bc
 title: Vérifier la fonctionnalité DNS pour prendre en charge la duplication d’annuaire
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.service: ''
-ms.suite: na
 ms.technology: identity-adds
 ms.author: joflore
 ms.date: 05/31/2017
-ms.tgt_pltfrm: na
 author: Femila
-ms.openlocfilehash: 066f7ebe1cd8f981344e059797daa9d3f86bdf49
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 51472c1a64b7825b48362efbe76ea8ef6bbaac73
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71409056"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822952"
 ---
 # <a name="verify-dns-functionality-to-support-directory-replication"></a>Vérifier la fonctionnalité DNS pour prendre en charge la duplication d’annuaire
 
@@ -24,7 +19,7 @@ ms.locfileid: "71409056"
 
  Pour vérifier les paramètres DNS (Domain Name System) qui peuvent interférer avec la réplication Active Directory, vous pouvez commencer par exécuter le test de base qui garantit que DNS fonctionne correctement pour votre domaine. Après avoir exécuté le test de base, vous pouvez tester d’autres aspects de la fonctionnalité DNS, y compris l’inscription des enregistrements de ressources et la mise à jour dynamique.
 
-Bien que vous puissiez exécuter ce test de la fonctionnalité DNS de base sur n’importe quel contrôleur de domaine, vous exécutez généralement ce test sur les contrôleurs de domaine que vous pensez rencontrer comme des problèmes de réplication, par exemple les contrôleurs de domaine qui signalent les ID d’événement 1844, 1925, 2087 ou 2088 dans le journal DNS du service observateur d’événements Directory.
+Bien que vous puissiez exécuter ce test de la fonctionnalité DNS de base sur n’importe quel contrôleur de domaine, vous exécutez généralement ce test sur les contrôleurs de domaine que vous pensez rencontrer comme des problèmes de réplication, par exemple les contrôleurs de domaine qui signalent les ID d’événement 1844, 1925, 2087 ou 2088 dans le journal DNS du service d’annuaire observateur d’événements.
 
 
 
@@ -48,8 +43,8 @@ Vous pouvez utiliser la procédure suivante pour vérifier la fonctionnalité DN
 
 
 1. Sur le contrôleur de domaine que vous souhaitez tester ou sur un ordinateur membre du domaine sur lequel des outils de Active Directory Domain Services (AD DS) sont installés, ouvrez une invite de commandes en tant qu’administrateur. Pour ouvrir une invite de commandes en tant qu'administrateur, cliquez sur **Démarrer**. 
-2. Dans Démarrer la recherche, tapez invite de commandes. 
-3. En haut du menu Démarrer, cliquez avec le bouton droit sur invite de commandes, puis cliquez sur Exécuter en tant qu’administrateur. Si la boîte de dialogue Contrôle de compte d'utilisateur s'affiche, vérifiez que l'action affichée est celle que vous souhaitez, puis cliquez sur Continuer.
+2. Dans Rechercher, tapez Invite de commandes. 
+3. En haut du menu Démarrer, cliquez avec le bouton droit sur Invite de commandes, puis cliquez sur Exécuter en tant qu’administrateur. Si la boîte de dialogue Contrôle de compte d’utilisateur apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur Continuer.
 4. À l’invite de commandes, tapez la commande suivante, puis appuyez sur entrée : `dcdiag /test:dns /v /s:<DCName> /DnsBasic /f:dcdiagreport.txt`
 </br></br>Remplacez le nom unique réel, le nom NetBIOS ou le nom DNS du contrôleur de domaine pour &lt;DCName&gt;. Vous pouvez également tester tous les contrôleurs de domaine dans la forêt en tapant/e : au lieu de/s :. Le commutateur/f spécifie un nom de fichier, qui, dans la commande précédente, est dcdiagreport. txt. Si vous souhaitez placer le fichier dans un autre emplacement que le répertoire de travail actuel, vous pouvez spécifier un chemin d’accès de fichier, tel que/f : c :reportsdcdiagreport.txt.
 
@@ -63,15 +58,15 @@ Pour valider les modifications de configuration, réexécutez la commande Dcdiag
             
 ## <a name="verifying-resource-record-registration"></a>Vérification de l’inscription des enregistrements de ressources
     
-Le contrôleur de domaine de destination utilise l’enregistrement de ressource d’alias DNS (CNAMe) pour localiser son partenaire de réplication de contrôleur de domaine source. Bien que les contrôleurs de domaine exécutant Windows Server (à compter de Windows Server 2003 avec Service Pack 1 (SP1)) puissent localiser les partenaires de réplication source à l’aide de noms de domaine complets (FQDN) ou, en cas d’échec, NetBIOS namesthe la présence de l’alias (CNAMe) l’enregistrement de ressource est attendu et doit être vérifié pour un bon fonctionnement du DNS. 
+Le contrôleur de domaine de destination utilise l’enregistrement de ressource d’alias DNS (CNAMe) pour localiser son partenaire de réplication de contrôleur de domaine source. Bien que les contrôleurs de domaine exécutant Windows Server (à partir de Windows Server 2003 avec Service Pack 1 (SP1)) puissent localiser les partenaires de réplication source à l’aide de noms de domaine complets (FQDN) ou, en cas d’échec, la présence de l’enregistrement de ressource alias (CNAMe) est attendue et doit être vérifiée pour le bon fonctionnement du DNS. 
       
 Vous pouvez utiliser la procédure suivante pour vérifier l’inscription des enregistrements de ressources, y compris l’inscription des enregistrements de ressources d’alias (CNAMe).
       
 ### <a name="to-verify-resource-record-registrationtitle"></a>Pour vérifier l’inscription des enregistrements de ressources</title>
 
 
-1. Ouvrez une invite de commandes en tant qu’administrateur. Pour ouvrir une invite de commandes en tant qu’administrateur, cliquez sur Démarrer. Dans Démarrer la recherche, tapez invite de commandes. 
-2. En haut du menu Démarrer, cliquez avec le bouton droit sur invite de commandes, puis cliquez sur Exécuter en tant qu’administrateur. Si la boîte de dialogue Contrôle de compte d'utilisateur s'affiche, vérifiez que l'action affichée est celle que vous souhaitez, puis cliquez sur Continuer.  </br></br>Vous pouvez utiliser l’outil Dcdiag pour vérifier l’inscription de tous les enregistrements de ressources qui sont essentiels pour l’emplacement du contrôleur de domaine en exécutant la commande `dcdiag /test:dns /DnsRecordRegistration`.
+1. Ouvrez une invite de commandes en tant qu’administrateur. Pour ouvrir une invite de commandes en tant qu'administrateur, cliquez sur Démarrer. Dans Rechercher, tapez Invite de commandes. 
+2. En haut du menu Démarrer, cliquez avec le bouton droit sur Invite de commandes, puis cliquez sur Exécuter en tant qu’administrateur. Si la boîte de dialogue Contrôle de compte d’utilisateur apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur Continuer.  </br></br>Vous pouvez utiliser l’outil Dcdiag pour vérifier l’inscription de tous les enregistrements de ressources qui sont essentiels pour l’emplacement du contrôleur de domaine en exécutant la commande `dcdiag /test:dns /DnsRecordRegistration`.
 
 Cette commande vérifie l’inscription des enregistrements de ressources suivants dans DNS :
 
@@ -100,7 +95,7 @@ Si le test DNS de base indique que les enregistrements de ressource n’existent
 ### <a name="to-verify-dynamic-updatetitle"></a>Pour vérifier la mise à jour dynamique</title>
 
 
-1. Ouvrez une invite de commandes en tant qu’administrateur. Pour ouvrir une invite de commandes en tant qu’administrateur, cliquez sur Démarrer. Dans Démarrer la recherche, tapez invite de commandes. En haut du menu Démarrer, cliquez avec le bouton droit sur invite de commandes, puis cliquez sur Exécuter en tant qu’administrateur. Si la boîte de dialogue Contrôle de compte d'utilisateur s'affiche, vérifiez que l'action affichée est celle que vous souhaitez, puis cliquez sur Continuer.
+1. Ouvrez une invite de commandes en tant qu’administrateur. Pour ouvrir une invite de commandes en tant qu'administrateur, cliquez sur Démarrer. Dans Rechercher, tapez Invite de commandes. En haut du menu Démarrer, cliquez avec le bouton droit sur Invite de commandes, puis cliquez sur Exécuter en tant qu’administrateur. Si la boîte de dialogue Contrôle de compte d’utilisateur apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur Continuer.
 2. À l’invite de commandes, tapez la commande suivante, puis appuyez sur entrée : `dcdiag /test:dns /v /s:<DCName> /DnsDynamicUpdate`
    </br></br>Remplacez le nom unique, le nom NetBIOS ou le nom DNS du contrôleur de domaine pour &lt;DCName&gt;. Vous pouvez également tester tous les contrôleurs de domaine dans la forêt en tapant/e : au lieu de/s :. Si IPv6 n’est pas activé sur le contrôleur de domaine, vous devez vous attendre à ce que la partie d’enregistrement de ressource hôte (AAAA) du test échoue, ce qui est une condition normale quand IPv6 n’est pas activé.
 
@@ -122,9 +117,9 @@ Si les enregistrements de ressources DNS n’apparaissent pas dans DNS pour le c
 ### <a name="to-register-dns-resource-records-manuallytitle"></a>Pour inscrire manuellement les enregistrements de ressources DNS</title>
 
 
-1. Ouvrez une invite de commandes en tant qu’administrateur. Pour ouvrir une invite de commandes en tant qu’administrateur, cliquez sur Démarrer. 
-2. Dans Démarrer la recherche, tapez invite de commandes. 
-3. En haut du bouton Démarrer, cliquez avec le bouton droit sur invite de commandes, puis cliquez sur Exécuter en tant qu’administrateur. Si la boîte de dialogue Contrôle de compte d'utilisateur s'affiche, vérifiez que l'action affichée est celle que vous souhaitez, puis cliquez sur Continuer.
+1. Ouvrez une invite de commandes en tant qu’administrateur. Pour ouvrir une invite de commandes en tant qu'administrateur, cliquez sur Démarrer. 
+2. Dans Rechercher, tapez Invite de commandes. 
+3. En haut du bouton Démarrer, cliquez avec le bouton droit sur invite de commandes, puis cliquez sur Exécuter en tant qu’administrateur. Si la boîte de dialogue Contrôle de compte d’utilisateur apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur Continuer.
 4. Pour initialiser manuellement l’inscription des enregistrements de ressource du localisateur de contrôleur de domaine sur le contrôleur de domaine source, à l’invite de commandes, tapez la commande suivante, puis appuyez sur entrée : `net stop netlogon && net start netlogon`
 5. Pour initier manuellement l’inscription de l’enregistrement de ressource hôte (A), à l’invite de commandes, tapez la commande suivante, puis appuyez sur entrée : `ipconfig /flushdns && ipconfig /registerdns`
 6. À l’invite de commandes, tapez la commande suivante, puis appuyez sur entrée : `dcdiag /test:dns /v /s:<DCName>` </br></br>Remplacez le nom unique, le nom NetBIOS ou le nom DNS du contrôleur de domaine pour &lt;DCName&gt;. Examinez la sortie du test pour vous assurer que les tests DNS ont réussi. Si IPv6 n’est pas activé sur le contrôleur de domaine, vous devez vous attendre à ce que la partie d’enregistrement de ressource hôte (AAAA) du test échoue, ce qui est une condition normale quand IPv6 n’est pas activé.

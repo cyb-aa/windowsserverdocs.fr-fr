@@ -1,24 +1,19 @@
 ---
 title: Détails techniques sur la virtualisation de réseau Hyper-V dans Windows Server 2016
 description: Cette rubrique fournit des informations techniques sur la virtualisation de réseau Hyper-V dans Windows Server 2016
-manager: brianlic
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.service: virtual-network
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9efe0231-94c1-4de7-be8e-becc2af84e69
-ms.author: lizross
-author: eross-msft
-ms.openlocfilehash: a8628404de8a1b9caccc7f7f51b063cabb1caf27
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.author: anpaul
+author: AnirbanPaul
+ms.openlocfilehash: 54fb9eba99a4e6dc565111a3f34c8ccceeca2ff4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317203"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859702"
 ---
 # <a name="hyper-v-network-virtualization-technical-details-in-windows-server-2016"></a>Détails techniques sur la virtualisation de réseau Hyper-V dans Windows Server 2016
 
@@ -41,7 +36,7 @@ Il existe deux implémentations de HNV qui seront disponibles dans Windows Serve
 
     HNVv1 est compatible avec Windows Server 2012 R2 et System Center 2012 R2 Virtual Machine Manager (VMM). La configuration de HNVv1 s’appuie sur la gestion WMI et les applets de commande Windows PowerShell (facilitées par le biais de System Center VMM) pour définir les paramètres d’isolation et l’adresse du client (CA)-mappages et routage de réseau virtuel vers adresse physique (PA). Aucune fonctionnalité supplémentaire n’a été ajoutée à HNVv1 dans Windows Server 2016 et aucune nouvelle fonctionnalité n’est planifiée.  
 
-    • SET Teaming et HNV v1 ne sont pas compatibles par la plateforme.
+    *   SET Teaming et HNV v1 ne sont pas compatibles par la plateforme.
 
     o pour utiliser des passerelles NVGRE HA, les utilisateurs doivent utiliser l’équipe LBFO ou aucune équipe. Ou
 

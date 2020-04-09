@@ -1,7 +1,6 @@
 ---
 ms.assetid: ea015cbc-dea9-4c72-a9d8-d6c826d07608
 title: Annexe H-sécurisation des comptes et des groupes d’administrateurs locaux
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 7e0cff62851250009d8af6ec7d87ec8191dcaec0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9c5cb76ff137912893c5bc0322d5b79bee2203fe
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408630"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821462"
 ---
 # <a name="appendix-h-securing-local-administrator-accounts-and-groups"></a>AnnexeH: Sécurisation des groupes et des comptes des administrateurs locaux
 
@@ -32,11 +31,11 @@ Pour le compte d’administrateur local dans chaque domaine de votre forêt, vou
 -   Configurer des objets de stratégie de groupe pour limiter l’utilisation du compte administrateur du domaine sur les systèmes joints à un domaine  
     -   Dans un ou plusieurs objets de stratégie de groupe que vous créez et liez à des unités d’organisation de station de travail et de serveur membre dans chaque domaine, ajoutez le compte d’administrateur aux droits d’utilisateur suivants dans la stratégie d' **autorisation \ paramètres système**\ stratégies d’autorisation :  
 
-        -   Interdire l’accès à cet ordinateur à partir du réseau  
+        -   Refuser l'accès à un ordinateur à partir du réseau  
 
-        -   Interdire l’ouverture de session en tant que tâche  
+        -   Refuser l'ouverture de session en tant que tâche  
 
-        -   Interdire l’ouverture de session en tant que service  
+        -   Refuser l'ouverture de session en tant que service  
 
         -   Interdire l’ouverture de session par les services Bureau à distance  
 

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 68db7f26-d6e3-4e67-859b-80f352e6ab6a
 title: Rôle de la base de données de configuration AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,22 +8,22 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 22047a93ab67d3f21b3e2318fcce497feab8f996
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9ffdd1876e2dfbc044cebb65d7d6ef80880a64b8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385584"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860162"
 ---
 # <a name="the-role-of-the-ad-fs-configuration-database"></a>Rôle de la base de données de configuration AD FS
-La base de données de configuration AD FS stocke toutes les données de configuration qui représentent une seule instance de Services ADFS \(AD FS\) \(, service FS (Federation Service)\). La base de données de configuration AD FS définit l'ensemble des paramètres qui permettent à un service de fédération d'identifier les partenaires, les certificats, les magasins d'attributs, les revendications et différentes données sur ces entités associées. Vous pouvez stocker ces données de configuration dans une base de données Microsoft SQL Server® ou dans la fonctionnalité de\) de la base de données interne Windows \(WID incluse avec Windows Server® 2008, Windows Server 2008 R2 et Windows Server® 2012.  
+La base de données de configuration AD FS stocke toutes les données de configuration qui représentent une seule instance de Services ADFS \(AD FS\) \(, service FS (Federation Service)\). La base de données de configuration AD FS définit l'ensemble des paramètres qui permettent à un service de fédération d'identifier les partenaires, les certificats, les magasins d'attributs, les revendications et différentes données sur ces entités associées. Vous pouvez stocker ces données de configuration dans une base de données Microsoft SQL Server&reg; ou dans la fonctionnalité de\) de la base de données interne Windows \(WID incluse avec Windows Server&reg; 2008, Windows Server 2008 R2 et Windows Server&reg; 2012.  
   
 > [!NOTE]  
 > Tout le contenu de la base de données de configuration AD FS peut être stocké soit dans une instance de la base de données interne Windows, soit dans une instance de la base de données SQL, mais pas dans les deux. Cela signifie que vous ne pouvez pas avoir certains serveurs de fédération utilisant la base de données interne Windows et d'autres une base de données SQL Server pour la même instance de la base de données de configuration AD FS.  
   
 À partir des informations fournies dans cette rubrique et du contenu de la rubrique [Considérations sur la topologie du déploiement d'AD FS](https://technet.microsoft.com/library/gg982489.aspx), vous pouvez avoir une idée des avantages et des inconvénients de la base de données interne Windows et de SQL Server pour stocker la base de données de configuration AD FS et effectuer votre choix en conséquence :  
   
-WID utilise une banque de données relationnelle et n’a pas sa propre interface utilisateur de gestion \(\)de l’interface utilisateur. Au lieu de cela, les administrateurs peuvent modifier le contenu de la base de données de configuration AD FS à l’aide des applets de commande du composant logiciel enfichable de gestion AD FS\-dans, fsconfig. exe ou des applets de commande Windows PowerShell™.  
+WID utilise une banque de données relationnelle et n’a pas sa propre interface utilisateur de gestion \(\)de l’interface utilisateur. Au lieu de cela, les administrateurs peuvent modifier le contenu de la base de données de configuration AD FS à l’aide des applets de commande du composant logiciel enfichable de gestion AD FS\-dans, fsconfig. exe ou des applets de commande Windows PowerShell&trade;.  
   
 ## <a name="using-wid-to-store-the-ad-fs-configuration-database"></a>Utilisation de la base de données interne Windows pour stocker la base de données de configuration AD FS  
 Vous pouvez créer la base de données de configuration AD FS à l’aide de WID en tant que magasin à l’aide de la commande fsconfig. exe\-outil Line ou de l’Assistant Configuration du serveur de fédération AD FS. Quand vous utilisez l'un de ces outils, vous pouvez choisir l'une des options suivantes pour créer votre topologie de serveur de fédération. Chacune de ces options utilise la base de données interne Windows pour le stockage de la base de données de configuration AD FS :  
@@ -48,7 +47,7 @@ Si vous choisissez l'option permettant d'ajouter un serveur de fédération, la 
 Cette section décrit des concepts importants qui expliquent comment la batterie de serveurs de fédération utilisant la base de données interne Windows réplique des données entre un serveur de fédération principal et des serveurs de fédération secondaires. .  
   
 #### <a name="primary-federation-server"></a>Serveur de fédération principal  
-Un serveur de Fédération principal est un ordinateur exécutant Windows Server 2008, Windows Server 2008 R2 ou Windows Server® 2012 qui a été configuré dans le rôle de serveur de Fédération avec l’Assistant Configuration du serveur de fédération AD FS et qui dispose d’une copie en lecture/écriture de la base de données de configuration AD FS. Le serveur de Fédération principal est toujours créé lorsque vous utilisez l’Assistant Configuration du serveur de fédération AD FS et sélectionnez l’option permettant de créer un service FS (Federation Service) et de faire de cet ordinateur le premier serveur de Fédération de la batterie. Tous les autres serveurs de fédération de cette batterie, également appelés serveurs de fédération secondaires, doivent synchroniser les modifications apportées sur le serveur de fédération principal avec une copie de la base de données de configuration AD FS qui est stockée localement.  
+Un serveur de Fédération principal est un ordinateur exécutant Windows Server 2008, Windows Server 2008 R2 ou Windows Server&reg; 2012 qui a été configuré dans le rôle de serveur de Fédération avec l’Assistant Configuration du serveur de fédération AD FS et qui dispose d’une copie en lecture/écriture de la base de données de configuration AD FS. Le serveur de Fédération principal est toujours créé lorsque vous utilisez l’Assistant Configuration du serveur de fédération AD FS et sélectionnez l’option permettant de créer un service FS (Federation Service) et de faire de cet ordinateur le premier serveur de Fédération de la batterie. Tous les autres serveurs de fédération de cette batterie, également appelés serveurs de fédération secondaires, doivent synchroniser les modifications apportées sur le serveur de fédération principal avec une copie de la base de données de configuration AD FS qui est stockée localement.  
   
 #### <a name="secondary-federation-servers"></a>Serveurs de fédération secondaires  
 Les serveurs de Fédération secondaires stockent une copie de la base de données de configuration AD FS à partir du serveur de Fédération principal, mais ces copies sont lues\-uniquement. À intervalles réguliers, les serveurs de fédération secondaires se connectent au serveur de fédération principal de la batterie et l'interrogent pour synchroniser les données si des modifications de données ont eu lieu. Les serveurs de Fédération secondaires existent pour fournir une tolérance de panne pour le serveur de Fédération principal tout en agissant pour charger\-équilibrer les demandes d’accès qui sont effectuées sur différents sites dans votre environnement réseau.  
@@ -79,7 +78,7 @@ Vous pouvez créer la base de données de configuration AD FS à l’aide d’un
   
 -   Il fournit une prise en charge des fonctionnalités de la résolution d’artefacts SAML et de la détection de relecture de jetons de Fédération SAML/WS\-\(décrit ci-dessous\).  
   
-Le terme « serveur de fédération principal » ne s'applique pas quand la base de données de configuration AD FS est stockée dans une instance de base de données SQL, car tous les serveurs de fédération bénéficient du même accès en lecture et écriture à la base de données de configuration AD FS qui utilise la même instance SQL Server en cluster, comme le montre l'illustration suivante.  
+Le terme « serveur de Fédération principal » ne s’applique pas lorsque la base de données de configuration AD FS est stockée dans une instance de base de données SQL, car tous les serveurs de Fédération peuvent également lire et écrire dans la base de données de configuration AD FS qui utilise la même instance de SQL Server en cluster, comme indiqué dans l’illustration suivante.  
   
 ![Rôles de AD FS](media/adfs2_SQL.png)  
   

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 777aab65-c9c7-4dc9-a807-9ab73fac87b8
 title: Configurer AD FS protection par verrouillage extranet
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 02/01/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: bb5958f8205271fe3ab2258ed9812ae03f2a0be0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: defe77972dd66f4de27b38bfad3fb172c1f7bee0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358209"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859912"
 ---
 # <a name="configure-ad-fs-extranet-lockout-protection"></a>Configurer AD FS protection par verrouillage extranet
 
@@ -67,10 +66,10 @@ Examinons d’abord la stratégie de verrouillage AD. Il existe trois paramètre
 
 Jetons un coup d’œil à deux exemples et voyons comment **badPwdCount** change dans le temps en fonction de paramètres et d’États différents. Supposons dans les deux exemples **seuil de verrouillage de compte** = 4 et **ExtranetLockoutThreshold** = 2. La flèche **rouge** représente une tentative de mot de passe incorrecte, la flèche **verte** représente une bonne tentative de mot de passe. Dans l’exemple #1, **ExtranetObservationWindow** &gt; **Réinitialiser le compteur de verrouillage de compte après**. Dans l’exemple #2, **ExtranetObservationWindow** &lt; **Réinitialiser le compteur de verrouillage de compte après**. 
 
-### <a name="example-1"></a>Exemple 1
+### <a name="example-1"></a>Exemple 1
 ![Example1](media/Configure-AD-FS-Extranet-Lockout-Protection/one.png)
 
-### <a name="example-2"></a>Exemple 2
+### <a name="example-2"></a>Exemple 2
 ![Example1](media/Configure-AD-FS-Extranet-Lockout-Protection/two.png)
 
 Comme vous pouvez le voir dans l’exemple ci-dessus, il existe deux conditions lorsque **badPwdCount** sera réinitialisé à 0. L’une d’entre elles est en cas de réussite de l’ouverture de session. L’autre est lorsqu’il est temps de réinitialiser ce compteur, comme défini dans le paramètre **Réinitialiser le compteur de verrouillage du compte après** . Lorsque vous **réinitialisez le compteur de verrouillage de compte après** &lt; **ExtranetObservationWindow**, un compte n’a aucun risque d’être verrouillé par Active Directory. Toutefois, si vous **réinitialisez le compteur de verrouillage de compte après** &gt; **ExtranetObservationWindow**, il est possible qu’un compte soit verrouillé par AD, mais de manière « différée ». L’obtention d’un compte verrouillé par Active Directory peut prendre un certain temps en fonction de votre configuration, étant donné que AD FS n’autorise qu’une seule tentative de mot de passe incorrect au cours de sa fenêtre d’observation jusqu’à ce que **badPwdCount** atteigne le **seuil de verrouillage de compte**.

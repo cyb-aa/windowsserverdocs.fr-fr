@@ -2,20 +2,18 @@
 title: Déployer des appareils graphiques à l’aide de l’affectation discrète des appareils
 description: Découvrez comment utiliser DDA pour déployer des appareils graphiques dans Windows Server
 ms.prod: windows-server
-ms.service: na
 ms.technology: hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 67a01889-fa36-4bc6-841d-363d76df6a66
 ms.date: 08/21/2019
-ms.openlocfilehash: 5466cecf9f11a53dc6e205f36d50d7b27b310ea1
-ms.sourcegitcommit: 81198fbf9e46830b7f77dcd345b02abb71ae0ac2
+ms.openlocfilehash: 07f0ba19aaf998bb7b2fe8cf4ef1ba6cf8cae322
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72923879"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860912"
 ---
 # <a name="deploy-graphics-devices-using-discrete-device-assignment"></a>Déployer des appareils graphiques à l’aide de l’affectation discrète des appareils
 
@@ -87,7 +85,7 @@ La dernière étape consiste à dire à Hyper-V qu’une machine virtuelle doit 
 Add-VMAssignableDevice -LocationPath $locationPath -VMName VMName
 ```
 
-## <a name="whats-next"></a>Étapes suivantes
+## <a name="whats-next"></a>Étape suivante
 Une fois qu’un appareil est correctement monté sur une machine virtuelle, vous pouvez maintenant démarrer cette machine virtuelle et interagir avec l’appareil comme vous le feriez normalement si vous étiez en train d’exécuter sur un système nu.  Cela signifie que vous êtes maintenant en mesure d’installer les pilotes du fournisseur de matériel dans la machine virtuelle et que les applications peuvent voir ce matériel présent.  Vous pouvez le vérifier en ouvrant le gestionnaire de périphériques sur la machine virtuelle invitée et en vérifiant que le matériel s’affiche à présent.
 
 ## <a name="removing-a-device-and-returning-it-to-the-host"></a>Suppression d’un appareil et retour à l’ordinateur hôte
@@ -133,7 +131,7 @@ Dismount-VMHostAssignableDevice -force -LocationPath $locationPath
 Add-VMAssignableDevice -LocationPath $locationPath -VMName $vm
 ```
 
-## <a name="troubleshooting"></a>Dépannage
+## <a name="troubleshooting"></a>Résolution des problèmes
 
 Si vous avez passé un GPU à une machine virtuelle mais que Bureau à distance ou une application ne reconnaît pas le GPU, vérifiez les problèmes courants suivants :
 
@@ -141,4 +139,4 @@ Si vous avez passé un GPU à une machine virtuelle mais que Bureau à distance 
 - Assurez-vous que votre appareil a suffisamment d’espace MMIO alloué au sein de la machine virtuelle. Pour plus d’informations, consultez la section [MMIO Space](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md#mmio-space).
 - Assurez-vous que vous utilisez un GPU que le fournisseur prend en charge dans cette configuration. Par exemple, certains fournisseurs empêchent les cartes de leurs consommateurs de fonctionner lorsqu’ils sont passés à une machine virtuelle.
 - Assurez-vous que l’application en cours d’exécution prend en charge l’exécution à l’intérieur d’une machine virtuelle, et que le GPU et ses pilotes associés sont pris en charge par l’application. Certaines applications ont des listes verte d’unités GPU et d’environnements.
-- Si vous utilisez le rôle d’hôte de session Bureau à distance ou Windows multipoint services sur l’invité, vous devez vous assurer qu’une entrée de stratégie de groupe spécifique est définie pour autoriser l’utilisation du GPU par défaut. À l’aide d’un objet stratégie de groupe appliqué à l’invité (ou à l’éditeur de stratégie de groupe local sur l’invité), accédez à l’élément de stratégie de groupe suivant : **Configuration ordinateur** > **modèles d’administrateur** > **composants Windows** > **Services Bureau à distance** > **Bureau à distance hôte de session** > l' **environnement de session à distance** > **utiliser la carte graphique par défaut matérielle pour toutes les sessions de services Bureau à distance**. Définissez cette valeur sur activé, puis redémarrez la machine virtuelle une fois que la stratégie a été appliquée.
+- Si vous utilisez le rôle d’hôte de session Bureau à distance ou Windows multipoint services sur l’invité, vous devez vous assurer qu’une entrée de stratégie de groupe spécifique est définie pour autoriser l’utilisation du GPU par défaut. À l’aide d’un objet stratégie de groupe appliqué à l’invité (ou à l’éditeur de stratégie de groupe local sur l’invité), accédez à l’élément de stratégie de groupe suivant : configuration de l' **ordinateur** > les **modèles d’administrateur** > les **composants Windows** > services Bureau à distance > Bureau à distance > hôte de **session** > l’environnement de session **à distance** services Bureau à distance **utiliser la carte graphique par défaut du matériel pour toutes les sessions**. **Remote Desktop Services** Définissez cette valeur sur activé, puis redémarrez la machine virtuelle une fois que la stratégie a été appliquée.

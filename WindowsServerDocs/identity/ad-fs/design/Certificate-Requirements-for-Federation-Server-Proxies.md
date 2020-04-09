@@ -1,7 +1,6 @@
 ---
 ms.assetid: dc24adb7-385d-4a92-ab81-78ba73df0118
 title: Certificats requis pour les serveurs proxy de fédération
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: dab77c3e3226e89eb3ac9b74e7db9b6df8f181bf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cc32288d01d7e1386f146716f45f0e49ced3d48e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408148"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858122"
 ---
 # <a name="certificate-requirements-for-federation-server-proxies"></a>Certificats requis pour les serveurs proxy de fédération
 
@@ -22,7 +21,7 @@ Les serveurs qui s’exécutent dans le rôle de serveur proxy de Fédération d
   
 Les serveurs proxys de Fédération sont généralement exposés à des ordinateurs sur Internet qui ne sont pas inclus dans votre infrastructure de clé publique d’entreprise \(PKI\). Par conséquent, utilisez un certificat d’authentification serveur émis par un \(public tiers\-tiers\) autorité de certification \(\)autorité de certification, par exemple, VeriSign.  
   
-Lorsque vous avez une batterie de serveurs proxy de Fédération, tous les ordinateurs proxy du serveur de Fédération doivent utiliser le même certificat d’authentification serveur. Pour plus d'informations, voir [Quand créer une batterie de serveurs proxy de fédération](When-to-Create-a-Federation-Server-Proxy-Farm.md).  
+Lorsque vous avez une batterie de serveurs proxy de Fédération, tous les ordinateurs proxy du serveur de Fédération doivent utiliser le même certificat d’authentification serveur. Pour plus d'informations, voir [When to Create a Federation Server Proxy Farm](When-to-Create-a-Federation-Server-Proxy-Farm.md).  
   
 Il est important de vérifier que le nom d’objet dans le certificat d’authentification serveur correspond à la valeur de nom d’service FS (Federation Service) spécifiée dans le\-AD FS de gestion de la gestion des. Pour rechercher cette valeur, ouvrez le\-d’alignement dans,\-cliquez avec le bouton droit sur **service**, cliquez sur **modifier les propriétés du service FS (Federation Service)** , puis recherchez la valeur dans la zone de texte nom de la **service FS (Federation Service)** .  
   

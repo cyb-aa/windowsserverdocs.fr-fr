@@ -1,7 +1,6 @@
 ---
 title: Comprendre et voir la resynchronisation du stockage
 description: Informations détaillées sur le moment où se produit la resynchronisation du stockage et son affichage dans Windows Server 2019.
-keywords: Espaces de stockage direct, resynchronisation du stockage, resynchronisation, stockage, S2D
 ms.prod: windows-server
 ms.author: adagashe
 ms.technology: storage-spaces
@@ -9,12 +8,12 @@ ms.topic: article
 author: adagashe
 ms.date: 01/14/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: d271d92a14278e52a6020c60f96f48b1c8b35871
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 1209a3e08922a380ef46d3be6d28ce489b748f22
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465303"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820932"
 ---
 # <a name="understand-and-monitor-storage-resync"></a>Comprendre et contrôler la resynchronisation du stockage
 

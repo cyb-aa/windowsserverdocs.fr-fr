@@ -1,6 +1,5 @@
 ---
 title: Récupération de la forêt Active Directory-nettoyage
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: c4e800f380cf75022c03e21b91f3b6f71cf79708
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 205c71930c14ef42596b0e08c27abae6646e4ddf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369243"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824152"
 ---
 # <a name="ad-forest-recovery---cleanup"></a>Récupération de la forêt Active Directory-nettoyage
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
  Effectuez les étapes suivantes de la récupération après récupération en fonction des besoins :  
   

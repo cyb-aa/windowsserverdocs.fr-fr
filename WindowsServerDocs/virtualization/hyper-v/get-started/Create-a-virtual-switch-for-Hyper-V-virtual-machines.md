@@ -2,25 +2,23 @@
 title: Créer un commutateur virtuel pour les machines virtuelles Hyper-V
 description: Fournit des instructions sur la création d’un commutateur virtuel à l’aide du Gestionnaire Hyper-V ou de Windows PowerShell.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: fdc8063c-47ce-4448-b445-d7ff9894dc17
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: f1a814060e763545411b5c4345367638a5161ac2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e27d1286945671d3f44fe2fa3220a2e223ad7c4f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392924"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860842"
 ---
 # <a name="create-a-virtual-switch-for-hyper-v-virtual-machines"></a>Créer un commutateur virtuel pour les machines virtuelles Hyper-V
 
->S'applique à : Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
+>S’applique à : Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
   
 Un commutateur virtuel permet aux ordinateurs virtuels créés sur des hôtes Hyper-V de communiquer avec d’autres ordinateurs. Vous pouvez créer un commutateur virtuel lorsque vous installez pour la première fois le rôle Hyper-V sur Windows Server. Pour créer des commutateurs virtuels supplémentaires, utilisez le Gestionnaire Hyper-V ou Windows PowerShell. Pour en savoir plus sur les commutateurs virtuels, consultez [commutateur virtuel Hyper-V](../../hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md).  
   
@@ -53,7 +51,7 @@ La mise en réseau des machines virtuelles peut être un sujet complexe. Et il e
     |Nom du paramètre|Description|  
     |----------------|---------------|  
     |Autoriser le système d’exploitation de gestion à partager cette carte réseau|Sélectionnez cette option si vous souhaitez autoriser l’hôte Hyper-V à partager l’utilisation du commutateur virtuel et de la carte réseau ou de l’Association de cartes réseau avec l’ordinateur virtuel. Lorsque cette option est activée, l’ordinateur hôte peut utiliser l’un des paramètres que vous configurez pour le commutateur virtuel, tels que les paramètres de qualité de service (QoS), les paramètres de sécurité ou d’autres fonctionnalités du commutateur virtuel Hyper-V.|  
-    |Activer la virtualisation d’e/s d’une racine unique (SR-IOV)|Sélectionnez cette option uniquement si vous souhaitez autoriser le trafic des ordinateurs virtuels à contourner le commutateur d’ordinateur virtuel et à accéder directement à la carte réseau physique. Pour plus d’informations, consultez [virtualisation d’e/s d’une racine unique](https://technet.microsoft.com/library/dn641211.aspx#Sec4) dans le Guide de référence de l’affiche : Mise en réseau Hyper-V.|  
+    |Activer la virtualisation d’E/S d’une racine unique (SR-IOV)|Sélectionnez cette option uniquement si vous souhaitez autoriser le trafic des ordinateurs virtuels à contourner le commutateur d’ordinateur virtuel et à accéder directement à la carte réseau physique. Pour plus d’informations, consultez [virtualisation d’e/s d’une racine unique](https://technet.microsoft.com/library/dn641211.aspx#Sec4) dans le Guide de référence de l’affiche : mise en réseau Hyper-V.|  
   
 7.  Si vous souhaitez isoler le trafic réseau du système d’exploitation de l’hôte Hyper-V de gestion ou d’autres ordinateurs virtuels qui partagent le même commutateur virtuel, sélectionnez **activer l’identification du réseau local virtuel pour le système d’exploitation de gestion**. Vous pouvez remplacer l’ID de réseau local virtuel par n’importe quel nombre ou conserver la valeur par défaut. Il s’agit du numéro d’identification du réseau local virtuel qui sera utilisé par le système d’exploitation de gestion pour toutes les communications réseau via ce commutateur virtuel.  
   

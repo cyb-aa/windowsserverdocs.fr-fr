@@ -1,24 +1,20 @@
 ---
 title: mfmedia WinSAT
-description: Commandes Windows
-ms.custom: na
+description: Commandes Windows pour WinSAT mfmedia, qui mesure les performances du décodage vidéo (lecture) à l’aide de l’infrastructure Media Foundation.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 09a3b3dd-f746-4e6e-b684-76a9bde0c78d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3684d4b23ba6d34febe226f54b8b2ab2204f610c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ed3759c741b6f168bc67e8aef3e0b817595cfe4e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361898"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829062"
 ---
 # <a name="winsat-mfmedia"></a>mfmedia WinSAT
 
@@ -34,7 +30,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 winsat mfmedia <parameters>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètres|Description|
 |----------|-----------|
@@ -48,11 +44,11 @@ winsat mfmedia <parameters>
 |-nom de fichier \<XML >|Enregistre la sortie de l’évaluation en tant que fichier XML spécifié. Si le fichier spécifié existe, il est remplacé.|
 |-idiskinfo|Enregistrer les informations sur les volumes physiques et les disques logiques dans le cadre de la section **\<SystemConfig >** dans la sortie XML.|
 |-iguid|Créez un identificateur global unique (GUID) dans le fichier de sortie XML.|
-|-Remarque : « texte de la note »|Ajoutez le texte de note à la section **\<note >** dans le fichier de sortie XML.|
+|-Remarque : texte|Ajoutez le texte de note à la section **\<note >** dans le fichier de sortie XML.|
 |-icn|Incluez le nom de l’ordinateur local dans le fichier de sortie XML.|
 |-EEF|Énumérer les informations système supplémentaires dans le fichier de sortie XML.|
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 - L’exemple suivant exécute l’évaluation avec le fichier d’entrée utilisé pendant une évaluation **formelle WinSAT** , sans utiliser Media Foundation le pipeline MFPMP protégé, sur un ordinateur où c:\Windows est l’emplacement du dossier Windows.  
   ```
@@ -64,5 +60,5 @@ winsat mfmedia <parameters>
 -   L’appartenance au groupe Administrateurs local, ou équivalent, est la condition minimale requise pour utiliser **WinSAT**. La commande doit être exécutée à partir d’une fenêtre d’invite de commandes avec élévation de privilèges.
 -   Pour ouvrir une fenêtre d’invite de commandes avec élévation de privilèges, cliquez sur **Démarrer**, sur **accessoires**, cliquez avec le bouton droit sur **invite de commandes**, puis cliquez sur **exécuter en tant qu’administrateur**.
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 

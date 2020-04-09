@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7d230527-f4fe-4572-8838-0b354ee0b06b
 title: Ajouter une description de revendication
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ff50ac8d41a5bbde282b1d5b93c85610f841b5ab
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9c5293dc6070c9483054ce1dd827a20ec377573b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407789"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859712"
 ---
 # <a name="add-a-claim-description"></a>Ajouter une description de revendication
 
@@ -25,14 +24,14 @@ Dans une organisation partenaire de ressource, les administrateurs créent des r
 
 Vous pouvez utiliser la procédure suivante pour ajouter une revendication.
 
-Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).
+Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs** ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).
 
 ## <a name="to-add-a-claim-description"></a>Pour ajouter une description de revendication
 
 1. Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**. 
 
 2. Développez **service** , puis cliquez avec le bouton droit sur **Ajouter une description de revendication**.
-   ![Ajouter une description de revendication](media/Add-a-Claim-Description/claimdesc1.png)
+   ![ajouter une description de revendication](media/Add-a-Claim-Description/claimdesc1.png)
 
 3. Dans la boîte de dialogue Ajouter une description de revendication, dans **nom complet**, tapez un nom unique qui identifie le groupe ou le rôle de cette revendication.
 

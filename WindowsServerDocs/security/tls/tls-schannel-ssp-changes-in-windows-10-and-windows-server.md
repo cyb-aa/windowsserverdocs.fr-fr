@@ -1,6 +1,5 @@
 ---
 title: TLS (SSP Schannel)
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: ebd3c40c-b4c0-4f6d-a00c-f90eda4691df
@@ -8,16 +7,16 @@ manager: alanth
 author: justinha
 ms.technology: security-authentication
 ms.date: 05/16/2018
-ms.openlocfilehash: e103e985592e6aed150ccd3e1a87e56f19621dbe
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3547c77e8c58bcbb219a7b017c3186f198007805
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403383"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820162"
 ---
 # <a name="tls-schannel-ssp-changes-in-windows-10-and-windows-server-2016"></a>Modifications du protocole TLS (SSP Schannel) dans Windows 10 et Windows Server 2016
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016 et Windows 10
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016 et Windows 10
 
 ## <a name="cipher-suite-changes"></a>Modifications de la suite de chiffrement
 
@@ -54,9 +53,9 @@ Windows 10, version 1507 et Windows Server 2016 ajoutent des options de configur
 
 Pour plus d’informations, consultez [tailles de clé KeyExchangeAlgorithm-Diffie-Hellman](tls-registry-settings.md#keyexchangealgorithm---diffie-hellman-key-sizes).
 
-### <a name="sch_use_strong_crypto-option-changes"></a>Modifications de l’option SCH_USE_STRONG_CRYPTO
+### <a name="sch_use_strong_crypto-option-changes"></a>Modification des options de SCH_USE_STRONG_CRYPTO
 
-Avec Windows 10, version 1507 et Windows Server 2016, l’option [SCH_USE_STRONG_CRYPTO](https://msdn.microsoft.com/library/windows/desktop/aa379810.aspx) désactive désormais les chiffrements null, MD5, des et d’exportation.
+Avec Windows 10, version 1507 et Windows Server 2016, [SCH_USE_STRONG_CRYPTO](https://msdn.microsoft.com/library/windows/desktop/aa379810.aspx) option désactive désormais les chiffrements null, MD5, des et d’exportation.
 
 ## <a name="elliptical-curve-changes"></a>Modifications de la courbe elliptique
 
@@ -81,7 +80,7 @@ Windows 10, version 1607 et Windows Server 2016 prennent en charge DTLS 1,2 (RFC
 
 Windows 10, version 1607 et Windows Server 2016 ajoutent la configuration du registre de la taille du pool de threads utilisé pour gérer les négociations TLS pour HTTP. Table.
 
-Chemin du Registre : 
+Chemin d’accès au Registre : 
 
 HKLM\SYSTEM\CurrentControlSet\Control\LSA
 
@@ -110,9 +109,9 @@ Windows 10, version 1507 et Windows Server 2016 offrent 30% de reprises de sessi
 
 ## <a name="session-hash-and-extended-master-secret-extension"></a>Hachage de session et extension de secret principal étendue
 
-Windows 10, version 1507 et Windows Server 2016 ajoutent la prise en charge de RFC 7627 : Hachage de session TLS (Transport Layer Security) et extension de secret principal étendue.
+Windows 10, version 1507 et Windows Server 2016 ajoutent la prise en charge de RFC 7627 : hachage de session TLS (Transport Layer Security) et extension de secret principal étendue.
 
-En raison de cette modification, Windows 10 et Windows Server 2016 nécessitent des mises à jour tierces du [fournisseur de chiffrement CNG](https://msdn.microsoft.com/library/windows/desktop/ff468652.aspx) pour prendre en charge NCRYPT_SSL_INTERFACE_VERSION_3 et décrire cette nouvelle interface.
+En raison de cette modification, Windows 10 et Windows Server 2016 requièrent des mises à jour tierces du [fournisseur de chiffrement CNG](https://msdn.microsoft.com/library/windows/desktop/ff468652.aspx) pour prendre en charge NCRYPT_SSL_INTERFACE_VERSION_3 et pour décrire cette nouvelle interface.
 
 
 ## <a name="ssl-support"></a>Prise en charge SSL
@@ -123,11 +122,11 @@ En raison de cette modification, Windows 10 et Windows Server 2016 nécessitent 
 
 ## <a name="changes-to-windows-tls-adherence-to-tls-12-requirements-for-connections-with-non-compliant-tls-clients"></a>Modifications apportées à l’adhérence Windows TLS à la configuration TLS 1,2 pour les connexions avec des clients TLS non conformes
 
-Dans TLS 1,2, le client utilise l' [extension « signature_algorithms »](https://tools.ietf.org/html/rfc5246#section-7.4.1.4.1) pour indiquer au serveur les paires d’algorithmes de signature/hachage qui peuvent être utilisées dans les signatures numériques (c.-à-d., les certificats de serveur et l’échange de clés serveur). Le RFC 1,2 de TLS requiert également que le message de certificat de serveur respecte l’extension « signature_algorithms » :
+Dans TLS 1,2, le client utilise l' [extension « signature_algorithms »](https://tools.ietf.org/html/rfc5246#section-7.4.1.4.1) pour indiquer au serveur quelles paires d’algorithmes de signature/hachage peuvent être utilisées dans les signatures numériques (c.-à-d., les certificats de serveur et l’échange de clés serveur). Le RFC 1,2 de TLS requiert également que le message de certificat de serveur respecte l’extension « signature_algorithms » :
 
 « Si le client a fourni une extension «signature_algorithms », tous les certificats fournis par le serveur doivent être signés par une paire algorithme de hachage/signature qui apparaît dans cette extension.»
 
-En pratique, certains clients TLS tiers ne sont pas conformes à la norme TLS 1,2 et ne parviennent pas à inclure toutes les paires d’algorithmes de signature et d’algorithme de hachage qu’ils sont prêtes à accepter dans l’extension « signature_algorithms », ou à omettre complètement l’extension (cette dernière indique à serveur sur lequel le client ne prend en charge que SHA1 avec RSA, DSA ou ECDSA).
+En pratique, certains clients TLS tiers ne sont pas conformes à la norme TLS 1,2 et ne parviennent pas à inclure toutes les paires d’algorithmes de signature et d’algorithme de hachage qu’ils sont prêtes à accepter dans l’extension « signature_algorithms », ou à omettre complètement l’extension (cette dernière indique au serveur que le client ne prend en charge que SHA1 avec RSA, DSA ou ECDSA).
 
 Un serveur TLS n’a souvent qu’un seul certificat configuré par point de terminaison, ce qui signifie que le serveur ne peut pas toujours fournir un certificat qui répond aux exigences du client.
 

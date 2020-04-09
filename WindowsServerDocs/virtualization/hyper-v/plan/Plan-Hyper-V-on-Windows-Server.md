@@ -2,21 +2,19 @@
 title: Planifier Hyper-V sur Windows Server 2016
 description: Fournit des liens vers des articles sur les considérations relatives à la planification d’Hyper-V
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fba1e964-3ac3-4852-83dc-eb20752765fd
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 08/21/2019
-ms.openlocfilehash: 4f4dc3168db8a644069ccbe30cccf7b843bc3390
-ms.sourcegitcommit: 81198fbf9e46830b7f77dcd345b02abb71ae0ac2
+ms.openlocfilehash: 580904b31f7860dabce832d2c228c73aebde35fb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72923819"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820642"
 ---
 # <a name="plan-for-hyper-v-on-windows-server"></a>Planifier Hyper-V sur Windows Server
 

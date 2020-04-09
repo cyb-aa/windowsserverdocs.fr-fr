@@ -1,6 +1,5 @@
 ---
 title: Rôle du langage de règle de revendication
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,15 +8,15 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: dda9d148-d72f-4bff-aa2a-f2249fa47e4c
 ms.technology: identity-adfs
-ms.openlocfilehash: ff4c43bb8dc5582716638f0a3f6e4f6a8022aece
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 742e0ce781225303c623461439f8d4460fec97c9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407372"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860102"
 ---
 # <a name="the-role-of-the-claim-rule-language"></a>Rôle du langage de règle de revendication
-Le langage de règle de revendication Services ADFS (AD FS) agit en tant que bloc de construction administratif pour le comportement des revendications entrantes et sortantes, tandis que le moteur de revendications agit en tant que moteur de traitement pour la logique du langage de règle de revendication qui définit la règle personnalisée. Pour plus d’informations sur la façon dont toutes les règles sont traitées par le moteur de revendications, consultez [le rôle du moteur de revendications](The-Role-of-the-Claims-Engine.md).  
+Le langage de règle de revendication Services ADFS (AD FS) agit en tant que bloc de construction administratif pour le comportement des revendications entrantes et sortantes, tandis que le moteur de revendications joue le rôle de moteur de traitement pour la logique du langage de règle de revendication qui définit la règle personnalisée. Pour plus d’informations sur la façon dont toutes les règles sont traitées par le moteur de revendications, consultez [le rôle du moteur de revendications](The-Role-of-the-Claims-Engine.md).  
 
 ## <a name="creating-custom-claim-rules-using-the-claim-rule-language"></a>Création de règles de revendication personnalisées à l’aide du langage de règle de revendication  
 AD FS offre aux administrateurs la possibilité de définir des règles personnalisées qu’ils peuvent utiliser pour déterminer le comportement des revendications d’identité avec le langage de règle de revendication. Vous pouvez utiliser les exemples de syntaxe du langage de règle de revendication de cette rubrique pour créer une règle personnalisée qui énumère, ajoute, supprime et modifie les revendications afin de satisfaire aux besoins de votre organisation. Vous pouvez créer des règles personnalisées en saisissant la syntaxe du langage de règle de revendication dans le modèle de règle **Envoyer des revendications à l’aide d’une revendication personnalisée**.  
@@ -75,7 +74,7 @@ Le tableau suivant fournit un exemple de conditions à plusieurs expressions.
 
 |                                                                                                                   Description de la condition                                                                                                                    |                                        Exemple de syntaxe d’une condition                                        |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| Cette règle contient une condition pour vérifier des deux revendications, chacun avec un type de revendication spécifié d’entrée («<http://test/name>«  et  »<http://test/email>»). Si les deux revendications correspondantes sont présentes dans les revendications d’entrée, la règle copie le nom de la revendication vers le jeu des revendications de sortie. | ``` c1: [type  == "http://test/name"] && c2: [type == "http://test/email"] => issue (claim  = c1 );``` |
+| Cette règle a une condition pour vérifier deux revendications d’entrée, chacune avec un type de revendication spécifié («<http://test/name>» et «<http://test/email>»). Si les deux revendications correspondantes sont présentes dans les revendications d’entrée, la règle copie le nom de la revendication vers le jeu des revendications de sortie. | ``` c1: [type  == "http://test/name"] && c2: [type == "http://test/email"] => issue (claim  = c1 );``` |
 
 #### <a name="regular--condition-examples"></a>Exemples de condition normale  
 Le tableau suivant fournit un exemple de condition standard basée sur une expression.  

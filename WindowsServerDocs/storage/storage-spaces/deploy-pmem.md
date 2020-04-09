@@ -1,7 +1,6 @@
 ---
 title: Comprendre et déployer la mémoire persistante
 description: Informations détaillées sur la mémoire persistante et la configuration des espaces de stockage direct dans Windows Server 2019.
-keywords: Espaces de stockage direct, mémoire persistante, PMEM, stockage, S2D
 ms.prod: windows-server
 ms.author: adagashe
 ms.technology: storage-spaces
@@ -9,12 +8,12 @@ ms.topic: article
 author: adagashe
 ms.date: 1/27/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: a9070d2e2ab73c7882f4b2ef585ccb01986695bb
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 43268986f0ef42aabc218062ac19f1d98f27be6d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822312"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861032"
 ---
 # <a name="understand-and-deploy-persistent-memory"></a>Comprendre et déployer la mémoire persistante
 
@@ -22,7 +21,7 @@ ms.locfileid: "76822312"
 
 La mémoire persistante (ou PMem) est un nouveau type de technologie de mémoire qui offre une combinaison unique de grande capacité et persistance abordable. Cet article fournit des informations générales sur PMem et les étapes à suivre pour le déployer dans Windows Server 2019 à l’aide de espaces de stockage direct.
 
-## <a name="background"></a>Contexte
+## <a name="background"></a>Arrière-plan
 
 PMem est un type de RAM non volatile (NVDIMM) qui conserve son contenu par le biais de cycles de gestion de l’alimentation. Le contenu de la mémoire reste même en cas de panne de courant, en cas de perte d’alimentation inattendue, d’arrêt de l’utilisateur, de panne du système, etc. Cette caractéristique unique signifie que vous pouvez également utiliser PMem comme stockage. C’est la raison pour laquelle vous pouvez entendre que les gens font référence à PMem en tant que « mémoire de classe de stockage ».
 
@@ -38,11 +37,11 @@ Tout système de stockage qui fournit la tolérance de panne effectue nécessair
 
 Si vous regardez la vidéo de près, vous remarquerez que ce qui est encore plus la suppression de la mâchoire est la latence. Même avec plus de 13,7 M e/s par seconde, le système de fichiers dans Windows signale une latence qui est constamment inférieure à 40 μs ! (Il s’agit du symbole pour les microsecondes, du 1 au millionième de seconde.) Cette vitesse est un ordre de grandeur plus rapide que celui des fournisseurs habituels de tous les fournisseurs de Flash.
 
-Ensemble, espaces de stockage direct dans Windows Server 2019 et Intel® Optane™ la mémoire persistante DC offre des performances exceptionnelles. Ce point de référence HCI de plus en plus de 13.7 M IOPS, accompagné d’une latence prévisible et extrêmement faible, est plus que doubler notre premier point de référence du secteur de 6,7 millions d’e/s par seconde. De plus, cette fois, nous avons besoin de 12 nœuds de serveur&mdash;25% moins de deux ans auparavant.
+Ensemble, espaces de stockage direct dans Windows Server 2019 et Intel&reg; Optane&trade; la mémoire persistante DC offre des performances exceptionnelles. Ce point de référence HCI de plus en plus de 13.7 M IOPS, accompagné d’une latence prévisible et extrêmement faible, est plus que doubler notre premier point de référence du secteur de 6,7 millions d’e/s par seconde. De plus, cette fois, nous avons besoin de 12 nœuds de serveur&mdash;25% moins de deux ans auparavant.
 
 ![Gains d’e/s par seconde](media/deploy-pmem/iops-gains.png)
 
-Le matériel de test était un cluster à 12 serveurs qui a été configuré pour utiliser des volumes ReFS de mise en miroir triple et délimités. **12** x Intel® S2600WFT, **384 Gio** de mémoire, 2 x 28-cœurs « CASCADELAKE », **1,5 to** Intel® Optane™ DC persistent Memory comme cache, **32 to** NVME (4 x 8 to Intel® DC P4510) as, **2** x Mellanox ConnectX-4 25 Gbits/s.
+Le matériel de test était un cluster à 12 serveurs qui a été configuré pour utiliser des volumes ReFS de mise en miroir triple et délimités. **12** x Intel&reg; S2600WFT, **384 Gio** de mémoire, 2 x 28-cœurs « CASCADELAKE », **1,5 to** Intel&reg; Optane&trade; DC persistent Memory comme cache, **32 to** NVME (4 x 8 to Intel&reg; DC P4510) as, **2** x Mellanox ConnectX-4 25 Gbits/s.
 
 Le tableau suivant présente les nombres de performances complets.  
 
@@ -58,15 +57,15 @@ Le tableau suivant indique le matériel de mémoire persistante pris en charge p
 
 | Technologie de mémoire persistante                                      | Windows Server 2016 | Windows Server 2019 |
 |-------------------------------------------------------------------|--------------------------|--------------------------|
-| **NVDIMM-N** en mode persistant                                  | Pris en charge                | Pris en charge                |
-| **Mémoire persistante Intel Optane™ DC** en mode direct de l’application             | Pas de prise en charge            | Pris en charge                |
-| **Mémoire persistante Intel Optane™ DC** en mode mémoire | Pris en charge            | Pris en charge                |
+| **NVDIMM-N** en mode persistant                                  | Prise en charge                | Prise en charge                |
+| **Mémoire persistante Intel Optane&trade; DC** en mode direct de l’application             | Non prise en charge            | Prise en charge                |
+| **Mémoire persistante Intel Optane&trade; DC** en mode mémoire | Prise en charge            | Prise en charge                |
 
 > [!NOTE]  
 > Intel Optane prend en charge les modes *mémoire* (volatile) et *application directe* (persistante).
    
 > [!NOTE]  
-> Lorsque vous redémarrez un système qui contient plusieurs modules Intel® Optane™ PMem en mode direct de l’application qui sont divisés en plusieurs espaces de noms, vous risquez de perdre l’accès à certains ou à tous les disques de stockage logiques associés. Ce problème se produit sur les versions de Windows Server 2019 antérieures à la version 1903.
+> Lorsque vous redémarrez un système qui contient plusieurs modules Intel&reg; Optane&trade; PMem en mode direct de l’application qui sont divisés en plusieurs espaces de noms, vous risquez de perdre l’accès à certains ou à tous les disques de stockage logiques associés. Ce problème se produit sur les versions de Windows Server 2019 antérieures à la version 1903.
 >   
 > Cette perte d’accès se produit parce qu’un module PMem n’est pas formé ou échoue au démarrage du système. Dans ce cas, tous les espaces de noms de stockage sur n’importe quel module PMem du système échouent, y compris les espaces de noms qui ne sont pas physiquement mappés au module défaillant.
 >   
@@ -159,7 +158,7 @@ Espaces de stockage direct sur Windows Server 2019 prend en charge l’utilisati
 
 ### <a name="understanding-dax"></a>Fonctionnement de DAX
 
-Il existe deux méthodes pour accéder à la mémoire persistante. Ils sont les suivants :
+Il existe deux méthodes pour accéder à la mémoire persistante. À savoir :
 
 1. **Direct Access (DAX)** , qui fonctionne comme la mémoire pour bénéficier de la latence la plus faible. L’application modifie directement la mémoire persistante, en ignorant la pile. Notez que vous pouvez uniquement utiliser DAX en association avec NTFS.
 1. **Bloquer l’accès**, qui fonctionne comme le stockage pour la compatibilité des applications. Dans ce configuration, les données circulent dans la pile. Vous pouvez utiliser cette configuration en combinaison avec NTFS et ReFS.
@@ -310,7 +309,7 @@ Initializing the physical persistent memory device. This may take a few moments.
 > [!IMPORTANT]  
 > **Initialize-PmemPhysicalDevice provoque une** perte de données dans la mémoire persistante. Utilisez-le en dernier recours pour résoudre les problèmes persistants liés à la mémoire.
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
 - [Présentation de espaces de stockage direct](storage-spaces-direct-overview.md)
 - [Gestion de l’intégrité de la mémoire de classe stockage (NVDIMM-N) dans Windows](storage-class-memory-health.md)

@@ -2,22 +2,18 @@
 title: Déployer un serveur DirectAccess unique avec des paramètres avancés
 description: Cette rubrique fait partie du guide déployer un serveur DirectAccess unique avec des paramètres avancés pour Windows Server 2016
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b211a9ca-1208-4e1f-a0fe-26a610936c30
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 4e6c8379f225dbeefd7c97ac96b9a0047dfd4a0b
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 7f6a6724a2ab7bb6da48a11d31fb04461912e388
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309217"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859522"
 ---
 # <a name="deploy-a-single-directaccess-server-with-advanced-settings"></a>Déployer un serveur DirectAccess unique avec des paramètres avancés
 
@@ -85,8 +81,8 @@ Le tableau suivant répertorie les fonctionnalités et rôles requis pour ce sc�
   
 |Rôle/fonctionnalité|Prise en charge de ce scénario|  
 |---------|-----------------|  
-|Rôle Accès à distance|Le rôle est installé et désinstallé à l’aide de la console du Gestionnaire de serveur ou de Windows PowerShell. Ce rôle englobe à la fois DirectAccess et le service de routage et d'accès à distance (RRAS). Le rôle Accès à distance est constitué de deux composants :<br/><br/>1. VPN DirectAccess et RRAS. DirectAccess et VPN sont gérés ensemble dans la console de gestion de l’accès à distance.<br/>2. routage RRAS. Les fonctionnalités de routage RRAS sont gérées dans la console de routage et d’accès distant héritée.<br /><br />Le rôle Serveur d'accès à distance dépend des rôles/fonctionnalités de serveur suivants :<br/><br/> -Serveur Web Internet Information Services (IIS) : cette fonctionnalité est requise pour configurer le serveur emplacement réseau sur le serveur DirectAccess, ainsi que la sonde Web par défaut.<br/> -Base de données interne Windows. Utilisé pour la gestion de comptes locale sur le serveur DirectAccess.|  
-|Fonctionnalité des outils de gestion de l’accès à distance|Cette fonctionnalité est installée comme suit :<br /><br />-Elle est installée par défaut sur un serveur DirectAccess lorsque le rôle accès à distance est installé et prend en charge l’interface utilisateur de la console de gestion à distance et les applets de commande Windows PowerShell.<br />-Il peut éventuellement être installé sur un serveur qui n’exécute pas le rôle serveur DirectAccess. Dans ce cas, elle est utilisée pour la gestion à distance d’un ordinateur d’accès à distance qui exécute DirectAccess et le réseau privé virtuel (VPN).<br /><br />La fonctionnalité des outils de gestion de l’accès à distance est constituée des éléments suivants :<br /><br />-Interface utilisateur graphique (GUI) d’accès à distance<br />-Module d’accès à distance pour Windows PowerShell<br /><br />Les dépendances incluent :<br /><br />-Console de gestion des stratégies de groupe<br />-Kit d’administration du gestionnaire des connexions (CMAK) RAS<br />-Windows PowerShell 3,0<br />-Outils et infrastructure de gestion graphique|  
+|Rôle Accès à distance|Le rôle est installé et désinstallé à l’aide de la console du Gestionnaire de serveur ou de Windows PowerShell. Ce rôle englobe à la fois DirectAccess et le service de routage et d'accès à distance (RRAS). Le rôle Accès à distance est constitué de deux composants :<br/><br/>1. VPN DirectAccess et RRAS. DirectAccess et VPN sont gérés ensemble dans la console de gestion de l’accès à distance.<br/>2. routage RRAS. Les fonctionnalités de routage RRAS sont gérées dans la console de routage et d’accès distant héritée.<p>Le rôle Serveur d'accès à distance dépend des rôles/fonctionnalités de serveur suivants :<br/><br/> -Serveur Web Internet Information Services (IIS) : cette fonctionnalité est requise pour configurer le serveur emplacement réseau sur le serveur DirectAccess, ainsi que la sonde Web par défaut.<br/> -Base de données interne Windows. Utilisé pour la gestion de comptes locale sur le serveur DirectAccess.|  
+|Fonctionnalité des outils de gestion de l’accès à distance|Cette fonctionnalité est installée comme suit :<p>-Elle est installée par défaut sur un serveur DirectAccess lorsque le rôle accès à distance est installé et prend en charge l’interface utilisateur de la console de gestion à distance et les applets de commande Windows PowerShell.<br />-Il peut éventuellement être installé sur un serveur qui n’exécute pas le rôle serveur DirectAccess. Dans ce cas, elle est utilisée pour la gestion à distance d’un ordinateur d’accès à distance qui exécute DirectAccess et le réseau privé virtuel (VPN).<p>La fonctionnalité des outils de gestion de l’accès à distance est constituée des éléments suivants :<p>-Interface utilisateur graphique (GUI) d’accès à distance<br />-Module d’accès à distance pour Windows PowerShell<p>Les dépendances incluent :<p>-Console de gestion des stratégies de groupe<br />-Kit d’administration du gestionnaire des connexions (CMAK) RAS<br />-Windows PowerShell 3,0<br />-Outils et infrastructure de gestion graphique|  
   
 ## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Configuration matérielle requise  
 La configuration matérielle requise pour ce scénario comprend les éléments suivants :  
@@ -148,9 +144,9 @@ Le tableau suivant fournit des liens vers des ressources supplémentaires.
   
 |Type de contenu|Références|  
 |--------|-------|  
-|**Déploiement**|[Chemins de déploiement de DirectAccess dans Windows Server](../../../remote-access/directaccess/DirectAccess-Deployment-Paths-in-Windows-Server.md)<br /><br />[Déployer un serveur DirectAccess unique à l’aide de l’Assistant Prise en main](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)|  
+|**Déploiement**|[Chemins de déploiement de DirectAccess dans Windows Server](../../../remote-access/directaccess/DirectAccess-Deployment-Paths-in-Windows-Server.md)<p>[Déployer un serveur DirectAccess unique à l’aide de l’Assistant Prise en main](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)|  
 |**Outils et paramètres**|[Applets de commande PowerShell pour l’accès à distance](https://technet.microsoft.com/library/hh918399.aspx)|  
-|**Ressources de la communauté**|[Guide de survie DirectAccess](https://social.technet.microsoft.com/wiki/contents/articles/23210.directaccess-survival-guide.aspx)<br /><br />[Entrées wiki DirectAccess](https://go.microsoft.com/fwlink/?LinkId=236871)|  
+|**Ressources de la communauté**|[Guide de survie DirectAccess](https://social.technet.microsoft.com/wiki/contents/articles/23210.directaccess-survival-guide.aspx)<p>[Entrées wiki DirectAccess](https://go.microsoft.com/fwlink/?LinkId=236871)|  
 |**Technologies connexes**|[Fonctionnement d’IPv6](https://technet.microsoft.com/library/cc781672(v=WS.10).aspx)|  
   
 

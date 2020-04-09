@@ -5,15 +5,14 @@ manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
 ms.topic: article
-ms.assetid: ''
 author: cosmosdarwin
 ms.date: 08/14/2017
-ms.openlocfilehash: 519f0321f36fb7afc86962950aeab729d7a38adb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a4ef08a4ca552211b64d11677153775d6b18b4fa
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361101"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827622"
 ---
 # <a name="health-service-actions"></a>Actions Service de contrôle d’intégrité
 

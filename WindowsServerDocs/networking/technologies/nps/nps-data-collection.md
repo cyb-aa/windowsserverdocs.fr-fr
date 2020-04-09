@@ -9,14 +9,13 @@ ms.custom: it-pro
 ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
-ms.assetid: ''
 ms.date: 05/01/2018
-ms.openlocfilehash: d393ad4af81ee1c24fa5f28b8a3b05217e7b34dd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: def65c174ff608301f8d4f35ef1ce19818103e61
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396291"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859372"
 ---
 # <a name="network-policy-server-user-data-collection"></a>Collecte des données utilisateur du serveur de stratégie réseau
 
@@ -27,7 +26,7 @@ Ce document explique comment rechercher des informations utilisateur collectées
 
 ## <a name="information-collected-by-nps"></a>Informations collectées par le serveur NPS
 
-- Timestamp
+- Horodateur
 - Horodateur de l’événement
 - Nom d'utilisateur
 - Nom d’utilisateur complet
@@ -41,10 +40,10 @@ Ce document explique comment rechercher des informations utilisateur collectées
 
 Si les données de gestion sont activées et configurées, les enregistrements des tentatives d’authentification NPS d’un utilisateur peuvent être obtenus à partir de SQL Server ou des fichiers journaux en fonction de la configuration. 
 
-Si les données de gestion des comptes sont configurées pour SQL Server, recherchez tous les enregistrements où User_Name = `'<username>'`.
+Si les données de gestion des comptes sont configurées pour SQL Server, recherchez tous les enregistrements dans lesquels User_Name = `'<username>'`.
 
-Si les données de gestion des comptes sont configurées pour un fichier journal, recherchez toutes `<username>` les entrées de journal dans le fichier journal.
+Si les données de gestion des comptes sont configurées pour un fichier journal, recherchez dans le fichier journal le `<username>` pour rechercher toutes les entrées de journal.
 
 Les entrées du journal des événements des services de stratégie et d’accès réseau sont considérées comme dupliquées dans les données de comptabilité et n’ont pas besoin d’être collectées.
 
-Si les données de gestion ne sont pas activées, les enregistrements des tentatives d’authentification NPS d’un utilisateur peuvent être obtenus à partir du journal des événements des services `<username>`de stratégie et d’accès réseau en recherchant le.
+Si les données de gestion ne sont pas activées, les enregistrements des tentatives d’authentification NPS d’un utilisateur peuvent être obtenus à partir du journal des événements des services de stratégie et d’accès réseau en recherchant la `<username>`.

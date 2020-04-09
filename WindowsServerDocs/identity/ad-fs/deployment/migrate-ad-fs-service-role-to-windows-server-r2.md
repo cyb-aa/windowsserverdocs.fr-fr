@@ -8,12 +8,12 @@ ms.date: 07/10/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2a3cf6cd523f5cfd69785104fed7aa3938d79525
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6c2f9c8079eb2dfaf208c8835940351a925d0a16
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359389"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857502"
 ---
 # <a name="migrate-active-directory-federation-services-role-services-to-windows-server-2012-r2"></a>Migrer les services de rôle des services de fédération Active Directory (AD FS) vers Windows Server 2012 R2
  Ce document fournit des instructions pour migrer les services de rôle suivants vers Services ADFS (AD FS) qui est installé avec Windows Server 2012 R2 :  
@@ -59,8 +59,8 @@ ms.locfileid: "71359389"
   
 |De|Pour AD FS installé avec Windows Server 2012 R2|  
 |----------|----------------------------------------------------------------------------------------------|  
-|AD FS serveur de Fédération 2,0 installé sur Windows Server 2008 ou Windows Server 2008 R2|La migration sur le même serveur est prise en charge. Pour plus d’informations, consultez :<br /><br /> [Préparation de la migration du serveur de fédération AD FS](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [Migration du serveur de fédération AD FS](migrate-ad-fs-fed-server-r2.md)|  
-|AD FS serveur de Fédération installé sur Windows Server 2012|La migration sur le même serveur est prise en charge.  Pour plus d’informations, voir :<br /><br /> [Préparation de la migration du serveur de fédération AD FS](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [Migration du serveur de fédération AD FS](migrate-ad-fs-fed-server-r2.md)|  
+|AD FS serveur de Fédération 2,0 installé sur Windows Server 2008 ou Windows Server 2008 R2|La migration sur le même serveur est prise en charge. Pour plus d’informations, consultez :<p> [Préparation de la migration du serveur de fédération AD FS](prepare-migrate-ad-fs-server-r2.md)<p> [Migration du serveur de fédération AD FS](migrate-ad-fs-fed-server-r2.md)|  
+|AD FS serveur de Fédération installé sur Windows Server 2012|La migration sur le même serveur est prise en charge.  Pour plus d'informations, consultez :<p> [Préparation de la migration du serveur de fédération AD FS](prepare-migrate-ad-fs-server-r2.md)<p> [Migration du serveur de fédération AD FS](migrate-ad-fs-fed-server-r2.md)|  
   
 ## <a name="next-steps"></a>Étapes suivantes
  [Préparation de la migration du serveur de fédération AD FS](prepare-migrate-ad-fs-server-r2.md)   

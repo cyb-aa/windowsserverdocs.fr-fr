@@ -9,15 +9,15 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: fe274ad9a6dffc72607102d3430ba7527d3cc558
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0b819f15e473738996484283bceac439f482a13d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376853"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844152"
 ---
 # <a name="fsutil-reparsepoint"></a>Fsutil reparsepoint
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
 
 Interroge ou supprime des points d’analyse.  La commande **fsutil reparsepoint** est généralement utilisée par les professionnels du support technique.
 
@@ -30,12 +30,12 @@ fsutil reparsepoint [query] <FileName>
 fsutil reparsepoint [delete] <FileName>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 | Paramètre  |                                                                Description                                                                |
 |------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-|   requête    |            Récupère les données du point d’analyse associées au fichier ou au répertoire identifié par le handle spécifié.             |
-|   supprimer   | Supprime un point d’analyse du fichier ou du répertoire identifié par le handle spécifié, mais ne supprime pas le fichier ou le répertoire. |
+|   query    |            Récupère les données du point d’analyse associées au fichier ou au répertoire identifié par le handle spécifié.             |
+|   delete   | Supprime un point d’analyse du fichier ou du répertoire identifié par le handle spécifié, mais ne supprime pas le fichier ou le répertoire. |
 | <FileName> |             Spécifie le chemin d’accès complet au fichier, y compris le nom de fichier et l’extension, par exemple C:\documents\filename.txt.             |
 
 ## <a name="remarks"></a>Notes
@@ -46,7 +46,7 @@ fsutil reparsepoint [delete] <FileName>
 
 -   Lorsqu’un programme définit un point d’analyse, il stocke ces données, ainsi qu’une balise d’analyse, qui identifie de façon unique les données qu’il stocke. Lorsque le système de fichiers ouvre un fichier avec un point d’analyse, il tente de trouver le filtre du système de fichiers associé. Si le filtre de système de fichiers est trouvé, le filtre traite le fichier comme indiqué par les données d’analyse. Si aucun filtre de système de fichiers n’est trouvé, l’opération d’ouverture de fichier échoue.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_examples"></a>Illustre
 Pour récupérer les données du point d’analyse associées à C:\Server, tapez :
 
 ```
@@ -59,8 +59,8 @@ Pour supprimer un point d’analyse d’un fichier ou d’un répertoire spécif
 fsutil reparsepoint delete c:\server
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
-[Clé de syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
+## <a name="additional-references"></a>Références supplémentaires
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)
 

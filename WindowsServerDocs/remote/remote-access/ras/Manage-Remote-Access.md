@@ -2,22 +2,18 @@
 title: Gérer l’accès à distance
 description: Cette rubrique fournit des informations sur la gestion de l’accès à distance dans Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1459819a-b1b6-4800-8770-4a85d02c7a2b
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 6437a7aa5a535352ad4f6c6be8fbac2162b6feea
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 19798c5fb29d3b8aea68b29e5a42775970eeca46
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308430"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857447"
 ---
 # <a name="manage-remote-access"></a>Gérer l’accès à distance
 
@@ -86,8 +82,8 @@ Le tableau suivant répertorie les fonctionnalités et rôles requis pour ce sc�
   
 |Rôle ou fonctionnalité|Prise en charge de ce scénario|  
 |----------|-----------------|  
-|*Rôle accès à distance*|Ce rôle est installé et désinstallé à l’aide de la console du Gestionnaire de serveur ou de Windows PowerShell. Ce rôle englobe DirectAccess, qui était auparavant une fonctionnalité de Windows Server 2008 R2, et les Services de routage et d'accès à distance, qui étaient auparavant un service de rôle sous le rôle serveur Services de stratégie et d'accès réseau. Le rôle Accès à distance est constitué de deux composants :<br /><br />1. DirectAccess et les services de routage et d’accès à distance (RRAS) VPN : DirectAccess et VPN sont gérés dans la console de gestion de l’accès à distance.<br />2. RRAS : les fonctionnalités sont gérées dans la console Routage et accès distant.<br /><br />Le rôle de serveur Accès à distance dépend des fonctionnalités suivantes :<br /><br />-Serveur Web (IIS) : requis pour configurer le serveur emplacement réseau et la sonde Web par défaut.<br />-Base de données interne Windows : utilisée pour la comptabilité locale sur le serveur d’accès à distance.|  
-|Fonctionnalité des outils de gestion de l’accès à distance|Cette fonctionnalité est installée comme suit :<br /><br />-Par défaut, sur un serveur d’accès à distance lorsque le rôle accès à distance est installé et prend en charge l’interface utilisateur de la console de gestion à distance.<br />-En tant qu’option sur un serveur qui n’exécute pas le rôle serveur accès à distance. Dans ce cas, elle est utilisée pour la gestion à distance d’un serveur d’accès à distance.<br /><br />Cette fonctionnalité est constituée des éléments suivants :<br /><br />-Interface utilisateur graphique d’accès à distance et outils en ligne de commande<br />-Module d’accès à distance pour Windows PowerShell<br /><br />Les dépendances incluent :<br /><br />-Console de gestion des stratégies de groupe<br />-Kit d’administration du gestionnaire des connexions (CMAK) RAS<br />-Windows PowerShell 3,0<br />-Outils et infrastructure de gestion graphique|  
+|*Rôle accès à distance*|Ce rôle est installé et désinstallé à l’aide de la console du Gestionnaire de serveur ou de Windows PowerShell. Ce rôle englobe DirectAccess, qui était auparavant une fonctionnalité de Windows Server 2008 R2, et les Services de routage et d'accès à distance, qui étaient auparavant un service de rôle sous le rôle serveur Services de stratégie et d'accès réseau. Le rôle Accès à distance est constitué de deux composants :<p>1. DirectAccess et les services de routage et d’accès à distance (RRAS) VPN : DirectAccess et VPN sont gérés dans la console de gestion de l’accès à distance.<br />2. RRAS : les fonctionnalités sont gérées dans la console Routage et accès distant.<p>Le rôle de serveur Accès à distance dépend des fonctionnalités suivantes :<p>-Serveur Web (IIS) : requis pour configurer le serveur emplacement réseau et la sonde Web par défaut.<br />-Base de données interne Windows : utilisée pour la comptabilité locale sur le serveur d’accès à distance.|  
+|Fonctionnalité des outils de gestion de l’accès à distance|Cette fonctionnalité est installée comme suit :<p>-Par défaut, sur un serveur d’accès à distance lorsque le rôle accès à distance est installé et prend en charge l’interface utilisateur de la console de gestion à distance.<br />-En tant qu’option sur un serveur qui n’exécute pas le rôle serveur accès à distance. Dans ce cas, elle est utilisée pour la gestion à distance d’un serveur d’accès à distance.<p>Cette fonctionnalité est constituée des éléments suivants :<p>-Interface utilisateur graphique d’accès à distance et outils en ligne de commande<br />-Module d’accès à distance pour Windows PowerShell<p>Les dépendances incluent :<p>-Console de gestion des stratégies de groupe<br />-Kit d’administration du gestionnaire des connexions (CMAK) RAS<br />-Windows PowerShell 3,0<br />-Outils et infrastructure de gestion graphique|  
   
 ## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Configuration matérielle requise  
 La configuration matérielle requise pour ce scénario comprend les éléments suivants :  

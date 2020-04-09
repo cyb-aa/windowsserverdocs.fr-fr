@@ -1,18 +1,18 @@
 ---
 title: Présentation de la structure protégée et des machines virtuelles dotées d’une protection maximale
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: ace6eb30ae6df2dc29aacc05eb7852e03145df4f
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: edcf2e011b701904fb8c1b27d4f9b7d13415b2a8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79321991"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856902"
 ---
 # <a name="guarded-fabric-and-shielded-vms-overview"></a>Vue d’ensemble de la structure protégée et des machines virtuelles dotées d’une protection maximale
 
@@ -89,9 +89,9 @@ L’illustration suivante montre le fichier de données de protection et les él
 
 Les structures protégées sont capables d’exécuter des machines virtuelles de trois façons différentes :
 
-1.  Une machine virtuelle normale n’offrant aucune protection au-delà des versions précédentes d’Hyper-V
-2.  Une machine virtuelle prise en charge par le chiffrement dont les protections peuvent être configurées par un administrateur de structure
-3.  Une machine virtuelle dotée d’une protection maximale dont les protections sont toutes activées et qui ne peuvent pas être désactivées par un administrateur de structure
+1.    Une machine virtuelle normale n’offrant aucune protection au-delà des versions précédentes d’Hyper-V
+2.    Une machine virtuelle prise en charge par le chiffrement dont les protections peuvent être configurées par un administrateur de structure
+3.    Une machine virtuelle dotée d’une protection maximale dont les protections sont toutes activées et qui ne peuvent pas être désactivées par un administrateur de structure
 
 Les machines virtuelles prises en charge par le chiffrement sont conçues pour être utilisées quand les administrateurs de structure sont entièrement fiables.  Par exemple, une entreprise peut déployer une structure protégée afin de s’assurer que les disques de machines virtuelles sont chiffrés au repos par souci de conformité. Les administrateurs de structure peuvent continuer à utiliser des fonctionnalités de gestion pratiques, telles que les connexions à la console de la machine virtuelle, PowerShell Direct et d’autres outils de gestion et de dépannage courants.
 

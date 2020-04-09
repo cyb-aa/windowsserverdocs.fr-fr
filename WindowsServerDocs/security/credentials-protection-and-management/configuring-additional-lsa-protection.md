@@ -1,24 +1,20 @@
 ---
 title: Configuration d’une protection LSA supplémentaire
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-credential-protection
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 038e7c2b-c032-491f-8727-6f3f01116ef9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 40e489089fc0c15c3e6ebf7b654377f4d6f7e482
-ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
+ms.openlocfilehash: 1c923cfe39892ba105c437cf73843c2f6d07e49b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74829630"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857072"
 ---
 # <a name="configuring-additional-lsa-protection"></a>Configuration d’une protection LSA supplémentaire
 
@@ -64,7 +60,7 @@ Vous ne pouvez pas attacher un débogueur à LSASS lorsqu’il s’agit d’un p
 En général, il n’existe aucune méthode prise en charge pour déboguer un processus protégé en cours d’exécution.
 
 ## <a name="how-to-identify-lsa-plug-ins-and-drivers-that-fail-to-run-as-a-protected-process"></a>Comment identifier les plug-ins et pilotes LSA dont l’exécution en tant que processus protégé échoue
-Les événements décrits dans cette section figurent dans le journal des opérations sous Journaux des applications et des services\Microsoft\Windows\CodeIntegrity. Ils peuvent vous aider à identifier les plug-ins et pilotes LSA dont le chargement échoue pour des raisons de signature. Pour gérer ces événements, vous pouvez utiliser l’outil en ligne de commande **wevtutil** . Pour plus d’informations sur cet outil, voir [Wevtutil](../../administration/windows-commands/Wevtutil.md).
+Les événements décrits dans cette section figurent dans le journal des opérations sous Journaux des applications et des services\Microsoft\Windows\CodeIntegrity. Ils peuvent vous aider à identifier les plug-ins et pilotes LSA dont le chargement échoue pour des raisons de signature. Pour gérer ces événements, vous pouvez utiliser l'outil en ligne de commande **wevtutil**. Pour plus d'informations sur cet outil, voir [Wevtutil](../../administration/windows-commands/Wevtutil.md).
 
 ### <a name="before-opting-in-how-to-identify-plug-ins-and-drivers-loaded-by-the-lsassexe"></a>Avant de vous inscrire : comment identifier les plug-ins et pilotes chargés par lsass.exe
 Vous pouvez utiliser le mode audit pour identifier les plug-ins et pilotes LSA dont le chargement échouera en mode de protection LSA. En mode audit, le système génère des journaux des événements qui identifient tous les plug-ins et pilotes qui ne pourront pas être chargés sous LSA si la protection LSA est activée. Les messages sont consignés sans bloquer les plug-ins ni pilotes.
@@ -73,9 +69,9 @@ Vous pouvez utiliser le mode audit pour identifier les plug-ins et pilotes LSA d
 
 1.  Ouvrez l'Éditeur du Registre (RegEdit.exe) et accédez à la clé de Registre qui se trouve à l'emplacement suivant : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LSASS.exe.
 
-2.  Définissez **AuditLevel=dword:00000008** comme valeur de la clé de Registre.
+2.  Affectez la valeur **AuditLevel=dword:00000008** à la clé de Registre.
 
-3.  Redémarrez l’ordinateur.
+3.  Redémarrez l'ordinateur.
 
 Analysez les résultats de l’événement 3065 et de l’événement 3066.
 
@@ -94,32 +90,32 @@ Pour activer le mode audit pour plusieurs ordinateurs d’un domaine, vous pouve
 
 ##### <a name="to-create-the-auditlevel-value-setting-in-a-gpo"></a>Pour créer le paramètre de valeur AuditLevel dans un objet de stratégie de groupe
 
-1.  Ouvrez la Console de gestion des stratégies de groupe (GPMC, Group Policy Management Console).
+1.  Ouvrez la Console de gestion des stratégies de groupe.
 
 2.  Créez un objet de stratégie de groupe qui est lié au niveau du domaine ou qui est lié à l’unité d’organisation qui contient vos comptes d’ordinateurs. Vous pouvez également sélectionner un objet de stratégie de groupe qui est déjà déployé.
 
-3.  Cliquez avec le bouton droit sur l’objet de stratégie de groupe, puis cliquez sur **Modifier** pour ouvrir l’Éditeur de gestion des stratégies de groupe.
+3.  Cliquez avec le bouton droit sur l'objet de stratégie de groupe, puis cliquez sur **Modifier** pour ouvrir l'Éditeur de gestion des stratégies de groupe.
 
 4.  Développez **Configuration ordinateur**, **Préférences**, puis **Paramètres Windows**.
 
-5.  Cliquez avec le bouton droit sur **Registre**, pointez sur **Nouveau**, puis cliquez sur **Élément Registre**. La boîte de dialogue **Nouvelles propriétés de Registre** s’affiche.
+5.  Cliquez avec le bouton droit sur **Registre**, pointez sur **Nouveau**, puis cliquez sur **Élément Registre**. La boîte de dialogue **Nouvelles propriétés de Registre** s'affiche.
 
 6.  Dans la liste **Ruche** , cliquez sur **HKEY_LOCAL_MACHINE.**
 
 7.  Dans la liste **Chemin d'accès à la clé**, recherchez **SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LSASS.exe**.
 
-8.  Dans la zone **Nom de la valeur** , tapez **AuditLevel**.
+8.  Dans la zone **Nom de la valeur**, tapez **AuditLevel**.
 
-9. Dans la zone **Type de la valeur** , cliquez pour sélectionner **REG_DWORD**.
+9. Dans la zone **Type de la valeur**, cliquez pour sélectionner **REG_DWORD**.
 
-10. Dans la zone **Données de la valeur** , tapez **00000008**.
+10. Dans la zone **Données de la valeur**, tapez **00000008**.
 
-11. Cliquez sur **OK**.
+11. Cliquez sur **OK**.
 
 > [!NOTE]
 > Pour que l’objet de stratégie de groupe entre en vigueur, la modification qui lui est apportée doit être répliquée vers tous les contrôleurs du domaine.
 
-Pour vous inscrire pour une protection LSA supplémentaire sur plusieurs ordinateurs, vous pouvez utiliser l’extension de Registre côté client pour la stratégie de groupe en modifiant HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa. Pour connaître la procédure à suivre, consultez [Comment configurer une protection LSA supplémentaire des informations d’identification](#BKMK_HowToConfigure) dans cette rubrique.
+Pour vous inscrire pour une protection LSA supplémentaire sur plusieurs ordinateurs, vous pouvez utiliser l’extension de Registre côté client pour la stratégie de groupe en modifiant HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa. Pour connaître la procédure à suivre pour cela, voir [Comment configurer une protection LSA supplémentaire des informations d'identification](#BKMK_HowToConfigure) dans cette rubrique.
 
 ### <a name="after-opting-in-how-to-identify-plug-ins-and-drivers-loaded-by-the-lsassexe"></a>Après vous être inscrit : comment identifier les plug-ins et pilotes chargés par lsass.exe
 Vous pouvez utiliser le journal des événements pour identifier les plug-ins et pilotes LSA dont le chargement a échoué en mode de protection LSA. Lorsque le processus protégé LSA est activé, le système génère des journaux des événements qui identifient tous les plug-ins et pilotes qui n’ont pas pu être chargés sous LSA.
@@ -134,7 +130,7 @@ Après cela, vous pouvez voir ces événements dans observateur d’événements
 
 Les sections partagées sont généralement le résultat de techniques de programmation qui permettent aux données d’instance d’interagir avec d’autres processus qui utilisent le même contexte de sécurité. Il peut en résulter des failles de sécurité.
 
-## <a name="BKMK_HowToConfigure"></a>Comment configurer une protection LSA supplémentaire des informations d’identification
+## <a name="how-to-configure-additional-lsa-protection-of-credentials"></a><a name="BKMK_HowToConfigure"></a>Comment configurer une protection LSA supplémentaire des informations d’identification
 Sur les appareils exécutant Windows 8.1 (avec ou sans démarrage sécurisé ou UEFI), la configuration est possible en effectuant les procédures décrites dans cette section. Pour les appareils exécutant Windows RT 8,1, la protection lsass. exe est toujours activée et ne peut pas être désactivée.
 
 ### <a name="on-x86-based-or-x64-based-devices-using-secure-boot-and-uefi-or-not"></a>Sur les appareils x86 ou x64 avec ou sans démarrage sécurisé et UEFI
@@ -150,19 +146,19 @@ Vous pouvez utiliser les procédures suivantes pour activer ou désactiver la pr
 
 2.  Affectez la valeur suivante à la clé de Registre : "RunAsPPL"=dword:00000001.
 
-3.  Redémarrez l’ordinateur.
+3.  Redémarrez l'ordinateur.
 
 ##### <a name="to-enable-lsa-protection-using-group-policy"></a>Pour activer la protection LSA à l’aide d’une stratégie de groupe
 
-1.  Ouvrez la Console de gestion des stratégies de groupe (GPMC, Group Policy Management Console).
+1.  Ouvrez la Console de gestion des stratégies de groupe.
 
 2.  Créez un objet de stratégie de groupe qui est lié au niveau du domaine ou qui est lié à l’unité d’organisation qui contient vos comptes d’ordinateurs. Vous pouvez également sélectionner un objet de stratégie de groupe qui est déjà déployé.
 
-3.  Cliquez avec le bouton droit sur l’objet de stratégie de groupe, puis cliquez sur **Modifier** pour ouvrir l’Éditeur de gestion des stratégies de groupe.
+3.  Cliquez avec le bouton droit sur l'objet de stratégie de groupe, puis cliquez sur **Modifier** pour ouvrir l'Éditeur de gestion des stratégies de groupe.
 
 4.  Développez **Configuration ordinateur**, **Préférences**, puis **Paramètres Windows**.
 
-5.  Cliquez avec le bouton droit sur **Registre**, pointez sur **Nouveau**, puis cliquez sur **Élément Registre**. La boîte de dialogue **Nouvelles propriétés de Registre** s’affiche.
+5.  Cliquez avec le bouton droit sur **Registre**, pointez sur **Nouveau**, puis cliquez sur **Élément Registre**. La boîte de dialogue **Nouvelles propriétés de Registre** s'affiche.
 
 6.  Dans la liste **Ruche**, cliquez sur **HKEY_LOCAL_MACHINE**.
 
@@ -170,11 +166,11 @@ Vous pouvez utiliser les procédures suivantes pour activer ou désactiver la pr
 
 8.  Dans la zone **Nom de la valeur**, tapez **RunAsPPL**.
 
-9. Dans la zone **Type de la valeur** , cliquez sur **REG_DWORD**.
+9. Dans la zone **Type de la valeur**, cliquez sur **REG_DWORD**.
 
-10. Dans la zone **Données de la valeur** , tapez **00000001**.
+10. Dans la zone **Données de la valeur**, tapez **00000001**.
 
-11. Cliquez sur **OK**.
+11. Cliquez sur **OK**.
 
 ##### <a name="to-disable-lsa-protection"></a>Pour désactiver la protection LSA
 
@@ -192,7 +188,7 @@ Vous pouvez utiliser les procédures suivantes pour activer ou désactiver la pr
     > Lorsque le démarrage sécurisé est désactivé, toutes les configurations liées au démarrage sécurisé et à UEFI sont réinitialisées. Vous ne devez désactiver le démarrage sécurisé que lorsque tous les autres moyens de désactivation de la protection LSA ont échoué.
 
 ### <a name="verifying-lsa-protection"></a>Vérification de la protection LSA
-Pour déterminer si LSA a démarré en mode protégé au démarrage de Windows, recherchez l’événement WinInit suivant dans le journal **Système** sous **Journaux Windows** :
+Pour déterminer si LSA a démarré en mode protégé au démarrage de Windows, recherchez l'événement WinInit suivant dans le journal **Système** sous **Journaux Windows** :
 
 -   12 : LSASS.exe a démarré en tant que processus protégé avec le niveau : 4
 

@@ -2,18 +2,17 @@
 title: Désactiver la mise en cache côté client DNS sur les clients DNS
 description: Cet article explique comment désactiver la mise en cache côté client DNS sur les clients DNS.
 manager: dcscontentpm
-ms.prod: ''
 ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: 51a9dbfd05402a9d018aec3bfea8a5c89e9e5d5e
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 09af41a544cacb0fd0977847b7bc2e6b0d8a59f7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265841"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860072"
 ---
 # <a name="disable-dns-client-side-caching-on-dns-clients"></a>Désactiver la mise en cache côté client DNS sur les clients DNS
 
@@ -52,7 +51,7 @@ Cette commande affiche le contenu du cache de résolution DNS, y compris les enr
 ## <a name="using-the-registry-to-control-the-caching-time"></a>Utilisation du Registre pour contrôler la durée de mise en cache
 
 > [!IMPORTANT]  
-> Suivez attentivement les étapes décrites dans cette section. De graves problèmes peuvent se produire si vous modifiez le registre de façon incorrecte. Avant de le modifier, [sauvegardez le Registre afin de pouvoir le restaurer](https://support.microsoft.com/help/322756) en cas de problème.
+> Suivez attentivement les étapes décrites dans cette section. En effet, toute erreur de modification peut être à l'origine de problèmes graves. Avant de le modifier, [sauvegardez le Registre afin de pouvoir le restaurer](https://support.microsoft.com/help/322756) en cas de problème.
 
 La durée pendant laquelle une réponse positive ou négative est mise en cache dépend des valeurs des entrées de la clé de Registre suivante :
 

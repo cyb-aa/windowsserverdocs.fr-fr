@@ -1,24 +1,20 @@
 ---
 title: Kerberos Authentication Overview
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-kerberos
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 646c6309-e865-4be2-b415-44dd125af5c2
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 33712dc8502035bd9e47e1d2bdd4583eb8347dec
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6b5ec9bfa5c17a9ee9a5ad15af183d25bd533d7e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386306"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856322"
 ---
 # <a name="kerberos-authentication-overview"></a>Kerberos Authentication Overview
 
@@ -26,12 +22,12 @@ ms.locfileid: "71386306"
 
 Kerberos est un protocole d’authentification utilisé pour vérifier l’identité d’un utilisateur ou d’un hôte. Cette rubrique contient des informations sur l’authentification Kerberos dans Windows Server 2012 et Windows 8.
 
-## <a name="BKMK_OVER"></a>Description de la fonctionnalité
+## <a name="feature-description"></a><a name="BKMK_OVER"></a>Description de la fonctionnalité
 Les systèmes d’exploitation Windows Server implémentent le protocole d’authentification Kerberos version 5 et des extensions pour l’authentification des clés publiques, les données d’autorisation de transport et la délégation. Le client d’authentification Kerberos est implémenté en tant que fournisseur de support de sécurité \(SSP\), et il est accessible via l’interface du fournisseur de support de sécurité \(\)SSPI. L’authentification utilisateur initiale est intégrée à l’authentification unique Winlogon\-sur l’architecture.
 
 Le\) Kerberos centre de distribution de clés \(KDC est intégré à d’autres services de sécurité Windows Server qui s’exécutent sur le contrôleur de domaine. Le KDC utilise la base de données de Active Directory Domain Services du domaine comme base de données du compte de sécurité. Les services de domaine Active Directory (AD DS) sont requis pour les implémentations Kerberos par défaut au sein du domaine ou de la forêt.
 
-## <a name="kerb_tr_Kerb_Benefits"></a>Applications pratiques
+## <a name="practical-applications"></a><a name="kerb_tr_Kerb_Benefits"></a>Applications pratiques
 Les avantages obtenus à l’aide de Kerberos pour l’authentification basée sur le\-de domaine sont les suivants :
 
 -   **Authentification déléguée.**

@@ -1,19 +1,18 @@
 ---
 title: Historique des performances pour les serveurs
 ms.author: cosdar
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 02/05/2018
-Keywords: Espaces de stockage directs
 ms.localizationpriority: medium
-ms.openlocfilehash: bbfc92f7926b93f5f6716514e64672f4aa304c0f
-ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
+ms.openlocfilehash: cf4bdabb132c832370e5dffec215c24b54aebdd7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74945249"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856192"
 ---
 # <a name="performance-history-for-servers"></a>Historique des performances pour les serveurs
 
@@ -73,7 +72,7 @@ Si Hyper-V n’est pas activé :
 | Série                           | Compteur source |
 |----------------------------------|----------------|
 | `clusternode.cpu.usage`          | `Processor` > `_Total` > `% Processor Time` |
-| `clusternode.cpu.usage.guest`    | *zero* |
+| `clusternode.cpu.usage.guest`    | *nuls* |
 | `clusternode.cpu.usage.host`     | *identique à l’utilisation totale* |
 
 Nonobstant la synchronisation imparfaite, `clusternode.cpu.usage` est toujours `clusternode.cpu.usage.host` plus `clusternode.cpu.usage.guest`.
@@ -93,6 +92,6 @@ Utilisez l’applet [de commande obten-ClusterNode](https://docs.microsoft.com/p
 Get-ClusterNode <Name> | Get-ClusterPerf
 ```
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
 - [Historique des performances pour espaces de stockage direct](performance-history.md)

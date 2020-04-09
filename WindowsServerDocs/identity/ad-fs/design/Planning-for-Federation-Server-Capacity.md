@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7013fc21-9ced-4f9d-9588-cb04d6d60924
 title: Planification de la capacité des serveurs de fédération
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 418bc5d53a2bd11afa8563b07bbff76c89495715
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5801196921c1f7632725dfddb2a5c8c2bf4ae2b5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407975"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858622"
 ---
 # <a name="planning-for-federation-server-capacity"></a>Planification de la capacité des serveurs de fédération
 
@@ -47,7 +46,7 @@ Heureusement, la mémoire, l’UC et l’espace disque requis pour les serveurs 
 > [!NOTE]  
 > Dans les tests qui ont été effectués par l’équipe de produit AD FS à l’aide d’une batterie de serveurs de Fédération configurée avec un SQL Server dédié pour stocker la base de données de configuration AD FS, la charge globale sur le SQL Server a tendance à être faible. Dans un test utilisant une batterie de serveurs de\-de Fédération\-qui a été configurée pour utiliser un seul SQL Server, l’utilisation du processeur ne dépassait pas 10% en dépit du test qui permettait aux serveurs de Fédération de cibler l’utilisation.  
   
-## <a name="bk_estimatefs"></a>Estimer le nombre de serveurs de Fédération pour votre organisation  
+## <a name="estimate-the-number-of-federation-servers-for-your-organization"></a><a name="bk_estimatefs"></a>Estimer le nombre de serveurs de Fédération pour votre organisation  
 Dans le but de rationaliser le processus de planification matérielle pour les serveurs de Fédération, l’équipe de produit AD FS a développé le AD FS feuille de calcul de dimensionnement de la capacité de planification. Cette feuille de calcul Excel comprend des fonctionnalités de calculatrice\-telles que les fonctionnalités attendues que vous fournissez sur les utilisateurs de votre organisation et retournent un nombre optimal recommandé de serveurs de Fédération pour votre environnement de production AD FS.  
   
 > [!NOTE]  

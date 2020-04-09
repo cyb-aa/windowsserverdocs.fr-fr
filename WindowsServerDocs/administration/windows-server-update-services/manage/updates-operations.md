@@ -2,26 +2,23 @@
 title: Opérations de mises à jour
 description: 'Rubrique Windows Server Update Service (WSUS) : comment gérer les mises à jour, y compris le processus d’approbation'
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4cb7ff54-3014-4e91-842a-a7b831ea59ff
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7121f6303bef48486720d4cdca4582fd897467c4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 327bff2e678e278dcba05ce1df807dc3842a56cd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361483"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828492"
 ---
 # <a name="updates-operations"></a>Opérations de mises à jour
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Une fois les mises à jour synchronisées sur votre serveur WSUS, elles sont automatiquement analysées en vue de leur pertinence sur les ordinateurs clients du serveur. Toutefois, vous devez approuver les mises à jour avant qu’elles ne soient déployées sur les ordinateurs de votre réseau. Lorsque vous approuvez une mise à jour, vous indiquez à WSUS comment l’utiliser (vos choix sont **installer** ou **refuser** pour une nouvelle mise à jour). Vous pouvez approuver les mises à jour pour le groupe **tous les ordinateurs** ou pour les sous-groupes. Si vous n’approuvez pas une mise à jour, son état d’approbation reste **non approuvé**et votre serveur WSUS permet aux clients d’évaluer s’ils ont besoin de la mise à jour.
 
@@ -38,9 +35,9 @@ Vous pouvez approuver l’installation des mises à jour pour tous les ordinateu
 
 Vous devez garder à l’esprit deux points importants :
 
--   Tout d’abord, vous ne pouvez pas définir une échéance d’installation automatique pour une mise à jour si l’entrée de l’utilisateur est requise (par exemple, en spécifiant un paramètre correspondant à la mise à jour). Pour déterminer si une mise à jour nécessite une entrée d’utilisateur, examinez le champ **peut demander une entrée d’utilisateur** dans les propriétés de mise à jour d’une mise à jour affichée sur la page **mises à jour** . Recherchez également un message dans la zone **approuver les mises à jour** qui indique «**la mise à jour sélectionnée nécessite une entrée d’utilisateur et ne prend pas en charge l’échéance**de l’installation. »
+-   Tout d’abord, vous ne pouvez pas définir une échéance d’installation automatique pour une mise à jour si l’entrée de l’utilisateur est requise (par exemple, en spécifiant un paramètre correspondant à la mise à jour). Pour déterminer si une mise à jour nécessite une entrée d’utilisateur, examinez le champ **peut demander une entrée d’utilisateur** dans les propriétés de mise à jour d’une mise à jour affichée sur la page **mises à jour** . Recherchez également un message dans la zone **approuver les mises à jour** , qui indique que **la mise à jour sélectionnée nécessite une intervention de l’utilisateur et ne prend pas en charge l’échéance**de l’installation.
 
--   Si des mises à jour ont été apportées au composant serveur WSUS, vous ne pouvez pas approuver d’autres mises à jour des systèmes clients tant que la mise à jour WSUS n’a pas été approuvée. Ce message d’avertissement s’affiche dans la boîte de dialogue approuver les mises à jour : «Des mises à jour WSUS n’ont pas été approuvées. Vous devez approuver les mises à jour WSUS avant d’approuver cette mise à jour.» Dans ce cas, vous devez cliquer sur le nœud mises à jour WSUS et vous assurer que toutes les mises à jour de cette vue ont été approuvées avant de revenir aux mises à jour générales.
+-   Si des mises à jour ont été apportées au composant serveur WSUS, vous ne pouvez pas approuver d’autres mises à jour des systèmes clients tant que la mise à jour WSUS n’a pas été approuvée. Ce message d’avertissement s’affiche dans la boîte de dialogue approuver les mises à jour : des mises à jour WSUS n’ont pas été approuvées. Vous devez approuver les mises à jour WSUS avant d’approuver cette mise à jour. Dans ce cas, vous devez cliquer sur le nœud mises à jour WSUS et vous assurer que toutes les mises à jour de cette vue ont été approuvées avant de revenir aux mises à jour générales.
 
 #### <a name="to-approve-updates"></a>Pour approuver des mises à jour
 
@@ -88,7 +85,7 @@ Si vous sélectionnez cette option, la mise à jour est supprimée de la liste p
 3.  Sélectionnez **refuser**, puis cliquez sur **Oui** dans le message de confirmation.
 
 ## <a name="cleaning-up-declined-updates"></a>Nettoyage des mises à jour refusées
-Les mises à jour refusées continuent à consommer des ressources de serveur WSUS. Vous devez exécuter l’Assistant Nettoyage de serveur pour supprimer les mises à jour refusées de la base de données WSUS. Consultez : [L’Assistant Nettoyage de serveur](the-server-cleanup-wizard.md), pour plus d’informations.
+Les mises à jour refusées continuent à consommer des ressources de serveur WSUS. Vous devez exécuter l’Assistant Nettoyage de serveur pour supprimer les mises à jour refusées de la base de données WSUS. Pour plus d’informations, consultez [l’Assistant Nettoyage de serveur](the-server-cleanup-wizard.md).
 
 ## <a name="reinstating-declined-updates"></a>Réactivation des mises à jour refusées
 Une fois qu’une mise à jour a été refusée, vous pouvez toujours la réinstaller.
@@ -101,7 +98,7 @@ Une fois qu’une mise à jour a été refusée, vous pouvez toujours la réinst
 
 3.  Dans la liste des mises à jour, sélectionnez une ou plusieurs mises à jour refusées que vous souhaitez rétablir.
 
-4.  Pour rétablir une mise à jour particulière, cliquez avec le bouton droit sur la mise à jour, puis sélectionnez **approuver**. Dans la boîte de dialogue **approuver les mises à jour** , cliquez sur **OK** pour appliquer à nouveau l’état d’approbation par défaut « non approuvé ». La mise à jour s’affiche dans la liste comme **non approuvée** au lieu de refuser.
+4.  Pour rétablir une mise à jour particulière, cliquez avec le bouton droit sur la mise à jour, puis sélectionnez **approuver**. Dans la boîte de dialogue **approuver les mises à jour** , cliquez sur **OK** pour réappliquer l’état d’approbation non approuvé par défaut. La mise à jour s’affiche dans la liste comme **non approuvée** au lieu de refuser.
 
 Une fois qu’une mise à jour refusée a été nettoyée à l’aide de l’Assistant de nettoyage de serveur WSUS, elle sera supprimée du serveur WSUS et n’apparaîtra plus dans la vue toutes les mises à jour. Vous pouvez réimporter les mises à jour refusées, nettoyées à partir du catalogue Microsoft Update. Pour plus d’informations, consultez [WSUS et le site du catalogue](wsus-and-the-catalog-site.md).
 
@@ -150,7 +147,7 @@ Vous pouvez créer des règles qui seront appliquées automatiquement par votre 
 
 4.  Dans **étape 2 : modifiez les propriétés** , cliquez sur les propriétés soulignées pour sélectionner les classifications, les produits et les groupes d’ordinateurs pour lesquels vous souhaitez des approbations automatiques, le cas échéant. Si vous le souhaitez, choisissez le jour et l’heure d’échéance de l’approbation des mises à jour.
 
-5.  À **l’étape 3 : Spécifiez un nom**, tapez un nom unique pour la règle.
+5.  Dans la **zone étape 3 : spécifiez un nom**, tapez un nom unique pour la règle.
 
 6.  Cliquez sur **OK**.
 
@@ -174,9 +171,9 @@ La section approbations automatiques du volet Options contient une option par d�
     > Conserver les valeurs par défaut pour ces options vous permet de maintenir de bonnes performances sur votre réseau WSUS. Si vous ne souhaitez pas que les mises à jour expirées soient refusées automatiquement, vous devez veiller à les refuser manuellement de façon périodique.
 
 ## <a name="automatically-declining-superseded-updates"></a>Refus automatique des mises à jour remplacées
-Lorsque vous approuvez une nouvelle mise à jour qui remplace une mise à jour existante qui est approuvée automatiquement, la mise à jour remplacée devient « non applicable » sur un ordinateur ou un périphérique une fois que la mise à jour la plus récente a été installée. Vous pouvez vérifier dans la console WSUS qu’une mise à jour ne s’applique pas à tous les ordinateurs. Lorsque c’est le cas, la mise à jour peut être refusée en toute sécurité. en outre, la mise à jour peut être refusée automatiquement lorsque vous exécutez l’Assistant de nettoyage de serveur WSUS.
+Lorsque vous approuvez une nouvelle mise à jour qui remplace une mise à jour existante qui est approuvée automatiquement, la mise à jour remplacée ne s’applique pas à un ordinateur ou à un périphérique une fois que la mise à jour la plus récente a été installée. Vous pouvez vérifier dans la console WSUS qu’une mise à jour ne s’applique pas à tous les ordinateurs. Lorsque c’est le cas, la mise à jour peut être refusée en toute sécurité. en outre, la mise à jour peut être refusée automatiquement lorsque vous exécutez l’Assistant de nettoyage de serveur WSUS.
 
-Pour rechercher les mises à jour remplacées, vous pouvez sélectionner la colonne d’indicateur « remplacé » dans la vue toutes les mises à jour et effectuer un tri sur cette colonne. Il y aura quatre groupes :
+Pour rechercher les mises à jour remplacées, vous pouvez sélectionner la colonne d’indicateur remplacée dans l’affichage toutes les mises à jour et effectuer un tri sur cette colonne. Il y aura quatre groupes :
 
 -   Mises à jour qui n’ont jamais été remplacées (icône vide).
 
@@ -186,7 +183,7 @@ Pour rechercher les mises à jour remplacées, vous pouvez sélectionner la colo
 
 -   Mises à jour qui ont remplacé une autre mise à jour (icône avec un carré bleu en haut).
 
-Il n’existe aucune fonctionnalité dans Windows Server Update Services qui refuse automatiquement les mises à jour remplacées lors de l’approbation d’une mise à jour plus récente. Il est recommandé de commencer par définir l’approbation sur « non approuvé », puis d’utiliser l’Assistant Nettoyage de serveur pour refuser automatiquement la mise à jour lorsque toutes les conditions pertinentes ont été satisfaites. Pour plus d'informations, voir : [Assistant de nettoyage de serveur](the-server-cleanup-wizard.md).
+Il n’existe aucune fonctionnalité dans Windows Server Update Services qui refuse automatiquement les mises à jour remplacées lors de l’approbation d’une mise à jour plus récente. Il est recommandé de commencer par définir l’approbation sur non approuvé, puis d’utiliser l’Assistant Nettoyage de serveur pour refuser automatiquement la mise à jour lorsque toutes les conditions pertinentes ont été satisfaites. Pour plus d’informations, consultez : [Assistant de nettoyage de serveur](the-server-cleanup-wizard.md).
 
 ## <a name="approving-superseding-or-superseded-updates"></a>Approbation des mises à jour remplacées ou remplacées
 En règle générale, une mise à jour qui remplace d’autres mises à jour effectue une ou plusieurs des opérations suivantes :
@@ -203,7 +200,7 @@ En règle générale, une mise à jour qui remplace d’autres mises à jour eff
 
 -   Met à jour les versions antérieures des systèmes d’exploitation. Dans certains cas, ces versions des systèmes d’exploitation ne sont plus mises à jour par la mise à jour de remplacement.
 
-Dans le volet de détails d’une mise à jour individuelle, une icône d’information et un message en haut indiquent qu’elle remplace ou est remplacée par une autre mise à jour. En outre, vous pouvez déterminer les mises à jour qui remplacent ou qui sont remplacées par la mise à jour en examinant les mises à jour qui **remplacent cette mise à jour** et les mises à jour **remplacées par cette mise à jour** dans la section **Détails supplémentaires** de la  **Propriétés**. Le volet d’informations d’une mise à jour s’affiche sous la liste des mises à jour.
+Dans le volet de détails d’une mise à jour individuelle, une icône d’information et un message en haut indiquent qu’elle remplace ou est remplacée par une autre mise à jour. En outre, vous pouvez déterminer les mises à jour qui remplacent ou qui sont remplacées par la mise à jour en examinant les mises à jour qui **remplacent cette mise à jour** et les mises à jour **remplacées par cette mise à jour** dans la section **Détails supplémentaires** des **Propriétés**. Le volet d’informations d’une mise à jour s’affiche sous la liste des mises à jour.
 
 WSUS ne refuse pas automatiquement les mises à jour remplacées et il est recommandé de ne pas supposer que les mises à jour remplacées doivent être refusées en faveur de la nouvelle mise à jour de remplacement. Avant de refuser une mise à jour remplacée, assurez-vous qu’elle n’est plus nécessaire pour les ordinateurs clients. Voici quelques exemples de scénarios dans lesquels vous devrez peut-être installer une mise à jour remplacée :
 

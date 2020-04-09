@@ -1,24 +1,20 @@
 ---
 title: Utiliser des périphériques vidéo
 description: Découvrez comment les moniteurs vidéo et les projecteurs fonctionnent avec les stations dans MultiPoint services
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2f7f5a97-efd2-4184-8ad3-cf029d615eab
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: b7019000c99295204f196ee918129cded02e084f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6b967d4523058fe1dfcb086e5918f84257bd51bf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389249"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820442"
 ---
 # <a name="work-with-video-devices"></a>Utiliser des périphériques vidéo
 Découvrez comment fonctionnent les périphériques vidéo, comme les moniteurs ou les projecteurs, quand ils sont connectés à un ordinateur de votre système MultiPoint Services ou une *station* MultiPoint Services.  
@@ -53,9 +49,9 @@ Quand vous utilisez l’une des deux méthodes, notez ce qui suit :
   
 -   Vous devrez peut-être vous procurer un adaptateur ou un convertisseur pour procéder à la conversion des prises DVI et VGA.  
   
--   L’utilisation d’un câble répartiteur en « Y » peut diminuer la qualité vidéo des deux périphériques vidéo.  
+-   L’utilisation d’un câble de séparateur « Y » peut réduire la qualité vidéo sur les deux périphériques vidéo.  
   
--   Quand vous utilisez à la fois un projecteur et un moniteur via un câble répartiteur en « Y », MultiPoint Services ajuste la résolution d’écran des deux périphériques sur la résolution la plus basse de l’un des deux, généralement le projecteur.  
+-   Lorsque vous utilisez un projecteur et un moniteur à l’aide d’un câble de séparation « Y », MultiPoint services ajuste la résolution d’écran des deux appareils à la résolution maximale la plus basse de l’un des appareils, le plus souvent le projecteur.  
   
 -   MultiPoint services ne prend pas en charge l’extension de l’affichage d’une seule station sur plusieurs moniteurs.  
   

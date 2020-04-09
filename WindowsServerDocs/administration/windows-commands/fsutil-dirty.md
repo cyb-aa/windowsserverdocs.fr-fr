@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 01b5490ef7c57e48a43cae15902e03a33794a826
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cf3685bae9ed76ede4da6df244139437d92250c0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377013"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844332"
 ---
 # <a name="fsutil-dirty"></a>Fsutil Dirty
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
@@ -29,11 +29,11 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 fsutil dirty {query | set} <VolumePath>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |   Paramètre   |                                                 Description                                                  |
 |---------------|--------------------------------------------------------------------------------------------------------------|
-|     requête     |                                  Interroge le bit d’intégrité du volume spécifié.                                   |
+|     query     |                                  Interroge le bit d’intégrité du volume spécifié.                                   |
 |      set      |                                    Définit le bit d’intégrité du volume spécifié.                                    |
 | \<VolumePath > | Spécifie le nom du lecteur suivi d’un signe deux-points ou d’un GUID au format suivant : **volume {** <em>GUID</em> **}** . |
 
@@ -49,7 +49,7 @@ fsutil dirty {query | set} <VolumePath>
 
 -   Si le bit d’intégrité est défini au redémarrage de l’ordinateur, **chkdsk** s’exécute pour vérifier l’intégrité du système de fichiers et tenter de résoudre les problèmes liés au volume.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_examples"></a>Illustre
 Pour interroger le bit d’intégrité sur le lecteur C, tapez :
 
 ```
@@ -70,8 +70,8 @@ Pour définir le bit d’intégrité sur le lecteur C, tapez :
 fsutil dirty set C:
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
-[Clé de syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
+## <a name="additional-references"></a>Références supplémentaires
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)
 

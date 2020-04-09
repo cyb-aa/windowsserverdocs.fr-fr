@@ -1,7 +1,6 @@
 ---
 ms.assetid: 0abe0976-4b49-45d6-a7b3-81d28bdb8210
-title: Recommandations de stratégie d'audit
-description: ''
+title: Recommandations pour la stratégie d’audit
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,14 +8,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 6cecf2edcb834a963c706fa4a63e7d15b13f7888
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c25df61246bf6a7c731e08e11cee54fd87d6ae4c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949625"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821342"
 ---
-# <a name="audit-policy-recommendations"></a>Recommandations de stratégie d'audit
+# <a name="audit-policy-recommendations"></a>Recommandations pour la stratégie d’audit
 
 >S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8.1, Windows 7
 
@@ -36,17 +35,17 @@ Cette section contient des tables qui répertorient les recommandations relative
 
 -   Windows Server 2016 
 
--   Windows Server 2012  
+-   Windows Server 2012  
 
--   R2 Windows Server 2012  
+-   Windows Server 2012 R2  
 
--   Windows Server 2008  
+-   Windows Server 2008  
 
--   Windows 10
+-   Windows 10
 
--   Windows 8.1  
+-   Windows 8.1  
 
--   Windows 7  
+-   Windows 7  
 
 Ces tables contiennent les paramètres par défaut de Windows, les recommandations de base et les recommandations plus fortes pour ces systèmes d’exploitation.  
 
@@ -58,27 +57,27 @@ Ces tables contiennent les paramètres par défaut de Windows, les recommandatio
 |OUI|Activer dans les scénarios généraux|  
 |NON|Ne **pas** activer dans les scénarios généraux|  
 |IF|Activer si nécessaire pour un scénario spécifique, ou si un rôle ou une fonctionnalité pour lequel l’audit est souhaité est installé sur l’ordinateur|  
-|DC|Activer sur les contrôleurs de domaine|  
+|Contrôleur de domaine|Activer sur les contrôleurs de domaine|  
 |Occult|Aucune recommandation|  
 
 **Recommandations relatives aux paramètres d’audit Windows 10, Windows 8 et Windows 7**  
 
 **Stratégie d’audit**  
 
-|Catégorie ou sous-catégorie de stratégie d’audit|Par défaut Windows<br /><br />Échec de la réussite|Recommandation de base<br /><br />Échec de la réussite|Recommandation plus forte<br /><br />Échec de la réussite|  
+|Catégorie ou sous-catégorie de stratégie d’audit|Par défaut Windows<p>Échec de la réussite|Recommandation de base<p>Échec de la réussite|Recommandation plus forte<p>Échec de la réussite|  
 |----------------------------------------|------------------------------------------|--------------------------------------------------|--------------------------------------------------|  
 |**Ouverture de session de compte**||||  
 |Auditer la validation des informations d’identification|Non non|Oui non|Oui, oui|  
 |Auditer le service d’authentification Kerberos|||Oui, oui|  
-|Auditer les opérations de ticket de service Kerberos|||Oui, oui|  
+|Auditer les opérations de ticket du service Kerberos|||Oui, oui|  
 |Auditer d’autres événements d’ouverture de session|||Oui, oui|  
-|**Account management (Gestion de compte)**||||  
+|**Gestion des comptes**||||  
 |Auditer la gestion des groupes d’applications||||  
 |Auditer la gestion des comptes d’ordinateur||Oui non|Oui, oui|  
 |Auditer la gestion des groupes de distribution||||  
 |Auditer d’autres événements de gestion des comptes||Oui non|Oui, oui|  
 |Auditer la gestion des groupes de sécurité||Oui non|Oui, oui|  
-|Auditer la gestion des comptes d’utilisateurs|Oui non|Oui non|Oui, oui|  
+|Auditer la gestion des comptes d’utilisateur|Oui non|Oui non|Oui, oui|  
 |**Suivi détaillé**||||  
 |Auditer l’activité DPAPI|||Oui, oui|  
 |Auditer la création du processus||Oui non|Oui, oui|  
@@ -126,7 +125,7 @@ Ces tables contiennent les paramètres par défaut de Windows, les recommandatio
 |Auditer l’utilisation de privilèges non sensibles||||  
 |Auditer d’autres événements d’utilisation de privilèges||||  
 |Auditer l’utilisation de privilèges sensibles||||  
-|**Système**||||  
+|**Requise**||||  
 |Auditer le pilote IPSEC||Oui, oui|Oui, oui|  
 |Auditer d’autres événements système|Oui, oui|||  
 |Auditer la modification de l’état de la sécurité|Oui non|Oui, oui|Oui, oui|  
@@ -143,20 +142,20 @@ Ces tables contiennent les paramètres par défaut de Windows, les recommandatio
 
 **Recommandations relatives aux paramètres d’audit de Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008**  
 
-|Catégorie ou sous-catégorie de stratégie d’audit|Par défaut Windows<br /><br />Échec de la réussite|Recommandation de base<br /><br />Échec de la réussite|Recommandation plus forte<br /><br />Échec de la réussite|  
+|Catégorie ou sous-catégorie de stratégie d’audit|Par défaut Windows<p>Échec de la réussite|Recommandation de base<p>Échec de la réussite|Recommandation plus forte<p>Échec de la réussite|  
 |----------------------------------------|------------------------------------------|--------------------------------------------------|--------------------------------------------------|  
 |**Ouverture de session de compte**||||  
 |Auditer la validation des informations d’identification|Non non|Oui, oui|Oui, oui|  
 |Auditer le service d’authentification Kerberos|||Oui, oui|  
-|Auditer les opérations de ticket de service Kerberos|||Oui, oui|  
+|Auditer les opérations de ticket du service Kerberos|||Oui, oui|  
 |Auditer d’autres événements d’ouverture de session|||Oui, oui|  
-|**Account management (Gestion de compte)**||||  
+|**Gestion des comptes**||||  
 |Auditer la gestion des groupes d’applications||||  
 |Auditer la gestion des comptes d’ordinateur||Oui DC|Oui, oui|  
 |Auditer la gestion des groupes de distribution||||  
 |Auditer d’autres événements de gestion des comptes||Oui, oui|Oui, oui|  
 |Auditer la gestion des groupes de sécurité||Oui, oui|Oui, oui|  
-|Auditer la gestion des comptes d’utilisateurs|Oui non|Oui, oui|Oui, oui|  
+|Auditer la gestion des comptes d’utilisateur|Oui non|Oui, oui|Oui, oui|  
 |**Suivi détaillé**||||  
 |Auditer l’activité DPAPI|||Oui, oui|  
 |Auditer la création du processus||Oui non|Oui, oui|  
@@ -204,7 +203,7 @@ Ces tables contiennent les paramètres par défaut de Windows, les recommandatio
 |Auditer l’utilisation de privilèges non sensibles||||  
 |Auditer d’autres événements d’utilisation de privilèges||||  
 |Auditer l’utilisation de privilèges sensibles||||  
-|**Système**||||  
+|**Requise**||||  
 |Auditer le pilote IPSEC||Oui, oui|Oui, oui|  
 |Auditer d’autres événements système|Oui, oui|||  
 |Auditer la modification de l’état de la sécurité|Oui non|Oui, oui|Oui, oui|  

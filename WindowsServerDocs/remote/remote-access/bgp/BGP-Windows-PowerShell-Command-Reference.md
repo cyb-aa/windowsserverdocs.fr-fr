@@ -2,22 +2,18 @@
 title: Référence à la commande Windows PowerShell BGP
 description: Vous pouvez utiliser cette rubrique comme référence lors de l’écriture de scripts Windows PowerShell dans Windows Server 2016, pour ajouter, configurer et supprimer des fonctionnalités BGP de la passerelle RAS et des routeurs de réseau local (LAN) d’accès à distance.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4b0240a3-b927-4a1e-b241-5f8f29a9552f
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 22f4475df00e975ffc5cd0956a0126673a67f907
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: e206ead9d4af53c0ee404eb5077c88fef2b87ba7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309276"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815842"
 ---
 # <a name="bgp-windows-powershell-command-reference"></a>Référence à la commande Windows PowerShell BGP
 

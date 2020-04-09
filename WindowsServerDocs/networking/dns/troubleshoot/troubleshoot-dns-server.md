@@ -2,18 +2,17 @@
 title: Dépannage des serveurs DNS
 description: Cet article explique comment résoudre les problèmes DNS du côté serveur.
 manager: dcscontentpm
-ms.prod: ''
 ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: 23e51adafa5ab6da0a9317a1b0fad88bd3901073
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 4413c60072c43b623f386d5037e3da7ed5dc128d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265801"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861322"
 ---
 # <a name="troubleshooting-dns-servers"></a>Dépannage des serveurs DNS
 
@@ -30,7 +29,7 @@ Cet article explique comment résoudre les problèmes sur les serveurs DNS.
    ```cmd
    nslookup <name> <IP address of the DNS server>
    ```
-   Exemple : 
+   Par exemple : 
    ```cmd
    nslookup app1 10.0.0.1
    ```
@@ -56,7 +55,7 @@ Vérifiez les journaux suivants pour voir s’il existe des erreurs enregistrée
 
 - Application
 
-- Système
+- System
 
 - Serveur DNS
 

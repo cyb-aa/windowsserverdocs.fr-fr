@@ -1,7 +1,6 @@
 ---
 ms.assetid: ba28bd05-16e6-465f-982b-df49633cfde4
 title: Sécurisation des contrôleurs de domaine contre les attaques
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 06/18/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: b91164e14f3ae94f6f7d01c62125f45124df0907
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a54e39cd25c0921516146c3f3b583bf4a3dbe467
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367620"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821042"
 ---
 # <a name="securing-domain-controllers-against-attack"></a>Sécurisation des contrôleurs de domaine contre les attaques
 
@@ -24,7 +23,7 @@ ms.locfileid: "71367620"
   
 Les contrôleurs de domaine fournissent le stockage physique pour la base de données AD DS, en plus de fournir les services et les données qui permettent aux entreprises de gérer efficacement leurs serveurs, stations de travail, utilisateurs et applications. Si un accès privilégié à un contrôleur de domaine est obtenu par un utilisateur malveillant, cet utilisateur peut modifier, corrompre ou détruire la base de données AD DS et, par extension, tous les systèmes et comptes gérés par Active Directory.  
   
-Dans la mesure où les contrôleurs de domaine peuvent lire et écrire dans la base de données AD DS, la compromission d’un contrôleur de domaine signifie que votre forêt Active Directory ne peut jamais être considérée comme digne de confiance, sauf si vous êtes en mesure de récupérer à l’aide d’une sauvegarde correcte connue et de Fermez les lacunes qui ont permis de compromettre le processus.  
+Étant donné que les contrôleurs de domaine peuvent lire et écrire dans la base de données AD DS, la compromission d’un contrôleur de domaine signifie que votre forêt Active Directory ne peut jamais être considérée comme digne de confiance, sauf si vous êtes en mesure de récupérer à l’aide d’une sauvegarde correcte connue et de fermer les lacunes qui ont permis la compromission dans le processus.  
   
 Selon la préparation, les outils et les compétences d’un pirate, la modification ou même les dommages irréparables de la base de données de AD DS peuvent être effectués en quelques minutes, voire en quelques heures, et non en plusieurs jours ou semaines. Il ne s’agit pas de la durée pendant laquelle une personne malveillante dispose d’un accès privilégié à Active Directory, mais le niveau de la personne malveillante a prévu le moment où un accès privilégié est obtenu. Compromettre un contrôleur de domaine peut fournir le chemin le plus rapide pour la propagation d’accès à grande échelle, ou le chemin le plus direct à la destruction des serveurs membres, des stations de travail et des Active Directory. Pour cette raison, les contrôleurs de domaine doivent être sécurisés séparément et de manière plus stricte que l’infrastructure Windows générale.  
 
@@ -40,7 +39,7 @@ Dans les centres de centres, les contrôleurs de domaine physiques doivent être
   
 #### <a name="virtual-domain-controllers"></a>Contrôleurs de domaine virtuels 
 
-Si vous implémentez des contrôleurs de domaine virtuels, vous devez vous assurer que les contrôleurs de domaine s’exécutent sur des hôtes physiques distincts des autres ordinateurs virtuels de l’environnement. Même si vous utilisez une plateforme de virtualisation tierce, envisagez de déployer des contrôleurs de domaine virtuels sur le serveur Hyper-V dans Windows Server 2012 ou Windows Server 2008 R2, ce qui constitue une surface d’attaque minimale et peut être géré avec les contrôleurs de domaine qu’il héberge. plutôt que d’être gérées avec le reste des hôtes de virtualisation. Si vous implémentez System Center Virtual Machine Manager (SCVMM) pour la gestion de votre infrastructure de virtualisation, vous pouvez déléguer l’administration pour les hôtes physiques sur lesquels résident les machines virtuelles de contrôleur de domaine et les contrôleurs de domaine. eux-mêmes aux administrateurs autorisés. Vous devez également envisager de séparer le stockage des contrôleurs de domaine virtuels pour empêcher les administrateurs de stockage d’accéder aux fichiers de l’ordinateur virtuel.  
+Si vous implémentez des contrôleurs de domaine virtuels, vous devez vous assurer que les contrôleurs de domaine s’exécutent sur des hôtes physiques distincts des autres ordinateurs virtuels de l’environnement. Même si vous utilisez une plateforme de virtualisation tierce, envisagez de déployer des contrôleurs de domaine virtuels sur le serveur Hyper-V dans Windows Server 2012 ou Windows Server 2008 R2, ce qui constitue une surface d’attaque minimale et peut être géré avec les contrôleurs de domaine qu’il héberge au lieu d’être géré avec le reste des hôtes de virtualisation. Si vous implémentez System Center Virtual Machine Manager (SCVMM) pour la gestion de votre infrastructure de virtualisation, vous pouvez déléguer l’administration pour les hôtes physiques sur lesquels résident les machines virtuelles de contrôleur de domaine et les contrôleurs de domaine eux-mêmes aux administrateurs autorisés. Vous devez également envisager de séparer le stockage des contrôleurs de domaine virtuels pour empêcher les administrateurs de stockage d’accéder aux fichiers de l’ordinateur virtuel.  
   
 ### <a name="branch-locations"></a>Emplacements des branches  
   
@@ -50,11 +49,11 @@ Dans les emplacements où résident plusieurs serveurs, mais qui ne sont pas phy
   
 #### <a name="virtual-domain-controllers-in-branches"></a>Contrôleurs de domaine virtuels dans les branches
 
-Dans la mesure du possible, vous devez exécuter les contrôleurs de domaine virtuels dans les filiales situées sur des hôtes physiques distincts des autres machines virtuelles du site. Dans les filiales où les contrôleurs de domaine virtuels ne peuvent pas s’exécuter sur des hôtes physiques distincts du reste de la population de serveurs virtuels, vous devez implémenter des puces TPM et des Chiffrement de lecteur BitLocker sur les hôtes sur lesquels les contrôleurs de domaine virtuels s’exécutent au minimum, et tous les ordinateurs hôtes, si possible. En fonction de la taille de la succursale et de la sécurité des hôtes physiques, vous devez envisager de déployer des RODC dans des succursales.  
+Dans la mesure du possible, vous devez exécuter les contrôleurs de domaine virtuels dans les filiales situées sur des hôtes physiques distincts des autres machines virtuelles du site. Dans les filiales où les contrôleurs de domaine virtuels ne peuvent pas s’exécuter sur des hôtes physiques distincts du reste de la population de serveurs virtuels, vous devez implémenter des puces TPM et des Chiffrement de lecteur BitLocker sur les hôtes sur lesquels les contrôleurs de domaine virtuels s’exécutent au minimum, ainsi que tous les ordinateurs hôtes si possible. En fonction de la taille de la succursale et de la sécurité des hôtes physiques, vous devez envisager de déployer des RODC dans des succursales.  
   
 ### <a name="remote-locations-with-limited-space-and-security"></a>Emplacements distants avec un espace et une sécurité limités
 
-Si votre infrastructure comprend des emplacements dans lesquels un seul serveur physique peut être installé, un serveur capable d’exécuter des charges de travail de virtualisation doit être installé à l’emplacement distant, et Chiffrement de lecteur BitLocker doivent être configurés pour protéger tout volumes du serveur. Un ordinateur virtuel sur le serveur doit exécuter un RODC, avec d’autres serveurs qui s’exécutent en tant qu’ordinateurs virtuels distincts sur l’ordinateur hôte. Vous trouverez des informations sur la planification du déploiement de RODC dans le [Guide de planification et de déploiement du contrôleur de domaine en lecture seule](https://go.microsoft.com/fwlink/?LinkID=135993). Pour plus d’informations sur le déploiement et la sécurisation des contrôleurs de domaine virtualisés, voir [exécution de contrôleurs de domaine dans Hyper-V](https://technet.microsoft.com/library/dd363553(v=ws.10).aspx) sur le site Web TechNet. Pour obtenir des conseils plus détaillés sur la sécurisation de Hyper-V, la délégation de la gestion des ordinateurs virtuels et la protection des machines virtuelles, consultez le [Guide de sécurité Hyper-v](https://www.microsoft.com/download/details.aspx?id=16650) sur le site Web de Microsoft.  
+Si votre infrastructure comprend des emplacements dans lesquels un seul serveur physique peut être installé, un serveur capable d’exécuter des charges de travail de virtualisation doit être installé à l’emplacement distant, et Chiffrement de lecteur BitLocker doivent être configurés pour protéger tous les volumes du serveur. Un ordinateur virtuel sur le serveur doit exécuter un RODC, avec d’autres serveurs qui s’exécutent en tant qu’ordinateurs virtuels distincts sur l’ordinateur hôte. Vous trouverez des informations sur la planification du déploiement de RODC dans le [Guide de planification et de déploiement du contrôleur de domaine en lecture seule](https://go.microsoft.com/fwlink/?LinkID=135993). Pour plus d’informations sur le déploiement et la sécurisation des contrôleurs de domaine virtualisés, voir [exécution de contrôleurs de domaine dans Hyper-V](https://technet.microsoft.com/library/dd363553(v=ws.10).aspx) sur le site Web TechNet. Pour obtenir des conseils plus détaillés sur la sécurisation de Hyper-V, la délégation de la gestion des ordinateurs virtuels et la protection des machines virtuelles, consultez le [Guide de sécurité Hyper-v](https://www.microsoft.com/download/details.aspx?id=16650) sur le site Web de Microsoft.  
   
 ## <a name="domain-controller-operating-systems"></a>Systèmes d'exploitation de contrôleur de domaine
 
@@ -82,11 +81,11 @@ Bien qu’il puisse paraître non intuitifs, vous devez envisager de mettre à j
   
 ### <a name="blocking-internet-access-for-domain-controllers"></a>Blocage de l’accès Internet pour les contrôleurs de domaine  
 
-L’une des vérifications effectuées dans le cadre d’une évaluation de la sécurité de Active Directory est l’utilisation et la configuration d’Internet Explorer sur les contrôleurs de domaine. Internet Explorer (ou tout autre navigateur Web) ne doit pas être utilisé sur les contrôleurs de domaine, mais l’analyse de milliers de contrôleurs de domaine a révélé de nombreux cas dans lesquels les utilisateurs privilégiés utilisaient Internet Explorer pour parcourir l’intranet de l’organisation ou le Internet.  
+L’une des vérifications effectuées dans le cadre d’une évaluation de la sécurité de Active Directory est l’utilisation et la configuration d’Internet Explorer sur les contrôleurs de domaine. Internet Explorer (ou tout autre navigateur Web) ne doit pas être utilisé sur les contrôleurs de domaine, mais l’analyse de milliers de contrôleurs de domaine a révélé de nombreux cas dans lesquels des utilisateurs privilégiés utilisaient Internet Explorer pour parcourir l’intranet de l’organisation ou Internet.  
   
 Comme décrit précédemment dans la section « Configuration inutilisable » de [avenues pour compromettre](../../../ad-ds/plan/security-best-practices/Avenues-to-Compromise.md), parcourir Internet (ou un intranet infecté) à partir de l’un des ordinateurs les plus puissants dans une infrastructure Windows à l’aide d’un compte doté de privilèges élevés (qui sont les seuls comptes autorisés à ouvrir une session localement sur les contrôleurs de domaine par défaut) présente un risque exceptionnel pour la sécurité d' Que ce soit via un lecteur par téléchargement ou par téléchargement d’utilitaires malveillants, les attaquants peuvent accéder à tout ce dont ils ont besoin pour compromettre ou détruire complètement l’environnement Active Directory.  
   
-Bien que Windows Server 2012, Windows Server 2008 R2, Windows Server 2008 et les versions actuelles d’Internet Explorer offrent un certain nombre de protections contre les téléchargements malveillants, dans la plupart des cas, les contrôleurs de domaine et les comptes privilégiés ont été utilisés pour Parcourez Internet, les contrôleurs de domaine exécutant Windows Server 2003 ou les protections offertes par les systèmes d’exploitation et les navigateurs plus récents ont été désactivés intentionnellement.  
+Bien que Windows Server 2012, Windows Server 2008 R2, Windows Server 2008 et les versions actuelles d’Internet Explorer offrent un certain nombre de protections contre les téléchargements malveillants, dans la plupart des cas, les contrôleurs de domaine et les comptes privilégiés ont été utilisés pour naviguer sur Internet, les contrôleurs de domaine exécutant Windows Server 2003 ou les protections offertes par les systèmes d’exploitation et navigateurs  
   
 Le lancement de navigateurs Web sur des contrôleurs de domaine doit être interdit non seulement par la stratégie, mais par les contrôles techniques, et les contrôleurs de domaine ne doivent pas être autorisés à accéder à Internet. Si vos contrôleurs de domaine doivent être répliqués sur plusieurs sites, vous devez implémenter des connexions sécurisées entre les sites. Bien que les instructions de configuration détaillées n’entrent pas dans le cadre de ce document, vous pouvez implémenter un certain nombre de contrôles pour limiter la capacité des contrôleurs de domaine à être mal utilisés ou mal configurés et par la suite compromis.  
   

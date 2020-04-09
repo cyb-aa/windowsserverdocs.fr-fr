@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 4/26/2019
 ms.assetid: e9b18e14-e692-458a-a39f-d5b569ae76c5
-ms.openlocfilehash: d95feb67001dc7b5eff68a0062d5f944672bad80
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 33626dd632dc8c065d2e32b3a21d9f4c9cf77fa7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465228"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861072"
 ---
 # <a name="storage-replica-overview"></a>Vue d’ensemble du réplica de stockage
 
@@ -36,7 +36,7 @@ Le réplica de stockage peut vous permettre de mettre hors service des systèmes
 
 Le réplica de stockage prend également en charge la réplication asynchrone pour des plages plus importantes et des réseaux à latence plus élevée. Étant donné qu’il ne s’agit pas d’un point de contrôle, et qu’il est répliqué en continu, le delta des modifications a tendance à être beaucoup plus faible que les produits basés sur des instantanés. En outre, le réplica de stockage fonctionne au niveau de la partition et par conséquent réplique tous les instantanés VSS créés par Windows Server ou le logiciel de sauvegarde ; cela permet l’utilisation d’instantanés de données cohérents par rapport à l’application pour la récupération jusqu’à une date et heure, en particulier les données utilisateur non structurées répliquées de manière asynchrone.  
 
-## <a name="BKMK_SRSupportedScenarios"></a>Configurations prises en charge
+## <a name="supported-configurations"></a><a name="BKMK_SRSupportedScenarios"></a>Configurations prises en charge
 
 Vous pouvez déployer un réplica de stockage dans un cluster étendu, entre un cluster à un cluster et des configurations de serveur à serveur (voir figures 1-3).
 
@@ -61,7 +61,7 @@ La configuration de **serveur à serveur** autorise la réplication synchrone et
 > [!NOTE]
 > Vous pouvez également configurer la réplication d’un serveur, en utilisant quatre volumes distincts sur un seul ordinateur. Toutefois, ce guide ne couvre pas ce scénario.  
 
-## <a name="BKMK_SR2"></a> Fonctionnalités de réplica de stockage  
+## <a name="storage-replica-features"></a><a name="BKMK_SR2"> </a> Fonctionnalités de réplica de stockage  
 
 * **Aucune perte de données, réplication au niveau du bloc**. Avec la réplication synchrone, il n’existe aucun risque de perte de données. Avec la réplication au niveau du bloc, il n’existe aucun risque de verrouillage de fichier.  
 
@@ -109,7 +109,7 @@ Le réplica de stockage comprend les fonctionnalités suivantes :
 
 *Peut nécessiter un câblage et un équipement supplémentaires sur le long terme.  
 
-## <a name="BKMK_SR3"></a>Conditions préalables pour le réplica de stockage
+## <a name="storage-replica-prerequisites"></a><a name="BKMK_SR3"></a>Conditions préalables pour le réplica de stockage
 
 * Forêt des services de domaine Active Directory.
 * Espaces de stockage avec JBOD SAS, espaces de stockage direct, SAN Fibre Channel, VHDX partagé, cible iSCSI ou stockage SAS/SCSI/SATA local. Disque SSD ou plus rapide recommandé pour les lecteurs de journaux de réplication. Microsoft recommande que le stockage de journaux soit plus rapide que le stockage de données. Les volumes de journaux ne doivent jamais être utilisés pour d’autres charges de travail.
@@ -122,7 +122,7 @@ Le réplica de stockage comprend les fonctionnalités suivantes :
   * Le réplica de stockage réplique un volume unique au lieu d’un nombre illimité de volumes.
   * Les volumes peuvent avoir une taille maximale de 2 to au lieu d’une taille illimitée.
 
-##  <a name="BKMK_SR4"></a> Arrière-plan
+##  <a name="background"></a><a name="BKMK_SR4"> </a> Arrière-plan
 
 Cette section fournit des informations sur les termes généraux liés au secteur d’activité, la réplication synchrone et asynchrone, ainsi que les principaux comportements.
 
@@ -140,7 +140,7 @@ Quand les écritures d’application se produisent sur la copie des données sou
 
 | Mode | Diagramme | Étapes |
 | -------- | ----------- | --------- |
-| **Synchronise**<br /><br />Aucune perte de données<br /><br />Objectif de point de récupération | ![Diagramme montrant comment le réplica de stockage écrit des données dans la réplication synchrone](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  L’application écrit des données<br />2.  Les données du journal sont écrites et les données sont répliquées sur le site distant<br />3.  Les données du journal sont écrites sur le site distant<br />4.  Accusé de réception du site distant<br />5.  Réception de l’écriture d’application confirmée<br /><br />t & t1 : données vidées sur le volume, journaux toujours écrits en continu |
+| **Synchronise**<p>Aucune perte de données<p>Objectif de point de récupération | ![Diagramme montrant comment le réplica de stockage écrit des données dans la réplication synchrone](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  L’application écrit des données<br />2.  Les données du journal sont écrites et les données sont répliquées sur le site distant<br />3.  Les données du journal sont écrites sur le site distant<br />4.  Accusé de réception du site distant<br />5.  Réception de l’écriture d’application confirmée<p>t & t1 : données vidées sur le volume, journaux toujours écrits en continu |
 
 ### <a name="asynchronous-replication"></a>Réplication asynchrone
 
@@ -152,7 +152,7 @@ Avec son objectif de point de récupération supérieur à zéro, la réplicatio
 
 | Mode | Diagramme | Étapes |
 | -------- | ----------- | --------- |
-| **Synchrone**<br /><br />Pratiquement aucune perte de données<br /><br />(dépend de plusieurs facteurs)<br /><br />Objectif de point de récupération | ![Diagramme montrant comment le réplica de stockage écrit des données dans la réplication asynchrone](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  L’application écrit des données<br />2.  Données du journal écrites<br />3.  Réception de l’écriture d’application confirmée<br />4.  Données répliquées sur le site distant<br />5.  Données du journal écrites sur le site distant<br />6.  Accusé de réception du site distant<br /><br />t & t1 : données vidées sur le volume, journaux toujours écrits en continu |
+| **Synchrone**<p>Pratiquement aucune perte de données<p>(dépend de plusieurs facteurs)<p>Objectif de point de récupération | ![Diagramme montrant comment le réplica de stockage écrit des données dans la réplication asynchrone](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  L’application écrit des données<br />2.  Données du journal écrites<br />3.  Réception de l’écriture d’application confirmée<br />4.  Données répliquées sur le site distant<br />5.  Données du journal écrites sur le site distant<br />6.  Accusé de réception du site distant<p>t & t1 : données vidées sur le volume, journaux toujours écrits en continu |
 
 ### <a name="key-evaluation-points-and-behaviors"></a>Principaux points d’évaluation et comportements  
 

@@ -2,30 +2,29 @@
 title: Le nombre de processeurs logiques en cours d’utilisation ne doit pas dépasser la valeur maximale prise en charge
 description: Fournit des instructions pour résoudre le problème signalé par cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 66df8b02-91d1-424b-8934-a39c214d530e
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 380daf333c041c8702228a60c26ab6e76e4cf3e1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b6cd948c47e58dec919cd946ad701f70403d6af3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393395"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859292"
 ---
 # <a name="the-number-of-logical-processors-in-use-must-not-exceed-the-supported-maximum"></a>Le nombre de processeurs logiques en cours d’utilisation ne doit pas dépasser la valeur maximale prise en charge
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d'informations sur les meilleures pratiques et les analyses, consultez [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
 |**Va**|Error|  
 |**Catégorie**|Stratégie|  
@@ -40,7 +39,7 @@ Dans les sections suivantes, l’italique indique le texte qui apparaît dans l�
   
 *Microsoft ne prend pas en charge l’exécution d’Hyper-V sur cet ordinateur.*  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
   
 *Supprimez certains processeurs de cet ordinateur ou utilisez Msconfig pour limiter le nombre de processeurs disponibles.*  
   

@@ -2,18 +2,18 @@
 title: Vue d’ensemble des espaces de noms DFS
 ms.prod: windows-server
 ms.author: jgerend
-ms.manager: daveba
+manager: daveba
 ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 06/07/2019
 description: Cette rubrique décrit la fonctionnalité Espaces de noms DFS qui est un service de rôle de Windows Server. Elle permet de grouper des dossiers partagés qui se trouvent sur des serveurs différents en un ou plusieurs espaces de noms logiquement structurés.
-ms.openlocfilehash: f4ff1bc394ddb57a290e5ffab1a89f596fc48d05
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 07f6ac857164257810b297f9e2b83db4e4bd42be
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949723"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858982"
 ---
 # <a name="dfs-namespaces-overview"></a>Vue d’ensemble des espaces de noms DFS
 
@@ -44,10 +44,10 @@ Les serveurs qui exécutent les systèmes d’exploitation suivants peuvent héb
 
 - Windows Server 2019
 - Windows Server 2016
-- R2 Windows Server 2012
-- Windows Server 2012
+- Windows Server 2012 R2
+- Windows Server 2012
 - Éditions Windows Server 2008 R2 Datacenter et Enterprise
-- Windows Server (canal semi-annuel)
+- Windows Server (canal semi-annuel)
 
 Les serveurs qui exécutent les systèmes d’exploitation suivants peuvent héberger un espace de noms autonome :
 
@@ -63,27 +63,27 @@ Le tableau suivant décrit les autres facteurs à prendre en compte lors du choi
 
 ## <a name="installing-dfs-namespaces"></a>Installation des espaces de noms DFS
 
-Les espaces de noms DFS et la réplication DFS sont intégrés au rôle Services de fichiers et de stockage. Les outils de gestion consacrés au système de fichiers DFS (Gestion DFS, module Espaces de noms DFS pour Windows PowerShell et les outils en ligne de commande) sont installés séparément dans le cadre des outils d’administration de serveur distant.
+Les espaces de noms DFS et la réplication DFS sont intégrés au rôle Services de fichiers et de stockage. Les outils de gestion consacrés au système de fichiers DFS (Gestion DFS, module Espaces de noms DFS pour Windows PowerShell et les outils en ligne de commande) sont installés séparément dans le cadre des outils d’administration de serveur distant.
 
 Installez les espaces de noms DFS à l’aide du [Centre d’administration Windows](../../manage/windows-admin-center/understand/windows-admin-center.md), gestionnaire de serveur ou PowerShell, comme décrit dans les sections suivantes.
 
-### <a name="to-install-dfs-by-using-server-manager"></a>Pour installer DFS à l’aide du Gestionnaire de serveur
+### <a name="to-install-dfs-by-using-server-manager"></a>Pour installer DFS à l’aide du Gestionnaire de serveur
 
 1. Ouvrez le Gestionnaire de serveur, cliquez sur **Gérer**, puis sur **Ajouter des rôles et des fonctionnalités**. L’Assistant Ajout de rôles et de fonctionnalités apparaît.
 
-2. Dans la page **Sélection du serveur**, choisissez le serveur ou le disque dur virtuel (VHD) d'un ordinateur virtuel hors connexion sur lequel vous voulez installer le système de fichiers DFS.
+2. Dans la page **Sélection du serveur** , choisissez le serveur ou le disque dur virtuel (VHD) d’ordinateur virtuel hors connexion sur lequel vous cherchez à installer le système de fichiers DFS.
 
 3. Sélectionnez les services de rôle et les fonctionnalités que vous souhaitez installer.
 
     - Pour installer le service d’espaces de noms DFS, dans la page **Rôles du serveur**, sélectionnez **Espaces de noms DFS**.
 
-    - Pour installer uniquement les outils de gestion DFS, dans la page **Fonctionnalités** , développez successivement **Outils d’administration de serveur distant**, **Outils d’administration de rôles**et **Outils de services de fichiers**, puis sélectionnez **Outils de gestion DFS**.
+    - Pour installer uniquement les outils de gestion DFS, dans la page **Fonctionnalités**, développez successivement **Outils d’administration de serveur distant**, **Outils d’administration de rôles** et **Outils de services de fichiers**, puis sélectionnez **Outils de gestion DFS**.
 
-         La fonctionnalité**Outils de gestion DFS** installe le composant logiciel enfichable Gestion DFS, le module Espaces de noms DFS pour Windows PowerShell et les outils en ligne de commande, mais elle n’installe pas de services DFS sur le serveur.
+         La fonctionnalité**Outils de gestion DFS** installe le composant logiciel enfichable Gestion DFS, le module Espaces de noms DFS pour Windows PowerShell et les outils en ligne de commande mais elle n’installe pas de services DFS sur le serveur.
 
-### <a name="to-install-dfs-by-using-windows-powershell"></a>Pour installer DFS à l’aide de Windows PowerShell
+### <a name="to-install-dfs-by-using-windows-powershell"></a>Pour installer DFS à l’aide de Windows PowerShell
 
-Ouvrez une session Windows PowerShell avec des droits d’utilisateur élevés, puis tapez la commande suivante, où < nom\> correspond au service de rôle ou à la fonctionnalité que vous souhaitez installer (consultez le tableau suivant pour obtenir une liste des noms de services de rôle ou de fonctionnalités appropriés) :
+Ouvrez une session Windows PowerShell avec des droits d’utilisateur élevés, puis tapez la commande suivante où<name\> désigne le service de rôle ou la fonctionnalité à installer (reportez-vous au tableau suivant pour obtenir la liste des noms de services de rôle ou de fonctionnalités appropriés) :
 
 ```PowerShell
 Install-WindowsFeature <name>
@@ -94,7 +94,7 @@ Install-WindowsFeature <name>
 | Espaces de noms DFS          | `FS-DFS-Namespace` |
 | Outils de gestion DFS    | `RSAT-DFS-Mgmt-Con` |
 
-Par exemple, pour installer l’option Outils du système de fichiers DFS de la fonctionnalité Outils d’administration de serveur distant, tapez la commande suivante :
+Par exemple, pour installer l’option Outils du système de fichiers DFS de la fonctionnalité Outils d’administration de serveur distant, tapez la commande suivante :
 
 ```PowerShell
 Install-WindowsFeature "RSAT-DFS-Mgmt-Con"
@@ -116,7 +116,7 @@ L’utilisation des espaces de noms DFS sur une machine virtuelle dans Microsof
 
 Pour en savoir plus sur la prise en main des machines virtuelles Azure, voir [Documentation sur les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/).
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
 Pour plus d’informations connexes, voir les ressources suivantes.
 

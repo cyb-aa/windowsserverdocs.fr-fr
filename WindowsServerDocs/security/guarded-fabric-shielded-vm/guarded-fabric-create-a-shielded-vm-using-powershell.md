@@ -1,18 +1,18 @@
 ---
 title: Créer une machine virtuelle protégée à l’aide de PowerShell
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: 6111b3fbff508c3c485f2a998bab8c0b16beaed6
-ms.sourcegitcommit: 471464a674a53c468a2f1e28575c91245ce9badf
+ms.openlocfilehash: 09e09fa30a38ef5f6046f623e24be0bc7b6ce87e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75548177"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856752"
 ---
 # <a name="create-a-shielded-vm-using-powershell"></a>Créer une machine virtuelle protégée à l’aide de PowerShell
 
@@ -22,7 +22,7 @@ En production, vous utiliseriez généralement un gestionnaire de Fabric (par ex
 
 En résumé, vous allez créer un disque de modèle, un fichier de données de protection, un fichier de réponses d’installation sans assistance et d’autres artefacts de sécurité sur n’importe quel ordinateur, puis copier ces fichiers sur un hôte service Guardian et approvisionner la machine virtuelle protégée.
 
-## <a name="create-a-signed-template-disk"></a>Créer un disque modèle signé
+## <a name="create-a-signed-template-disk"></a>Créer un disque de modèle signé
 
 Pour créer une nouvelle machine virtuelle protégée, vous avez d’abord besoin d’un disque de modèle d’ordinateur virtuel protégé qui est pré-chiffré avec le volume du système d’exploitation (ou les partitions de démarrage et racine sur Linux) signé.
 Pour plus d’informations sur la création d’un disque de modèle, suivez les liens ci-dessous.

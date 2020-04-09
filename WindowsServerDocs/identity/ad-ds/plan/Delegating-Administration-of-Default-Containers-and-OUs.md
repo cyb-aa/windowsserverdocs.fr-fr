@@ -1,7 +1,6 @@
 ---
 ms.assetid: ac6604b0-7459-4ff3-af1c-4936897f5d14
 title: Délégation de l'administration des conteneurs et unités d'organisation par défaut
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 15c6688e32a7ebefbb2dd0fa1e53a4d72baef267
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a8523ee738b991714a9c8673b6faaff7d9003987
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408939"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822652"
 ---
 # <a name="delegating-administration-of-default-containers-and-ous"></a>Délégation de l'administration des conteneurs et unités d'organisation par défaut
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Chaque domaine de Active Directory contient un ensemble standard de conteneurs et d’unités d’organisation (UO) qui sont créés pendant l’installation de Active Directory Domain Services (AD DS). notamment :  
   
@@ -52,7 +51,7 @@ Par défaut, plusieurs utilisateurs et groupes connus et comptes intégrés sont
   
 |Utilisateurs et groupes connus|Comptes intégrés|  
 |--------------------------------|----------------------|  
-|Éditeurs de certificats<br /><br />Contrôleurs de domaine<br /><br />Propriétaires créateurs de la stratégie de groupe<br /><br />KRBTGT<br /><br />Invités du domaine<br /><br />Administrateur<br /><br />Administrateurs du domaine<br /><br />Administrateurs du schéma (domaine racine de la forêt uniquement)<br /><br />Administrateurs de l’entreprise (domaine racine de la forêt uniquement)<br /><br />Utilisateurs du domaine|Administrateur<br /><br />Invité<br /><br />Invités<br /><br />Opérateurs de compte<br /><br />Administrateurs<br /><br />Opérateurs de sauvegarde<br /><br />Générateurs d’approbations de forêt entrante<br /><br />Opérateurs d'impression<br /><br />Accès compatible avec les versions antérieures à Windows 2000<br /><br />Opérateurs de serveur<br /><br />Utilisateurs|  
+|Éditeurs de certificats<p>Contrôleurs de domaine<p>Propriétaires créateurs de la stratégie de groupe<p>KRBTGT<p>Invités du domaine<p>Administrateur<p>Admins du domaine<p>Administrateurs du schéma (domaine racine de la forêt uniquement)<p>Administrateurs de l’entreprise (domaine racine de la forêt uniquement)<p>Utilisateurs du domaine|Administrateur<p>Invité<p>Invités<p>Opérateurs de compte<p>Administrateurs<p>Opérateurs de sauvegarde<p>Générateurs d’approbations de forêt entrante<p>Opérateurs d'impression<p>Accès compatible avec les versions antérieures à Windows 2000<p>Opérateurs de serveur<p>Utilisateurs|  
   
 ## <a name="domain-controller-ou"></a>UO du contrôleur de domaine  
 Lorsque des contrôleurs de domaine sont ajoutés au domaine, leurs objets ordinateur sont automatiquement ajoutés à l’unité d’organisation du contrôleur de domaine. Un ensemble de stratégies par défaut est appliqué à cette UO. Pour vous assurer que ces stratégies sont appliquées uniformément à tous les contrôleurs de domaine, nous vous recommandons de ne pas déplacer les objets ordinateur des contrôleurs de domaine en dehors de cette UO. Si vous n’appliquez pas les stratégies par défaut, un contrôleur de domaine peut ne pas fonctionner correctement.  

@@ -2,20 +2,19 @@
 title: Offrir tous les services d’intégration disponibles aux machines virtuelles
 description: Fournit des instructions pour résoudre le problème signalé par cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 2c4b2043-ad81-495e-aa7a-467f813bb3d2
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 5ec2dc73cea8b8356d832bf9fdb960985df2df6c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c7ddf53823a69e1bd66d4e0e43ee452a4614436e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393601"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861882"
 ---
 # <a name="offer-all-available-integration-services-to-virtual-machines"></a>Offrir tous les services d’intégration disponibles aux machines virtuelles
 
@@ -25,7 +24,7 @@ Pour plus d'informations sur les meilleures pratiques et les analyses, consultez
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
 |**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
@@ -54,7 +53,7 @@ La disponibilité de certains services d’intégration peut être gérée par l
   
 2.  Dans le volet de résultats, sous **machines virtuelles**, sélectionnez la machine virtuelle que vous souhaitez configurer.  
   
-3.  Dans le volet **Action**, sous le nom de l'ordinateur virtuel, cliquez sur **Paramètres**.  
+3.  Dans le volet **Action**, sous le nom de l’ordinateur virtuel, cliquez sur **Paramètres**.  
   
 4.  Sous **gestion**, cliquez sur **Integration Services**.  
   

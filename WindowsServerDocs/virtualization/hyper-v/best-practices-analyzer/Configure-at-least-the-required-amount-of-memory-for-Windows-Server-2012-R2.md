@@ -2,20 +2,19 @@
 title: Configurez au moins la quantité de mémoire requise pour une machine virtuelle exécutant Windows Server 2012 R2 et activée pour Mémoire dynamique
 description: Version en ligne du texte de cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: a0e69661-6a1d-4b31-b727-f2429f3977d0
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 5d770c43f18852896aacff0922875855f01e9711
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fc10188624e4ef07bdc7f453edb1c9a806b01d38
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364992"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80862092"
 ---
 # <a name="configure-at-least-the-required-amount-of-memory-for-a-virtual-machine-running-windows-server-2012-r2-and-enabled-for-dynamic-memory"></a>Configurez au moins la quantité de mémoire requise pour une machine virtuelle exécutant Windows Server 2012 R2 et activée pour Mémoire dynamique
 
@@ -25,9 +24,9 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Erreur|  
+|**Va**|Error|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -35,7 +34,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ## <a name="issue"></a>**Problème**  
 *Un ou plusieurs ordinateurs virtuels sont configurés pour utiliser Mémoire dynamique avec une quantité de mémoire inférieure à celle requise pour Windows Server 2012 R2.*  
   
-## <a name="impact"></a>**Impact**  
+## <a name="impact"></a>**Effet**  
 *Le système d’exploitation invité sur les ordinateurs virtuels suivants peut ne pas s’exécuter ou ne pas fonctionner de manière fiable :*  
   
 \<liste des machines virtuelles >  

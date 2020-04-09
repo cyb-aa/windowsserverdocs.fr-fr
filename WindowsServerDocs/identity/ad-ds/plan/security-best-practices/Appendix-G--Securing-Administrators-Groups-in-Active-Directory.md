@@ -1,7 +1,6 @@
 ---
 ms.assetid: 4baefbd3-038f-44c0-85ba-f24e9722b757
 title: 'Annexe G : sécurisation des groupes d’administrateurs dans Active Directory'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: cdea04e211b1873ff51c4bc3dc9ff24e746ead69
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f113dc7fc5b131a2c0ef10433125ef12a775707c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408640"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821522"
 ---
 # <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>AnnexeG: Sécurisation des groupes d’administrateurs dans Active Directory
 
@@ -32,19 +31,19 @@ Pour le groupe administrateurs dans chaque domaine de la forêt :
 
 2.  Dans les objets de stratégie de groupe liés à des unités d’organisation contenant des serveurs membres et des stations de travail dans chaque domaine, le groupe BA doit être ajouté aux droits d’utilisateur suivants dans la stratégie d’autorisation **\ stratégies \ stratégies \ autorisations \ utilisateurs \ attribution des droits utilisateur**:  
 
-    -   Interdire l’accès à cet ordinateur à partir du réseau  
+    -   Refuser l'accès à un ordinateur à partir du réseau  
 
-    -   Interdire l’ouverture de session en tant que tâche  
+    -   Refuser l'ouverture de session en tant que tâche  
 
-    -   Interdire l’ouverture de session en tant que service  
+    -   Refuser l'ouverture de session en tant que service  
 
 3.  Au niveau de l’unité d’organisation contrôleurs de domaine dans chaque domaine de la forêt, le groupe administrateurs doit disposer des droits d’utilisateur suivants :  
 
     -   Accéder à cet ordinateur à partir du réseau  
 
-    -   Permettre l’ouverture d’une session locale  
+    -   Permettre l'ouverture d'une session locale  
 
-    -   Autoriser l’ouverture de session via les services Bureau à distance  
+    -   Autoriser l’ouverture de session par les services Bureau à distance  
 
 4.  L’audit doit être configuré pour envoyer des alertes si des modifications sont apportées aux propriétés ou à l’appartenance au groupe administrateurs.  
 

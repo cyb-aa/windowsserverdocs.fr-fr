@@ -1,26 +1,22 @@
 ---
-title: récupérer
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+title: recover
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8cc3a73d-9456-41a0-b375-2b4cc37c3992
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a83bb7502145cc09116241ea255e31b5f9981791
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4c9b691b2f0cbad101f7caeb63011724dcf7594d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384737"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836572"
 ---
-# <a name="recover"></a>récupérer
+# <a name="recover"></a>recover
 
 
 
@@ -35,7 +31,7 @@ Actualise l’état de tous les disques d’un groupe de disques, tente de récu
 recover [noerr]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -48,14 +44,14 @@ recover [noerr]
 -   Cette commande fonctionne sur les disques qui ont échoué ou qui échouent. Il fonctionne également sur les volumes dont l’État est échec, échec ou échec de la redondance.
 -   Pour que cette commande aboutisse, vous devez sélectionner un disque qui fait partie d’un groupe de disques. Utilisez la commande **Sélectionner le disque** pour sélectionner un disque et lui déplacer le focus.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour récupérer le groupe de disques qui contient le disque avec le focus, tapez :
 ```
 recover
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 

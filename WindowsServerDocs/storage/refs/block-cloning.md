@@ -1,7 +1,6 @@
 ---
 ms.assetid: fd427da3-3869-428f-bf2a-56c4b7d99b40
 title: Clonage de bloc sur ReFS
-description: ''
 author: gawatu
 ms.author: gawatu
 manager: gawatu
@@ -9,16 +8,16 @@ ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage-file-systems
-ms.openlocfilehash: 81186624e19f9235cbdf8c7f0d44bd2927a68099
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b133e518c4226c516974ca89a457cf0aa64cac7e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394021"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861352"
 ---
 # <a name="block-cloning-on-refs"></a>Clonage de bloc sur ReFS
 
->S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (Canal semi-annuel)
+>S'applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
 Le clonage de bloc demande au système de fichiers de copier une plage d’octets de ficher pour le compte d’une application. Les fichiers source et de destination utilisés peuvent être identiques ou différents. Toutefois, ces opérations de copie sont coûteuses, car elles déclenchent des lectures et des écritures coûteuses sur les données physiques sous-jacentes. 
 

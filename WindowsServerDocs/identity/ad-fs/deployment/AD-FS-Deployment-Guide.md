@@ -1,7 +1,6 @@
 ---
 ms.assetid: eb047a19-e5cb-43f4-a7bb-c4b7c8fc55a5
 title: Guide de déploiement ADFS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 094ad9e2de21e1f89c35c914a1b327727c2b1439
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 05e8268b73c7fa7689c1131982f0df6817c9aadc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360125"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815062"
 ---
 # <a name="ad-fs-2016-deployment-guide"></a>Guide de déploiement de AD FS 2016
 

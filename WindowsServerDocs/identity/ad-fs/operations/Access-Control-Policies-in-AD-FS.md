@@ -1,7 +1,6 @@
 ---
 ms.assetid: 102eeeb1-6c55-42a2-b321-71a7dab46146
 title: Stratégies de contrôle d’accès dans ADFS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 27eb5b4b52dd727afae5cffc60e7d9749dd5d59f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6af511ac1aff488f192f75b31801c6fed751cedd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407760"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859422"
 ---
 # <a name="access-control-policies-in-windows-server-2016-ad-fs"></a>Stratégies de contrôle d’accès dans AD FS Windows Server 2016
 
@@ -40,22 +39,22 @@ Pour offrir une plus grande flexibilité pour répondre aux besoins de votre ent
   
 Pour créer un modèle de stratégie, un administrateur doit d’abord spécifier dans quelles conditions une demande sera autorisée pour l’émission et/ou la délégation de jetons. Les options de condition et d’action sont indiquées dans le tableau ci-dessous.   Les conditions en gras peuvent être configurées par l’administrateur avec des valeurs différentes ou nouvelles. L’administrateur peut également spécifier des exceptions, le cas échéant. Lorsqu’une condition est remplie, une action d’autorisation n’est pas déclenchée si une exception est spécifiée et que la demande entrante correspond à la condition spécifiée dans l’exception.  
   
-|Autoriser les utilisateurs|Mais| 
+|Autoriser les utilisateurs|mais| 
 | --- | --- | 
- |À partir d’un réseau **spécifique**|À partir d’un réseau **spécifique**<br /><br />À partir de groupes **spécifiques**<br /><br />À partir d’appareils avec des niveaux de confiance **spécifiques**<br /><br />Avec des revendications **spécifiques** dans la demande|  
-|À partir de groupes **spécifiques**|À partir d’un réseau **spécifique**<br /><br />À partir de groupes **spécifiques**<br /><br />À partir d’appareils avec des niveaux de confiance **spécifiques**<br /><br />Avec des revendications **spécifiques** dans la demande|  
-|À partir d’appareils avec des niveaux de confiance **spécifiques**|À partir d’un réseau **spécifique**<br /><br />À partir de groupes **spécifiques**<br /><br />À partir d’appareils avec des niveaux de confiance **spécifiques**<br /><br />Avec des revendications **spécifiques** dans la demande|  
-|Avec des revendications **spécifiques** dans la demande|À partir d’un réseau **spécifique**<br /><br />À partir de groupes **spécifiques**<br /><br />À partir d’appareils avec des niveaux de confiance **spécifiques**<br /><br />Avec des revendications **spécifiques** dans la demande|  
-|Et requièrent l’authentification multifacteur|À partir d’un réseau **spécifique**<br /><br />À partir de groupes **spécifiques**<br /><br />À partir d’appareils avec des niveaux de confiance **spécifiques**<br /><br />Avec des revendications **spécifiques** dans la demande|  
+ |À partir d’un réseau **spécifique**|À partir d’un réseau **spécifique**<p>À partir de groupes **spécifiques**<p>À partir d’appareils avec des niveaux de confiance **spécifiques**<p>Avec des revendications **spécifiques** dans la demande|  
+|À partir de groupes **spécifiques**|À partir d’un réseau **spécifique**<p>À partir de groupes **spécifiques**<p>À partir d’appareils avec des niveaux de confiance **spécifiques**<p>Avec des revendications **spécifiques** dans la demande|  
+|À partir d’appareils avec des niveaux de confiance **spécifiques**|À partir d’un réseau **spécifique**<p>À partir de groupes **spécifiques**<p>À partir d’appareils avec des niveaux de confiance **spécifiques**<p>Avec des revendications **spécifiques** dans la demande|  
+|Avec des revendications **spécifiques** dans la demande|À partir d’un réseau **spécifique**<p>À partir de groupes **spécifiques**<p>À partir d’appareils avec des niveaux de confiance **spécifiques**<p>Avec des revendications **spécifiques** dans la demande|  
+|Et requièrent l’authentification multifacteur|À partir d’un réseau **spécifique**<p>À partir de groupes **spécifiques**<p>À partir d’appareils avec des niveaux de confiance **spécifiques**<p>Avec des revendications **spécifiques** dans la demande|  
   
 Si un administrateur sélectionne plusieurs conditions, il s’agit d’une relation de **et** de. Les actions s’excluent mutuellement et, pour une règle de stratégie, vous ne pouvez choisir qu’une seule action. Si l’administrateur sélectionne plusieurs exceptions, il s’agit d’une relation **ou** . Quelques exemples de règles de stratégie sont affichés ci-dessous :  
   
 |**Règlement**|**Règles de stratégie**|
 | --- | --- |  
-|L’accès extranet requiert MFA<br /><br />Tous les utilisateurs sont autorisés|**#1 de la règle**<br /><br />à partir de l' **extranet**<br /><br />et avec MFA<br /><br />Autoriser<br /><br />**Règle n ° 2**<br /><br />à partir de l' **Intranet**<br /><br />Autoriser|  
-|L’accès externe n’est pas autorisé sauf le non-ETP<br /><br />L’accès intranet pour ETP sur un appareil joint à un espace de travail est autorisé|**#1 de la règle**<br /><br />À partir de l' **extranet**<br /><br />et à partir d' **un groupe non-ETP**<br /><br />Autoriser<br /><br />**#2 de la règle**<br /><br />à partir de l' **Intranet**<br /><br />et à partir d’un appareil joint à l' **espace de travail**<br /><br />et à partir du groupe **ETP**<br /><br />Autoriser|  
-|L’accès extranet requiert MFA, à l’exception de « service admin »<br /><br />Tous les utilisateurs sont autorisés à accéder à|**#1 de la règle**<br /><br />à partir de l' **extranet**<br /><br />et avec MFA<br /><br />Autoriser<br /><br />Sauf le **groupe d’administration de service**<br /><br />**#2 de la règle**<br /><br />Toujours<br /><br />Autoriser|  
-|l’accès d’un appareil non lié à un emplacement de travail à partir d’un extranet requiert l’authentification MFA<br /><br />Autoriser l’accès intranet et extranet pour l’infrastructure AD|**#1 de la règle**<br /><br />à partir de l' **Intranet**<br /><br />Et à partir d’un groupe **ad Fabric**<br /><br />Autoriser<br /><br />**#2 de la règle**<br /><br />à partir de l' **extranet**<br /><br />et à partir d' **un appareil non joint à un espace de travail**<br /><br />et à partir d’un groupe **ad Fabric**<br /><br />et avec MFA<br /><br />Autoriser<br /><br />**#3 de la règle**<br /><br />à partir de l' **extranet**<br /><br />et à partir d’un appareil joint à l' **espace de travail**<br /><br />et à partir d’un groupe **ad Fabric**<br /><br />Autoriser|  
+|L’accès extranet requiert MFA<p>Tous les utilisateurs sont autorisés|**#1 de la règle**<p>à partir de l' **extranet**<p>et avec MFA<p>Autoriser<p>**Règle n ° 2**<p>à partir de l' **Intranet**<p>Autoriser|  
+|L’accès externe n’est pas autorisé sauf le non-ETP<p>L’accès intranet pour ETP sur un appareil joint à un espace de travail est autorisé|**#1 de la règle**<p>à partir de l' **extranet**<p>et à partir d' **un groupe non-ETP**<p>Autoriser<p>**#2 de la règle**<p>à partir de l' **Intranet**<p>et à partir d’un appareil joint à l' **espace de travail**<p>et à partir du groupe **ETP**<p>Autoriser|  
+|L’accès extranet requiert MFA, à l’exception de « service admin »<p>Tous les utilisateurs sont autorisés à accéder à|**#1 de la règle**<p>à partir de l' **extranet**<p>et avec MFA<p>Autoriser<p>Sauf le **groupe d’administration de service**<p>**#2 de la règle**<p>toujours<p>Autoriser|  
+|l’accès d’un appareil non lié à un emplacement de travail à partir d’un extranet requiert l’authentification MFA<p>Autoriser l’accès intranet et extranet pour l’infrastructure AD|**#1 de la règle**<p>à partir de l' **Intranet**<p>Et à partir d’un groupe **ad Fabric**<p>Autoriser<p>**#2 de la règle**<p>à partir de l' **extranet**<p>et à partir d' **un appareil non joint à un espace de travail**<p>Et à partir d’un groupe **ad Fabric**<p>et avec MFA<p>Autoriser<p>**#3 de la règle**<p>à partir de l' **extranet**<p>et à partir d’un appareil joint à l' **espace de travail**<p>Et à partir d’un groupe **ad Fabric**<p>Autoriser|  
   
 ## <a name="parameterized-policy-template-vs-non-parameterized-policy-template"></a>Modèle de stratégie paramétré et modèle de stratégie non paramétrable  
 Les stratégies de contrôle d’accès peuvent être  
@@ -75,7 +74,7 @@ Pour créer une stratégie de contrôle d’accès non paramétrable, utilisez l
   
 1.  Dans AD FS gestion sur la gauche, sélectionnez Access Control stratégies, puis cliquez avec le bouton droit sur Ajouter une stratégie de Access Control.  
   
-2.  Entrez un nom et une description.  Exemple :  Autorisez les utilisateurs avec des appareils authentifiés.  
+2.  Entrez un nom et une description.  Par exemple : autoriser les utilisateurs avec des appareils authentifiés.  
   
 3.  Sous **autoriser l’accès si l’une des règles suivantes est remplie**, cliquez sur **Ajouter**.  
   
@@ -98,7 +97,7 @@ Pour créer une stratégie de contrôle d’accès paramétrable, utilisez la pr
   
 1.  Dans AD FS gestion sur la gauche, sélectionnez Access Control stratégies, puis cliquez avec le bouton droit sur Ajouter une stratégie de Access Control.  
   
-2.  Entrez un nom et une description.  Exemple :  Autoriser les utilisateurs avec une revendication spécifique.  
+2.  Entrez un nom et une description.  Par exemple : autoriser les utilisateurs avec une revendication spécifique.  
   
 3.  Sous **autoriser l’accès si l’une des règles suivantes est remplie**, cliquez sur **Ajouter**.  
   
@@ -121,7 +120,7 @@ Pour créer une stratégie de contrôle d’accès avec une exception, utilisez 
   
 1.  Dans AD FS gestion sur la gauche, sélectionnez Access Control stratégies, puis cliquez avec le bouton droit sur Ajouter une stratégie de Access Control.  
   
-2.  Entrez un nom et une description.  Exemple :  Autoriser les utilisateurs avec des appareils authentifiés mais non gérés.  
+2.  Entrez un nom et une description.  Par exemple : autoriser les utilisateurs avec des appareils authentifiés mais non gérés.  
   
 3.  Sous **autoriser l’accès si l’une des règles suivantes est remplie**, cliquez sur **Ajouter**.  
   
@@ -148,7 +147,7 @@ Pour créer une stratégie de contrôle d’accès avec plusieurs conditions d�
   
 1.  Dans AD FS gestion sur la gauche, sélectionnez Access Control stratégies, puis cliquez avec le bouton droit sur Ajouter une stratégie de Access Control.  
   
-2.  Entrez un nom et une description.  Exemple :  Autoriser les utilisateurs avec une revendication spécifique et à partir d’un groupe spécifique.  
+2.  Entrez un nom et une description.  Par exemple : autoriser les utilisateurs avec une revendication spécifique et à partir d’un groupe spécifique.  
   
 3.  Sous **autoriser l’accès si l’une des règles suivantes est remplie**, cliquez sur **Ajouter**.  
   

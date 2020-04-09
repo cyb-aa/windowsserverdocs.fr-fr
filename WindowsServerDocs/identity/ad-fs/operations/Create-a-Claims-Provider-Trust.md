@@ -1,7 +1,6 @@
 ---
 ms.assetid: a4f7842c-cfca-4d78-916e-023d12a9cdf0
 title: Créer une approbation de fournisseur de revendications
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4539e8abd1af1eca7bacb51971e6d355bb0aab28
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: bd5c13dbdf4258b6a87dcf599299dd7969da5acd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323081"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80817062"
 ---
 # <a name="create-a-claims-provider-trust"></a>Créer une approbation de fournisseur de revendications
 
@@ -54,7 +53,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 ![l’approbation du fournisseur de revendications](media/Create-a-Claims-Provider-Trust/addclaim9.PNG)
 
 ## <a name="to-create-a-claims-provider-trust-using-federation-metadata"></a>Pour créer une approbation de fournisseur de revendications à l’aide des métadonnées de Fédération
-Pour ajouter une nouvelle approbation de fournisseur de revendications à l’aide du composant logiciel enfichable de gestion AD FS, en important automatiquement les données de configuration relatives au partenaire à partir des métadonnées de Fédération que le partenaire a publiées sur un réseau local ou sur Internet, effectuez la procédure suivante sur un serveur de Fédération dans l’organisation du partenaire de ressource.
+Pour ajouter une nouvelle approbation de fournisseur de revendications à l’aide du composant logiciel enfichable de gestion AD FS, en important automatiquement les données de configuration relatives au partenaire à partir des métadonnées de Fédération que le partenaire a publiées sur un réseau local ou sur Internet, effectuez la procédure suivante sur un serveur de Fédération dans l’organisation partenaire de ressource.
 
 >[!NOTE]
 >Bien qu’il s’agisse d’une pratique courante d’utiliser des certificats avec des noms d’hôte non qualifiés comme https :\//MyServer, ces certificats n’ont aucune valeur de sécurité et peuvent permettre à une personne malveillante d’emprunter l’identité d’un service FS (Federation Service) qui publie des métadonnées de Fédération. Par conséquent, lors de l’interrogation des métadonnées de Fédération, vous devez uniquement utiliser un nom de domaine complet, tel que `https://myserver.contoso.com`.

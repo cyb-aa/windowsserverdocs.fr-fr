@@ -1,6 +1,5 @@
 ---
 title: Récupération de la forêt Active Directory-supprimer le catalogue global
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 60087a62-11e6-4750-a70e-510f35315688
 ms.technology: identity-adds
-ms.openlocfilehash: 3ba1336828ad6031ce7fb47a659d084494466e4a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9c16d25c3e749062bdcb2531960c17be434cf615
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71409099"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823722"
 ---
 # <a name="ad-forest-recovery---removing-the-global-catalog"></a>Récupération de la forêt Active Directory-suppression du catalogue global  
 

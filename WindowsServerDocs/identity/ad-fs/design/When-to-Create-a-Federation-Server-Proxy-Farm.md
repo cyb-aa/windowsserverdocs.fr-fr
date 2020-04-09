@@ -1,7 +1,6 @@
 ---
 ms.assetid: ad0bf21d-2ace-4565-b1f5-ce57c8eb2689
 title: Quand créer une batterie de serveurs proxy de fédération
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 247daf1b9b49124188f6bb16bce7da381fe997ef
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d4b2b889159dee9f3b93a54a2b1924be286792f4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402421"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858492"
 ---
 # <a name="when-to-create-a-federation-server-proxy-farm"></a>Quand créer une batterie de serveurs proxy de fédération
 
@@ -31,8 +30,8 @@ Le tableau suivant décrit les tâches qui doivent être effectuées pour que ch
   
 |Tâche|Description|  
 |--------|---------------|  
-|Pointez tous les proxys de la batterie de serveurs vers le même AD FS nom de service FS (Federation Service)|Lorsque vous créez les serveurs proxys de Fédération, vous devez taper le même nom de service FS (Federation Service) dans l’Assistant Configuration du serveur proxy de fédération AD FS pour tous les serveurs proxys de Fédération qui feront partie de la batterie de serveurs. Le serveur proxy de Fédération utilise l’URL qui compose ce nom d’hôte DNS pour déterminer le AD FS service FS (Federation Service) instance qu’il contacte.<br /><br />Pour plus d'informations, voir [Configure a Computer for the Federation Server Proxy Role](../../ad-fs/deployment/Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).|  
-|Obtenir et partager des certificats|Vous pouvez obtenir un certificat d’authentification serveur auprès d’une autorité de certification publique \(autorité de certification\), par exemple, VeriSign, puis configurer le certificat afin que tous les serveurs proxys de fédération partagent la même partie de clé privée du même certificat sur le site Web par défaut pour chaque serveur proxy de Fédération. Pour partager le certificat, vous devez installer le même certificat d’authentification serveur sur le site Web par défaut pour chaque serveur proxy de Fédération. Pour plus d’informations, consultez [Importer un certificat d’authentification serveur sur le site Web par défaut](../../ad-fs/deployment/Import-a-Server-Authentication-Certificate-to-the-Default-Web-Site.md).<br /><br />Pour plus d'informations, voir [Certificats requis pour les serveurs proxy de fédération](Certificate-Requirements-for-Federation-Server-Proxies.md).|  
+|Pointez tous les proxys de la batterie de serveurs vers le même AD FS nom de service FS (Federation Service)|Lorsque vous créez les serveurs proxys de Fédération, vous devez taper le même nom de service FS (Federation Service) dans l’Assistant Configuration du serveur proxy de fédération AD FS pour tous les serveurs proxys de Fédération qui feront partie de la batterie de serveurs. Le serveur proxy de Fédération utilise l’URL qui compose ce nom d’hôte DNS pour déterminer le AD FS service FS (Federation Service) instance qu’il contacte.<p>Pour plus d'informations, voir [Configure a Computer for the Federation Server Proxy Role](../../ad-fs/deployment/Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).|  
+|Obtenir et partager des certificats|Vous pouvez obtenir un certificat d’authentification serveur auprès d’une autorité de certification publique \(autorité de certification\), par exemple, VeriSign, puis configurer le certificat afin que tous les serveurs proxys de fédération partagent la même partie de clé privée du même certificat sur le site Web par défaut pour chaque serveur proxy de Fédération. Pour partager le certificat, vous devez installer le même certificat d’authentification serveur sur le site Web par défaut pour chaque serveur proxy de Fédération. Pour plus d’informations, consultez [Importer un certificat d’authentification serveur sur le site Web par défaut](../../ad-fs/deployment/Import-a-Server-Authentication-Certificate-to-the-Default-Web-Site.md).<p>Pour plus d'informations, voir [Certificate Requirements for Federation Server Proxies](Certificate-Requirements-for-Federation-Server-Proxies.md).|  
   
 Pour plus d’informations sur l’ajout de nouveaux serveurs proxy de Fédération pour créer une batterie de serveurs proxy de Fédération, consultez [Checklist : Setting up a Federation Server Proxy](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server-Proxy.md).  
   

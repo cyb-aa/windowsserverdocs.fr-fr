@@ -1,7 +1,6 @@
 ---
 ms.assetid: 4d21d27d-5523-4993-ad4f-fbaa43df7576
-title: Advanced AD DS Management Using Active Directory Administrative Center (Level 200)
-description: ''
+title: Gestion avancée des services AD DS à l’aide du Centre d’administration Active Directory (niveau200)
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 6ec8ac4936889356ef92e82c0c89491e5c853a95
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 197f994bdd5dedced24aa390dc562530c41e951d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949333"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824912"
 ---
-# <a name="advanced-ad-ds-management-using-active-directory-administrative-center-level-200"></a>Advanced AD DS Management Using Active Directory Administrative Center (Level 200)
+# <a name="advanced-ad-ds-management-using-active-directory-administrative-center-level-200"></a>Gestion avancée des services AD DS à l’aide du Centre d’administration Active Directory (niveau200)
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit la mise à jour du Centre d'administration Active Directory avec la nouvelle Corbeille Active Directory, la stratégie de mot de passe affinée ainsi que la Visionneuse de l'historique Windows PowerShell. Elle aborde notamment l'architecture, des exemples de tâches courantes et les informations de résolution des problèmes. Pour une introduction, consultez [Introduction à Centre d’administration Active Directory améliorations du &#40;niveau 100&#41;](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md).  
   
@@ -28,7 +27,7 @@ Cette rubrique décrit la mise à jour du Centre d'administration Active Directo
 - [Utilisation de la visionneuse de l’historique de Windows PowerShell Centre d’administration Active Directory](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_HistoryViewer)  
 - [Résolution des problèmes de gestion des AD DS](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_Tshoot)  
   
-## <a name="BKMK_Arch"></a>Architecture Centre d’administration Active Directory  
+## <a name="active-directory-administrative-center-architecture"></a><a name="BKMK_Arch"></a>Architecture Centre d’administration Active Directory  
   
 ### <a name="active-directory-administrative-center-executables-dlls"></a>Exécutables Centre d’administration Active Directory, dll  
 
@@ -44,9 +43,9 @@ Windows PowerShell et la couche d'opérations sous-jacents de la nouvelle foncti
   
 ![Gestion avancée des AD DS](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/adds_adrestore.png)  
   
-## <a name="BKMK_EnableRecycleBin"></a>Activation et gestion de la corbeille Active Directory à l’aide de Centre d’administration Active Directory  
+## <a name="enabling-and-managing-the-active-directory-recycle-bin-using-active-directory-administrative-center"></a><a name="BKMK_EnableRecycleBin"></a>Activation et gestion de la corbeille Active Directory à l’aide de Centre d’administration Active Directory  
   
-### <a name="capabilities"></a>Fonctions  
+### <a name="capabilities"></a>Capacités  
   
 - Le Centre d’administration Active Directory Windows Server 2012 ou plus récent vous permet de configurer et de gérer la corbeille Active Directory pour toute partition de domaine d’une forêt. Vous n'avez plus besoin d'utiliser Windows PowerShell ni Ldp.exe pour activer la Corbeille Active Directory ou restaurer des objets dans des partitions de domaine.
 - Le Centre d'administration Active Directory dispose de critères de filtrage avancés, ce qui facilite la restauration ciblée dans des environnements de grande taille comportant de nombreux objets supprimés de manière intentionnelle.
@@ -64,11 +63,11 @@ La corbeille Active Directory nécessite un niveau fonctionnel de forêt Windows
   
 ### <a name="enabling-active-directory-recycle-bin-using-active-directory-administrative-center"></a>Activation de la Corbeille Active Directory à l'aide du Centre d'administration Active Directory
 
-Pour activer la Corbeille Active Directory, ouvrez le **Centre d'administration Active Directory** , puis cliquez sur le nom de votre forêt dans le volet de navigation. Dans le volet **Tâches** , cliquez sur **Activer la Corbeille**.  
+Pour activer la Corbeille Active Directory, ouvrez le **Centre d'administration Active Directory**, puis cliquez sur le nom de votre forêt dans le volet de navigation. Dans le volet **Tâches**, cliquez sur **Activer la Corbeille**.  
   
 ![Gestion avancée des AD DS](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_EnableRecycleBin.png)  
   
-Le Centre d'administration Active Directory montre la boîte de dialogue **Activer la confirmation de la Corbeille** . Cette boîte de dialogue vous avertit que l'activation de la Corbeille est irréversible. Cliquez sur **OK** pour activer la Corbeille Active Directory. Le Centre d'administration Active Directory montre une autre boîte de dialogue vous rappelant que la Corbeille Active Directory n'est pas entièrement fonctionnelle jusqu'à ce que tous les contrôleurs de domaine répliquent le changement de configuration.  
+Le Centre d'administration Active Directory montre la boîte de dialogue **Activer la confirmation de la Corbeille**. Cette boîte de dialogue vous avertit que l'activation de la Corbeille est irréversible. Cliquez sur **OK** pour activer la Corbeille Active Directory. Le Centre d'administration Active Directory montre une autre boîte de dialogue vous rappelant que la Corbeille Active Directory n'est pas entièrement fonctionnelle jusqu'à ce que tous les contrôleurs de domaine répliquent le changement de configuration.  
   
 > [!IMPORTANT]  
 > L'option permettant l'activation de la Corbeille Active Directory n'est pas disponible si :  
@@ -92,7 +91,7 @@ Cette section utilise l'exemple d'un domaine existant nommé **corp.contoso.com*
   
 #### <a name="storage-and-filtering"></a>Stockage et filtrage
 
-La Corbeille Active Directory conserve tous les objets supprimés de la forêt. Elle enregistre ces objets selon l'attribut **msDS-deletedObjectLifetime** , qui est défini par défaut pour correspondre à l'attribut **tombstoneLifetime** de la forêt. Dans toute forêt créée à l'aide de Windows Server 2003 SP1 ou version ultérieure, l'attribut **tombstoneLifetime** a la valeur 180 jours par défaut. Dans toute forêt mise à niveau à partir de Windows 2000 ou installée avec Windows Server 2003 (sans Service Pack), l'attribut tombstoneLifetime par défaut N'EST PAS DÉFINI et Windows utilise la valeur interne par défaut de 60 jours. Vous pouvez configurer tous ces éléments et utiliser le Centre d'administration Active Directory pour restaurer les objets supprimés des partitions de domaine de la forêt. Vous devez continuer à utiliser l'applet de commande **Restore-ADObject** pour restaurer les objets supprimés à partir d'autres partitions, telles que Configuration. L'activation de la Corbeille Active Directory rend visible le conteneur **Objets supprimés** sous chaque partition de domaine dans le Centre d'administration Active Directory.  
+La Corbeille Active Directory conserve tous les objets supprimés de la forêt. Elle enregistre ces objets selon l'attribut **msDS-deletedObjectLifetime**, qui est défini par défaut pour correspondre à l'attribut **tombstoneLifetime** de la forêt. Dans toute forêt créée à l'aide de Windows Server 2003 SP1 ou version ultérieure, l'attribut **tombstoneLifetime** a la valeur 180 jours par défaut. Dans toute forêt mise à niveau à partir de Windows 2000 ou installée avec Windows Server 2003 (sans Service Pack), l'attribut tombstoneLifetime par défaut N'EST PAS DÉFINI et Windows utilise la valeur interne par défaut de 60 jours. Vous pouvez configurer tous ces éléments et utiliser le Centre d'administration Active Directory pour restaurer les objets supprimés des partitions de domaine de la forêt. Vous devez continuer à utiliser l'applet de commande **Restore-ADObject** pour restaurer les objets supprimés à partir d'autres partitions, telles que Configuration. L'activation de la Corbeille Active Directory rend visible le conteneur **Objets supprimés** sous chaque partition de domaine dans le Centre d'administration Active Directory.  
   
 ![Gestion avancée des AD DS](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_DeletedObjectsContainer.png)  
   
@@ -100,7 +99,7 @@ Le conteneur **Objets supprimés** affiche tous les objets qui peuvent être res
   
 Pour une explication plus détaillée sur l’architecture et les règles de traitement de la Corbeille, voir [Corbeille Active Directory : présentation, implémentation, recommandations et dépannage](https://blogs.technet.com/b/askds/archive/2009/08/27/the-ad-recycle-bin-understanding-implementing-best-practices-and-troubleshooting.aspx).  
   
-Le Centre d'administration Active Directory limite artificiellement le nombre d'objets par défaut renvoyés d'un conteneur à 20 000 objets. Vous pouvez augmenter cette limite à 100 000 objets en cliquant sur le menu **Gérer** , puis sur **Options de la liste des gestionnaires**.  
+Le Centre d'administration Active Directory limite artificiellement le nombre d'objets par défaut renvoyés d'un conteneur à 20 000 objets. Vous pouvez augmenter cette limite à 100 000 objets en cliquant sur le menu **Gérer**, puis sur **Options de la liste des gestionnaires**.  
   
 ![Gestion avancée des AD DS](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_MgmtList.png)  
   
@@ -122,12 +121,12 @@ L'opération de restauration prend en charge toutes les options de critères de 
 - Nom  
 - Quand supprimé  
 - Dernier parent connu  
-- Tapez  
+- Type  
 - Description  
 - Ville  
 - Pays/région  
 - Service  
-- Numéro d'employé  
+- ID d'employé  
 - Prénom  
 - Fonction  
 - Nom  
@@ -151,7 +150,7 @@ La restauration d'objets supprimés s'est toujours déroulée en une seule opér
   
 1. Cliquez sur le nom de domaine dans le volet de navigation du Centre d'administration Active Directory.  
 2. Double-cliquez sur **Objets supprimés** dans la liste de gestion.  
-3. Cliquez avec le bouton droit sur l'objet, puis cliquez sur **Restaurer**ou cliquez sur **Restaurer** à partir du volet **Tâches** .  
+3. Cliquez avec le bouton droit sur l'objet, puis cliquez sur **Restaurer** ou cliquez sur **Restaurer** à partir du volet **Tâches**.  
   
 L'objet est restauré à son emplacement d'origine.  
   
@@ -210,23 +209,23 @@ L'applet de commande Active Directory pour Windows PowerShell qui permet de rest
 Restore-adobject  
 ```
 
-La fonctionnalité d'applet de commande **Restore-ADObject** n'a pas changé entre Windows Server 2008 R2 et Windows Server 2012.  
+La fonctionnalité d'applet de commande **Restore-ADObject** n'a pas changé entre Windows Server 2008 R2 et Windows Server 2012.  
   
 ##### <a name="server-side-filtering"></a>Filtrage côté serveur
 
 Au fil du temps, le conteneur Objets supprimés peut cumuler plus de 20 000 (ou même 100 000) objets dans les moyennes ou grandes entreprises et rencontre des difficultés pour les afficher tous. Le mécanisme de filtre du Centre d'administration Active Directory repose sur un filtrage côté client, il ne peut donc pas afficher ces objets supplémentaires. Pour contourner cette limitation, utilisez les étapes suivantes pour effectuer une recherche côté serveur :  
   
-1. Cliquez avec le bouton droit sur le conteneur **Objets supprimés** , puis cliquez sur **Rechercher sous ce nœud**.  
-2. Cliquez sur le chevron pour afficher le menu **Ajouter des critères** , sélectionnez et ajoutez **Dernière modification entre des dates données**. L'heure de dernière modification (l'attribut **whenChanged** ) est une approximation fiable de l'heure de suppression ; dans la plupart des environnements, elles sont identiques. Cette requête effectue une recherche côté serveur.  
+1. Cliquez avec le bouton droit sur le conteneur **Objets supprimés**, puis cliquez sur **Rechercher sous ce nœud**.  
+2. Cliquez sur le chevron pour afficher le menu **Ajouter des critères**, sélectionnez et ajoutez **Dernière modification entre des dates données**. L'heure de dernière modification (l'attribut **whenChanged**) est une approximation fiable de l'heure de suppression ; dans la plupart des environnements, elles sont identiques. Cette requête effectue une recherche côté serveur.  
 3. Identifiez les objets supprimés à restaurer à l'aide de filtres d'affichage supplémentaires et de tri avancé des résultats, puis restaurez-les normalement.  
   
-## <a name="BKMK_FGPP"></a>Configuration et gestion des stratégies de mot de passe affinées à l’aide de Centre d’administration Active Directory  
+## <a name="configuring-and-managing-fine-grained-password-policies-using-active-directory-administrative-center"></a><a name="BKMK_FGPP"></a>Configuration et gestion des stratégies de mot de passe affinées à l’aide de Centre d’administration Active Directory  
   
 ### <a name="configuring-fine-grained-password-policies"></a>Configuration des stratégies de mot de passe affinées
 
 Le Centre d'administration Active Directory vous permet de créer et de gérer des objets de stratégie de mot de passe affinée. Windows Server 2008 a introduit la fonctionnalité de stratégies de mot de passe affinées mais dans Windows Server 2012, c'est la première fois qu'elle est dotée d'une interface de gestion graphique. Vous appliquez des stratégies de mot de passe affinées au niveau du domaine, ce qui permet la substitution du mot de passe de domaine unique nécessaire à Windows Server 2003. En créant différentes stratégies de mot de passe affinées avec différents paramètres, les utilisateurs individuels ou les groupes obtiennent des stratégies de mot de passe différentes dans un domaine.  
   
-Pour plus d’informations sur la stratégie de mot de passe affinée, voir [Guide pas à pas relatif à la configuration des stratégies de verrouillage de compte et de mot de passe affinées (Windows Server 2008 R2)](https://technet.microsoft.com/library/cc770842(WS.10).aspx).  
+Pour plus d’informations sur la stratégie de mot de passe affinée, voir [Guide pas à pas relatif à la configuration des stratégies de verrouillage de compte et de mot de passe affinées (Windows Server 2008 R2)](https://technet.microsoft.com/library/cc770842(WS.10).aspx).  
   
 Dans le volet Navigation, cliquez sur Arborescence, sur votre domaine, **Système**, **Classe d'objets PSC (Password Settings Container)** , puis dans le volet Tâches, cliquez sur **Nouveau** et **Paramètres de mot de passe**.  
   
@@ -234,7 +233,7 @@ Dans le volet Navigation, cliquez sur Arborescence, sur votre domaine, **Systèm
   
 ### <a name="managing-fine-grained-password-policies"></a>Gestion des stratégies de mot de passe affinées
 
-La création d'une stratégie de mot de passe affinée ou la modification d'une stratégie existante permet d'afficher l'éditeur **Paramètres de mot de passe** . À partir d'ici, vous configurez toutes les stratégies de mot de passe souhaitées, comme dans Windows Server 2008 ou Windows Server 2008 R2, à ceci près que vous disposez désormais d'un éditeur spécifique intégré.  
+La création d'une stratégie de mot de passe affinée ou la modification d'une stratégie existante permet d'afficher l'éditeur **Paramètres de mot de passe**. À partir d'ici, vous configurez toutes les stratégies de mot de passe souhaitées, comme dans Windows Server 2008 ou Windows Server 2008 R2, à ceci près que vous disposez désormais d'un éditeur spécifique intégré.  
   
 ![Gestion avancée des AD DS](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_CreatePasswordSettings.png)  
   
@@ -264,13 +263,13 @@ Le Centre d'administration Active Directory vous permet également de rechercher
   
 ![Gestion avancée des AD DS](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_RSOP.png)  
   
-L'examen des **Propriétés** d'un utilisateur ou d'un groupe montre les **Paramètres de mot de passe directement associés**, qui sont les stratégies de mot de passe affinées explicitement affectées :  
+L'examen des **Propriétés** d'un utilisateur ou d'un groupe montre les **Paramètres de mot de passe directement associés**, qui sont les stratégies de mot de passe affinées explicitement affectées :  
   
 ![Gestion avancée des AD DS](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_FGPPSettings.gif)  
   
 L’assignation passe affinée implicite ne s’affiche pas ici. pour cela, vous devez utiliser l’option **afficher les paramètres de mot de passe résultants..** ..  
   
-## <a name="BKMK_HistoryViewer"></a>Utilisation de la visionneuse de l’historique de Windows PowerShell Centre d’administration Active Directory
+## <a name="using-the-active-directory-administrative-center-windows-powershell-history-viewer"></a><a name="BKMK_HistoryViewer"></a>Utilisation de la visionneuse de l’historique de Windows PowerShell Centre d’administration Active Directory
 
 La gestion future de Windows est Windows PowerShell. En disposant des outils graphiques au-dessus d'une infrastructure d'automatisation des tâches, la gestion des systèmes distribués les plus complexes devient cohérente et efficace. Vous devez comprendre le fonctionnement de Windows PowerShell pour réaliser au mieux votre potentiel et optimiser vos investissements en matière d'informatique.  
   
@@ -290,7 +289,7 @@ Développez chaque élément de ligne pertinent pour afficher les valeurs fourni
   
 ![Gestion avancée des AD DS](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_ViewArgs.png)  
   
-Cliquez sur le menu **Démarrer la tâche** pour créer une note manuelle avant d'utiliser le Centre d'administration Active Directory pour créer, modifier ou supprimer un objet. Tapez ce que vous étiez en train de faire.  Quand vous avez terminé la modification, sélectionnez **Fin de tâche**. La note de tâche regroupe toutes les actions effectuées dans une note réductible, explicative.  
+Cliquez sur le menu **Démarrer la tâche** pour créer une note manuelle avant d'utiliser le Centre d'administration Active Directory pour créer, modifier ou supprimer un objet. Tapez ce que vous étiez en train de faire.  Quand vous avez terminé la modification, sélectionnez **Fin de tâche**. La note de tâche regroupe toutes les actions effectuées dans une note réductible, explicative.  
   
 Par exemple, pour afficher les commandes Windows PowerShell utilisées pour modifier le mot de passe d'un utilisateur et le supprimer d'un groupe :  
   
@@ -316,7 +315,7 @@ set-aduser
 
 La conception du Centre d'administration Active Directory a exigé une modularité et une utilisation du code minimales. Ainsi, plutôt qu'un ensemble de fonctions crée des utilisateurs et qu'un autre ensemble modifie des utilisateurs existants, il remplit chaque fonction séparément, puis les regroupe à l'aide des applets de commande. Gardez cela à l'esprit si vous étudiez Active Directory pour Windows PowerShell. Vous pouvez également l'utiliser en tant technique d'apprentissage : en fait, Windows PowerShell permet d'accomplir facilement une tâche simple.  
   
-## <a name="BKMK_Tshoot"></a>Résolution des problèmes de gestion des AD DS  
+## <a name="troubleshooting-ad-ds-management"></a><a name="BKMK_Tshoot"></a>Résolution des problèmes de gestion des AD DS  
   
 ### <a name="introduction-to-troubleshooting"></a>Introduction à la résolution des problèmes
 
@@ -348,7 +347,7 @@ Créez le contenu suivant :
 </system.diagnostics>
 ```
 
-Les niveaux de détail de **DsacLogLevel** sont **Aucun**, **Erreur**, **Avertissement**, **Info**et **Commenté**. Le nom du fichier de sortie peut être configuré et enregistré dans le même dossier que dsac.exe. La sortie peut vous renseigner sur le mode de fonctionnement du Centre d'administration Active Directory, les contrôleurs de domaine qu'il a contactés, les commandes Windows PowerShell qu'il a exécutées, les réponses obtenues et autres informations.  
+Les niveaux de détail de **DsacLogLevel** sont **Aucun**, **Erreur**, **Avertissement**, **Info** et **Commenté**. Le nom du fichier de sortie peut être configuré et enregistré dans le même dossier que dsac.exe. La sortie peut vous renseigner sur le mode de fonctionnement du Centre d'administration Active Directory, les contrôleurs de domaine qu'il a contactés, les commandes Windows PowerShell qu'il a exécutées, les réponses obtenues et autres informations.  
 
 Par exemple, en utilisant le niveau INFO qui renvoie tous les résultats sauf le détail au niveau du suivi :  
   
@@ -436,18 +435,18 @@ Par exemple, en utilisant le niveau INFO qui renvoie tous les résultats sauf le
    -Server:"dc1.corp.contoso.com"  
    ```
 
-La définition du niveau de commentaire montre également les piles .NET pour chaque fonction, mais celles-ci n'incluent pas assez de données pour être vraiment utiles, sauf en cas de dépannage de Dsac.exe après une violation d'accès ou un incident. Les deux causes probables de ce problème sont les suivantes :
+La définition du niveau de commentaire montre également les piles .NET pour chaque fonction, mais celles-ci n'incluent pas assez de données pour être vraiment utiles, sauf en cas de dépannage de Dsac.exe après une violation d'accès ou un incident. Les deux causes probables de ce problème sont les suivantes :
   
 - les services Web Active Directory (ADWS) ne s'exécutent sur aucun contrôleur de domaine accessible ;
 - Les communications réseau sont bloquées vers le service Active Directory à partir de l’ordinateur qui exécute le Centre d’administration Active Directory.
 
 > [!IMPORTANT]  
-> Il existe également une version hors-bande du service appelée [Passerelle de gestion Active Directory](https://www.microsoft.com/download/en/details.aspx?displaylang=en&id=2852), qui s’exécute sur Windows Server 2008 SP2 et Windows Server 2003 SP2.
+> Il existe également une version hors-bande du service appelée [Passerelle de gestion Active Directory](https://www.microsoft.com/download/en/details.aspx?displaylang=en&id=2852), qui s’exécute sur Windows Server 2008 SP2 et Windows Server 2003 SP2.
 >
 
 Les erreurs affichées quand aucune instance des services Web Active Directory ne sont disponibles sont les suivantes :  
   
-|Erreur|Opération|
+|Error|Opération|
 | --- | --- |  
 |« Impossible de se connecter à un domaine. Actualisez ou réessayez lorsque la connexion est disponible. »|Affiché au démarrage de l'application Centre d'administration Active Directory|
 |« Impossible de trouver un serveur disponible dans le domaine *<NetBIOS domain name>* qui exécute le Service Web Active Directory »|Affiché au cours d'une tentative de sélection d'un nœud de domaine dans l'application Centre d'administration Active Directory|
@@ -480,10 +479,10 @@ Pour résoudre ce problème, utilisez ces étapes :
    [Microsoft.ActiveDirectory.WebServices.exe]  
    ```
 
-   Si c'est le cas, validez les règles du Pare-feu Windows et vérifiez qu'elles autorisent le port TCP 9389 entrant. Par défaut, les contrôleurs du domaine activent la règle du pare-feu « Services Web Active Directory (TCP-entrant) ». Si le port n'est pas en train d'écouter, vérifiez à nouveau que les services sont en cours d'exécution sur ce serveur et redémarrez-le. Vérifiez qu'aucun autre processus n'est déjà en train d'écouter sur le port 9389.  
+   Si c'est le cas, validez les règles du Pare-feu Windows et vérifiez qu'elles autorisent le port TCP 9389 entrant. Par défaut, les contrôleurs du domaine activent la règle du pare-feu « Services Web Active Directory (TCP-entrant) ». Si le port n'est pas en train d'écouter, vérifiez à nouveau que les services sont en cours d'exécution sur ce serveur et redémarrez-le. Vérifiez qu'aucun autre processus n'est déjà en train d'écouter sur le port 9389.  
   
 4. Installez NetMon ou un autre utilitaire de capture réseau sur l'ordinateur exécutant le Centre d'administration Active Directory et sur le contrôleur de domaine renvoyé par NLTEST. Rassemblez des captures du réseau simultanées depuis les deux ordinateurs, sur lesquels vous démarrez le Centre d'administration Active Directory et voyez l'erreur avant d'arrêter les captures. Vérifiez que le client est capable d'envoyer des données au contrôleur de domaine et d'en recevoir de ce dernier sur le port TCP 9389. Si les paquets sont envoyés mais qu'ils n'arrivent jamais à destination, ou s'ils arrivent, que le contrôleur de domaine répond mais qu'ils n'atteignent jamais le client, un pare-feu est probablement placé entre les ordinateurs sur les paquets ignorés du réseau sur ce port. Ce pare-feu peut être logiciel ou matériel et faire partie d'un logiciel tiers (antivirus) de protection de point de terminaison.  
   
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
 [Corbeille Active Directory, stratégie de mot de passe affinée et historique PowerShell](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md)  

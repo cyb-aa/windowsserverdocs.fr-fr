@@ -1,26 +1,25 @@
 ---
-title: Structure protégée et machines virtuelles dotées d'une protection maximale
-ms.custom: na
+title: Structure protégée et machines virtuelles dotées d’une protection maximale
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 5c7ada81-2d97-41d4-87cf-1a7ccf06cd20
 manager: dongill
 author: rpsqrd
-ms.author: justinha
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: f23d0be0d860695b014f57fd55d8e321e81a70ca
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 9e76b3081438ae38c6b83b7cdd179d47b1e21a70
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950336"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856912"
 ---
-# <a name="guarded-fabric-and-shielded-vms"></a>Structure protégée et machines virtuelles dotées d'une protection maximale
+# <a name="guarded-fabric-and-shielded-vms"></a>Structure protégée et machines virtuelles dotées d’une protection maximale
 
 >S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016
 
-L’un des objectifs les plus importants de la fourniture d’un environnement hébergé est de garantir la sécurité des ordinateurs virtuels en cours d’exécution dans l’environnement. En tant que fournisseur de services cloud ou administrateur d’un cloud privé d’entreprise, vous pouvez utiliser une structure protégée pour offrir un environnement plus sécurisé pour les machines virtuelles. Une structure protégée se compose d’un Service Guardian hôte (HGS), généralement, un cluster de trois nœuds, d’un ou de plusieurs hôtes protégés et d’un ensemble d’ordinateurs virtuels.
+L’un des objectifs les plus importants de la fourniture d’un environnement hébergé est de garantir la sécurité des ordinateurs virtuels en cours d’exécution dans l’environnement. En tant que fournisseur de services cloud ou administrateur d’un cloud privé d’entreprise, vous pouvez utiliser une structure protégée pour offrir un environnement plus sécurisé pour les ordinateurs virtuels. Une structure protégée se compose d’un Service Guardian hôte (HGS), généralement, un cluster de trois nœuds, d’un ou de plusieurs hôtes protégés et d’un ensemble d’ordinateurs virtuels.
 
 > [!IMPORTANT]
 > Vérifiez que vous avez installé la dernière mise à jour cumulative avant de déployer des machines virtuelles protégées en production.
@@ -39,7 +38,7 @@ L’un des objectifs les plus importants de la fourniture d’un environnement h
 - [Guide de planification pour les hébergeurs](guarded-fabric-planning-for-hosters.md)
 - [Guide de planification pour les locataires](guarded-fabric-shielded-vm-planning-for-tenants.md)
 
-## <a name="deployment-topics"></a>Rubriques traitant du déploiement
+## <a name="deployment-topics"></a>Rubriques relatives au déploiement
 
 - [Guide de déploiement](guarded-fabric-deploying-hgs-overview.md)
     - [Démarrage rapide](guarded-fabric-deployment-overview.md)

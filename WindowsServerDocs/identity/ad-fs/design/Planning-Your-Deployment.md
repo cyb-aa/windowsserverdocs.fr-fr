@@ -1,7 +1,6 @@
 ---
 ms.assetid: bb9b9e18-bf2f-4115-be77-9a165944db41
 title: Planification de votre déploiement
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 607dc34c8f44d8d96a8dc0c9d1ed004edc799167
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6386aac112fcf936ccdd9772e3d5566d8dd21ad8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407996"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858642"
 ---
 # <a name="planning-your-deployment"></a>Planification de votre déploiement
 
@@ -23,7 +22,7 @@ Lorsque vous envisagez de croiser les\-de la Fédération \(de l’organisation\
 > [!NOTE]  
 > Assurez-vous que le rôle que joue l’organisation dans l’accord de fédération est clairement compris par toutes les parties.  
   
-Pour la [conception SSO de Web fédéré](Federated-Web-SSO-Design.md), AD FS utilise des termes tels que le *partenaire de compte* \(également appelé *fournisseur d’identité* dans le\-du composant logiciel enfichable de gestion AD FS dans\) et partenaire de *ressource* \(également appelé *partie de confiance* dans AD FS le composant logiciel enfichable de gestion\-dans\) pour différencier l’organisation qui héberge les comptes \(le partenaire de compte\) de l’organisation qui héberge les\)du partenaire de ressource.\-\(  
+Pour la [conception SSO de Web fédéré](Federated-Web-SSO-Design.md), AD FS utilise des termes tels que *partenaire de compte* \(également appelés « *fournisseur d’identité* » dans le\-du composant logiciel enfichable Gestion des AD FS dans\) et partenaire de *ressource* \(également appelée *partie de confiance* dans AD FS le composant logiciel enfichable de gestion\-pour différencier l’organisation qui héberge les comptes\) le partenaire de compte \(de l’organisation qui héberge les ressources\)\-\(\)  
   
 Dans la [Web SSO Design](Web-SSO-Design.md), l’entreprise intervient dans les rôles de compte partenaire et de ressource partenaire, car elle fournit à ses utilisateurs l’accès aux applications.  
   

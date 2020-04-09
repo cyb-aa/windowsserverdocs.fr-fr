@@ -2,20 +2,19 @@
 title: Gérer les Integration Services Hyper-V
 description: Décrit comment activer et désactiver les services d’intégration et les installer si nécessaire.
 ms.technology: compute-hyper-v
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 manager: dongill
 ms.date: 12/20/2016
 ms.topic: article
 ms.prod: windows-server
-ms.service: na
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
-ms.openlocfilehash: bcf8109530043f5e0a6d141c484233c4364fb307
-ms.sourcegitcommit: 9687d3eb221b89061a48bf1e73fb3b25bee69f9a
+ms.openlocfilehash: 2c5e2d67b391cd53a6995957da5dab108a34e1a9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78169569"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820712"
 ---
 >S’applique à : Windows 10, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2019
 
@@ -235,11 +234,11 @@ Nous vous recommandons de tenir à jour les services d’intégration pour obten
 |:---------|:---------|:---------|
 | Windows 10 | Windows Update | |
 | Windows 8.1 | Windows Update | |
-| Windows 8 | Windows Update | Nécessite le service d’intégration Échange de données.* |
+| Windows 8 | Windows Update | Nécessite le service d’intégration Échange de données.* |
 | Windows 7 | Windows Update | Nécessite le service d’intégration Échange de données.* |
 | Windows Vista (SP2) | Windows Update | Nécessite le service d’intégration Échange de données.* |
 | - | | |
-| Windows Server 2016 | Windows Update | |
+| Windows Server 2016 | Windows Update | |
 | Windows Server, canal semi-annuel | Windows Update | |
 | Windows Server 2012 R2 | Windows Update | |
 | Windows Server 2012 | Windows Update | Nécessite le service d’intégration Échange de données.* |
@@ -258,16 +257,16 @@ Nous vous recommandons de tenir à jour les services d’intégration pour obten
 |:---------|:---------|:---------|
 | Windows 10 | Windows Update | |
 | Windows 8.1 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
-| Windows 8 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
+| Windows 8 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows 7 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Vista (SP2) | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows XP (SP2, SP3) | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | - | | |
-| Windows Server 2016 | Windows Update | |
+| Windows Server 2016 | Windows Update | |
 | Windows Server, canal semi-annuel | Windows Update | |
 | Windows Server 2012 R2 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Server 2012 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
-| Windows Server 2008 R2 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
+| Windows Server 2008 R2 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Server 2008 (SP2) | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Home Server 2011 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Small Business Server 2011 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
@@ -282,14 +281,14 @@ Nous vous recommandons de tenir à jour les services d’intégration pour obten
 | Invité  | Mécanisme de mise à jour | Remarques |
 |:---------|:---------|:---------|
 | Windows 8.1 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
-| Windows 8 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
+| Windows 8 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows 7 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Vista (SP2) | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows XP (SP2, SP3) | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | - | | |
 | Windows Server 2012 R2 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Server 2012 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
-| Windows Server 2008 R2 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous.|
+| Windows Server 2008 R2 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous.|
 | Windows Server 2008 (SP2) | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Home Server 2011 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Small Business Server 2011 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |

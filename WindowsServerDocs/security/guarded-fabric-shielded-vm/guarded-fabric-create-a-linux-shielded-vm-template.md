@@ -1,19 +1,19 @@
 ---
 title: Créer un disque de modèle d’ordinateur virtuel protégé Linux
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: d0e1d4fb-97fc-4389-9421-c869ba532944
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 66d5f70f747a6209f2856afde58b6f486ea597f8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1a6325a5d8e931f1e62c83ba4013d94760e39f86
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386707"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856792"
 ---
 # <a name="create-a-linux-shielded-vm-template-disk"></a>Créer un disque de modèle d’ordinateur virtuel protégé Linux
 
@@ -21,7 +21,7 @@ ms.locfileid: "71386707"
 
 Cette rubrique explique comment préparer un disque de modèle pour les machines virtuelles protégées Linux qui peuvent être utilisées pour instancier une ou plusieurs machines virtuelles clientes.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
 Pour préparer et tester une machine virtuelle Linux protégée, vous devez disposer des ressources suivantes :
 
@@ -169,7 +169,7 @@ Le certificat doit remplir les conditions suivantes :
 Propriété du certificat | Valeur requise
 ---------------------|---------------
 Algorithme de clé | RSA
-Taille de clé minimale | 2048 bits
+Taille de clé minimale | 2 048 bits
 Algorithme de signature | SHA256 (recommandé)
 Utilisation de la clé | Signature numérique
 

@@ -2,25 +2,23 @@
 title: Ordinateurs virtuels SUSE pris en charge sur Hyper-V
 description: Répertorie les fonctionnalités et les services d’intégration Linux inclus dans chaque version
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7ec0e14c-4498-4bd9-8fe6-b94260198efc
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: 45517c1d381ba55c819b09b53ae563092e161b1e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c5daa73e2e0c59a262565237d979d2e1e544ae4f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366728"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858002"
 ---
 # <a name="supported-suse-virtual-machines-on-hyper-v"></a>Ordinateurs virtuels SUSE pris en charge sur Hyper-V
 
->S'applique à : Windows Server 2016, Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
+>S’applique à : Windows Server 2016, Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
 
 Voici un plan de distribution de fonctionnalités qui indique les fonctionnalités de chaque version. Les problèmes connus et les solutions de contournement pour chaque distribution sont répertoriés après le tableau.
 
@@ -49,7 +47,7 @@ SLES12 + est 64-bit uniquement.
 |vRSS|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|||
 |Segmentation TCP et déchargements de somme de contrôle|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |SR-IOV|2019, 2016|&#10004;|&#10004;|&#10004;||||
-|**[Stockage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||||||||
+|**[Rangement](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||||||||
 |Redimensionnement VHDX|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Fibre Channel virtuel|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Sauvegarde de machine virtuelle en direct|2019, 2016, 2012 R2|&#10004;Remarque 2, 3, 8|&#10004;Remarque 2, 3, 8|&#10004;Remarque 2, 3, 8|&#10004;Remarque 2, 3, 8|&#10004;Remarque 2, 3, 8|&#10004;Remarque 2, 3, 8|
@@ -74,7 +72,7 @@ SLES12 + est 64-bit uniquement.
 |Démarrer à l’aide d’UEFI|2019, 2016, 2012 R2|&#10004;Remarque 9|&#10004;Remarque 9|&#10004;Remarque 9|&#10004;Remarque 9|&#10004;Remarque 9||
 |Démarrage sécurisé|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;|||
 
-## <a name="BKMK_notes"></a>Notes
+## <a name="notes"></a><a name="BKMK_notes"></a>Notes
 
 1. L’injection d’adresses IP statiques peut ne pas fonctionner si le **Gestionnaire de réseau** a été configuré pour une carte réseau spécifique à Hyper-V sur la machine virtuelle. Pour garantir le bon fonctionnement de l’injection d’adresses IP statiques, assurez-vous que le gestionnaire de réseau est entièrement désactivé ou a été désactivé pour une carte réseau spécifique via son fichier **ifcfg-ethx** .
 

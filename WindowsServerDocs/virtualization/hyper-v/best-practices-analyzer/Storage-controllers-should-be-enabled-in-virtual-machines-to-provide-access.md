@@ -2,20 +2,19 @@
 title: Les contrôleurs de stockage doivent être activés sur les machines virtuelles pour fournir l’accès au stockage attaché
 description: Fournit des instructions pour résoudre le problème signalé par cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 532548a1-8ffe-4b5b-902e-ed2f0819012b
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: f0d10ab4c419a6014a9edb4b7f721714dc92798d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b530a5868633e6007f311f3d15c94b7ec4ded52c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393493"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858792"
 ---
 # <a name="storage-controllers-should-be-enabled-in-virtual-machines-to-provide-access-to-attached-storage"></a>Les contrôleurs de stockage doivent être activés sur les machines virtuelles pour fournir l’accès au stockage attaché
 
@@ -25,9 +24,9 @@ Pour plus d'informations sur les meilleures pratiques et les analyses, consultez
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
 
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.
@@ -56,7 +55,7 @@ Pour obtenir des instructions sur l’utilisation de Device Manager, consultez l
   
 3.  Si la machine virtuelle est en cours d’exécution, arrêtez la machine virtuelle. Cliquez avec le bouton droit sur la machine virtuelle, puis cliquez sur **arrêter**.  
   
-4.  Dans le volet **Action**, sous le nom de l'ordinateur virtuel, cliquez sur **Paramètres**.  
+4.  Dans le volet **Action**, sous le nom de l’ordinateur virtuel, cliquez sur **Paramètres**.  
   
 5.  Dans le volet gauche de la boîte de dialogue **paramètres** , sous **matériel**, cliquez sur **contrôleur SCSI**.  
   

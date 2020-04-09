@@ -1,19 +1,20 @@
 ---
 title: Jeux de clusters
 ms.prod: windows-server
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: johnmarlin-msft
+ms.author: johnmar
 ms.date: 01/30/2019
 description: Cet article décrit le scénario des ensembles de clusters
 ms.localizationpriority: medium
-ms.openlocfilehash: db427e8fa4e5574c6eb7837cf0ab4a9fcc180410
-ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
+ms.openlocfilehash: 3c7ddef1831a82f7fc068ec4241bb1a72bd888bd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80639961"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861042"
 ---
 # <a name="cluster-sets"></a>Jeux de clusters
 
@@ -100,13 +101,13 @@ Dans Windows Server 2019, il existe un nouveau rôle de serveur de fichiers avec
 
 Les considérations suivantes s’appliquent à un rôle de SOFS d’infrastructure :
 
-1.  Il ne peut y avoir qu’un seul rôle de cluster SOFS d’infrastructure sur un cluster de basculement. Le rôle de SOFS d’infrastructure est créé en spécifiant le paramètre de commutateur « **-infrastructure**» à l’applet de commande **Add-ClusterScaleOutFileServerRole** .  Par exemple :
+1.    Il ne peut y avoir qu’un seul rôle de cluster SOFS d’infrastructure sur un cluster de basculement. Le rôle de SOFS d’infrastructure est créé en spécifiant le paramètre de commutateur « **-infrastructure**» à l’applet de commande **Add-ClusterScaleOutFileServerRole** .  Par exemple :
 
-        Add-ClusterScaleoutFileServerRole -Name "my_infra_sofs_name" -Infrastructure
+        Add-ClusterScaleoutFileServerRole-Name « my_infra_sofs_name »-infrastructure
 
-2.  Chaque volume CSV créé dans le basculement déclenche automatiquement la création d’un partage SMB avec un nom généré automatiquement en fonction du nom du volume CSV. Un administrateur ne peut pas créer ou modifier directement des partages SMB sous un rôle SOFS, à l’exception des opérations de création/modification de volume CSV.
+2.    Chaque volume CSV créé dans le basculement déclenche automatiquement la création d’un partage SMB avec un nom généré automatiquement en fonction du nom du volume CSV. Un administrateur ne peut pas créer ou modifier directement des partages SMB sous un rôle SOFS, à l’exception des opérations de création/modification de volume CSV.
 
-3.  Dans les configurations hyper-convergées, une infrastructure SOFS permet à un client SMB (hôte Hyper-V) de communiquer avec la disponibilité continue garantie (CA) au serveur SMB d’infrastructure SOFS. Cette autorité de certification de bouclage SMB hyper-convergé est obtenue via des machines virtuelles accédant à leurs fichiers VHDx (Virtual Disk) où l’identité de l’ordinateur virtuel propriétaire est transférée entre le client et le serveur. Ce transfert d’identité permet aux fichiers VHDx de liste de contrôle d’accès (ACL) de la même façon que dans les configurations de cluster hyper-convergé standard.
+3.    Dans les configurations hyper-convergées, une infrastructure SOFS permet à un client SMB (hôte Hyper-V) de communiquer avec la disponibilité continue garantie (CA) au serveur SMB d’infrastructure SOFS. Cette autorité de certification de bouclage SMB hyper-convergé est obtenue via des machines virtuelles accédant à leurs fichiers VHDx (Virtual Disk) où l’identité de l’ordinateur virtuel propriétaire est transférée entre le client et le serveur. Ce transfert d’identité permet aux fichiers VHDx de liste de contrôle d’accès (ACL) de la même façon que dans les configurations de cluster hyper-convergé standard.
 
 Une fois qu’un ensemble de clusters est créé, l’espace de noms de l’ensemble de clusters s’appuie sur un SOFS d’infrastructure sur chacun des clusters membres, ainsi qu’une infrastructure SOFS dans le cluster de gestion.
 

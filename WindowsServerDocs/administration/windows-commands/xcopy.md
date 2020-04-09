@@ -1,24 +1,20 @@
 ---
 title: xcopy
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour xcopy, w hich copie les fichiers et répertoires, y compris les sous-répertoires.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 76a310d7-9925-4571-a252-0e28960d5f89
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: 885729f2bca100d7ac89a3463135d56f48c8b75a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 660ef69a5f1df99c3b959a588984719c9d4dea6b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361791"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828922"
 ---
 # <a name="xcopy"></a>xcopy
 
@@ -32,7 +28,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-DD-YYYY]] [/u] [/i] [/s [/e]] [/t] [/k] [/r] [/h] [{/a | /m}] [/n] [/o] [/x] [/exclude:FileName1[+[FileName2]][+[FileName3]] [{/y | /-y}] [/z] [/b] [/j]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -47,11 +43,11 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/l|Affiche la liste des fichiers à copier.|
 |/g|Crée des fichiers de *destination* déchiffrés lorsque la destination ne prend pas en charge le chiffrement.|
 |/d [ : MM-JJ-AAAA]|Copie les fichiers sources modifiés à la date spécifiée uniquement ou après. Si vous n’incluez pas de valeur *mm-jj-aaaa* , **xcopy** copie tous les fichiers *sources* plus récents que les fichiers de *destination* existants. Cette option de ligne de commande vous permet de mettre à jour les fichiers qui ont été modifiés.|
-|/u.|Copie les fichiers de la *source* qui existent sur la *destination* uniquement.|
+|/u|Copie les fichiers de la *source* qui existent sur la *destination* uniquement.|
 |/i|Si la *source* est un répertoire ou contient des caractères génériques et que la *destination* n’existe pas, **xcopy** suppose que la *destination* spécifie un nom de répertoire et crée un répertoire. **Xcopy** copie ensuite tous les fichiers spécifiés dans le nouveau répertoire. Par défaut, **xcopy** vous invite à spécifier si la *destination* est un fichier ou un répertoire.|
 |/s|Copie les répertoires et les sous-répertoires, sauf s’ils sont vides. Si vous omettez **/s**, **xcopy** fonctionne dans un répertoire unique.|
 |/e|Copie tous les sous-répertoires, même s’ils sont vides. Utilisez **/e** avec les options de ligne de commande **/s** et **/t** .|
-|commutateur|Copie la structure du sous-répertoire (autrement dit, l’arborescence) uniquement, pas les fichiers. Pour copier des répertoires vides, vous devez inclure l’option de ligne de commande **/e** .|
+|/t|Copie la structure du sous-répertoire (autrement dit, l’arborescence) uniquement, pas les fichiers. Pour copier des répertoires vides, vous devez inclure l’option de ligne de commande **/e** .|
 |/k|Copie les fichiers et conserve l’attribut de lecture seule sur les fichiers de *destination* , s’ils sont présents dans les fichiers *sources* . Par défaut, **xcopy** supprime l’attribut de lecture seule.|
 |/r|Copie les fichiers en lecture seule.|
 |/h|Copie les fichiers avec des attributs de fichiers système et cachés. Par défaut, **xcopy** ne copie pas les fichiers cachés ou système|
@@ -210,7 +206,7 @@ rem  3 File(s) copied
 
 Dans l’exemple précédent, cette valeur de paramètre source particulière **.\\toc\*. yml** copiez les mêmes 3 fichiers, même si ses deux caractères de chemin d’accès **.\\** ont été supprimés. Toutefois, aucun fichier n’est copié si le caractère générique astérisque a été supprimé du paramètre source, ce qui le rend juste **.\\toc. yml**.
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
 -   [Copier](copy.md)
 -   [Déplacer](move.md)
@@ -218,4 +214,4 @@ Dans l’exemple précédent, cette valeur de paramètre source particulière **
 -   [Attrib](attrib.md)
 -   [Convient](diskcopy.md)
 -   [Que](if.md)
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

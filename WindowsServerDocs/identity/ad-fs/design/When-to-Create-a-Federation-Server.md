@@ -1,7 +1,6 @@
 ---
 ms.assetid: 824005ae-c3c1-459b-9baa-1660158918ab
 title: Quand créer un serveur de fédération
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 91c260dad1bd260a7dad7320fecd15e6472c50a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b1e58e8940d024b2fbca9ada5d5fa430aeab70a7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407885"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858472"
 ---
 # <a name="when-to-create-a-federation-server"></a>Quand créer un serveur de fédération
 
@@ -31,7 +30,7 @@ Pour prendre une décision informée concernant le moment de la création d’un
   
 Lorsqu’un serveur de Fédération est placé dans le réseau d’entreprise du partenaire de compte, son rôle consiste à authentifier les informations d’identification de l’utilisateur des clients du navigateur, du service Web ou du sélecteur d’identité et à envoyer des jetons de sécurité aux clients. Pour plus d'informations, voir [Review the Role of the Federation Server in the Account Partner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
   
-Lorsqu’un serveur de Fédération est placé dans le réseau d’entreprise du partenaire de ressource, son rôle consiste à authentifier les utilisateurs, en fonction d’un jeton de sécurité émis par un serveur de Fédération dans l’organisation partenaire de ressource, ou son rôle est de rediriger les demandes de jeton à partir de des applications Web ou des services Web configurés pour l’organisation partenaire de compte à laquelle le client appartient. Pour plus d'informations, voir [Review the Role of the Federation Server in the Resource Partner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
+Lorsqu’un serveur de Fédération est placé dans le réseau d’entreprise du partenaire de ressource, son rôle consiste à authentifier les utilisateurs, en fonction d’un jeton de sécurité émis par un serveur de Fédération dans l’organisation partenaire de ressource, ou son rôle à rediriger les demandes de jeton à partir d’applications Web ou de services Web configurés vers l’organisation partenaire de compte à laquelle le client appartient. Pour plus d'informations, voir [Review the Role of the Federation Server in the Resource Partner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
   
 ## <a name="determine-which-ad-fs-design-to-deploy"></a>Déterminer la conception AD FS à déployer  
 Vous créez des serveurs de Fédération dans votre organisation chaque fois que vous souhaitez déployer l’une des conceptions de AD FS suivantes :  

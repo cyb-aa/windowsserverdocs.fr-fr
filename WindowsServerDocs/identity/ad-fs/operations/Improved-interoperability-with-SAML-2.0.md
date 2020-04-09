@@ -1,7 +1,6 @@
 ---
 ms.assetid: 80b5335b-fa02-4944-900c-5fe4f5c6111d
 title: Interopérabilité améliorée avec SAML 2.0
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,19 +8,19 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d72636d77fe3240caab66dcab8657225d291bec6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3abc3f09e5ae572800e5580d14a76ada6d62e320
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407542"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816362"
 ---
 # <a name="improved-interoperability-with-saml-20"></a>Interopérabilité améliorée avec SAML 2.0
 
 
 
   
-AD FS dans Windows Server 2016 contient une prise en charge du protocole SAML supplémentaire, notamment la prise en charge de l’importation d’approbations basées sur des métadonnées contenant plusieurs entités.  Cela vous permet de configurer AD FS pour participer à des conversions telles que la Fédération inhabituelle et d’autres implémentations conformes à la norme eGov 2,0.   
+AD FS dans Windows Server 2016 contient une prise en charge du protocole SAML supplémentaire, notamment la prise en charge de l’importation d’approbations basées sur des métadonnées contenant plusieurs entités.  Cela vous permet de configurer AD FS pour participer à des confédérations telles que la fédération InCommon et d’autres implémentations conformes à la norme eGov 2.0.   
   
 La nouvelle fonctionnalité est basée sur des groupes d’approbations de partie de confiance ou de fournisseur de revendications. Chaque groupe est un élément EntitiesDescriptor (< MD : EntitiesDescriptor >) tel que spécifié dans le profil eGov 2,0, contenant un ou plusieurs éléments EntityDescriptor.  Les groupes ont des règles d’autorisation communes et toutes les autres propriétés peuvent être modifiées comme des objets d’approbation individuels.  
   

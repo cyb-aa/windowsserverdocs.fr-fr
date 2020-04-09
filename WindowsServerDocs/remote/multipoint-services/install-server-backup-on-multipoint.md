@@ -1,24 +1,20 @@
 ---
 title: Installer la sauvegarde du serveur sur votre serveur MultiPoint
 description: Vous guide tout au long des étapes d’installation des outils de sauvegarde et de récupération
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e4331370-ba07-4529-92ab-db14a41bfc3b
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 933a24ee91fa1f5ccbe31ff4cb722a7c3eb54e4b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f8fe5ac8b57105d421af431b12c8dc17250b622d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395119"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820332"
 ---
 # <a name="install-server-backup-on-your-multipoint-server"></a>Installer la sauvegarde du serveur sur votre serveur MultiPoint
 Il est recommandé de prendre en compte un plan de sauvegarde et de récupération pour vos serveurs MultiPoint.
@@ -56,7 +52,7 @@ Utilisez les procédures suivantes pour configurer le type de sauvegarde dont vo
   
     -   Pour ouvrir le composant logiciel enfichable Sauvegarde Windows Server, dans l’écran d' **Accueil** , tapez **sauvegarde**, puis cliquez sur **sauvegarde Windows Server** dans les résultats.  
   
-    -   Pour démarrer l’outil Wbadmin et afficher la syntaxe pour ses commandes : Dans l’écran d' **Accueil** , tapez **Command**. Dans les résultats, cliquez avec le bouton droit sur **invite de commandes**, cliquez sur **exécuter en tant qu’administrateur** au bas de la page, puis cliquez sur **Oui** à l’invite de confirmation. À l’invite de commandes, tapez **Wbadmin/ ?** et appuyez sur entrée. Vous devez voir la syntaxe de commande et les descriptions de l’outil.  
+    -   Pour démarrer l’outil Wbadmin et afficher la syntaxe pour ses commandes : dans l’écran d' **Accueil** , tapez **Command**. Dans les résultats, cliquez avec le bouton droit sur **invite de commandes**, cliquez sur **exécuter en tant qu’administrateur** au bas de la page, puis cliquez sur **Oui** à l’invite de confirmation. À l’invite de commandes, tapez **Wbadmin/ ?** et appuyez sur Entrée. Vous devez voir la syntaxe de commande et les descriptions de l’outil.  
   
 ## <a name="configure-backups-using-windows-server-backup"></a>Configurer des sauvegardes à l’aide de Sauvegarde Windows Server  
   

@@ -1,7 +1,6 @@
 ---
 ms.assetid: f643099e-f9c6-476f-9378-5a9228c39b33
 title: Annexe E-sécurisation des groupes Administrateurs de l’entreprise dans Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 51337e5d4940a490045e146d32408d4f709bb6ed
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5294be945ce4a93ffeb1c27cffa8a82470920e7b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408719"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821632"
 ---
 # <a name="appendix-e-securing-enterprise-admins-groups-in-active-directory"></a>AnnexeE: Sécurisation des groupes d’administrateurs de l’entreprise dans Active Directory
 
@@ -30,13 +29,13 @@ Pour le groupe administrateurs de l’entreprise dans la forêt :
 
 1.  Dans les objets de stratégie de groupe liés à des unités d’organisation contenant des serveurs membres et des stations de travail dans chaque domaine, le groupe administrateurs de l’entreprise doit être ajouté aux droits d’utilisateur suivants dans l' **ordinateur \ stratégies \ paramètres d’autorisation \ stratégies d’autorisation**:  
 
-    -   Interdire l’accès à cet ordinateur à partir du réseau  
+    -   Refuser l'accès à un ordinateur à partir du réseau  
 
-    -   Interdire l’ouverture de session en tant que tâche  
+    -   Refuser l'ouverture de session en tant que tâche  
 
-    -   Interdire l’ouverture de session en tant que service  
+    -   Refuser l'ouverture de session en tant que service  
 
-    -   Interdire l’ouverture d’une session locale  
+    -   Interdire l'ouverture d'une session locale  
 
     -   Interdire l’ouverture de session par les services Bureau à distance  
 

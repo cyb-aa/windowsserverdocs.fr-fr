@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: jgerend
 ms.date: 06/07/2019
 description: 'Vue d’ensemble de Dossiers de travail : rôle de serveur dans Windows Server qui fournit un moyen cohérent pour les utilisateurs d’accéder aux fichiers de travail à partir des PC et appareils.'
-ms.openlocfilehash: ca76412a6e623b42718fc4f7589f7053073e0f64
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 67c62d81c7d9b6d33a198f5282fa39a88e07f2e8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950192"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820782"
 ---
 # <a name="work-folders-overview"></a>Vue d’ensemble de Dossiers de travail
 
@@ -30,13 +30,13 @@ Si vous envisagez de télécharger ou d’utiliser des dossiers de travail sur W
 - [Dossiers de travail pour iOS](https://itunes.apple.com/app/work-folders/id950878067)
 - [Dossiers de travail pour Android](https://play.google.com/store/apps/details?id=com.microsoft.workfolders)
 
-## <a name="role-description"></a>Description de rôle
+## <a name="role-description"></a>Description du rôle
 
- Les utilisateurs de Dossiers de travail peuvent stocker les fichiers de travail et d’y accéder sur leurs ordinateurs et appareils personnels (un concept souvent appelé « BYOD », ou « Apportez votre propre appareil »), en plus des PC de l’entreprise. Les utilisateurs bénéficient ainsi d’un emplacement pratique pour stocker les fichiers de travail et y accéder en tout lieu. Les organisations gardent la mainmise sur les données d’entreprise en stockant les fichiers sur des serveurs de fichiers gérés de manière centralisée et en spécifiant éventuellement des stratégies de périphérique utilisateur (par exemple, mots de passe de chiffrement et d’écran de verrouillage).  
+ Les dossiers de travail permettent aux utilisateurs de stocker les fichiers de travail et d’y accéder sur leurs ordinateurs et appareils personnels (un concept souvent appelé « BYOD », ou « Apportez votre propre appareil »), en plus des PC de l’entreprise. Les utilisateurs bénéficient ainsi d’un emplacement pratique pour stocker les fichiers de travail et y accéder en tout lieu. Les organisations gardent la mainmise sur les données d’entreprise en stockant les fichiers sur des serveurs de fichiers gérés de manière centralisée et en spécifiant éventuellement des stratégies de périphérique utilisateur (par exemple, mots de passe de chiffrement et d’écran de verrouillage).  
   
  Dossiers de travail peut être déployé avec des déploiements existants des dossiers Redirection de dossiers, Fichiers hors connexion et de base. Dossiers de travail stocke les fichiers de l’utilisateur dans un dossier sur le serveur appelé *partage de synchronisation*. Vous pouvez spécifier un dossier qui contient déjà des données utilisateur, ce qui vous permet d’adopter Dossiers de travail sans migrer de serveurs ni de données et sans supprimer immédiatement votre solution existante.  
   
-## <a name="practical-applications"></a>Applications pratiques
+## <a name="practical-applications"></a>Cas pratiques
 
  Les administrateurs peuvent utiliser Dossiers de travail pour fournir aux utilisateurs un accès à leurs fichiers de travail, tout en conservant le stockage centralisé et en contrôlant les données de l’organisation. Exemples de certains cas pratiques spécifiques pour Dossiers de travail :  
   
@@ -56,18 +56,18 @@ Si vous envisagez de télécharger ou d’utiliser des dossiers de travail sur W
 
  Dossiers de travail comprend les fonctionnalités suivantes.  
   
-| Fonctionnalités | Disponibilité | Description |  
+| Fonctionnalité | Disponibilité | Description |  
 | ------------------- | ------------------ | ----------------- |  
 | Service de rôle Dossiers de travail dans le Gestionnaire de serveur | Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2 | Les Services de fichiers et stockage permettent de configurer les partages de synchronisation (dossiers qui stockent des fichiers de travail de l’utilisateur), de surveiller Dossiers de travail et de gérer les partages de synchronisation et l’accès utilisateur |
 | Applets de commande Dossiers de travail | Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2 | Module Windows PowerShell qui contient des applets de commande complètes pour la gestion des serveurs Dossiers de travail |  
-| Intégration de Dossiers de travail à Windows | Windows 10<br /><br /> Windows 8.1<br /><br /> Windows RT 8.1<br /><br /> Windows 7 (téléchargement requis) | Dossiers de travail offre les fonctionnalités suivantes sur les ordinateurs Windows :<br /><br /> -   Un élément Panneau de configuration, qui configure et surveille Dossiers de travail<br />-   L’intégration de l’Explorateur de fichiers, qui permet d’accéder facilement aux fichiers de Dossiers de travail<br />-   Un moteur de synchronisation qui transfère les fichiers vers et depuis un serveur de fichiers central lors de l’optimisation des performances système et de l'autonomie de la batterie |
-| Application Dossiers de travail pour les appareils | Android<br /><br /> Apple iPhone et iPad® | Application qui permet aux appareils populaires d'accéder aux fichiers dans Dossiers de travail |  
+| Intégration de Dossiers de travail à Windows | Windows 10<p> Windows 8.1<p> Windows RT 8.1<p> Windows 7 (téléchargement requis) | Dossiers de travail offre les fonctionnalités suivantes sur les ordinateurs Windows :<p> -   Un élément Panneau de configuration, qui configure et surveille Dossiers de travail<br />-   L’intégration de l’Explorateur de fichiers, qui permet d’accéder facilement aux fichiers de Dossiers de travail<br />-   Un moteur de synchronisation qui transfère les fichiers vers et depuis un serveur de fichiers central lors de l’optimisation des performances système et de l'autonomie de la batterie |
+| Application Dossiers de travail pour les appareils | Android<p> Apple iPhone et iPad® | Application qui permet aux appareils populaires d'accéder aux fichiers dans Dossiers de travail |  
   
 ## <a name="new-and-changed-functionality"></a>Fonctionnalités nouvelles et modifiées
   
 Le tableau suivant décrit certaines des principales modifications apportées à Dossiers de travail.  
   
-| Fonctionnalité/fonction | Nouveauté ou mise à jour ? | Description |
+| Fonctionnalité/fonction | Nouveauté ou mise à jour ? | Description |
 | ---------------------------- | --------------------- | ----------------- |
 | Prise en charge du proxy d’application Azure AD | Ajouté à Windows 10 version 1703, Android, iOS | Les utilisateurs distants peuvent accéder en toute sécurité à leurs fichiers sur le serveur Dossiers de travail à l’aide du proxy d'application Azure AD. |
 | Accélération de la réplication des modifications | Mises à jour dans Windows 10 et Windows Server 2016 | Pour Windows Server 2012 R2, lorsque les modifications apportées aux fichiers sont synchronisées avec le serveur Dossiers de travail, les clients ne sont pas informés des modifications et attendent jusqu’à 10 minutes pour obtenir la mise à jour. Quand vous utilisez Windows Server 2016, le serveur dossiers de travail avertit immédiatement les clients Windows 10 et les modifications de fichiers sont immédiatement synchronisées. Cette fonctionnalité est une nouveauté de Windows Server 2016 et nécessite un client Windows 10. Si vous utilisez un client plus ancien ou si le serveur Dossiers de travail exécute Windows Server 2012 R2, le client continue à interroger le système toutes les 10 minutes, afin d’obtenir les modifications. |  
@@ -96,17 +96,17 @@ Pour permettre aux utilisateurs d’effectuer la synchronisation sur Internet, i
   
 -   (Facultatif) Une infrastructure des services de fédération Active Directory (AD FS) lors de l’utilisation de l’authentification AD FS  
   
-La fonctionnalité Dossiers de travail nécessite la configuration logicielle suivante pour les ordinateurs clients :  
+La fonctionnalité Dossiers de travail présente la configuration logicielle requise suivante pour les ordinateurs clients :  
   
 -   Les PC et les appareils doivent fonctionner sous l'un des systèmes d'exploitation suivants :  
   
-    -   Windows 10  
+    -   Windows 10  
   
-    -   Windows 8.1  
+    -   Windows 8.1  
   
     -   Windows RT 8.1  
   
-    -   Windows 7  
+    -   Windows 7  
   
     -   Android 4.4 KitKat et versions ultérieures  
   
@@ -114,11 +114,11 @@ La fonctionnalité Dossiers de travail nécessite la configuration logicielle su
   
 -   Les PC Windows 7 doivent exécuter l'une des éditions suivantes de Windows :  
   
-    -   Windows 7 Professionnel  
+    -   Windows 7 Professionnel  
   
-    -   Windows 7 Édition Intégrale  
+    -   Windows 7 Édition Intégrale  
   
-    -   Windows 7 Enterprise  
+    -   Windows 7 Entreprise  
   
 -   Les PC Windows 7 doivent être joints au domaine de votre organisation (ils ne peuvent pas être joints à un groupe de travail).  
   
@@ -137,9 +137,9 @@ Le tableau suivant décrit la position des différentes technologies de synchron
 | | Dossiers de travail | Fichiers hors connexion | OneDrive Entreprise | OneDrive |
 | - | ------------------ | ------------------- | -------------------------- | -------------- |
 | **Résumé de la technologie** | Synchronise les fichiers stockés sur un serveur de fichiers avec les PC et appareils | Synchronise les fichiers stockés sur un serveur de fichiers avec les PC qui ont accès au réseau d’entreprise (peut être remplacé par Dossiers de travail) | Synchronise les fichiers stockés dans Office 365 ou SharePoint avec les PC et appareils à l’intérieur ou en dehors d’un réseau d’entreprise et fournit la fonctionnalité de collaboration de document | Synchronise les fichiers personnels stockés dans OneDrive avec les PC, les ordinateurs Mac et les appareils |
-| **Destiné à fournir aux utilisateurs l’accès aux fichiers de travail** | Oui | Oui | Oui | non |
-| **Service cloud** | Aucun(e) | Aucun(e) | Office 365 | Microsoft OneDrive |
-| **Serveurs réseau internes** | Serveurs de fichiers exécutant Windows Server 2012 R2 ou Windows Server 2016 | Serveurs de fichiers | Serveur SharePoint (facultatif) | Aucun(e) |
+| **Destiné à fournir aux utilisateurs l’accès aux fichiers de travail** | Oui | Oui | Oui | Non |
+| **Service Cloud** | Aucune | Aucune | Office 365 | Microsoft OneDrive |
+| **Serveurs réseau internes** | Serveurs de fichiers exécutant Windows Server 2012 R2 ou Windows Server 2016 | Serveurs de fichiers | Serveur SharePoint (facultatif) | Aucune |
 | **Clients pris en charge** | PC, iOS, Android | PC d'un réseau d’entreprise ou connectés via DirectAccess, VPN ou d’autres technologies d’accès à distance | PC, iOS, Android, Windows Phone | PC, ordinateurs Mac, Windows Phone, iOS, Android |
   
 > [!NOTE]
@@ -161,7 +161,7 @@ Dossiers de travail fait partie du rôle Services de fichiers et de stockage. Vo
   
 Pour en savoir plus sur la prise en main des machines virtuelles Microsoft Azure, visitez le [site web Microsoft Azure](http://www.windowsazure.com/documentation/services/virtual-machines).  
   
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
  Pour plus d’informations connexes, voir les ressources suivantes.  
   

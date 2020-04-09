@@ -2,23 +2,23 @@
 title: Déployer une infrastructure SDN (Software Defined Networking)
 description: Cette rubrique fournit des liens vers des rubriques expliquant comment déployer une infrastructure SDN (Software Defined Network) à l’aide de scripts dans Windows Server 2016.
 ms.prod: windows-server
-ms.service: virtual-network
 ms.technology: networking-sdn
 ms.topic: get-started-article
 ms.assetid: 6c665c88-df28-4150-81d4-a47e9fa5255c
-ms.author: daveba
 ms.date: 08/23/2018
-author: daveba
-ms.openlocfilehash: 6450419e03b07c4350edbf58a8c3ab8e48cbac7a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: anpaul
+author: AnirbanPaul
+manager: grcusanz
+ms.openlocfilehash: 99b5b54e12362f3468220c6ddb9a4f32ace243a6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406133"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860712"
 ---
 # <a name="deploy-a-software-defined-network-infrastructure"></a>Déployer une infrastructure réseau définie par logiciel
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Déployez l’infrastructure SDN (Software Defined Networking) de Microsoft.   
   

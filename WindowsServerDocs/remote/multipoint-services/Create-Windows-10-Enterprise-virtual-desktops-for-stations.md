@@ -1,24 +1,20 @@
 ---
 title: Créer des bureaux virtuels Windows 10 Entreprise pour les stations
 description: Découvrez comment créer des postes de travail Windows Server 2016 pour station
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 63f08b5b-c735-41f4-b6c8-411eff85a4ab
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: cd08caef8228a4d20c6d5f4a40fe5bd90aacbe40
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 40af6ea98aa91730f78bde8a71f2ad9a741a6490
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395536"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859802"
 ---
 # <a name="create-windows-10-enterprise-virtual-desktops-for-stations"></a>Créer des bureaux virtuels Windows 10 Entreprise pour les stations
 Cette configuration facultative dans MultiPoint services est principalement destinée aux situations où une application essentielle requiert sa propre instance d’un système d’exploitation client pour chaque utilisateur. Les exemples incluent des applications qui ne peuvent pas être installées sur Windows Server et les applications qui n’exécutent pas plusieurs instances sur le même ordinateur hôte.  
@@ -26,15 +22,15 @@ Cette configuration facultative dans MultiPoint services est principalement dest
 > [!NOTE]  
 > Ces bureaux virtuels, également appelés « VDI », sont beaucoup plus gourmands en ressources que les sessions de bureau MultiPoint services par défaut. nous vous recommandons donc d’utiliser les sessions MultiPoint services par défaut dans la mesure du possible.  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Composants requis  
 Pour préparer la création de bureaux virtuels de station, assurez-vous que votre système MultiPoint services remplit les conditions suivantes :      
   
 |Matériel|Configuration requise|         |
 |------------|----------------|----------------| 
 |UC (multimédia)|1 cœur ou thread par ordinateur virtuel|  
-|SSD (Solid State Drive)|Capacité > = 20 Go par station + 40 Go pour le système d’exploitation hôte MultiPoint services<br /><br />E/\/s par seconde en lecture/écriture aléatoire > = 3k par station|  
+|SSD (Solid State Drive)|Capacité > = 20 Go par station + 40 Go pour le système d’exploitation hôte MultiPoint services<p>Opérations d’e/s par seconde d’écriture\/en lecture aléatoire > = 3K par station|  
 |RAM|2 Go par station + 2 Go pour le système d’exploitation hôte Windows MultiPoint Server|  
-|Graphismes|DX11|  
+|Graphiques|DX11|  
 |BIOS|Paramètre de l’UC du BIOS configuré pour activer la virtualisation-traduction d’adresses de second niveau (SLAT)|  
   
 -   **Stations** : configurez les stations pour votre système multipoint services. Pour plus d’informations, consultez [attacher des stations supplémentaires à multipoint services](Attach-additional-stations-to-your-MultiPoint-services-computer.md).  
@@ -77,7 +73,7 @@ L’étape suivante consiste à créer un modèle de bureau virtuel. Vous créez
   
 6.  Dans **préfixe**, entrez un préfixe à utiliser pour identifier le modèle et les bureaux virtuels créés avec le modèle. Le préfixe par défaut est le nom de l’ordinateur hôte.  
   
-    Le préfixe est utilisé pour donner un nom au modèle et aux stations de bureaux virtuels. Le modèle sera <*préfixe*>-t. Les stations de bureaux virtuels sont nommées < le*préfixe*>-*n*, où *n* est l’identificateur de station.  
+    Le préfixe est utilisé pour donner un nom au modèle et aux stations de bureaux virtuels. Le modèle sera <*préfixe*>-t. Les stations de bureaux virtuels sont nommées <*préfixe*>-*n*, où *n* est l’identificateur de station.  
   
 7.  Entrez un nom d’utilisateur et un mot de passe à utiliser pour le compte d’administrateur local pour le modèle. Dans un domaine, entrez les informations d’identification d’un compte de domaine qui sera ajouté au groupe Administrateurs local. Ce compte peut être utilisé pour se connecter au modèle et à toutes les stations de bureau virtuelles créées à partir du modèle.  
   
@@ -156,7 +152,7 @@ Utilisez la procédure suivante pour créer une copie d’un modèle de bureau v
   
 3.  Cliquez sur l’onglet **bureaux virtuels** .  
   
-4.  Cliquez sur **Importer un modèle de bureau virtuel**et utilisez **Parcourir** pour sélectionner le fichier. vhd (modèle) que vous souhaitez importer. Lorsque vous importez un modèle, une copie du fichier. vhd d’origine est créée. Par défaut, multipoint Services stocke les fichiers. vhd dans le\\dossier\\C\\: Users\\public documents\\de\\ disques durs virtuels Hyper\-V.  
+4.  Cliquez sur **Importer un modèle de bureau virtuel**et utilisez **Parcourir** pour sélectionner le fichier. vhd (modèle) que vous souhaitez importer. Lorsque vous importez un modèle, une copie du fichier. vhd d’origine est créée. Par défaut, MultiPoint Services stocke les fichiers. vhd dans les utilisateurs C :\\\\les documents\\publics\\les disques durs virtuels\-hyper\\V\\ dossier.  
   
 5.  Entrez un préfixe pour le nouveau modèle, puis cliquez sur **OK**.  
   

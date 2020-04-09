@@ -2,22 +2,18 @@
 title: Étape 2 Préparez les serveurs de cluster
 description: Cette rubrique fait partie du guide déployer l’accès à distance dans un cluster dans Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 35d68abb-6914-42e0-91e8-803933cf785e
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 74aac416a5aa69a0cd935d58e3ecb931e4b5fd02
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: e53557f1fb2715f1d0318adc12aebb8f84423519
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308335"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861442"
 ---
 # <a name="step-2-prepare-cluster-servers"></a>Étape 2 Préparez les serveurs de cluster
 
@@ -27,7 +23,7 @@ Avant de pouvoir configurer un déploiement de cluster, vous devez préparer des
   
 |Tâche|Description|  
 |----|--------|  
-|[2,1 configurer l’infrastructure d’accès à distance](#BKMK_config)|Sur chaque serveur que vous souhaitez ajouter au cluster, configurez la topologie du serveur, l’adressage IP, le routage et le transfert. Si vous configurez un cluster à charge équilibrée de machines virtuelles, vous devez configurer les machines virtuelles de façon à ce qu’elles utilisent l’usurpation d’adresses MAC.<br /><br />En outre, joignez chaque serveur au même domaine et connectez tous les serveurs au même sous-réseau.|  
+|[2,1 configurer l’infrastructure d’accès à distance](#BKMK_config)|Sur chaque serveur que vous souhaitez ajouter au cluster, configurez la topologie du serveur, l’adressage IP, le routage et le transfert. Si vous configurez un cluster à charge équilibrée de machines virtuelles, vous devez configurer les machines virtuelles de façon à ce qu’elles utilisent l’usurpation d’adresses MAC.<p>En outre, joignez chaque serveur au même domaine et connectez tous les serveurs au même sous-réseau.|  
 |[2,2 installer le rôle accès à distance](#BKMK_Install)|Sur chaque serveur supplémentaire que vous souhaitez ajouter au cluster, installez le rôle accès à distance.|  
 |[2,3 installer NLB](#BKMK_NLB)|Sur le serveur d’accès à distance déployé et sur chaque serveur supplémentaire que vous souhaitez ajouter au cluster, installez la fonctionnalité NLB. Notez que cette étape n’est pas requise lors de l’utilisation d’un Load Balancer externe.|  
   

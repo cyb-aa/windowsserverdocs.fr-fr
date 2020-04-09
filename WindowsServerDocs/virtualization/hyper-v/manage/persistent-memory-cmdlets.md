@@ -2,24 +2,21 @@
 title: Applets de commande pour la configuration des périphériques de mémoire persistante pour les machines virtuelles Hyper-V
 description: Comment configurer des appareils de mémoire persistants pour les machines virtuelles Hyper-V
 ms.prod: windows-server
-ms.service: na
-manager: jasgroce
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b5715c02-a90f-4de9-a71e-0fc08039ba1d
 author: coreyp-at-msft
 ms.author: coreyp
-ms.openlocfilehash: ecae1fe96bc5088fa840c6e2e24a75bb72a9e8f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b58e2a4e2f31c5bf3e49b89da912b77060e334ed
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392535"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860422"
 ---
 # <a name="cmdlets-for-configuring-persistent-memory-devices-for-hyper-v-vms"></a>Applets de commande pour la configuration des périphériques de mémoire persistante pour les machines virtuelles Hyper-V
 
->S'applique à : Windows Server 2019
+>S'applique à : Windows Server 2019
 
 Cet article fournit aux administrateurs système et aux professionnels de l’informatique des informations sur la configuration des machines virtuelles Hyper-V avec une mémoire persistante (également appelée mémoire de classe de stockage ou NVDIMM). Les périphériques de mémoire persistante NVDIMM-N compatibles JDEC sont pris en charge dans Windows Server 2016 et Windows 10, et fournissent un accès au niveau des octets à des appareils non volatiles à faible latence. Les périphériques de mémoire persistante de machine virtuelle sont pris en charge dans Windows Server 2019. 
 
@@ -35,7 +32,7 @@ Utilisez l’applet de commande **[New-VHD](https://docs.microsoft.com/powershel
 
 Utilisez l' **applet de commande New-VM** pour créer une machine virtuelle de génération 2 avec la taille de mémoire et le chemin d’accès spécifiés à une image VHDX. Ensuite, utilisez **Add-VMPmemController** pour ajouter un contrôleur de mémoire persistante à une machine virtuelle.
 
-**Tels** 
+**Exemple :** 
     
     New-VM -Name "ProductionVM1" -MemoryStartupBytes 1GB -VHDPath c:\vhd\BaseImage.vhdx
 

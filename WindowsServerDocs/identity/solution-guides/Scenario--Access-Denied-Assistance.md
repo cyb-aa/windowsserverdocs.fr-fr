@@ -1,7 +1,6 @@
 ---
 ms.assetid: aae907eb-11cf-4a87-a046-8680872ed0b1
 title: Scénario d’assistance en cas d’accès refusé
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d3c1354c54cf421e59d6b37a44ce703f52b6f4b7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a6418f7ac317f060adb72f32e231e1577a5f8b92
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357482"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861142"
 ---
-# <a name="scenario-access-denied-assistance"></a>Scénario : assistance en cas d'accès refusé
+# <a name="scenario-access-denied-assistance"></a>Scénario : assistance en cas d’accès refusé
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Les utilisateurs reçoivent un message de refus d'accès quand ils essaient d'accéder à des dossiers et fichiers partagés sur un serveur de fichiers pour lequel ils n'ont aucune autorisation. Souvent, les administrateurs ne disposent pas du contexte approprié, ce qui rend difficile la résolution du problème d'accès.  
   
@@ -33,28 +32,28 @@ L’assistance en cas d’accès refusé est une nouvelle fonctionnalité de Win
   
 L’assistance en cas d’accès refusé dans Windows Server 2012 fournit aux administrateurs de serveurs de fichiers les informations d’accès pertinentes afin qu’elles puissent déterminer le problème et les outils appropriés afin de pouvoir apporter des modifications de configuration pour répondre à la demande d’accès. Par exemple, un utilisateur peut suivre le processus ci-dessous pour accéder à un fichier auquel il n'a pas accès actuellement :  
   
--   L’utilisateur tente de lire un fichier dans le dossier partagé \\ \ financeshares, mais le serveur affiche un message indiquant que l’accès est refusé.  
+-   L’utilisateur tente de lire un fichier dans le dossier \\\financeshares partagé, mais le serveur affiche un message d’accès refusé.  
   
 -    Windows Server 2012 affiche les informations d’assistance en cas d’accès refusé à l’utilisateur avec une option pour demander de l’aide.  
   
 -   Si l'utilisateur demande l'accès à la ressource, le serveur envoie un message électronique avec les informations de demande d'accès au propriétaire du dossier.  
   
-Vous trouverez des informations sur la planification de la configuration de l’assistance en cas d’accès refusé dans [Plan for Access-Denied Assistance](assetId:///b169f0a4-8b97-4da8-ae4a-c8f1986d19e1).  
+Vous trouverez des informations sur la planification de la configuration de l'assistance en cas d'accès refusé dans [Planifier l'assistance en cas d'accès refusé](assetId:///b169f0a4-8b97-4da8-ae4a-c8f1986d19e1).  
   
 Vous trouverez des instructions sur la configuration de l’assistance en refus d’accès dans les [étapes &#40;&#41;de démonstration déployer l’assistance en refus d’accès](Deploy-Access-Denied-Assistance--Demonstration-Steps-.md).  
   
 ## <a name="in-this-scenario"></a>Dans ce scénario  
 Ce scénario fait partie du scénario de contrôle d'accès dynamique. Pour plus d'informations sur le contrôle d'accès dynamique, voir :  
   
--   [Contrôle d’accès dynamique : Vue d’ensemble du scénario](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Access Control dynamique : vue d’ensemble du scénario](Dynamic-Access-Control--Scenario-Overview.md)  
   
 ## <a name="practical-applications"></a>Cas pratiques  
 L’assistance en refus d’accès dans Windows Server 2012 contribue aux Access Control dynamiques en donnant aux utilisateurs la possibilité de demander l’accès à des fichiers et des dossiers partagés directement à partir d’un message de refus d’accès.  
   
-## <a name="BKMK_NEW"></a>Fonctionnalités incluses dans ce scénario  
+## <a name="features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>Fonctionnalités incluses dans ce scénario  
 Le tableau ci-dessous répertorie les fonctionnalités incluses dans ce scénario et détaille la manière dont elles prennent en charge ce dernier.  
   
-|Fonctionnalité|Prise en charge de ce scénario|  
+|Composant|Prise en charge de ce scénario|  
 |-----------|---------------------------------|  
 |[Vue d’ensemble du serveur de fichiers Gestionnaire des ressources](https://technet.microsoft.com/library/hh831701.aspx)|L'assistance en cas d'accès refusé peut être configurée à l'aide de la console Gestionnaire de ressources du serveur de fichiers sur le serveur de fichiers.|  
 |[Vue d’ensemble des services de stockage et de fichiers](https://technet.microsoft.com/library/hh831487.aspx)|Le Gestionnaire de ressources du serveur de fichiers est un service de rôle Services de fichiers et de stockage. Il est composé d'un ensemble de fonctionnalités pouvant servir à administrer les serveurs de fichiers sur votre réseau.|  

@@ -1,19 +1,19 @@
 ---
 title: Confirmer que les hôtes protégés peuvent attester
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 7485796b-b840-4678-9b33-89e9710fbbc7
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: 2bab2b653127ae13d27dea76225ada91b3ee8ecc
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: aa2075bda71c6713fa76577b685315118199e63b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940698"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856782"
 ---
 # <a name="confirm-guarded-hosts-can-attest"></a>Confirmer que les hôtes protégés peuvent attester
 
@@ -70,7 +70,7 @@ Un administrateur d’infrastructure doit confirmer que les hôtes Hyper-V peuve
 > [!div class="nextstepaction"]
 > [Déployer des machines virtuelles protégées](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Voir aussi
 
 - [Déployer le service Guardian hôte (SGH)](guarded-fabric-deploying-hgs-overview.md)
 - [Déployer des machines virtuelles protégées](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)

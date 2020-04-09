@@ -1,7 +1,6 @@
 ---
 ms.assetid: 87bca912-b912-4bbe-9533-2c34a7abc52d
 title: Détermination du nombre de domaines nécessaires
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 87214178fdda0cd70c79aed2e46e056deecb6291
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 32093409150e54f30eec5385ea80fc1c30851142
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402608"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822562"
 ---
 # <a name="determining-the-number-of-domains-required"></a>Détermination du nombre de domaines nécessaires
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Chaque forêt commence par un domaine unique. Le nombre maximal d’utilisateurs qu’une forêt de domaine unique peut contenir est basé sur le lien le plus lent qui doit prendre en charge la réplication entre les contrôleurs de domaine et la bande passante disponible que vous souhaitez allouer à Active Directory Domain Services (AD DS). Le tableau suivant répertorie le nombre maximal recommandé d’utilisateurs qu’un domaine peut contenir en fonction d’une forêt de domaine unique, de la vitesse du lien le plus lent et du pourcentage de bande passante que vous souhaitez réserver pour la réplication. Ces informations s’appliquent aux forêts qui contiennent un maximum de 100 000 utilisateurs et qui ont une connectivité de 28,8 kilobits par seconde (Kbits/s) ou plus. Pour obtenir des recommandations qui s’appliquent aux forêts qui contiennent plus de 100 000 utilisateurs ou une connectivité inférieure à 28,8 Kbits/s, consultez un Active Directory designer expérimenté. Les valeurs du tableau suivant sont basées sur le trafic de réplication généré dans un environnement qui présente les caractéristiques suivantes :  
   
@@ -34,13 +33,13 @@ Chaque forêt commence par un domaine unique. Le nombre maximal d’utilisateurs
   
 |Liaison la plus lente connectant un contrôleur de domaine (kbps)|Nombre maximal d’utilisateurs si une bande passante de 1% est disponible|Nombre maximal d’utilisateurs si la bande passante de 5% est disponible|Nombre maximal d’utilisateurs si la bande passante de 10% est disponible|  
 | --- | --- | --- | --- |  
-|28,8|10 000|25 000|40 000|  
-|32|10 000|25 000|50,000|  
-|56|10 000|50,000|100 000|  
-|64|10 000|50,000|100 000|  
+|28,8|10 000|25 000|40,000|  
+|32|10 000|25 000|50 000|  
+|56|10 000|50 000|100 000|  
+|64|10 000|50 000|100 000|  
 |128|25 000|100 000|100 000|  
-|256|50,000|100 000|100 000|  
-|512|80 000|100 000|100 000|  
+|256|50 000|100 000|100 000|  
+|512|80 000|100 000|100 000|  
 |1 500|100 000|100 000|100 000|  
 
 Pour utiliser cette table :  
@@ -72,11 +71,11 @@ Tout d’abord, déterminez le nombre maximal d’utilisateurs que votre forêt 
   
 |Liaison la plus lente connectant un contrôleur de domaine (kbps)|Nombre maximal d’utilisateurs si une bande passante de 1% est disponible|Nombre maximal d’utilisateurs si la bande passante de 5% est disponible|Nombre maximal d’utilisateurs si la bande passante de 10% est disponible|  
 | --- | --- | --- | --- |  
-|28,8|10 000|50,000|75 000|  
-|32|10 000|50,000|75 000|  
+|28,8|10 000|50 000|75 000|  
+|32|10 000|50 000|75 000|  
 |56|10 000|75 000|100 000|  
 |64|25 000|75 000|100 000|  
-|128|50,000|100 000|100 000|  
+|128|50 000|100 000|100 000|  
 |256|75 000|100 000|100 000|  
 |512|100 000|100 000|100 000|  
 |1 500|100 000|100 000|100 000|  
@@ -106,13 +105,13 @@ Déterminez le nombre d’utilisateurs qui doivent être hébergés dans chaque 
   
 |Liaison la plus lente connectant un contrôleur de domaine (kbps)|Nombre maximal d’utilisateurs si une bande passante de 1% est disponible|Nombre maximal d’utilisateurs si la bande passante de 5% est disponible|Nombre maximal d’utilisateurs si la bande passante de 10% est disponible|  
 | --- | --- | --- | --- |  
-|28,8|10 000|18 000|40 000|  
-|32|10 000|20 000|50,000|  
-|56|10 000|40 000|100 000|  
-|64|10 000|50,000|100 000|  
-|128|15 000|100 000|100 000|  
+|28,8|10 000|18 000|40,000|  
+|32|10 000|20 000|50 000|  
+|56|10 000|40,000|100 000|  
+|64|10 000|50 000|100 000|  
+|128|15 000|100 000|100 000|  
 |256|30 000|100 000|100 000|  
-|512|80 000|100 000|100 000|  
+|512|80 000|100 000|100 000|  
 |1 500|100 000|100 000|100 000|  
 
 Pour utiliser cette table :  
@@ -129,4 +128,4 @@ Même si le nombre total d’utilisateurs que vous pouvez placer dans un domaine
 
 Après avoir divisé votre organisation en domaines régionaux, documentez les régions que vous souhaitez représenter et le nombre d’utilisateurs qui se trouvent dans chaque région. En outre, notez la vitesse des liens les plus lents dans chaque région que vous allez utiliser pour la réplication Active Directory. Ces informations sont utilisées pour déterminer si des domaines ou des forêts supplémentaires sont requis.  
 
-Pour obtenir une feuille de calcul qui vous aide à documenter les régions que vous avez identifiées, téléchargez Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip à partir des [Outils d’aide à la tâche pour le kit de déploiement de Windows Server 2003](https://go.microsoft.com/fwlink/?LinkID=102558) et ouvrez « régions d’identification » (DSSLOGI _4. doc).  
+Pour obtenir une feuille de calcul qui vous aide à documenter les régions que vous avez identifiées, téléchargez Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip à partir des [Outils d’aide à la tâche pour le kit de déploiement de Windows Server 2003](https://go.microsoft.com/fwlink/?LinkID=102558) et ouvrez « régions d’identification » (DSSLOGI_4. doc).  

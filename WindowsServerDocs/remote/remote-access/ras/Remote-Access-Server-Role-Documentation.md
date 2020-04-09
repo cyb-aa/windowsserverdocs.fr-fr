@@ -2,22 +2,18 @@
 title: Documentation du rôle serveur accès à distance
 description: Cette rubrique fournit des liens vers la documentation relative à l’accès à distance dans Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3c6df007-4c39-4b72-9f2c-b2c9b2825c2f
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 5e8a4913889c007633afc5dba7d37b421b37098b
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 7dc1b821ca3ff69302123b0906c2e194f1a222e0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308408"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857412"
 ---
 # <a name="remote-access-server-role-documentation"></a>Documentation du rôle serveur accès à distance
 

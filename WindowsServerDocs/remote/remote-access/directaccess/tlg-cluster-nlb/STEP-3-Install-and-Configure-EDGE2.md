@@ -2,22 +2,18 @@
 title: ÉTAPE 3 installation et configuration de EDGE2
 description: Cette rubrique fait partie du Guide de laboratoire de test-démonstration de DirectAccess dans un cluster avec Windows NLB pour Windows Server 2016
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f04eb11e-ed5f-42a1-a77b-57a248ba2d10
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: cb869ad1617d52562e73eb6965a9f1c2184a56a7
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: f50103777fafee330d37e2523dc6371e3a32c81d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310787"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80819292"
 ---
 # <a name="step-3-install-and-configure-edge2"></a>ÉTAPE 3 installation et configuration de EDGE2
 

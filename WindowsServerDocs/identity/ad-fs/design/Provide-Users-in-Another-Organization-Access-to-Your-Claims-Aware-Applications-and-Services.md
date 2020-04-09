@@ -1,7 +1,6 @@
 ---
 ms.assetid: de7e1e4a-f96d-4b59-ac9b-f65f5d37a96f
 title: Fournir aux utilisateurs d’une autre organisation un accès à vos applications et services prenant en charge les revendications
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a0b2429599036f2893f23df7921a11c8232d9f67
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2e47197a980c9bcb576d6634a0031a8ae13afbfd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359068"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858602"
 ---
 # <a name="provide-users-in-another-organization-access-to-your-claims-aware-applications-and-services"></a>Fournir aux utilisateurs d’une autre organisation un accès à vos applications et services prenant en charge les revendications
 
@@ -33,7 +32,7 @@ Les composants suivants sont requis pour cet objectif de déploiement :
   
 -   **Active Directory Domain Services \(AD DS\):** Le serveur de Fédération du partenaire de ressource doit être joint à un domaine Active Directory.  
   
--   **DNS de périmètre :** Domain Name System \(DNS\) doit contenir un hôte simple \(un enregistrement de ressource\) afin que les ordinateurs clients puissent localiser le serveur de Fédération du partenaire de ressource et le serveur Web. Le serveur DNS peut héberger d’autres enregistrements DNS également requis dans le réseau de périmètre. Pour plus d'informations, voir [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md).  
+-   **DNS de périmètre :** Domain Name System \(DNS\) doit contenir un hôte simple \(un enregistrement de ressource\) afin que les ordinateurs clients puissent localiser le serveur de Fédération du partenaire de ressource et le serveur Web. Le serveur DNS peut héberger d’autres enregistrements DNS également requis dans le réseau de périmètre. Pour plus d'informations, consultez [Configuration de la résolution de noms pour les serveurs de fédération](Name-Resolution-Requirements-for-Federation-Servers.md).  
   
 -   **Serveur de Fédération du partenaire de ressource :** Le serveur de Fédération du partenaire de ressource valide AD FS jetons envoyés par les partenaires de compte. La découverte de partenaire de compte est effectuée via ce serveur de Fédération. Pour plus d'informations, voir [Review the Role of the Federation Server in the Resource Partner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
   

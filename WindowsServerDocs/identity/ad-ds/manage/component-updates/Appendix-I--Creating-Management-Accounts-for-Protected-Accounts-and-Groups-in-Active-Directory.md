@@ -1,7 +1,6 @@
 ---
 ms.assetid: 13fe87d9-75cf-45bc-a954-ef75d4423839
 title: Annexe I-création de comptes de gestion pour les comptes et les groupes protégés dans Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,27 +8,27 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 834aa2611ff2b965c9184524fa6782fb4477a4cd
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c2141e4fad564579fd687b2dfc7e4a12e1634acb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949133"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823482"
 ---
-# <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Annexe I : Création de comptes de gestion pour les comptes protégés et les groupes dans Active Directory
+# <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Annexe I : Création de comptes de gestion pour les comptes protégés et les groupes dans Active Directory
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 L’une des difficultés liées à l’implémentation d’un modèle de Active Directory qui ne repose pas sur l’appartenance permanente à des groupes à privilèges élevés est qu’il doit exister un mécanisme pour remplir ces groupes lorsque l’appartenance temporaire aux groupes est requise. Certaines solutions privilégiées de gestion des identités requièrent que les comptes de service du logiciel bénéficient d’une appartenance permanente à des groupes tels que DA ou administrateurs dans chaque domaine de la forêt. Toutefois, il n’est techniquement pas nécessaire que les solutions Privileged Identity Management (PIM) exécutent leurs services dans des contextes à privilèges élevés.  
   
-Cette annexe fournit des informations que vous pouvez utiliser pour implémenter des solutions PIM tierces ou implémentées en mode natif afin de créer des comptes avec des privilèges limités et pouvant être contrôlés de manière stricte, mais qui peuvent être utilisés pour remplir des groupes privilégiés dans Active Directory lorsque une élévation temporaire est nécessaire. Si vous implémentez PIM en tant que solution native, ces comptes peuvent être utilisés par le personnel administratif pour exécuter le remplissage de groupe temporaire. Si vous implémentez PIM via un logiciel tiers, vous pourrez peut-être adapter ces comptes pour qu’ils fonctionnent en tant que service clients.  
+Cette annexe fournit des informations que vous pouvez utiliser pour implémenter des solutions PIM tierces ou implémentées en mode natif afin de créer des comptes avec des privilèges limités et pouvant être contrôlés de manière stricte, mais qui peuvent être utilisés pour remplir des groupes privilégiés dans Active Directory lorsque l’élévation temporaire est nécessaire. Si vous implémentez PIM en tant que solution native, ces comptes peuvent être utilisés par le personnel administratif pour exécuter le remplissage de groupe temporaire. Si vous implémentez PIM par le biais d’un logiciel tiers, vous pourrez peut-être adapter ces comptes pour qu’ils fonctionnent en tant que comptes de service.  
   
 > [!NOTE]  
 > Les procédures décrites dans cette annexe fournissent une approche de la gestion des groupes à privilèges élevés dans Active Directory. Vous pouvez adapter ces procédures en fonction de vos besoins, ajouter des restrictions supplémentaires ou omettre certaines des restrictions décrites ici.  
   
 ## <a name="creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Création de comptes de gestion pour les comptes et les groupes protégés dans Active Directory
 
-La création de comptes qui peuvent être utilisés pour gérer l’appartenance à des groupes privilégiés sans nécessiter que les comptes de gestion reçoivent des droits et autorisations excessifs se compose de quatre activités générales qui sont décrites dans les instructions pas à pas qui Suivez  
+La création de comptes qui peuvent être utilisés pour gérer l’appartenance à des groupes privilégiés sans nécessiter que les comptes de gestion disposent de droits et d’autorisations excessifs se compose de quatre activités générales qui sont décrites dans les instructions pas à pas ci-dessous :  
   
 1.  Tout d’abord, vous devez créer un groupe qui gérera les comptes, car ces comptes doivent être gérés par un ensemble limité d’utilisateurs approuvés. Si vous n’avez pas encore une structure d’unité d’organisation qui prend en charge la répartition des comptes et des systèmes privilégiés et protégés de la population générale dans le domaine, vous devez en créer une. Bien que des instructions spécifiques ne soient pas fournies dans cette annexe, les captures d’écran présentent un exemple d’une telle hiérarchie d’UO.  
   
@@ -39,7 +38,7 @@ La création de comptes qui peuvent être utilisés pour gérer l’appartenance
   
 4.  Configurez les autorisations sur l’objet AdminSDHolder dans chaque domaine pour permettre aux comptes de gestion de modifier l’appartenance des groupes privilégiés dans le domaine.  
   
-Vous devez tester minutieusement toutes ces procédures et les modifier en fonction des besoins de votre environnement avant de les implémenter dans un environnement de production. Vous devez également vérifier que tous les paramètres fonctionnent comme prévu (certaines procédures de test sont fournies dans cette annexe) et que vous devez tester un scénario de récupération d’urgence dans lequel les comptes de gestion ne peuvent pas être utilisés pour remplir des groupes protégés pour la récupération. opérations. Pour plus d’informations sur la sauvegarde et la restauration de Active Directory, consultez le [Guide pas à pas](https://technet.microsoft.com/library/cc771290(v=ws.10).aspx)de la AD DS de la sauvegarde et de la récupération.  
+Vous devez tester minutieusement toutes ces procédures et les modifier en fonction des besoins de votre environnement avant de les implémenter dans un environnement de production. Vous devez également vérifier que tous les paramètres fonctionnent comme prévu (certaines procédures de test sont fournies dans cette annexe) et vous devez tester un scénario de récupération d’urgence dans lequel les comptes de gestion ne peuvent pas être utilisés pour remplir des groupes protégés à des fins de récupération. Pour plus d’informations sur la sauvegarde et la restauration de Active Directory, consultez le [Guide pas à pas](https://technet.microsoft.com/library/cc771290(v=ws.10).aspx)de la AD DS de la sauvegarde et de la récupération.  
   
 > [!NOTE]  
 > En implémentant les étapes décrites dans cette annexe, vous allez créer des comptes qui seront en mesure de gérer l’appartenance de tous les groupes protégés dans chaque domaine, non seulement les groupes à privilèges élevés Active Directory comme EAs, DAs et BAs. Pour plus d’informations sur les groupes protégés dans Active Directory, consultez l' [annexe C : comptes et groupes protégés dans Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md).  
@@ -48,7 +47,7 @@ Vous devez tester minutieusement toutes ces procédures et les modifier en fonct
   
 #### <a name="creating-a-group-to-enable-and-disable-management-accounts"></a>Création d’un groupe pour activer et désactiver des comptes de gestion
 
-Les mots de passe des comptes de gestion doivent être réinitialisés à chaque utilisation et doivent être désactivés lorsque les activités nécessitant ces derniers sont terminées. Bien que vous deviez également envisager d’implémenter des exigences d’ouverture de session par carte à puce pour ces comptes, il s’agit d’une configuration facultative. ces instructions supposent que les comptes de gestion seront configurés avec un nom d’utilisateur et un mot de passe long et complexe au minimum commandes. Dans cette étape, vous allez créer un groupe qui dispose des autorisations pour réinitialiser le mot de passe sur les comptes de gestion et pour activer et désactiver les comptes.  
+Les mots de passe des comptes de gestion doivent être réinitialisés à chaque utilisation et doivent être désactivés lorsque les activités nécessitant ces derniers sont terminées. Bien que vous deviez également envisager d’implémenter des exigences d’ouverture de session par carte à puce pour ces comptes, il s’agit d’une configuration facultative. ces instructions partent du principe que les comptes de gestion seront configurés avec un nom d’utilisateur et un mot de passe long et complexe comme contrôles minimaux. Dans cette étape, vous allez créer un groupe qui dispose des autorisations pour réinitialiser le mot de passe sur les comptes de gestion et pour activer et désactiver les comptes.  
   
 Pour créer un groupe afin d’activer et de désactiver les comptes de gestion, procédez comme suit :  
   
@@ -81,13 +80,13 @@ Pour créer un groupe afin d’activer et de désactiver les comptes de gestion,
   
 7.  Sous l’onglet **sécurité** , supprimez les groupes qui ne doivent pas être autorisés à accéder à ce groupe. Par exemple, si vous ne souhaitez pas que les utilisateurs authentifiés puissent lire le nom et les propriétés générales du groupe, vous pouvez supprimer cette entrée du contrôle d’accès. Vous pouvez également supprimer des ACE, telles que celles pour les opérateurs de compte et l’accès compatible avec les serveurs antérieurs à Windows 2000. Toutefois, vous devez conserver un ensemble minimal d’autorisations sur les objets en place. Laissez les ACE suivantes intactes :  
   
-    -   SELF  
+    -   RYTHME  
   
     -   SYSTEM  
   
-    -   Administrateurs du domaine  
+    -   Admins du domaine  
   
-    -   Administrateurs de l’entreprise  
+    -   Administrateurs de l'entreprise  
   
     -   Administrateurs  
   
@@ -106,7 +105,7 @@ Pour créer un groupe afin d’activer et de désactiver les comptes de gestion,
   
 #### <a name="creating-the-management-accounts"></a>Création des comptes de gestion
 
-Vous devez créer au moins un compte qui sera utilisé pour gérer l’appartenance des groupes privilégiés dans votre installation Active Directory, et de préférence un deuxième compte pour servir de sauvegarde. Que vous choisissiez de créer les comptes de gestion dans un domaine unique dans la forêt et de leur accorder des fonctionnalités de gestion pour tous les groupes protégés par les domaines, ou si vous choisissez d’implémenter des comptes de gestion dans chaque domaine de la forêt, les procédures sont en effet.  
+Vous devez créer au moins un compte qui sera utilisé pour gérer l’appartenance des groupes privilégiés dans votre installation Active Directory, et de préférence un deuxième compte pour servir de sauvegarde. Que vous choisissiez de créer les comptes de gestion dans un domaine unique dans la forêt et de leur accorder des fonctionnalités de gestion pour tous les groupes protégés par les domaines, ou si vous choisissez d’implémenter des comptes de gestion dans chaque domaine de la forêt, les procédures sont les mêmes.  
   
 > [!NOTE]  
 > Les étapes décrites dans ce document supposent que vous n’avez pas encore implémenté les contrôles d’accès en fonction du rôle et Privileged Identity Management pour Active Directory. Par conséquent, certaines procédures doivent être effectuées par un utilisateur dont le compte est membre du groupe Admins du domaine pour le domaine en question.  
@@ -133,7 +132,7 @@ Pour créer les comptes de gestion, procédez comme suit :
 
 7. Cliquez avec le bouton droit sur l’objet utilisateur que vous venez de créer, puis cliquez sur **Propriétés**.  
 
-8. Cliquez sur l’onglet **Compte**.  
+8. Cliquez sur l’onglet **compte** .  
 
 9. Dans le champ **options de compte** , sélectionnez l’indicateur le **compte est sensible et ne peut pas être délégué** , sélectionnez l’indicateur ce compte **prend en charge le chiffrement AES 128 bits Kerberos** et/ou le **compte ce compte prend en charge le chiffrement Kerberos AES 256** , puis cliquez sur **OK**.  
 
@@ -178,7 +177,7 @@ Pour créer les comptes de gestion, procédez comme suit :
     > [!NOTE]  
     > Il est peu probable que ce compte soit utilisé pour se connecter à des contrôleurs de domaine en lecture seule (RODC) dans votre environnement. Toutefois, si vous souhaitez que le compte se connecte à un contrôleur de domaine en lecture seule, vous devez ajouter ce compte au groupe de réplication de mot de passe RODC refusé afin que son mot de passe ne soit pas mis en cache sur le contrôleur de domaine en lecture seule.  
     >
-    > Même si le mot de passe du compte doit être réinitialisé après chaque utilisation et que le compte doit être désactivé, l’implémentation de ce paramètre n’a pas d’effet nuisible sur le compte, et il peut être utile dans les situations où un administrateur oublie de réinitialiser la mot de passe et désactivez-le.  
+    > Même si le mot de passe du compte doit être réinitialisé après chaque utilisation et que le compte doit être désactivé, l’implémentation de ce paramètre n’a pas d’effet nuisible sur le compte, et il peut être utile dans les situations où un administrateur oublie de réinitialiser le mot de passe du compte et de le désactiver.  
 
 17. Cliquez sur l’onglet **Membre de**.  
 
@@ -186,7 +185,7 @@ Pour créer les comptes de gestion, procédez comme suit :
 
 19. Tapez **refuser le mot de passe RODC groupe de réplication** dans la boîte de dialogue **Sélectionner les utilisateurs, les contacts et les ordinateurs** , puis cliquez sur **vérifier les noms**. Lorsque le nom du groupe est souligné dans le sélecteur d’objets, cliquez sur **OK** et vérifiez que le compte est désormais membre des deux groupes affichés dans la capture d’écran suivante. N’ajoutez pas le compte à des groupes protégés.  
 
-20. Cliquez sur **OK**.  
+20. Cliquez sur **OK**.  
 
     ![création de comptes de gestion](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_129.png)  
 
@@ -208,7 +207,7 @@ Pour créer les comptes de gestion, procédez comme suit :
 
 26. Dans le champ **Propriétés** , sélectionnez **lire userAccountControl** et **Write userAccountControl**.  
 
-27. Cliquez à nouveau **sur OK dans**la boîte de dialogue Paramètres de **sécurité avancés** .  
+27. Cliquez à nouveau **OK** **sur OK dans**la boîte de dialogue Paramètres de **sécurité avancés** .  
 
     ![création de comptes de gestion](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_133.png)  
 
@@ -239,7 +238,7 @@ Quelle que soit la façon dont vous choisissez de créer un groupe dans lequel v
 
 Vous devez configurer l’audit sur le compte à journaliser au minimum toutes les écritures dans le compte. Cela vous permet non seulement d’identifier correctement l’activation du compte et la réinitialisation de son mot de passe lors de l’utilisation autorisée, mais également d’identifier les tentatives effectuées par les utilisateurs non autorisés pour manipuler le compte. Les écritures ayant échoué sur le compte doivent être capturées dans votre système SIEM (Security information and Event Monitoring) (le cas échéant) et déclencher des alertes qui notifient au personnel chargé d’examiner les compromissions potentielles.  
   
-Les solutions SIEM prennent des informations sur les événements des sources de sécurité impliquées (par exemple, les journaux d’événements, les données d’application, les flux réseau, les produits anti-programme malveillant et les sources de détection d’intrusion), rassemblent les données et tentent de créer des vues intelligentes et des actions proactives . Il existe de nombreuses solutions SIEM commerciales et de nombreuses entreprises créent des implémentations privées. Une application SIEM bien conçue et implémentée de manière appropriée peut améliorer considérablement la surveillance de la sécurité et les fonctionnalités de réponse aux incidents. Toutefois, les capacités et la précision varient considérablement d’une solution à l’autre. Les SIEM n’entrent pas dans le cadre de ce document, mais les recommandations d’événements spécifiques doivent être prises en compte par tout responsable de l’implémentation SIEM.  
+Les solutions SIEM prennent des informations sur les événements des sources de sécurité impliquées (par exemple, les journaux d’événements, les données d’application, les flux réseau, les produits anti-programme malveillant et les sources de détection d’intrusion), rassemblent les données et tentent d’effectuer des vues intelligentes et des actions proactives. Il existe de nombreuses solutions SIEM commerciales et de nombreuses entreprises créent des implémentations privées. Une application SIEM bien conçue et implémentée de manière appropriée peut améliorer considérablement la surveillance de la sécurité et les fonctionnalités de réponse aux incidents. Toutefois, les capacités et la précision varient considérablement d’une solution à l’autre. Les SIEM n’entrent pas dans le cadre de ce document, mais les recommandations d’événements spécifiques doivent être prises en compte par tout responsable de l’implémentation SIEM.  
   
 Pour plus d’informations sur les paramètres de configuration d’audit recommandés pour les contrôleurs de domaine, consultez [surveillance des Active Directory pour les signes de compromission](../../../ad-ds/plan/security-best-practices/Monitoring-Active-Directory-for-Signs-of-Compromise.md). Les paramètres de configuration spécifiques au contrôleur de domaine sont fournis dans [surveillance Active Directory pour les signes de compromission](../../../ad-ds/plan/security-best-practices/Monitoring-Active-Directory-for-Signs-of-Compromise.md).  
   
@@ -309,7 +308,7 @@ Dans ce cas, vous allez accorder les comptes de gestion nouvellement créés pou
   
 #### <a name="verifying-group-and-account-configuration-settings"></a>Vérification des paramètres de configuration de groupe et de compte
 
-Maintenant que vous avez créé et configuré des comptes de gestion qui peuvent modifier l’appartenance à des groupes protégés dans le domaine (qui comprend les groupes EA, DA et BA les plus privilégiés), vous devez vérifier que les comptes et leur groupe d’administration ont été créé correctement. La vérification comprend les tâches générales suivantes :  
+Maintenant que vous avez créé et configuré des comptes de gestion qui peuvent modifier l’appartenance à des groupes protégés dans le domaine (qui comprend les groupes EA, DA et BA les plus privilégiés), vous devez vérifier que les comptes et leur groupe d’administration ont été créés correctement. La vérification comprend les tâches générales suivantes :  
   
 1.  Testez le groupe qui peut activer et désactiver les comptes de gestion pour vérifier que les membres du groupe peuvent activer et désactiver les comptes et réinitialiser leurs mots de passe, mais ne peuvent pas effectuer d’autres activités administratives sur les comptes de gestion.  
   

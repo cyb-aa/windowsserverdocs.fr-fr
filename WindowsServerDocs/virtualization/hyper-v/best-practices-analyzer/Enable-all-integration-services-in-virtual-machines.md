@@ -2,20 +2,19 @@
 title: Activer tous les services d’intégration sur les ordinateurs virtuels
 description: Version en ligne du texte de cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 16e202ad-3795-40c9-8176-7ca319e56d26
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 1984c3d1d6261756bf83f899985b457681537046
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2497755185ba1971130b571ce654e0019df18e0a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364891"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861972"
 ---
 # <a name="enable-all-integration-services-in-virtual-machines"></a>Activer tous les services d’intégration sur les ordinateurs virtuels
 
@@ -25,7 +24,7 @@ Pour plus d'informations sur les meilleures pratiques et les analyses, consultez
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
 |**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
@@ -50,7 +49,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 1.  Utilisez Services Bureau à distance ou la connexion à un ordinateur virtuel pour vous connecter à la machine virtuelle et ouvrir une session sur le système d’exploitation invité.  
   
-2.  Ouvrez le dossier Services. (Cliquez sur **Démarrer**, cliquez dans la zone **Rechercher** , tapez **services. msc**, puis appuyez sur entrée.)  
+2.  Ouvrez Services. (Cliquez sur **Démarrer**, cliquez dans la zone **Rechercher** , tapez **services. msc**, puis appuyez sur entrée.)  
   
 3.  Dans le volet d'informations, cliquez avec le bouton droit sur le service à configurer, puis cliquez sur **Propriétés**.  
   

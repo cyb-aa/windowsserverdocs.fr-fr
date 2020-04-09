@@ -3,17 +3,17 @@ ms.assetid: e5945bae-4a33-487c-a019-92a69db8cf6c
 title: Mise à jour du microprogramme des lecteurs
 ms.prod: windows-server
 ms.author: toklima
-ms.manager: dmoss
+manager: dmoss
 ms.technology: storage-spaces
 ms.topic: article
 author: toklima
 ms.date: 10/04/2016
-ms.openlocfilehash: 2f0530101bb7d597d2d95c26648aad65d62b69ca
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 55a4fc94440b763c48735ffe44099da702857489
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365873"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820872"
 ---
 # <a name="updating-drive-firmware"></a>Mise à jour du microprogramme des lecteurs
 >S’applique à : Windows Server 2019, Windows Server 2016, Windows 10
@@ -30,11 +30,11 @@ Pour mettre à jour le microprogramme des lecteurs avec Windows Server, ces lect
 Pour savoir si votre matériel prend en charge la mise à jour Windows du microprogramme des lecteurs, contactez votre fournisseur de solutions.
 Voici des liens vers les différentes spécifications :
 
--   TECHNOLOGIE [Device. Storage. HD. SATA](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsata) -dans la section **[IF Implemented @ No__t-2 firmware Download & Activate**
+-   SATA : [Device.Storage.Hd.Sata](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsata) - dans la section **[If Implemented\] Firmware Download & Activate**
     
--   ÉTABLIES [Device. Storage. HD. SAS](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsas) -dans la section **[IF Implemented @ No__t-2 firmware Download & Activate**
+-   SAS : [Device.Storage.Hd.Sas](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsas) - dans la section **[If Implemented\] Firmware Download & Activate**
 
--   NVMe [Device. Storage. ControllerDrive. NVMe](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragecontrollerdrivenvme) -dans les sections **5,7** et **5,8**.
+-   NVMe : [Device.Storage.ControllerDrive.NVMe](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragecontrollerdrivenvme) - dans les sections **5.7** et **5.8**.
 
 ## <a name="powershell-cmdlets"></a>Applets de commande PowerShell
 
@@ -43,7 +43,7 @@ Les deux applets de commande ajoutées à Windows sont les suivantes :
 -   Get-StorageFirmwareInformation
 -   Update-StorageFirmware
 
-La première applet de commande fournit des informations détaillées sur les fonctionnalités du périphérique, les images du microprogramme et les révisions. Dans ce cas, l’ordinateur contient un seul SSD SATA avec un emplacement de microprogramme. Voici un exemple :
+La première applet de commande fournit des informations détaillées sur les fonctionnalités du périphérique, les images du microprogramme et les révisions. Dans ce cas, l’ordinateur contient un seul SSD SATA avec un emplacement de microprogramme. Voici un exemple :
 
    ```powershell
    Get-PhysicalDisk | Get-StorageFirmwareInformation
@@ -164,9 +164,9 @@ $NewDoc = Get-Content <Path> | Out-String
 $SpacesDirect | Set-StorageHealthSetting -Name "System.Storage.SupportedComponents.Document" -Value $NewDoc
 ```
 
-Si vous souhaitez voir le Service de contrôle d’intégrité en action et en savoir plus sur son mécanisme de déploiement, observez cette vidéo : https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct
+Si vous souhaitez voir le Service de contrôle d’intégrité en action et en savoir plus sur son mécanisme de déploiement, consultez cette vidéo : https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 Consultez également [Résolution des problèmes liés aux mises à jour du microprogramme des lecteurs](troubleshoot-firmware-update.md).
 
@@ -195,7 +195,7 @@ Sur Windows Server 2016, après avoir déployé le service de contrôle d’int
 
 ### <a name="what-happens-if-the-update-fails"></a>Que se passe-t-il en cas d’échec de la mise à jour ?
 
-La mise à jour peut échouer pour diverses raisons, parmi lesquelles : 1) le lecteur ne prend pas en charge les commandes correctes pour Windows pour mettre à jour son microprogramme. Dans ce cas, la nouvelle image de microprogramme ne s’active jamais et le lecteur continue de fonctionner avec l’ancienne image. 2) L’image ne peut pas être téléchargée ou appliquée sur le lecteur (incompatibilité de version, image endommagée,...). Dans ce cas, le lecteur fait échouer la commande d’activation. Là encore, l’ancienne image de microprogramme continue de fonctionner.
+La mise à jour peut échouer pour diverses raisons, dont certaines sont : 1) le lecteur ne prend pas en charge les commandes appropriées pour que Windows puisse mettre à jour son microprogramme. Dans ce cas, la nouvelle image de microprogramme ne s’active jamais et le lecteur continue de fonctionner avec l’ancienne image. 2) L’image ne peut pas être téléchargée ou appliquée sur le lecteur (incompatibilité de version, image endommagée,...). Dans ce cas, le lecteur fait échouer la commande d’activation. Là encore, l’ancienne image de microprogramme continue de fonctionner.
 
 Si le lecteur ne répond pas du tout après une mise à jour de microprogramme, le microprogramme de lecteur présente probablement un bogue. Testez toutes les mises à jour de microprogramme dans un environnement de laboratoire avant de les mettre en production. La seule action corrective est peut-être de remplacer le disque.
 

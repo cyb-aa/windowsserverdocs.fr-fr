@@ -1,6 +1,5 @@
 ---
 title: Authentification par clé publique d'appareil joint au domaine
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 7bd17803-6e42-4a3b-803f-e47c74725813
@@ -8,12 +7,12 @@ manager: alanth
 author: michikos
 ms.technology: security-authentication
 ms.date: 08/18/2017
-ms.openlocfilehash: c9c4342281ee2036e152c8034fa72e421487a45b
-ms.sourcegitcommit: 9bc7a0478d72944f714f8041fa4506e0d1ed0366
+ms.openlocfilehash: 450d3e64ff753a718c2e72e69cb60d51c8c18f78
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77607085"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856332"
 ---
 # <a name="domain-joined-device-public-key-authentication"></a>Authentification par clé publique d'appareil joint au domaine
 

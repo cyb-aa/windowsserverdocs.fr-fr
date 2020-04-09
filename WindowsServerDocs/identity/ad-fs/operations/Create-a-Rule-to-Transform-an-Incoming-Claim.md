@@ -1,7 +1,6 @@
 ---
 ms.assetid: ef83960f-d2cf-441f-b2b6-d97822ec7149
 title: Créer une règle pour transformer une revendication entrante
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 15a4583d429de9383e9405cfcd444777aa55c921
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 43768b282005ba77d22985aa9a0d563125a97289
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407572"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816532"
 ---
 # <a name="create-a-rule-to-transform-an-incoming-claim"></a>Créer une règle pour transformer une revendication entrante
 

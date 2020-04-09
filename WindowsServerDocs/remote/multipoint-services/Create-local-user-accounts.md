@@ -1,27 +1,23 @@
 ---
 title: Créer des comptes d’utilisateur locaux
 description: En savoir sur thte trois types de comptes d’utilisateur dans MultiPoint services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 33321932-4266-4961-9924-2cb4620bfcb4
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: 874d9cbdb56c59693cb5843a898b9ebd6893d674
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b07c88e4961544f5854f6e9d829b8d4b97adf7e8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405109"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859762"
 ---
 # <a name="create-local-user-accounts"></a>Créer des comptes d’utilisateur locaux
-Trois niveaux de comptes d’utilisateurs locaux peuvent être créés dans à l’aide du gestionnaire MultiPoint : Comptes d’utilisateur standard ; Utilisateurs du tableau de bord MultiPoint, qui disposent de droits d’administration limités ; et les comptes d’utilisateur d’administration complets.  
+Trois niveaux de comptes d’utilisateurs locaux peuvent être créés dans à l’aide du gestionnaire MultiPoint : comptes d’utilisateur standard ; Utilisateurs du tableau de bord MultiPoint, qui disposent de droits d’administration limités ; et les comptes d’utilisateur d’administration complets.  
   
 Utilisez la procédure suivante pour créer un compte d’utilisateur local sur un serveur MultiPoint. Si votre environnement comprend plusieurs serveurs MultiPoint et que vous souhaitez que l’utilisateur soit en mesure de se connecter à n’importe quelle station sur un serveur, vous devez créer un compte d’utilisateur local sur chacun de vos serveurs. Cette configuration présente des limitations. Dans un environnement de domaine, vous pouvez également permettre aux utilisateurs d’utiliser leurs comptes de domaine. Pour obtenir une vue d’ensemble de vos options, consultez [planifier des comptes d’utilisateur pour votre environnement Windows multipoint services](Plan-user-accounts-for-your-MultiPoint-services-environment.md).  
    

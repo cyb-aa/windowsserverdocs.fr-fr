@@ -1,7 +1,6 @@
 ---
 ms.assetid: 6785de86-4f7d-4ed1-9055-8de0871d59b5
 title: Annexe M-liens de document et lecture recommandée
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c48b5330ee1b9a186885645aaa4c1ac79f1782e7
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: f1c13f0a7054f236f1ba35201ad9ad62c978d08f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822742"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823292"
 ---
 # <a name="appendix-m-document-links-and-recommended-reading"></a>Annexe M : Liens vers des documents et lecture recommandée
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
 ## <a name="appendix-m-document-links-and-recommended-reading"></a>Annexe M : Liens vers des documents et lecture recommandée  
@@ -28,7 +27,7 @@ Le tableau suivant contient une liste de liens vers des documents externes et le
   
 |||  
 |-|-|  
-|**Links**|**URL**|  
+|**Liées**|**URL**|  
 |[10 lois immuables de l’administration de la sécurité](https://technet.microsoft.com/library/cc722488.aspx)|[https://technet.microsoft.com/library/cc722488.aspx](https://technet.microsoft.com/library/cc722488.aspx)|  
 |[Microsoft Security Compliance Manager](https://technet.microsoft.com/library/cc677002.aspx)|[https://technet.microsoft.com/library/cc677002.aspx](https://technet.microsoft.com/library/cc677002.aspx)|  
 |[Congrès de Gartner ITXPO](http://www.gartner.com/technology/symposium/orlando/)|[http://www.gartner.com/technology/symposium/orlando/](http://www.gartner.com/technology/symposium/orlando/)|  
@@ -196,17 +195,17 @@ Le tableau suivant contient une liste de lectures recommandées qui vous aideron
 |[Validation KDC stricte](https://www.microsoft.com/download/details.aspx?id=6382)|  
   
 #### <a name="copyright-information"></a>Informations de copyright  
-Les informations contenues dans ce document représentent l'opinion de Microsoft Corporation sur les points examinés à la date de publication. Microsoft devant s'adapter aux conditions fluctuantes du marché, ce document ne constitue en aucun cas un engagement de la part de Microsoft. Microsoft ne peut pas garantir l’exactitude des informations présentées après la date de publication.  
+Les informations contenues dans ce document représentent l'opinion actuelle de Microsoft Corporation sur les points cités à la date de publication. Microsoft s’adapte aux conditions fluctuantes du marché et cette opinion ne doit pas être interprétée comme un engagement de la part de Microsoft ; de plus, Microsoft ne peut pas garantir la véracité de toute information présentée après la date de publication.  
   
-Ce livre blanc est fourni à titre d’information uniquement. Microsoft n’offre aucune garantie, expresse ou implicite, dans ce document.  
+Ce livre blanc est fourni à titre d'information uniquement. Microsoft n’offre aucune garantie, expresse ou implicite, dans ce document.  
   
-L’utilisateur est tenu de se conformer à la réglementation relative aux droits d’auteur applicable dans son pays. Sans limitation des droits d’auteur, aucune partie de ce document ne peut être reproduite, stockée ou introduite dans un système de récupération, ou transmise à quelque fin ou par quelque moyen que ce soit (électronique, mécanique, photocopie, enregistrement ou autre), ou à quelque fin que ce soit. , sans l’autorisation expresse et écrite de Microsoft Corporation.  
+L'utilisateur est tenu d'observer la réglementation relative aux droits d'auteur applicable dans son pays. Sans limitation des droits issus des droits d’auteur, aucune partie de ce manuel ne peut être reproduite, stockée ou incluse dans un système de récupération de données ou transmise, à quelque fin ou par quelque moyen que ce soit (électronique, mécanique, photocopie, enregistrement ou autre) sans l’autorisation expresse et écrite de Microsoft Corporation.  
   
-Microsoft peut détenir des brevets, avoir déposé des demandes d’enregistrement de brevets ou être titulaire de marques, droits d’auteur ou autres droits de propriété intellectuelle portant sur tout élément du présent document. Sauf stipulation expresse contraire d'un contrat de licence écrit de Microsoft, la fourniture de ce document n'a pas pour effet de vous concéder une licence sur ces brevets, marques, droits d'auteur ou autres droits de propriété intellectuelle.  
+Microsoft peut détenir des brevets, avoir déposé des demandes d'enregistrement de brevets ou être titulaire de marques, droits d'auteur ou autres droits de propriété intellectuelle portant sur tout ou partie des éléments qui font l'objet du présent document. Sauf si stipulation expresse contraire d'un contrat de licence écrit de Microsoft, la fourniture de ce document n'a pas pour effet de vous concéder une licence sur ces brevets, marques, droits d'auteur ou autres droits de propriété intellectuelle.  
   
-Microsoft, Active Directory, BitLocker, Hyper-V, Internet Explorer, Windows Vista, Windows et Windows Server sont soit des marques de Microsoft Corporation, soit des marques déposées de Microsoft Corporation, dans le États-Unis et/ou dans d’autres pays. Toutes les autres marques de fabrique appartiennent à leurs propriétaires respectifs.  
+Microsoft, Active Directory, BitLocker, Hyper-V, Internet Explorer, Windows Vista, Windows et Windows Server sont soit des marques de Microsoft Corporation, soit des marques déposées de Microsoft Corporation, dans le États-Unis et/ou dans d’autres pays. Toutes les autres marques sont la propriété de leurs propriétaires respectifs.  
   
-Les exemples de sociétés, d’organisations, de produits, de noms de domaine, d’adresses de messagerie, de logos, de personnes, de lieux et d’événements mentionnés dans les exemples sont fictifs. Toute ressemblance avec des entreprises, des organisations, des noms, des adresses électroniques, des logos, des personnes, des lieux ou des événements réels est purement fortuite et involontaire.  
+Les sociétés, organisations, produits, noms de domaine, adresses de messagerie, logos, personnes, lieux et événements mentionnés dans les exemples sont fictifs. Toute ressemblance avec des sociétés, organisations, produits, noms de domaines, adresses de messagerie, logos, personnes, lieux ou événements réels est purement fortuite et involontaire.  
   
 ? 2013 Microsoft Corporation. Tous droits réservés.  
   

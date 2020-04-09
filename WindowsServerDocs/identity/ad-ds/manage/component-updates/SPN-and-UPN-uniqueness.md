@@ -1,7 +1,6 @@
 ---
 ms.assetid: 40bc24b1-2e7d-4e77-bd0f-794743250888
 title: Unicité des noms SPN et UPN
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ded707276471fccd28f0ec17afef0a24015ff32f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f182f79b5bb97e45f1cfd34ad59cf52322f09063
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390031"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823062"
 ---
 # <a name="spn-and-upn-uniqueness"></a>Unicité des noms SPN et UPN
 
@@ -25,7 +24,7 @@ ms.locfileid: "71390031"
 > [!NOTE]  
 > Ce contenu est écrit par un ingénieur du support client Microsoft et est destiné aux administrateurs expérimentés et aux architectes système qui recherchent des explications techniques plus approfondies des fonctionnalités et des solutions Windows Server 2012 R2 que n'en proposent généralement les rubriques de TechNet. Toutefois, il n'a pas subi les mêmes passes de correction. De ce fait, une partie du langage peut sembler moins finalisée que le contenu de TechNet.  
   
-## <a name="overview"></a>Vue d’ensemble  
+## <a name="overview"></a>Overview  
 Les contrôleurs de domaine exécutant Windows Server 2012 R2 bloquent la création de noms de principal du service (SPN) et de noms principaux d’utilisateur (UPN) dupliqués. Cela implique si la restauration ou la réanimation d’un objet supprimé ou le changement de nom d’un objet entraînerait un doublon.  
   
 ### <a name="background"></a>Arrière-plan  
@@ -37,7 +36,7 @@ Les valeurs UPN dupliquées rompent la synchronisation entre les services AD loc
   
 **Table SEQ Table \\\* arabe 1 : UPN et unicité du nom de principal du service**  
   
-|Fonctionnalité|Commentaire|  
+|Composant|Commentaire|  
 |-----------|-----------|  
 |Unicité UPN|Les UPN dupliqués interrompent la synchronisation des comptes AD locaux avec les services Windows Azure AD tels que Office 365.|  
 |Unicité du SPN|Kerberos requiert des noms de principal du service pour l’authentification mutuelle.  Les SPN en double entraînent des échecs d’authentification.|  
@@ -51,7 +50,7 @@ Les codes d’erreur 8467 ou 8468 ou leurs équivalents Hex, symboliques ou de c
   
 **Table SEQ Table \\\* arabe 2 : codes d’erreur d’unicité UPN et SPN**  
   
-|Decimal|Hexadécimal|Symbol|Chaîne|  
+|Decimal|Hex|Symbol|String|  
 |-----------|-------|------------|----------|  
 |8467|21C7|ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST|L’opération a échoué, car la valeur SPN fournie pour l’ajout/la modification n’est pas unique à l’ensemble de la forêt.|  
 |8648|21C8|ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST|L’opération a échoué, car la valeur UPN fournie pour l’ajout/la modification n’est pas unique à l’ensemble de la forêt.|  
@@ -240,7 +239,7 @@ servicePrincipalName Value=<SPN>
   
             -   Si les entrées retournées sont ! = 0-> écriture échoue  
   
-                -   Journal des événements  
+                -   Événement journalisé  
   
                 -   Retourne également une erreur étendue :  
   
@@ -256,7 +255,7 @@ servicePrincipalName Value=<SPN>
   
             -   Si les entrées retournées sont ! = 0-> écriture échoue  
   
-                -   Journal des événements  
+                -   Événement journalisé  
   
                 -   Retourne également une erreur étendue :  
   
@@ -280,7 +279,7 @@ servicePrincipalName Value=<SPN>
   
             -   Si les entrées retournées sont ! = 0-> écriture échoue  
   
-                -   Journal des événements  
+                -   Événement journalisé  
   
                 -   Retourne également une erreur étendue :  
   
@@ -296,7 +295,7 @@ servicePrincipalName Value=<SPN>
   
             -   Si les entrées retournées sont ! = 0-> écriture échoue  
   
-                -   Journal des événements  
+                -   Événement journalisé  
   
                 -   Retourne également une erreur étendue :  
   

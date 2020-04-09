@@ -1,28 +1,22 @@
 ---
 title: diskcopy
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour diskcopy, qui copie le contenu de la disquette dans le lecteur source sur une disquette formatée ou non dans le lecteur de destination.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5fd21efa-52cc-4e70-a7fe-35125a435106
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/07/2018
-ms.openlocfilehash: 553a85ac4fd9b7708d7adc668be4e000b36a9346
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 675694503cab207f05fd6b48e0d17c23196f85d0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377821"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845542"
 ---
 # <a name="diskcopy"></a>diskcopy
-
-
 
 Copie le contenu de la disquette dans le lecteur source vers une disquette formatée ou non formatée dans le lecteur de destination. En cas d’utilisation sans paramètre, **diskcopy** utilise le lecteur actif pour le disque source et le disque de destination.
 
@@ -37,7 +31,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 diskcopy [<Drive1>: [<Drive2>:]] [/v]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -84,9 +78,11 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
 > [!NOTE]
 > Vous ne pouvez pas utiliser **xcopy** pour copier un disque de démarrage.
-> -   Fonctionnement des codes de sortie de **diskcopy**
 
-    The following table explains each exit code.  
+### <a name="understanding-diskcopy-exit-codes"></a>Fonctionnement des codes de sortie de **diskcopy**
+
+    The following table explains each exit code.
+    
     |Code de sortie|Description|
     |---------|-----------|
     |0|L’opération de copie a réussi|
@@ -96,7 +92,7 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
     To process the exit codes that are returned by **diskcomp**, you can use the *ERRORLEVEL* environment variable on the **if** command line in a batch program.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour copier le disque du lecteur B sur le disque du lecteur A, tapez :
 ```
@@ -106,6 +102,6 @@ Pour utiliser le lecteur de disquette A afin de copier une disquette sur une aut
 
 diskcopy a :
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

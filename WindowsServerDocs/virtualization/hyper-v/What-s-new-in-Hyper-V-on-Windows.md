@@ -2,21 +2,19 @@
 title: Nouveautés d’Hyper-V sur Windows Server 2016
 description: Fournit un résumé des nouvelles fonctionnalités d’Hyper-V
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1a65a98e-54b6-4c41-9732-1e3d32fe3a5f
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 09/21/2017
-ms.openlocfilehash: 195d78ff8de75ca9e3a88d4300bb2f52cd45632f
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 5fc82d8eea78ad5605dceb6a21e8d543f9d9c88e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322301"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857962"
 ---
 # <a name="whats-new-in-hyper-v-on-windows-server"></a>Nouveautés d’Hyper-V sur Windows Server
 
@@ -42,19 +40,19 @@ Pour plus d’informations, consultez [Fonctionnalité de compatibilité des app
 
 - **Améliorations pour les filiales**
 
-    Vous pouvez maintenant exécuter des machines virtuelles dotées d’une protection maximale sur des ordinateurs ayant une connectivité intermittente au Service Guardian hôte en tirant parti du nouveau [SGH de secours](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office#fallback-configuration) et des fonctionnalités du [mode hors connexion](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office#offline-mode). Le SGH de secours vous permet de configurer un deuxième ensemble d’URL qu’Hyper-V peut essayer s’il ne peut pas atteindre votre serveur SGH principal.
+    Vous pouvez maintenant exécuter des machines virtuelles dotées d'une protection maximale sur des ordinateurs ayant une connectivité intermittente au Service Guardian hôte en tirant parti du nouveau [SGH de secours](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office#fallback-configuration) et des fonctionnalités du [mode hors connexion](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office#offline-mode). Le SGH de secours vous permet de configurer un deuxième ensemble d'URL qu'Hyper-V peut essayer s'il ne peut pas atteindre votre serveur SGH principal.
 
-    Le mode hors connexion vous permet de continuer à démarrer vos machines virtuelles protégés même si le SGH n’est pas accessible, tant que la machine virtuelle a démarré avec succès une fois et que la configuration de sécurité de l’hôte n’a pas changé.
+    Le mode hors connexion vous permet de continuer à démarrer vos ordinateurs virtuels protégés même si le SGH n'est pas accessible, tant que l'ordinateur virtuel a démarré avec succès une fois et que la configuration de sécurité de l'hôte n'a pas changé.
 
 - **Améliorations de la résolution des problèmes**
 
-    Nous avons également simplifié le [dépannage de vos machines virtuelles](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-troubleshoot-shielded-vms) en autorisant la prise en charge du Mode de Session étendu VMConnect et de PowerShell Direct. Ces outils sont particulièrement utiles si vous avez perdu la connectivité réseau à votre machine virtuelle et que vous devez mettre à jour sa configuration pour restaurer l’accès.
+    Nous avons également simplifié le [dépannage de vos machines virtuelles](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-troubleshoot-shielded-vms) en autorisant la prise en charge du Mode de Session étendu VMConnect et de PowerShell Direct. Ces outils sont particulièrement utiles si vous avez perdu la connectivité réseau à votre ordinateur virtuel et que vous devez mettre à jour sa configuration pour restaurer l'accès.
 
-    Ces fonctionnalités n’ont pas besoin d’être configurées et deviennent automatiquement disponibles quand une machine virtuelle protégé est placée sur un ordinateur hôte Hyper-V exécutant Windows Server version 1803 ou ultérieur.
+    Ces fonctionnalités n'ont pas besoin d'être configurées et deviennent automatiquement disponibles lorsqu'un ordinateur virtuel protégé est placé sur un ordinateur hôte Hyper-V exécutant Windows Server version 1803 ou version ultérieure.
 
 - **Prise en charge de Linux**
 
-    Si vous exécutez des environnements à systèmes d’exploitation mixtes, Windows Server 2019 prend désormais en charge l’exécution d’Ubuntu, Red Hat Enterprise Linux et SUSE Linux Enterprise Server dans les machines virtuelles.
+    Si vous exécutez des environnements à systèmes d'exploitation mixtes, Windows Server 2019 prend désormais en charge l'exécution d'Ubuntu, Red Hat Enterprise Linux et SUSE Linux Enterprise Server dans les machines virtuelles.
 
 ## <a name="windows-server-2016"></a>Windows Server 2016
 

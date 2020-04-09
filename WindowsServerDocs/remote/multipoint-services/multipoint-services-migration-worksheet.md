@@ -1,28 +1,24 @@
 ---
 title: Feuille de planification de la migration de MultiPoint services
 description: Fournit des feuilles de calcul de planification pour vous aider à migrer vers MultiPoint services dans Windows Server 2016
-ms.custom: na
 ms.date: 07/29/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 864405bb-47ed-4c83-97a2-8df4c6e6f96b
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: d3d2ecca4062d28d210196d9191e08710eb731c2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c0d5976e70bcf8009cd98e54e973dd6f585d7208
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394630"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858902"
 ---
 # <a name="planning-worksheet-for-multipoint-services-migration"></a>Feuille de planification de la migration de MultiPoint services
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Utilisez les listes et les tables suivantes pour recueillir les paramètres dont vous avez besoin lors de la migration de MultiPoint services.
 
@@ -44,14 +40,14 @@ Vous trouverez les paramètres du serveur sous l’onglet dossier de **démarrag
 
 Notez les noms des ordinateurs et serveurs gérés. Vous pouvez trouver ces informations dans l’onglet dossier de **démarrage** du gestionnaire multipoint.
 
-| Computer | Nom de l'ordinateur |
+| Ordinateur | Nom d'ordinateur |
 |----------|---------------|
 | 1        |               |
 | 2        |               |
 | 3        |               |
 | 4        |               |
 | 5        |               |
-| 6\.        |               |
+| 6        |               |
 | 7        |               |
 | 8        |               |
 | 9        |               |
@@ -69,7 +65,7 @@ Enregistrez les stations locales et leurs paramètres. Vous pouvez trouver ces i
 | 3  |              |                         |                     |
 | 4  |              |                         |                     |
 | 5  |              |                         |                     |
-| 6\.  |              |                         |                     |
+| 6  |              |                         |                     |
 | 7  |              |                         |                     |
 | 8  |              |                         |                     |
 | 9  |              |                         |                     |

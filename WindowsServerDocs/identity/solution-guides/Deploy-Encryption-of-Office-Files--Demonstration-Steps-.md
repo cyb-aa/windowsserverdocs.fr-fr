@@ -1,7 +1,6 @@
 ---
 ms.assetid: 2c76e81a-c2eb-439f-a89f-7d3d70790244
 title: Déployer le chiffrement des fichiers Office (étapes de démonstration)
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 05da1b7df2e3242c9b68bd7858c824f91e81a563
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 12b0e99651454930ee42a007dd34d1cafdb2e7fb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407100"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861222"
 ---
 # <a name="deploy-encryption-of-office-files-demonstration-steps"></a>Déployer le chiffrement des fichiers Office (étapes de démonstration)
 
@@ -26,14 +25,14 @@ Dans ce scénario, vous allez effectuer les étapes suivantes :
   
 |Tâche|Description|  
 |--------|---------------|  
-|[Activer les propriétés de ressource](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_1.1)|Activer les propriétés de ressources **Impact** et **Informations d'identification personnelle** .|  
+|[Activer les propriétés de ressource](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_1.1)|Activer les propriétés de ressources **Impact** et **Informations d'identification personnelle**.|  
 |[Créer des règles de classification](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_2)|Créer les règles de classification suivantes : **Règle de classification HBI** et **Règle de classification IIP**.|  
 |[Utilisez des tâches de gestion de fichiers pour protéger automatiquement les documents avec AD RMS](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_3)|Créer une tâche de gestion de fichiers qui utilise automatiquement les services AD RMS pour protéger les documents contenant des informations d'identification personnelle (IIP). Seuls les membres du groupe FinanceAdmin auront accès aux documents qui contiennent des informations d'identification personnelle.|  
 |[Afficher les résultats](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_4)|Examiner la classification des documents et observer les changements à mesure que vous modifiez le contenu des documents. Vérifier également comment les documents sont protégés par les services AD RMS.|  
 |[Vérifier AD RMS protection](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_5)|Vérifier que les documents sont protégés par les services AD RMS.|  
 |||  
   
-## <a name="BKMK_1.1"></a>Étape 1 : activer les propriétés de ressource  
+## <a name="step-1-enable-resource-properties"></a><a name="BKMK_1.1"></a>Étape 1 : activer les propriétés de ressource  
   
 #### <a name="to-enable-resource-properties"></a>Pour activer les propriétés de ressource  
   
@@ -41,7 +40,7 @@ Dans ce scénario, vous allez effectuer les étapes suivantes :
   
 2. Ouvrez le Centre d'administration Active Directory et cliquez sur **Arborescence**.  
   
-3. Développez **Contrôle d'accès dynamique**et sélectionnez **Propriétés de ressource**.  
+3. Développez **Contrôle d'accès dynamique** et sélectionnez **Propriétés de ressource**.  
   
 4. Faites défiler la liste jusqu'à atteindre la propriété **Impact** dans la colonne **Nom complet**. Cliquez avec le bouton droit sur **Impact**, puis cliquez sur **Activer**.  
   
@@ -53,17 +52,17 @@ Dans ce scénario, vous allez effectuer les étapes suivantes :
   
 guides de solution ![](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```  
 Set-ADResourceProperty -Enabled:$true -Identity:"CN=Impact_MS,CN=Resource Properties,CN=Claims Configuration,CN=Services,CN=Configuration,DC=contoso,DC=com"  
 Set-ADResourceProperty -Enabled:$true -Identity:"CN=PII_MS,CN=Resource Properties,CN=Claims Configuration,CN=Services,CN=Configuration,DC=contoso,DC=com" 
 ```  
   
-## <a name="BKMK_2"></a>Étape 2 : créer des règles de classification  
-Cette étape explique comment créer la règle de classification **Fort impact** . Cette règle recherche le contenu des documents et, si la chaîne « contoso Confidential » est trouvée, elle classifie ce document comme ayant un impact élevé sur l’activité. Cette classification remplace toute classification de faible impact commercial assignée précédemment.  
+## <a name="step-2-create-classification-rules"></a><a name="BKMK_2"></a>Étape 2 : créer des règles de classification  
+Cette étape explique comment créer la règle de classification **Fort impact**. Cette règle recherche le contenu des documents et, si la chaîne « contoso Confidential » est trouvée, elle classifie ce document comme ayant un impact élevé sur l’activité. Cette classification remplace toute classification de faible impact commercial assignée précédemment.  
   
-Vous allez aussi créer une règle **Niveau IIP élevé** . Cette règle analyse aussi le contenu des documents et, si un numéro de sécurité social est détecté, elle classifie ce document comme ayant un niveau IIP élevé.  
+Vous allez aussi créer une règle **Niveau IIP élevé**. Cette règle analyse aussi le contenu des documents et, si un numéro de sécurité social est détecté, elle classifie ce document comme ayant un niveau IIP élevé.  
   
 #### <a name="to-create-the-high-impact-classification-rule"></a>Pour créer la règle de classification de fort impact  
   
@@ -77,13 +76,13 @@ Vous allez aussi créer une règle **Niveau IIP élevé** . Cette règle analyse
   
 5. Dans le volet **Actions**, cliquez sur **Configurer la planification de la classification**. Sous l'onglet **Classification automatique**, sélectionnez **Activer la planification fixe**, sélectionnez un **Jour de la semaine**, puis cochez la case **Autoriser la classification continue de nouveaux fichiers**. Cliquez sur **OK**.  
   
-6. Dans le volet **Actions** , cliquez sur **Créer une règle de classification**. La boîte de dialogue **Créer une règle de classification** s’affiche.  
+6. Dans le volet **Actions**, cliquez sur **Créer une règle de classification**. La boîte de dialogue **Créer une règle de classification** s'affiche.  
   
 7. Dans la zone **Nom de la règle**, tapez **Fort impact commercial**.  
   
 8. Dans la zone **Description** , tapez **détermine si le document a un impact élevé sur l’entreprise en fonction de la présence de la chaîne « contoso Confidential »** .  
   
-9. Sous l'onglet **Étendue** , cliquez sur **Set Folder Management Properties**, sélectionnez **Folder Usage**, cliquez sur **Ajouter**, puis sur **Parcourir**, accédez au chemin d'accès D:\Finance Documents, cliquez sur **OK**, puis choisissez une valeur de propriété nommée **Fichiers de groupe** et cliquez sur **Fermer**. Une fois les propriétés de gestion définies, sous l'onglet **Étendue de la règle** , sélectionnez **Fichiers de groupe**.  
+9. Sous l'onglet **Étendue**, cliquez sur **Set Folder Management Properties**, sélectionnez **Folder Usage**, cliquez sur **Ajouter**, puis sur **Parcourir**, accédez au chemin d'accès D:\Finance Documents, cliquez sur **OK**, puis choisissez une valeur de propriété nommée **Fichiers de groupe** et cliquez sur **Fermer**. Une fois les propriétés de gestion définies, sous l'onglet **Étendue de la règle**, sélectionnez **Fichiers de groupe**.  
   
 10. Cliquez sur l’onglet **classification** .  Sous **choisir une méthode pour affecter la propriété aux fichiers**, sélectionnez **classifieur de contenu** dans la liste déroulante.  
   
@@ -97,7 +96,7 @@ Vous allez aussi créer une règle **Niveau IIP élevé** . Cette règle analyse
   
 guides de solution ![](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```  
 Update-FSRMClassificationPropertyDefinition  
@@ -119,7 +118,7 @@ New-FSRMClassificationRule -Name "High Business Impact" -Property "Impact_MS" -D
   
 5. Dans le volet **Actions**, cliquez sur **Configurer la planification de la classification**. Sous l'onglet **Classification automatique**, sélectionnez **Activer la planification fixe**, sélectionnez un **Jour de la semaine**, puis cochez la case **Autoriser la classification continue de nouveaux fichiers**. Cliquez sur OK.  
   
-6. Dans la zone **Nom de la règle**, tapez **Niveau IIP élevé**. Dans la zone **Description** , tapez **Détermine si le document a un niveau IIP élevé en fonction de la présence d'un numéro de sécurité sociale**.  
+6. Dans la zone **Nom de la règle**, tapez **Niveau IIP élevé**. Dans la zone **Description**, tapez **Détermine si le document a un niveau IIP élevé en fonction de la présence d'un numéro de sécurité sociale**.  
   
 7. Cliquez sur l'onglet **Étendue** et cochez la case **Fichiers de groupe**.  
   
@@ -139,7 +138,7 @@ New-FSRMClassificationRule -Name "High Business Impact" -Property "Impact_MS" -D
   
 guides de solution ![](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```  
 New-FSRMClassificationRule -Name "High PII" -Description "Determines if the document has a high PII based on the presence of a Social Security Number." -Property "PII_MS" -PropertyValue "5000" -Namespace @("D:\Finance Documents") -ClassificationMechanism "Content Classifier" -Parameters @("RegularExpressionEx=Min=1;Expr=^(?!000)([0-7]\d{2}|7([0-7]\d|7[012]))([ -]?)(?!00)\d\d\3(?!0000)\d{4}$") -ReevaluateProperty Overwrite  
@@ -151,7 +150,7 @@ Vous devez maintenant avoir deux règles de classification :
   
 -   Niveau IIP élevé  
   
-## <a name="BKMK_3"></a>Étape 3 : utiliser des tâches de gestion de fichiers pour protéger automatiquement les documents avec AD RMS  
+## <a name="step-3-use-file-management-tasks-to-automatically-protect-documents-with-ad-rms"></a><a name="BKMK_3"></a>Étape 3 : utiliser des tâches de gestion de fichiers pour protéger automatiquement les documents avec AD RMS  
 Maintenant que vous avez créé des règles pour classifier automatiquement les documents en fonction du contenu, l’étape suivante consiste à créer une tâche de gestion de fichiers qui utilise AD RMS pour protéger automatiquement certains documents en fonction de leur classification. Lors de cette étape, vous allez créer une tâche de gestion de fichiers qui protège automatiquement tout document ayant un niveau IIP élevé. Seuls les membres du groupe FinanceAdmin auront accès aux documents qui contiennent des informations d'identification personnelle.  
   
 #### <a name="to-protect-documents-with-ad-rms"></a>Pour protéger les documents avec les services AD RMS  
@@ -166,7 +165,7 @@ Maintenant que vous avez créé des règles pour classifier automatiquement les 
   
 5. Cliquez sur l'onglet **Étendue** et cochez la case **Fichiers de groupe**.  
   
-6. Cliquez sur l’onglet **action** . Sous **type**, sélectionnez **chiffrement RMS**. Cliquez sur **Parcourir** pour sélectionner un modèle, puis sélectionnez le modèle **Contoso Finance Admin uniquement** .  
+6. Cliquez sur l’onglet **action** . Sous **type**, sélectionnez **chiffrement RMS**. Cliquez sur **Parcourir** pour sélectionner un modèle, puis sélectionnez le modèle **Contoso Finance Admin uniquement**.  
   
 7. Cliquez sur l'onglet **Condition**, puis sur **Ajouter**. Sous **Propriété**, sélectionnez **Informations d'identification personnelle**. Sous **Opérateur**, sélectionnez **Égal**. Sous **Valeur**, sélectionnez **Élevé**. Cliquez sur **OK**.  
   
@@ -176,7 +175,7 @@ Maintenant que vous avez créé des règles pour classifier automatiquement les 
   
 guides de solution ![](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```  
 $fmjRmsEncryption = New-FSRMFmjAction -Type 'Rms' -RmsTemplate 'Contoso Finance Admin Only'  
@@ -186,7 +185,7 @@ $schedule = New-FsrmScheduledTask -Time $date -Weekly @('Sunday')
 $fmj1=New-FSRMFileManagementJob -Name "High PII" -Description "Automatic RMS protection for high PII documents" -Namespace @('D:\Finance Documents') -Action $fmjRmsEncryption -Schedule $schedule -Continuous -Condition @($fmjCondition1)  
 ```  
   
-## <a name="BKMK_4"></a>Étape 4 : afficher les résultats  
+## <a name="step-4-view-the-results"></a><a name="BKMK_4"></a>Étape 4 : afficher les résultats  
 Il est temps de jeter un coup d’œil à vos nouvelles règles de classification automatique et de AD RMS de protection en action. Lors de cette étape, vous allez examiner la classification des documents et observer les changements à mesure que vous modifiez le contenu des documents.  
   
 #### <a name="to-view-the-results"></a>Pour afficher les résultats  
@@ -203,9 +202,9 @@ Il est temps de jeter un coup d’œil à vos nouvelles règles de classificatio
   
 6. Basculez vers CLIENT1. Déconnectez tout utilisateur connecté, puis connectez-vous en tant que Contoso\MReid avec le mot de passe <strong>pass@word1</strong>.  
   
-7. Sur le Bureau, ouvrez le dossier partagé **Finance Documents** .  
+7. Sur le Bureau, ouvrez le dossier partagé **Finance Documents**.  
   
-8. Ouvrez le document **Finance Memo** . Près du bas du document figure le mot **Confidential**. Remplacez-le par : **Confidentiel Contoso**. Enregistrez le document et fermez-le.  
+8. Ouvrez le document **Finance Memo**. Près du bas du document figure le mot **Confidential**. Remplacez-le par : **Confidentiel Contoso**. Enregistrez le document et fermez-le.  
   
 9. Ouvrez le document **Request for Approval to Hire**. Dans la section **Social Security#:** , tapez : 777-77-7777. Enregistrez le document et fermez-le.  
   
@@ -220,7 +219,7 @@ Il est temps de jeter un coup d’œil à vos nouvelles règles de classificatio
   
 13. . Cliquez sur l’onglet **classification** . Notez que la propriété **informations d’identification personnelle** a maintenant la valeur **élevé**. Cliquez sur **Annuler**.  
   
-## <a name="BKMK_5"></a>Étape 5 : vérifier la protection avec AD RMS  
+## <a name="step-5-verify-protection-with-ad-rms"></a><a name="BKMK_5"></a>Étape 5 : vérifier la protection avec AD RMS  
   
 #### <a name="to-verify-that-the-document-is-protected"></a>Pour vérifier que le document est protégé  
   

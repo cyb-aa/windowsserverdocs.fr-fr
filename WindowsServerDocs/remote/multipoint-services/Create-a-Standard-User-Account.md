@@ -1,25 +1,21 @@
 ---
 title: Créer un compte d’utilisateur standard
-ms.custom: na
 description: Créer un compte d’utilisateur de base pour MultiPoint services
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1e113666-e45f-48b6-aad8-42c361c9046d
 author: lizap
 manager: dongill
-ms.openlocfilehash: dc1307855b847b3d27f655e953c718e4049f8332
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d92b5b21c5a10e808e52bf5081ebc1ed7a2b9a3d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395481"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859782"
 ---
 # <a name="create-a-standard-user-account"></a>Créer un compte d’utilisateur standard
-Créez des *comptes d’utilisateur standard* pour les utilisateurs qui accèdent régulièrement aux stations, mais ne gèrent pas votre système MultiPoint Services. Les utilisateurs disposant de comptes d’utilisateur standard peuvent exécuter la plupart des applications et enregistrer des fichiers, mais ne peuvent pas exécuter le gestionnaire MultiPoint. Pour voir qui dispose d’un accès utilisateur standard, dans le gestionnaire MultiPoint, cliquez sur l’onglet **utilisateurs** . Les comptes d’utilisateur standard sont affichés dans la colonne Type de compte comme **Standard**.  
+Créez des *comptes d’utilisateur standard* pour les utilisateurs qui accèdent régulièrement aux stations, mais ne gèrent pas votre système MultiPoint Services. Les utilisateurs disposant de comptes d’utilisateur standard peuvent exécuter la plupart des applications et enregistrer des fichiers, mais ne peuvent pas exécuter le gestionnaire MultiPoint. Pour voir qui dispose d’un accès utilisateur standard, dans le gestionnaire MultiPoint, cliquez sur l’onglet **utilisateurs** . les comptes d’utilisateur standard sont affichés dans la colonne **type de compte** comme **standard**.  
   
 Si vos utilisateurs MultiPoint Services stockent des documents privés dans Windows, ils doivent chacun se connecter au système MultiPoint Services avec un nom d’utilisateur et un mot de passe uniques.  
   

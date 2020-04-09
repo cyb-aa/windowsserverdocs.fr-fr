@@ -1,7 +1,6 @@
 ---
 ms.assetid: 16a344a9-f9a6-4ae2-9bea-c79a0075fd04
 title: Attestation de clé TPM
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d7104daaa10cf7093370cb309e0366e1ab2b9b51
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: de5a38ff6f811046d06c52a1ca4598f9650b3cfe
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389860"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823012"
 ---
 # <a name="tpm-key-attestation"></a>Attestation de clé TPM
 
@@ -25,7 +24,7 @@ ms.locfileid: "71389860"
 > [!NOTE]  
 > Ce contenu est écrit par un ingénieur du support client Microsoft et est destiné aux administrateurs expérimentés et aux architectes système qui recherchent des explications techniques plus approfondies des fonctionnalités et des solutions Windows Server 2012 R2 que n'en proposent généralement les rubriques de TechNet. Toutefois, il n'a pas subi les mêmes passes de correction. De ce fait, une partie du langage peut sembler moins finalisée que le contenu de TechNet.  
   
-## <a name="overview"></a>Vue d’ensemble  
+## <a name="overview"></a>Overview  
 Bien que la prise en charge des clés protégées par le module de plateforme sécurisée ait existé depuis Windows 8, il n’existait aucun mécanisme permettant au chiffrement d’attester que la clé privée du demandeur de certificat est réellement protégée par une Module de plateforme sécurisée (TPM) (TPM). Cette mise à jour permet à une autorité de certification d’effectuer cette attestation et de refléter cette attestation dans le certificat émis.  
   
 > [!NOTE]  
@@ -67,7 +66,7 @@ En général, l’attestation de clé du module de plateforme sécurisée est ba
   
 4.  L’autorité de certification émet un certificat avec un OID de stratégie d’émission spécial pour indiquer que la clé est maintenant sanctionnée comme protégée par un module de plateforme sécurisée (TPM).  
   
-## <a name="BKMK_DeploymentOverview"></a>Présentation du déploiement  
+## <a name="deployment-overview"></a><a name="BKMK_DeploymentOverview"></a>Présentation du déploiement  
 Dans ce déploiement, il est supposé qu’une autorité de certification Windows Server 2012 R2 Enterprise est configurée. En outre, les clients (Windows 8.1) sont configurés pour s’inscrire auprès de cette autorité de certification d’entreprise à l’aide de modèles de certificats. 
 
 Le déploiement de l’attestation de clé TPM s’exécute en trois étapes :  
@@ -101,9 +100,9 @@ Le déploiement de l’attestation de clé TPM s’exécute en trois étapes :
     > -   L’attestation de clé du module de plateforme sécurisée n’est pas prise en charge pour une autorité de certification autonome.  
     > -   L’attestation de clé du module de plateforme sécurisée ne prend pas en charge [le traitement des certificats non persistants](https://technet.microsoft.com/library/ff934598).  
   
-## <a name="BKMK_DeploymentDetails"></a>Détails du déploiement  
+## <a name="deployment-details"></a><a name="BKMK_DeploymentDetails"></a>Détails du déploiement  
   
-### <a name="BKMK_ConfigCertTemplate"></a>Configurer un modèle de certificat  
+### <a name="configure-a-certificate-template"></a><a name="BKMK_ConfigCertTemplate"></a>Configurer un modèle de certificat  
 Pour configurer le modèle de certificat pour l’attestation de clé TPM, effectuez les étapes de configuration suivantes :  
   
 1.  Onglet **compatibilité**  
@@ -154,9 +153,9 @@ Pour configurer le modèle de certificat pour l’attestation de clé TPM, effec
   
     |OID|Type d’attestation de clé|Description|Niveau d’assurance|  
     |-------|------------------------|---------------|-------------------|  
-    |1.3.6.1.4.1.311.21.30|EK|« EK vérifié » : pour la liste gérée par l’administrateur de EK|Élevé|  
-    |1.3.6.1.4.1.311.21.31|Endosser le certificat|« Certificat EK vérifié » : lorsque la chaîne de certificats EK est validée|Moyen|  
-    |1.3.6.1.4.1.311.21.32|Informations d’identification utilisateur|« EK Trusted on use » : pour les EK avec attestation utilisateur|Faible|  
+    |1.3.6.1.4.1.311.21.30|EK|« EK vérifié » : pour la liste gérée par l’administrateur de EK|Élevée|  
+    |1.3.6.1.4.1.311.21.31|Endosser le certificat|« Certificat EK vérifié » : lorsque la chaîne de certificats EK est validée|Moyenne|  
+    |1.3.6.1.4.1.311.21.32|Informations d’identification utilisateur|« EK Trusted on use » : pour les EK avec attestation utilisateur|Basse|  
   
     Les OID sont insérés dans le certificat émis si l’option **inclure les stratégies d’émission** est sélectionnée (configuration par défaut).  
   
@@ -165,7 +164,7 @@ Pour configurer le modèle de certificat pour l’attestation de clé TPM, effec
     > [!TIP]  
     > L’utilisation potentielle de l’OID dans le certificat consiste à limiter l’accès aux réseaux VPN ou sans fil à certains appareils. Par exemple, votre stratégie d’accès peut autoriser la connexion (ou l’accès à un autre réseau local virtuel) si l’OID 1.3.6.1.4.1.311.21.30 est présent dans le certificat. Cela vous permet de limiter l’accès aux appareils dont le TPM EK est présent dans la liste EKPUB.  
   
-### <a name="BKMK_CAConfig"></a>Configuration de l’autorité de certification  
+### <a name="ca-configuration"></a><a name="BKMK_CAConfig"></a>Configuration de l’autorité de certification  
   
 1.  **Configurer des magasins de certificats EKCA et EKROOT sur une autorité de certification émettrice**  
   
@@ -201,7 +200,7 @@ Pour configurer le modèle de certificat pour l’attestation de clé TPM, effec
   
         |Nom de valeur|Type|Données|  
         |--------------|--------|--------|  
-        |EndorsementKeyListDirectories|REG_MULTI_SZ|< chemin d’accès LOCAL ou UNC à la ou les listes d’autorisation EKPUB ><br /><br />Exemple :<br /><br />*\\\blueCA.contoso.com\ekpub*<br /><br />*\\\bluecluster1.contoso.com\ekpub*<br /><br />D:\ekpub|  
+        |EndorsementKeyListDirectories|REG_MULTI_SZ|< chemin d’accès LOCAL ou UNC à la ou les listes d’autorisation EKPUB ><p>Exemple :<p>*\\\blueCA.contoso.com\ekpub*<p>*\\\bluecluster1.contoso.com\ekpub*<p>D:\ekpub|  
   
         HKLM\SYSTEM\CurrentControlSet\Services\CertSvc\Configuration\\<CA Sanitized Name>  
   

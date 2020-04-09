@@ -2,20 +2,19 @@
 title: Évitez d’utiliser des points de contrôle sur un ordinateur virtuel qui exécute une charge de travail serveur dans un environnement de production
 description: Version en ligne du texte de cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 1be75890-d316-495a-b9b7-be75fc1aac10
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: f2486093e31143b7493665d3d1254f7034ad1415
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f0e9d40fa6e28b515621402b853012cb59086a07
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365219"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857712"
 ---
 # <a name="avoid-using-checkpoints-on-a-virtual-machine-that-runs-a-server-workload-in-a-production-environment"></a>Évitez d’utiliser des points de contrôle sur un ordinateur virtuel qui exécute une charge de travail serveur dans un environnement de production
 
@@ -27,9 +26,9 @@ ms.locfileid: "71365219"
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Opérations|  
 
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.
@@ -45,7 +44,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 *L’espace disponible est peut-être insuffisant sur le disque physique qui stocke les fichiers de points de contrôle. Si cela se produit, aucune opération de disque supplémentaire ne peut être effectuée sur le stockage physique. Tout ordinateur virtuel qui s’appuie sur le stockage physique peut être affecté.*  
   
-En cas d’insuffisance de l’espace disque physique, toute machine virtuelle en cours d’exécution qui possède des points de contrôle ou des disques durs virtuels stockés sur ce disque peut être suspendue automatiquement. Le Gestionnaire Hyper-V affiche l’état de ces machines virtuelles en tant que « en pause critique ».  
+En cas d’insuffisance de l’espace disque physique, toute machine virtuelle en cours d’exécution qui possède des points de contrôle ou des disques durs virtuels stockés sur ce disque peut être suspendue automatiquement. Le Gestionnaire Hyper-V affiche l’état de ces machines virtuelles comme étant en pause critique.  
   
 ## <a name="resolution"></a>Résolution  
   

@@ -1,7 +1,6 @@
 ---
 ms.assetid: e6da5984-d99d-4c34-9c11-4a18cd413f06
 title: Installer un contrôleur de domaine Windows Server 2012 répliqué dans un domaine existant (niveau 200)
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5e72c18d3aa49774cf73d5365748e7bf20764b22
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 12068e5a062358463cf208f777144091e1de8257
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390836"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825202"
 ---
 # <a name="install-a-replica-windows-server-2012-domain-controller-in-an-existing-domain-level-200"></a>Installer un contrôleur de domaine Windows Server 2012 répliqué dans un domaine existant (niveau 200)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit les étapes nécessaires à la mise à niveau d'une forêt ou d'un domaine existant vers Windows Server 2012 à l'aide du Gestionnaire de serveur ou de Windows PowerShell. Elle explique comment ajouter des contrôleurs de domaine qui exécutent Windows Server 2012 à un domaine existant.  
   
@@ -28,22 +27,22 @@ Cette rubrique décrit les étapes nécessaires à la mise à niveau d'une forê
   
 -   [Déploiement](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md#BKMK_Dep)  
   
-## <a name="BKMK_Workflow"></a>Workflow de mise à niveau et de réplica  
+## <a name="upgrade-and-replica-workflow"></a><a name="BKMK_Workflow"></a>Workflow de mise à niveau et de réplica  
 Le diagramme suivant illustre le processus de configuration des services de domaine Active Directory quand vous avez auparavant installé le rôle AD DS et démarré l'Assistant Configuration des services de domaine Active Directory à l'aide du Gestionnaire de serveur pour créer un contrôleur de domaine dans un domaine existant.  
   
 ![Installer un réplica](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/adds_forestupgrade.png)  
   
-## <a name="BKMK_PS"></a>Mettre à niveau et répliquer Windows PowerShell  
+## <a name="upgrade-and-replica-windows-powershell"></a><a name="BKMK_PS"></a>Mettre à niveau et répliquer Windows PowerShell  
   
 |||  
 |-|-|  
 |**Applet de commande ADDSDeployment**|Arguments (les arguments en **gras** sont obligatoires. Les arguments en *italique* peuvent être spécifiés à l'aide de Windows PowerShell ou de l'Assistant Configuration des services de domaine Active Directory.)|  
-|Install-AddsDomainController|-SkipPreChecks<br /><br />***-DomainName***<br /><br />*-SafeModeAdministratorPassword*<br /><br />*-SiteName*<br /><br />*-ADPrepCredential*<br /><br />-ApplicationPartitionsToReplicate<br /><br />*-AllowDomainControllerReinstall*<br /><br />-Confirm<br /><br />*-CreateDNSDelegation*<br /><br />***-Credential***<br /><br />-CriticalReplicationOnly<br /><br />*-DatabasePath*<br /><br />*-DNSDelegationCredential*<br /><br />-Force<br /><br />*-InstallationMediaPath*<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />-MoveInfrastructureOperationMasterRoleIfNecessary<br /><br />-NoDnsOnNetwork<br /><br />*-NoGlobalCatalog*<br /><br />-Norebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />-SkipAutoConfigureDNS<br /><br />-SiteName<br /><br />*-SystemKey*<br /><br />*-SYSVOLPath*<br /><br />*-UseExistingAccount*<br /><br />*-WhatIf*|  
+|Install-AddsDomainController|-SkipPreChecks<p>***-DomainName***<p>*-SafeModeAdministratorPassword*<p>*-SiteName*<p>*-ADPrepCredential*<p>-ApplicationPartitionsToReplicate<p>*-AllowDomainControllerReinstall*<p>-Confirm<p>*-CreateDNSDelegation*<p>***-Credential***<p>-CriticalReplicationOnly<p>*-DatabasePath*<p>*-DNSDelegationCredential*<p>-Force<p>*-InstallationMediaPath*<p>*-InstallDNS*<p>*-LogPath*<p>-MoveInfrastructureOperationMasterRoleIfNecessary<p>-NoDnsOnNetwork<p>*-NoGlobalCatalog*<p>-Norebootoncompletion<p>*-ReplicationSourceDC*<p>-SkipAutoConfigureDNS<p>-SiteName<p>*-SystemKey*<p>*-SYSVOLPath*<p>*-UseExistingAccount*<p>*-WhatIf*|  
   
 > [!NOTE]  
 > L'argument **-credential** est uniquement requis si vous n'êtes pas déjà connecté en tant que membre des groupes Administrateurs de l'entreprise et Administrateurs du schéma (si vous mettez à niveau la forêt) ou du groupe Admins du domaine (si vous ajoutez un nouveau contrôleur de domaine à un domaine existant).  
   
-## <a name="BKMK_Dep"></a>Déploiement  
+## <a name="deployment"></a><a name="BKMK_Dep"></a>Déploiement  
   
 ### <a name="deployment-configuration"></a>Configuration du déploiement  
 ![Installer un réplica](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeDeployConfig.png)  
@@ -122,7 +121,7 @@ Vous pouvez également fournir une chaîne sécurisée sous forme d'une variable
   
 ```  
   
-Enfin, vous pouvez stocker le mot de passe obscurci dans un fichier, puis le réutiliser plus tard, sans que le mot de passe en texte clair ne s'affiche. Exemple :  
+Enfin, vous pouvez stocker le mot de passe obscurci dans un fichier, puis le réutiliser plus tard, sans que le mot de passe en texte clair ne s'affiche. Par exemple :  
   
 ```  
 $file = "c:\pw.txt"  
@@ -162,7 +161,7 @@ Les arguments de l'applet de commande ADDSDeployment **Options DNS** sont les su
   
 Pour plus d’informations sur la nécessité de créer une délégation DNS, voir [Présentation de la délégation de zone](https://technet.microsoft.com/library/cc771640.aspx).  
   
-### <a name="additional-options"></a>Autres options  
+### <a name="additional-options"></a>Options supplémentaires  
 ![Installer un réplica](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeAdditionalOptions.png)  
   
 La page **Options supplémentaires** offre l'option de configuration permettant de nommer un contrôleur de domaine en tant que source de réplication ; vous pouvez aussi utiliser n'importe quel contrôleur de domaine comme source de réplication.  
@@ -221,7 +220,7 @@ La page **Examiner les options** vous permet de valider vos paramètres et de v�
   
 La page **Examiner les options** du Gestionnaire de serveur offre également un bouton **Afficher le script** facultatif pour créer un fichier texte Unicode qui contient la configuration ADDSDeployment actuelle sous forme d’un script Windows PowerShell unique. Vous pouvez ainsi utiliser l’interface graphique Gestionnaire de serveur sous forme d’un studio de déploiement Windows PowerShell. Utilisez l’Assistant Configuration des services de domaine Active Directory pour configurer les options, exportez la configuration, puis annulez l’Assistant.  Ce processus crée un exemple valide et correct du point de vue syntaxique pour permettre des modifications ultérieures ou une utilisation directe.  
   
-Exemple :  
+Par exemple :  
   
 ```  
 #  
@@ -249,7 +248,7 @@ Install-ADDSDomainController `
   
 ![Installer un réplica](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSWhatIf.png)  
   
-### <a name="prerequisites-check"></a>Vérification de la configuration requise  
+### <a name="prerequisites-check"></a>Vérification des conditions préalables  
 ![Installer un réplica](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradePrereqCheck.png)  
   
 La fonctionnalité **Vérification de la configuration requise** est nouvelle dans la configuration de domaine AD DS. Cette nouvelle phase valide que le domaine et la forêt sont capables de prendre en charge un nouveau contrôleur de domaine Windows Server 2012.  
@@ -258,7 +257,7 @@ Pendant l'installation d'un nouveau contrôleur de domaine, l'Assistant Configur
   
 La fonctionnalité **Vérification de la configuration requise** met également en évidence des informations pertinentes, telles que les modifications de sécurité qui affectent les systèmes d'exploitation plus anciens.  
   
-Pour plus d’informations sur les vérifications spécifiques de la configuration requise, consultez la page [Prerequisite Checking](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking).  
+Pour plus d'informations sur les vérifications spécifiques de la configuration requise, voir [Vérification de la configuration requise](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking).  
   
 Vous ne pouvez pas ignorer la fonctionnalité **Vérification de la configuration requise** quand vous utilisez le Gestionnaire de serveur, mais vous pouvez ignorer le processus quand vous utilisez l'applet de commande de déploiement des services AD DS avec l'argument suivant :  
   
@@ -291,7 +290,7 @@ Pour installer une nouvelle forêt Active Directory à l'aide du module ADDSDepl
 Install-addsdomaincontroller  
 ```  
   
-Consultez [Upgrade and Replica Windows PowerShell](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md#BKMK_PS) pour connaître les arguments requis et facultatifs.  
+Pour connaître les arguments requis et facultatifs, voir [Mise à niveau et réplication dans Windows PowerShell](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md#BKMK_PS).  
   
 L'applet de commande **Install-AddsDomainController** comprend uniquement deux phases (vérification de la configuration requise et installation). Les deux figures ci-dessous illustrent la phase d'installation avec les arguments requis minimaux **-domainname** et **-credential**. Notez comment l'opération Adprep a lieu automatiquement dans le cadre de l'ajout du premier contrôleur de domaine Windows Server 2012 à une forêt Windows Server 2003 existante :  
   
@@ -312,12 +311,12 @@ Pour configurer un contrôleur de domaine à distance à l’aide de Windows Pow
 invoke-command {install-addsdomaincontroller "domainname <domain> -credential (get-credential)} -computername <dc name>  
 ```  
   
-Exemple :  
+Par exemple :  
   
 ![Installer un réplica](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSUpgradeExample.gif)  
   
 > [!NOTE]  
-> Pour plus d’informations sur le fonctionnement du processus Adprep et d’installation, voir [Troubleshooting Domain Controller Deployment](../../ad-ds/deploy/Troubleshooting-Domain-Controller-Deployment.md).  
+> Pour plus d'informations sur l'installation et le fonctionnement du processus Adprep, voir [Résolution des problèmes de déploiement de contrôleur de domaine](../../ad-ds/deploy/Troubleshooting-Domain-Controller-Deployment.md).  
   
 ### <a name="results"></a>Résultats  
 ![Installer un réplica](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_ForestSignOff.png)  

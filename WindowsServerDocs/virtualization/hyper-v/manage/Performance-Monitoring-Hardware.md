@@ -8,18 +8,18 @@ ms.author: ifufondu
 manager: chhuybre
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: 515831df6b97271b52c4a715fd979f2afff4a3a1
-ms.sourcegitcommit: f73662069329b1abf6aa950c2a826bc113718857
+ms.openlocfilehash: 1165ce58cf781d6ef5f905cb8b01c00fa4552edb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73240344"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860262"
 ---
 # <a name="enable-intel-performance-monitoring-hardware-in-a-hyper-v-virtual-machine"></a>Activer le matériel de surveillance des performances Intel sur une machine virtuelle Hyper-V
 
 Les processeurs Intel contiennent des fonctionnalités collectivement appelées matériel de surveillance des performances (par exemple, PMU, PEBS, LBR). Ces fonctionnalités sont utilisées par les logiciels de réglage des performances tels que l’amplificateur Intel VTune pour analyser les performances des logiciels.  Avant Windows Server 2019 et Windows 10 version 1809, ni le système d’exploitation hôte ni les machines virtuelles invitées Hyper-V ne pouvaient utiliser le matériel de surveillance des performances lors de l’activation d’Hyper-V.  À compter de Windows Server 2019 et Windows 10 version 1809, le système d’exploitation hôte a accès au matériel de surveillance des performances par défaut.  Les machines virtuelles invitées Hyper-V n’ont pas accès par défaut, mais les administrateurs Hyper-V peuvent choisir d’accorder l’accès à une ou plusieurs machines virtuelles invitées.  Ce document décrit les étapes requises pour exposer le matériel de surveillance des performances aux machines virtuelles invitées.
 
-## <a name="requirements"></a>Conditions préalables
+## <a name="requirements"></a>Configuration requise
 
 Pour activer le matériel de surveillance des performances sur une machine virtuelle, vous avez besoin des éléments suivants :
 

@@ -1,6 +1,5 @@
 ---
 title: Déconnexion unique pour OpenID Connect avec AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -8,16 +7,16 @@ ms.date: 11/17/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 5f0127e60243ca81f7e25282adc79e01c54b4b32
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fe176af74ebabb5cb56d8aa74d755c4e35ec94a3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407859"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857312"
 ---
 #  <a name="single-log-out-for-openid-connect-with-ad-fs"></a>Déconnexion unique pour OpenID Connect avec AD FS
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Overview
 En s’appuyant sur la prise en charge d’OAuth initiale dans AD FS dans Windows Server 2012 R2, AD FS 2016 a introduit la prise en charge de l’authentification OpenId Connect. Avec [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801), AD FS 2016 prend désormais en charge la déconnexion unique pour les scénarios OpenID Connect. Cet article fournit une vue d’ensemble du scénario de déconnexion unique pour OpenId Connect et fournit des conseils sur la façon de l’utiliser pour vos applications OpenId Connect dans AD FS.
 
 
@@ -77,7 +76,7 @@ Set-ADFSProperties -EnableOAuthLogout $true
 >[!NOTE]
 >frontchannel_logout est pris en charge **uniquement** après installation vcredist de [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)
 
-## <a name="client-configuration"></a>Configuration du client
+## <a name="client-configuration"></a>Configuration client
 Le client doit implémenter une URL désignant l’utilisateur connecté. L’administrateur peut configurer LogoutUri dans la configuration du client à l’aide des applets de commande PowerShell suivantes. 
 
 

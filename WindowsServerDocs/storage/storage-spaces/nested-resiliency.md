@@ -2,32 +2,32 @@
 title: Résilience imbriquée pour espaces de stockage direct
 ms.prod: windows-server
 ms.author: jgerend
-ms.manager: dansimp
+manager: dansimp
 ms.technology: storagespaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 03/15/2019
-ms.openlocfilehash: ea1c4b2c249759634e00f6a1ac2caa34f8085ae1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ac4edccf0c1f8882dd2544b2544c3d8555bbc716
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402869"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857342"
 ---
 # <a name="nested-resiliency-for-storage-spaces-direct"></a>Résilience imbriquée pour espaces de stockage direct
 
-> S’applique à : Windows Server 2019
+> S’applique à : Windows Server 2019
 
-La résilience imbriquée est une nouvelle fonctionnalité de [espaces de stockage direct](storage-spaces-direct-overview.md) dans Windows Server 2019 qui permet à un cluster à deux serveurs de supporter plusieurs défaillances matérielles en même temps sans perte de disponibilité du stockage, de sorte que les utilisateurs, les applications et les machines virtuelles continuer à s’exécuter sans interruption. Cette rubrique explique comment elle fonctionne, fournit des instructions pas à pas pour commencer et répond aux questions les plus fréquentes.
+La résilience imbriquée est une nouvelle fonctionnalité de [espaces de stockage direct](storage-spaces-direct-overview.md) dans Windows Server 2019 qui permet à un cluster à deux serveurs de résister à plusieurs défaillances matérielles en même temps sans perte de disponibilité du stockage, de sorte que les utilisateurs, les applications et les machines virtuelles continuent de s’exécuter sans interruption. Cette rubrique explique comment elle fonctionne, fournit des instructions pas à pas pour commencer et répond aux questions les plus fréquentes.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
-### <a name="green-checkmark-iconmedianested-resiliencysupportedpng-consider-nested-resiliency-if"></a>![Icône de coche verte.](media/nested-resiliency/supported.png) Considérez la résilience imbriquée dans les cas suivants :
+### <a name="green-checkmark-icon-consider-nested-resiliency-if"></a>![Icône de coche verte.](media/nested-resiliency/supported.png) Considérez la résilience imbriquée dans les cas suivants :
 
 - Votre cluster exécute Windows Server 2019 ; les
 - Votre cluster contient exactement 2 nœuds de serveur
 
-### <a name="red-x-iconmedianested-resiliencyunsupportedpng-you-cant-use-nested-resiliency-if"></a>![Icône X rouge.](media/nested-resiliency/unsupported.png) Vous ne pouvez pas utiliser la résilience imbriquée dans les cas suivants :
+### <a name="red-x-icon-you-cant-use-nested-resiliency-if"></a>![Icône X rouge.](media/nested-resiliency/unsupported.png) Vous ne pouvez pas utiliser la résilience imbriquée dans les cas suivants :
 
 - Votre cluster exécute Windows Server 2016 ; ni
 - Votre cluster a au moins 3 nœuds de serveur
@@ -42,7 +42,7 @@ Le compromis est que la résilience imbriquée a une **efficacité de capacité 
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-### <a name="inspiration-raid-51"></a>Inspiration RAID 5 + 1
+### <a name="inspiration-raid-51"></a>Inspiration : RAID 5 + 1
 
 RAID 5 + 1 est une forme établie de résilience du stockage distribué qui fournit un arrière-plan utile pour comprendre la résilience imbriquée. Dans RAID 5 + 1, au sein de chaque serveur, la résilience locale est assurée par RAID-5, ou par *parité unique*, afin de vous protéger contre la perte d’un seul lecteur. Une résilience supplémentaire est ensuite assurée par RAID-1 ou la *mise en miroir bidirectionnelle*entre les deux serveurs pour vous protéger contre la perte de l’un ou l’autre serveur.
 
@@ -72,7 +72,7 @@ L’efficacité de la capacité est le rapport entre l’espace utilisable et l'
   |----------------------------|------------|------------|------------|
   | 4                          | 35,7%      | 34,1%      | 32,6%      |
   | 5                          | 37,7%      | 35,7%      | 33,9%      |
-  | 6\.                          | 39,1%      | 36,8%      | 34,7%      |
+  | 6                          | 39,1%      | 36,8%      | 34,7%      |
   | plus de 7                         | 40,0%      | 37,5%      | 35,3%      |
 
   > [!NOTE]
@@ -86,7 +86,7 @@ Notez que l’efficacité de la capacité de la mise en miroir bidirectionnelle 
 
 Vous pouvez utiliser des applets de commande de stockage familières dans PowerShell pour créer des volumes avec une résilience imbriquée.
 
-### <a name="step-1-create-storage-tier-templates"></a>Étape 1 : Créer des modèles de niveau de stockage
+### <a name="step-1-create-storage-tier-templates"></a>Étape 1 : créer des modèles de niveau de stockage
 
 Tout d’abord, créez de nouveaux modèles de niveau de stockage à l’aide de l’applet de commande `New-StorageTier`. Vous ne devez effectuer cette opération qu’une seule fois, puis chaque nouveau volume que vous créez peut référencer ces modèles. Spécifiez le `-MediaType` de vos lecteurs de capacité et, éventuellement, le `-FriendlyName` de votre choix. Ne modifiez pas les autres paramètres.
 
@@ -103,15 +103,15 @@ New-StorageTier -StoragePoolFriendlyName S2D* -FriendlyName NestedParity -Resili
 Si vos lecteurs de capacité sont des disques SSD (Solid-State Drives), définissez le `-MediaType` sur `SSD` à la place. Ne modifiez pas les autres paramètres.
 
 > [!TIP]
-> Vérifiez que les niveaux créés avec `Get-StorageTier` sont corrects.
+> Vérifiez que les niveaux créés avec `Get-StorageTier`sont corrects.
 
-### <a name="step-2-create-volumes"></a>Étape 2 : Créer des volumes
+### <a name="step-2-create-volumes"></a>Étape 2 : créer des volumes
 
-Ensuite, créez de nouveaux volumes à l’aide de l’applet de commande `New-Volume`.
+Créez ensuite de nouveaux volumes à l’aide de l’applet de commande `New-Volume`.
 
 #### <a name="nested-two-way-mirror"></a>Miroir bidirectionnel imbriqué
 
-Pour utiliser le miroir bidirectionnel imbriqué, référencez le modèle de niveau `NestedMirror` et spécifiez la taille. Exemple :
+Pour utiliser le miroir bidirectionnel imbriqué, référencez le modèle de niveau `NestedMirror` et spécifiez la taille. Par exemple :
 
 ```PowerShell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName Volume01 -StorageTierFriendlyNames NestedMirror -StorageTierSizes 500GB
@@ -125,15 +125,15 @@ Pour utiliser la parité à accélération miroir imbriquée, référencez les m
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName Volume02 -StorageTierFriendlyNames NestedMirror, NestedParity -StorageTierSizes 100GB, 400GB
 ```
 
-### <a name="step-3-continue-in-windows-admin-center"></a>Étape 3 : Continuer dans le centre d’administration Windows
+### <a name="step-3-continue-in-windows-admin-center"></a>Étape 3 : continuer dans le centre d’administration Windows
 
 Les volumes qui utilisent la résilience imbriquée s’affichent dans le [Centre d’administration Windows](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center) avec l’étiquetage clair, comme dans la capture d’écran ci-dessous. Une fois qu’ils sont créés, vous pouvez les gérer et les surveiller à l’aide du centre d’administration Windows, comme n’importe quel autre volume dans espaces de stockage direct.
 
 ![](media/nested-resiliency/windows-admin-center.png)
 
-### <a name="optional-extend-to-cache-drives"></a>Facultatif : Étendre aux lecteurs de cache
+### <a name="optional-extend-to-cache-drives"></a>Facultatif : étendre aux lecteurs de cache
 
-Avec ses paramètres par défaut, la résilience imbriquée protège contre la perte de plusieurs lecteurs de capacité en même temps, ou un serveur et un lecteur de capacité en même temps. Pour étendre cette protection aux [lecteurs de cache](understand-the-cache.md) , il est également important de tenir compte du fait que les lecteurs de cache fournissent souvent une mise en cache en lecture *et en écriture* pour *plusieurs* lecteurs de capacité, le seul moyen de s’assurer que la perte d’un lecteur de cache est tolérée lorsque le l’autre serveur est en baisse de ne pas mettre en cache les écritures, mais cela a un impact sur les performances.
+Avec ses paramètres par défaut, la résilience imbriquée protège contre la perte de plusieurs lecteurs de capacité en même temps, ou un serveur et un lecteur de capacité en même temps. Pour étendre cette protection aux [lecteurs de cache](understand-the-cache.md) , il est également important de tenir compte du fait que les lecteurs de cache fournissent souvent une mise en cache en lecture *et en écriture* pour *plusieurs* lecteurs de capacité, le seul moyen de garantir la perte d’un lecteur de cache lorsque l’autre serveur est en panne consiste simplement à ne pas mettre en cache les écritures, mais cela a un impact sur les performances.
 
 Pour traiter ce scénario, espaces de stockage direct offre la possibilité de désactiver automatiquement la mise en cache d’écriture lorsqu’un serveur d’un cluster à deux serveurs est défaillant, puis de réactiver la mise en cache d’écriture une fois que le serveur est sauvegardé. Pour autoriser les redémarrages de routine sans impact sur les performances, la mise en cache d’écriture n’est pas désactivée tant que le serveur n’a pas été arrêté pendant 30 minutes. Une fois que la mise en cache d’écriture est désactivée, le contenu du cache d’écriture est écrit sur les unités de capacité. Après cela, le serveur peut tolérer l’échec d’un périphérique de cache sur le serveur en ligne, bien que les lectures à partir du cache puissent être retardées ou échouer en cas de défaillance d’un périphérique de cache.
 
@@ -151,7 +151,7 @@ Une fois défini sur **true**, le comportement du cache est le suivant :
 | Serveur en baisse, 30 premières minutes   | Lectures et écritures dans le cache, performances complètes | Non (temporaire)               |
 | Après les 30 premières minutes          | Lectures du cache uniquement, impact sur les performances   | Oui (une fois le cache écrit sur les lecteurs de capacité)                           |
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="can-i-convert-an-existing-volume-between-two-way-mirror-and-nested-resiliency"></a>Puis-je convertir un volume existant entre un miroir bidirectionnel et une résilience imbriquée ?
 

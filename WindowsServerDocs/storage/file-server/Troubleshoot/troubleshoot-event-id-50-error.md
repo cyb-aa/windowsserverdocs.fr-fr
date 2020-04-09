@@ -3,16 +3,15 @@ title: Résoudre les problèmes liés au message d’erreur de l’ID d’évén
 description: Décrit comment résoudre les problèmes liés au message d’erreur 50 de l’ID d’événement
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 202e0604fc492ff72cd1794bc8197a12c1ab9163
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: 7ce3551b60450a3720c9350b5c55f396368490c1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654380"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815232"
 ---
 # <a name="troubleshoot-the-event-id-50-error-message"></a>Résoudre les problèmes liés au message d’erreur de l’ID d’événement 50
 
@@ -48,7 +47,7 @@ Ces messages d’ID d’événement signifient exactement la même chose et sont
 > [!NOTE] 
 > L’appareil et le chemin d’accès dans la description et les données hexadécimales spécifiques varient. 
 
-##  <a name="more-information"></a>Plus d’informations
+##  <a name="more-information"></a>Informations supplémentaires
 
 Un message d’ID d’événement 50 est consigné si une erreur générique se produit lorsque Windows tente d’écrire des informations sur le disque. Cette erreur se produit lorsque Windows tente de valider des données à partir du gestionnaire de cache du système de fichiers (pas le cache au niveau matériel) sur le disque physique. Ce comportement fait partie de la gestion de la mémoire de Windows. Par exemple, si un programme envoie une demande d’écriture, la demande d’écriture est mise en cache par le gestionnaire de cache et le programme est informé que l’écriture s’est terminée avec succès. Ultérieurement, le gestionnaire de cache tente d’écrire tardivement les données sur le disque physique. Lorsque le gestionnaire de cache tente de valider les données sur le disque, une erreur se produit lors de l’écriture des données, et les données sont vidées du cache et ignorées. La mise en cache en écriture différée améliore les performances du système, mais la perte de données et la perte d’intégrité du volume peuvent se produire suite à la perte d’échecs d’écriture différée.
 
@@ -66,7 +65,7 @@ Quand vous décodez la section de données dans l’exemple d’un message d’I
 
 Le tableau suivant décrit ce que représente chaque décalage de ce message : 
 
-|OffsetLengthValues|Durée|Valeurs|
+|OffsetLengthValues|Length|Valeurs|
 |-----------|------------|---------|
 |0x00|2|Non utilisé|
 |0x02|2|Taille des données de vidage = 0x0004|
@@ -77,13 +76,13 @@ Le tableau suivant décrit ce que représente chaque décalage de ce message :
 |0x10|8|Non utilisé|
 |0x18|8|Non utilisé|
 |0x20|8|Non utilisé|
-|0x28|4|Code d’erreur de l’état NT|
+|hexadécimal|4|Code d’erreur de l’état NT|
 
 #### <a name="key-sections-to-decode"></a>Sections clés à décoder
 
 **Code d’erreur**
 
-Dans l’exemple de la section « Résumé », le code d’erreur est indiqué sur la deuxième ligne. Cette ligne commence par « 0008 : » et comprend les quatre derniers octets de cette ligne : 0008:00 00 00 00 32 00 04 80 dans ce cas, le code d’erreur est 0x80040032. Le code suivant est le code de l’erreur 50, et il est identique pour tous les messages de l’ID d’événement 50 : IO_LOST_DELAYED_WRITEWARNINGNote lorsque vous convertissez les données hexadécimales du message d’ID d’événement en code d’État, n’oubliez pas que les valeurs sont représentées dans la format Little endian.
+Dans l’exemple de la section « Résumé », le code d’erreur est indiqué sur la deuxième ligne. Cette ligne commence par « 0008 : » et comprend les quatre derniers octets de cette ligne : 0008:00 00 00 00 32 00 04 80 dans ce cas, le code d’erreur est 0x80040032. Le code suivant est le code de l’erreur 50, et il est identique pour tous les messages de l’ID d’événement 50 : IO_LOST_DELAYED_WRITEWARNINGNote lorsque vous convertissez les données hexadécimales du message d’ID d’événement en code d’État, n’oubliez pas que les valeurs sont représentées au format Little endian.
 
 **Le disque cible**
 

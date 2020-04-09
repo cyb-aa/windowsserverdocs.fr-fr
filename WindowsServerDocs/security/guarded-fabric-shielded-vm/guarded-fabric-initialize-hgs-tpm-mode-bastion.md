@@ -1,18 +1,18 @@
 ---
 title: Initialiser le cluster SGH à l’aide du mode TPM dans une forêt bastion
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: b360f0f5195bea3c61f9a181b4b75a681f7e29b9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 09fa226b4e7189904d5baa54fb2b59c18a800948
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403603"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856632"
 ---
 # <a name="initialize-the-hgs-cluster-using-tpm-mode-in-an-existing-bastion-forest"></a>Initialiser le cluster SGH à l’aide du mode TPM dans une forêt bastion existante
 
@@ -39,7 +39,7 @@ Install-ADServiceAccount -Identity 'HGSgMSA'
 Initialize-HgsServer -UseExistingDomain -ServiceAccount 'HGSgMSA' -JeaReviewersGroup 'HgsJeaReviewers' -JeaAdministratorsGroup 'HgsJeaAdmins' -HgsServiceName 'HgsService' -SigningCertificatePath '.\signCert.pfx' -SigningCertificatePassword $signPass -EncryptionCertificatePath '.\encCert.pfx' -EncryptionCertificatePassword $encryptionCertPass -TrustTpm
 ```
 
-Si vous utilisez des certificats installés sur l’ordinateur local (tels que des certificats sauvegardés par HSM et des certificats non exportables), utilisez les paramètres `-SigningCertificateThumbprint` et `-EncryptionCertificateThumbprint` à la place.
+Si vous utilisez des certificats installés sur l’ordinateur local (tels que des certificats sauvegardés par HSM et des certificats non exportables), utilisez plutôt les paramètres `-SigningCertificateThumbprint` et `-EncryptionCertificateThumbprint`.
 
 ## <a name="next-step"></a>Étape suivante
 

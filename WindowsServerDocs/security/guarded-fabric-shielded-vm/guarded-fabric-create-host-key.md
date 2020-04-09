@@ -1,19 +1,19 @@
 ---
 title: Créer une clé d’hôte et l’ajouter à SGH
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: a12c8494-388c-4523-8d70-df9400bbc2c0
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 2aea6c8416a0f3af04ad6056c5d09a4d07708eaa
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 664b3cfc1e529fe3591f6477ae0eb0b64e32441a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322011"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856732"
 ---
 # <a name="create-a-host-key-and-add-it-to-hgs"></a>Créer une clé d’hôte et l’ajouter à SGH
 
@@ -24,14 +24,14 @@ Cette rubrique explique comment préparer des hôtes Hyper-V pour qu’ils devie
 
 ## <a name="create-a-host-key"></a>Créer une clé hôte
 
-1.  Installez Windows Server 2019 sur votre ordinateur hôte Hyper-V.
-2.  Installez les fonctionnalités de prise en charge d’Hyper-V et de Guardian hôte pour Hyper-V :
+1.    Installez Windows Server 2019 sur votre ordinateur hôte Hyper-V.
+2.    Installez les fonctionnalités de prise en charge d’Hyper-V et de Guardian hôte pour Hyper-V :
 
     ```powershell
     Install-WindowsFeature Hyper-V, HostGuardian -IncludeManagementTools -Restart
     ``` 
 
-3.  Générez automatiquement une clé d’hôte ou sélectionnez un certificat existant. Si vous utilisez un certificat personnalisé, il doit avoir au moins une clé RSA 2048 bits, une utilisation améliorée de la clé d’authentification client et une clé de signature numérique.
+3.    Générez automatiquement une clé d’hôte ou sélectionnez un certificat existant. Si vous utilisez un certificat personnalisé, il doit avoir au moins une clé RSA 2048 bits, une utilisation améliorée de la clé d’authentification client et une clé de signature numérique.
 
     ```powershell
     Set-HgsClientHostKey
@@ -41,17 +41,17 @@ Cette rubrique explique comment préparer des hôtes Hyper-V pour qu’ils devie
     Cela peut être utile si vous souhaitez partager un certificat sur plusieurs ordinateurs ou utiliser un certificat lié à un module de plateforme sécurisée (TPM) ou à un HSM. Voici un exemple de création d’un certificat lié au module de plateforme sécurisée (TPM) (ce qui empêche le vol et l’utilisation de la clé privée sur un autre ordinateur et requiert uniquement un TPM 1,2) :
 
     ```powershell
-    $tpmBoundCert = New-SelfSignedCertificate -Subject “Host Key Attestation ($env:computername)” -Provider “Microsoft Platform Crypto Provider”
+    $tpmBoundCert = New-SelfSignedCertificate -Subject "Host Key Attestation ($env:computername)" -Provider "Microsoft Platform Crypto Provider"
     Set-HgsClientHostKey -Thumbprint $tpmBoundCert.Thumbprint
     ```
 
-4.  Obtenir la partie publique de la clé à fournir au serveur SGH. Vous pouvez utiliser l’applet de commande suivante ou, si vous avez le certificat stocké ailleurs, fournissez un. cer contenant la moitié publique de la clé. Notez que nous enregistrons et validons uniquement la clé publique sur SGH ; Nous ne conservons pas les informations de certificat et nous validons la chaîne de certificats ou la date d’expiration.
+4.    Obtenir la partie publique de la clé à fournir au serveur SGH. Vous pouvez utiliser l’applet de commande suivante ou, si vous avez le certificat stocké ailleurs, fournissez un. cer contenant la moitié publique de la clé. Notez que nous enregistrons et validons uniquement la clé publique sur SGH ; Nous ne conservons pas les informations de certificat et nous validons la chaîne de certificats ou la date d’expiration.
 
     ```powershell
     Get-HgsClientHostKey -Path "C:\temp\$env:hostname-HostKey.cer"
     ```
 
-5.  Copiez le fichier. cer sur votre serveur SGH.
+5.    Copiez le fichier. cer sur votre serveur SGH.
 
 ## <a name="add-the-host-key-to-the-attestation-service"></a>Ajouter la clé d’hôte au service d’attestation
 

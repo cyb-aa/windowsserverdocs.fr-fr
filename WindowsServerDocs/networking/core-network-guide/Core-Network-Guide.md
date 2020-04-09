@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: b3cd60f7-d380-4712-9a78-0a8f551e1121
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: a0da2265f8f66256ed2ba71d4847bf8a548626f8
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: b58fe9eaa66abd91de27713398759529ae6147ae
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80319146"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861762"
 ---
 # <a name="core-network-components"></a>Composants du réseau principal
 
@@ -283,11 +283,11 @@ Les exemples d’éléments de configuration pour AD DS sont fournis dans le tab
 
 |Éléments de configuration|Exemples de valeurs|
 |------------------------|-------------------|
-|Nom DNS complet|Exemples :<br /><br />-corp.contoso.com<br />-example.com|
+|Nom DNS complet|Exemples :<p>-corp.contoso.com<br />-example.com|
 |Niveau fonctionnel de forêt|-Windows Server 2008 <br />-Windows Server 2008 R2 <br />-Windows Server 2012 <br />-Windows Server 2012 R2 <br />-Windows Server 2016|
-|Emplacement du dossier de la base de données des services de domaine Active Directory|E:\Configuration\\<br /><br />Ou acceptez la valeur par défaut.|
-|Emplacement du dossier des fichiers journaux des services de domaine Active Directory|E:\Configuration\\<br /><br />Ou acceptez la valeur par défaut.|
-|Emplacement du dossier SYSVOL des services de domaine Active Directory|E:\Configuration\\<br /><br />Ou acceptez la valeur par défaut.|
+|Emplacement du dossier de la base de données des services de domaine Active Directory|E:\Configuration\\<p>Ou acceptez la valeur par défaut.|
+|Emplacement du dossier des fichiers journaux des services de domaine Active Directory|E:\Configuration\\<p>Ou acceptez la valeur par défaut.|
+|Emplacement du dossier SYSVOL des services de domaine Active Directory|E:\Configuration\\<p>Ou acceptez la valeur par défaut.|
 |Mot de passe administrateur de restauration des services d’annuaire|**J\*p2leO4 $ F**|
 |Nom du fichier de réponses (facultatif)|**DS_AnswerFile AD**|
 
@@ -412,7 +412,7 @@ Des exemples d’éléments de configuration supplémentaires pour AD DS et DNS 
 |Liaisons de connexion réseau|Ethernet|
 |Paramètres du serveur DNS|DC1.corp.contoso.com|
 |Adresse IP du serveur DNS préféré|10.0.0.2|
-|Valeurs de la boîte de dialogue Ajouter un étendue<br /><br />1. nom de l’étendue<br />2. adresse IP de début<br />3. adresse IP de fin<br />4. masque de sous-réseau<br />5. passerelle par défaut (facultatif)<br />6. durée du bail|1. sous-réseau principal<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6.8 jours|
+|Valeurs de la boîte de dialogue Ajouter un étendue<p>1. nom de l’étendue<br />2. adresse IP de début<br />3. adresse IP de fin<br />4. masque de sous-réseau<br />5. passerelle par défaut (facultatif)<br />6. durée du bail|1. sous-réseau principal<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6.8 jours|
 |Mode d’opération du serveur DHCP IPv6|Non activé|
 
 ## <a name="core-network-deployment"></a><a name="BKMK_deployment"></a>Déploiement de réseau de base
@@ -1437,9 +1437,9 @@ Les tableaux suivants répertorient les éléments de configuration pour la pré
 |-----------------------|------------------|----------|
 |Nom DNS complet|corp.contoso.com||
 |Niveau fonctionnel de forêt|Windows Server 2003||
-|Emplacement du dossier de la base de données des services de domaine Active Directory|E:\Configuration\\<br /><br />Ou acceptez la valeur par défaut.||
-|Emplacement du dossier des fichiers journaux des services de domaine Active Directory|E:\Configuration\\<br /><br />Ou acceptez la valeur par défaut.||
-|Emplacement du dossier SYSVOL des services de domaine Active Directory|E:\Configuration\\<br /><br />Ou acceptez la valeur par défaut.||
+|Emplacement du dossier de la base de données des services de domaine Active Directory|E:\Configuration\\<p>Ou acceptez la valeur par défaut.||
+|Emplacement du dossier des fichiers journaux des services de domaine Active Directory|E:\Configuration\\<p>Ou acceptez la valeur par défaut.||
+|Emplacement du dossier SYSVOL des services de domaine Active Directory|E:\Configuration\\<p>Ou acceptez la valeur par défaut.||
 |Mot de passe administrateur de restauration des services d’annuaire|J*p2leO4$F||
 |Nom du fichier de réponses (facultatif)|DS_AnswerFile AD||
 
@@ -1448,10 +1448,10 @@ Les tableaux suivants répertorient les éléments de configuration pour la pré
 |Éléments de configuration|Exemples de valeurs|Valeurs|
 |-----------------------|------------------|----------|
 |Type de zone|-Zone principale<br />-Zone secondaire<br />-Zone de stub||
-|Type de zone<br /><br />**Stocker la zone dans Active Directory**|-Sélectionné<br />-Non sélectionné||
+|Type de zone<p>**Stocker la zone dans Active Directory**|-Sélectionné<br />-Non sélectionné||
 |Étendue de réplication de la zone Active Directory|-À tous les serveurs DNS de cette forêt<br />-À tous les serveurs DNS dans ce domaine<br />-À tous les contrôleurs de domaine de ce domaine<br />-À tous les contrôleurs de domaine spécifiés dans l’étendue de cette partition d’annuaire||
-|Nom de la zone de recherche inversée<br /><br />(Type IP)|-Zone de recherche inversée IPv4<br />-Zone de recherche inversée IPv6||
-|Nom de la zone de recherche inversée<br /><br />(ID réseau)|10.0.0||
+|Nom de la zone de recherche inversée<p>(Type IP)|-Zone de recherche inversée IPv4<br />-Zone de recherche inversée IPv6||
+|Nom de la zone de recherche inversée<p>(ID réseau)|10.0.0||
 
 ### <a name="installing-dhcp"></a><a name="BKMK_FndtnPrep_InstallDHCP"></a>Installation de DHCP
 Les tableaux de cette section répertorient les éléments de configuration pour la préinstallation et l’installation de DHCP.
@@ -1509,16 +1509,16 @@ Les tableaux suivants répertorient les éléments de configuration pour la pré
 |-----------------------|------------------|----------|
 |Nom de la nouvelle étendue|Corp2||
 |Description de l’étendue|Sous-réseau du siège social 2||
-|(Plage d’adresses IP)<br /><br />Adresse IP de début|10.0.1.1||
-|(Plage d’adresses IP)<br /><br />Adresse IP de fin|10.0.1.254||
+|(Plage d’adresses IP)<p>Adresse IP de début|10.0.1.1||
+|(Plage d’adresses IP)<p>Adresse IP de fin|10.0.1.254||
 |Length|8||
 |Masque de sous-réseau|255.255.255.0||
 |Adresse IP de début de la plage d’exclusion|10.0.1.1||
 |Adresse IP de fin de la plage d’exclusion|10.0.1.15||
-|Durée du bail<br /><br />Days<br /><br />Heures<br /><br />Minutes|-8<br />-   0<br />-   0||
-|Routeur (passerelle par défaut)<br /><br />Adresse IP|10.0.1.1||
+|Durée du bail<p>Days<p>Heures<p>Minutes|-8<br />-   0<br />-   0||
+|Routeur (passerelle par défaut)<p>Adresse IP|10.0.1.1||
 |Domaine parent DNS|corp.contoso.com||
-|Serveur DNS<br /><br />Adresse IP|10.0.0.2||
+|Serveur DNS<p>Adresse IP|10.0.0.2||
 
 ### <a name="installing-network-policy-server-optional"></a><a name="BKMK_FndtnPrep_InstallNPS"></a>Installation du serveur de stratégie réseau (facultatif)
 Les tableaux de cette section répertorient les éléments de configuration pour la préinstallation et l’installation d’un serveur NPS.

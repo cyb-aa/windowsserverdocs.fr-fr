@@ -1,20 +1,20 @@
 ---
 title: Vue d'ensemble de la mise à jour adaptée aux clusters
+description: La mise à jour adaptée aux clusters automatise l’installation des mises à jour logicielles sur des clusters exécutant Windows Server.
 ms.topic: article
 ms.prod: windows-server
-ms.manager: dongill
+manager: lizross
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 08/06/2018
-description: La mise à jour adaptée aux clusters automatise l’installation des mises à jour logicielles sur des clusters exécutant Windows Server.
 ms.assetid: 3c2993b4-aa81-452b-a5c3-3724ad95d892
-ms.openlocfilehash: e96223e0b4b44e87ade9dc8eb875f9aa7104f451
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6a2b6ad06b8a003f9cbf020956994b08cb8cf194
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361254"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827992"
 ---
 # <a name="cluster-aware-updating-overview"></a>Vue d'ensemble de la mise à jour adaptée aux clusters
 
@@ -25,7 +25,7 @@ Cette rubrique fournit une vue d’ensemble de la mise à jour adaptée aux\-de 
 > [!NOTE]
 > Lors de la mise à jour d' [espaces de stockage direct](../storage/storage-spaces/storage-spaces-direct-overview.md) clusters, nous vous recommandons d’utiliser la mise à jour adaptée aux clusters.
   
-## <a name="BKMK_OVER"></a>Description de la fonctionnalité  
+## <a name="feature-description"></a><a name="BKMK_OVER"></a>Description de la fonctionnalité  
 La mise à jour adaptée aux clusters est une fonctionnalité automatisée qui vous permet de mettre à jour des serveurs dans un [cluster de basculement](failover-clustering-overview.md) avec peu ou pas de perte de disponibilité pendant le processus de mise à jour. Pendant une exécution de mise à jour, la mise à jour adaptée aux clusters effectue en toute transparence les tâches suivantes :  
 
 1. Place chaque nœud du cluster en mode de maintenance du nœud.
@@ -117,16 +117,16 @@ Pour plus d’informations sur la configuration requise et Best Practices Analyz
   
 1.  Démarrez le Gestionnaire de serveur.  
   
-2.  Effectuez l’une des opérations suivantes :  
+2.  Effectuez l'une des opérations suivantes :  
   
     -   Dans le menu **Outils** , cliquez sur mise **à jour adaptée au cluster\-** .  
   
     -   Si un ou plusieurs nœuds de cluster, ou le cluster, sont ajoutés à Gestionnaire de serveur, dans la page **tous les serveurs** , cliquez avec le bouton\-droit sur le nom d’un nœud \(ou le nom de l'\)de cluster, puis cliquez sur **mettre à jour le cluster**.  
   
-## <a name="see-also"></a>Voir également  
+## <a name="see-also"></a>Voir aussi  
 Les liens suivants fournissent des informations supplémentaires sur l’utilisation de la mise à jour adaptée aux clusters.  
   
--   [Configuration requise et meilleures pratiques pour la mise à jour adaptée aux\-de cluster](cluster-aware-updating.md)  
+-   [Configuration requise et bonnes pratiques concernant la mise à jour adaptée aux clusters\-  
   
 -   [Mise à jour adaptée aux\-de cluster : Forum aux questions](cluster-aware-updating-faq.md)  
   

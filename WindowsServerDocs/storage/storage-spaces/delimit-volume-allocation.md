@@ -1,17 +1,17 @@
 ---
 title: Délimiter l’allocation de volumes dans espaces de stockage direct
 ms.author: cosmosdarwin
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 03/29/2018
-ms.openlocfilehash: 19e5a38ca406878b7dbc5a187b0057e97e4fe2d1
-ms.sourcegitcommit: 74107a32efe1e53b36c938166600739a79dd0f51
+ms.openlocfilehash: 26454881279e1d33392a827f794788370def2cab
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76918302"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858972"
 ---
 # <a name="delimit-the-allocation-of-volumes-in-storage-spaces-direct"></a>Délimiter l’allocation de volumes dans espaces de stockage direct
 > S’applique à : Windows Server 2019
@@ -21,19 +21,19 @@ Windows Server 2019 introduit une option permettant de délimiter manuellement l
    > [!IMPORTANT]
    > Cette fonctionnalité est une nouveauté de Windows Server 2019. Elle n’est pas disponible dans Windows Server 2016. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
-### <a name="green-checkmark-iconmediadelimit-volume-allocationsupportedpng-consider-using-this-option-if"></a>![Icône de coche verte.](media/delimit-volume-allocation/supported.png) Envisagez d’utiliser cette option si :
+### <a name="green-checkmark-icon-consider-using-this-option-if"></a>![Icône de coche verte.](media/delimit-volume-allocation/supported.png) Envisagez d’utiliser cette option si :
 
 - Votre cluster compte six serveurs ou plus ; les
 - Votre cluster utilise uniquement [la résilience miroir triple](storage-spaces-fault-tolerance.md#mirroring)
 
-### <a name="red-x-iconmediadelimit-volume-allocationunsupportedpng-do-not-use-this-option-if"></a>![Icône X rouge.](media/delimit-volume-allocation/unsupported.png) N’utilisez pas cette option dans les cas suivants :
+### <a name="red-x-icon-do-not-use-this-option-if"></a>![Icône X rouge.](media/delimit-volume-allocation/unsupported.png) N’utilisez pas cette option dans les cas suivants :
 
 - Votre cluster contient moins de six serveurs ; ni
 - Votre cluster utilise la [parité](storage-spaces-fault-tolerance.md#parity) ou la résilience [de parité à accélération miroir](storage-spaces-fault-tolerance.md#mirror-accelerated-parity)
 
-## <a name="understand"></a>Prenez connaissance de
+## <a name="understand"></a>Comprendre
 
 ### <a name="review-regular-allocation"></a>Révision : allocation régulière
 
@@ -153,7 +153,7 @@ MyVolume                300 GB         0       100 GB  100 GB  100 GB  100 GB  0
 
 Notez que Server1 ne contient plus de dalles de *MyVolume* , à la place, Server5.
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 Voici les meilleures pratiques à suivre lors de l’utilisation de l’allocation de volume délimitée :
 
@@ -190,7 +190,7 @@ Chaque volume miroir triple peut survivre jusqu’à deux échecs en même temps
 
 Si au moins trois défaillances se produisent en même temps, mais qu’au moins la moitié des serveurs et des lecteurs sont toujours opérationnels, les volumes avec une allocation délimitée peuvent rester en ligne et accessibles, en fonction des serveurs qui présentent des erreurs.
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="can-i-delimit-some-volumes-but-not-others"></a>Puis-je délimiter certains volumes, mais pas d’autres ?
 
@@ -200,7 +200,7 @@ Oui. Vous pouvez choisir par volume de délimiter l’allocation.
 
 Non, il est identique à l’allocation régulière.
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
 - [Présentation de espaces de stockage direct](storage-spaces-direct-overview.md)
 - [Tolérance de panne dans espaces de stockage direct](storage-spaces-fault-tolerance.md)

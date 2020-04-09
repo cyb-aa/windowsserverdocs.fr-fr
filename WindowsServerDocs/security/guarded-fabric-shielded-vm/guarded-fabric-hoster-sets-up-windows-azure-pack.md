@@ -1,19 +1,19 @@
 ---
 title: 'VM dotées d’une protection maximale : Le fournisseur de services d’hébergement configure Windows Azure Pack'
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: d528c689-58b0-425c-9740-25e2553ed689
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 7336637bd3186f885db6d94eeffd0d2311edf3ac
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: 1d759af575f98d305a67734d0e23680f701f6b72
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001838"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856712"
 ---
 # <a name="shielded-vms---hosting-service-provider-sets-up-windows-azure-pack"></a>VM dotées d’une protection maximale : Le fournisseur de services d’hébergement configure Windows Azure Pack
 
@@ -69,7 +69,7 @@ Avant d’utiliser Windows Azure Pack, vous devez avoir déjà installé et conf
 
 3.  Connectez Windows Azure Pack à l’instance de Service Provider Foundation en cliquant sur **inscrire System Center Service Provider Foundation**. Vous devez spécifier l’URL de Service Provider Foundation, ainsi qu’un nom d’utilisateur et un mot de passe.
 
-    ![Inscrire System Center Service Provider Foundation](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-01-register-spf.png)
+    ![Enregistrer le Service Provider Foundation pour System Center](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-01-register-spf.png)
 
 4.  Une fois que vous avez terminé, vous devez être en mesure de voir les clouds de machines virtuelles configurés dans votre environnement VMM. Avant de poursuivre, assurez-vous de disposer d’au moins un Cloud de machines virtuelles prenant en charge les machines virtuelles protégées.
 
@@ -113,7 +113,7 @@ Pour permettre aux locataires de créer des machines virtuelles dans WAP, vous d
 
     À ce stade, Windows Azure Pack est configurée et les locataires peuvent s’abonner au plan que vous venez de créer et déployer des machines virtuelles protégées. Pour connaître les étapes supplémentaires que les locataires doivent effectuer, consultez [machines virtuelles protégées pour les locataires-déploiement d’une machine virtuelle protégée à l’aide de Windows Azure Pack](guarded-fabric-shielded-vm-windows-azure-pack.md).
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
 - [Étapes de configuration du fournisseur de services d’hébergement pour les hôtes service Guardian et les machines virtuelles protégées](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Structure protégée et machines virtuelles dotées d’une protection maximale](guarded-fabric-and-shielded-vms-top-node.md)

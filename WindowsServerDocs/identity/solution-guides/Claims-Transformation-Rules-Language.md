@@ -1,7 +1,6 @@
 ---
 ms.assetid: e831f781-3c45-4d44-b411-160d121d1324
-title: Langage des règles de transformation des revendications
-description: ''
+title: Langage de règles de Transformation de revendications
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,14 +8,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 200d592bc68562856bbdee623e70d73d41457c15
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f391c3f8ef2bb5b12f0dd15db55df4f861c05f9b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357580"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861272"
 ---
-# <a name="claims-transformation-rules-language"></a>Langage des règles de transformation des revendications
+# <a name="claims-transformation-rules-language"></a>Langage de règles de Transformation de revendications
 
 >S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -24,7 +23,7 @@ La fonctionnalité de transformation des revendications sur plusieurs forêts vo
   
 Les applets de commande Windows PowerShell pour les stratégies de transformation sur des approbations sur plusieurs forêts disposent d’options permettant de définir des stratégies simples qui sont requises dans les scénarios courants. Ces applets de commande traduisent la saisie utilisateur dans des stratégies et des règles dans le langage de règles de transformation des revendications, puis les stockent dans Active Directory dans le format prescrit. Pour plus d’informations sur les applets de commande pour la transformation des revendications, consultez les [applets de commande AD DS pour les Access Control dynamiques](https://go.microsoft.com/fwlink/?LinkId=243150).  
   
-Selon la configuration des revendications et les exigences placées sur l’approbation entre forêts dans vos forêts Active Directory, vos stratégies de transformation des revendications peuvent être plus complexes que les stratégies prises en charge par les applets de commande Windows PowerShell pour active Directory. Pour créer efficacement de telles stratégies, il est essentiel de comprendre la syntaxe et la sémantique du langage de transformation des revendications. Ce langage de règles de transformation des revendications (« langage ») dans Active Directory est un sous-ensemble du langage utilisé par [services ADFS](https://go.microsoft.com/fwlink/?LinkId=243982) à des fins similaires, et il a une syntaxe et une sémantique très similaires. Toutefois, il y a moins d’opérations autorisées et des restrictions de syntaxe supplémentaires sont placées dans la version Active Directory du langage.  
+Selon la configuration des revendications et les exigences placées sur l’approbation entre forêts dans vos forêts Active Directory, vos stratégies de transformation des revendications peuvent être plus complexes que les stratégies prises en charge par les applets de commande Windows PowerShell pour les Active Directory. Pour créer efficacement de telles stratégies, il est essentiel de comprendre la syntaxe et la sémantique du langage de transformation des revendications. Ce langage de règles de transformation des revendications (« langage ») dans Active Directory est un sous-ensemble du langage utilisé par [services ADFS](https://go.microsoft.com/fwlink/?LinkId=243982) à des fins similaires, et il a une syntaxe et une sémantique très similaires. Toutefois, il y a moins d’opérations autorisées et des restrictions de syntaxe supplémentaires sont placées dans la version Active Directory du langage.  
   
 Cette rubrique explique brièvement la syntaxe et la sémantique du langage de règles de transformation des revendications dans Active Directory et les éléments à prendre en considération lors de la création de stratégies. Il fournit plusieurs ensembles d’exemples de règles pour vous aider à démarrer, ainsi que des exemples de syntaxe incorrecte et les messages qu’ils génèrent, pour vous aider à déchiffrer les messages d’erreur lorsque vous créez les règles.  
   
@@ -295,10 +294,10 @@ Cette section illustre quelques exemples de règles écrites avec une syntaxe in
   
    Cet exemple est syntaxiquement et sémantiquement correct. Toutefois, l’utilisation de « booléen » comme valeur de chaîne est liée à la confusion et doit être évitée. Comme mentionné précédemment, l’utilisation de terminaux de langage comme valeurs de revendications doit être évitée dans la mesure du possible.  
   
-## <a name="BKMK_LT"></a>Terminaux de langue  
+## <a name="language-terminals"></a><a name="BKMK_LT"></a>Terminaux de langue  
 Le tableau suivant répertorie l’ensemble complet des chaînes de terminal et les terminaux de langue associés utilisés dans le langage de règles de transformation des revendications. Ces définitions utilisent des chaînes UTF-16 qui ne respectent pas la casse.  
   
-|Chaîne|Terminaux|  
+|String|Terminal|  
 |----------|------------|  
 |« = > »|ENTRAÎN|  
 |";"|VIRGULE|  
@@ -314,7 +313,7 @@ Le tableau suivant répertorie l’ensemble complet des chaînes de terminal et 
 |"=~"|REGEXP_MATCH|  
 |"!~"|REGEXP_NOT_MATCH|  
 |"="|ASSIGNÉS|  
-|« & & »|ET|  
+|« & & »|AND|  
 |problématique|PROBLÈME|  
 |entrer|TYPE|  
 |ajoutée|AJOUTÉE|  
@@ -324,7 +323,7 @@ Le tableau suivant répertorie l’ensemble complet des chaînes de terminal et 
 |«\\» [^\\« \n] *\\« »|CHAÎNE|  
 |UInt64|UINT64_TYPE|  
 |Int64|INT64_TYPE|  
-|chaîne|STRING_TYPE|  
+|"chaîne"|STRING_TYPE|  
 |expression|BOOLEAN_TYPE|  
   
 ## <a name="language-syntax"></a>Syntaxe du langage  

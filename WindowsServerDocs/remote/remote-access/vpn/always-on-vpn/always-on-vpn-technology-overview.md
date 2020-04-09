@@ -5,15 +5,15 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.date: 11/05/2018
-ms.author: lizross
-author: eross-msft
+ms.author: v-tea
+author: Teresa-MOTIV
 ms.localizationpriority: medium
-ms.openlocfilehash: a5d65dd9f8fb6328bd00be8a46af37ee69ccd2bf
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 570b96d07f414442a00d5f7ec48de80f270f0a76
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313394"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861312"
 ---
 # <a name="always-on-vpn-technology-overview"></a>Présentation de la technologie VPN Always On
 
@@ -68,7 +68,7 @@ Dans Windows Server 2016, le rôle serveur d’accès à distance est conçu pou
 
 IKEv2 est un protocole de tunneling VPN décrit dans Internet Engineering Task Force Request for Comments 7296. Le principal avantage de IKEv2 est qu’il tolère les interruptions de la connexion réseau sous-jacente. Par exemple, si la connexion est temporairement perdue ou si un utilisateur déplace un ordinateur client d’un réseau vers un autre, IKEv2 restaure automatiquement la connexion VPN lorsque la connexion réseau est rétablie, le tout sans intervention de l’utilisateur.
 
-À l’aide de la passerelle RAS, vous pouvez déployer des connexions VPN pour fournir aux utilisateurs finaux un accès à distance au réseau et aux ressources de votre organisation. Le déploiement d’Always On VPN maintient une connexion permanente entre les clients et le réseau de votre organisation chaque fois que des ordinateurs distants sont connectés à Internet. Avec la passerelle RAS, vous pouvez également créer une connexion VPN de site à site entre deux serveurs situés à différents emplacements, par exemple entre votre bureau principal et une filiale, et utiliser la traduction d’adresses réseau (NAT) afin que les utilisateurs du réseau puissent accéder à l’extérieur. ressources, telles qu’Internet. En outre, la passerelle RAS prend en charge Border Gateway Protocol (BGP), qui fournit des services de routage dynamique lorsque vos sites distants disposent également de passerelles de périphérie qui prennent en charge le protocole BGP.
+À l’aide de la passerelle RAS, vous pouvez déployer des connexions VPN pour fournir aux utilisateurs finaux un accès à distance au réseau et aux ressources de votre organisation. Le déploiement d’Always On VPN maintient une connexion permanente entre les clients et le réseau de votre organisation chaque fois que des ordinateurs distants sont connectés à Internet. Avec la passerelle RAS, vous pouvez également créer une connexion VPN de site à site entre deux serveurs situés à différents emplacements, par exemple entre votre bureau principal et une filiale, et utiliser la traduction d’adresses réseau (NAT) afin que les utilisateurs du réseau puissent accéder à des ressources externes, telles qu’Internet. En outre, la passerelle RAS prend en charge Border Gateway Protocol (BGP), qui fournit des services de routage dynamique lorsque vos sites distants disposent également de passerelles de périphérie qui prennent en charge le protocole BGP.
 
 Vous pouvez gérer les passerelles du service d’accès à distance (RAS) à l’aide des commandes Windows PowerShell et de la console MMC (Microsoft Management Console) d’accès à distance.
 
@@ -202,10 +202,10 @@ Windows 10 offre de nombreux CSP, mais ce déploiement se concentre sur l’util
 
 - [DNS (Domain Name System)](../../../../networking/dns/dns-top.md): cette rubrique fournit une vue d’ensemble des systèmes de noms de domaine (DNS). Dans Windows Server 2016, DNS est un rôle serveur que vous pouvez installer à l’aide de Gestionnaire de serveur ou de commandes Windows PowerShell. Si vous installez une nouvelle forêt et un nouveau domaine Active Directory, DNS est automatiquement installé avec Active Directory en tant que serveur de catalogue global pour la forêt et le domaine.
 
-- [Active Directory vue d’ensemble des services de certificats](https://technet.microsoft.com/library/hh831740.aspx): ce document fournit une vue d’ensemble des services de certificats Active Directory (AD CS) dans Windows Server® 2012. Les services AD CS correspondent au rôle serveur qui vous permet de générer une infrastructure à clé publique (PKI) et de fournir un chiffrement à clé publique, des certificats numériques et des fonctions de signature numérique pour votre organisation.
+- [Active Directory vue d’ensemble des services de certificats](https://technet.microsoft.com/library/hh831740.aspx): ce document fournit une vue d’ensemble des services de certificats Active Directory (AD CS) dans Windows Server&reg; 2012. Les services AD CS correspondent au rôle serveur qui vous permet de générer une infrastructure à clé publique (PKI) et de fournir un chiffrement à clé publique, des certificats numériques et des fonctions de signature numérique pour votre organisation.
 
 - [Guide de conception de l’infrastructure à clé publique](https://social.technet.microsoft.com/wiki/contents/articles/2901.public-key-infrastructure-design-guidance.aspx): ce wiki fournit des conseils sur la conception d’infrastructures à clé publique (PKI). Avant de configurer une hiérarchie d’infrastructure à clé publique et d’autorité de certification, vous devez être conscient de la stratégie de sécurité et du CPS (Certificate Practice Statement) de votre organisation.
 
-- [Guide pas à pas des services AD CS : déploiement de la hiérarchie PKI à deux niveaux](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx): ce guide pas à pas décrit les étapes nécessaires pour configurer une configuration de base de Active Directory® les services de certificats (AD CS) dans un environnement Lab. Les services AD CS dans Windows Server® 2008 R2 fournissent des services personnalisables pour la création et la gestion des certificats de clé publique utilisés dans les systèmes de sécurité logiciels employant des technologies de clé publique.
+- [Guide pas à pas des services AD CS : déploiement de la hiérarchie PKI à deux niveaux](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx): ce guide pas à pas décrit les étapes nécessaires pour configurer une configuration de base de Active Directory&reg; les services de certificats (AD CS) dans un environnement Lab. Les services AD CS dans Windows Server&reg; 2008 R2 fournissent des services personnalisables pour la création et la gestion des certificats de clé publique utilisés dans les systèmes de sécurité logiciels employant des technologies de clé publique.
 
 - [Serveur NPS (Network Policy Server)](../../../../networking/technologies/nps/nps-top.md): cette rubrique fournit une vue d’ensemble du serveur NPS (Network Policy Server) dans Windows Server 2016. Un serveur NPS \(Network Policy Server\) vous permet de créer et d’appliquer des stratégies d’accès réseau valides pour toute l’organisation, qui régissent les demandes d’authentification et l’autorisation des demandes de connexion.

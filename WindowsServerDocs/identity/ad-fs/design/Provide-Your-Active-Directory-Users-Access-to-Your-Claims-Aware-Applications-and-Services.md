@@ -1,7 +1,6 @@
 ---
 ms.assetid: d254fca3-85a1-424d-ac22-d6687ec3798e
 title: Fournir à vos utilisateurs Active Directory un accès à vos applications et services prenant en charge les revendications
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 48436f8e98af965f2bc2b38d296c4a15924e4db1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0cb530eacfa8239f3a2a135397e54becfadb602b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407951"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858572"
 ---
 # <a name="provide-your-active-directory-users-access-to-your-claims-aware-applications-and-services"></a>Fournir à vos utilisateurs Active Directory un accès à vos applications et services prenant en charge les revendications
 
@@ -35,9 +34,9 @@ Les composants suivants sont requis pour cet objectif de déploiement :
     > [!NOTE]  
     > Vous pouvez également utiliser le protocole LDAP (Lightweight Directory Access Protocol) \(\) ou langage SQL \(SQL\) pour contenir les identités pour la génération de jetons AD FS.  
   
--   **DNS d’entreprise :** Cette implémentation du système DNS (Domain Name System) \(DNS\) contient un hôte simple \(un enregistrement de ressource\) afin que les clients intranet puissent localiser le serveur de Fédération de compte. Cette implémentation de système DNS peut également héberger d’autres enregistrements DNS requis dans le réseau d’entreprise. Pour plus d'informations, voir [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md).  
+-   **DNS d’entreprise :** Cette implémentation du système DNS (Domain Name System) \(DNS\) contient un hôte simple \(un enregistrement de ressource\) afin que les clients intranet puissent localiser le serveur de Fédération de compte. Cette implémentation de système DNS peut également héberger d’autres enregistrements DNS requis dans le réseau d’entreprise. Pour plus d'informations, consultez [Configuration de la résolution de noms pour les serveurs de fédération](Name-Resolution-Requirements-for-Federation-Servers.md).  
   
--   **Serveur de Fédération du partenaire de compte :** Ce serveur de Fédération est joint à un domaine dans la forêt du partenaire de compte. Il authentifie les comptes d’utilisateur des employés et génère des jetons AD FS. L’ordinateur client de l’employé procède à l’authentification intégrée de Windows sur ce serveur de Fédération pour générer un jeton de AD FS. Pour plus d’informations, consultez [revue du rôle du serveur de fédération du partenaire de compte](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
+-   **Serveur de Fédération du partenaire de compte :** Ce serveur de Fédération est joint à un domaine dans la forêt du partenaire de compte. Il authentifie les comptes d’utilisateur des employés et génère des jetons AD FS. L’ordinateur client de l’employé procède à l’authentification intégrée de Windows sur ce serveur de Fédération pour générer un jeton de AD FS. Pour plus d'informations, voir [Review the Role of the Federation Server in the Account Partner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
   
     Le serveur de Fédération du partenaire de compte peut authentifier les utilisateurs suivants :  
   

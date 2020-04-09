@@ -1,19 +1,19 @@
 ---
 title: Créer un fichier de réponses de spécialisation du système d'exploitation
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 299aa38e-28d2-4cbe-af16-5b8c533eba1f
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 4920f9a90bd0190d390a9d35b3d265023d69efac
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: be099a234b7e2e73375d23b19161e59876f71d61
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386503"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856502"
 ---
 # <a name="create-os-specialization-answer-file"></a>Créer un fichier de réponses de spécialisation du système d'exploitation
 
@@ -31,7 +31,7 @@ Vous pouvez obtenir la fonction **New-ShieldingDataAnswerFile** à partir de la 
 Install-Module GuardedFabricTools -Repository PSGallery -MinimumVersion 1.0.0
 ```
 
-La sortie `unattend.xml` peut être empaquetée dans les données de protection, ainsi que des artefacts supplémentaires, afin qu’elle puisse être utilisée pour créer des machines virtuelles protégées à partir de modèles.
+La sortie de `unattend.xml` peut être empaquetée dans les données de protection, avec des artefacts supplémentaires, afin qu’elle puisse être utilisée pour créer des machines virtuelles protégées à partir de modèles.
 
 Les sections suivantes montrent comment vous pouvez utiliser les paramètres de fonction pour un fichier `unattend.xml` contenant diverses options :
 
@@ -76,7 +76,7 @@ New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -AdminCredentials
 
 Les commandes suivantes créent un fichier de réponses Windows qui utilise des adresses IP statiques fournies au moment du déploiement par Fabric Manager, par exemple System Center Virtual Machine Manager.
 
-Virtual Machine Manager fournit trois composants à l’adresse IP statique à l’aide d’un pool d’adresses IP : Adresse IPv4, adresse IPv6, adresse de la passerelle et adresse DNS. Si vous souhaitez inclure des champs supplémentaires ou exiger une configuration réseau personnalisée, vous devez modifier manuellement le fichier de réponses produit par le script.
+Virtual Machine Manager fournit trois composants à l’adresse IP statique à l’aide d’un pool d’adresses IP : adresse IPv4, adresse IPv6, adresse de passerelle et adresse DNS. Si vous souhaitez inclure des champs supplémentaires ou exiger une configuration réseau personnalisée, vous devez modifier manuellement le fichier de réponses produit par le script.
 
 Les captures d’écran suivantes montrent les pools d’adresses IP que vous pouvez configurer dans Virtual Machine Manager. Ces pools sont nécessaires si vous souhaitez utiliser une adresse IP statique.
 
@@ -92,7 +92,7 @@ Vous devez configurer votre carte réseau pour votre machine virtuelle. La captu
 
 ![Configurer le matériel pour utiliser une adresse IP statique](../media/Guarded-Fabric-Shielded-VM/guarded-host-unattend-static-ip-address-pool-network-adapter-settings.png)
 
-Ensuite, vous pouvez utiliser le paramètre `-StaticIPPool` pour inclure les éléments IP statiques dans le fichier de réponses. Les paramètres `@IPAddr-1@`, `@NextHop-1-1@` et `@DNSAddr-1-1@` dans le fichier de réponses sont ensuite remplacés par les valeurs réelles que vous avez spécifiées dans Virtual Machine Manager au moment du déploiement.
+Ensuite, vous pouvez utiliser le paramètre `-StaticIPPool` pour inclure les éléments IP statiques dans le fichier de réponses. Les paramètres `@IPAddr-1@`, `@NextHop-1-1@`et `@DNSAddr-1-1@` dans le fichier de réponses sont ensuite remplacés par les valeurs réelles que vous avez spécifiées dans Virtual Machine Manager au moment du déploiement.
 
 ```powershell
 $adminCred = Get-Credential -Message "Local administrator account"

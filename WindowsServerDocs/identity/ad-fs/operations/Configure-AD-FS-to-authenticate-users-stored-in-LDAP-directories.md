@@ -1,7 +1,6 @@
 ---
 ms.assetid: e863ab80-4e4c-48d3-bdaa-31815ef36bae
 title: Configuration d'AD FS pour authentifier les utilisateurs stockées dans des annuaires LDAP
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 191ec0243c8c34c2084dd07f94f0b3f70b197756
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9c194128cb5d96bf84e19b11b9d8803c61e34490
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358067"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859902"
 ---
 # <a name="configure-ad-fs-to-authenticate-users-stored-in-ldap-directories"></a>Configuration d'AD FS pour authentifier les utilisateurs stockées dans des annuaires LDAP
 
@@ -23,13 +22,13 @@ La rubrique suivante décrit la configuration requise pour permettre à votre in
 Dans de nombreuses organisations, les solutions de gestion des identités consistent en une combinaison de Active Directory, AD LDS ou des annuaires LDAP tiers. Avec l’ajout de la prise en charge de AD FS pour l’authentification des utilisateurs stockés dans des annuaires compatibles LDAP v3, vous pouvez tirer parti de l’ensemble des fonctionnalités de AD FS d’entreprise, quel que soit l’emplacement de stockage de vos identités d’utilisateur. AD FS prend en charge tous les répertoires compatibles LDAP v3.
 
 > [!NOTE]
-> Parmi les fonctionnalités AD FSes, citons l’authentification unique (SSO), l’authentification des appareils, les stratégies d’accès conditionnel flexibles, la prise en charge de l’utilisation à partir de n’importe où via l’intégration au proxy d’application Web et la Fédération transparente avec Azure AD qui, à son tour, permet à vous et à vos utilisateurs d’utiliser le Cloud, notamment Office 365 et d’autres applications SaaS.  Pour plus d’informations, consultez [services ADFS vue d’ensemble](../../ad-fs/AD-FS-2016-Overview.md).
+> Parmi les fonctionnalités AD FS, citons l’authentification unique (SSO), l’authentification des appareils, les stratégies d’accès conditionnel flexibles, la prise en charge du travail à partir de n’importe où via l’intégration au proxy d’application Web et la Fédération transparente avec Azure AD qui, à son tour, permet à vous et à vos utilisateurs d’utiliser le Cloud, notamment Office 365 et d’autres applications SaaS.  Pour plus d’informations, consultez [services ADFS vue d’ensemble](../../ad-fs/AD-FS-2016-Overview.md).
 
 Pour que les AD FS authentifient les utilisateurs à partir d’un annuaire LDAP, vous devez connecter cet annuaire LDAP à votre batterie de serveurs AD FS en créant une **approbation de fournisseur de revendications locale**.  Une approbation de fournisseur de revendications locale est un objet d’approbation qui représente un répertoire LDAP dans votre batterie de AD FS. Un objet d’approbation de fournisseur de revendications local se compose d’un ensemble d’identificateurs, de noms et de règles qui identifient cet annuaire LDAP auprès du service de Fédération local.
 
 Vous pouvez prendre en charge plusieurs annuaires LDAP, chacun avec sa propre configuration, au sein d’une même batterie de serveurs AD FS en ajoutant plusieurs **approbations de fournisseur de revendications locales**. En outre, AD DS forêts qui ne sont pas approuvées par la forêt dans laquelle AD FS vit peuvent également être modélisées en tant qu’approbations de fournisseur de revendications locales. Vous pouvez créer des approbations de fournisseur de revendications locales à l’aide de Windows PowerShell.
 
-Les annuaires LDAP (approbations de fournisseur de revendications locales) peuvent coexister avec des répertoires AD (approbations de fournisseur de revendications) sur le même serveur de AD FS, au sein de la même batterie de AD FS, par conséquent, une seule instance de AD FS est capable d’authentifier et d’autoriser l’accès pour les utilisateurs qui sont stockées dans les annuaires AD et non AD.
+Les annuaires LDAP (approbations de fournisseur de revendications locaux) peuvent coexister avec des répertoires AD (approbations de fournisseur de revendications) sur le même serveur de AD FS, au sein de la même batterie de AD FS, une seule instance de AD FS peut donc authentifier et autoriser l’accès pour les utilisateurs stockés dans des annuaires AD et non-AD.
 
 Seule l’authentification basée sur les formulaires est prise en charge pour l’authentification des utilisateurs dans les annuaires LDAP. L’authentification Windows intégrée et basée sur les certificats n’est pas prise en charge pour l’authentification des utilisateurs dans les annuaires LDAP.
 
@@ -50,7 +49,7 @@ Pour configurer votre batterie de AD FS afin d’authentifier les utilisateurs �
    > [!NOTE]
    > Il est recommandé de créer un nouvel objet de connexion pour chaque serveur LDAP auquel vous souhaitez vous connecter. AD FS peut se connecter à plusieurs serveurs LDAP de réplication et effectuer un basculement automatique en cas de panne d’un serveur LDAP spécifique. Dans ce cas, vous pouvez créer un AdfsLdapServerConnection pour chacun de ces serveurs LDAP de réplication, puis ajouter le tableau d’objets de connexion à l’aide du paramètre-**LdapServerConnection** de l’applet de commande **Add-AdfsLocalClaimsProviderTrust** .
 
-   **REMARQUE :** Votre tentative d’utilisation de la classe de connexion et du type dans un nom de domaine et un mot de passe à utiliser pour établir une liaison à une instance LDAP peut entraîner un échec en raison de l’exigence de l’interface utilisateur pour des formats d’entrée spécifiques, par exemple domaine\nom_utilisateur ou user@domain.tld. Vous pouvez à la place utiliser l’applet de commande ConvertTo-SecureString comme suit (l’exemple ci-dessous suppose que uid = admin, ou = System comme DN des informations d’identification à utiliser pour la liaison à l’instance LDAP) :
+   **Remarque :** Votre tentative d’utilisation de la classe de connexion et du type dans un nom d’utilisateur et un mot de passe à utiliser pour établir une liaison à une instance LDAP peut entraîner un échec en raison de la spécification de l’interface utilisateur pour des formats d’entrée spécifiques, par exemple domaine\nom_utilisateur ou user@domain.tld. Vous pouvez à la place utiliser l’applet de commande ConvertTo-SecureString comme suit (l’exemple ci-dessous suppose que uid = admin, ou = System comme DN des informations d’identification à utiliser pour la liaison à l’instance LDAP) :
 
    ```
    $ldapuser = ConvertTo-SecureString -string "uid=admin,ou=system" -asplaintext -force
@@ -93,7 +92,7 @@ Pour configurer votre batterie de AD FS afin d’authentifier les utilisateurs �
    -OrganizationalAccountSuffix "vendors.contoso.com"
    ```
 
-   Dans l’exemple ci-dessus, vous créez une approbation de fournisseur de revendications locale appelée « Vendors ». Vous spécifiez des informations de connexion pour AD FS pour vous connecter au répertoire LDAP que cette approbation de fournisseur de revendications locale représente en affectant `$vendorDirectory` au paramètre `-LdapServerConnection`. Notez que à l’étape 1, vous avez affecté `$vendorDirectory` une chaîne de connexion à utiliser lors de la connexion à votre annuaire LDAP spécifique. Enfin, vous spécifiez que les attributs LDAP `$GivenName`, `$Surname` et `$CommonName` (que vous avez mappés aux revendications AD FS) doivent être utilisés pour le contrôle d’accès conditionnel, y compris les stratégies d’authentification multifacteur et les règles d’autorisation d’émission, ainsi que pour l’émission via des revendications dans des jetons de sécurité émis par AD FS. Pour pouvoir utiliser des protocoles actifs tels que WS-Trust avec AD FS, vous devez spécifier le paramètre OrganizationalAccountSuffix, qui permet à AD FS de lever l’ambiguïté entre les approbations de fournisseur de revendications locales lors du traitement d’une demande d’autorisation active.
+   Dans l’exemple ci-dessus, vous créez une approbation de fournisseur de revendications locale appelée « Vendors ». Vous spécifiez des informations de connexion pour AD FS pour vous connecter au répertoire LDAP que cette approbation de fournisseur de revendications locale représente en affectant des `$vendorDirectory` au paramètre `-LdapServerConnection`. Notez que à l’étape 1, vous avez affecté `$vendorDirectory` une chaîne de connexion à utiliser lors de la connexion à votre annuaire LDAP spécifique. Enfin, vous spécifiez que les attributs LDAP `$GivenName`, `$Surname`et `$CommonName` (que vous avez mappés aux revendications AD FS) doivent être utilisés pour le contrôle d’accès conditionnel, y compris les stratégies multi-Factor Authentication et les règles d’autorisation d’émission, ainsi que pour l’émission via des revendications dans des jetons de sécurité émis par AD FS. Pour pouvoir utiliser des protocoles actifs tels que WS-Trust avec AD FS, vous devez spécifier le paramètre OrganizationalAccountSuffix, qui permet à AD FS de lever l’ambiguïté entre les approbations de fournisseur de revendications locales lors du traitement d’une demande d’autorisation active.
 
 ## <a name="see-also"></a>Voir aussi
 [Opérations d’AD FS](../../ad-fs/AD-FS-2016-Operations.md)

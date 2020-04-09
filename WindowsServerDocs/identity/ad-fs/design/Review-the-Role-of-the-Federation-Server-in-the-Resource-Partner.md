@@ -1,7 +1,6 @@
 ---
 ms.assetid: f88238ea-d851-4129-8b4e-a3a62b813614
 title: Revue du rôle du serveur de fédération du partenaire de ressource
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: fd9f20eb7559f5862ee50bdd8364fa1604d3c1b6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8cda394800bf0554e00e2897d240e2c08a72a00b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358968"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858552"
 ---
 # <a name="review-the-role-of-the-federation-server-in-the-resource-partner"></a>Revue du rôle du serveur de fédération du partenaire de ressource
 

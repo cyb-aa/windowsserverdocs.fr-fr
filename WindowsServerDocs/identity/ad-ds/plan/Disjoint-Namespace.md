@@ -1,7 +1,6 @@
 ---
 ms.assetid: d92731f1-e4d8-4223-9b07-ca1f40bb0e1f
 title: Espace de noms dissocié
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5abe67c89ce4c2f4b5056f6197242b5db8db340e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b21e849bb69068f66b1b80c6b1a3afbdef91459f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408851"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822532"
 ---
 # <a name="disjoint-namespace"></a>Espace de noms dissocié
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Un espace de noms disjoint se produit lorsqu’un ou plusieurs ordinateurs membres du domaine ont un suffixe DNS (Domain Name Service) principal qui ne correspond pas au nom DNS du domaine Active Directory dont les ordinateurs sont membres. Par exemple, un ordinateur membre qui utilise un suffixe DNS principal corp.fabrikam.com dans un domaine Active Directory nommé na.corp.fabrikam.com utilise un espace de noms disjoint.  
   
@@ -27,7 +26,7 @@ Un espace de noms disjoint est plus complexe à administrer, à gérer et à dé
 ## <a name="support-for-disjoint-namespaces"></a>Prise en charge des espaces de noms disjoint  
 Les ordinateurs membres du domaine, y compris les contrôleurs de domaine, peuvent fonctionner dans un espace de noms disjoint. Les ordinateurs membres du domaine peuvent inscrire leur enregistrement de ressource hôte (A) et l’enregistrement de ressource d’hôte IPv6 (AAAA) dans un espace de noms DNS disjoint. Lorsque les ordinateurs membres du domaine inscrivent leurs enregistrements de ressources de cette manière, les contrôleurs de domaine continuent d’inscrire les enregistrements de ressource de service (SRV) globaux et spécifiques au site dans la zone DNS qui est identique au nom de domaine Active Directory.  
   
-Par exemple, supposons qu’un contrôleur de domaine pour le domaine Active Directory nommé na.corp.fabrikam.com qui utilise un suffixe DNS principal de corp.fabrikam.com enregistre les enregistrements de ressource d’hôte (A) et d’hôte IPv6 (AAAA) dans la zone DNS corp.fabrikam.com. Le contrôleur de domaine continue à enregistrer les enregistrements de ressource de service (SRV) globaux et spécifiques aux sites dans les zones DNS _ msdcs. na. Corp. fabrikam. com et na.corp.fabrikam.com, ce qui rend possible l’emplacement du service.  
+Par exemple, supposons qu’un contrôleur de domaine pour le domaine Active Directory nommé na.corp.fabrikam.com qui utilise un suffixe DNS principal de corp.fabrikam.com enregistre les enregistrements de ressource d’hôte (A) et d’hôte IPv6 (AAAA) dans la zone DNS corp.fabrikam.com. Le contrôleur de domaine continue à enregistrer les enregistrements de ressource de service (SRV) globaux et spécifiques aux sites dans les zones DNS _msdcs. na. Corp. fabrikam. com et na.corp.fabrikam.com, ce qui rend possible l’emplacement du service.  
   
 > [!IMPORTANT]  
 > Bien que les systèmes d’exploitation Windows puissent prendre en charge un espace de noms disjoint, les applications qui sont écrites pour supposer que le suffixe DNS principal est le même que le suffixe de domaine Active Directory peut ne pas fonctionner dans un tel environnement. Pour cette raison, vous devez tester soigneusement toutes les applications et leurs systèmes d’exploitation respectifs avant de déployer un espace de noms disjoint.  
@@ -92,9 +91,9 @@ Avant de modifier un espace de noms, passez en revue les considérations suivant
   
     -   Si vous utilisez des ordinateurs Windows Server 2003 avec la délégation avec restriction, ces ordinateurs peuvent nécessiter une configuration supplémentaire pour modifier les noms de principal du service. Pour plus d’informations, voir l’article 936628 de la base de connaissances Microsoft ([https://go.microsoft.com/fwlink/?LinkId=102306](https://go.microsoft.com/fwlink/?LinkId=102306)).  
   
-    -   Si vous souhaitez déléguer des autorisations pour modifier les noms de principal du service (SPN) pour les administrateurs subordonnés, consultez délégation d’autorité pour modifier les noms de principal du service ([https://go.microsoft.com/fwlink/?LinkId=106639](https://go.microsoft.com/fwlink/?LinkId=106639)).  
+    -   Si vous souhaitez déléguer des autorisations pour modifier les noms de principal du service (SPN) pour les administrateurs subordonnés, consultez délégation d’autorité pour modifier les SPN ([https://go.microsoft.com/fwlink/?LinkId=106639](https://go.microsoft.com/fwlink/?LinkId=106639)).  
   
--   Si vous utilisez le protocole LDAP (Lightweight Directory Access Protocol) sur protocole SSL (SSL) (appelé LDAPs) avec une autorité de certification dans un déploiement dont les contrôleurs de domaine sont configurés dans un espace de noms disjoint, vous devez utiliser le nom de domaine Active Directory approprié et suffixe DNS principal lorsque vous configurez les certificats LDAPs.  
+-   Si vous utilisez le protocole LDAP (Lightweight Directory Access Protocol) sur protocole SSL (SSL) (appelé LDAPs) avec une autorité de certification dans un déploiement dont les contrôleurs de domaine sont configurés dans un espace de noms disjoint, vous devez utiliser le nom de domaine Active Directory approprié et le suffixe DNS principal lorsque vous configurez les certificats LDAPs.  
   
     Pour plus d’informations sur la configuration requise des certificats de contrôleur de domaine, voir l’article 321051 de la base de connaissances Microsoft ([https://go.microsoft.com/fwlink/?LinkId=102307](https://go.microsoft.com/fwlink/?LinkId=102307)).  
   

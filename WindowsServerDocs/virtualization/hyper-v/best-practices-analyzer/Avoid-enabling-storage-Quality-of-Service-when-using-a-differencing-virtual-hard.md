@@ -2,20 +2,19 @@
 title: Évitez d’activer la qualité de service de stockage lors de l’utilisation d’un disque dur virtuel de différenciation lorsque les disques durs virtuels parents et enfants se trouvent sur des volumes différents
 description: Version en ligne du texte de cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: aa9ed408-65cf-40dc-aad2-118b54c70179
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 716a32de2f9327e5eca38c470fa1b7c44150e9cb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4190b164b473e54c7fcecd68ddf8f746cebcfdc9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366439"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857782"
 ---
 # <a name="avoid-enabling-storage-quality-of-service-when-using-a-differencing-virtual-hard-disk-when-the-parent-and-child-virtual-hard-disks-are-on-different-volumes"></a>Évitez d’activer la qualité de service de stockage lors de l’utilisation d’un disque dur virtuel de différenciation lorsque les disques durs virtuels parents et enfants se trouvent sur des volumes différents
 
@@ -25,7 +24,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
 |**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
@@ -35,7 +34,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ## <a name="issue"></a>**Problème**  
 *La qualité de service de stockage est activée sur un disque dur virtuel de différenciation avec les disques durs virtuels parents et enfants sur des volumes différents.*  
   
-## <a name="impact"></a>**Impact**  
+## <a name="impact"></a>**Effet**  
 *Cette configuration peut entraîner un comportement de qualité de service de stockage inattendu pour le disque dur virtuel de différenciation, ainsi que d’autres disques durs virtuels sur les volumes parents et enfants. Cela a un impact sur les disques durs virtuels suivants :*  
   
 \<liste des disques durs virtuels >  

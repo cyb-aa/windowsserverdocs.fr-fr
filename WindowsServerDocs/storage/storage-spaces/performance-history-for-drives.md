@@ -1,34 +1,33 @@
 ---
-title: Historique des performances de disques
+title: Historique des performances pour les lecteurs
 ms.author: cosdar
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 02/02/2018
-Keywords: Espaces de stockage directs
 ms.localizationpriority: medium
-ms.openlocfilehash: d162275a885dac79e7efe749328ebdca471fcad1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a6c6065b8d7963ada5d80844b270fe088eaa6e56
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879190"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859452"
 ---
-# <a name="performance-history-for-drives"></a>Historique des performances de disques
+# <a name="performance-history-for-drives"></a>Historique des performances pour les lecteurs
 
-> S'applique à : Présentation de Windows Server Insider
+> S’applique à : Windows Server 2019
 
-Cette sous-rubrique de [l’historique des performances pour les espaces de stockage Direct](performance-history.md) décrit en détail l’historique des performances collecté pour les lecteurs. Historique des performances est disponible pour chaque lecteur dans le sous-système de stockage de cluster, indépendamment de bus ou type de média. Toutefois, il n’est pas disponible pour les disques de démarrage du système d’exploitation.
+Cette sous-rubrique de l' [historique des performances pour espaces de stockage direct](performance-history.md) décrit en détail l’historique des performances collecté pour les lecteurs. L’historique des performances est disponible pour chaque lecteur du sous-système de stockage en cluster, quel que soit le type de bus ou de média. Toutefois, il n’est pas disponible pour les lecteurs de démarrage du système d’exploitation.
 
    > [!NOTE]
-   > Historique des performances ne peuvent pas être collectées pour les lecteurs dans un serveur est arrêté. Collection reprendra automatiquement lorsque le serveur redevient opérationnel.
+   > L’historique des performances ne peut pas être collecté pour les lecteurs d’un serveur défaillant. La collecte reprendra automatiquement lorsque le serveur sera à nouveau disponible.
 
-## <a name="series-names-and-units"></a>Unités et les noms de série
+## <a name="series-names-and-units"></a>Noms et unités des séries
 
 Ces séries sont collectées pour chaque lecteur éligible :
 
-| série                          | Unit             |
+| Série                          | Unit             |
 |---------------------------------|------------------|
 | `physicaldisk.iops.read`        | par seconde       |
 | `physicaldisk.iops.write`       | par seconde       |
@@ -39,30 +38,30 @@ Ces séries sont collectées pour chaque lecteur éligible :
 | `physicaldisk.latency.read`     | secondes          |
 | `physicaldisk.latency.write`    | secondes          |
 | `physicaldisk.latency.average`  | secondes          |
-| `physicaldisk.size.total`       | bytes            |
-| `physicaldisk.size.used`        | bytes            |
+| `physicaldisk.size.total`       | octets            |
+| `physicaldisk.size.used`        | octets            |
 
 ## <a name="how-to-interpret"></a>Comment interpréter
 
-| série                          | Comment interpréter                                                            |
+| Série                          | Comment interpréter                                                            |
 |---------------------------------|-----------------------------------------------------------------------------|
 | `physicaldisk.iops.read`        | Nombre d’opérations de lecture par seconde effectuées par le lecteur.                |
 | `physicaldisk.iops.write`       | Nombre d’opérations d’écriture par seconde effectuées par le lecteur.               |
-| `physicaldisk.iops.total`       | Nombre total de lire ou écrire des opérations par seconde effectuées par le lecteur. |
-| `physicaldisk.throughput.read`  | Quantité de données lues à partir du disque par seconde.                            |
+| `physicaldisk.iops.total`       | Nombre total d’opérations de lecture ou d’écriture par seconde effectuées par le lecteur. |
+| `physicaldisk.throughput.read`  | Quantité de données lues à partir du lecteur par seconde.                            |
 | `physicaldisk.throughput.write` | Quantité de données écrites sur le disque par seconde.                           |
-| `physicaldisk.throughput.total` | Quantité totale de données lues ou écrites sur le disque par seconde.        |
+| `physicaldisk.throughput.total` | Quantité totale de données lues ou écrites sur le lecteur par seconde.        |
 | `physicaldisk.latency.read`     | Latence moyenne des opérations de lecture à partir du lecteur.                          |
 | `physicaldisk.latency.write`    | Latence moyenne des opérations d’écriture sur le lecteur.                           |
-| `physicaldisk.latency.average`  | Latence moyenne de toutes les opérations vers ou depuis le lecteur.                     |
-| `physicaldisk.size.total`       | La capacité de stockage totale du lecteur.                                    |
-| `physicaldisk.size.used`        | La capacité de stockage utilisé du lecteur.                                     |
+| `physicaldisk.latency.average`  | Latence moyenne de toutes les opérations vers ou à partir du lecteur.                     |
+| `physicaldisk.size.total`       | Capacité de stockage totale du lecteur.                                    |
+| `physicaldisk.size.used`        | Capacité de stockage utilisée du lecteur.                                     |
 
-## <a name="where-they-come-from"></a>S’ils proviennent d'
+## <a name="where-they-come-from"></a>Origine de leur provenance
 
-Le `iops.*`, `throughput.*`, et `latency.*` série est collectée à partir de la `Physical Disk` compteur de performance définies sur le serveur où le lecteur est connecté, une seule instance par le lecteur. Ces compteurs sont mesurées par `partmgr.sys` et n’incluent pas la quantité de la pile de logiciels Windows, ainsi que les sauts de réseau. Ils sont représentatives des performances du périphérique matériel.
+Les séries `iops.*`, `throughput.*`et `latency.*` sont collectées à partir de l’ensemble de compteurs de performance `Physical Disk` sur le serveur sur lequel le lecteur est connecté, une instance par lecteur. Ces compteurs sont mesurés par `partmgr.sys` et n’incluent pas la plus grande partie de la pile logicielle Windows ni aucun saut réseau. Elles sont représentatives des performances matérielles des appareils.
 
-| série                          | Compteur de la source           |
+| Série                          | Compteur source           |
 |---------------------------------|--------------------------|
 | `physicaldisk.iops.read`        | `Disk Reads/sec`         |
 | `physicaldisk.iops.write`       | `Disk Writes/sec`        |
@@ -75,18 +74,18 @@ Le `iops.*`, `throughput.*`, et `latency.*` série est collectée à partir de l
 | `physicaldisk.latency.average`  | `Avg. Disk sec/Transfer` |
 
    > [!NOTE]
-   > Les compteurs sont mesurées sur tout l’intervalle, ont ne pas été échantillonnée. Par exemple, si le lecteur est inactif pendant 9 secondes, mais se termine 30 IOs dans la deuxième de 10, sa `physicaldisk.iops.total` seront enregistrées comme 3 e/s par seconde en moyenne pendant cet intervalle de 10 secondes. Cela garantit son historique des performances capture toutes les activités et sont robuste au bruit.
+   > Les compteurs sont mesurés sur l’intégralité de l’intervalle, et non échantillonnés. Par exemple, si le lecteur est inactif pendant 9 secondes, mais qu’il termine 30 IOs dans le dixième seconde, son `physicaldisk.iops.total` sera enregistré comme 3 IOs par seconde en moyenne au cours de cet intervalle de 10 secondes. Cela garantit que son historique des performances capture toutes les activités et est robuste pour le bruit.
 
-Le `size.*` série est collectée à partir de la `MSFT_PhysicalDisk` classe dans WMI, une seule instance par le lecteur.
+Les séries `size.*` sont collectées à partir de la classe `MSFT_PhysicalDisk` dans WMI, une instance par lecteur.
 
-| série                          | Propriété Source        |
+| Série                          | Source (propriété)        |
 |---------------------------------|------------------------|
 | `physicaldisk.size.total`       | `Size`                 |
 | `physicaldisk.size.used`        | `VirtualDiskFootprint` |
 
 ## <a name="usage-in-powershell"></a>Utilisation dans PowerShell
 
-Utilisez le [Get-PhysicalDisk](https://docs.microsoft.com/powershell/module/storage/get-physicaldisk) applet de commande :
+Utilisez l’applet de commande [obten-PhysicalDisk](https://docs.microsoft.com/powershell/module/storage/get-physicaldisk) :
 
 ```PowerShell
 Get-PhysicalDisk -SerialNumber <SerialNumber> | Get-ClusterPerf
@@ -94,4 +93,4 @@ Get-PhysicalDisk -SerialNumber <SerialNumber> | Get-ClusterPerf
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Historique des performances pour les espaces de stockage Direct](performance-history.md)
+- [Historique des performances pour espaces de stockage direct](performance-history.md)

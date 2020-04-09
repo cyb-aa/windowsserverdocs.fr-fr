@@ -1,6 +1,5 @@
 ---
 title: Récupération de la forêt Active Directory-redéploiement des contrôleurs de domaine restants
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: fbab907c5624a76540ab6a28c568afbd9192c028
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 17e5ceec74277c888232d17adca5c2bbb305af97
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390246"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823622"
 ---
 # <a name="ad-forest-recovery---redeploy-remaining-dcs"></a>Récupération de la forêt Active Directory-redéploiement des contrôleurs de domaine restants
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
 Les étapes jusqu’à ce point s’appliquent à toutes les forêts : recherchez une sauvegarde valide pour chaque domaine, récupérez les domaines de manière isolée, reconnectez-les, réinitialisez le catalogue global et nettoyez. Au cours de cette étape suivante, vous allez redéployer la forêt. La façon de procéder dépend beaucoup de la conception de votre forêt, de vos contrats de niveau de service, de votre structure de site, de la bande passante disponible et de nombreux autres facteurs. Vous devez concevoir votre propre plan de redéploiement en fonction des principes et des suggestions de cette section, d’une manière qui convient le mieux aux besoins de votre entreprise.  
   
@@ -40,8 +39,8 @@ Prenez en compte les points supplémentaires suivants pour chaque contrôleur de
 - Si vous clonez des contrôleurs de contrôle supplémentaires virtualisés à partir du premier contrôleur de périphérique virtualisé à restaurer, le contrôleur de périphérique source doit être arrêté lors de la copie du fichier VHDX. Ensuite, il doit être en cours d’exécution et disponible en ligne lors du premier démarrage des contrôleurs de service virtuels clone. Si le temps d’arrêt requis par l’arrêt n’est pas acceptable pour le premier contrôleur de périphérique récupéré, déployez un contrôleur de périphérique virtualisé supplémentaire en installant AD DS pour agir en tant que source pour le clonage.  
 - Il n’existe aucune restriction sur le nom d’hôte du contrôleur de périphérique virtualisé cloné ou sur le serveur sur lequel vous souhaitez installer AD DS. Vous pouvez utiliser un nouveau nom d’hôte ou le nom d’hôte qui était déjà utilisé. Pour plus d’informations sur la syntaxe du nom d’hôte DNS, voir [Creating DNS Computer Names](https://technet.microsoft.com/library/cc785282.aspx) ([https://go.microsoft.com/fwlink/?LinkId=74564](https://go.microsoft.com/fwlink/?LinkId=74564)).  
 - Configurez chaque serveur avec le premier serveur DNS de la forêt (le premier contrôleur de domaine qui a été restauré dans le domaine racine) comme serveur DNS préféré dans les propriétés TCP/IP de sa carte réseau. Pour plus d’informations, consultez [Configurer TCP/IP pour utiliser DNS](https://technet.microsoft.com/library/cc779282.aspx).  
-- Redéployez tous les contrôleurs de domaine en lecture seule dans le domaine, soit par clonage de contrôleur de domaine virtualisé si plusieurs contrôleurs de domaine en lecture seule sont déployés dans un emplacement central, soit par la méthode traditionnelle de reconstruction en supprimant et en réinstallant les AD DS s’ils sont déployés individuellement dans des emplacements isolés. comme les succursales.  
-   - La reconstruction de RODC garantit qu’ils ne contiennent pas d’objets en attente et peuvent contribuer à empêcher les conflits de réplication de se produire ultérieurement. Lorsque vous supprimez AD DS d’un RODC, *Choisissez l’option permettant de conserver les métadonnées du contrôleur*de domaine. L’utilisation de cette option conserve le compte krbtgt du contrôleur de domaine en lecture seule et conserve les autorisations pour le compte d’administrateur RODC délégué et le Stratégie de réplication de mot de passe (PRP) et vous évite d’avoir à utiliser les informations d’identification d’administrateur de domaine pour supprimer et réinstaller AD DS sur contrôleur de domaine en lecture seule. Il conserve également les rôles de serveur DNS et de catalogue global s’ils sont installés sur le contrôleur de domaine en lecture seule à l’origine.  
+- Redéployez tous les contrôleurs de domaine en lecture seule dans le domaine, soit par le clonage de contrôleur de domaine virtualisé si plusieurs contrôleurs de domaine en lecture seule sont déployés dans un emplacement central, soit par la méthode traditionnelle de reconstruction en supprimant et en réinstallant les AD DS s’ils sont déployés individuellement dans des emplacements isolés, tels que des succursales.  
+   - La reconstruction de RODC garantit qu’ils ne contiennent pas d’objets en attente et peuvent contribuer à empêcher les conflits de réplication de se produire ultérieurement. Lorsque vous supprimez AD DS d’un RODC, *Choisissez l’option permettant de conserver les métadonnées du contrôleur*de domaine. L’utilisation de cette option conserve le compte krbtgt pour le contrôleur de domaine en lecture seule et conserve les autorisations pour le compte d’administrateur RODC délégué et le Stratégie de réplication de mot de passe (PRP) et vous évite d’avoir à utiliser les informations d’identification d’administrateur de domaine pour supprimer et réinstaller AD DS sur un contrôleur de domaine en lecture seule. Il conserve également les rôles de serveur DNS et de catalogue global s’ils sont installés sur le contrôleur de domaine en lecture seule à l’origine.  
    - Lorsque vous reconstruisez des contrôleurs de flux (RODC ou DC inscriptibles), le trafic de réplication peut être augmenté au cours de la réinstallation. Pour réduire cet impact, vous pouvez échelonner la planification des installations de RODC, et vous pouvez utiliser l’option installer à partir du support (IFM). Si vous utilisez l’option IFM, exécutez la commande **Ntdsutil IFM** sur un contrôleur de périphérique accessible en écriture dont vous faites confiance pour libérer des données endommagées. Cela permet d’éviter une altération possible de l’affichage sur le contrôleur de domaine en lecture seule une fois la réinstallation de AD DS terminée. Pour plus d’informations sur IFM, consultez [installation de AD DS à partir d’un média](https://technet.microsoft.com/library/cc770654\(WS.10\).aspx).  
    - Pour plus d’informations sur la reconstruction des contrôleurs de domaine en [lecture seule, consultez suppression et réinstallation de RODC](https://technet.microsoft.com/library/cc835490\(WS.10\).aspx).  
 - Si un contrôleur de domaine exécute le service serveur DNS avant la défaillance de la forêt, installez et configurez le service serveur DNS lors de l’installation de AD DS. Sinon, configurez ses anciens clients DNS avec d’autres serveurs DNS.  

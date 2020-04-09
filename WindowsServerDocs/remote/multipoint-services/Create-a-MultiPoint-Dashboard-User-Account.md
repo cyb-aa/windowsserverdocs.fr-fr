@@ -1,27 +1,23 @@
 ---
 title: Créer un compte d’utilisateur du tableau de bord MultiPoint
-ms.custom: na
 description: Créer un compte à utiliser avec le tableau de bord
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: eb9d7da1-eb5e-42c0-8d59-bb6d7b007ea9
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: b4e5fb85ae1dcaf7bd698f052e990e6ac1ac8dbc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b94c02fe514b4f7a694b908600127eda7c664c09
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389769"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859792"
 ---
 # <a name="create-a-multipoint-dashboard-user-account"></a>Créer un compte d’utilisateur du tableau de bord MultiPoint
-Créer des comptes d’utilisateurs de tableau de bord MultiPoint pour les utilisateurs qui accèdent régulièrement aux stations, mais qui ne gère pas votre système MultiPoint services. Les utilisateurs avec des comptes d’utilisateur du tableau de bord MultiPoint peuvent exécuter la plupart des applications et enregistrer des fichiers, mais ne peuvent pas exécuter le gestionnaire MultiPoint. Pour voir qui a accès utilisateur au tableau de bord MultiPoint, dans le gestionnaire MultiPoint, cliquez sur l’onglet **utilisateurs** . Les comptes d’utilisateur du tableau de bord MultiPoint sont affichés dans la colonne Type de compte en tant qu’**Utilisateur du tableau de bord MultiPoint**.  
+Créez des comptes d’utilisateur du tableau de bord MultiPoint pour les utilisateurs qui accèdent régulièrement aux stations, mais ne gèrent pas votre système MultiPoint Services. Les utilisateurs avec des comptes d’utilisateur du tableau de bord MultiPoint peuvent exécuter la plupart des applications et enregistrer des fichiers, mais ne peuvent pas exécuter le gestionnaire MultiPoint. Pour voir qui a accès utilisateur au tableau de bord MultiPoint, dans le gestionnaire MultiPoint, cliquez sur l’onglet **utilisateurs** . les comptes d’utilisateur du tableau de bord multipoint s’affichent dans la colonne **type de compte** en tant qu’utilisateur du **tableau de bord multipoint**.  
   
 Si vos utilisateurs MultiPoint Services stockent des documents privés dans Windows, ils doivent chacun se connecter au système MultiPoint Services avec un nom d’utilisateur et un mot de passe uniques.  
   

@@ -6,16 +6,16 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.date: 07/24/2019
-ms.author: lizross, v-tea
-author: eross-msft
+ms.author: v-tea
+author: Teresa-MOTIV
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 30a8e3053f263ffad3be940a52e845fb7159dde1
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 74cda6a899d69a951c34a9a88e2f51ef1590b621
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313298"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859492"
 ---
 # <a name="advanced-features-of-always-on-vpn"></a>Fonctionnalités avancées de Always On VPN
 
@@ -32,7 +32,7 @@ Vous trouverez ci-dessous des options supplémentaires pour la haute disponibili
 
 |Option  |Description  |
 |---------|---------|
-|Résilience de serveur et équilibrage de charge     |Dans les environnements qui nécessitent une haute disponibilité ou qui prennent en charge un grand nombre de requêtes, vous pouvez augmenter les performances et la résilience de l’accès à distance en utilisant l’équilibrage de charge entre plusieurs serveurs qui exécutent le serveur NPS (Network Policy Server) et l’activation de. Clustering de serveurs d’accès à distance.<p>Documents associés :<ul><li>[Équilibrage de charge du serveur proxy NPS](../../../../../networking/technologies/nps/nps-manage-proxy-lb.md)</li><li>[Déployer l’accès à distance dans un cluster](https://docs.microsoft.com/windows-server/remote/remote-access/ras/cluster/deploy-remote-access-in-cluster)</li></ul>        |
+|Résilience de serveur et équilibrage de charge     |Dans les environnements qui nécessitent une haute disponibilité ou qui prennent en charge un grand nombre de requêtes, vous pouvez augmenter les performances et la résilience de l’accès à distance en utilisant l’équilibrage de charge entre plusieurs serveurs qui exécutent le serveur NPS (Network Policy Server) et l’activation du clustering de serveurs d’accès à distance.<p>Documents associés :<ul><li>[Équilibrage de charge du serveur proxy NPS](../../../../../networking/technologies/nps/nps-manage-proxy-lb.md)</li><li>[Déployer l’accès à distance dans un cluster](https://docs.microsoft.com/windows-server/remote/remote-access/ras/cluster/deploy-remote-access-in-cluster)</li></ul>        |
 |Résilience de site géographique     |Pour la géolocalisation basée sur IP, vous pouvez utiliser des Traffic Manager globales avec DNS dans Windows Server 2016. Pour un équilibrage de charge géographique plus robuste, vous pouvez utiliser des solutions d’équilibrage de charge de serveur globales, telles que Microsoft Azure Traffic Manager.<p>Documents associés :<ul><li>[Vue d’ensemble de Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)</li><li>[Microsoft Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager)</li></ul>         |
 
 ## <a name="advanced-authentication"></a>Authentification avancée
@@ -68,7 +68,7 @@ Le tableau suivant répertorie les mises en production qui contiennent les corre
 |---------|---------|
 |Windows Server, version 1903  |[KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375) |
 |Windows Server 2019<br />Windows Server, version 1809  |[KB4505658](https://support.microsoft.com/help/4505658/windows-10-update-kb4505658)  |
-|Windows Server, version 1803  |[KB4507466](https://support.microsoft.com/help/4507466/windows-10-update-kb4507466)  |
+|Windows Server, version 1803  |[KB4507466](https://support.microsoft.com/help/4507466/windows-10-update-kb4507466)  |
 |Windows Server, version 1709  |[KB4507465](https://support.microsoft.com/help/4507465/windows-10-update-kb4507465)  |
 |Windows Server 2016, version 1607  |[KB4503294](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) |
 
@@ -76,7 +76,7 @@ Le tableau suivant répertorie les mises en production qui contiennent les corre
 
 1. Installez les mises à jour Windows dès qu’elles sont disponibles.
 1. Assurez-vous que tous les certificats du client VPN et du serveur RRAS que vous utilisez comportent des entrées CDP et que le serveur RRAS peut atteindre les listes de révocation de certificats respectives.
-1. Sur le serveur RRAS, utilisez l’applet de commande PowerShell **Set-VpnAuthProtocol** pour configurer le paramètre **RootCertificateNameToAccept** .<br /><br />
+1. Sur le serveur RRAS, utilisez l’applet de commande PowerShell **Set-VpnAuthProtocol** pour configurer le paramètre **RootCertificateNameToAccept** .<p>
    L’exemple suivant répertorie les commandes permettant d’effectuer cette opération. Dans l’exemple, **CN = autorité de certification racine contoso** représente le nom unique de l’autorité de certification racine. 
    ``` powershell
    $cert1 = ( Get-ChildItem -Path cert:LocalMachine\root | Where-Object -FilterScript { $_.Subject -Like "*CN=Contoso Root Certification Authority*" } )
@@ -111,7 +111,7 @@ Pour désactiver la révocation de certificat pour ces connexions VPN, définiss
 1. Recherchez un événement qui contient les informations suivantes :
    * Nom du journal : **Microsoft-Windows-CAPI2/Operational Microsoft-Windows-CAPI2/Operational**
    * ID d’événement : **41** 
-   * L’événement contient le texte suivant : **Subject = "** nom de domaine complet du client" (*FQDN client* représente le nom de domaine complet du client qui a le certificat révoqué). 
+   * L’événement contient le texte suivant : **Subject = "*Client FQDN*** nom de domaine complet du client" (*FQDN client* représente le nom de domaine complet du client qui a le certificat révoqué). 
 
    Le champ **<Result>** des données d’événement doit inclure **le certificat est révoqué**. Par exemple, consultez les extraits suivants d’un événement :
    ```xml

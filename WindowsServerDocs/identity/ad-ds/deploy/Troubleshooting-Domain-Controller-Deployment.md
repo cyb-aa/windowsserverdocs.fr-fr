@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5ab76733-804d-4f30-bee6-cb672ad5075a
 title: Résolution des problèmes de déploiement de contrôleur de domaine
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 88fc0e14569c395bd1479ead338d83bffc2fd72f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 41e2740c5e11b6a54a544d5c895d6bee27232680
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369622"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824922"
 ---
 # <a name="troubleshooting-domain-controller-deployment"></a>Résolution des problèmes de déploiement de contrôleur de domaine
 
@@ -32,11 +31,11 @@ Les journaux intégrés représentent le meilleur moyen de résoudre les problè
 
 |Phase|Journal|  
 |---------|-------|  
-|Opérations Windows PowerShell ADDSDeployment ou du Gestionnaire de serveur|- %systemroot%\debug\dcpromoui.log<br /><br />-%systemroot%\debug\DCPROMOUI *. log|  
-|Installation/Promotion du contrôleur de domaine|-%systemroot%\Debug\Dcpromo.log<br /><br />-%systemroot%\Debug\Dcpromo *. log<br /><br />-Event viewer\Windows \ système<br /><br />-Event viewer\Windows Windows\application<br /><br />-Event observateur et services logs\Directory service<br /><br />-Event observateur et services logs\File Replication service<br /><br />-Réplication d’événements observateur et services logs\DFS|  
-|Mise à niveau de forêt ou de domaine|-%systemroot%\debug\adprep\\<datetime>\adprep.log<br /><br />-%systemroot%\debug\adprep\\<datetime>\csv.log<br /><br />-%systemroot%\debug\adprep\\<datetime>\dspecup.log<br /><br />-%systemroot%\debug\adprep\\<datetime>\ldif.log *|  
+|Opérations Windows PowerShell ADDSDeployment ou du Gestionnaire de serveur|- %systemroot%\debug\dcpromoui.log<p>-%systemroot%\debug\DCPROMOUI *. log|  
+|Installation/Promotion du contrôleur de domaine|-%systemroot%\Debug\Dcpromo.log<p>-%systemroot%\Debug\Dcpromo *. log<p>-Event viewer\Windows \ système<p>-Event viewer\Windows Windows\application<p>-Event observateur et services logs\Directory service<p>-Event observateur et services logs\File Replication service<p>-Réplication d’événements observateur et services logs\DFS|  
+|Mise à niveau de forêt ou de domaine|-%systemroot%\debug\adprep\\<datetime>\adprep.log<p>-%systemroot%\debug\adprep\\<datetime>\csv.log<p>-%systemroot%\debug\adprep\\<datetime>\dspecup.log<p>-%systemroot%\debug\adprep\\<datetime>\ldif.log *|  
 |Moteur de déploiement Windows PowerShell ADDSDeployment du Gestionnaire de serveur|-Event observateur et services logs\Microsoft\Windows\DirectoryServices-Deployment\Operational|  
-|Services de maintenance Windows|-%systemroot%\Logs\CBS\\*<br /><br />- %systemroot%\servicing\sessions\sessions.xml<br /><br />- %systemroot%\winsxs\poqexec.log<br /><br />- %systemroot%\winsxs\pending.xml|  
+|Services de maintenance Windows|-%systemroot%\Logs\CBS\\*<p>- %systemroot%\servicing\sessions\sessions.xml<p>- %systemroot%\winsxs\poqexec.log<p>- %systemroot%\winsxs\pending.xml|  
 
 ### <a name="tools-and-commands-for-troubleshooting-domain-controller-configuration"></a>Outils et commandes pour la résolution des problèmes de configuration des contrôleurs de domaine
 
@@ -118,8 +117,8 @@ La promotion et la rétrogradation des contrôleurs de domaine retournent toujou
 |--------------|---------------|--------|  
 |1|Sortie, réussite|Vous devez quand même redémarrer, cela indique juste que l'indicateur de redémarrage automatique a été supprimé|  
 |2|Sortie, réussite, redémarrage nécessaire||  
-|3|Sortie, réussite, avec une défaillance non critique|Généralement affiché quand l'avertissement de délégation DNS est retourné. En l'absence de configuration de la délégation DNS, utilisez :<br /><br />-creatednsdelegation:$false|  
-|4|Sortie, réussite, avec une défaillance non critique, redémarrage nécessaire|Généralement affiché quand l'avertissement de délégation DNS est retourné. En l'absence de configuration de la délégation DNS, utilisez :<br /><br />-creatednsdelegation:$false|  
+|3|Sortie, réussite, avec une défaillance non critique|Généralement affiché quand l'avertissement de délégation DNS est retourné. En l'absence de configuration de la délégation DNS, utilisez :<p>-creatednsdelegation:$false|  
+|4|Sortie, réussite, avec une défaillance non critique, redémarrage nécessaire|Généralement affiché quand l'avertissement de délégation DNS est retourné. En l'absence de configuration de la délégation DNS, utilisez :<p>-creatednsdelegation:$false|  
 
 ### <a name="promotion-and-demotion-failure-codes"></a>Codes d’échec de promotion et de rétrogradation
 
@@ -223,7 +222,7 @@ Vous trouverez ci-dessous les problèmes courants rencontrés pendant le process
 |Problème|La rétrogradation d'un contrôleur de domaine laisse DNS s'exécuter sans zones|  
 |---------|-----------------------------------------------------------------|  
 |Symptômes|Le serveur répond toujours aux demandes DNS mais n'a aucune information de zone|  
-|Résolution et remarques|Quand vous supprimez le rôle AD DS, supprimez également le rôle Serveur DNS ou définissez le service Serveur DNS comme étant désactivé. Gardez à l'esprit que le client DNS doit pointer vers un autre serveur que lui-même. Si vous utilisez Windows PowerShell, exécutez la commande suivante après avoir rétrogradé le serveur :<br /><br />Code-Uninstall-WindowsFeature DNS<br /><br />ou<br /><br />Code-set-service DNS-StartType désactivé<br />arrêter-service DNS|  
+|Résolution et remarques|Quand vous supprimez le rôle AD DS, supprimez également le rôle Serveur DNS ou définissez le service Serveur DNS comme étant désactivé. Gardez à l'esprit que le client DNS doit pointer vers un autre serveur que lui-même. Si vous utilisez Windows PowerShell, exécutez la commande suivante après avoir rétrogradé le serveur :<p>Code-Uninstall-WindowsFeature DNS<p>ou<p>Code-set-service DNS-StartType désactivé<br />arrêter-service DNS|  
 
 |Problème|La promotion d'un ordinateur Windows Server 2012 en un domaine en une partie existant ne configure pas updatetopleveldomain=1 ni allowsinglelabeldnsdomain=1|  
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------------|  
@@ -232,7 +231,7 @@ Vous trouverez ci-dessous les problèmes courants rencontrés pendant le process
 
 |Problème|La rétrogradation du dernier contrôleur de domaine dans un domaine échoue s'il existe des comptes de contrôleur de domaine en lecture seule inoccupés et précréés|  
 |---------|------------------------------------------------------------------------------------------------------------|  
-|Symptômes|La rétrogradation échoue avec le message suivant :<br /><br />**Dcpromo. général. 54**<br /><br />Les services de domaine Active Directory n'ont pas trouvé un autre contrôleur de domaine Active Directory pour transférer les données restantes dans la partition d'annuaire CN=Schema,CN=Configuration,DC=corp,DC=contoso,DC=com.<br /><br />« Le format du nom de domaine spécifié n'est pas valide. »|  
+|Symptômes|La rétrogradation échoue avec le message suivant :<p>**Dcpromo. général. 54**<p>Les services de domaine Active Directory n'ont pas trouvé un autre contrôleur de domaine Active Directory pour transférer les données restantes dans la partition d'annuaire CN=Schema,CN=Configuration,DC=corp,DC=contoso,DC=com.<p>« Le format du nom de domaine spécifié n'est pas valide. »|  
 |Résolution et remarques|Supprimez tous les comptes de contrôleur de domaine en lecture seule précréés restants avant de rétrograder un domaine en utilisant **Dsa.msc** ou **Ntdsutil.exe metadata cleanup**.|  
 
 |Problème|La préparation automatisée de la forêt et du domaine n'exécute pas GPPREP|  
@@ -242,28 +241,28 @@ Vous trouverez ci-dessous les problèmes courants rencontrés pendant le process
 
 |Problème|L'installation à partir du support ne peut pas effectuer de vérification quand elle pointe vers un chemin d'accès UNC|  
 |---------|------------------------------------------------------------------|  
-|Symptômes|Erreur retournée :<br /><br />Code-impossible de valider le chemin d’accès du support. Exception lors de l’appel de « GetDatabaseInfo » avec les arguments « 2 ». Le dossier n’est pas valide.|  
+|Symptômes|Erreur retournée :<p>Code-impossible de valider le chemin d’accès du support. Exception lors de l’appel de « GetDatabaseInfo » avec les arguments « 2 ». Le dossier n’est pas valide.|  
 |Résolution et remarques|Vous devez stocker des fichiers IFM sur un disque local, et non un chemin d'accès UNC distant. Ce blocage intentionnel empêche une promotion partielle du serveur en raison d'une interruption réseau.|  
 
 |Problème|Un avertissement relatif à la délégation DNS s'affiche à deux reprises pendant la promotion du contrôleur de domaine|  
 |---------|-------------------------------------------------------------------------|  
-|Symptômes|AVERTISSEMENT retourné *deux fois* lors de la promotion à l’aide de ADDSDeployment Windows PowerShell :<br /><br />Code-«impossible de créer une délégation pour ce serveur DNS car la zone parente faisant autorité est introuvable ou elle n’exécute pas le serveur DNS Windows. Si vous intégrez à une infrastructure DNS existante, vous devez créer manuellement une délégation à ce serveur DNS dans la zone parente pour garantir une résolution de noms fiable en dehors du domaine. Dans le cas contraire, aucune action n’est requise.»|  
-|Résolution et remarques|Ignorez le message. Windows PowerShell ADDSDeployment affiche d'abord l'avertissement pendant la vérification de la configuration requise, puis une nouvelle fois pendant la configuration du contrôleur de domaine. Si vous ne voulez pas configurer la délégation DNS, utilisez l'argument :<br /><br />Code--CreateDNSDelegation : $false<br /><br />N'ignorez *pas* les vérifications de la configuration requise afin de supprimer ce message|  
+|Symptômes|AVERTISSEMENT retourné *deux fois* lors de la promotion à l’aide de ADDSDeployment Windows PowerShell :<p>Code-«impossible de créer une délégation pour ce serveur DNS car la zone parente faisant autorité est introuvable ou elle n’exécute pas le serveur DNS Windows. Si vous intégrez à une infrastructure DNS existante, vous devez créer manuellement une délégation à ce serveur DNS dans la zone parente pour garantir une résolution de noms fiable en dehors du domaine. Dans le cas contraire, aucune action n’est requise.»|  
+|Résolution et remarques|ignorez. Windows PowerShell ADDSDeployment affiche d'abord l'avertissement pendant la vérification de la configuration requise, puis une nouvelle fois pendant la configuration du contrôleur de domaine. Si vous ne voulez pas configurer la délégation DNS, utilisez l'argument :<p>Code--CreateDNSDelegation : $false<p>N'ignorez *pas* les vérifications de la configuration requise afin de supprimer ce message|  
 
 |Problème|La spécification d'informations d'identification UPN ou externes au domaine pendant la configuration retourne des erreurs trompeuses|  
 |---------|--------------------------------------------------------------------------------------------|  
-|Symptômes|Le Gestionnaire de serveur retourne une erreur :<br /><br />Code-exception appelant « DNSOption » avec « 6 » arguments<br /><br />Windows PowerShell ADDSDeployment retourne une erreur :<br /><br />Échec de la vérification du code des autorisations de l’utilisateur. Vous devez fournir le nom du domaine auquel appartient ce compte d’utilisateur.|  
+|Symptômes|Le Gestionnaire de serveur retourne une erreur :<p>Code-exception appelant « DNSOption » avec « 6 » arguments<p>Windows PowerShell ADDSDeployment retourne une erreur :<p>Échec de la vérification du code des autorisations de l’utilisateur. Vous devez fournir le nom du domaine auquel appartient ce compte d’utilisateur.|  
 |Résolution et remarques|Vérifiez que vous fournissez des informations d'identification de domaine valides sous la forme **domaine\utilisateur**.|  
 
 |Problème|La suppression du rôle DirectoryServices-DomainController à l'aide de Dism.exe aboutit à l'impossibilité de redémarrer le serveur|  
 |---------|---------------------------------------------------------------------------------------------------|  
-|Symptômes|Si vous utilisez Dism.exe pour supprimer le rôle AD DS avant de rétrograder un contrôleur de domaine de manière appropriée, le serveur ne démarre plus normalement et affiche l'erreur suivante :<br /><br />Code-état : 0x000000000<br />Info : une erreur inattendue s’est produite.|  
+|Symptômes|Si vous utilisez Dism.exe pour supprimer le rôle AD DS avant de rétrograder un contrôleur de domaine de manière appropriée, le serveur ne démarre plus normalement et affiche l'erreur suivante :<p>Code-état : 0x000000000<br />Info : une erreur inattendue s’est produite.|  
 |Résolution et remarques|Démarrez en mode de réparation des services d'annuaire à l'aide de *Maj+F8*. Rajoutez le rôle AD DS, puis rétrogradez de force le contrôleur de domaine. Vous pouvez également restaurer l'état du système à partir de la sauvegarde. N'utilisez pas Dism.exe pour la suppression du rôle AD DS ; l'utilitaire ne connaît pas les contrôleurs de domaine.|  
 
 |Problème|L'installation d'une nouvelle forêt échoue quand forestmode a la valeur Win2012|  
 |---------|--------------------------------------------------------------------|  
-|Symptômes|La promotion avec Windows PowerShell ADDSDeployment retourne une erreur :<br /><br />Code-test. VerifyDcPromoCore. DCPromo. General. 74<br /><br />La vérification des conditions préalables pour la promotion du contrôleur de domaine a échoué. Le niveau fonctionnel de domaine spécifié n’est pas valide|  
-|Résolution et remarques|Ne spécifiez pas le mode fonctionnel de forêt Win2012 sans spécifier *également* le mode fonctionnel de domaine Win2012. Voici un exemple qui fonctionnera sans erreurs :<br /><br />Code--ForestMode Win2012-domainMode Win2012]|  
+|Symptômes|La promotion avec Windows PowerShell ADDSDeployment retourne une erreur :<p>Code-test. VerifyDcPromoCore. DCPromo. General. 74<p>La vérification des conditions préalables pour la promotion du contrôleur de domaine a échoué. Le niveau fonctionnel de domaine spécifié n’est pas valide|  
+|Résolution et remarques|Ne spécifiez pas le mode fonctionnel de forêt Win2012 sans spécifier *également* le mode fonctionnel de domaine Win2012. Voici un exemple qui fonctionnera sans erreurs :<p>Code--ForestMode Win2012-domainMode Win2012]|  
 
 |||  
 |-|-|  
@@ -275,19 +274,19 @@ Vous trouverez ci-dessous les problèmes courants rencontrés pendant le process
 |-|-|  
 |Problème|La rétrogradation avec le Gestionnaire de serveur ne fournit pas de commentaires avant la fin de l'opération.|  
 |Symptômes|Quand vous utilisez le Gestionnaire de serveur pour supprimer le rôle AD DS et rétrograder un contrôleur de domaine, aucun commentaire n'est donné tant que la rétrogradation n'est pas terminée ou n'a pas échoué.|  
-|Résolution et remarques|Il s'agit d'une limitation du Gestionnaire de serveur. Pour les commentaires, utilisez l'applet de commande Windows PowerShell ADDSDeployment :<br /><br />Code-Uninstall-addsdomaincontroller|  
+|Résolution et remarques|Il s'agit d'une limitation du Gestionnaire de serveur. Pour les commentaires, utilisez l'applet de commande Windows PowerShell ADDSDeployment :<p>Code-Uninstall-addsdomaincontroller|  
 
 |||  
 |-|-|  
 |Problème|Le bouton Vérifier de l'option Installation à partir du support ne détecte pas le support du contrôleur de domaine en lecture seule fourni pour le contrôleur de domaine en lecture-écriture, ou inversement.|  
-|Symptômes|Pendant la promotion d'un nouveau contrôleur de domaine à l'aide d'IFM et en fournissant un support incorrect à IFM (par exemple un support de contrôleur de domaine en lecture seule pour un contrôleur de domaine en lecture-écriture, ou un support de contrôleur de domaine en lecture-écriture pour un contrôleur de domaine en lecture seule), le bouton Vérifier ne retourne pas d'erreur. Plus tard, la promotion échoue avec l'erreur suivante :<br /><br />Code-une erreur s’est produite lors de la tentative de configuration de cet ordinateur en tant que contrôleur de domaine. <br />La promotion install-from-Media d’un contrôleur de périphérique en lecture seule ne peut pas démarrer, car la base de données source spécifiée n’est pas autorisée. Seules les bases de données provenant d’autres contrôleurs de domaine en lecture seule peuvent être utilisées pour la promotion IFM d’un RODC.|  
+|Symptômes|Pendant la promotion d'un nouveau contrôleur de domaine à l'aide d'IFM et en fournissant un support incorrect à IFM (par exemple un support de contrôleur de domaine en lecture seule pour un contrôleur de domaine en lecture-écriture, ou un support de contrôleur de domaine en lecture-écriture pour un contrôleur de domaine en lecture seule), le bouton Vérifier ne retourne pas d'erreur. Plus tard, la promotion échoue avec l'erreur suivante :<p>Code-une erreur s’est produite lors de la tentative de configuration de cet ordinateur en tant que contrôleur de domaine. <br />La promotion install-from-Media d’un contrôleur de périphérique en lecture seule ne peut pas démarrer, car la base de données source spécifiée n’est pas autorisée. Seules les bases de données provenant d’autres contrôleurs de domaine en lecture seule peuvent être utilisées pour la promotion IFM d’un RODC.|  
 |Résolution et remarques|Le bouton Vérifier ne valide que l'intégrité globale d'IFM. Ne fournissez pas le type IFM incorrect à un serveur. Redémarrez le serveur avant de retenter la promotion avec le support approprié.|  
 
 |||  
 |-|-|  
 |Problème|La promotion d'un contrôleur de domaine en lecture seule dans un compte d'ordinateur précréé échoue|  
-|Symptômes|Quand vous utilisez Windows PowerShell ADDSDeployment pour promouvoir un nouveau contrôleur de domaine en lecture seule avec un compte d'ordinateur intermédiaire, vous recevez l'erreur suivante :<br /><br />Le jeu de paramètres de code ne peut pas être résolu à l’aide des paramètres nommés spécifiés.    <br />InvalidArgument : ParameterBindingException<br />    + FullyQualifiedErrorId : AmbiguousParameterSet, Microsoft. DirectoryServices. Deployment. PowerShell. Commands. Install|  
-|Résolution et remarques|Ne fournissez pas des paramètres déjà définis sur un compte de contrôleur de domaine en lecture seule précréé. Par exemple :<br /><br />Code--readonlyreplica<br />-InstallDNS<br />-donotconfigureglobalcatalog<br />-SiteName<br />-InstallDNS|  
+|Symptômes|Quand vous utilisez Windows PowerShell ADDSDeployment pour promouvoir un nouveau contrôleur de domaine en lecture seule avec un compte d'ordinateur intermédiaire, vous recevez l'erreur suivante :<p>Le jeu de paramètres de code ne peut pas être résolu à l’aide des paramètres nommés spécifiés.    <br />InvalidArgument : ParameterBindingException<br />    + FullyQualifiedErrorId : AmbiguousParameterSet, Microsoft. DirectoryServices. Deployment. PowerShell. Commands. Install|  
+|Résolution et remarques|Ne fournissez pas des paramètres déjà définis sur un compte de contrôleur de domaine en lecture seule précréé. Par exemple :<p>Code--readonlyreplica<br />-InstallDNS<br />-donotconfigureglobalcatalog<br />-SiteName<br />-InstallDNS|  
 
 |||  
 |-|-|  
@@ -298,44 +297,44 @@ Vous trouverez ci-dessous les problèmes courants rencontrés pendant le process
 |||  
 |-|-|  
 |Problème|Dcpromo.log affiche « [erreur] la définition de la sécurité sur les fichiers du serveur a échoué avec la valeur 2 »|  
-|Symptômes|La rétrogradation d'un contrôleur de domaine s'est déroulée sans problèmes, mais l'examen du journal dcpromo indique l'erreur suivante :<br /><br />Code-[erreur] échec de la définition de la sécurité sur les fichiers serveur avec 2|  
+|Symptômes|La rétrogradation d'un contrôleur de domaine s'est déroulée sans problèmes, mais l'examen du journal dcpromo indique l'erreur suivante :<p>Code-[erreur] échec de la définition de la sécurité sur les fichiers serveur avec 2|  
 |Résolution et remarques|Ignorez cette erreur, elle est prévue et cosmétique.|  
 
 |||  
 |-|-|  
 |Problème|La vérification adprep de la configuration requise échoue avec l'erreur « Impossible d'effectuer un contrôle de conflit de schéma Exchange »|  
-|Symptômes|Quand vous tentez de promouvoir un contrôleur de domaine Windows Server 2012 dans une forêt Windows Server 2003, Windows Server 2008 ou Windows Server 2008 R2, la vérification de la configuration requise échoue avec l'erreur :<br /><br />Échec de la vérification de code des prérequis pour la préparation des services AD. Impossible d’effectuer la vérification des conflits de schéma Exchange pour le *<domain name>* de domaine (exception : le serveur RPC n’est pas disponible)<br /><br />Le journal adprep.log affiche l'erreur suivante :<br /><br />Code-adprep n’a pas pu récupérer les données du serveur *<domain controller>*<br /><br />via Windows Management Instrumentation (WMI).|  
-|Résolution et remarques|Le nouveau contrôleur de domaine ne peut pas accéder à WMI via les protocoles DCOM/RPC sur les contrôleurs de domaine existants. Jusqu'à présent, trois causes ont été identifiées :<br /><br />: Une règle de pare-feu bloque l’accès aux contrôleurs de domaine existants<br /><br />-Le compte de SERVICE réseau est manquant dans le privilège « ouvrir une session en tant que service » (SeServiceLogonRight) sur les contrôleurs de domaine existants<br /><br />-NTLM est désactivé sur les contrôleurs de domaine, à l’aide des stratégies de sécurité décrites dans [Présentation de la restriction de l’authentification NTLM](https://technet.microsoft.com/library/dd560653(WS.10).aspx)|  
+|Symptômes|Quand vous tentez de promouvoir un contrôleur de domaine Windows Server 2012 dans une forêt Windows Server 2003, Windows Server 2008 ou Windows Server 2008 R2, la vérification de la configuration requise échoue avec l'erreur :<p>Échec de la vérification de code des prérequis pour la préparation des services AD. Impossible d’effectuer la vérification des conflits de schéma Exchange pour le *<domain name>* de domaine (exception : le serveur RPC n’est pas disponible)<p>Le journal adprep.log affiche l'erreur suivante :<p>Code-adprep n’a pas pu récupérer les données du serveur *<domain controller>*<p>via Windows Management Instrumentation (WMI).|  
+|Résolution et remarques|Le nouveau contrôleur de domaine ne peut pas accéder à WMI via les protocoles DCOM/RPC sur les contrôleurs de domaine existants. Jusqu'à présent, trois causes ont été identifiées :<p>: Une règle de pare-feu bloque l’accès aux contrôleurs de domaine existants<p>-Le compte de SERVICE réseau est manquant dans le privilège « ouvrir une session en tant que service » (SeServiceLogonRight) sur les contrôleurs de domaine existants<p>-NTLM est désactivé sur les contrôleurs de domaine, à l’aide des stratégies de sécurité décrites dans [Présentation de la restriction de l’authentification NTLM](https://technet.microsoft.com/library/dd560653(WS.10).aspx)|  
 
 |||  
 |-|-|  
 |Problème|La création d'une forêt AD DS affiche toujours un avertissement DNS|  
-|Symptômes|Pendant la création d'une forêt AD DS et de la zone DNS sur le nouveau contrôleur de domaine pour lui-même, vous recevez toujours le message d'avertissement suivant :<br /><br />Code : une erreur a été détectée dans la configuration DNS. <br />Aucun des serveurs DNS utilisés par cet ordinateur n’a répondu dans le délai imparti.<br />(code d’erreur 0x000005B4 "ERROR_TIMEOUT")|  
-|Résolution et remarques|Ignorez le message. Cet avertissement est intentionnel sur le premier contrôleur de domaine dans le domaine racine d'une nouvelle forêt, au cas où vous envisageriez de pointer vers une zone et un serveur DNS existants.|  
+|Symptômes|Pendant la création d'une forêt AD DS et de la zone DNS sur le nouveau contrôleur de domaine pour lui-même, vous recevez toujours le message d'avertissement suivant :<p>Code : une erreur a été détectée dans la configuration DNS. <br />Aucun des serveurs DNS utilisés par cet ordinateur n’a répondu dans le délai imparti.<br />(code d’erreur 0x000005B4 "ERROR_TIMEOUT")|  
+|Résolution et remarques|ignorez. Cet avertissement est intentionnel sur le premier contrôleur de domaine dans le domaine racine d'une nouvelle forêt, au cas où vous envisageriez de pointer vers une zone et un serveur DNS existants.|  
 
 |||  
 |-|-|  
 |Problème|L'argument -whatif Windows PowerShell retourne des informations incorrectes sur le serveur DNS|  
-|Symptômes|Si vous utilisez l'argument **-whatif** pendant la configuration d'un contrôleur de domaine avec **-installdns:$true** implicite ou explicite, la sortie produite affiche :<br /><br />Code-« serveur DNS : non »|  
-|Résolution et remarques|Ignorez le message. DNS est installé et configuré correctement.|  
+|Symptômes|Si vous utilisez l'argument **-whatif** pendant la configuration d'un contrôleur de domaine avec **-installdns:$true** implicite ou explicite, la sortie produite affiche :<p>Code-« serveur DNS : non »|  
+|Résolution et remarques|ignorez. DNS est installé et configuré correctement.|  
 
 |||  
 |-|-|  
 |Problème|Après la promotion, l'ouverture de session échoue avec « Espace insuffisant pour traiter cette commande »|  
-|Symptômes|Après avoir promu un contrôleur de domaine, puis fermé la session et retenté de l'ouvrir de façon interactive, l'erreur suivante s'affiche :<br /><br />Code-espace de stockage insuffisant pour traiter cette commande|  
+|Symptômes|Après avoir promu un contrôleur de domaine, puis fermé la session et retenté de l'ouvrir de façon interactive, l'erreur suivante s'affiche :<p>Code-espace de stockage insuffisant pour traiter cette commande|  
 |Résolution et remarques|Le contrôleur de domaine n'a pas été redémarré après la promotion, en raison d'une erreur ou car vous avez spécifié l'argument Windows PowerShell ADDSDeployment **-norebootoncompletion**. Redémarrez le contrôleur de domaine.|  
 
 |||  
 |-|-|  
 |Problème|Le bouton Suivant n'est pas disponible dans la page Options du contrôleur de domaine|  
 |Symptômes|Même si vous avez défini un mot de passe, le bouton **Suivant** dans la page **Options du contrôleur de domaine** du Gestionnaire de serveur n'est pas disponible. Aucun site n'est répertorié dans le menu **Nom du site**.|  
-|Résolution et remarques|Vous disposez de plusieurs sites AD DS et au moins l'un d'entre eux n'a pas de sous-réseaux ; ce futur contrôleur de domaine appartient à l'un de ces sous-réseaux. Vous devez sélectionner manuellement le sous-réseau à partir du menu déroulant Nom du site. Vous devez également passer en revue tous les sites AD DS à l'aide de DSSITE.MSC ou utiliser la commande Windows PowerShell suivante pour rechercher tous les sous-réseaux manquants des sites :<br /><br />Code-obten-adreplicationsite-Filter \*-les sous- &#124; réseaux où-Object { ! $ _. Subnets-eq "\*" &#124; } format-nom de la table|  
+|Résolution et remarques|Vous disposez de plusieurs sites AD DS et au moins l'un d'entre eux n'a pas de sous-réseaux ; ce futur contrôleur de domaine appartient à l'un de ces sous-réseaux. Vous devez sélectionner manuellement le sous-réseau à partir du menu déroulant Nom du site. Vous devez également passer en revue tous les sites AD DS à l'aide de DSSITE.MSC ou utiliser la commande Windows PowerShell suivante pour rechercher tous les sous-réseaux manquants des sites :<p>Code-obten-adreplicationsite-Filter \*-les sous- &#124; réseaux où-Object { ! $ _. Subnets-eq "\*" &#124; } format-nom de la table|  
 
 |||  
 |-|-|  
 |Problème|La promotion ou la rétrogradation échoue avec le message « Impossible de démarrer le service »|  
-|Symptômes|Si vous tentez une promotion, une rétrogradation ou un clonage d'un contrôleur de domaine, l'erreur suivante s'affiche :<br /><br />Code-le service ne peut pas être démarré, soit parce qu’il est désactivé, soit parce qu’il n’est associé à aucun appareil "(0x80070422)<br /><br />L'erreur peut être interactive, se présenter comme un événement ou être écrite dans un journal tel que dcpromoui.log ou dcpromo.log|  
-|Résolution et remarques|Le service de serveur de rôles du service d'annuaire (DsRoleSvc) est désactivé. Par défaut, ce service est installé pendant l'installation de rôle AD DS et le type de démarrage Manuel est défini. Ne désactivez pas ce service. Réaffectez-lui la valeur Manuel et autorisez le démarrage et l'arrêt des opérations de rôles du service d'annuaire à la demande. Ce comportement est normal.|  
+|Symptômes|Si vous tentez une promotion, une rétrogradation ou un clonage d'un contrôleur de domaine, l'erreur suivante s'affiche :<p>Code-le service ne peut pas être démarré, soit parce qu’il est désactivé, soit parce qu’il n’est associé à aucun appareil "(0x80070422)<p>L'erreur peut être interactive, se présenter comme un événement ou être écrite dans un journal tel que dcpromoui.log ou dcpromo.log|  
+|Résolution et remarques|Le service de serveur de rôles du service d'annuaire (DsRoleSvc) est désactivé. Par défaut, ce service est installé pendant l'installation de rôle AD DS et le type de démarrage Manuel est défini. Ne désactivez pas ce service. Réaffectez-lui la valeur Manuel et autorisez le démarrage et l'arrêt des opérations de rôles du service d'annuaire à la demande. Ce comportement est lié à la conception.|  
 
 |||  
 |-|-|  
@@ -357,10 +356,10 @@ Vous trouverez ci-dessous les problèmes courants rencontrés pendant le process
 
 |Problème|Dcpromo /unattend autorise des niveaux fonctionnels non pris en charge|  
 |-|-|  
-|Symptômes|Si vous promouvez un contrôleur de domaine à l'aide de dcpromo /unattend avec l'exemple de fichier de réponses suivant :<br /><br />Code<br /><br />DCInstall<br />NewDomain = forêt<br /><br />ReplicaOrNewDomain = domaine<br /><br />NewDomainDNSName = Corp. contoso. com<br /><br />SafeModeAdminPassword =Safepassword@6<br /><br />DomainNetbiosName = Corp<br /><br />DNSOnNetwork = Oui<br /><br />AutoConfigDNS = Oui<br /><br />RebootOnSuccess = NoAndNoPromptEither<br /><br />RebootOnCompletion = non<br /><br />*DomainLevel = 0*<br /><br />*ForestLevel = 0*<br /><br />La promotion échoue avec les erreurs suivantes dans dcpromoui.log :<br /><br />Code-dcpromoui EA 4.5 B8 0089 13:31:50.783 Enter CArgumentsSpec :: ValidateArgument DomainLevel<br /><br />dcpromoui EA 4.5 B8 008A 13:31 : la valeur 50.783 pour DomainLevel est 0<br /><br />dcpromoui EA 4.5 B8 008B 13:31 : le code de sortie 50.783 est 77<br /><br />dcpromoui EA 4.5 B8 008C 13:31:50.783 l’argument spécifié n’est pas valide.<br /><br />dcpromoui EA 4.5 B8 008D 13:31 : Journal de fermeture 50.783<br /><br />dcpromoui EA 4.5 B8 0032 13:31 : le code de sortie 50.830 est 77<br /><br />Le niveau 0 représente Windows 2000, qui n'est pas pris en charge dans Windows Server 2012.|  
+|Symptômes|Si vous promouvez un contrôleur de domaine à l'aide de dcpromo /unattend avec l'exemple de fichier de réponses suivant :<p>Code<p>DCInstall<br />NewDomain = forêt<p>ReplicaOrNewDomain = domaine<p>NewDomainDNSName = Corp. contoso. com<p>SafeModeAdminPassword =Safepassword@6<p>DomainNetbiosName = Corp<p>DNSOnNetwork = Oui<p>AutoConfigDNS = Oui<p>RebootOnSuccess = NoAndNoPromptEither<p>RebootOnCompletion = non<p>*DomainLevel = 0*<p>*ForestLevel = 0*<p>La promotion échoue avec les erreurs suivantes dans dcpromoui.log :<p>Code-dcpromoui EA 4.5 B8 0089 13:31:50.783 Enter CArgumentsSpec :: ValidateArgument DomainLevel<p>dcpromoui EA 4.5 B8 008A 13:31 : la valeur 50.783 pour DomainLevel est 0<p>dcpromoui EA 4.5 B8 008B 13:31 : le code de sortie 50.783 est 77<p>dcpromoui EA 4.5 B8 008C 13:31:50.783 l’argument spécifié n’est pas valide.<p>dcpromoui EA 4.5 B8 008D 13:31 : Journal de fermeture 50.783<p>dcpromoui EA 4.5 B8 0032 13:31 : le code de sortie 50.830 est 77<p>Le niveau 0 représente Windows 2000, qui n'est pas pris en charge dans Windows Server 2012.|  
 |Résolution et remarques|N'utilisez pas la commande dcpromo /unattend déconseillée et comprenez qu'elle vous permet de spécifier des paramètres non valides qui échouent par la suite. Ce comportement est prévu et normal.|  
 
 |Problème|La promotion « se bloque » lors de la création d’un objet Paramètres NTDS, jamais terminée|  
 |-|-|  
 |Symptômes|Si vous promouvez un contrôleur de domaine en lecture seule ou un contrôleur de domaine en lecture seule, la promotion atteint l’objet « création des paramètres NTDS » et ne se poursuit pas. Les journaux arrêtent également la mise à jour.|  
-|Résolution et remarques|Il s'agit d'un problème connu qui survient quand les informations d'identification du compte d'administrateur local intégré sont fournies avec un mot de passe correspondant au compte d'administrateur de domaine intégré. Cela entraîne une défaillance du moteur d'installation principal qui ne génère pas d'erreur, mais attend en revanche indéfiniment (quasi-boucle). Cela est attendu, ce qui est un comportement indésirable.<br /><br />Pour réparer le serveur :<br /><br />1. Redémarrez-le.<br /><br />1. dans Active Directory, supprimez le compte d’ordinateur membre de ce serveur (il ne s’agit pas encore d’un compte de contrôleur de domaine)<br /><br />1. sur ce serveur, le disjonction forcée du domaine<br /><br />1. sur ce serveur, supprimez le rôle AD DS.<br /><br />1. Redémarrez<br /><br />1. Ajoutez de nouveau le rôle de AD DS et retentez la promotion, en vous assurant que vous fournissez toujours les informations d’identification au format ***domain\admin*** à la promotion de contrôleur de réseau et pas seulement le compte administrateur local intégré|  
+|Résolution et remarques|Il s'agit d'un problème connu qui survient quand les informations d'identification du compte d'administrateur local intégré sont fournies avec un mot de passe correspondant au compte d'administrateur de domaine intégré. Cela entraîne une défaillance du moteur d'installation principal qui ne génère pas d'erreur, mais attend en revanche indéfiniment (quasi-boucle). Cela est attendu, ce qui est un comportement indésirable.<p>Pour réparer le serveur :<p>1. Redémarrez-le.<p>1. dans Active Directory, supprimez le compte d’ordinateur membre de ce serveur (il ne s’agit pas encore d’un compte de contrôleur de domaine)<p>1. sur ce serveur, le disjonction forcée du domaine<p>1. sur ce serveur, supprimez le rôle AD DS.<p>1. Redémarrez<p>1. Ajoutez de nouveau le rôle de AD DS et retentez la promotion, en vous assurant que vous fournissez toujours les informations d’identification au format ***domain\admin*** à la promotion de contrôleur de réseau et pas seulement le compte administrateur local intégré|  

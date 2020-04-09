@@ -1,18 +1,18 @@
 ---
 title: Installer SGH dans une nouvelle forêt
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 6dfbe24fb4d9011b48f366d7e5df92fdb80685d5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8f896b0cea49f9dd26a828a2580b59a78348763a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386588"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856602"
 ---
 # <a name="install-hgs-in-a-new-forest"></a>Installer SGH dans une nouvelle forêt 
 
@@ -28,7 +28,7 @@ Exécutez les commandes suivantes dans une session PowerShell avec élévation d
 
 [!INCLUDE [Install HGS by default](../../../includes/install-hgs-default.md)] 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
 - Pour connaître les étapes à suivre pour configurer l’attestation basée sur le module de plateforme sécurisée, consultez [initialiser le cluster SGH à l’aide du mode TPM dans une nouvelle forêt dédiée (par défaut)](guarded-fabric-initialize-hgs-tpm-mode-default.md).
 - Pour connaître les étapes suivantes pour configurer l’attestation de clé hôte, consultez [initialiser le cluster SGH à l’aide du mode clé dans une nouvelle forêt dédiée (par défaut)](guarded-fabric-initialize-hgs-key-mode-default.md).

@@ -1,39 +1,35 @@
 ---
 title: session de requête
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: abc0ace8-0b74-4b6e-a937-a78bb4b61a1f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bde9a246f2c46eaa466f2863c2cfc3c28a3a04eb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 173b6e53bbd5cd42f3172582a46277dccff7dcbd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384910"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836942"
 ---
 # <a name="query-session"></a>session de requête
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche des informations sur les sessions sur un serveur hôte de session Bureau à distance (hôte de session Bureau à distance).
 La liste contient des informations non seulement sur les sessions actives, mais également sur les autres sessions exécutées par le serveur.
-Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
+pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
 > [!NOTE]
-> Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
+> Sous Windows Server 2008 R2, les services Terminal Server sont appelés Services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
 > ## <a name="syntax"></a>Syntaxe
 > ```
 > query session [<SessionName> | <UserName> | <SessionID>] [/server:<ServerName>] [/mode] [/flow] [/connect] [/counter]
 > ```
-> ## <a name="parameters"></a>Paramètres
+> ### <a name="parameters"></a>Paramètres
 > 
 > |      Paramètre       |                                                      Description                                                      |
 > |----------------------|-----------------------------------------------------------------------------------------------------------------------|
@@ -61,7 +57,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples
 >                                   5 idle
 >   ```
 >   Le symbole supérieur à (>) indique la session active. NOM_SESSION spécifie le nom affecté à la session. USERNAME indique le nom d’utilisateur de l’utilisateur connecté à la session. L’État fournit des informations sur l’état actuel de la session. TYPE indique le type de session. L’appareil, qui n’est pas présent pour la console ou les sessions connectées au réseau, est le nom de l’appareil affecté à la session. Le commentaire qui suit les informations de session provient du profil de session. Toutes les sessions dans lesquelles l’état initial est désactivé ne s’affichent pas dans la liste de sessions de **requête** tant qu’elles ne sont pas activées.
->   ## <a name="BKMK_examples"></a>Illustre
+>   ## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 > - Pour afficher des informations sur toutes les sessions actives sur le serveur SERver2, tapez :
 >   ```
 >   query session /server:SERver2
@@ -70,7 +66,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples
 >   ```
 >   query session modeM02
 >   ```
->   #### <a name="additional-references"></a>Références supplémentaires
->   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
->   [requête](query.md)
->   [ &#40;services Bureau à distance&#41; référence de commande des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)
+>   ## <a name="additional-references"></a>Références supplémentaires
+>   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+>   
+>   de [requête](query.md) [services Bureau à distance (services Terminal Server) de la commande](remote-desktop-services-terminal-services-command-reference.md)

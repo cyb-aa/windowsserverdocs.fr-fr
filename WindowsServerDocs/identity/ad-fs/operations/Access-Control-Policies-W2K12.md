@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5728847d-dcef-4694-9080-d63bfb1fe24b
-title: Stratégies de contrôle d’accès dans AD FS
-description: ''
+title: Stratégies de contrôle d’accès dans ADFS
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 06/05/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 7ae66fd47953017652ed1e753279e344e0a6c478
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 7355ff9ed49a5e4ee8bca3a3d266a0ec1ecc0780
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949409"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814892"
 ---
 # <a name="access-control-policies-in-windows-server-2012-r2-and-windows-server-2012-ad-fs"></a>Stratégies de Access Control dans Windows Server 2012 R2 et Windows Server 2012 AD FS
 
@@ -66,7 +65,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 ## <a name="enabling-client-access-policy"></a>Activation de la stratégie d’accès client  
  Pour activer la stratégie d’accès client dans AD FS dans Windows Server 2012 R2, vous devez mettre à jour l’approbation de la partie de confiance Microsoft Office 365 Identity Platform. Choisissez l’un des exemples de scénarios ci-dessous pour configurer les règles de revendication sur l’approbation de partie de confiance **Microsoft Office 365 Identity** qui répond le mieux aux besoins de votre organisation.  
 
-###  <a name="scenario1"></a>Scénario 1 : bloquer tout accès externe à Office 365  
+###  <a name="scenario-1-block-all-external-access-to-office-365"></a><a name="scenario1"></a>Scénario 1 : bloquer tout accès externe à Office 365  
  Ce scénario de stratégie d’accès client autorise l’accès à partir de tous les clients internes et bloque tous les clients externes en fonction de l’adresse IP du client externe. Vous pouvez utiliser les procédures suivantes pour ajouter les règles d’autorisation d’émission appropriées à l’approbation de la partie de confiance Office 365 pour le scénario choisi.  
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365"></a>Pour créer des règles pour bloquer tout accès externe à Office 365  
@@ -89,7 +88,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
      ![Règles d’autorisation d’émission](media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1")  
 
-###  <a name="scenario2"></a>Scénario 2 : bloquer tout accès externe à Office 365, à l’exception d’Exchange ActiveSync  
+###  <a name="scenario-2-block-all-external-access-to-office-365-except-exchange-activesync"></a><a name="scenario2"></a>Scénario 2 : bloquer tout accès externe à Office 365, à l’exception d’Exchange ActiveSync  
  L’exemple suivant autorise l’accès à toutes les applications Office 365, y compris Exchange Online, à partir des clients internes, y compris Outlook. Il bloque l’accès à partir de clients résidant en dehors du réseau d’entreprise, comme indiqué par l’adresse IP du client, à l’exception des clients Exchange ActiveSync tels que les téléphones intelligents.  
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-exchange-activesync"></a>Pour créer des règles pour bloquer tout accès externe à Office 365, à l’exception d’Exchange ActiveSync  
@@ -145,7 +144,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
     ![Règles d'autorisation d'émission](media/Access-Control-Policies-W2K12/clientaccess2.png )  
 
-###  <a name="scenario3"></a>Scénario 3 : bloquer tout accès externe à Office 365 à l’exception des applications basées sur un navigateur  
+###  <a name="scenario-3-block-all-external-access-to-office-365-except-browser-based-applications"></a><a name="scenario3"></a>Scénario 3 : bloquer tout accès externe à Office 365 à l’exception des applications basées sur un navigateur  
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-browser-based-applications"></a>Pour créer des règles pour bloquer tout accès externe à Office 365 à l’exception des applications basées sur un navigateur  
 
@@ -180,7 +179,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
     ![Émission](media/Access-Control-Policies-W2K12/clientaccess3.png)  
 
-###  <a name="scenario4"></a>Scénario 4 : bloquer tous les accès externes à Office 365, à l’exception des groupes de Active Directory désignés  
+###  <a name="scenario-4-block-all-external-access-to-office-365-except-for-designated-active-directory-groups"></a><a name="scenario4"></a>Scénario 4 : bloquer tous les accès externes à Office 365, à l’exception des groupes de Active Directory désignés  
  L’exemple suivant active l’accès à partir de clients internes en fonction de l’adresse IP. Il bloque l’accès à partir de clients résidant en dehors du réseau d’entreprise qui ont une adresse IP de client externe, à l’exception des individus d’un groupe de Active Directory spécifié. procédez comme suit pour ajouter les règles d’autorisation d’émission appropriées à l’approbation de la partie de confiance **Microsoft Office 365 Identity** à l’aide de l’Assistant règle de revendication :  
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-for-designated-active-directory-groups"></a>Pour créer des règles pour bloquer tout accès externe à Office 365, à l’exception des groupes de Active Directory désignés  
@@ -228,7 +227,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
      ![Émission](media/Access-Control-Policies-W2K12/clientaccess4.png)  
 
-##  <a name="buildingip"></a>Génération de l’expression de plage d’adresses IP  
+##  <a name="building-the-ip-address-range-expression"></a><a name="buildingip"></a>Génération de l’expression de plage d’adresses IP  
  La revendication x-ms-forwarded-client-IP est remplie à partir d’un en-tête HTTP qui est actuellement défini uniquement par Exchange Online, qui remplit l’en-tête lors du passage de la demande d’authentification à AD FS. La valeur de la revendication peut être l’une des suivantes :  
 
 > [!NOTE]
@@ -240,7 +239,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 > - L’adresse IP d’un client sur le réseau d’entreprise s’affiche comme l’adresse IP de l’interface externe du proxy ou de la passerelle sortants de l’organisation.  
 >   -   Les clients qui sont connectés au réseau d’entreprise par un VPN ou par Microsoft DirectAccess (DA) peuvent apparaître comme des clients d’entreprise internes ou comme clients externes, en fonction de la configuration du VPN ou de DA.  
 
--   Une ou plusieurs adresses IP : quand Exchange Online ne peut pas déterminer l’adresse IP du client qui se connecte, il définit la valeur en fonction de la valeur de l’en-tête x-forwarded-for, d’un en-tête non standard qui peut être inclus dans les requêtes basées sur HTTP et est pris en charge par de nombreux clients, équilibreurs de charge et proxys sur le marché.  
+-   Une ou plusieurs adresses IP : quand Exchange Online ne peut pas déterminer l’adresse IP du client qui se connecte, il définit la valeur en fonction de la valeur de l’en-tête x-forwarded-for, un en-tête non standard qui peut être inclus dans les demandes HTTP et est pris en charge par de nombreux clients, équilibreurs de charge et proxys sur le marché.  
 
 > [!NOTE]
 > 1. Plusieurs adresses IP, indiquant l’adresse IP du client et l’adresse de chaque proxy qui a transmis la demande, sont séparées par une virgule.  
@@ -255,7 +254,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
   Tout d’abord, le modèle de base qui correspondra à une seule adresse IP est le suivant : \b # # #\\. # # #\\. # # #\\. # # # \b  
 
-  Si vous étendez cela, nous pouvons faire correspondre deux adresses IP différentes avec une expression ou comme suit : \b # # #\\. # # #\\. # # #\\.&#124;# # # \b \b # # #\\. # # #\\. # # #. # # # \b  
+  Si vous étendez cela, nous pouvons faire correspondre deux adresses IP différentes avec une expression ou comme suit : \b # # #\\. # # #\\. # # #\\.&#124;# # # \b \b # # #\\. # # #\\. # # #. # # # \b\\  
 
   Par conséquent, voici un exemple qui correspond à deux adresses (telles que 192.168.1.1 ou 10.0.0.1) : \b192\\. 168\\1\\. 1 \&#124;b \b10\\0 0\\. 0\\. 1 \ b  
 
@@ -307,7 +306,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
 -   Une ou plusieurs adresses IP  
 
-    -   Si Exchange Online ne peut pas déterminer l’adresse IP du client qui se connecte, il définit la valeur en fonction de la valeur de l’en-tête x-forwarded-for, d’un en-tête non standard qui peut être inclus dans les demandes HTTP et est pris en charge par de nombreux clients, les équilibrages de charge et proxies sur le marché.  
+    -   Si Exchange Online ne peut pas déterminer l’adresse IP du client qui se connecte, il définit la valeur en fonction de la valeur de l’en-tête x-forwarded-for, d’un en-tête non standard qui peut être inclus dans les demandes HTTP et est pris en charge par de nombreux clients, des équilibrages de charge et des proxys sur le marché.  
 
     -   Plusieurs adresses IP indiquant l’adresse IP du client et l’adresse de chaque proxy qui a transmis la demande sont séparées par une virgule.  
 
@@ -386,5 +385,5 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
  La valeur de la revendication est le nom du service AD FS qui a reçu la demande.  
 
-## <a name="see-also"></a>Articles associés  
+## <a name="see-also"></a>Voir aussi  
  [Opérations d’AD FS](../../ad-fs/AD-FS-2016-Operations.md)

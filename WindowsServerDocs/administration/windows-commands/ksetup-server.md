@@ -1,24 +1,20 @@
 ---
 title: 'Ksetup : serveur'
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e3407111-ac92-457f-aa1f-a04fe9109d59
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dd05fd294640c63e633b7b866307197ae6770476
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7889e1a03d3c0eec1958bf1d6356c67e9371a80f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374956"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841442"
 ---
 # <a name="ksetupserver"></a>Ksetup : serveur
 
@@ -32,7 +28,7 @@ Vous permet de spécifier un nom pour un ordinateur exécutant le système d’e
 ksetup /server <ServerName>
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -44,14 +40,14 @@ Il n’existe aucun moyen de supprimer le nom du serveur ciblé ; vous pouvez u
 
 Le nom du serveur cible est stocké dans le registre dans **HKEY_LOCAL_MACHINE \system\controlset001\control\lsa\kerberos**. Elle n’est pas signalée à l’aide de **Ksetup**.
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 Faites en sorte que vos configurations **Ksetup** soient effectives sur l’ordinateur IPops897 connecté au domaine contoso :
 ```
 ksetup /server IPops897.corp.contoso.com
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
 -   [Ksetup](ksetup.md)
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

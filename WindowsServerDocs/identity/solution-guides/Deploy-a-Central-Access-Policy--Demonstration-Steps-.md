@@ -1,7 +1,6 @@
 ---
 ms.assetid: 8738c03d-6ae8-49a7-8b0c-bef7eab81057
 title: Déployer une stratégie d'accès centralisée (étapes de démonstration)
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 09b7edcd843dfe65d7e2391612f029cf18b633ec
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5f4d94facc57cf2b71d6d546b4a2b60253ff58fe
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357498"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861202"
 ---
 # <a name="deploy-a-central-access-policy-demonstration-steps"></a>Déployer une stratégie d'accès centralisée (étapes de démonstration)
 
@@ -31,28 +30,28 @@ Le déploiement d'une stratégie d'accès centralisée comprend les phases suiva
 |[Déployer la stratégie d’accès centralisée](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.4)|Déployez la stratégie.  
 |[Tenir à jour : modifier et mettre en place la stratégie](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.5)|Modifications de stratégie et mise en lots. 
 
-## <a name="BKMK_1.1"></a>Configurer un environnement de test  
+## <a name="set-up-a-test-environment"></a><a name="BKMK_1.1"></a>Configurer un environnement de test  
 Avant de commencer, vous devez configurer un laboratoire pour tester ce scénario. Les étapes de configuration du laboratoire sont décrites en détail dans l' [annexe B : configuration de l’environnement de test](Appendix-B--Setting-Up-the-Test-Environment.md).  
 
-## <a name="BKMK_1.2"></a>Plan : identifier la nécessité d’une stratégie et la configuration requise pour le déploiement  
+## <a name="plan-identify-the-need-for-policy-and-the-configuration-required-for-deployment"></a><a name="BKMK_1.2"></a>Plan : identifier la nécessité d’une stratégie et la configuration requise pour le déploiement  
 Cette section décrit les principales étapes de la phase de planification de votre déploiement.  
 
 ||Étape|Exemple|  
 |-|--------|-----------|  
 |1.1|L'activité commerciale détermine qu'une stratégie d'accès centralisée est nécessaire.|Pour protéger les informations financières stockées sur les serveurs de fichiers, le service Sécurité du service Finance collabore avec le service centralisé Sécurité des informations pour spécifier la nécessité de mettre en place une stratégie d'accès centralisée.|  
 |1.2|Exprimer la stratégie d'accès|Les documents financiers ne doivent être lus que par les membres du service Finance. Les membres du service Finance ne doivent accéder qu'aux documents de leur pays. Seuls les Administrateurs financiers doivent avoir un accès en écriture. Une exception sera accordée aux membres du groupe FinanceException. Ce groupe disposera d'un accès en lecture.|  
-|1.3|Exprimer la stratégie d’accès dans les constructions de Windows Server 2012|Cible :<br /><br />-Resource. Department contient finance<br /><br />Règles d'accès :<br /><br />-Autoriser Read User. Country = Resource. Country et User. Department = Resource. Department<br />-Autoriser Full Control User. MemberOf (FinanceAdmin)<br /><br />Exception :<br /><br />Allow read memberOf(FinanceException)|  
-|1.4|Déterminer les propriétés de fichiers nécessaires pour la stratégie|Baliser les fichiers avec :<br /><br />-Service<br />-Pays|  
-|1.5|Déterminer les types de revendications et les groupes nécessaires pour la stratégie|Types de revendications :<br /><br />-Pays<br />-Service<br /><br />Groupes d'utilisateurs :<br /><br />-FinanceAdmin<br />-FinanceException|  
+|1.3|Exprimer la stratégie d’accès dans les constructions de Windows Server 2012|Ciblage :<p>-Resource. Department contient finance<p>Règles d'accès :<p>-Autoriser Read User. Country = Resource. Country et User. Department = Resource. Department<br />-Autoriser Full Control User. MemberOf (FinanceAdmin)<p>Exception :<p>Allow read memberOf(FinanceException)|  
+|1.4|Déterminer les propriétés de fichiers nécessaires pour la stratégie|Baliser les fichiers avec :<p>-Service<br />-Pays|  
+|1.5|Déterminer les types de revendications et les groupes nécessaires pour la stratégie|Types de revendications :<p>-Pays<br />-Service<p>Groupes d'utilisateurs :<p>-FinanceAdmin<br />-FinanceException|  
 |1.6|Identifier les serveurs sur lesquels appliquer cette stratégie|Appliquer la stratégie sur tous les serveurs de fichiers financiers.|  
 
-## <a name="BKMK_1.3"></a>Implémenter : configurer les composants et la stratégie  
+## <a name="implement-configure-the-components-and-policy"></a><a name="BKMK_1.3"></a>Implémenter : configurer les composants et la stratégie  
 Cette section contient un exemple qui déploie une stratégie d'accès centralisée pour des documents financiers.  
 
 |Non|Étape|Exemple|  
 |------|--------|-----------|  
-|2.1|Créer des types de revendications|Créez les types de revendications suivants :<br /><br />-Service<br />-Pays|  
-|2.2|Créer des propriétés de ressource|Créez et activez les propriétés de ressource suivantes :<br /><br />-Service<br />-Pays|  
+|2.1|Créer des types de revendications|Créez les types de revendications suivants :<p>-Service<br />-Pays|  
+|2.2|Créer des propriétés de ressource|Créez et activez les propriétés de ressource suivantes :<p>-Service<br />-Pays|  
 |2.3|Configurer une règle d'accès central|Créez une règle Documents financiers qui comprend la stratégie déterminée dans la section précédente.|  
 |2.4|Configurer une stratégie d'accès centralisée|Créez une stratégie d'accès centralisée nommée Stratégie financière et ajoutez la règle Documents financiers à cette stratégie d'accès centralisée.|  
 |2.5|Cibler la stratégie d'accès centralisée sur les serveurs de fichiers|Publiez la stratégie d'accès centralisée Stratégie financière sur les serveurs de fichiers.|  
@@ -87,7 +86,7 @@ Dans la procédure suivante, vous créez deux types de revendications : Country
 
 guides de solution ![](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
 
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
 
 
     New-ADClaimType country -SourceAttribute c -SuggestedValues:@((New-Object Microsoft.ActiveDirectory.Management.ADSuggestedValueEntry("US","US","")), (New-Object Microsoft.ActiveDirectory.Management.ADSuggestedValueEntry("JP","JP","")))  
@@ -123,7 +122,7 @@ L'étape suivante consiste à créer des propriétés de ressource. Lors de la p
 
 guides de solution ![](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
 
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
 
 ```  
 New-ADResourceProperty Country -IsSecured $true -ResourcePropertyValueType MS-DS-MultivaluedChoice -SharesValuesWith country  
@@ -191,7 +190,7 @@ Règles d'accès :
 
     guides de solution ![](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
 
-    L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+    La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
 
 
 ~~~
@@ -226,7 +225,7 @@ Vous devriez maintenant avoir une règle d'accès central qui permet aux utilisa
 
    guides de solution ![](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
 
-   L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+   La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
 
    ```  
    New-ADCentralAccessPolicy "Finance Policy" Add-ADCentralAccessPolicyMember   
@@ -281,7 +280,7 @@ Pour que les contrôleurs de domaine d’un domaine fournissent des revendicatio
 
 6.  Ouvrez une invite de commande et tapez `gpupdate /force`.  
 
-## <a name="BKMK_1.4"></a>Déployer la stratégie d’accès centralisée  
+## <a name="deploy-the-central-access-policy"></a><a name="BKMK_1.4"></a>Déployer la stratégie d’accès centralisée  
 
 ||Étape|Exemple|  
 |-|--------|-----------|  
@@ -340,7 +339,7 @@ Lors de l'étape suivante, vous allez vous assurer que l'accès est configuré c
 
     Notez la dernière colonne nommée **Accès limité par** dans la fenêtre d'accès effectif. Cette colonne indique les portes qui affectent les autorisations de la personne. Dans ce cas, les autorisations Partager et NTFS accordent un contrôle total à tous les utilisateurs. Toutefois, la stratégie d'accès centralisée limite l'accès en fonction des règles que vous avez configurées précédemment.  
 
-## <a name="BKMK_1.5"></a>Tenir à jour : modifier et mettre en place la stratégie  
+## <a name="maintain-change-and-stage-the-policy"></a><a name="BKMK_1.5"></a>Tenir à jour : modifier et mettre en place la stratégie  
 
 ||||  
 |-|-|-|  
@@ -404,7 +403,7 @@ L'étape suivante consiste à créer une règle de stratégie intermédiaire. Le
 
 guides de solution ![](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
 
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
 
 ```  
 Set-ADCentralAccessRule  

@@ -1,6 +1,5 @@
 ---
 title: Récupération de la forêt Active Directory-exécution d’une récupération complète du serveur
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 1a1182a6-4462-4a13-806e-0e642a0d5db2
 ms.technology: identity-adds
-ms.openlocfilehash: 1ade1f2e316387fbe84209c1bc7a986fff6f2a71
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bf321ae769aa6f0da1cebce7700ea429161a0956
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390539"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824012"
 ---
 # <a name="ad-forest-recovery---performing-a-full-server-recovery"></a>Récupération de la forêt Active Directory-exécution d’une récupération complète du serveur 
 
@@ -52,7 +51,7 @@ Selon votre scénario, utilisez l’une des procédures suivantes pour effectuer
    -  Désélection des fonctionnalités **avancées** de redémarrage et de vérification automatiques des erreurs de disque. Celles-ci sont activées par défaut.
    Restauration de ![Server](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore6.png)
 8. Cliquez sur **Suivant**.
-9. Cliquez sur **Terminer**. Vous serez invité à confirmer que vous souhaitez continuer. cliquez sur **Oui**. 
+9. Cliquez sur **Terminer**. Vous serez invité à confirmer que vous souhaitez continuer. Cliquez sur **Oui**. 
    Restauration de ![Server](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore11.png) 
 10. Une fois cette opération terminée, effectuez une restauration faisant autorité de SYSVOL, comme décrit dans la rubrique [récupération de forêt Active Directory, effectuant une synchronisation faisant autorité d’un SYSVOL répliqué par DFSR](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).
 
@@ -76,7 +75,7 @@ Selon votre scénario, utilisez l’une des procédures suivantes pour effectuer
     - Installer les pilotes
     - Désélection des fonctionnalités **avancées** de redémarrage et de vérification automatiques des erreurs de disque. Celles-ci sont activées par défaut.
 12. Cliquez sur **Suivant**.
-13. Cliquez sur **Terminer**. Vous serez invité à confirmer que vous souhaitez continuer. cliquez sur **Oui**.  
+13. Cliquez sur **Terminer**. Vous serez invité à confirmer que vous souhaitez continuer. Cliquez sur **Oui**.  
 14. Une fois cette opération terminée, effectuez une restauration faisant autorité de SYSVOL, comme décrit dans la rubrique [récupération de forêt Active Directory, effectuant une synchronisation faisant autorité d’un SYSVOL répliqué par DFSR](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).
 
 ## <a name="enabling-the-network-adapter-for-a-network-backup"></a>Activation de la carte réseau pour une sauvegarde réseau
@@ -84,7 +83,7 @@ Selon votre scénario, utilisez l’une des procédures suivantes pour effectuer
 Si vous devez activer une carte réseau à partir de l’invite de commandes pour effectuer une restauration à partir d’un partage réseau, procédez comme suit.
 
 1. Démarrez installation de Windows, spécifiez la langue, le format d’heure et de devise, ainsi que les options de clavier, puis cliquez sur **suivant**. 
-2. Cliquez sur **Réparer votre ordinateur**. Cliqu
+2. Cliquez sur **Réparer votre ordinateur**. I
 3. Cliquez sur **dépanner**, puis sur **invite de commandes**. 
 4. Tapez la commande suivante et appuyez sur ENTRÉE :  
 

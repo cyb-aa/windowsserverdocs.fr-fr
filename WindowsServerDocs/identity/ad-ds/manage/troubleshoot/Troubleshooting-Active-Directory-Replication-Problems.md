@@ -1,7 +1,6 @@
 ---
 ms.assetid: b11f7a65-ec7b-4c11-8dc4-d7cabb54cd94
 title: Résolution des problèmes de réplication Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: cf6b50ab3b4991bd8cab8523494261f1284945a5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a3e9c3e901f164d793ca40943934efbbccafda38
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71409068"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822962"
 ---
 # <a name="troubleshooting-active-directory-replication-problems"></a>Résolution des problèmes de réplication Active Directory
 
@@ -26,7 +25,7 @@ Le reste de cette rubrique décrit les outils et une méthodologie générale po
 
 ## <a name="introduction-and-resources-for-troubleshooting-active-directory-replication"></a>Présentation et ressources pour la résolution des problèmes de réplication Active Directory
 
-L’échec de la réplication entrante ou sortante entraîne l’incohérence des objets Active Directory qui représentent la topologie de réplication, la planification de la réplication, les contrôleurs de domaine, les utilisateurs, les ordinateurs, les mots de passe, les groupes de sécurité, les appartenances aux groupes et les stratégie de groupe. entre les contrôleurs de domaine. L’incohérence de l’annuaire et l’échec de la réplication entraînent des échecs opérationnels ou des résultats incohérents, en fonction du contrôleur de domaine qui est contacté pour l’opération et peuvent empêcher l’application de stratégie de groupe et des autorisations de contrôle d’accès. Active Directory Domain Services (AD DS) dépend de la connectivité réseau, de la résolution de noms, de l’authentification et de l’autorisation, de la base de données d’annuaire, de la topologie de réplication et du moteur de réplication. Lorsque la cause racine d’un problème de réplication n’est pas immédiatement évidente, la détermination de la cause parmi les nombreuses causes possibles nécessite l’élimination systématique des causes probables.
+L’échec de la réplication entrante ou sortante entraîne l’incohérence des objets Active Directory qui représentent la topologie de réplication, la planification de la réplication, les contrôleurs de domaine, les utilisateurs, les ordinateurs, les mots de passe, les groupes de sécurité, les appartenances aux groupes et les stratégie de groupe. L’incohérence de l’annuaire et l’échec de la réplication entraînent des échecs opérationnels ou des résultats incohérents, en fonction du contrôleur de domaine qui est contacté pour l’opération et peuvent empêcher l’application de stratégie de groupe et des autorisations de contrôle d’accès. Active Directory Domain Services (AD DS) dépend de la connectivité réseau, de la résolution de noms, de l’authentification et de l’autorisation, de la base de données d’annuaire, de la topologie de réplication et du moteur de réplication. Lorsque la cause racine d’un problème de réplication n’est pas immédiatement évidente, la détermination de la cause parmi les nombreuses causes possibles nécessite l’élimination systématique des causes probables.
 
 Pour un outil basé sur l’interface utilisateur qui permet de surveiller la réplication et de diagnostiquer les erreurs, consultez [Active Directory Replication Status outil](https://www.microsoft.com/download/details.aspx?id=30005) .
 
@@ -49,7 +48,7 @@ Des erreurs de réplication se produisent parfois en raison d’interruptions in
 
 ### <a name="intentional-disconnections"></a>Déconnexions intentionnelles
 
-Si des erreurs de réplication sont signalées par un contrôleur de domaine qui tente de réplication avec un contrôleur de domaine qui a été créé dans un site intermédiaire et est actuellement hors connexion en attente de son déploiement sur le site de production final (un site distant, tel qu’une filiale). ), vous pouvez tenir compte de ces erreurs de réplication. Pour éviter de séparer un contrôleur de domaine de la topologie de réplication pendant des périodes prolongées, ce qui entraîne des erreurs continues jusqu’à ce que le contrôleur de domaine soit reconnecté, envisagez d’ajouter ces ordinateurs initialement en tant que serveurs membres et en utilisant l’installation à partir du support ( La méthode IFM) pour installer Active Directory Domain Services (AD DS). Vous pouvez utiliser l’outil de ligne de commande ntdsutil pour créer un support d’installation que vous pouvez stocker sur un support amovible (CD, DVD ou tout autre support) et l’envoyer au site de destination. Ensuite, vous pouvez utiliser le support d’installation pour installer AD DS sur les contrôleurs de domaine sur le site, sans utiliser la réplication. 
+Si des erreurs de réplication sont signalées par un contrôleur de domaine qui tente de réplication avec un contrôleur de domaine qui a été créé dans un site intermédiaire et qui est actuellement hors connexion en attente de son déploiement sur le site de production final (un site distant, tel qu’une filiale), vous pouvez tenir compte de ces erreurs de réplication. Pour éviter de séparer un contrôleur de domaine de la topologie de réplication pendant des périodes prolongées, ce qui entraîne des erreurs continues jusqu’à ce que le contrôleur de domaine soit reconnecté, envisagez d’ajouter ces ordinateurs initialement en tant que serveurs membres et en utilisant la méthode d’installation à partir du support (IFM) pour installer Active Directory Domain Services (AD DS). Vous pouvez utiliser l’outil de ligne de commande ntdsutil pour créer un support d’installation que vous pouvez stocker sur un support amovible (CD, DVD ou tout autre support) et l’envoyer au site de destination. Ensuite, vous pouvez utiliser le support d’installation pour installer AD DS sur les contrôleurs de domaine sur le site, sans utiliser la réplication. 
 
 ### <a name="hardware-failures-or-upgradestitle"></a>Défaillances matérielles ou mises à niveau</title>
 
@@ -146,7 +145,7 @@ Outils :
 12. Répétez l’étape 11 pour la colonne heure du dernier échec, mais utilisez la valeur n’est pas égale à, puis tapez la valeur 0.
 13. Résolvez les échecs de réplication.
 
-Pour chaque contrôleur de domaine de la forêt, la feuille de calcul affiche le partenaire de réplication source, l’heure de la dernière réplication et l’heure de la dernière échec de réplication pour chaque contexte d’appellation (partition d’annuaire). À l’aide du filtre automatique dans Excel, vous pouvez afficher l’intégrité de la réplication pour les contrôleurs de domaine en cours d’utilisation uniquement, les contrôleurs de domaine défaillants uniquement ou les contrôleurs de domaine qui sont les moins ou les plus récents, et vous pouvez voir les partenaires de réplication qui répliquent correctement.
+Pour chaque contrôleur de domaine de la forêt, la feuille de calcul affiche le partenaire de réplication source, l’heure de la dernière réplication et l’heure de la dernière échec de réplication pour chaque contexte d’appellation (partition d’annuaire). À l’aide du filtre automatique dans Excel, vous pouvez afficher l’intégrité de la réplication pour les contrôleurs de domaine de travail uniquement, les contrôleurs de domaine défaillants uniquement ou les contrôleurs de domaine qui sont les moins ou les plus récents, et vous pouvez voir les partenaires de réplication qui sont répliqués avec succès.
 
 ## <a name="replication-problems-and-resolutions"></a>Résolution des problèmes de réplication
 
@@ -158,11 +157,11 @@ La plupart des problèmes de réplication sont identifiés dans les messages d�
 
 Pour identifier Active Directory problèmes de réplication, utilisez la commande <system>repadmin/showrepl</system> , comme décrit dans la section précédente. Le tableau suivant indique les messages d’erreur générés par cette commande, ainsi que les causes racines des erreurs et des liens vers des rubriques qui fournissent des solutions aux erreurs.
 
-|Erreur repadmin|Cause première|Solution|
+|Erreur repadmin|Cause racine|Solution|
 | --- | --- | --- |
 |Le temps écoulé depuis la dernière réplication avec ce serveur a dépassé la durée de vie de désactivation.|Un contrôleur de domaine a échoué une réplication entrante avec le contrôleur de domaine source nommé suffisamment longtemps pour qu’une suppression ait été désactivée, répliquée et récupérée par le garbage collector à partir d’AD DS.|ID d’événement 2042 : Trop de temps s’est écoulé depuis la réplication de cette machine|
 |Aucun voisin entrant.|Si aucun élément n’apparaît dans la section « voisins entrants » de la sortie générée par repadmin/showrepl, le contrôleur de domaine n’a pas pu établir de liens de réplication avec un autre contrôleur de domaine.|Résolution des problèmes de connectivité de réplication (ID d’événement 1925)| 
-|L’accès est refusé.|Un lien de réplication existe entre deux contrôleurs de domaine, mais la réplication ne peut pas être effectuée correctement suite à un échec d’authentification.|Résolution des problèmes de sécurité de réplication| 
+|L'accès est refusé.|Un lien de réplication existe entre deux contrôleurs de domaine, mais la réplication ne peut pas être effectuée correctement suite à un échec d’authentification.|Résolution des problèmes de sécurité de réplication| 
 |La dernière tentative au < de la date et de l’heure > a échoué avec le nom du compte cible incorrect.|Ce problème peut être lié à des problèmes de connectivité, DNS ou d’authentification. S’il s’agit d’une erreur DNS, le contrôleur de domaine local n’a pas pu résoudre le nom DNS basé sur l’identificateur global unique (GUID) de son partenaire de réplication.|Résolution des problèmes de recherche DNS de réplication (ID d’événement 1925, 2087, 2088) résolution des problèmes de sécurité de réplication résolution des problèmes de connectivité de réplication (ID d’événement 1925)| 
 |Erreur LDAP 49.|Il se peut que le compte d’ordinateur du contrôleur de domaine ne soit pas synchronisé avec le centre de distribution de clés (KDC).|Résolution des problèmes de sécurité de réplication| 
 |Impossible d’ouvrir la connexion LDAP à l’hôte local|L’outil d’administration n’a pas pu contacter AD DS.|Résolution des problèmes de recherche DNS de réplication (ID d’événement 1925, 2087 et 2088)| 
@@ -184,6 +183,6 @@ Le tableau suivant répertorie les événements courants qui peuvent indiquer de
 
 Pour plus d’informations sur les concepts de réplication, consultez [Active Directory technologies de réplication](https://go.microsoft.com/fwlink/?LinkId=41950).
   
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
 Pour plus d’informations, notamment des Articles de support spécifiques aux codes d’erreur, consultez l’article du support technique : [Comment résoudre les erreurs courantes de réplication de Active Directory](https://support.microsoft.com/help/3108513)

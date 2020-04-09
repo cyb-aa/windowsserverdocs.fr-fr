@@ -1,23 +1,24 @@
 ---
 title: Déployer un témoin de partage de fichiers dans Windows Server 2019
+description: Les témoins de partage de fichiers vous permettent d’utiliser un partage de fichiers pour voter dans le quorum de cluster. Cette rubrique décrit les témoins de partage de fichiers et les nouvelles fonctionnalités, notamment l’utilisation d’un lecteur USB connecté à un routeur en tant que témoin de partage de fichiers.
 ms.prod: windows-server
-ms.manager: eldenc
+manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
+ms.author: johnmar
 ms.date: 01/24/2019
-description: Les témoins de partage de fichiers vous permettent d’utiliser un partage de fichiers pour voter dans le quorum de cluster. Cette rubrique décrit les témoins de partage de fichiers et les nouvelles fonctionnalités, notamment l’utilisation d’un lecteur USB connecté à un routeur en tant que témoin de partage de fichiers.
 ms.localizationpriority: medium
-ms.openlocfilehash: 9f0a0c5b48f7c382367e4b1100ff649fe73d3be9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 63e016b8e00482529e69aaa12727f854afd51e41
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369762"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827672"
 ---
 # <a name="deploy-a-file-share-witness"></a>Déployer un témoin de partage de fichiers
 
-> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Un témoin de partage de fichiers est un partage SMB que le cluster de basculement utilise comme vote dans le quorum de cluster. Cette rubrique fournit une vue d’ensemble de la technologie et des nouvelles fonctionnalités de Windows Server 2019, y compris l’utilisation d’un lecteur USB connecté à un routeur en tant que témoin de partage de fichiers.
 

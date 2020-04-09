@@ -2,22 +2,18 @@
 title: Planification de la capacité DirectAccess
 description: Vous pouvez utiliser cette rubrique pour obtenir un rapport sur les performances du serveur DirectAccess Windows Server 2012 afin de vous aider à planifier la capacité de DirectAccess dans Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 456e5971-3aa7-4a24-bc5d-0c21fec7687e
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: e63b4c4f266d286b766c89b61676493328aa8652
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 413dc88ce9ec551a318b63f3df44ed256f289219
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310983"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815792"
 ---
 # <a name="directaccess-capacity-planning"></a>Planification de la capacité DirectAccess
 
@@ -37,7 +33,7 @@ Le diagramme suivant illustre les résultats de l’environnement de test des pe
 ||||  
 |-|-|-|  
 |Configuration-matériel|Matériel bas de gamme (4 Go de RAM, 4 cœurs)|Matériel haut de gamme (8 Go, 8 cœurs)|  
-|Double tunnel<br /><br />-PKI<br /><br />-Y compris DNS64/NAT64|750 connexions simultanées en utilisant 50 % de l’UC, 50 % de mémoire avec un débit de carte réseau d’entreprise de 75 Mbits/s. L’objectif ambitieux est de 1 000 utilisateurs en utilisant 50 % de l’UC.|1500 connexions simultanées à 50% d’UC, 50% de mémoire avec un débit de carte réseau Corpnet de 150 Mbits/s.|  
+|Double tunnel<p>-PKI<p>-Y compris DNS64/NAT64|750 connexions simultanées en utilisant 50 % de l’UC, 50 % de mémoire avec un débit de carte réseau d’entreprise de 75 Mbits/s. L’objectif ambitieux est de 1 000 utilisateurs en utilisant 50 % de l’UC.|1500 connexions simultanées à 50% d’UC, 50% de mémoire avec un débit de carte réseau Corpnet de 150 Mbits/s.|  
 ## <a name="test-environment"></a>Environnement de test
 
 **Topologie de banc de performances**  

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 8b15d44e-e4e6-4510-aa91-cc7ec7161b0a
 title: Rôle du moteur de revendications
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,24 +8,24 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4d227be18cd69d79f24edca96bd873afda3f2d2a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3e6f3ab502a224169a0ab0075bceabdd681e3d86
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385450"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814332"
 ---
 # <a name="the-role-of-the-claims-engine"></a>Rôle du moteur de revendications
-À son niveau le plus élevé, le moteur de \(revendications\) dans services ADFS AD FS\-est un moteur basé sur des règles qui est dédié au traitement et au traitement des demandes de revendication pour le service FS (Federation Service). Le moteur de revendications est la seule entité du service de fédération qui est chargée de l’exécution de chacun des ensembles de règles sur toutes les relations d’approbation fédérée que vous avez configurées, ainsi que de la transmission du résultat de sortie au pipeline de revendications.  
+À son niveau le plus élevé, le moteur de revendications dans Services ADFS \(AD FS\) est un moteur basé sur des\-de règles qui est dédié au traitement et au traitement des demandes de revendication pour le service FS (Federation Service). Le moteur de revendications est la seule entité du service de fédération qui est chargée de l’exécution de chacun des ensembles de règles sur toutes les relations d’approbation fédérée que vous avez configurées, ainsi que de la transmission du résultat de sortie au pipeline de revendications.  
   
-Alors que le pipeline de revendications est davantage un concept logique\-du\-processus de bout en bout pour les revendications de workflow, les règles de revendication sont un élément d’administration réel que vous pouvez utiliser pour personnaliser le workflow des revendications pendant le processus d’exécution des règles de revendication. Pour plus d’informations sur le processus du pipeline, consultez la page [The Role of the Claims Pipeline](The-Role-of-the-Claims-Pipeline.md).  
+Tandis que le pipeline de revendications est davantage un concept logique du\-final pour\-processus de fin de la transmission des revendications, les règles de revendication sont un élément d’administration réel que vous pouvez utiliser pour personnaliser le workflow des revendications pendant le processus d’exécution des règles de revendication. Pour plus d’informations sur le processus du pipeline, consultez la page [The Role of the Claims Pipeline](The-Role-of-the-Claims-Pipeline.md).  
   
-Comme indiqué dans l’illustration suivante, le fait d’accepter des règles \(\)d’acceptation de revendications entrantes, \(d’autoriser des\) demandes de demande de \( revendications et d’émettre des revendications sortantes les règles\) d’émission par le biais de règles de revendication dans toutes les relations d’approbation fédérée de votre organisation sont effectuées par le moteur de revendications.  
+Comme indiqué dans l’illustration suivante, le fait d’accepter des revendications entrantes \(des règles d’acceptation\), d’autoriser des demandeurs de revendications \(des règles d’autorisation\) et d’émettre des revendications sortantes \(des règles d’émission\) par le biais de règles de revendication sur toutes les relations d’approbation fédérée de votre organisation est effectuée par le moteur de revendications.  
   
 ![Rôles de AD FS](media/adfs2_enginepipeline.gif)  
   
 ## <a name="claim-rules-execution-process"></a>Processus d’exécution des règles de revendication  
-Quand vous configurez une approbation de fournisseur de revendications ou de partie de confiance dans votre organisation avec des règles de\(revendication\) , le jeu de règles de revendication pour cette approbation agit comme un opérateur de niveau de service pour les revendications entrantes en appelant le moteur de revendications pour appliquer les logique dans les règles de revendication pour déterminer s’il faut émettre des revendications et les revendications à émettre.  
+Quand vous configurez une approbation de fournisseur de revendications ou de partie de confiance dans votre organisation avec des règles de revendication, le jeu de règles de revendication\(s\) pour cette approbation comme un opérateur de niveau de service pour les revendications entrantes en appelant le moteur de revendications pour appliquer la logique nécessaire dans les règles de revendication pour déterminer s’il faut émettre des revendications et les revendications à émettre.  
   
 La section suivante décrit chacune des étapes qui se produisent au niveau du moteur pendant le flux des revendications lors du processus d’exécution des règles de revendication. Chacune des étapes décrites ci-dessous se produit pour chaque phase décrite dans le processus du pipeline de revendications. Ces étapes sont les suivantes :  
   
@@ -51,15 +50,15 @@ Par exemple, dans l’illustration ci-dessous, le moteur de revendications lit l
 Toutes les règles d’un ensemble de règles de revendication partagent le même jeu de revendications d’entrée. Chaque règle de ce jeu peut être ajoutée au jeu de revendications d’entrée partagé, affectant ainsi toutes les règles suivantes du jeu.  
   
 ### <a name="step-2--execution"></a>Étape 2 : exécution  
-Dans cette étape du processus de règles de revendication, les règles de revendication sont traitées lorsque le moteur de revendications parcourt une par une et dans l’ordre chronologique toutes les règles d’un ensemble de règles spécifique. Chaque règle d’un ensemble de règles s’exécute une seule fois et est exécutée dans l’ordre dans lequel elles apparaissent de haut en bas, comme indiqué dans la boîte de dialogue Modifier les\-règles de revendication dans le composant logiciel enfichable Gestion des AD FS. La règle de revendication située au début de l’ensemble de règles est traitée en premier, puis les règles suivantes, jusqu’à ce que toutes les règles soient exécutées.  
+Dans cette étape du processus de règles de revendication, les règles de revendication sont traitées lorsque le moteur de revendications parcourt une par une et dans l’ordre chronologique toutes les règles d’un ensemble de règles spécifique. Chaque règle d’un ensemble de règles s’exécute une seule fois et est exécutée dans l’ordre dans lequel elles apparaissent de haut en bas, comme indiqué dans la boîte de dialogue Modifier les règles de revendication dans le\-du composant logiciel enfichable de gestion AD FS dans. La règle de revendication située au début de l’ensemble de règles est traitée en premier, puis les règles suivantes, jusqu’à ce que toutes les règles soient exécutées.  
   
-Comme défini dans le langage de règle de revendication, une règle de revendication se compose de deux parties : une condition et une instruction d’émission. Le moteur de revendications traite tout d’abord la partie condition à l’aide des données du jeu de revendications d’entrée pour déterminer si la condition spécifiée dans la règle est vraie pour les revendications contenues dans le jeu de revendications d’entrée définir \(les revendications qui correspondent aux la condition est désignée sous le terme de\)revendications correspondantes. Si des revendications correspondantes sont trouvées, le moteur de revendications exécute l’instruction d’émission de la règle pour chaque jeu des revendications correspondantes. L’instruction d’émission de la règle peut effectuer l’une des tâches suivantes avec les revendications correspondantes :  
+Comme défini dans le langage de règle de revendication, une règle de revendication se compose de deux parties : une condition et une instruction d’émission. Le moteur de revendications traite tout d’abord la partie condition à l’aide des données du jeu de revendications d’entrée pour déterminer si la condition spécifiée dans la règle est vraie pour les revendications contenues dans le jeu de revendications d’entrée \(les revendications qui correspondent à la condition de la règle sont appelées\)de revendications correspondantes. Si des revendications correspondantes sont trouvées, le moteur de revendications exécute l’instruction d’émission de la règle pour chaque jeu des revendications correspondantes. L’instruction d’émission de la règle peut effectuer l’une des tâches suivantes avec les revendications correspondantes :  
   
 1.  Copier une revendication correspondante dans le jeu de revendications de sortie.  
   
 2.  Transformer les champs de revendication et créer une nouvelle revendication dans le jeu de revendications d’entrée uniquement ou dans les jeux de revendications d’évaluation et de sortie.  
   
-3.  Utilisez\(la revendication\) correspondante comme clé pour rechercher plus d’informations à partir d’un magasin d’attributs\) afin de\(créer de nouvelles revendications dans le jeu de revendications d’entrée uniquement ou dans les jeux de revendications d’entrée et de sortie.  
+3.  Utilisez la revendication de correspondance\(s\) comme clé pour rechercher plus d’informations à partir d’un magasin d’attributs afin de créer de nouvelles revendications\(\) dans le jeu de revendications d’entrée ou dans les jeux de revendications d’entrée et de sortie.  
   
 #### <a name="adding-a-claim-to-the-output-claim-set-for-a-rule-set"></a>Ajout d’une revendication dans le jeu de revendications de sortie pour un ensemble de règles  
 Le *jeu de revendications de sortie* est un emplacement de la mémoire qui est vide à l’origine. Il est cependant important, car le moteur de revendications renvoie uniquement les revendications présentes dans ce jeu de revendications de sortie lorsque le processus d’exécution est terminé. Cela signifie que toutes les revendications uniquement présentes dans le jeu de revendications d’entrée, et pas dans celui de sortie, sont ignorées lors du calcul du jeu final des revendications de sortie.  
@@ -77,9 +76,9 @@ Si la partie conditions d’une règle au sein d’un ensemble de règles ne cor
   
 2.  Lorsque la première règle s’exécute, elle détecte les revendications A et B qui, à ce moment précis, sont les seules revendications présentes dans le jeu de revendications d’entrée. La règle traite alors la partie conditions de la logique de la règle dans la règle 1.  
   
-3.  Étant donné que la revendication a est présente dans le jeu de revendications d’entrée, la condition de la règle est \(déterminée comme ayant la\) valeur true correspondant à la revendication A et une nouvelle revendication C est ajoutée au jeu de revendications d’entrée et au jeu de revendications de sortie.  
+3.  Étant donné que la revendication A est présente dans le jeu de revendications d’entrée, la condition de la règle est déterminée comme vraie \(qui correspond à la revendication A\) et une nouvelle revendication C est ajoutée au jeu de revendications d’entrée et au jeu de revendications de sortie.  
   
-4.  La règle 2 peut désormais utiliser les revendications A, B et \(C dans le jeu\) de revendications d’entrée comme entrée pour traiter sa logique.  
+4.  La règle 2 peut désormais utiliser les revendications A, B et C \(toutes les revendications dans le jeu de revendications d’entrée\) comme entrée pour traiter sa logique.  
   
 Pour plus d’informations sur la transformation des revendications, consultez la page [When to Use a Transform Claim Rule](When-to-Use-a-Transform-Claim-Rule.md).  
   
@@ -89,21 +88,21 @@ La dernière étape de l’exécution de l’ensemble de règles de revendicatio
 ## <a name="sending-the-execution-output-to-the-claims-pipeline"></a>Envoi de la sortie de l’exécution au pipeline de revendications  
 Lorsque le moteur de revendications traite un ensemble de règles, cet ensemble possède ses propres emplacements dans la mémoire, dédiés à ses jeux de réclamations d’entrée et de sortie. Cela signifie que les jeux de réclamation d’entrée et de sortie utilisés par un ensemble de règles sont distincts de ceux utilisés par un autre ensemble de règles.  
   
-Une fois que l’ensemble du processus a été exécuté pour \(un ensemble de règles, étapes 1\), 2 et 3, le \(contenu des revendications sortantes récemment\) émis du jeu de revendications de sortie est utilisé comme entrée pour l’ensemble de règles suivant dans le pipeline de revendications. Cela permet aux revendications de circuler de la sortie d’un ensemble de règles à l’entrée d’un autre ensemble de règles, comme indiqué dans l’illustration suivante.  
+Une fois que l’ensemble du processus a été exécuté pour un ensemble de règles \(les étapes 1, 2 et 3\), le contenu des revendications sortantes nouvellement émises \(du jeu de revendications de sortie\) sera utilisé comme entrée pour l’ensemble de règles suivant dans le pipeline de revendications. Cela permet aux revendications de circuler de la sortie d’un ensemble de règles à l’entrée d’un autre ensemble de règles, comme indiqué dans l’illustration suivante.  
   
 ![Rôles de AD FS](media/adfs2_enginecontexts.gif)  
   
 > [!NOTE]  
 > Bien que l’ensemble de règles d’émission soit également une étape essentielle dans le pipeline, l’illustration ci-dessus n’en tient pas compte afin de simplifier le schéma. Pour consulter une illustration représentant l’ensemble de règles d’émission et la manière dont il s’intègre dans le pipeline de revendications, consultez la page [The Role of the Claims Pipeline](The-Role-of-the-Claims-Pipeline.md).  
   
-Dans ce cas, la sortie des règles d’acceptation est utilisée par le pipeline pour faire circuler le jeu final de revendications produit par les règles d’acceptation vers la deuxième étape du pipeline, c’est-à-dire le traitement des règles d’autorisation. À ce stade, le processus \(d’exécution des règles de revendication entières 1, 2 et 3 ci-dessus\) s’exécutera à nouveau pour l’ensemble de règles d’autorisation. Ce cycle se poursuit jusqu’à ce que \(la règle d’émission définie à\) l’étape finale dans le pipeline soit terminée.  
+Dans ce cas, la sortie des règles d’acceptation est utilisée par le pipeline pour faire circuler le jeu final de revendications produit par les règles d’acceptation vers la deuxième étape du pipeline, c’est-à-dire le traitement des règles d’autorisation. À ce stade, l’intégralité du processus d’exécution des règles de revendication \(les étapes 1, 2 et 3 ci-dessus,\) serait réexécutée pour l’ensemble de règles d’autorisation. Ce cycle se poursuit jusqu’à ce que l’ensemble de règles d’émission \(la dernière étape du pipeline\) soit terminé.  
   
 Une fois que les revendications sortantes finalisées ont été retournées par le moteur pour l’ensemble de règles d’émission, elles sont rassemblées en un paquet dans un jeton SAML qui est envoyé au client par le service de fédération.  
   
 ## <a name="processing-authorization-rules"></a>Traitement des règles d’autorisation  
-Si le jeu de règles de revendication en cours d’exécution au cours de l’étape 2 du processus d’exécution des \(règles de revendication se compose de règles d’autorisation qui ont un jeu de revendications\)d’entrée et de sortie différent des règles d’acceptation ou d’émission, alors celles-ci les règles d’autorisation s’exécutent pour déterminer si un demandeur de jeton est autorisé à obtenir un jeton de sécurité pour une partie de confiance donnée à partir de la service FS (Federation Service) en fonction des revendications du demandeur.  
+Si le jeu de règles de revendication en cours d’exécution au cours de l’étape 2 du processus d’exécution des règles de revendication se compose de règles d’autorisation \(qui ont un jeu de revendications d’entrée et de sortie différent des règles d’acceptation ou d’émission\), ces règles d’autorisation seront exécutées pour déterminer si un demandeur de jeton est autorisé à obtenir un jeton de sécurité pour une service FS (Federation Service) partie de confiance  
   
-L’objectif des règles d’autorisation est d’émettre une revendication d’autorisation ou de refus selon que l’utilisateur est autorisé ou non à obtenir un jeton pour la partie de confiance donnée. Comme indiqué dans l’illustration suivante, la sortie de l’exécution de l’autorisation est utilisée par le pipeline pour déterminer si l’ensemble de règles d’émission est exécuté ou non, en fonction de la\/présence ou de l’absence de la revendication d’autorisation ou de refus, mais de l’autorisation la sortie d’exécution elle-même n’est pas utilisée en tant qu’entrée dans le jeu de règles de revendication.  
+L’objectif des règles d’autorisation est d’émettre une revendication d’autorisation ou de refus selon que l’utilisateur est autorisé ou non à obtenir un jeton pour la partie de confiance donnée. Comme indiqué dans l’illustration suivante, la sortie de l’exécution de l’autorisation est utilisée par le pipeline pour déterminer si l’ensemble de règles d’émission est exécuté ou non, en fonction de la présence ou de l’absence de l’autorisation et de l'\/ou refuser la revendication, mais la sortie de l’exécution d’autorisation elle-même n’est pas utilisée en tant qu’entrée dans le jeu  
   
 ![Rôles de AD FS](media/adfs2_authorization.gif)  
   

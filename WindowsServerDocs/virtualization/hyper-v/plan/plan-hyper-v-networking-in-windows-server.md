@@ -2,24 +2,22 @@
 title: Planifier la mise en réseau Hyper-V dans Windows Server
 description: Décrit ce qui est nécessaire pour la mise en réseau de base dans Hyper-V et fournit des liens vers des instructions
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: f09bc82d0dd47d3393dd05dcf03913db11e4c335
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3127c9579493ad8b317667b61de88304fd14f6cf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392507"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860762"
 ---
 # <a name="plan-for-hyper-v-networking-in-windows-server"></a>Planifier la mise en réseau Hyper-V dans Windows Server
 
->S'applique à : Microsoft Hyper-V Server 2016, Windows Server 2016, Microsoft Hyper-V Server 2019, Windows Server 2019
+>S’applique à : Microsoft Hyper-V Server 2016, Windows Server 2016, Microsoft Hyper-V Server 2019, Windows Server 2019
   
 Une compréhension élémentaire de la mise en réseau dans Hyper-V vous aide à planifier la mise en réseau pour les machines virtuelles. Cet article traite également de certaines considérations relatives à la mise en réseau lors de l’utilisation de la migration dynamique et de l’utilisation d’Hyper-V avec d’autres fonctionnalités serveur et des rôles.  
   

@@ -1,24 +1,20 @@
 ---
 title: regini
 description: Découvrez comment modifier le registre à partir de l’invite de commandes ou à l’aide d’un script.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5ff18dc3-5bd8-400a-b311-fd73a3267e8c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 482a0a256c537965a9960a896fa323aa8b8fac42
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 632573f317eafa254f6c434f959a06f2c24f7353
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371639"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836242"
 ---
 # <a name="regini"></a>regini
 
@@ -32,16 +28,16 @@ Pour plus d’informations sur le format et le contenu du fichier de script text
 regini [-m \\machinename | -h hivefile hiveroot][-i n] [-o outputWidth][-b] textFiles...
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 | Paramètre | Description |
 
-|-m \< \\ nom_ordinateur\\>|Spécifie le nom de l’ordinateur distant avec un registre à modifier. Utilisez le  **\\ format\\ComputerName**.|
+|-m \<\\\\ComputerName >|Spécifie le nom de l’ordinateur distant avec un registre à modifier. Utilisez le format **\\\\ComputerName**.|
 |---------------------|-|
 |-h \<hivefile hiveroot >|Spécifie la ruche de registre local à modifier. Vous devez spécifier le nom du fichier Hive et la racine de la ruche au format **hivefile hiveroot**.|
 |-i \<n >|Spécifie le niveau de mise en retrait à utiliser pour indiquer la structure arborescente des clés de Registre dans la sortie de la commande. L’outil **Regdmp. exe** (qui obtient les autorisations actuelles d’une clé de Registre au format binaire) utilise la mise en retrait par multiple de quatre, donc la valeur par défaut est **4**.|
 |-o \<outputwidth >|Spécifie la largeur de la sortie de commande, en caractères. Si la sortie s’affiche dans la fenêtre de commande, la valeur par défaut est la largeur de la fenêtre. Si la sortie est dirigée vers un fichier, la valeur par défaut est **240** caractères.|
-|-b|Spécifie que la sortie **Regini. exe** est à compatibilité descendante avec les versions précédentes de **Regini. exe**. Pour plus d’informations, consultez la section Notes.|
+|-b|Spécifie que la sortie **Regini. exe** est à compatibilité descendante avec les versions précédentes de **Regini. exe**. Pour plus d'informations, consultez la section Notes.|
 |Textfiles|Spécifie le nom d’un ou plusieurs fichiers texte qui contiennent des données de registre. Il est possible de répertorier un nombre quelconque de fichiers texte ANSI ou Unicode.|
 
 ## <a name="remarks"></a>Notes
@@ -51,6 +47,6 @@ Les indications suivantes s’appliquent principalement au contenu des fichiers 
 -   Utilisez la barre oblique inverse pour indiquer la continuation d’une ligne. La commande ignore tous les caractères de la barre oblique inverse (sans inclure) le premier caractère non vide de la ligne suivante. Si vous incluez plus d’un espace avant la barre oblique inverse, il est remplacé par un seul espace.
 -   Utilisez des caractères de tabulation pour contrôler la mise en retrait. Cette mise en retrait indique la structure arborescente des clés de Registre ; Toutefois, ces caractères sont convertis en un seul espace, quelle que soit leur position.
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

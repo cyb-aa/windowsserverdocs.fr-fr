@@ -1,28 +1,22 @@
 ---
 title: tpmvscmgr
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour tpmvscmgr, qui est un outil en ligne de commande qui permet aux utilisateurs disposant d’informations d’identification administratives de créer et de supprimer des cartes à puce virtuelles TPM sur un ordinateur.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8b2c8ff4-5c5d-446d-99e7-4daa1b36a163
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0051750f557786b0a564ec20a32089e089898cc0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4411e0ec3c75cd768b2fe32ad26b17331328e3ca
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385659"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80832732"
 ---
 # <a name="tpmvscmgr"></a>tpmvscmgr
-
-
 
 L’outil en ligne de commande Tpmvscmgr permet aux utilisateurs disposant d’informations d’identification d’administration de créer et de supprimer des cartes à puce virtuelles TPM sur un ordinateur. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
 
@@ -35,7 +29,7 @@ Tpmvscmgr create [/name] [/AdminKey DEFAULT | PROMPT | RANDOM] [/PIN DEFAULT | P
 Tpmvscmgr destroy [/instance <instance ID>] [/?]
 ```
 
-### <a name="parameters-for-create-command"></a>Paramètres de la commande CREATE
+#### <a name="parameters-for-create-command"></a>Paramètres de la commande CREATE
 
 La commande CREATE définit de nouvelles cartes à puce virtuelles sur le système de l’utilisateur. Elle retourne l’ID d’instance de la nouvelle carte créée pour référence ultérieure si la suppression est requise. L’ID d’instance est au format **ROOT\SMARTCARDREADER\000n** , où **n** commence à 0 et est augmenté de 1 chaque fois que vous créez une carte à puce virtuelle.
 
@@ -49,7 +43,7 @@ La commande CREATE définit de nouvelles cartes à puce virtuelles sur le systè
 |/machine|Vous permet de spécifier le nom d’un ordinateur distant sur lequel la carte à puce virtuelle peut être créée. Cela peut être utilisé dans un environnement de domaine uniquement et s’appuie sur DCOM. Pour que la commande aboutisse à la création d’une carte à puce virtuelle sur un autre ordinateur, l’utilisateur qui exécute cette commande doit être membre du groupe Administrateurs local sur l’ordinateur distant.|
 |/?|Affiche l’aide de cette commande.|
 
-### <a name="parameters-for-destroy-command"></a>Paramètres de la commande destroy
+#### <a name="parameters-for-destroy-command"></a>Paramètres de la commande destroy
 
 La commande destroy supprime une carte à puce virtuelle de l’ordinateur de l’utilisateur en toute sécurité.
 
@@ -67,19 +61,19 @@ L’appartenance au groupe **administrateurs** (ou équivalent) sur l’ordinate
 
 Pour les entrées alphanumériques, le jeu ASCII complet de 127 caractères est autorisé.
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 La commande suivante montre comment créer une carte à puce virtuelle qui peut être gérée par la suite par un outil de gestion des cartes à puce lancé à partir d’un autre ordinateur.
 ```
-tpmvscmgr.exe create /name "VirtualSmartCardForCorpAccess" /AdminKey DEFAULT /PIN PROMPT
+tpmvscmgr.exe create /name VirtualSmartCardForCorpAccess /AdminKey DEFAULT /PIN PROMPT
 ```
 Au lieu d’utiliser une clé d’administrateur par défaut, vous pouvez également créer une clé d’administrateur sur la ligne de commande. La commande suivante montre comment créer une clé d’administrateur.
 ```
-tpmvscmgr.exe create /name "VirtualSmartCardForCorpAccess" /AdminKey PROMPT /PIN PROMPT
+tpmvscmgr.exe create /name VirtualSmartCardForCorpAccess /AdminKey PROMPT /PIN PROMPT
 ```
 La commande suivante permet de créer la carte à puce virtuelle non gérée qui peut être utilisée pour inscrire des certificats.
 ```
-tpmvscmgr.exe create /name "VirtualSmartCardForCorpAccess" /AdminKey RANDOM /PIN PROMPT /generate
+tpmvscmgr.exe create /name VirtualSmartCardForCorpAccess /AdminKey RANDOM /PIN PROMPT /generate
 ```
 La commande suivante crée une carte à puce virtuelle avec une clé d’administrateur aléatoire. La clé est automatiquement supprimée après la création de la carte. Cela signifie que si l’utilisateur oublie le PIN ou souhaite modifier le PIN, il doit supprimer la carte et la recréer. Pour supprimer la carte, l’utilisateur peut exécuter la commande suivante.
 ```
@@ -87,6 +81,6 @@ tpmvscmgr.exe destroy /instance <instance ID>
 ```
 où \<ID d’instance > correspond à la valeur imprimée à l’écran lorsque l’utilisateur a créé la carte. Plus précisément, pour la première carte créée, l’ID d’instance est ROOT\SMARTCARDREADER\0000.
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

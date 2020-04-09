@@ -1,29 +1,25 @@
 ---
 title: Mise en route du Kit de déploiement et d'évaluation Windows Server Essentials
 description: Décrit comment utiliser Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 343e600f-5131-4692-b8aa-69d275a8295b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c10f3e0215033ff4bab14a2c68f73554bcca1bb9
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 7e8ba36f9f5b4d919937b3346b81a93de600631d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80311759"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80817912"
 ---
 # <a name="getting-started-with-the-windows-server-essentials-adk"></a>Mise en route du Kit de déploiement et d'évaluation Windows Server Essentials
 
 >S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Le kit de déploiement et d’évaluation (ADK) pour le logiciel serveur Windows Server Essentials est basé sur le système d’exploitation ADK pour le système d’exploitation Windows Server® 2012, donc la documentation de ce kit ADK s’applique ici, sauf indication contraire. Les informations incluses dans ce document sont spécifiques aux partenaires qui veulent préinstaller le système d’exploitation pour leurs clients.  
+Le kit de déploiement et d’évaluation (ADK) pour le logiciel serveur Windows Server Essentials est basé sur le système d’exploitation ADK pour le système d’exploitation Windows Server&reg; 2012, donc la documentation de ce kit ADK s’applique ici, sauf indication contraire. Les informations incluses dans ce document sont spécifiques aux partenaires qui veulent préinstaller le système d’exploitation pour leurs clients.  
   
 > [!NOTE]
 >  Vous pouvez télécharger le kit de déploiement et d’évaluation (ADK) pour Windows Server Essentials à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=34866).  

@@ -2,22 +2,18 @@
 title: ÉTAPE 1 pour terminer la configuration de DirectAccess
 description: Cette rubrique fait partie du Guide de laboratoire de test-démonstration de DirectAccess dans un cluster avec Windows NLB pour Windows Server 2016
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e1e15544-b575-4f39-af0b-771bfae8b0b7
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: bdedc4cf1f9d8e58524565a185ecadc940c8e976
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 760bf279eb81f618bf5a3258270def564d9d64c9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308827"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80819322"
 ---
 # <a name="step-1-complete-the-directaccess-configuration"></a>ÉTAPE 1 pour terminer la configuration de DirectAccess
 

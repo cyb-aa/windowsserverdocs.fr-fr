@@ -1,24 +1,20 @@
 ---
 title: Groupe de sécurité Utilisateurs protégés
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-credential-protection
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1b0b5180-f65a-43ac-8ef3-66014116f296
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 10234611904a4ed5b58939d3fd5ca341221c073c
-ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
+ms.openlocfilehash: c6883513fdc02f4f4d1b874995780639279cc178
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259144"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857052"
 ---
 # <a name="protected-users-security-group"></a>Groupe de sécurité Utilisateurs protégés
 
@@ -26,7 +22,7 @@ ms.locfileid: "76259144"
 
 Cette rubrique destinée aux professionnels de l'informatique décrit le groupe de sécurité Active Directory nommé Utilisateurs protégés et explique son fonctionnement. Ce groupe a été introduit dans les contrôleurs de domaine Windows Server 2012 R2.
 
-## <a name="BKMK_ProtectedUsers"></a>Vue d’ensemble
+## <a name="overview"></a><a name="BKMK_ProtectedUsers"></a>Vue
 
 Ce groupe de sécurité est conçu dans le cadre d’une stratégie de gestion de l’exposition des informations d’identification au sein de l’entreprise. Les membres de ce groupe disposent automatiquement de protections non configurables qui sont appliquées à leurs comptes. L'appartenance au groupe Utilisateurs protégés est censée être restrictive et sécurisée de manière proactive par défaut. La seule méthode permettant de modifier ces protections pour un compte consiste à supprimer le compte du groupe de sécurité.
 
@@ -38,7 +34,7 @@ Ce groupe global lié au domaine déclenche une protection non configurable sur 
 Pour plus d’informations, voir fonctionnement [du groupe utilisateurs protégés](#BKMK_HowItWorks) dans cette rubrique.
 
 
-## <a name="BKMK_Requirements"></a>Conditions requises pour le groupe utilisateurs protégés
+## <a name="protected-users-group-requirements"></a><a name="BKMK_Requirements"></a>Conditions requises pour le groupe utilisateurs protégés
 Les conditions requises pour fournir des protections d’appareils aux membres du groupe utilisateurs protégés sont les suivantes :
 
 - Le groupe de sécurité global Utilisateurs protégés est répliqué vers tous les contrôleurs du domaine du compte.
@@ -58,24 +54,24 @@ Les contrôleurs de domaine qui exécutent un système d’exploitation antérie
 
 Le groupe utilisateurs protégés peut être créé en [transférant le rôle d’émulateur de contrôleur de domaine principal (PDC)](https://technet.microsoft.com/library/cc816944(v=ws.10).aspx) sur un contrôleur de domaine qui exécute Windows Server 2012 R2. Une fois l'objet de groupe répliqué sur d'autres contrôleurs de domaine, le rôle de l'émulateur PDC peut être hébergé sur un contrôleur de domaine qui exécute une version antérieure de Windows Server.
 
-### <a name="BKMK_ADgroup"></a>Propriétés AD du groupe utilisateurs protégés
+### <a name="protected-users-group-ad-properties"></a><a name="BKMK_ADgroup"></a>Propriétés AD du groupe utilisateurs protégés
 
 Le tableau suivant spécifie les propriétés du groupe Utilisateurs protégés.
 
-|Attribut|Value|
+|Attribut|Valeur|
 |-------|-----|
 |SID/RID connu|S-1-5-21-<domain>-525|
-|Tapez|Global du domaine|
+|Type|Global du domaine|
 |Conteneur par défaut|CN=Utilisateurs, DC=<domain>, DC=|
-|Membres par défaut|Aucun(e)|
-|Membre par défaut de|Aucun(e)|
-|Protégé par ADMINSDHOLDER ?|non|
+|Membres par défaut|Aucune|
+|Membre par défaut de|Aucune|
+|Protégé par ADMINSDHOLDER ?|Non|
 |Sortie du conteneur par défaut sécurisée ?|Oui|
-|Délégation de la gestion de ce groupe à des administrateurs extérieurs au service sécurisée ?|non|
+|Délégation de la gestion de ce groupe à des administrateurs extérieurs au service sécurisée ?|Non|
 |Droits d’utilisateur par défaut|Aucun droit d’utilisateur par défaut|
 
-## <a name="BKMK_HowItWorks"></a>Fonctionnement du groupe utilisateurs protégés
-Cette section décrit le fonctionnement du groupe Utilisateurs protégés quand :
+## <a name="how-protected-users-group-works"></a><a name="BKMK_HowItWorks"></a>Fonctionnement du groupe utilisateurs protégés
+Cette section décrit le fonctionnement du groupe Utilisateurs protégés quand :
 
 - Signé sur un appareil Windows
 
@@ -104,26 +100,26 @@ Les comptes qui sont membres du groupe utilisateurs protégés qui s’authentif
 
 - s'authentifier avec l'authentification NTLM ;
 
-- utiliser les types de chiffrement DES ou RC4 dans la pré-authentification Kerberos ;
+- utiliser les types de chiffrement DES ou RC4 dans la pré-authentification Kerberos ;
 
 - être délégués en utilisant la délégation non contrainte ou contrainte ;
 
 - renouveler les tickets TGT Kerberos au-delà de la durée de vie initiale de 4 heures.
 
-Des paramètres non configurables pour l'expiration des tickets TGT sont établis pour chaque compte dans le groupe Utilisateurs protégés. Normalement, le contrôleur de domaine définit la durée de vie et le renouvellement des tickets TGT en fonction des stratégies de domaine **Durée de vie maximale du ticket d'utilisateur** et **Durée de vie maximale pour le renouvellement du ticket utilisateur**. Pour le groupe Utilisateurs protégés, la valeur 600 minutes est définie pour ces stratégies de domaine.
+Des paramètres non configurables pour l'expiration des tickets TGT sont établis pour chaque compte dans le groupe Utilisateurs protégés. Normalement, le contrôleur de domaine définit la durée de vie et le renouvellement des tickets TGT en fonction des stratégies de domaine **Durée de vie maximale du ticket d'utilisateur** et **Durée de vie maximale pour le renouvellement du ticket utilisateur**. Pour le groupe Utilisateurs protégés, la valeur 600 minutes est définie pour ces stratégies de domaine.
 
-Pour plus d'informations, voir [How to Configure Protected Accounts](how-to-configure-protected-accounts.md).
+Pour plus d'informations, voir [Comment configurer des comptes protégés](how-to-configure-protected-accounts.md).
 
-## <a name="troubleshooting"></a>Dépannage
+## <a name="troubleshooting"></a>Résolution des problèmes
 Deux journaux d'administration opérationnels sont disponibles pour résoudre les problèmes associés aux événements concernant les utilisateurs protégés. Ces nouveaux journaux se trouvent dans observateur d’événements et sont désactivés par défaut, et se trouvent sous **applications et services Logs\Microsoft\Windows\Authentication**.
 
 |ID d'événement et journal|Description|
 |----------|--------|
-|104<br /><br />**ProtectedUser-Client**|Cause : Le package de sécurité sur le client ne contient pas les informations d'identification.<br /><br />L'erreur est consignée sur l'ordinateur client quand le compte est membre du groupe de sécurité Utilisateurs protégés. Cet événement indique que le package de sécurité ne met pas en cache les informations d'identification nécessaires pour une authentification auprès du serveur.<br /><br />Affiche le nom du package, le nom d'utilisateur, le nom du domaine et le nom du serveur.|
-|304<br /><br />**ProtectedUser-Client**|Raison : le package de sécurité ne stocke pas les informations d’identification de l’utilisateur protégé.<br /><br />Un événement d’information est consigné dans le client pour indiquer que le package de sécurité ne met pas en cache les informations d’identification de connexion de l’utilisateur. Normalement, Digest (WDigest), la délégation des informations d'identification (CredSSP) et NTLM ne devraient pas pouvoir obtenir les informations d'identification de connexion pour les utilisateurs protégés. Les applications peuvent quand même réussir si elles demandent des informations d'identification.<br /><br />Affiche le nom du package, le nom d'utilisateur et le nom du domaine.|
-|100<br /><br />**ProtectedUserFailures-DomainController**|Cause : Un échec de connexion NTLM se produit pour un compte qui figure dans le groupe de sécurité Utilisateurs protégés.<br /><br />Une erreur est consignée dans le contrôleur de domaine pour indiquer l'échec de l'authentification NTLM en raison de l'appartenance du compte au groupe de sécurité Utilisateurs protégés.<br /><br />Affiche le nom du compte et le nom de l'appareil.|
-|104<br /><br />**ProtectedUserFailures-DomainController**|Cause : Les types de chiffrement DES ou RC4 sont utilisés pour l'authentification Kerberos et un échec de connexion se produit pour un utilisateur dans le groupe de sécurité Utilisateurs protégés.<br /><br />La pré-authentification Kerberos a échoué, car les types de chiffrement DES et RC4 ne peuvent pas être utilisés quand le compte est membre du groupe de sécurité Utilisateurs protégés.<br /><br />(AES est acceptable.)|
-|303<br /><br />**ProtectedUserSuccesses-DomainController**|Cause : Un ticket TGT Kerberos a été correctement émis pour un membre du groupe Utilisateurs protégés.|
+|104<p>**ProtectedUser-Client**|Cause : Le package de sécurité sur le client ne contient pas les informations d'identification.<p>L'erreur est consignée sur l'ordinateur client quand le compte est membre du groupe de sécurité Utilisateurs protégés. Cet événement indique que le package de sécurité ne met pas en cache les informations d'identification nécessaires pour une authentification auprès du serveur.<p>Affiche le nom du package, le nom d'utilisateur, le nom du domaine et le nom du serveur.|
+|304<p>**ProtectedUser-Client**|Raison : le package de sécurité ne stocke pas les informations d’identification de l’utilisateur protégé.<p>Un événement d’information est consigné dans le client pour indiquer que le package de sécurité ne met pas en cache les informations d’identification de connexion de l’utilisateur. Normalement, Digest (WDigest), la délégation des informations d'identification (CredSSP) et NTLM ne devraient pas pouvoir obtenir les informations d'identification de connexion pour les utilisateurs protégés. Les applications peuvent quand même réussir si elles demandent des informations d'identification.<p>Affiche le nom du package, le nom d'utilisateur et le nom du domaine.|
+|100<p>**ProtectedUserFailures-DomainController**|Cause : Un échec de connexion NTLM se produit pour un compte qui figure dans le groupe de sécurité Utilisateurs protégés.<p>Une erreur est consignée dans le contrôleur de domaine pour indiquer l'échec de l'authentification NTLM en raison de l'appartenance du compte au groupe de sécurité Utilisateurs protégés.<p>Affiche le nom du compte et le nom de l'appareil.|
+|104<p>**ProtectedUserFailures-DomainController**|Cause : Les types de chiffrement DES ou RC4 sont utilisés pour l'authentification Kerberos et un échec de connexion se produit pour un utilisateur dans le groupe de sécurité Utilisateurs protégés.<p>La pré-authentification Kerberos a échoué, car les types de chiffrement DES et RC4 ne peuvent pas être utilisés quand le compte est membre du groupe de sécurité Utilisateurs protégés.<p>(AES est acceptable.)|
+|303<p>**ProtectedUserSuccesses-DomainController**|Cause : Un ticket TGT Kerberos a été correctement émis pour un membre du groupe Utilisateurs protégés.|
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

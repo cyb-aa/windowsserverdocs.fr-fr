@@ -1,19 +1,19 @@
 ---
 title: Obtenir des certificats pour SGH
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: f4b4d1a8-bf6d-4881-9150-ddeca8b48038
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: e8f4a3696ec5096281ba1ffd130aa97004530cc1
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: da1ae4bacd5a6b2e38b22930aacf06f65b16bb29
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940736"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856532"
 ---
 # <a name="obtain-certificates-for-hgs"></a>Obtenir des certificats pour SGH
 
@@ -37,7 +37,7 @@ Propriété du modèle de certificat | Valeur requise
 ------------------------------|----------------
 Fournisseur de chiffrement               | N’importe quel fournisseur de stockage de clés (KSP). Les fournisseurs de services de chiffrement (CSP) hérités ne sont **pas** pris en charge.
 Algorithme de clé                 | RSA
-Taille de clé minimale              | 2048 bits
+Taille de clé minimale              | 2 048 bits
 Algorithme de signature           | Recommandé : SHA256
 Utilisation de la clé                     | Signature numérique *et* chiffrement des données
 Utilisation améliorée de la clé            | Authentification du serveur
@@ -74,14 +74,14 @@ Remove-Item $encCert.PSPath
 
 ## <a name="request-an-ssl-certificate"></a>Demander un certificat SSL
 
-Toutes les clés et les informations sensibles transmises entre les hôtes Hyper-V et SGH sont chiffrées au niveau du message, c’est-à-dire que les informations sont chiffrées à l’aide de clés connues en tant que SGH ou Hyper-V, ce qui empêche un utilisateur de détecter votre trafic réseau et de voler des clés sur vos machines virtuelles.
+Toutes les clés et les informations sensibles transmises entre les hôtes Hyper-V et SGH sont chiffrées au niveau du message, c’est-à-dire que les informations sont chiffrées à l’aide de clés connues en tant que SGH ou Hyper-V, ce qui empêche un utilisateur de détecter votre trafic réseau et de voler des clés à vos machines virtuelles.
 Toutefois, si vous avez des reqiurements de conformité ou préférez simplement le chiffrement de toutes les communications entre Hyper-V et SGH, vous pouvez configurer SGH avec un certificat SSL qui chiffrera toutes les données au niveau du transport.
 
 Les hôtes Hyper-V et les nœuds SGH doivent approuver le certificat SSL que vous fournissez. il est donc recommandé de demander le certificat SSL auprès de votre autorité de certification d’entreprise. Lorsque vous demandez le certificat, veillez à spécifier les éléments suivants :
 
 Propriété du certificat SSL | Valeur requise
 -------------------------|---------------
-Nom d'objet             | Nom de votre cluster SGH (nom de domaine complet du nom de réseau distribué ou objet ordinateur virtuel). Il s’agit de la concaténation de votre nom de service SGH fourni à `Initialize-HgsServer` et votre nom de domaine SGH.
+Nom d'objet             | Nom de votre cluster SGH (nom de domaine complet du nom de réseau distribué ou objet ordinateur virtuel). Il s’agit de la concaténation de votre nom de service SGH fourni pour `Initialize-HgsServer` et votre nom de domaine SGH.
 Autre nom de l’objet | Si vous comptez utiliser un autre nom DNS pour atteindre votre cluster SGH (par exemple, s’il se trouve derrière un équilibreur de charge), veillez à inclure ces noms DNS dans le champ SAN de votre demande de certificat.
 
 Les options permettant de spécifier ce certificat lors de l’initialisation du serveur SGH sont décrites dans [configurer le premier nœud SGH](guarded-fabric-initialize-hgs.md).

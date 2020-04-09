@@ -2,22 +2,18 @@
 title: ÉTAPE 7 Testez la connectivité DirectAccess à partir d’Internet
 description: 'Cette rubrique fait partie du Guide de laboratoire de test : illustrer DirectAccess avec l’authentification par mot de passe à usage unique et RSA SecurID pour Windows Server 2016'
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ed2a1616-30c6-482a-9a02-4a5023621f58
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 89f26dfa3be83167b7b62b8f464eede7f4db8db0
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 9aa43301614f75112ce83d51486e6076e6d55391
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308567"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814442"
 ---
 # <a name="step-7-test-directaccess-connectivity-from-the-internet"></a>ÉTAPE 7 Testez la connectivité DirectAccess à partir d’Internet
 

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 9cafa3e1-8118-4a75-a7c2-1dbe40b1a444
 title: Configurer les règles de revendication
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6ceca4b76ba1744c3cc988fd840453f9391ce3d3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7051040feb023ec9ab647d6e368136fb04b7db34
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407673"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80817142"
 ---
 # <a name="configure-claim-rules"></a>Configurer les règles de revendication
 

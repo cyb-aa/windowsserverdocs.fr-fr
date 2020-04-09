@@ -1,24 +1,20 @@
 ---
 title: prompt
 description: Découvrez comment personnaliser votre invite de commandes.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3d98e965-02eb-46ad-9d0a-5dc44830373e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 2df80d3af6344644a68b1b2d01ba48fbf41f1581
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6662cb7fb00b7d21311fef2ca127ba89591a00b2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372020"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837132"
 ---
 # <a name="prompt"></a>prompt
 
@@ -34,7 +30,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 prompt [<Text>]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -47,7 +43,7 @@ Vous pouvez personnaliser l’invite de commandes pour afficher le texte de votr
 
 Le tableau suivant répertorie les combinaisons de caractères que vous pouvez inclure au lieu de, ou en plus de, une ou plusieurs chaînes de caractères dans le paramètre *Text* . La liste inclut une brève description du texte ou des informations que chaque combinaison de caractères ajoute à votre invite de commandes.  
 
-| Symbole |                                 Description                                 |
+| Caractère |                                 Description                                 |
 |-----------|-----------------------------------------------------------------------------|
 |    $q     |                               = (signe égal)                                |
 |    $$     |                               $ (signe dollar)                               |
@@ -69,14 +65,14 @@ Le tableau suivant répertorie les combinaisons de caractères que vous pouvez i
 
 Lorsque les extensions de commande sont activées (autrement dit, la valeur par défaut), la commande **prompt** prend en charge les caractères de mise en forme suivants :  
 
-|Symbole|Description|
+|Caractère|Description|
 |---------|-----------|
 |$+|Zéro, un ou plusieurs caractères de signe plus ( **+** ), en fonction de la profondeur de la pile de répertoires **pushd** (un caractère pour chaque niveau poussé).|
 |$m|Nom distant associé à la lettre de lecteur en cours ou à la chaîne vide si le lecteur actuel n’est pas un lecteur réseau.|
 
 Si vous incluez le caractère **$p** dans le paramètre text, votre disque est lu après l’entrée de chaque commande (pour déterminer le lecteur et le chemin d’accès actuels). Cela peut prendre du temps supplémentaire, en particulier pour les lecteurs de disquette.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_examples"></a>Illustre
 
 Pour définir une invite de commandes sur deux lignes avec l’heure et la date actuelles sur la première ligne et le signe supérieur à sur la ligne suivante, tapez :
 ```
@@ -96,6 +92,6 @@ Pour remplacer manuellement l’invite de commandes par le paramètre par défau
 prompt $p$g
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

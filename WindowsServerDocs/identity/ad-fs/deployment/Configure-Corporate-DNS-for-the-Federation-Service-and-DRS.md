@@ -1,7 +1,6 @@
 ---
 ms.assetid: aca4a4fa-b12c-4eed-a499-f9aedb7d2fd6
 title: Configurer le système DNS d’entreprise pour le service de fédération et DRS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 9f0b04f9dc050117fdefc630759c86d2b1bb1ecc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3e3f2b36b7949e4bbde78942006e985f41abf9df
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408443"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814263"
 ---
 # <a name="configure-corporate-dns-for-the-federation-service-and-drs"></a>Configurer le système DNS d’entreprise pour le service de fédération et DRS
   

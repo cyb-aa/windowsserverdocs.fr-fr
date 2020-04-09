@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5b2876ac-fe7d-4054-bfba-b692e57bc0d2
 title: 'Annexe C : comptes et groupes protégés dans Active Directory'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 606b3a42d70ee5c2a3479f9c9df2f95a495d6afd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3036176127cbb5401c582d81ddb2704d790a209a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408727"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821682"
 ---
 # <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>AnnexeC: Comptes protégés et groupes dans Active Directory
 
@@ -22,7 +21,7 @@ ms.locfileid: "71408727"
 
 ## <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>AnnexeC: Comptes protégés et groupes dans Active Directory
 
-Dans Active Directory, un ensemble par défaut de comptes et de groupes à privilèges élevés est considéré comme des groupes et des comptes protégés. Avec la plupart des objets dans Active Directory, les administrateurs délégués (les utilisateurs qui ont été délégués des autorisations pour gérer des objets Active Directory) peuvent modifier les autorisations sur les objets, y compris modifier les autorisations pour autoriser la modification des appartenances de les groupes, par exemple.  
+Dans Active Directory, un ensemble par défaut de comptes et de groupes à privilèges élevés est considéré comme des groupes et des comptes protégés. Avec la plupart des objets dans Active Directory, les administrateurs délégués (les utilisateurs qui ont été délégués des autorisations pour gérer des objets Active Directory) peuvent modifier les autorisations sur les objets, notamment modifier les autorisations pour autoriser la modification des appartenances aux groupes, par exemple.  
 
 Toutefois, avec des comptes et des groupes protégés, les autorisations des objets sont définies et appliquées via un processus automatique qui garantit que les autorisations sur les objets restent cohérentes même si les objets sont déplacés dans le répertoire. Même si une personne modifie manuellement les autorisations d’un objet protégé, ce processus garantit que les autorisations sont retournées rapidement à leurs valeurs par défaut.  
 
@@ -32,16 +31,16 @@ Le tableau suivant contient les groupes protégés dans Active Directory listés
 
 #### <a name="protected-accounts-and-groups-in-active-directory-by-operating-system"></a>Comptes et groupes protégés dans Active Directory par système d’exploitation
 
-| Windows Server 2003 RTM | Windows Server 2003 SP1 + | Windows Server 2012, <br> Windows Server 2008 R2, <br> Windows Server 2008 | Windows Server 2016 |
+| Windows Server 2003 RTM | Windows Server 2003 SP1 + | Windows Server 2012, <br> Windows Server 2008 R2, <br> Windows Server 2008 | Windows Server 2016 |
 | --- | --- | --- | --- |
 |Opérateurs de compte|Opérateurs de compte|Opérateurs de compte|Opérateurs de compte|
 |Administrateur|Administrateur|Administrateur|Administrateur|
 |Administrateurs|Administrateurs|Administrateurs|Administrateurs|
 |Opérateurs de sauvegarde|Opérateurs de sauvegarde|Opérateurs de sauvegarde|Opérateurs de sauvegarde|
 |Éditeurs de certificats|||
-|Administrateurs du domaine|Administrateurs du domaine|Administrateurs du domaine|Administrateurs du domaine|
+|Admins du domaine|Admins du domaine|Admins du domaine|Admins du domaine|
 |Contrôleurs de domaine|Contrôleurs de domaine|Contrôleurs de domaine|Contrôleurs de domaine|
-|Administrateurs de l’entreprise|Administrateurs de l’entreprise|Administrateurs de l’entreprise|Administrateurs de l’entreprise|
+|Administrateurs de l'entreprise|Administrateurs de l'entreprise|Administrateurs de l'entreprise|Administrateurs de l'entreprise|
 ||||Administrateurs de clé d’entreprise|
 ||||Administrateurs de clé|
 |Krbtgt|Krbtgt|Krbtgt|Krbtgt|

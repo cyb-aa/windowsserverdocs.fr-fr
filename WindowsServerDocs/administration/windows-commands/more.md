@@ -1,26 +1,22 @@
 ---
-title: more
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+title: plus
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ded14f6a-d82f-4aeb-a2d8-7ec1c94dfb8f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/26/2019
-ms.openlocfilehash: d505f99511d8702f11ac0c70edba3d62c8cf7996
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4c627e003e71cb2265c717669e082d48564dd483
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373909"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839422"
 ---
-# <a name="more"></a>more
+# <a name="more"></a>plus
 
 
 
@@ -36,7 +32,7 @@ more [[/c] [/p] [/s] [/t<N>] [+<N>]] < [<Drive>:][<Path>]<FileName>
 more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |           Paramètre            |                               Description                               |
 |--------------------------------|-------------------------------------------------------------------------|
@@ -68,7 +64,7 @@ more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 -   Lorsque vous utilisez le caractère de redirection ( **<** ), vous devez spécifier un nom de fichier comme source. Lorsque vous utilisez le canal ( **\|** ), vous pouvez utiliser des commandes telles que **dir**, **sort**et **type**.
 -   La commande **More** , avec des paramètres différents, est disponible à partir de la console de récupération.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour afficher le premier écran d’informations d’un fichier nommé clients. nouveau, tapez l’une des commandes suivantes :
 ```
@@ -114,6 +110,6 @@ Les exemples suivants peuvent être utilisés à l’invite **plus** (`-- More -
   ```  
   Tapez le nombre de lignes à ignorer, puis appuyez sur entrée. **More** ignore le nombre spécifié de lignes et affiche l’écran d’informations suivant.
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -2,17 +2,17 @@
 title: Vue d’ensemble du système de fichiers résilient (ReFS)
 ms.prod: windows-server
 ms.author: gawatu
-ms.manager: mchad
+manager: mchad
 ms.technology: storage-file-systems
 ms.topic: article
 author: gawatu
 ms.date: 06/17/2019
-ms.openlocfilehash: 91fdd5aa696c170cacc8903a65e996beb71c4b8f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8d32ef6bc4ce169ff73f9ab147783ac0607617f2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403014"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857542"
 ---
 # <a name="resilient-file-system-refs-overview"></a>Vue d’ensemble du système de fichiers résilient (ReFS)
 
@@ -64,7 +64,7 @@ ReFS est conçu pour prendre en charge des jeux de données extrêmement volumin
 
 ## <a name="supported-deployments"></a>Déploiements pris en charge
 
-Microsoft a développé NTFS spécifiquement pour une utilisation à usage général avec un large éventail de configurations et de charges de travail. Toutefois, pour les clients qui requièrent expressément la disponibilité, la résilience et/ou la mise à l’échelle fournis par ReFS, Microsoft prend en charge les ReFS en vue de leur utilisation sous les configurations et les scénarios suivants. 
+Microsoft a développé NTFS spécifiquement pour une utilisation à usage général avec un large éventail de configurations et de charges de travail. Toutefois, pour les clients qui requièrent expressément la disponibilité, la résilience et/ou la mise à l’échelle fournis par ReFS, Microsoft prend en charge les ReFS pour une utilisation dans le cadre des configurations et des scénarios suivants. 
 
 > [!NOTE]
 > Toutes les configurations prises en charge par ReFS doivent utiliser le matériel certifié du [Catalogue Windows Server](https://www.WindowsServerCatalog.com) et répondre aux exigences de l’application.
@@ -106,7 +106,7 @@ Le déploiement de ReFS en tant que cible de sauvegarde est idéal pour les appl
 
 ### <a name="limits"></a>Limites
 
-| Fonctionnalité       | ReFS                                        | NTFS |
+| Composant       | ReFS                                        | NTFS |
 |----------------|------------------------------------------------|-----------------------|
 | Longueur maximale des noms de fichier | 255 caractères Unicode  | 255 caractères Unicode               |
 | Longueur maximale des chemins |32 000 caractères Unicode | 32 000 caractères Unicode                |
@@ -122,7 +122,7 @@ Le déploiement de ReFS en tant que cible de sauvegarde est idéal pour les appl
 | Chiffrement BitLocker | Oui | Oui |
 | Déduplication des données | Oui<sup>1</sup> | Oui |
 | Prise en charge des volumes CSV (volumes partagés de cluster) | Oui<sup>2</sup> | Oui |
-| Liens virtuels | Oui | Oui |
+| Liens symboliques | Oui | Oui |
 | Prise en charge des clusters de basculement | Oui | Oui |
 | Listes de contrôle d’accès | Oui | Oui |
 | Journal USN | Oui | Oui |
@@ -155,7 +155,7 @@ Le déploiement de ReFS en tant que cible de sauvegarde est idéal pour les appl
 |---------------------------|------------------|-----------------------|
 | Compression de système de fichiers | Non | Oui |
 | Chiffrement du système de fichiers | Non | Oui |
-| Transactions | Non | Oui |
+| transactions | Non | Oui |
 | Liens physiques | Non | Oui |
 | ID d’objet | Non | Oui |
 | Transfert de données déchargées (ODX) | Non | Oui |

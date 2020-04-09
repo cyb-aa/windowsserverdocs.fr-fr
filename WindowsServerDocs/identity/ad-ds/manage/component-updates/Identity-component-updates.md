@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7e87ce2b-062e-479f-bcf2-585b6c42026a
 title: Mises à jour des composants d’identité
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,19 +8,19 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e542997295f8c0db9b660036c995daf0100b74d1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c81fa11b8f2fdc534b427f85452ca29c5b37487d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71368879"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823022"
 ---
 # <a name="identity-component-updates"></a>Mises à jour des composants d’identité
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
-## <a name="lesson-1-identity-component-updates"></a>Leçon 1: Mises à jour des composants d’identité  
+## <a name="lesson-1-identity-component-updates"></a>Leçon 1 : mettre à jour les composants d’identité  
 Cette leçon explique les mises à jour des composants d’identité dans Windows Server 2012 R2.  
   
 ### <a name="what-you-will-learn"></a>Ce que vous allez apprendre  

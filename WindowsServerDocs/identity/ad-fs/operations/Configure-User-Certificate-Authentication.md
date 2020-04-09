@@ -1,7 +1,6 @@
 ---
 ms.assetid: 1ea2e1be-874f-4df3-bc9a-eb215002da91
 title: Configurer la prise en charge AD FS pour l’authentification des certificats utilisateur
-description: ''
 author: jenfieldmsft
 ms.author: billmath
 manager: samueld
@@ -9,12 +8,12 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6c8a3b30a337c164227bf344b5704cc7e782461a
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.openlocfilehash: 5f2416e45fad8ca47cd756526dc6a554b3a952b1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517514"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80817072"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Configuration de AD FS pour l’authentification par certificat utilisateur
 
@@ -27,7 +26,7 @@ L’authentification par certificat utilisateur est utilisée principalement dan
 1) Déterminez le mode de AD FS l’authentification par certificat utilisateur que vous souhaitez activer à l’aide de l’un des modes décrits dans [cet article](ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md) .
 2) Assurez-vous que votre chaîne d’approbation des certificats utilisateur est installée & approuvée par tous les serveurs AD FS et WAP, y compris les autorités de certification intermédiaires. En général, cette opération est effectuée via un objet de stratégie de groupe sur des serveurs AD FS/WAP
 3)  Assurez-vous que le certificat racine de la chaîne de confiance pour vos certificats utilisateur se trouve dans le magasin NTAuth dans Active Directory
-4) Si vous utilisez AD FS en mode d’authentification par certificat de substitution, vérifiez que vos serveurs AD FS et WAP ont des certificats SSL qui contiennent le nom d’hôte AD FS préfixé avec « certauth », par exemple « certauth.fs.contoso.com », et que le trafic vers ce nom d’hôte est autorisé via le pare-feu
+4) Si vous utilisez AD FS en mode d’authentification par certificat de substitution, vérifiez que vos serveurs AD FS et WAP ont des certificats SSL qui contiennent le nom d’hôte AD FS préfixé avec « certauth », par exemple « certauth.fs.contoso.com », et que le trafic vers ce nom d’hôte est autorisé via le pare-feu.
 5) Si vous utilisez l’authentification par certificat à partir de l’extranet, assurez-vous qu’au moins un AIA et au moins un emplacement CDP ou OCSP de la liste spécifiée dans vos certificats est accessible à partir d’Internet.
 6) De même, pour l’authentification par certificat de Azure AD, pour les clients Exchange ActiveSync, le certificat client doit avoir l’adresse de messagerie routable des utilisateurs dans Exchange Online, dans la valeur nom du principal ou nom RFC822 du champ autre nom de l’objet. (Azure Active Directory mappe la valeur RFC822 à l’attribut d’adresse de proxy dans le répertoire.)
 

@@ -1,19 +1,19 @@
 ---
 title: Résolution des problèmes à l’aide de l’outil de diagnostic de l’infrastructure protégée
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 07691d5b-046c-45ea-8570-a0a85c3f2d22
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 01/14/2020
-ms.openlocfilehash: c69fc70282ff61ecce25f6413244d7ba3a5ba3bc
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 3cf2b71113e812774cfb39b2ed21df8b41f83f12
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265821"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856412"
 ---
 # <a name="troubleshooting-using-the-guarded-fabric-diagnostic-tool"></a>Résolution des problèmes à l’aide de l’outil de diagnostic de l’infrastructure protégée
 
@@ -25,7 +25,7 @@ La documentation complète des applets de commande utilisées dans cet article e
 
 [!INCLUDE [Guarded fabric diagnostics tool](../../../includes/guarded-fabric-diagnostics-tool.md)]
 
-## <a name="quick-start"></a>Démarrage rapide de la
+## <a name="quick-start"></a>Démarrage rapide
 
 Vous pouvez diagnostiquer un hôte service Guardian ou un nœud SGH en appelant la commande suivante à partir d’une session Windows PowerShell avec des privilèges d’administrateur local :
 
@@ -62,7 +62,7 @@ Les résultats de l’exécution de la collecte de trace ne font aucune indicati
 
 À l’aide du paramètre `-Diagnostic`, vous pouvez limiter la collection de suivis uniquement aux suivis requis pour faire fonctionner les diagnostics spécifiés.  Cela réduit la quantité de données collectées, ainsi que les autorisations requises pour appeler les Diagnostics.
 
-### <a name="diagnosis"></a>Diagnostic (Diagnostic)
+### <a name="diagnosis"></a>Diagnostic
 
 Les suivis collectés peuvent être diagnostiqués en fournissant `Get-HgsTrace` l’emplacement des traces via le paramètre `-Path` et en spécifiant le commutateur `-RunDiagnostics`.  En outre, `Get-HgsTrace` pouvez effectuer des collectes et des diagnostics en une seule passe en fournissant le commutateur `-RunDiagnostics` et une liste de cibles de suivi.  Si aucune cible de trace n’est fournie, l’ordinateur actuel est utilisé comme cible implicite, avec son rôle déduit en inspectant les modules Windows PowerShell installés.
 
@@ -164,7 +164,7 @@ Avant d’effectuer un diagnostic manuel, vous devez vous assurer que les admini
 
 Les étapes à suivre pour effectuer un diagnostic manuel sont les suivantes :
 
-1. Demandez à chaque administrateur hôte de s’exécuter `Get-HgsTrace` spécifiant une `-Path` connue et la liste des diagnostics que vous avez l’intention d’exécuter sur les suivis résultants.  Exemple :
+1. Demandez à chaque administrateur hôte de s’exécuter `Get-HgsTrace` spécifiant une `-Path` connue et la liste des diagnostics que vous avez l’intention d’exécuter sur les suivis résultants.  Par exemple :
 
    ```PowerShell
    Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
@@ -190,7 +190,7 @@ Les étapes à suivre pour effectuer un diagnostic manuel sont les suivantes :
          |- [..]
       ```
 
-4. Exécutez les Diagnostics, en fournissant le chemin d’accès au dossier des traces assemblées sur le paramètre `-Path` et en spécifiant le commutateur `-RunDiagnostics` ainsi que les diagnostics pour lesquels vous avez demandé à vos administrateurs de collecter des traces.  Les diagnostics supposent qu’il ne peut pas accéder aux ordinateurs hôtes qui se trouvent dans le chemin d’accès et tente donc d’utiliser uniquement les suivis précollectés.  Si des suivis sont manquants ou endommagés, les diagnostics échouent uniquement aux tests affectés et se poursuivent normalement.  Exemple :
+4. Exécutez les Diagnostics, en fournissant le chemin d’accès au dossier des traces assemblées sur le paramètre `-Path` et en spécifiant le commutateur `-RunDiagnostics` ainsi que les diagnostics pour lesquels vous avez demandé à vos administrateurs de collecter des traces.  Les diagnostics supposent qu’il ne peut pas accéder aux ordinateurs hôtes qui se trouvent dans le chemin d’accès et tente donc d’utiliser uniquement les suivis précollectés.  Si des suivis sont manquants ou endommagés, les diagnostics échouent uniquement aux tests affectés et se poursuivent normalement.  Par exemple :
 
    ```PowerShell
    Get-HgsTrace -RunDiagnostics -Diagnostic Networking,BestPractices -Path ".\FabricTraces"

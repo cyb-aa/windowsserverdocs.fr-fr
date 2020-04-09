@@ -1,7 +1,6 @@
 ---
 ms.assetid: e22d84a5-113d-4bec-b484-036ed29f0c28
 title: joindre un espace de travail à partir de n'importe quel appareil en utilisant l'authentification unique et l'authentification de second facteur transparente pour accéder aux applications de l'entreprise
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 12/05/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 05a8b8bb5685c31ece29ed8eb38d37a424e478b8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 82c94adadb9241e2b7cd8d75ea1693957aaffc61
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357937"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816262"
 ---
 # <a name="join-to-workplace-from-any-device-for-sso-and-seamless-second-factor-authentication-across-company-applications"></a>joindre un espace de travail à partir de n'importe quel appareil en utilisant l'authentification unique et l'authentification de second facteur transparente pour accéder aux applications de l'entreprise
 
@@ -31,7 +30,7 @@ L'augmentation rapide du nombre d'appareils grand public et l'accès omniprésen
 ### <a name="workplace-join"></a>Jonction à l'espace de travail
 Grâce à la jonction d'espace de travail, les travailleurs de l'information peuvent établir une connexion entre leurs appareils personnels et les ordinateurs de leur espace de travail au sein d'entreprise pour accéder aux ressources et services de celle-ci. Quand vous joignez votre appareil personnel à votre espace de travail, il devient un appareil connu et offre un accès aux ressources et applications de l'espace de travail via l'authentification de second facteur transparente et l'authentification unique. Quand un appareil est rattaché au moyen de la jonction d'espace de travail, ses attributs peuvent être récupérés de l'annuaire pour déterminer les conditions d'accès aux applications et l'émission correspondante des jetons de sécurité. Les appareils Windows 8.1, iOS 6.0 (et versions ultérieures) et Android 4.0 (et versions ultérieures) peuvent être rattachés au moyen de la jonction d’espace de travail.
 
-### <a name="BKMK_DRS"></a>Service Azure Active Directory Device Registration
+### <a name="azure-active-directory-device-registration-service"></a><a name="BKMK_DRS"></a>Service Azure Active Directory Device Registration
 Le service DRS (Device Registration Service) Azure Active Directory permet de mettre en œuvre une jonction d’espace de travail. Quand un appareil grand public est rattaché au moyen de la jonction d’espace de travail, le service fournit un objet d’appareil dans Azure Active Directory et définit sur l’appareil local une clé représentant son identité. Cette identité d’appareil peut ensuite être utilisée avec des règles de contrôle d’accès pour les applications hébergées localement et dans le cloud.
 
 Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/device-management-introduction).
@@ -54,11 +53,11 @@ Dans le cadre de cette solution, vous apprenez à utiliser la jonction d’espac
 
 Cette solution comprend les procédures pas à pas suivantes :
 
-1.  [Procédure pas à pas : Joindre un espace de travail avec un appareil Windows](../../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
+1.  [Procédure pas à pas : Workplace Join avec un appareil Windows](../../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
 
-2.  [Procédure pas à pas : Joindre un espace de travail avec un appareil iOS](../../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
+2.  [Procédure pas à pas : Workplace Join avec un appareil iOS](../../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
 
-3.  [Procédure pas à pas : Rattacher à l’espace de travail avec un appareil Android](../../ad-fs/operations/walkthrough--workplace-join-to-an-android-device.md)
+3.  [Procédure pas à pas : Workplace Join avec un appareil Android](../../ad-fs/operations/walkthrough--workplace-join-to-an-android-device.md)
 
 ## <a name="see-also"></a>Voir aussi
 [Configurer un serveur de Fédération avec Device Registration service](../deployment/configure-a-federation-server-with-device-registration-service.md)

@@ -2,25 +2,23 @@
 title: Machines virtuelles Ubuntu prises en charge sur Hyper-V
 description: Répertorie les fonctionnalités et les services d’intégration Linux inclus dans chaque version
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 95ea5f7c-25c6-494b-8ffd-2a77f631ee94
 author: shirgall
 ms.author: shirgall
 ms.date: 06/13/2019
-ms.openlocfilehash: ed1c1a9f678dd7cb68b59d2df239ca278b7a3688
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 06c836d9671547ea3d40e5582c2ed7b330777ac9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365481"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857992"
 ---
 # <a name="supported-ubuntu-virtual-machines-on-hyper-v"></a>Machines virtuelles Ubuntu prises en charge sur Hyper-V
 
->S'applique à : Windows Server 2019, 2016, Hyper-V Server 2019, 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
+>S’applique à : Windows Server 2019, 2016, Hyper-V Server 2019, 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
 
 Depuis Ubuntu 12,04, le chargement du package « Linux-Virtual » installe un noyau pouvant être utilisé en tant que machine virtuelle invitée. Ce package dépend toujours de la dernière image de noyau générique minimale et des en-têtes utilisés pour les ordinateurs virtuels. Si son utilisation est facultative, le noyau Linux virtuel charge moins de pilotes et peut démarrer plus rapidement et avoir moins de surcharge de mémoire qu’une image générique.
 
@@ -49,7 +47,7 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 |vRSS|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
 |Segmentation TCP et déchargements de somme de contrôle|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
 |SR-IOV|2019, 2016|&#10004;|&#10004;|&#10004;|||
-|**[Stockage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||||||
+|**[Rangement](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||||||
 |Redimensionnement VHDX|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
 |Fibre Channel virtuel|2019, 2016, 2012 R2|&#10004;Remarque 2|&#10004;Remarque 2|&#10004;Remarque 2|&#10004;Remarque 2||
 |Sauvegarde de machine virtuelle en direct|2019, 2016, 2012 R2|&#10004;Remarque 3, 4, 6|&#10004;Remarque 3, 4, 5|&#10004;Remarque 3, 4, 5|&#10004;Remarque 3, 4, 5||
@@ -74,7 +72,7 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 |Démarrer à l’aide d’UEFI|2019, 2016, 2012 R2|&#10004;Remarque 11, 12|&#10004;Remarque 11, 12|&#10004;Remarque 11, 12|&#10004;Remarque 11, 12||
 |Démarrage sécurisé|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||
 
-## <a name="notes"></a>Notes
+## <a name="notes"></a>Remarques
 
 1. L’injection d’adresses IP statiques peut ne pas fonctionner si le **Gestionnaire de réseau** a été configuré pour une carte réseau spécifique à Hyper-V sur la machine virtuelle. Pour garantir le bon fonctionnement de l’injection d’adresses IP statiques, assurez-vous que le gestionnaire de réseau est entièrement désactivé ou a été désactivé pour une carte réseau spécifique via son fichier **ifcfg-ethx** .
 

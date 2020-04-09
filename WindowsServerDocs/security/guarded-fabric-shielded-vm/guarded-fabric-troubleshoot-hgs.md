@@ -1,19 +1,19 @@
 ---
 title: Résolution des problèmes du service Guardian hôte
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 424b8090-0692-49a6-9dc4-3c0e77d74b80
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: d34bbeee1a980aba76b5bed994be8db7fc8c8acf
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: 4cbbb41b965a44b6c81b58adc94990bb4d6af046
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940821"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856402"
 ---
 # <a name="troubleshooting-the-host-guardian-service"></a>Résolution des problèmes du service Guardian hôte
 
@@ -106,7 +106,7 @@ Si vous utilisez une autorité de certification pour émettre vos certificats da
 
 CSR, propriété | Valeur requise
 -------------|---------------
-Algorithm    | RSA
+Algorithme    | RSA
 Taille de la clé     | Au moins 2048 bits
 Utilisation de la clé    | Signature/Sign/DigitalSignature
 
@@ -114,7 +114,7 @@ Utilisation de la clé    | Signature/Sign/DigitalSignature
 
 CSR, propriété | Valeur requise
 -------------|---------------
-Algorithm    | RSA
+Algorithme    | RSA
 Taille de la clé     | Au moins 2048 bits
 Utilisation de la clé    | Chiffrement/chiffrement/DataEncipherment
 

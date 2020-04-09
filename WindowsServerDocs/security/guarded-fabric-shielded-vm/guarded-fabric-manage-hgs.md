@@ -1,18 +1,18 @@
 ---
 title: Gestion du service Guardian hôte
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: eecb002e-6ae5-4075-9a83-2bbcee2a891c
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 41912c90beacbb0c0c285ea4da8305c1afdf2a51
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 2eb9107427ff005c1b3c27e7064d677429d817ee
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322601"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856552"
 ---
 # <a name="managing-the-host-guardian-service"></a>Gestion du service Guardian hôte
 
@@ -706,7 +706,7 @@ Pour chaque machine virtuelle protégée, procédez comme suit :
    $updatedKP = Get-Content -Path .\updatedVM001.kp
    Set-VMKeyProtector -VMName VM001 -KeyProtector $updatedKP
    ```
-12. Enfin, démarrez la machine virtuelle et assurez-vous qu’elle s’exécute correctement.
+12.    Enfin, démarrez la machine virtuelle et assurez-vous qu’elle s’exécute correctement.
 
 > [!NOTE]
 > Si le propriétaire de la machine virtuelle définit un protecteur de clé incorrect sur la machine virtuelle et n’autorise pas votre infrastructure à exécuter la machine virtuelle, vous ne pourrez pas démarrer la machine virtuelle protégée.

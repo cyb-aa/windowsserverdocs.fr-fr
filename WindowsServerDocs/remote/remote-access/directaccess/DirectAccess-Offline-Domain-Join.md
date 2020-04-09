@@ -2,22 +2,18 @@
 title: Jonction de domaine hors connexion DirectAccess
 description: Ce guide explique les étapes à suivre pour effectuer une jonction de domaine hors connexion avec DirectAccess dans Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 55528736-6c19-40bd-99e8-5668169ef3c7
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 09ed401fa4912a48033e4a51a29309e3fd4cc998
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 43f0c606f16af00797f0325b793d476e6c2892f8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310904"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815662"
 ---
 # <a name="directaccess-offline-domain-join"></a>Jonction de domaine hors connexion DirectAccess
 

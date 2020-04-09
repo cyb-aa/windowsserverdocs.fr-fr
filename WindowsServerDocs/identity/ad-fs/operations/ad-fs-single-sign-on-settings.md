@@ -1,7 +1,6 @@
 ---
 ms.assetid: 1a443181-7ded-4912-8e40-5aa447faf00c
-title: Paramètres d’authentification unique AD FS 2016
-description: ''
+title: Paramètres d’authentification unique ADFS2016
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 08/17/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 76c34dc518f4578b4ae2ead3459f1d79c191b3d7
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: bad6ad9a95618239825366187c8083c1fe77ae94
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949198"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860082"
 ---
 # <a name="ad-fs-single-sign-on-settings"></a>AD FS les paramètres d’authentification unique
 
@@ -40,7 +39,7 @@ AD FS prend en charge plusieurs types d’expériences d’authentification uniq
   
      Dans le scénario OAuth, un jeton d’actualisation est utilisé pour maintenir l’état de l’authentification unique de l’utilisateur dans l’étendue d’une application particulière.  
   
-     Si un appareil est inscrit, AD FS définit l’heure d’expiration d’un jeton d’actualisation en fonction de la durée de vie des cookies SSO persistants pour un appareil inscrit qui est de 7 jours par défaut pour AD FS 2012 R2 et jusqu’à un maximum de 90 jours avec AD FS 2016 s’ils utilisent leur appareil pour Accédez aux ressources de AD FS dans une fenêtre de 14 jours. 
+     Si un appareil est inscrit, AD FS définit l’heure d’expiration d’un jeton d’actualisation en fonction de la durée de vie des cookies SSO persistants pour un appareil inscrit qui est de 7 jours par défaut pour AD FS 2012 R2 et jusqu’à un maximum de 90 jours avec AD FS 2016 s’ils utilisent leur appareil pour accéder aux ressources de AD FS dans une fenêtre de 14 jours. 
 
 Si l’appareil n’est pas inscrit mais qu’un utilisateur sélectionne l’option « maintenir la connexion », l’heure d’expiration du jeton d’actualisation sera égale à la durée de vie des cookies SSO persistants pour « maintenir la connexion », soit 1 jour par défaut, avec un maximum de 7 jours. Sinon, la durée de vie du jeton d’actualisation est égale à la durée de vie du cookie SSO de session, qui est de 8 heures par défaut  
   
@@ -96,14 +95,14 @@ Set-AdfsProperties –KmsiLifetimeMins <Int32\>
 ```   
 
 ## <a name="multi-factor-authentication-mfa-behavior"></a>Comportement de Multi-Factor Authentication (MFA)  
-Il est important de noter que, tout en fournissant des périodes relativement longues d’authentification unique, AD FS demande une authentification supplémentaire (Multi-Factor Authentication) quand une connexion précédente était basée sur des informations d’identification principales et non MFA, mais sur l’authentification active requiert MFA.  Quelle que soit la configuration de l’authentification unique. AD FS, lorsqu’il reçoit une demande d’authentification, détermine d’abord s’il existe un contexte d’authentification unique (tel qu’un cookie), puis, si l’authentification multifacteur est requise (par exemple, si la demande provient de l’extérieur), elle évalue si le contexte SSO contient ou non MFA.  Dans le cas contraire, l’authentification MFA est demandée.  
+Il est important de noter que, en fournissant des périodes relativement longues d’authentification unique, AD FS demande une authentification supplémentaire (authentification multifacteur) quand une connexion précédente était basée sur des informations d’identification principales et non MFA, mais que l’authentification active requiert l’authentification MFA.  Quelle que soit la configuration de l’authentification unique. AD FS, lorsqu’il reçoit une demande d’authentification, détermine d’abord s’il existe un contexte d’authentification unique (tel qu’un cookie), puis, si l’authentification multifacteur est requise (par exemple, si la demande provient de l’extérieur), elle évalue si le contexte SSO contient ou non MFA.  Dans le cas contraire, l’authentification MFA est demandée.  
 
 
   
 ## <a name="psso-revocation"></a>Révocation PSSO  
  Pour protéger la sécurité, AD FS rejette tout cookie SSO persistant précédemment émis lorsque les conditions suivantes sont remplies. Cela oblige l’utilisateur à fournir ses informations d’identification pour s’authentifier auprès de AD FS. 
   
-- L’utilisateur change le mot de passe  
+- Modification du mot de passe par l’utilisateur  
   
 - Le paramètre SSO persistant est désactivé dans AD FS  
   
@@ -165,21 +164,21 @@ Pour résumer :
  <tr align="center">
     <td>SSO =&gt;définir le jeton d’actualisation =&gt;</td>
     <td>8 h</td>
-    <td>NON APPLICABLE</td>
-    <td>NON APPLICABLE</td>
+    <td>N/A</td>
+    <td>N/A</td>
     <th></th>
     <td>8 h</td>
-    <td>NON APPLICABLE</td>
-    <td>NON APPLICABLE</td>
+    <td>N/A</td>
+    <td>N/A</td>
   </tr>
 
  <tr align="center">
     <td>PSSO =&gt;définir le jeton d’actualisation =&gt;</td>
-    <td>NON APPLICABLE</td>
+    <td>N/A</td>
     <td>24 h</td>
-    <td>7 jours</td>
+    <td>7 jours</td>
     <th></th>
-    <td>NON APPLICABLE</td>
+    <td>N/A</td>
     <td>24 h</td>
     <td>90 jours maximum avec une fenêtre de 14 jours</td>
   </tr>

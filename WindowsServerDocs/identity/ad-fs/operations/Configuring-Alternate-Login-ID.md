@@ -1,7 +1,6 @@
 ---
 ms.assetid: f0cbdd78-f5ae-47ff-b5d3-96faf4940f4a
 title: Configuration des ID de connexion alternatif
-description: ''
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 026873e231628e93738cba096cfae44c8b053217
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 7e7a881a2e6bae499ed7d4713bd70a804c3412e6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948552"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816962"
 ---
 # <a name="configuring-alternate-login-id"></a>Configuration des ID de connexion alternatif
 
@@ -36,7 +35,7 @@ Une organisation peut avoir à utiliser un autre ID dans les scénarios suivants
    Dans les scénarios mentionnés ci-dessus, l’ID alternatif avec AD FS permet aux utilisateurs de se connecter à Azure AD sans modifier vos UPN locaux. 
 
 ## <a name="end-user-experience-with-alternate-login-id"></a>Expérience de l’utilisateur final avec un ID de connexion de substitution
-L’expérience de l’utilisateur final varie en fonction de la méthode d’authentification utilisée avec l’ID de connexion de substitution.  Il existe actuellement trois façons différentes d’utiliser l’ID de connexion de substitution.  Ils sont les suivants :
+L’expérience de l’utilisateur final varie en fonction de la méthode d’authentification utilisée avec l’ID de connexion de substitution.  Il existe actuellement trois façons différentes d’utiliser l’ID de connexion de substitution.  À savoir :
 
 - **Authentification normale (héritée)** : utilise le protocole d’authentification de base.
 - **L’authentification moderne** : permet aux applications de se connecter à Bibliothèque D’AUTHENTIFICATION Active Directory (Adal). Cela permet des fonctionnalités de connexion telles que les Multi-Factor Authentication (MFA), les fournisseurs d’identité tiers basés sur SAML avec les applications clientes Office, l’authentification par carte à puce et par certificat.
@@ -132,18 +131,18 @@ Office version 1712 (Build no 8827,2148) et versions ultérieures ont mis à jou
 ##### <a name="step-2-update-to-required-windows-version"></a>Étape 2. Mise à jour vers la version requise de Windows
 Windows version 1709 et versions ultérieures ont mis à jour la logique d’authentification pour gérer le scénario d’ID secondaire. Pour tirer parti de la nouvelle logique, les ordinateurs clients doivent être mis à jour vers Windows version 1709 et versions ultérieures.
 
-##### <a name="step-3-configure-registry-for-impacted-users-using-group-policy"></a>Étape 3. Configurer le registre pour les utilisateurs affectés à l’aide d’une stratégie de groupe
+##### <a name="step-3-configure-registry-for-impacted-users-using-group-policy"></a>Étape 3. Configurer le registre pour les utilisateurs affectés à l’aide d’une stratégie de groupe
 Les applications Office s’appuient sur les informations transmises par l’administrateur d’annuaire pour identifier l’environnement de substitution d’ID. Les clés de Registre suivantes doivent être configurées pour aider les applications Office à authentifier l’utilisateur avec un autre ID sans afficher d’invites supplémentaires.
 
-|RegKey à ajouter|Nom, type et valeur des données de la RegKey|Windows 7/8|Windows 10|Description|
+|RegKey à ajouter|Nom, type et valeur des données de la RegKey|Windows 7/8|Windows 10|Description|
 |-----|-----|-----|-----|-----|
-|HKEY_CURRENT_USER \Software\Microsoft\AuthN|DomainHint</br>REG_SZ</br>contoso.com|Requis|Requis|La valeur de cette RegKey est un nom de domaine personnalisé vérifié dans le locataire de l’organisation. Par exemple, contoso Corp peut fournir la valeur Contoso.com dans cette RegKey si Contoso.com est l’un des noms de domaine personnalisés vérifiés dans le Contoso.onmicrosoft.com du locataire.|
+|HKEY_CURRENT_USER \Software\Microsoft\AuthN|DomainHint</br>REG_SZ</br>contoso.com|Obligatoire|Obligatoire|La valeur de cette RegKey est un nom de domaine personnalisé vérifié dans le locataire de l’organisation. Par exemple, contoso Corp peut fournir la valeur Contoso.com dans cette RegKey si Contoso.com est l’un des noms de domaine personnalisés vérifiés dans le Contoso.onmicrosoft.com du locataire.|
 HKEY_CURRENT_USER \Software\Microsoft\Office\16.0\Common\Identity|EnableAlternateIdSupport</br>REG_DWORD</br>1|Requis pour Outlook 2016 ProPlus|Requis pour Outlook 2016 ProPlus|La valeur de cette RegKey peut être 1/0 pour indiquer à l’application Outlook s’il doit faire appel à la logique améliorée d’authentification de l’ID de remplacement.|
-HKEY_CURRENT_USER \Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\contoso.com\sts|&#42;</br>REG_DWORD</br>1|Requis|Requis|Vous pouvez utiliser cette RegKey pour définir le STS comme zone approuvée dans les paramètres Internet. Le déploiement ADFS standard recommande l’ajout de l’espace de noms ADFS à la zone Intranet local pour Internet Explorer|
+HKEY_CURRENT_USER \Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\contoso.com\sts|&#42;</br>REG_DWORD</br>1|Obligatoire|Obligatoire|Vous pouvez utiliser cette RegKey pour définir le STS comme zone approuvée dans les paramètres Internet. Le déploiement ADFS standard recommande l’ajout de l’espace de noms ADFS à la zone Intranet local pour Internet Explorer|
 
 ## <a name="new-authentication-flow-after-additional-configuration"></a>Nouveau workflow d’authentification après une configuration supplémentaire
 
-![Flux d’authentification](media/Configure-Alternate-Login-ID/alt1a.png)
+![Workflow d’authentification](media/Configure-Alternate-Login-ID/alt1a.png)
 
 1. r : l’utilisateur est approvisionné dans Azure AD à l’aide d’un autre ID
    </br>b : l’administrateur de l’annuaire pousse les paramètres de RegKey requis sur les ordinateurs clients concernés
@@ -156,23 +155,23 @@ HKEY_CURRENT_USER \Software\Microsoft\Windows\CurrentVersion\Internet Settings\Z
 
 ### <a name="non-exchange-and-skype-for-business-clients"></a>Clients non-Exchange et Skype entreprise
 
-|Client|Déclaration de support|Remarks|
+|Client|Support (instruction)|Notes|
 | ----- | -----|-----|
-|Microsoft Teams|Pris en charge|<li>Microsoft teams prend en charge les AD FS (SAML-P, WS-FED, WS-Trust et OAuth) et l’authentification moderne.</li><li> Les fonctionnalités principales de Microsoft, telles que les canaux, les conversations et les fonctionnalités de fichiers, fonctionnent avec un ID de connexion de substitution.</li><li>les applications de première et tierces doivent être examinées séparément par le client. Cela est dû au fait que chaque application possède ses propres protocoles d’authentification de prise en charge.</li>|     
+|Microsoft Teams|Prise en charge|<li>Microsoft teams prend en charge les AD FS (SAML-P, WS-FED, WS-Trust et OAuth) et l’authentification moderne.</li><li> Les fonctionnalités principales de Microsoft, telles que les canaux, les conversations et les fonctionnalités de fichiers, fonctionnent avec un ID de connexion de substitution.</li><li>les applications de première et tierces doivent être examinées séparément par le client. Cela est dû au fait que chaque application possède ses propres protocoles d’authentification de prise en charge.</li>|     
 |OneDrive Entreprise|Prise en charge : clé de Registre côté client recommandée |Avec l’ID secondaire configuré, vous voyez que l’UPN local est prérempli dans le champ vérification. Cela doit être remplacé par l’identité qui est utilisée. Nous vous recommandons d’utiliser la clé de Registre côté client indiquée dans cet article : Office 2013 et Lync 2013 demandent périodiquement des informations d’identification pour SharePoint Online, OneDrive et Lync Online.|
-|Client mobile OneDrive entreprise|Pris en charge|| 
+|Client mobile OneDrive entreprise|Prise en charge|| 
 |Page d’activation d’Office 365 Pro plus|Prise en charge : clé de Registre côté client recommandée|Avec l’ID secondaire configuré, vous voyez que l’UPN local est prérempli dans le champ vérification. Cela doit être remplacé par l’identité qui est utilisée. Nous vous recommandons d’utiliser la clé de Registre côté client indiquée dans cet article : Office 2013 et Lync 2013 demandent périodiquement des informations d’identification pour SharePoint Online, OneDrive et Lync Online.|
 
 ### <a name="exchange-and-skype-for-business-clients"></a>Clients Exchange et Skype entreprise
 
 |Client|Support Statement-with HMA|Déclaration de support-sans HMA|
 | ----- |----- | ----- |
-|Outlook|Pris en charge, aucune invite supplémentaire|Pris en charge</br></br>Avec **l’authentification moderne** pour Exchange Online : pris en charge</br></br>Avec **l’authentification régulière** pour Exchange Online : pris en charge avec les avertissements suivants :</br><li>Vous devez être sur un ordinateur joint à un domaine et être connecté au réseau d’entreprise </li><li>Vous pouvez utiliser uniquement un autre ID dans les environnements qui n’autorisent pas l’accès externe pour les utilisateurs de boîtes aux lettres. Cela signifie que les utilisateurs peuvent uniquement s’authentifier sur leur boîte aux lettres de manière prise en charge lorsqu’ils sont connectés et joints au réseau d’entreprise, sur un VPN ou connectés via des ordinateurs à accès direct, mais vous recevez quelques invites supplémentaires lors de la configuration de votre profil Outlook.| 
+|Outlook|Pris en charge, aucune invite supplémentaire|Prise en charge</br></br>Avec **l’authentification moderne** pour Exchange Online : pris en charge</br></br>Avec **l’authentification régulière** pour Exchange Online : pris en charge avec les avertissements suivants :</br><li>Vous devez être sur un ordinateur joint à un domaine et être connecté au réseau d’entreprise </li><li>Vous pouvez utiliser uniquement un autre ID dans les environnements qui n’autorisent pas l’accès externe pour les utilisateurs de boîtes aux lettres. Cela signifie que les utilisateurs peuvent uniquement s’authentifier sur leur boîte aux lettres de manière prise en charge lorsqu’ils sont connectés et joints au réseau d’entreprise, sur un VPN ou connectés via des ordinateurs à accès direct, mais vous recevez quelques invites supplémentaires lors de la configuration de votre profil Outlook.| 
 |Dossiers publics hybrides|Pris en charge, aucune invite supplémentaire.|Avec **l’authentification moderne** pour Exchange Online : pris en charge</br></br>Avec **l’authentification régulière** pour Exchange Online : non pris en charge</br></br><li>Les dossiers publics hybrides ne peuvent pas être étendus si des ID de substitution sont utilisés et ne doivent donc pas être utilisés aujourd’hui avec les méthodes d’authentification standard.|
 |Délégation entre locaux|Consultez [configurer Exchange pour prendre en charge les autorisations déléguées de boîte aux lettres dans un déploiement hybride](https://technet.microsoft.com/library/mt784505.aspx)|Consultez [configurer Exchange pour prendre en charge les autorisations déléguées de boîte aux lettres dans un déploiement hybride](https://technet.microsoft.com/library/mt784505.aspx)|
 |Archiver l’accès aux boîtes aux lettres (boîte aux lettres locale-Archive dans le Cloud)|Pris en charge, aucune invite supplémentaire|Pris en charge : les utilisateurs reçoivent une invite supplémentaire pour les informations d’identification lors de l’accès à l’archive. ils doivent fournir leur autre ID lorsque vous y êtes invité.| 
-|Outlook Web Access|Pris en charge|Pris en charge|
-|Outlook Mobile Apps pour Android, IOS et Windows Phone|Pris en charge|Pris en charge|
+|Outlook Web Access|Prise en charge|Prise en charge|
+|Outlook Mobile Apps pour Android, IOS et Windows Phone|Prise en charge|Prise en charge|
 |Skype entreprise/Lync|Pris en charge, sans invite supplémentaire|Pris en charge (sauf indication contraire), mais il existe un risque de confusion pour l’utilisateur.</br></br>Sur les clients mobiles, l’ID alternatif est pris en charge uniquement si adresse SIP = adresse de messagerie = autre ID.</br></br> Il se peut que les utilisateurs doivent se connecter deux fois au client de bureau Skype entreprise, en utilisant d’abord l’UPN local, puis l’ID secondaire. (Notez que l’adresse de connexion est en fait l’adresse SIP qui peut ne pas être la même que le « nom d’utilisateur », bien que c’est souvent le cas). Quand vous êtes invité à entrer un nom d’utilisateur pour la première fois, l’utilisateur doit entrer l’UPN, même s’il est pré-rempli de manière incorrecte avec l’ID ou l’adresse SIP de remplacement. Une fois que l’utilisateur a cliqué sur se connecter avec l’UPN, l’invite de nom d’utilisateur réapparaît et cette fois prérempli avec l’UPN. Cette fois-ci, l’utilisateur doit remplacer ceci par l’ID de substitution, puis cliquer sur se connecter pour terminer le processus de connexion. Sur les clients mobiles, les utilisateurs doivent entrer l’ID d’utilisateur local dans la page avancé, en utilisant le format de type SAM (domaine\nom_utilisateur), et non le format UPN.</br></br>Après une connexion réussie, si Skype entreprise ou Lync indique « Exchange a besoin de vos informations d’identification », vous devez fournir les informations d’identification valides pour l’emplacement de la boîte aux lettres. Si la boîte aux lettres se trouve dans le Cloud, vous devez fournir l’ID de remplacement. Si la boîte aux lettres est locale, vous devez fournir l’UPN local.| 
 
 ## <a name="additional-details--considerations"></a>Détails supplémentaires & considérations
@@ -219,7 +218,7 @@ Voici les différents cas d’erreur et l’impact correspondant sur l’expéri
 |        Plusieurs objets utilisateur se trouvent dans une forêt        |          Échec de la connexion           | ID d’événement 364 avec le message d’exception MSIS8015 : détection de plusieurs comptes d’utilisateur avec l’identité «{0}» dans la forêt «{1}» avec des identités : {2} |
 |   Plusieurs objets utilisateur sont trouvés dans plusieurs forêts    |          Échec de la connexion           |           ID d’événement 364 avec le message d’exception MSIS8014 : détection de plusieurs comptes d’utilisateur avec l’identité'{0}'dans les forêts : {1}            |
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 [Opérations d’AD FS](../../ad-fs/AD-FS-2016-Operations.md)
 
 

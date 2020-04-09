@@ -1,6 +1,5 @@
 ---
 title: Démarrage rapide pour le déploiement d’une infrastructure protégée
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: e060e052-39a0-4154-90bb-b97cc6dde68e
@@ -9,12 +8,12 @@ author: justinha
 ms.author: justinha
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: e2b8400fc7b7f0e01e000fcb2f6472bdb4059ac8
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c0e29abf14ff1dded12e7e20a0c0a74f80a91d8e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949804"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856742"
 ---
 # <a name="quick-start-for-guarded-fabric-deployment"></a>Démarrage rapide pour le déploiement d’une infrastructure protégée
 
@@ -105,9 +104,9 @@ Autrement dit, les étapes de validation rigoureuses utilisées pour le mode TPM
 
 Pour le mode TPM, trois éléments sont nécessaires : 
 
-1.  Une _clé de type EK public_ (ou _EKpub_) du module de plateforme sécurisée 2,0 sur chaque hôte Hyper-V. Pour capturer le EKpub, utilisez `Get-PlatformIdentifier`. 
-2.  Une _ligne de base matérielle_. Si chacun de vos ordinateurs hôtes Hyper-V est identique, une seule ligne de base suffit. Si ce n’est pas le cas, vous en aurez besoin pour chaque classe de matériel. La ligne de base se présente sous la forme d’un fichier journal de groupe Trustworthy Computing ou TCGlog. Le TCGlog contient tout ce que l’hôte a fait à partir du microprogramme UEFI, via le noyau, jusqu’à l’endroit où l’hôte est entièrement amorcé. Pour capturer la ligne de base matérielle, installez le rôle Hyper-V et la fonctionnalité de prise en charge d’Hyper-V Guardian hôte et utilisez `Get-HgsAttestationBaselinePolicy`. 
-3.  _Stratégie d’intégrité du code_. Si chacun de vos ordinateurs hôtes Hyper-V est identique, il vous suffit d’une seule stratégie CI. Si ce n’est pas le cas, vous en aurez besoin pour chaque classe de matériel. Windows Server 2016 et Windows 10 disposent tous les deux d’une nouvelle forme de mise en application pour les stratégies d’élément de configuration, appelées _intégrité du code stratégie hvci (hyperviseur)_ . STRATÉGIE HVCI fournit une mise en œuvre forte et garantit qu’un hôte est autorisé uniquement à exécuter des fichiers binaires qu’un administrateur approuvé lui a autorisé à exécuter. Ces instructions sont encapsulées dans une stratégie CI qui est ajoutée à SGH. SGH mesure chaque stratégie CI de l’hôte avant qu’il ne soit autorisé à exécuter des machines virtuelles protégées. Pour capturer une stratégie CI, utilisez `New-CIPolicy`. La stratégie doit ensuite être convertie au format binaire à l’aide de `ConvertFrom-CIPolicy`.
+1.    Une _clé de type EK public_ (ou _EKpub_) du module de plateforme sécurisée 2,0 sur chaque hôte Hyper-V. Pour capturer le EKpub, utilisez `Get-PlatformIdentifier`. 
+2.    Une _ligne de base matérielle_. Si chacun de vos ordinateurs hôtes Hyper-V est identique, une seule ligne de base suffit. Si ce n’est pas le cas, vous en aurez besoin pour chaque classe de matériel. La ligne de base se présente sous la forme d’un fichier journal de groupe Trustworthy Computing ou TCGlog. Le TCGlog contient tout ce que l’hôte a fait à partir du microprogramme UEFI, via le noyau, jusqu’à l’endroit où l’hôte est entièrement amorcé. Pour capturer la ligne de base matérielle, installez le rôle Hyper-V et la fonctionnalité de prise en charge d’Hyper-V Guardian hôte et utilisez `Get-HgsAttestationBaselinePolicy`. 
+3.    _Stratégie d’intégrité du code_. Si chacun de vos ordinateurs hôtes Hyper-V est identique, il vous suffit d’une seule stratégie CI. Si ce n’est pas le cas, vous en aurez besoin pour chaque classe de matériel. Windows Server 2016 et Windows 10 disposent tous les deux d’une nouvelle forme de mise en application pour les stratégies d’élément de configuration, appelées _intégrité du code stratégie hvci (hyperviseur)_ . STRATÉGIE HVCI fournit une mise en œuvre forte et garantit qu’un hôte est autorisé uniquement à exécuter des fichiers binaires qu’un administrateur approuvé lui a autorisé à exécuter. Ces instructions sont encapsulées dans une stratégie CI qui est ajoutée à SGH. SGH mesure chaque stratégie CI de l’hôte avant qu’il ne soit autorisé à exécuter des machines virtuelles protégées. Pour capturer une stratégie CI, utilisez `New-CIPolicy`. La stratégie doit ensuite être convertie au format binaire à l’aide de `ConvertFrom-CIPolicy`.
 
 ![Extraire les identités, la ligne de base et la stratégie CI](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-three-extract-identity-baseline-ci-policy.png)
 

@@ -2,22 +2,18 @@
 title: Commandes d’environnement réseau et Windows PowerShell pour BranchCache
 description: Cette rubrique fournit des liens vers Network Shell et les ressources de référence des commandes Windows PowerShell pour BranchCache dans Windows Server 2016
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-bc
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a0726752-0a78-472b-9667-2f91636c1b3b
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 6d32f0f9c9dc11847ed1f0d1715149185e04bcd5
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 83826e07e19a799c76072b6fc519b3bae6290261
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318538"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855782"
 ---
 # <a name="branchcache-network-shell-and-windows-powershell-commands"></a>Commandes d’environnement réseau et Windows PowerShell pour BranchCache
 

@@ -1,23 +1,19 @@
 ---
 title: Haute disponibilité de la passerelle du serveur d’accès à distance
 description: Vous pouvez utiliser cette rubrique pour en savoir plus sur les configurations à haute disponibilité pour la passerelle mutualisée RAS pour la mise en réseau SDN (Software Defined Networking) dans Windows Server 2016.
-manager: brianlic
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 34d826c9-65bc-401f-889d-cf84e12f0144
-ms.author: lizross
-author: eross-msft
-ms.openlocfilehash: 5fca4fc6a636bcde155e60b6da3c827bc9313606
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.author: anpaul
+author: AnirbanPaul
+ms.openlocfilehash: 774f0f4299bb5acbe7314080dd1314f74574d16d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313047"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859612"
 ---
 # <a name="ras-gateway-high-availability"></a>Haute disponibilité de la passerelle du serveur d’accès à distance
 

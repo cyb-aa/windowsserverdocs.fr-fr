@@ -1,28 +1,22 @@
 ---
-title: shift
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+title: déplacement
+description: Rubrique relative aux commandes Windows pour Shift, qui modifie la position des paramètres de lot dans un fichier de commandes.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b56574e8-570a-4cc9-bbac-1b94fbf6a47a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f74e0f1f9041a4a7b95d83772ea79376c82876de
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9c242fe90a8bf32eda5a3db511910e3d7aa4610f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371250"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834262"
 ---
-# <a name="shift"></a>shift
-
-
+# <a name="shift"></a>déplacement
 
 Modifie la position des paramètres de lot dans un fichier de commandes.
 
@@ -34,7 +28,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 shift [/n <N>]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -49,7 +43,7 @@ shift [/n <N>]
 - La commande **Shift** n’a aucun effet sur le paramètre batch **%\\** *.
 - Il n’y a pas de commande de **décalage vers** l’arrière. Après avoir implémenté la commande **Shift** , vous ne pouvez pas récupérer le paramètre batch ( **%0**) qui existait avant le décalage.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Les lignes suivantes d’un exemple de fichier de commandes nommé Mycopy. bat montrent comment utiliser **Shift** avec un nombre quelconque de paramètres de lot. Dans cet exemple, Mycopy. bat copie une liste de fichiers dans un répertoire spécifique. Les paramètres de lot sont représentés par les arguments de nom de fichier et de répertoire.
 ```
@@ -61,7 +55,7 @@ rem mycopy dir file1 file2 ...
 set todir=%1
 :getfile
 shift
-if "%1"=="" goto end
+if %1== goto end
 copy %1 %todir%
 goto getfile
 :end
@@ -69,6 +63,6 @@ set todir=
 echo All done
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

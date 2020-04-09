@@ -1,7 +1,6 @@
 ---
 ms.assetid: 9ee8a6cb-7550-46e2-9c11-78d0545c3a97
 title: Vue d’ensemble du contrôle d’accès dynamique
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 343e51f113f54c3965ef45d49f5d8fd64c260991
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2374e2c8a1efb204dbae1ee633bc5ee41d049d57
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357511"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861172"
 ---
 # <a name="dynamic-access-control-overview"></a>Vue d’ensemble du contrôle d’accès dynamique
 
@@ -40,12 +39,12 @@ Les fonctionnalités et les concepts associés au contrôle d’accès dynamique
   
 -   [Autorisations proposées](#BKMK_Permissions2)  
   
-### <a name="BKMK_Rules"></a>Règles d’accès centralisées  
+### <a name="central-access-rules"></a><a name="BKMK_Rules"></a>Règles d’accès centralisées  
 Une règle d’accès centralisée est une expression de règles d’autorisation, qui comporte une ou plusieurs conditions pour des groupes d’utilisateurs, des revendications d’utilisateur ou de périphérique et des propriétés de ressources. Plusieurs règles d’accès centralisées peuvent être combinées dans une stratégie d’accès centralisée.  
   
 Si une ou plusieurs règles d’accès centralisées ont été définies pour un domaine, les administrateurs des partages de fichiers peuvent associer des règles particulières à des ressources et des exigences professionnelles spécifiques.  
   
-### <a name="BKMK_Policies"></a>Stratégies d’accès centralisées  
+### <a name="central-access-policies"></a><a name="BKMK_Policies"></a>Stratégies d’accès centralisées  
 Les stratégies d’accès centralisées sont des stratégies d’autorisation qui comportent des expressions conditionnelles. Supposons, par exemple, qu’une organisation a besoin de limiter l’accès aux informations d’identification personnelle (PII) dans les fichiers uniquement au propriétaire du fichier et aux membres du service des ressources humaines (RH) autorisés à consulter les informations d’identification personnelle. Il s’agit d’une stratégie à l’échelle de l’organisation qui s’applique aux fichiers PII, où qu’ils résident sur les serveurs de fichiers de l’organisation. Pour appliquer cette stratégie, l’organisation doit :  
   
 -   identifier et marquer les fichiers qui contiennent les informations d’identification personnelle ;  
@@ -56,7 +55,7 @@ Les stratégies d’accès centralisées sont des stratégies d’autorisation q
   
 Les stratégies d’accès centralisées agissent comme un processus de sécurité « parapluie » que l’organisation déploie sur tous ses serveurs. Ces stratégies complètent (mais ne remplacent pas) les stratégies d’accès locales ou les listes de contrôle d’accès discrétionnaire (DACL, Discretionary Access Control List) qui s’appliquent aux fichiers et dossiers.  
   
-### <a name="BKMK_Claims"></a>Légitimité  
+### <a name="claims"></a><a name="BKMK_Claims"></a>Légitimité  
 Une revendication est un élément d’information unique relatif à un utilisateur, un périphérique ou une ressource qui a été publié par un contrôleur de domaine. Le titre de l’utilisateur, la classification du département d’un fichier ou l’état d’intégrité d’un ordinateur sont des exemples valides d’une revendication. Une entité peut faire l’objet de plusieurs revendications, et celles-ci peuvent être combinées pour autoriser l’accès aux ressources. Les types de revendication décrits ci-dessous sont disponibles dans les versions prises en charge de Windows :  
   
 -   **Revendications d’utilisateur** : attributs Active Directory associés à un utilisateur spécifique.  
@@ -67,12 +66,12 @@ Une revendication est un élément d’information unique relatif à un utilisat
   
 Avec les revendications, les administrateurs peuvent définir de façon précise, à l’échelle de l’entreprise ou de l’organisation, les utilisateurs, appareils et ressources à intégrer dans les expressions, règles et stratégies.  
   
-### <a name="BKMK_Expressions2"></a>Manifestations  
+### <a name="expressions"></a><a name="BKMK_Expressions2"></a>Manifestations  
 Les expressions conditionnelles améliorent la gestion du contrôle d’accès qui autorise ou refuse l’accès aux ressources selon que certaines conditions sont réunies ou pas, par exemple, l’appartenance à un groupe, l’emplacement ou l’état de la sécurité du périphérique. Les expressions sont gérées par le biais de la boîte de dialogue Paramètres de sécurité avancés dans l’Éditeur ACL, ou de l’Éditeur de règles d’accès centralisées dans le Centre d’administration Active Directory (ADAC).  
   
 Avec les expressions, les administrateurs gèrent plus facilement l’accès aux ressources sensibles, car ils peuvent définir et modifier les conditions en fonction des besoins toujours plus complexes de leur environnement de travail.  
   
-### <a name="BKMK_Permissions2"></a>Autorisations proposées  
+### <a name="proposed-permissions"></a><a name="BKMK_Permissions2"></a>Autorisations proposées  
 Avec les autorisations proposées, un administrateur peut analyser plus précisément l’impact d’une modification éventuelle des paramètres de contrôle d’accès sans les modifier réellement.  
   
 En anticipant l’accès effectif aux ressources, vous pouvez mieux planifier et configurer les autorisations pour ces ressources avant de procéder aux modifications.  
@@ -125,7 +124,7 @@ Si les clients ne prennent pas en charge le contrôle d’accès dynamique, vous
   
 Si les revendications sont transformées lors de la sortie d’une forêt, tous les contrôleurs de domaine dans la racine de la forêt de l’utilisateur doivent être définis au niveau fonctionnel de Windows Server 2012 ou supérieur.  
   
-Un serveur de fichiers exécutant Windows Server 2012 ou Windows Server 2012 R2 doit avoir un paramètre de stratégie de groupe qui spécifie s’il doit obtenir des revendications d’utilisateur pour les jetons d’utilisateur qui ne transmettent pas de revendications. La valeur par défaut de ce paramètre de stratégie étant **Automatique**, il prend la valeur **Activé** si une stratégie centralisée contenant des revendications d’utilisateur ou de périphérique a été définie pour ce serveur de fichiers. Si le serveur de fichiers comporte des listes de contrôle d’accès discrétionnaire (DACL) avec des revendications d’utilisateur, vous devez attribuer à ce paramètre de stratégie la valeur **Activé** pour indiquer au serveur qu’il doit demander des revendications pour les utilisateurs qui n’en fournissent au moment d’accéder au serveur.  
+Un serveur de fichiers exécutant Windows Server 2012 ou Windows Server 2012 R2 doit avoir un paramètre de stratégie de groupe qui spécifie s’il doit obtenir des revendications d’utilisateur pour les jetons d’utilisateur qui ne transmettent pas de revendications. La valeur par défaut de ce paramètre de stratégie étant **Automatique**, il prend la valeur **Activé** si une stratégie centralisée contenant des revendications d’utilisateur ou de périphérique a été définie pour ce serveur de fichiers. Si le serveur de fichiers comporte des listes de contrôle d’accès discrétionnaire (DACL) avec des revendications d’utilisateur, vous devez définir ce paramètre de stratégie sur **Activé** afin d’indiquer au serveur qu’il doit demander des revendications pour les utilisateurs qui n’en fournissent pas lorsqu’ils accèdent au serveur.  
   
 ## <a name="additional-resource"></a>Ressource supplémentaire  
 Pour plus d’informations sur l’implémentation de solutions basées sur cette technologie, consultez [Access Control dynamique : vue d’ensemble des scénarios](Dynamic-Access-Control--Scenario-Overview.md).  

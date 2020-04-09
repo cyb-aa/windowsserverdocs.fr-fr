@@ -1,7 +1,5 @@
 ---
-ms.assetid: ''
 title: Stratégies de Access Control client dans AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +7,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c00a13076b3c3cf28f9efa0a5127f50e34219c84
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f9939662c22e9500235bae014b7fb9064afd911b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358627"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858112"
 ---
 # <a name="controlling-access-to-organizational-data-with-active-directory-federation-services"></a>Contrôle de l’accès aux données organisationnelles avec Services ADFS
 
@@ -32,7 +30,7 @@ AD FS fournit le composant local de la stratégie d’accès conditionnel dans u
 
 Par exemple, lorsque vous inscrivez des appareils avec Azure AD pour l’accès conditionnel aux ressources de Cloud, la fonctionnalité de réécriture de l’appareil Azure AD Connect rend les informations d’inscription de l’appareil disponibles localement pour que les stratégies de AD FS utilisent et s’appliquent.  De cette façon, vous disposez d’une approche cohérente pour accéder aux stratégies de contrôle des ressources locales et du Cloud.  
 
-![Accès conditionnel](../deployment/media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
+![accès conditionnel](../deployment/media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
 
 
 ### <a name="the-evolution-of-client-access-policies-for-office-365"></a>L’évolution des stratégies d’accès client pour Office 365

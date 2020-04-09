@@ -1,7 +1,6 @@
 ---
 ms.assetid: 963a3d37-d5f1-4153-b8d5-2537038863cb
 title: Meilleures pratiques pour sécuriser la planification et le déploiement d'AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: be488ccffee7b267d2a3a120b85436abf206f65a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bcddb3cc7534f45f0a84e25a6174648f1e3b82af
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359200"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858412"
 ---
 # <a name="best-practices-for-secure-planning-and-deployment-of-ad-fs"></a>Meilleures pratiques pour sécuriser la planification et le déploiement d'AD FS
 
@@ -87,7 +86,7 @@ Les meilleures pratiques principales suivantes sont communes à toutes les insta
   
     |Valeur du paramètre|Niveau de sécurité|Paramétrage de la protection|  
     |-------------------|------------------|----------------------|  
-    |Require|Le serveur est entièrement sécurisé.|La protection étendue est appliquée et toujours obligatoire.|  
+    |Exiger|Le serveur est entièrement sécurisé.|La protection étendue est appliquée et toujours obligatoire.|  
     |Autoriser|Le serveur est partiellement sécurisé.|La protection étendue est appliquée sur les systèmes concernés qui ont fait l'objet d'un correctif pour prendre en charge cette fonctionnalité.|  
     |Aucune|Le serveur est vulnérable.|La protection étendue n'est pas appliquée.|  
   
@@ -114,7 +113,7 @@ Les meilleures pratiques principales suivantes sont communes à toutes les insta
      Pour le verrouillage intelligent extranet pour AD FS sur Windows Server 2016, consultez [AD FS protection intelligente du verrouillage extranet](../../ad-fs/operations/Configure-AD-FS-Extranet-Smart-Lockout-Protection.md).  
   
 ## <a name="sql-serverspecific-security-best-practices-for-ad-fs"></a>Meilleures pratiques propres à SQL Server en matière de sécurité pour AD FS  
-Les meilleures pratiques de sécurité suivantes sont spécifiques à l’utilisation de Microsoft SQL Server® ou de la base de données interne Windows (WID) lorsque ces technologies de base de données sont utilisées pour gérer les données dans AD FS la conception et le déploiement.  
+Les meilleures pratiques de sécurité suivantes sont spécifiques à l’utilisation de Microsoft SQL Server&reg; ou de la base de données interne Windows (WID) lorsque ces technologies de base de données sont utilisées pour gérer les données dans AD FS la conception et le déploiement.  
   
 > [!NOTE]  
 > Ces recommandations étendent, mais ne remplacent pas, les conseils de sécurité pour SQL Server. Pour plus d’informations sur la planification d’une installation SQL Server sécurisée, consultez [Considérations sur la sécurité pour une installation SQL sécurisée](https://go.microsoft.com/fwlink/?LinkID=139831) (https://go.microsoft.com/fwlink/?LinkID=139831).  
@@ -125,7 +124,7 @@ Les meilleures pratiques de sécurité suivantes sont spécifiques à l’utilis
   
 -   **Exécutez SQL Server sous un compte de service au lieu d’utiliser les comptes de service système par défaut intégrés.**  
   
-    Par défaut, SQL Server est souvent installé et configuré pour utiliser l'un des comptes système intégrés pris en charge, tels que les comptes LocalSystem ou NetworkService. Pour améliorer la sécurité de votre installation de SQL Server pour AD FS, dans la mesure du possible, utilisez un compte de service distinct pour accéder à votre service SQL Server et activez l’authentification Kerberos en inscrivant le nom de principal de sécurité (SPN) de ce compte dans votre Active Directory déploiement. Cela permet une authentification mutuelle entre le client et le serveur. Si vous n'inscrivez pas le nom de principal de sécurité d'un compte de service distinct, seul le client est authentifié, car SQL Server utilise alors l'authentification NTLM ou Windows.  
+    Par défaut, SQL Server est souvent installé et configuré pour utiliser l'un des comptes système intégrés pris en charge, tels que les comptes LocalSystem ou NetworkService. Pour améliorer la sécurité de votre installation SQL Server pour AD FS, dans la mesure du possible, utilisez un compte de service distinct pour accéder à votre service SQL Server et activez l’authentification Kerberos en inscrivant le nom de principal de sécurité (SPN) de ce compte dans votre déploiement Active Directory. Cela permet une authentification mutuelle entre le client et le serveur. Si vous n'inscrivez pas le nom de principal de sécurité d'un compte de service distinct, seul le client est authentifié, car SQL Server utilise alors l'authentification NTLM ou Windows.  
   
 -   **Réduisez la surface d’exposition de SQL Server.**  
   

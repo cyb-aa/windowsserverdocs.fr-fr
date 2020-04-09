@@ -1,32 +1,28 @@
 ---
 title: Utiliser les stratégies de restriction logicielle pour protéger votre ordinateur contre un virus de courrier électronique
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-software-restriction-policies
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 02f23979-f832-4e46-bdea-21fd77db35b2
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 4c691255683eb37eecdbeaa55c094b7ce5c4e26d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 680d0435d77164e101f045b439be6ccb6601dfef
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357650"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855732"
 ---
 # <a name="use-software-restriction-policies-to-help-protect-your-computer-against-an-email-virus"></a>Utiliser les stratégies de restriction logicielle pour protéger votre ordinateur contre un virus de courrier électronique
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique fournit des informations sur la façon de définir des stratégies de contrôle d’application à l’aide de stratégies de restriction logicielle (SRP) pour protéger votre ordinateur contre les virus du courrier électronique à partir de Windows Server 2008 et Windows Vista.
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 La fonctionnalité Stratégies de restriction logicielle est une fonctionnalité fondée sur les stratégies de groupe qui identifie les programmes logiciels s’exécutant sur les ordinateurs d’un domaine et qui contrôle la capacité de ces programmes à s’exécuter. Les stratégies de restriction logicielle peuvent aussi contribuer à créer une configuration fortement restreinte pour vos ordinateurs, dans laquelle seule l’exécution d’applications clairement identifiées est autorisée. Celles-ci sont intégrées à Microsoft Active Directory Domain Services et stratégie de groupe mais peuvent également être configurées sur des ordinateurs autonomes. Pour un point de départ pour les SRP, consultez [stratégies de restriction logicielle](software-restriction-policies.md).
 
 À compter de Windows Server 2008 R2 et Windows 7, il est possible d’utiliser Windows AppLocker à la place ou en collaboration avec les stratégies de restriction logicielle pour une partie de votre stratégie de contrôle des applications. 

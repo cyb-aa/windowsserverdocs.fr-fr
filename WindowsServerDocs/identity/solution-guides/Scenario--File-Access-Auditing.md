@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7be1f2cb-02d5-4209-ba79-edf496a88f47
 title: Audit d’accès aux fichiers de scénario
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 37a3b17360112d958b59a7e9c3f64aed5e6f6a5b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 37ea1cf28e42f74a18cd57b8fa9def5f9d1646be
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406993"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861122"
 ---
-# <a name="scenario-file-access-auditing"></a>Scénario : Audit d'accès aux fichiers
+# <a name="scenario-file-access-auditing"></a>Scénario: Audit d’accès aux fichiers
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 L’audit de sécurité est l’un des outils les plus puissants de gestion de la sécurité d’une entreprise. La conformité aux normes fait notamment partie de ses objectifs clés. Des normes industrielles telles que Sarbanes Oxley, HIPAA (Health Insurance Portability and Accountability Act) et PCI (Payment Card Industry) exigent que les entreprises se conforment à un ensemble strict de règles liées à la sécurité et à la confidentialité des données. Les audits de sécurité visent à établir la présence de ce type de stratégies et à prouver la conformité à ces normes. De plus, les audits de sécurité permettent de détecter un comportement anormal, d’identifier et d’atténuer les lacunes dans les stratégies de sécurité, ainsi que de dissuader tout comportement irresponsable en créant un journal de l’activité utilisateur qui peut être utilisé pour une analyse d’investigation.  
   
@@ -71,12 +70,12 @@ Les rubriques suivantes fournissent des conseils supplémentaires pour ce scéna
   
 -   [Déployer l’audit de sécurité avec les stratégies &#40;d’audit centralisées étapes de démonstration&#41;](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md)  
   
-## <a name="BKMK_NEW"></a>Rôles et fonctionnalités inclus dans ce scénario  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>Rôles et fonctionnalités inclus dans ce scénario  
 Le tableau qui suit décrit les rôles et les fonctionnalités inclus dans ce scénario et détaille la manière dont ils prennent en charge ce dernier.  
   
 |Rôle/fonctionnalité|Prise en charge de ce scénario|  
 |-----------------|---------------------------------|  
-|Rôle des Services de domaine Active Directory|AD DS de Windows Server 2012 introduit une plateforme d’autorisation basée sur les revendications qui permet de créer des revendications d’utilisateur et d’appareil, une identité composée, (utilisateur plus revendications de périphérique), un nouveau modèle de stratégies d’accès centralisées et l’utilisation de la classification des fichiers. informations dans les décisions d’autorisation.|  
+|Rôle des Services de domaine Active Directory|AD DS dans Windows Server 2012 introduit une plateforme d’autorisation basée sur les revendications qui permet de créer des revendications d’utilisateur et d’appareil, une identité composée, (utilisateur plus revendications de périphérique), un nouveau modèle de stratégies d’accès centralisées et l’utilisation des informations de classification des fichiers dans les décisions d’autorisation.|  
 |Rôle des Services de fichiers et de stockage|Les serveurs de fichiers dans Windows Server 2012 fournissent une interface utilisateur dans laquelle les administrateurs peuvent afficher les autorisations effectives pour les utilisateurs d’un fichier ou d’un dossier, et résoudre les problèmes d’accès et accorder l’accès selon les besoins.|  
   
 

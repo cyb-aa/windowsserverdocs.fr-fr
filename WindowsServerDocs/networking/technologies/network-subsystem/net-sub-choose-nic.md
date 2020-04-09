@@ -5,15 +5,15 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: a6615411-83d9-495f-8a6a-1ebc8b12f164
-manager: brianlic
-ms.author: lizross
-author: eross-msft
-ms.openlocfilehash: 5e1ed095b3180f3aebd25381ec9086445bb141ec
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+manager: dcscontentpm
+ms.author: v-tea
+author: Teresa-Motiv
+ms.openlocfilehash: 2e902f3aea4025afe4f475c45193710a8b474dcd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316622"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80862222"
 ---
 # <a name="choosing-a-network-adapter"></a>Choix d’une carte réseau
 
@@ -100,27 +100,27 @@ Voici les paramètres **Set-NetAdapterRss** supplémentaires que vous pouvez uti
 
 - **\* MaxProcessors**: définit le nombre maximal de processeurs RSS à utiliser. Cela garantit que le trafic de l’application est lié à un nombre maximal de processeurs sur une interface donnée. Exemple de syntaxe :
 
-     `Set-NetAdapterRss –Name “Ethernet” –MaxProcessors <value>`
+     `Set-NetAdapterRss –Name "Ethernet" –MaxProcessors <value>`
 
 - **\* BaseProcessorGroup**: définit le groupe de processeurs de base d’un nœud NUMA. Cela a un impact sur le groupe de processeurs utilisé par RSS. Exemple de syntaxe :
 
-     `Set-NetAdapterRss –Name “Ethernet” –BaseProcessorGroup <value>`
+     `Set-NetAdapterRss –Name "Ethernet" –BaseProcessorGroup <value>`
   
 - **\* MaxProcessorGroup**: définit le groupe de processeurs Max d’un nœud NUMA. Cela a un impact sur le groupe de processeurs utilisé par RSS. Cela limiterait un groupe de processeurs maximal pour que l’équilibrage de charge soit aligné dans un groupe k. Exemple de syntaxe :
 
-     `Set-NetAdapterRss –Name “Ethernet” –MaxProcessorGroup <value>`
+     `Set-NetAdapterRss –Name "Ethernet" –MaxProcessorGroup <value>`
 
 - **\* BaseProcessorNumber**: définit le numéro de processeur de base d’un nœud NUMA. Cela a un impact sur le groupe de processeurs utilisé par RSS. Cela permet de partitionner les processeurs entre les cartes réseau. Il s’agit du premier processeur logique de la plage de processeurs RSS qui est affectée à chaque carte. Exemple de syntaxe :
 
-     `Set-NetAdapterRss –Name “Ethernet” –BaseProcessorNumber <Byte Value>`
+     `Set-NetAdapterRss –Name "Ethernet" –BaseProcessorNumber <Byte Value>`
 
 - **\* NumaNode**: nœud NUMA à partir duquel chaque carte réseau peut allouer de la mémoire. Cela peut se faire dans un groupe k ou dans différents groupes k. Exemple de syntaxe :
 
-     `Set-NetAdapterRss –Name “Ethernet” –NumaNodeID <value>`
+     `Set-NetAdapterRss –Name "Ethernet" –NumaNodeID <value>`
 
 - **\* NumberofReceiveQueues**: si vos processeurs logiques semblent être sous-utilisés pour la réception du trafic \(par exemple, comme affiché dans le gestionnaire des tâches\), vous pouvez essayer d’agrandir le nombre de files d’attente RSS de la valeur par défaut de 2 à la valeur maximale prise en charge par votre carte réseau. Votre carte réseau peut avoir des options permettant de modifier le nombre de files d’attente RSS dans le cadre du pilote. Exemple de syntaxe :
 
-     `Set-NetAdapterRss –Name “Ethernet” –NumberOfReceiveQueues <value>`
+     `Set-NetAdapterRss –Name "Ethernet" –NumberOfReceiveQueues <value>`
 
 Pour plus d’informations, cliquez sur le lien suivant pour télécharger [la mise en réseau évolutive : élimination du goulot d’étranglement du traitement des réceptions, présentation de RSS](https://download.microsoft.com/download/5/D/6/5D6EAF2B-7DDF-476B-93DC-7CF0072878E6/NDIS_RSS.doc) au format Word.
   
@@ -190,7 +190,7 @@ Dans le scénario précédent, IPv4 RSC est pris en charge et opérationnel dans
 Voici un exemple de sortie lorsque vous exécutez l’applet de commande NetAdapterStatistics.
 
 ```  
-PS C:\Users\Administrator> $x = Get-NetAdapterStatistics “myAdapter”   
+PS C:\Users\Administrator> $x = Get-NetAdapterStatistics "myAdapter"   
 PS C:\Users\Administrator> $x.rscstatistics  
   
 CoalescedBytes       : 0  

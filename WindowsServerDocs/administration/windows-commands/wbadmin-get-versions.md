@@ -1,24 +1,20 @@
 ---
 title: versions d’extraction Wbadmin
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour Wbadmin obtenir des versions, qui répertorie des détails sur les sauvegardes disponibles stockées sur l’ordinateur local ou sur un autre ordinateur.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b986acc4-d083-4d32-9434-862314ed5e97
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0b7ba0749c8ef347e27590bde4eed7bbcf25af7e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 61353d4d607f87878d8001a626279016274c8eff
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362362"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829732"
 ---
 # <a name="wbadmin-get-versions"></a>versions d’extraction Wbadmin
 
@@ -38,7 +34,7 @@ wbadmin get versions
 [-machine:BackupMachineName]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -49,7 +45,7 @@ wbadmin get versions
 
 Pour répertorier les éléments disponibles pour la récupération à partir d’une sauvegarde spécifique, utilisez **Wbadmin obtenir des éléments**.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour afficher la liste des sauvegardes disponibles stockées sur le volume h, tapez :
 ```
@@ -60,8 +56,8 @@ Pour afficher la liste des sauvegardes disponibles stockées dans le dossier par
 wbadmin get versions -backupTarget:\\servername\share -machine:server01
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   Applet [de commande WBBackupTarget](https://technet.microsoft.com/library/jj902447.aspx)

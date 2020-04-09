@@ -1,7 +1,6 @@
 ---
 ms.assetid: 133474ee-316d-4b1c-acc6-ad5434a064d5
 title: Examen des concepts DNS
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 0a1ffe065991e76c91fa95a6ac080a8e8d54bcce
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 37c33ca181394c66ef149715c3f1477774061660
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408707"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822062"
 ---
 # <a name="reviewing-dns-concepts"></a>Examen des concepts DNS
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 DNS (Domain Name System) est une base de données distribuée qui représente un espace de noms. L’espace de noms contient toutes les informations nécessaires à n’importe quel client pour rechercher n’importe quel nom. Tout serveur DNS peut répondre à des requêtes concernant n’importe quel nom dans son espace de noms. Un serveur DNS répond aux requêtes de l’une des manières suivantes :  
   

@@ -1,24 +1,20 @@
 ---
 title: Utiliser les règles des stratégies de restriction logicielle
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-software-restriction-policies
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4a8047d5-9bb9-4bed-bc8f-583a237731e2
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: bb5e56fe541a06b1100de2f25fc10f4db46b8d24
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 249426f7b0ef1b427d903e8d0cac9ca2e0747b68
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322951"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820982"
 ---
 # <a name="work-with-software-restriction-policies-rules"></a>Utiliser les règles des stratégies de restriction logicielle
 
@@ -27,7 +23,7 @@ ms.locfileid: "79322951"
 Cette rubrique décrit les procédures qui utilisent des stratégies de restriction logicielle en utilisant des certificats, des chemins d’accès, des règles de zone Internet et de hachage.
 
 ## <a name="introduction"></a>Introduction
-Avec les stratégies de restriction logicielle, vous pouvez protéger votre environnement informatique contre les logiciels non approuvés en identifiant et en spécifiant les logiciels qui sont autorisés à s’exécuter. Vous pouvez définir un niveau de sécurité par défaut non restreint **ou non autorisé pour** un objet stratégie de groupe (GPO) afin que le logiciel soit autorisé ou non à s’exécuter par défaut. Vous pouvez appliquer des exceptions à ce niveau de sécurité par défaut en créant des règles de stratégies de restriction logicielles pour un logiciel spécifique. Par exemple, si le niveau de sécurité par défaut a la valeur **Non autorisé**, vous pouvez créer des règles pour autoriser l’exécution de logiciels spécifiques. Les types de règles sont les suivants :
+Avec les stratégies de restriction logicielle, vous pouvez protéger votre environnement informatique contre les logiciels non approuvés en identifiant et en spécifiant les logiciels qui sont autorisés à s’exécuter. Vous pouvez définir un niveau de sécurité par **Unrestricted** défaut non restreint **ou non autorisé pour** un objet stratégie de groupe (GPO) afin que le logiciel soit autorisé ou non à s’exécuter par défaut. Vous pouvez appliquer des exceptions à ce niveau de sécurité par défaut en créant des règles de stratégies de restriction logicielles pour un logiciel spécifique. Par exemple, si le niveau de sécurité par défaut a la valeur **Non autorisé**, vous pouvez créer des règles pour autoriser l’exécution de logiciels spécifiques. Les types de règles sont les suivants :
 
 -   **Règles de certificat**
 
@@ -47,7 +43,7 @@ Avec les stratégies de restriction logicielle, vous pouvez protéger votre envi
 
 Pour plus d’informations sur les autres tâches de gestion des stratégies de restriction logicielle, voir [administrer les stratégies de restriction logicielle](administer-software-restriction-policies.md).
 
-## <a name="BKMK_Cert_Rules"></a>Utilisation des règles de certificat
+## <a name="working-with-certificate-rules"></a><a name="BKMK_Cert_Rules"></a>Utilisation des règles de certificat
 Les stratégies de restriction logicielle peuvent également identifier les logiciels par son certificat de signature. Vous pouvez créer une règle de certificat qui identifie le logiciel et autorise ou refuse l’exécution du logiciel, en fonction du niveau de sécurité. Par exemple, vous pouvez utiliser les règles de certificat pour approuver automatiquement les logiciels d’une source approuvée dans un domaine sans intervention de l’utilisateur. Vous pouvez également utiliser des règles de certificat pour exécuter des fichiers dans des zones non autorisées de votre système d’exploitation. Les règles de certificat ne sont pas activées par défaut.
 
 Lorsque des règles sont créées pour le domaine à l’aide d’stratégie de groupe, vous devez disposer d’autorisations pour créer ou modifier un objet stratégie de groupe. Si vous créez des règles pour l’ordinateur local, vous devez disposer d’informations d’authentification d’administration sur cet ordinateur.
@@ -82,7 +78,7 @@ En fonction de votre environnement, différentes procédures existent pour activ
 
 -   [Pour les contrôleurs de domaine uniquement et vous êtes sur un contrôleur de domaine ou sur une station de travail sur laquelle est installé le pack d’Outils d’administration de serveur distant](#BKMK_4)
 
-#### <a name="BKMK_1"></a>Pour activer les règles de certificat pour votre ordinateur local
+#### <a name="to-enable-certificate-rules-for-your-local-computer"></a><a name="BKMK_1"></a>Pour activer les règles de certificat pour votre ordinateur local
 
 1.  Ouvrez Paramètres de sécurité locaux.
 
@@ -96,7 +92,7 @@ En fonction de votre environnement, différentes procédures existent pour activ
 
     -   Pour désactiver les règles de certificat, cliquez sur **Désactivé**.
 
-#### <a name="BKMK_2"></a>Pour activer les règles de certificat pour un objet stratégie de groupe, et vous êtes sur un serveur joint à un domaine
+#### <a name="to-enable-certificate-rules-for-a-group-policy-object-and-you-are-on-a-server-that-is-joined-to-a-domain"></a><a name="BKMK_2"></a>Pour activer les règles de certificat pour un objet stratégie de groupe, et vous êtes sur un serveur joint à un domaine
 
 1.  Ouvrez la console MMC.
 
@@ -122,7 +118,7 @@ En fonction de votre environnement, différentes procédures existent pour activ
 
     -   Pour désactiver les règles de certificat, cliquez sur **Désactivé**.
 
-#### <a name="BKMK_3"></a>Pour activer les règles de certificat pour un objet stratégie de groupe, et vous êtes sur un contrôleur de domaine ou sur une station de travail sur laquelle le Outils d’administration de serveur distant installé
+#### <a name="to-enable-certificate-rules-for-a-group-policy-object-and-you-are-on-a-domain-controller-or-on-a-workstation-that-has-the-remote-server-administration-tools-installed"></a><a name="BKMK_3"></a>Pour activer les règles de certificat pour un objet stratégie de groupe, et vous êtes sur un contrôleur de domaine ou sur une station de travail sur laquelle le Outils d’administration de serveur distant installé
 
 1.  Ouvrez Utilisateurs et ordinateurs Active Directory.
 
@@ -144,7 +140,7 @@ En fonction de votre environnement, différentes procédures existent pour activ
 
     -   Pour désactiver les règles de certificat, cliquez sur **Désactivé**.
 
-#### <a name="BKMK_4"></a>Pour activer les règles de certificat uniquement pour les contrôleurs de domaine, et vous êtes sur un contrôleur de domaine ou sur une station de travail sur laquelle le Outils d’administration de serveur distant installé
+#### <a name="to-enable-certificate-rules-for-only-domain-controllers-and-you-are-on-a-domain-controller-or-on-a-workstation-that-has-the-remote-server-administration-tools-installed"></a><a name="BKMK_4"></a>Pour activer les règles de certificat uniquement pour les contrôleurs de domaine, et vous êtes sur un contrôleur de domaine ou sur une station de travail sur laquelle le Outils d’administration de serveur distant installé
 
 1.  Ouvrez Paramètres de sécurité du contrôleur de domaine.
 
@@ -218,7 +214,7 @@ Les paramètres de stratégie sous l’onglet **Éditeurs approuvés** de la str
 
 6.  Activez la case à cocher **Définir ces paramètres de stratégie**, effectuez les modifications de votre choix, puis cliquez sur **OK** pour appliquer les nouveaux paramètres.
 
-## <a name="BKMK_Hash_Rules"></a>Utilisation des règles de hachage
+## <a name="working-with-hash-rules"></a><a name="BKMK_Hash_Rules"></a>Utilisation des règles de hachage
 Un hachage est une série d’octets de longueur fixe qui identifie de façon unique un programme logiciel ou un fichier. Le hachage est calculé par un algorithme de hachage. Quand une règle de hachage est créée pour un programme logiciel, les stratégies de restriction logicielle calculent un hachage du programme. Quand un utilisateur essaie d’ouvrir un programme logiciel, un hachage du programme est comparé aux règles de hachage existantes pour les stratégies de restriction logicielle. Le hachage d’un programme logiciel est toujours le même, quel que soit l’emplacement du programme sur l’ordinateur. Cependant, si un programme logiciel est modifié, son hachage change, et il ne correspond plus au hachage de la règle de hachage pour les stratégies de restriction logicielle.
 
 Par exemple, vous pouvez créer une règle de hachage et définir le niveau de sécurité à **Non autorisé** pour empêcher l’exécution d’un fichier spécifique par les utilisateurs. Un fichier peut être renommé ou déplacé dans un autre dossier, cela ne change pas le hachage. Cependant, les modifications apportées au fichier lui-même changent la valeur de hachage du fichier et ce qui peut permettre au fichier de contourner les restrictions.
@@ -248,7 +244,7 @@ Par exemple, vous pouvez créer une règle de hachage et définir le niveau de s
 > -   Pour que les stratégies de restriction logicielle prennent effet, les utilisateurs doivent mettre à jour les paramètres de stratégie en se déconnectant de et en ouvrant une session sur leurs ordinateurs.
 > -   Lorsque plusieurs règles de stratégies de restriction logicielles sont appliquées aux paramètres de stratégie, il existe une précédence des règles de gestion des conflits.
 
-## <a name="BKMK_Internet_Zone_Rules"></a>Utilisation des règles de zone Internet
+## <a name="working-with-internet-zone-rules"></a><a name="BKMK_Internet_Zone_Rules"></a>Utilisation des règles de zone Internet
 Les règles de zone Internet s’appliquent uniquement aux packages Windows Installer. Une règle de zone peut identifier un logiciel d’une zone spécifiée dans Internet Explorer. Ces zones sont Internet, Intranet local, Sites sensibles, Sites de confiance et Mon ordinateur. Une règle de zone Internet est conçue pour empêcher les utilisateurs de télécharger et d’installer des logiciels.
 
 #### <a name="to-create-an-internet-zone-rule"></a>Pour créer une règle de zone Internet
@@ -267,7 +263,7 @@ Les règles de zone Internet s’appliquent uniquement aux packages Windows Inst
 > -   Pour que les stratégies de restriction logicielle prennent effet, les utilisateurs doivent mettre à jour les paramètres de stratégie en se déconnectant de et en ouvrant une session sur leurs ordinateurs.
 > -   Lorsque plusieurs règles de stratégies de restriction logicielles sont appliquées aux paramètres de stratégie, il existe une précédence des règles de gestion des conflits.
 
-## <a name="BKMK_Path_Rules"></a>Utilisation des règles de chemin d’accès
+## <a name="working-with-path-rules"></a><a name="BKMK_Path_Rules"></a>Utilisation des règles de chemin d’accès
 Une règle de chemin d’accès identifie un logiciel par le chemin du fichier. Par exemple, si le niveau de sécurité par défaut de votre ordinateur est **Non autorisé**, vous pouvez tout de même accorder un accès illimité à un dossier spécifique pour chaque utilisateur. Vous pouvez créer une règle de chemin d’accès en utilisant le chemin du fichier et en définissant le niveau de sécurité de la règle de chemin d’accès à **Non restreint**. Certains chemins d’accès courants pour ce type de règle sont %userprofile%, %windir%, %appdata%, %programfiles%, et %temp%. Vous pouvez également créer des règles de chemin d’accès du registre qui utilisent la clé de registre du logiciel comme chemin.
 
 Comme ces règles sont indiquées par leur chemin, si un programme logiciel est déplacé, la règle de chemin d’accès ne s’applique plus.

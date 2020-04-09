@@ -1,7 +1,6 @@
 ---
 ms.assetid: a0f7bb11-47a5-47ff-a70c-9e6353382b39
 title: Gérer les risques avec le contrôle d’accès conditionnel
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e73cf77e9590496f0ff3f881fd8ac4556450b5f0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 719c8ad0b39ccb4e252243e64385b12f8dbe6a28
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357761"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816222"
 ---
 # <a name="manage-risk-with-conditional-access-control"></a>Gérer les risques avec le contrôle d’accès conditionnel
 
@@ -25,7 +24,7 @@ ms.locfileid: "71357761"
 
 -   [Gestion des risques avec des Access Control conditionnelles](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md#BKMK_2)
 
-## <a name="BKMK_1"></a>Concepts clés : contrôle d’accès conditionnel dans AD FS
+## <a name="key-concepts---conditional-access-control-in-ad-fs"></a><a name="BKMK_1"></a>Concepts clés : contrôle d’accès conditionnel dans AD FS
 La fonction globale de AD FS consiste à émettre un jeton d’accès qui contient un ensemble de revendications. La décision concernant les revendications que AD FS accepte, puis les problèmes est régie par les règles de revendication.
 
 Le contrôle d’accès dans AD FS est implémenté avec des règles de revendication d’autorisation d’émission utilisées pour émettre des revendications d’autorisation ou de refus qui déterminent si un utilisateur ou un groupe d’utilisateurs est autorisé à accéder aux ressources sécurisées par AD FS ou non. Les règles d’autorisation ne peuvent être définies que sur des approbations de partie de confiance.
@@ -36,7 +35,7 @@ Le contrôle d’accès dans AD FS est implémenté avec des règles de revendic
 |Autoriser l’accès aux utilisateurs avec cette revendication entrante|Si le type de revendication entrante est égal à *type de revendication spécifié* et que la valeur est égale à *valeur de revendication spécifiée*, la revendication émise avec la valeur est égale à *Autoriser*|
 |Refuser l’accès aux utilisateurs avec cette revendication entrante|Si le type de revendication entrante est égal à *type de revendication spécifié* et que la valeur est égale à *valeur de revendication spécifiée*, la revendication émise avec la valeur est égale à*Refuser*|
 
-Pour plus d’informations sur ces options de règles et la logique, voir [When to Use an Authorization Claim Rule](https://technet.microsoft.com/library/ee913560.aspx).
+Pour plus d’informations sur ces options et logique de règle, voir [Quand utiliser une règle de revendication d’autorisation](https://technet.microsoft.com/library/ee913560.aspx).
 
 Dans AD FS dans Windows Server 2012 R2, le contrôle d’accès est amélioré avec plusieurs facteurs, notamment les données d’utilisateur, de périphérique, d’emplacement et d’authentification. Cela est possible grâce à une plus grande diversité de types de revendication disponibles pour les règles de revendication d’autorisation.  En d’autres termes, dans AD FS dans Windows Server 2012 R2, vous pouvez appliquer le contrôle d’accès conditionnel en fonction de l’identité de l’utilisateur ou de l’appartenance à un groupe, de l’emplacement réseau, de l’appareil (qu’il s’agisse d' [un](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)espace de travail joint) et de l’état d’authentification (si l’authentification multifacteur (MFA) a été effectuée).
 
@@ -54,7 +53,7 @@ Le contrôle d’accès conditionnel dans AD FS dans Windows Server 2012 R2 offr
 
 Le tableau suivant répertorie tous les types de revendications disponibles dans AD FS dans Windows Server 2012 R2 à utiliser pour l’implémentation du contrôle d’accès conditionnel.
 
-|Type de revendication|Description|
+|Type de la revendication.|Description|
 |--------------|---------------|
 |Adresse de messagerie|Adresse de messagerie de l’utilisateur.|
 |Prénom|Prénom de l’utilisateur.|
@@ -62,9 +61,9 @@ Le tableau suivant répertorie tous les types de revendications disponibles dans
 |UPN|Nom d’utilisateur principal (UPN) de l’utilisateur.|
 |Nom commun|Nom commun de l’utilisateur.|
 |Adresse de messagerie AD FS 1.x|Adresse de messagerie de l’utilisateur lorsqu’il interagit avec AD FS 1.1 ou AD FS 1.0.|
-|Group|Groupe auquel appartient l’utilisateur.|
+|Groupe|Groupe auquel appartient l’utilisateur.|
 |UPN AD FS 1.x|UPN de l’utilisateur lorsqu’il interagit avec AD FS 1.1 ou AD FS 1.0.|
-|Rôle|Un rôle de l’utilisateur.|
+|Role|Un rôle de l’utilisateur.|
 |Nom|Nom de l’utilisateur.|
 |PPID|Identificateur privé de l’utilisateur.|
 |ID de nom|Identificateur de nom SAML de l’utilisateur.|
@@ -87,7 +86,7 @@ Le tableau suivant répertorie tous les types de revendications disponibles dans
 |IP transférée du client|Adresse IP de l’utilisateur.|
 |Application cliente|Type de l’application cliente.|
 |Agent utilisateur du client|Type d’appareil utilisé par le client pour accéder à l’application.|
-|IP du client|Adresse IP du client.|
+|Adresse IP cliente|Adresse IP du client.|
 |Chemin du point de terminaison|Chemin absolu du point de terminaison, pouvant être utilisé pour distinguer les clients actifs des clients passifs.|
 |Proxy|Nom DNS du serveur proxy de fédération qui a transmis la demande.|
 |Identificateur d’application|Identificateur de la partie de confiance.|
@@ -96,7 +95,7 @@ Le tableau suivant répertorie tous les types de revendications disponibles dans
 |Contrainte de base|L’une des contraintes de base du certificat.|
 |Utilisation améliorée de la clé|Décrit l’une des principales utilisations améliorées de la clé du certificat.|
 |Émetteur|Nom de l’autorité de certification qui a émis le certificat X.509.|
-|Nom de l’émetteur|Nom unique de l’émetteur du certificat.|
+|Nom de l'émetteur|Nom unique de l’émetteur du certificat.|
 |Utilisation de la clé|L’une des utilisations de la clé du certificat.|
 |Pas après|Date après laquelle un certificat n’est plus valide, en heure locale.|
 |Pas avant|Date à laquelle un certificat devient valide, en heure locale.|
@@ -108,7 +107,7 @@ Le tableau suivant répertorie tous les types de revendications disponibles dans
 |Algorithme de signature|Algorithme utilisé pour créer la signature d’un certificat.|
 |Objet|Sujet du certificat.|
 |Identificateur de la clé du sujet|Identificateur de la clé du sujet du certificat.|
-|Nom de sujet|Nom unique du sujet d’un certificat.|
+|Nom d'objet|Nom unique du sujet d’un certificat.|
 |Nom du modèle V2|Nom du modèle de certificat version 2 utilisé lors de l’émission ou du renouvellement d’un certificat. Il s’agit d’une valeur spécifique à Microsoft.|
 |Nom du modèle V1|Nom du modèle de certificat version 1 utilisé lors de l’émission ou du renouvellement d’un certificat. Il s’agit d’une valeur spécifique à Microsoft.|
 |Empreinte numérique|Empreinte numérique du certificat.|
@@ -119,7 +118,7 @@ Le tableau suivant répertorie tous les types de revendications disponibles dans
 |Mettre à jour l’URL du mot de passe|Permet d’afficher l’adresse Web du service de mise à jour du mot de passe.|
 |Références des méthodes d’authentification|Permet d’indiquer toutes les méthodes d’authentification utilisées pour authentifier l’utilisateur.|
 
-## <a name="BKMK_2"></a>Gestion des risques avec des Access Control conditionnelles
+## <a name="managing-risk-with-conditional-access-control"></a><a name="BKMK_2"></a>Gestion des risques avec des Access Control conditionnelles
 À l’aide des paramètres disponibles, il existe de nombreuses façons de gérer les risques en implémentant le contrôle d’accès conditionnel.
 
 ### <a name="common-scenarios"></a>Scénarios courants

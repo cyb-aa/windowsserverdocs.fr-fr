@@ -1,19 +1,19 @@
 ---
 title: Capturer les informations du mode TPM requises par SGH
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 915b1338-5085-481b-8904-75d29e609e93
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 04/01/2019
-ms.openlocfilehash: ba67cb80a405cd1c6d368a52798e3dec4d9861cb
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 480901321b53adb03cc44f7e8b7c597c77404c90
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322001"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856422"
 ---
 # <a name="authorize-guarded-hosts-using-tpm-based-attestation"></a>Autoriser des hôtes service Guardian à l’aide d’une attestation TPM
 

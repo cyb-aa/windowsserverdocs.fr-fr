@@ -1,24 +1,20 @@
 ---
 title: Ajouter des imprimantes
 description: Ajoutez une imprimante pour vos utilisateurs de MultiPoint services.
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e1f6d3ca-8caf-4aa0-b0ea-93cdfd3f3f37
 author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: e5da3d4919eba9f36e4b28f7c2d2fb3e3de02804
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7be399a73ee37413e01ef714cfd02d4e8750ab79
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405134"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856082"
 ---
 # <a name="add-printers"></a>Ajouter des imprimantes
 Utilisez les procédures de cette rubrique pour mettre une imprimante locale à la disposition de tous les utilisateurs sur un système MultiPoint services.  

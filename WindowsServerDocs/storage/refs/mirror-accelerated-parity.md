@@ -2,18 +2,18 @@
 title: Parité accélérée grâce à la mise en miroir
 ms.prod: windows-server
 ms.author: gawatu
-ms.manager: masriniv
+manager: masriniv
 ms.technology: storage-file-systems
 ms.topic: article
 author: gawatu
 ms.date: 10/17/2018
 ms.assetid: ''
-ms.openlocfilehash: 2721f1c744c5c03d8e4bce0508fd23fa5237f95f
-ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
+ms.openlocfilehash: 752073e4f12db3b994261a70a9306d45b9a00d77
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72591096"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861512"
 ---
 # <a name="mirror-accelerated-parity"></a>Parité accélérée grâce à la mise en miroir
 
@@ -53,17 +53,17 @@ Lors du déplacement des données de l’espace en miroir vers l’espace de par
 
     - **1a.** Si l’écriture entrante modifie les données existantes en miroir, ReFS modifie les données en place.
     - **ter.** Si l’écriture entrante est une nouvelle écriture et que ReFS trouve suffisamment d’espace libre dans l’espace en miroir pour la traiter, ReFS transfère cette écriture en miroir.
-    ](media/mirror-accelerated-parity/Write-to-Mirror.png) de ![Write à miroir
+    ![](media/mirror-accelerated-parity/Write-to-Mirror.png) d’écriture en miroir
 
 2. **Écritures sur le miroir, réallouées à partir de la parité :**
 
     Si l’écriture entrante modifie des données qui sont dans la parité et que ReFS parvient à trouver suffisamment d’espace libre en miroir pour traiter l’écriture entrante, ReFS invalidera d’abord les données précédentes dans la parité, puis écrira en miroir. Cette invalidation est une opération de métadonnées rapide et peu coûteuse, qui permet d’améliorer significativement les performances d’écriture dans l’espace de parité.
-    ![Reallocated-écrire ](media/mirror-accelerated-parity/Reallocated-Write.png)
+    ![réallouées-écrire](media/mirror-accelerated-parity/Reallocated-Write.png)
 
 3. **Écrit dans la parité :**
     
     Si ReFS ne peut pas trouver suffisamment d’espace libre dans l’espace en miroir, il écrit les nouvelles données dans l’espace de parité ou modifie les données de parité existantes. La section « Optimisation des performances » ci-dessous fournit des conseils pour vous aider à minimiser les écritures dans l’espace de parité.
-    ![Write à la parité ](media/mirror-accelerated-parity/Write-to-Parity.png)
+    ![](media/mirror-accelerated-parity/Write-to-Parity.png) d’écriture sur parité
 
 **Lectures :** ReFS lit les données directement à partir du niveau contenant les données pertinentes. Si l’espace de parité comporte des HDD, le cache dans les espaces de stockage direct mettra en cache ces données afin d’accélérer les lectures ultérieures. 
 
@@ -153,7 +153,7 @@ L’applet de commande PowerShell ci-dessous crée un volume de parité accélé
 New-Volume – FriendlyName “TestVolume” -FileSystem CSVFS_ReFS -StoragePoolFriendlyName “StoragePoolName” -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes 200GB, 800GB
 ```
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
 -   [Vue d’ensemble des ReFS](refs-overview.md)
 -   [Clonage de bloc ReFS](block-cloning.md)

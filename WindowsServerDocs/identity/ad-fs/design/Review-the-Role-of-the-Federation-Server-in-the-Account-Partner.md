@@ -1,7 +1,6 @@
 ---
 ms.assetid: d0ba3c0d-869f-4e24-89d7-499da7576f22
 title: Revue du rôle du serveur de fédération du partenaire de compte
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ead8868f38faa570a0e524630e23d99e276a7c79
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2d51f0091746d2d5e816108e3b92d0cb1a8267cd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407922"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858532"
 ---
 # <a name="review-the-role-of-the-federation-server-in-the-account-partner"></a>Revue du rôle du serveur de fédération du partenaire de compte
 

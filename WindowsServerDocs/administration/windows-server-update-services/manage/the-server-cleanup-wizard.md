@@ -2,26 +2,23 @@
 title: Assistant de nettoyage du serveur
 description: Rubrique Windows Server Update Service (WSUS)-comment utiliser l’Assistant Nettoyage de serveur pour gérer l’espace disque
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7c351797-2716-4442-a668-60d5b4e77751
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e285e59a27b6bf0ef1bf3b1ab0f78a96efa60c87
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 12049e2bba28f2381e6e80db07768b4e180861d6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361532"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828533"
 ---
 # <a name="the-server-cleanup-wizard"></a>Assistant de nettoyage du serveur
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 L’Assistant Nettoyage de serveur est intégré à l’interface utilisateur et peut être utilisé pour vous aider à gérer l’espace disque. Cet Assistant peut effectuer les opérations suivantes :
 
@@ -51,7 +48,7 @@ L’Assistant Nettoyage de serveur est intégré à l’interface utilisateur et
   > [!IMPORTANT]
   >  Si vous supprimez du contenu inutile à l’aide de l’Assistant de nettoyage de serveur, tous les fichiers de mise à jour privés que vous avez téléchargés à partir du site du catalogue Microsoft Update sont également supprimés. Vous devez réimporter ces fichiers après avoir exécuté l’Assistant Nettoyage du serveur. 
 
-Si les mises à jour sont approuvées à l’aide d’une règle d’approbation automatique, elles sont peut-être toujours dans l’État « approuvé » et ne sont pas supprimées par l’Assistant Nettoyage du serveur. Pour supprimer les mises à jour approuvées automatiquement qui sont dans un État « approuvé », l’administrateur WSUS doit au minimum définir manuellement l’état d’approbation des mises à jour remplacées sur « non approuvé » afin qu’elles puissent être refusées par l’Assistant de nettoyage du serveur. L’Assistant Nettoyage du serveur s’assure qu’une mise à jour plus récente est approuvée et qu’aucun système client ne signale toujours cette mise à jour si nécessaire, avant de marquer la mise à jour comme « refusée ».
+Si les mises à jour sont approuvées à l’aide d’une règle d’approbation automatique, elles peuvent toujours être à l’État approuvé et ne sont pas supprimées par l’Assistant Nettoyage du serveur. Pour supprimer les mises à jour approuvées automatiquement qui sont dans un État approuvé, l’administrateur WSUS doit au minimum définir manuellement l’état d’approbation des mises à jour remplacées sur non approuvé afin qu’elles puissent être refusées par l’Assistant Nettoyage du serveur. L’Assistant Nettoyage du serveur s’assure qu’une mise à jour plus récente est approuvée et qu’aucun système client ne signale toujours cette mise à jour si nécessaire, avant de marquer la mise à jour comme refusée.
 
 
 

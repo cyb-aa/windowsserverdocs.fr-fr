@@ -1,24 +1,20 @@
 ---
 title: Nouveautés de la protection des informations d’identification
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-credential-protection
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1b0b5180-f65a-43ac-8ef3-66014116f297
 author: gitmichiko
 ms.author: michikos
 manager: dongill
 ms.date: 03/06/2017
-ms.openlocfilehash: 2351be82ad1d8b9af17715ce363836f57c71ea66
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 35097cee243239735995a00cec7a6fd3936c62a8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386908"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857042"
 ---
 # <a name="whats-new-in-credential-protection"></a>Nouveautés de la protection des informations d’identification
 
@@ -47,7 +43,7 @@ Les protections de domaine nécessitent un domaine Active Directory.
 
 ### <a name="domain-joined-device-support-for-authentication-using-public-key"></a>Prise en charge d’appareils joints à un domaine pour l’authentification à l’aide de la clé publique
 
-À compter de Windows 10 version 1507 et de Windows Server 2016, si un appareil joint à un domaine est en mesure d’inscrire sa clé publique liée auprès d’un contrôleur de domaine Windows Server 2016, l’appareil peut s’authentifier avec la clé publique à l’aide de l’utilisation de Kerberos PKINIT. authentification auprès d’un contrôleur de Windows Server 2016.
+À compter de Windows 10 version 1507 et de Windows Server 2016, si un appareil joint à un domaine est en mesure d’inscrire sa clé publique liée auprès d’un contrôleur de domaine Windows Server 2016, l’appareil peut s’authentifier avec la clé publique à l’aide de l’authentification PKINIT Kerberos sur un contrôleur de domaine Windows Server 2016.
 
 À partir de Windows Server 2016, les KDC prennent en charge l’authentification à l’aide de la confiance de clé Kerberos.  
 
@@ -68,7 +64,7 @@ En [savoir plus sur la prise en charge des clés publiques pour les appareils jo
 > [!WARNING] 
 > L’ajout d’un contrôleur de domaine à un domaine avec des secrets NTLM enchaînés étant activé avant la mise à jour du contrôleur de domaine avec au moins le 8 novembre, la maintenance de 2016 exécute le risque de panne de contrôleur de domaine. 
 
-Configuration : Pour les nouveaux domaines, cette fonctionnalité est activée par défaut. Pour les domaines existants, elle doit être configurée dans le centre d’administration Active Directory : 
+Configuration : pour les nouveaux domaines, cette fonctionnalité est activée par défaut. Pour les domaines existants, elle doit être configurée dans le centre d’administration Active Directory : 
 
 1. Dans le centre d’administration Active Directory, cliquez avec le bouton droit sur le domaine dans le volet gauche et sélectionnez **Propriétés**.
 
@@ -84,6 +80,6 @@ Configuration : Pour les nouveaux domaines, cette fonctionnalité est activée 
 
 À partir du niveau fonctionnel de domaine (DFL) de Windows Server 2016, les contrôleurs de domaine peuvent prendre en charge l’autorisation du réseau NTLM lorsqu’un utilisateur est limité à des appareils spécifiques joints à un domaine. Cette fonctionnalité n’est pas disponible dans les DFLs inférieurs.
 
-Configuration : Dans la stratégie d’authentification, cliquez sur **autoriser l’authentification réseau NTLM lorsque l’utilisateur est limité à des appareils sélectionnés**. 
+Configuration : dans la stratégie d’authentification, cliquez sur **autoriser l’authentification réseau NTLM lorsque l’utilisateur est limité à des appareils sélectionnés**. 
 
 [En savoir plus sur les stratégies d’authentification](https://technet.microsoft.com/windows-server-docs/security/credentials-protection-and-management/authentication-policies-and-authentication-policy-silos).

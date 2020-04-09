@@ -1,6 +1,5 @@
 ---
 title: 'Récupération de la forêt Active Directory : étapes de restauration de la forêt'
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: 07a043c4361f8eaae30b1dea665c604c0df42333
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 537543bedd68bff002054f637d96240a71f75793
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390291"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823402"
 ---
 # <a name="ad-forest-recovery---steps-for-restoring-the-forest"></a>Récupération de la forêt Active Directory : étapes de restauration de la forêt
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
 Cette section fournit une vue d’ensemble du chemin d’accès recommandé pour la récupération d’une forêt. Les étapes de récupération de la forêt sont décrites en détail plus loin.  
   
@@ -30,7 +29,7 @@ La liste suivante résume les étapes de récupération à un niveau élevé :
   
 2. [Décider comment récupérer la forêt](AD-Forest-Recovery-Determine-how-to-Recover.md)  
 
-   Une fois que vous avez déterminé que la récupération de la forêt est nécessaire, effectuez les étapes préliminaires pour la préparer : déterminer la structure actuelle de la forêt, identifier les fonctions effectuées par chaque contrôleur de domaine, décider du contrôleur de domaine à restaurer pour chaque domaine et vérifier que tous les contrôleurs de domaine accessibles en écriture sont mis hors connexion.  
+   Après avoir déterminé que la récupération de forêt est nécessaire, effectuez les étapes préliminaires pour la préparer : déterminer la structure actuelle de la forêt, identifier les fonctions effectuées par chaque contrôleur de domaine, décider du contrôleur de domaine à restaurer pour chaque domaine et vérifier que tous les contrôleurs de domaine accessibles en écriture sont mis hors connexion.  
 
 3. [Effectuer la récupération initiale](AD-Forest-Recovery-Perform-initial-recovery.md)  
 

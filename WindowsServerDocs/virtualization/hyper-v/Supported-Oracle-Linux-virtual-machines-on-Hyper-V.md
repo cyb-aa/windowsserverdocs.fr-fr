@@ -2,21 +2,19 @@
 title: Ordinateurs virtuels Oracle Linux pris en charge sur Hyper-V
 description: Répertorie les fonctionnalités et les services d’intégration Linux inclus dans chaque version
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c02fdb5b-62f3-43cb-a190-ab74b3ebcf77
 author: shirgall
 ms.author: kathydav
 ms.date: 06/01/2017
-ms.openlocfilehash: cc2a864ddb1b2bcbc972c895fbb79105107a84b8
-ms.sourcegitcommit: 9687d3eb221b89061a48bf1e73fb3b25bee69f9a
+ms.openlocfilehash: edf92689f1dbe93c387c65e64694c64635fe3958
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78169629"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858012"
 ---
 # <a name="supported-oracle-linux-virtual-machines-on-hyper-v"></a>Ordinateurs virtuels Oracle Linux pris en charge sur Hyper-V
 
@@ -42,7 +40,7 @@ Dans cette section :
 
 * **UEK RxUy** -unbrised Enterprise kernel (UEK) où x est le numéro de version et y la mise à jour trimestrielle.
 
-## <a name="BKMK_rhc"></a>Fonctionnalités des versions de Oracle Linux avec le noyau compatible Red Hat
+## <a name="features-of-oracle-linux-releases-with-the-red-hat-compatible-kernel"></a><a name="BKMK_rhc"></a>Fonctionnalités des versions de Oracle Linux avec le noyau compatible Red Hat
 
 Le noyau 32 bits pour la série 6. x est compatible PAE. Il n’existe aucune prise en charge intégrée de LIS pour Oracle Linux RHCK 6.0-6.3. Oracle Linux les noyaux 7. x sont de 64 bits uniquement.
 
@@ -85,7 +83,7 @@ Le noyau 32 bits pour la série 6. x est compatible PAE. Il n’existe aucune pr
 | Démarrage sécurisé                                                                                                                                  | 2019, 2016                         | &#10004;           | &#10004;            |                                                                     |                                                                     |                          |                          |                          |                           |                           |
 
 
-## <a name="BKMK_uek"></a>Mises en production Oracle Linux avec le noyau de l’entreprise (UEK)
+## <a name="oracle-linux-releases-with-the-unbreakable-enterprise-kernel-uek"></a><a name="BKMK_uek"></a>Mises en production Oracle Linux avec le noyau de l’entreprise (UEK)
 
 Oracle Linux avec le noyau d’entreprise UEK (unbrised Enterprise kernel) est 64-bit uniquement et dispose de la prise en charge LIS intégrée. 
 
@@ -127,7 +125,7 @@ Oracle Linux avec le noyau d’entreprise UEK (unbrised Enterprise kernel) est 6
 | Démarrer à l’aide d’UEFI                                                                                                                              | 2019, 2016, 2012 R2                | &#10004;                  | &#10004;                  |                           |                           |                      |
 | Démarrage sécurisé                                                                                                                                  | 2019, 2016                         | &#10004;                  | &#10004;                  |                           |                           |                      |
 
-## <a name="BKMK_notes"></a>Notes
+## <a name="notes"></a><a name="BKMK_notes"></a>Notes
 
 1. Pour cette version de Oracle Linux, le balisage VLAN fonctionne, mais pas le Trunking VLAN.
 

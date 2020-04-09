@@ -1,28 +1,24 @@
 ---
 title: Stratégies d'authentification et silos de stratégies d'authentification
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-credential-protection
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7eb0e640-033d-49b5-ab44-3959395ad567
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 6b0b841930df246bd784d990916b6029f12a1f96
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 48171657b42ec8b6ba09aa6a35a2f898d6775d07
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403820"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857082"
 ---
 # <a name="authentication-policies-and-authentication-policy-silos"></a>Stratégies d'authentification et silos de stratégies d'authentification
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique destinée aux professionnels de l'informatique décrit les silos de stratégies d'authentification et les stratégies qui peuvent limiter des comptes à ces silos. Elle explique également comment utiliser des stratégies d'authentification pour restreindre l'étendue d'utilisation de certains comptes.
 
@@ -45,7 +41,7 @@ Un silo de stratégies d'authentification détermine les comptes qui peuvent êt
 |--------|--------|
 |Silo de stratégies d'authentification|Une instance de cette classe définit des stratégies d'authentification et des comportements associés pour les utilisateurs, les ordinateurs et les services affectés.|
 |Silos de stratégies d'authentification|Un conteneur de cette classe peut obtenir des objets silos de stratégies d'authentification.|
-|Silo de stratégies d'authentification appliqué|Spécifie si le silo de stratégies d'authentification est appliqué ou non.<br /><br />S'il n'est pas appliqué, la stratégie est par défaut en mode audit. Des événements indiquant les succès ou échecs potentiels sont générés, mais aucune protection n'est appliquée au système.|
+|Silo de stratégies d'authentification appliqué|Spécifie si le silo de stratégies d'authentification est appliqué ou non.<p>S'il n'est pas appliqué, la stratégie est par défaut en mode audit. Des événements indiquant les succès ou échecs potentiels sont générés, mais aucune protection n'est appliquée au système.|
 |Lien secondaire du silo de stratégies d'authentification affecté|Cet attribut correspond au lien secondaire pour le silo msDS-AssignedAuthNPolicySilo.|
 |Membres du silo de stratégies d'authentification|Spécifie quels principaux sont affectés au silo AuthNPolicySilo.|
 |Lien secondaire aux membres du silo de stratégies d'authentification|Cet attribut correspond au lien secondaire pour msDS-AuthNPolicySiloMembers.|
@@ -73,7 +69,7 @@ Le type de compte Active Directory détermine le rôle de l’appelant comme l�
 
     Pour plus d'informations, voir [Groupe de sécurité Utilisateurs protégés](protected-users-security-group.md).
 
--   **Service**
+-   **Services**
 
     Des comptes de service administrés autonomes, des comptes de service administrés de groupe ou un objet compte personnalisé dérivé de ces deux types de comptes de service sont utilisés. Les stratégies peuvent définir les conditions de contrôle d’accès d’un appareil, qui sont utilisées pour limiter les informations d’identification du compte de service administré à des appareils spécifiques avec une identité de Active Directory. Les services ne doivent jamais être membres du groupe de sécurité Utilisateurs protégés car toute authentification entrante échouera.
 
@@ -92,7 +88,7 @@ Les stratégies prévues pour les objets Active Directory relatifs aux utilisate
 |----|--------|--------|
 |Stratégie|Stratégie d'authentification|Une instance de cette classe définit les comportements associés aux stratégies d'authentification pour les principaux affectés.|
 |Stratégie|Stratégies d'authentification|Un conteneur de cette classe peut obtenir des objets de stratégie d'authentification.|
-|Stratégie|Stratégie d'authentification appliquée|Spécifie si la stratégie d'authentification est appliquée ou non.<br /><br />Si elle n'est pas appliquée, la stratégie est par défaut en mode audit et des événements indiquant les succès ou échecs potentiels sont générés, mais aucune protection n'est appliquée au système.|
+|Stratégie|Stratégie d'authentification appliquée|Spécifie si la stratégie d'authentification est appliquée ou non.<p>Si elle n'est pas appliquée, la stratégie est par défaut en mode audit et des événements indiquant les succès ou échecs potentiels sont générés, mais aucune protection n'est appliquée au système.|
 |Stratégie|Lien secondaire de stratégie d'authentification affecté|Cet attribut correspond au lien secondaire pour msDS-AssignedAuthNPolicy.|
 |Stratégie|Stratégie d'authentification affectée|Spécifie la stratégie AuthNPolicy qui doit être appliquée à ce principal.|
 |Utilisateur|Stratégie d'authentification d'utilisateur|Spécifie la stratégie AuthNPolicy qui doit être appliquée aux utilisateurs affectés à cet objet silo.|
@@ -100,15 +96,15 @@ Les stratégies prévues pour les objets Active Directory relatifs aux utilisate
 |Utilisateur|ms-DS-User-Allowed-To-Authenticate-To|Cet attribut permet de déterminer l'ensemble des principaux autorisés à s'authentifier auprès d'un service s'exécutant sous le compte d'utilisateur.|
 |Utilisateur|ms-DS-User-Allowed-To-Authenticate-From|Cet attribut permet de déterminer l'ensemble des périphériques auxquels un compte d'utilisateur est autorisé à se connecter.|
 |Utilisateur|Durée de vie de ticket TGT d'utilisateur|Spécifie l'âge maximal d'un ticket TGT Kerberos émis pour un utilisateur (exprimé en secondes). Les tickets TGT résultants sont non renouvelables.|
-|Computer|Stratégie d'authentification d'ordinateur|Spécifie la stratégie AuthNPolicy qui doit être appliquée aux ordinateurs affectés à cet objet silo.|
-|Computer|Lien secondaire de stratégie d'authentification d'ordinateur|Cet attribut correspond au lien secondaire pour msDS-ComputerAuthNPolicy.|
-|Computer|ms-DS-Computer-Allowed-To-Authenticate-To|Cet attribut permet de déterminer l'ensemble des principaux autorisés à s'authentifier auprès d'un service s'exécutant sous le compte d'ordinateur.|
-|Computer|Durée de vie de ticket TGT d'ordinateur|Spécifie l'âge maximal d'un ticket TGT Kerberos émis pour un ordinateur (exprimé en secondes). Il n'est pas conseillé de modifier ce paramètre.|
-|de diffusion en continu|Stratégie d'authentification de service|Spécifie la stratégie AuthNPolicy qui doit être appliquée aux services affectés à cet objet silo.|
-|de diffusion en continu|Lien secondaire de stratégie d'authentification de service|Cet attribut correspond au lien secondaire pour msDS-ServiceAuthNPolicy.|
-|de diffusion en continu|ms-DS-Service-Allowed-To-Authenticate-To|Cet attribut permet de déterminer l'ensemble des principaux autorisés à s'authentifier auprès d'un service s'exécutant sous le compte de service.|
-|de diffusion en continu|ms-DS-Service-Allowed-To-Authenticate-From|Cet attribut permet de déterminer l'ensemble des périphériques auxquels un compte de service est autorisé à se connecter.|
-|de diffusion en continu|Durée de vie de ticket TGT de service|Spécifie l'âge maximal d'un ticket TGT Kerberos émis pour un service (exprimé en secondes).|
+|Ordinateur|Stratégie d'authentification d'ordinateur|Spécifie la stratégie AuthNPolicy qui doit être appliquée aux ordinateurs affectés à cet objet silo.|
+|Ordinateur|Lien secondaire de stratégie d'authentification d'ordinateur|Cet attribut correspond au lien secondaire pour msDS-ComputerAuthNPolicy.|
+|Ordinateur|ms-DS-Computer-Allowed-To-Authenticate-To|Cet attribut permet de déterminer l'ensemble des principaux autorisés à s'authentifier auprès d'un service s'exécutant sous le compte d'ordinateur.|
+|Ordinateur|Durée de vie de ticket TGT d'ordinateur|Spécifie l'âge maximal d'un ticket TGT Kerberos émis pour un ordinateur (exprimé en secondes). Il n'est pas conseillé de modifier ce paramètre.|
+|Service|Stratégie d'authentification de service|Spécifie la stratégie AuthNPolicy qui doit être appliquée aux services affectés à cet objet silo.|
+|Service|Lien secondaire de stratégie d'authentification de service|Cet attribut correspond au lien secondaire pour msDS-ServiceAuthNPolicy.|
+|Service|ms-DS-Service-Allowed-To-Authenticate-To|Cet attribut permet de déterminer l'ensemble des principaux autorisés à s'authentifier auprès d'un service s'exécutant sous le compte de service.|
+|Service|ms-DS-Service-Allowed-To-Authenticate-From|Cet attribut permet de déterminer l'ensemble des périphériques auxquels un compte de service est autorisé à se connecter.|
+|Service|Durée de vie de ticket TGT de service|Spécifie l'âge maximal d'un ticket TGT Kerberos émis pour un service (exprimé en secondes).|
 
 Des stratégies d'authentification peuvent être configurées pour chaque silo à l'aide de la console d'administration Active Directory ou de Windows PowerShell. Pour plus d'informations, voir [Comment configurer des comptes protégés](how-to-configure-protected-accounts.md).
 
@@ -143,7 +139,7 @@ Les stratégies d'authentification et les silos de stratégies d'authentificatio
 
 -   [Modifications apportées à l’authentification Kerberos](https://technet.microsoft.com/library/dd560670(v=ws.10).aspx) (windows Server 2008 R2 et Windows 7)
 
-### <a name="BKMK_HowKerbUsed"></a>Comment le protocole Kerberos est utilisé avec les silos et stratégies de stratégie d’authentification
+### <a name="how-the-kerberos-protocol-is-used-with-authentication-policy-silos-and-policies"></a><a name="BKMK_HowKerbUsed"></a>Comment le protocole Kerberos est utilisé avec les silos et stratégies de stratégie d’authentification
 Quand un compte de domaine est lié à un silo de stratégies d'authentification et que l'utilisateur se connecte, le Gestionnaire des comptes de sécurité ajoute le type de revendication Silo de stratégies d'authentification qui inclut le silo comme valeur. Cette revendication sur le compte fournit l'accès au silo ciblé.
 
 Quand une stratégie d'authentification est appliquée et que la demande du service d'authentification pour un compte de domaine est reçue sur le contrôleur de domaine, ce dernier retourne un ticket TGT non renouvelable, doté de la durée de vie configurée (à moins que la durée de vie des tickets TGT du domaine soit plus courte).
@@ -161,7 +157,7 @@ Quand une stratégie d'authentification est appliquée et que le service d'authe
 > [!NOTE]
 > Le compte de domaine doit être directement lié à la stratégie ou indirectement lié via son appartenance au silo.
 
-Lorsqu’une stratégie d’authentification est en mode audit et qu’une demande de service d’accord de ticket est reçue par le contrôleur de domaine pour un compte de domaine, le contrôleur de domaine vérifie si l’authentification est autorisée en fonction du certificat d’attribut de privilège de ticket de la demande. (PAC), et consigne un message d’avertissement en cas d’échec. Le certificat PAC contient divers types de données d'autorisation, dont notamment les groupes dont l'utilisateur est membre, les droits détenus par l'utilisateur et les stratégies qui s'appliquent à l'utilisateur. Ces informations sont utilisées pour générer le jeton d’accès de l’utilisateur. S’il s’agit d’une stratégie d’authentification appliquée qui autorise l’authentification auprès d’un utilisateur, d’un périphérique ou d’un service, le contrôleur de domaine vérifie si l’authentification est autorisée en fonction des données de la clé PAC du ticket de la demande. En cas d'échec, le contrôleur de domaine retourne un message d'erreur et consigne un événement.
+Lorsqu’une stratégie d’authentification est en mode audit et qu’une demande de service d’accord de ticket est reçue par le contrôleur de domaine pour un compte de domaine, le contrôleur de domaine vérifie si l’authentification est autorisée en fonction des données du certificat d’attribut de privilège de ticket (PAC) de la demande et enregistre un message d’avertissement en cas d’échec. Le certificat PAC contient divers types de données d'autorisation, dont notamment les groupes dont l'utilisateur est membre, les droits détenus par l'utilisateur et les stratégies qui s'appliquent à l'utilisateur. Ces informations sont utilisées pour générer le jeton d’accès de l’utilisateur. S’il s’agit d’une stratégie d’authentification appliquée qui autorise l’authentification auprès d’un utilisateur, d’un périphérique ou d’un service, le contrôleur de domaine vérifie si l’authentification est autorisée en fonction des données de la clé PAC du ticket de la demande. En cas d'échec, le contrôleur de domaine retourne un message d'erreur et consigne un événement.
 
 > [!NOTE]
 > Le compte de domaine doit être lié directement ou via son appartenance à un silo à une stratégie d'authentification auditée qui permet l'authentification auprès d'un utilisateur, d'un périphérique ou d'un service,
@@ -170,7 +166,7 @@ Vous pouvez utiliser une stratégie d'authentification unique pour tous les memb
 
 Des stratégies d'authentification peuvent être configurées pour chaque silo à l'aide de la console d'administration Active Directory ou de Windows PowerShell. Pour plus d'informations, voir [Comment configurer des comptes protégés](how-to-configure-protected-accounts.md).
 
-### <a name="BKMK_HowRestrictingSignOn"></a>Comment limiter le fonctionnement de la connexion d’un utilisateur
+### <a name="how-restricting-a-user-sign-in-works"></a><a name="BKMK_HowRestrictingSignOn"></a>Comment limiter le fonctionnement de la connexion d’un utilisateur
 Comme les stratégies d'authentification sont appliquées à un compte, la limitation s'applique aux comptes utilisés par les services. Si vous souhaitez limiter l'utilisation d'un mot de passe d'un service à des hôtes spécifiques, ce paramètre est utile. Par exemple, les comptes de service administrés de groupe sont configurés si les hôtes sont autorisés à récupérer le mot de passe à partir des services de domaine Active Directory. Toutefois, ce mot de passe peut être utilisé à partir de n'importe quel hôte pour l'authentification initiale. En appliquant une condition de contrôle d'accès, il est possible d'obtenir une couche de protection supplémentaire en limitant le mot de passe aux seuls hôtes qui peuvent le récupérer.
 
 Lorsque des services qui s’exécutent en tant que système, service réseau ou autre identité de service local se connectent aux services réseau, ils utilisent le compte d’ordinateur de l’hôte. Les comptes d'ordinateur ne peuvent pas faire l'objet d'une limitation. Ainsi, même si le service utilise un compte d'ordinateur qui n'est pas destiné à un hôte Windows, le compte ne peut pas faire l'objet d'une limitation.
@@ -204,7 +200,7 @@ Même quand les systèmes d'exploitation prennent en charge le blindage Kerberos
 
 3.  Le contrôleur de domaine renvoie une réponse blindée (AS-REP) et l'authentification continue.
 
-### <a name="BKMK_HowRestrictingServiceTicket"></a>Fonctionnement de la restriction de l’émission de tickets de service
+### <a name="how-restricting-service-ticket-issuance-works"></a><a name="BKMK_HowRestrictingServiceTicket"></a>Fonctionnement de la restriction de l’émission de tickets de service
 Lorsqu’un compte n’est pas autorisé et qu’un utilisateur disposant d’un TGT tente de se connecter au service (par exemple, en ouvrant une application qui requiert l’authentification auprès d’un service identifié par le nom de principal du service (SPN) du service, la séquence suivante se produit :
 
 1.  Dans sa tentative de connexion à SPN1 à partir de SPN, Windows envoie une demande TGS-REQ au contrôleur de domaine qui demande un ticket de service à SPN1.
@@ -215,7 +211,7 @@ Lorsqu’un compte n’est pas autorisé et qu’un utilisateur disposant d’un
 
 4.  Le contrôleur de domaine rejette la demande.
 
-Lorsqu’un compte est autorisé parce que le compte remplit les conditions de contrôle d’accès définies par la stratégie d’authentification et qu’un utilisateur qui a un TGT tente de se connecter au service (par exemple, en ouvrant une application qui requiert l’authentification auprès d’un service qui est identifié par le nom de principal du service (SPN) du service, la séquence suivante se produit :
+Lorsqu’un compte est autorisé parce que le compte remplit les conditions de contrôle d’accès définies par la stratégie d’authentification et qu’un utilisateur disposant d’un TGT tente de se connecter au service (par exemple, en ouvrant une application qui requiert l’authentification auprès d’un service identifié par le SPN du service), la séquence suivante se produit :
 
 1.  Dans sa tentative de connexion à SPN1, Windows envoie une demande TGS-REQ au contrôleur de domaine qui demande un ticket de service à SPN1.
 
@@ -225,7 +221,7 @@ Lorsqu’un compte est autorisé parce que le compte remplit les conditions de c
 
 4.  Le contrôleur de domaine répond à la demande avec une réponse de service d'accord de tickets (TGS-REP).
 
-## <a name="BKMK_ErrorandEvents"></a>Messages d’erreur et d’événement d’information associés
+## <a name="associated-error-and-informational-event-messages"></a><a name="BKMK_ErrorandEvents"></a>Messages d’erreur et d’événement d’information associés
 Le tableau ci-dessous décrit les événements associés au groupe de sécurité Utilisateurs protégés et les stratégies d'authentification appliquées aux silos de stratégies d'authentification.
 
 Les événements sont enregistrés dans le journal Journaux des applications et des services, dans **Microsoft\Windows\Authentication**.
@@ -234,11 +230,11 @@ Pour connaître les étapes de dépannage qui utilisent ces événements, voir [
 
 |ID d'événement et journal|Description|
 |----------|--------|
-|101<br /><br />**AuthenticationPolicyFailures-DomainController**|Cause : Un échec de connexion NTLM se produit car la stratégie d'authentification est configurée.<br /><br />Un événement est consigné dans le contrôleur de domaine pour indiquer que l'authentification NTLM a échoué parce que des limitations de contrôle d'accès sont requises et qu'elles ne peuvent pas être appliquées à NTLM.<br /><br />Affiche les noms du compte, du périphérique, de la stratégie et du silo.|
-|105<br /><br />**AuthenticationPolicyFailures-DomainController**|Cause : Un échec de limitation Kerberos se produit parce que l'authentification à partir d'un périphérique particulier n'était pas autorisée.<br /><br />Un événement est consigné dans le contrôleur de domaine pour indiquer qu'un ticket TGT Kerberos a été refusé parce que le périphérique ne satisfaisait pas aux limitations de contrôle d'accès appliquées.<br /><br />Affiche les noms du compte, du périphérique, de la stratégie et du silo, ainsi que la durée de vie du ticket TGT.|
-|305<br /><br />**AuthenticationPolicyFailures-DomainController**|Cause : Un éventuel échec de limitation Kerberos peut se produire parce que l'authentification à partir d'un périphérique particulier n'était pas autorisée.<br /><br />En mode audit, un événement d'information est consigné dans le contrôleur de domaine pour déterminer si un ticket TGT Kerberos sera refusé parce que le périphérique ne satisfaisait pas aux limitations de contrôle d'accès appliquées.<br /><br />Affiche les noms du compte, du périphérique, de la stratégie et du silo, ainsi que la durée de vie du ticket TGT.|
-|106<br /><br />**AuthenticationPolicyFailures-DomainController**|Cause : Un échec de limitation Kerberos se produit parce que l'utilisateur ou le périphérique n'était pas autorisé à s'authentifier auprès du serveur.<br /><br />Un événement est consigné dans le contrôleur de domaine pour indiquer qu'un ticket de service Kerberos a été refusé parce que l'utilisateur, le périphérique ou les deux ne satisfont pas aux limitations de contrôle d'accès appliquées.<br /><br />Affiche les noms du périphérique, de la stratégie et du silo.|
-|306<br /><br />**AuthenticationPolicyFailures-DomainController**|Cause : Un échec de limitation Kerberos peut se produire parce que l'utilisateur ou le périphérique n'était pas autorisé à s'authentifier auprès du serveur.<br /><br />En mode audit, un événement d'information est consigné sur le contrôleur de domaine pour indiquer qu'un ticket de service Kerberos sera refusé parce que l'utilisateur, le périphérique ou les deux ne satisfont pas aux limitations de contrôle d'accès.<br /><br />Affiche les noms du périphérique, de la stratégie et du silo.|
+|101<p>**AuthenticationPolicyFailures-DomainController**|Raison : un échec de connexion NTLM se produit parce que la stratégie d’authentification est configurée.<p>Un événement est consigné dans le contrôleur de domaine pour indiquer que l'authentification NTLM a échoué parce que des limitations de contrôle d'accès sont requises et qu'elles ne peuvent pas être appliquées à NTLM.<p>Affiche les noms du compte, du périphérique, de la stratégie et du silo.|
+|105<p>**AuthenticationPolicyFailures-DomainController**|Raison : un échec de restriction Kerberos se produit parce que l’authentification à partir d’un périphérique particulier n’était pas autorisée.<p>Un événement est consigné dans le contrôleur de domaine pour indiquer qu'un ticket TGT Kerberos a été refusé parce que le périphérique ne satisfaisait pas aux limitations de contrôle d'accès appliquées.<p>Affiche les noms du compte, du périphérique, de la stratégie et du silo, ainsi que la durée de vie du ticket TGT.|
+|305<p>**AuthenticationPolicyFailures-DomainController**|Raison : un échec potentiel de restriction Kerberos peut se produire parce que l’authentification à partir d’un périphérique particulier n’était pas autorisée.<p>En mode audit, un événement d'information est consigné dans le contrôleur de domaine pour déterminer si un ticket TGT Kerberos sera refusé parce que le périphérique ne satisfaisait pas aux limitations de contrôle d'accès appliquées.<p>Affiche les noms du compte, du périphérique, de la stratégie et du silo, ainsi que la durée de vie du ticket TGT.|
+|106<p>**AuthenticationPolicyFailures-DomainController**|Raison : un échec de restriction Kerberos se produit parce que l’utilisateur ou l’appareil n’a pas été autorisé à s’authentifier auprès du serveur.<p>Un événement est consigné dans le contrôleur de domaine pour indiquer qu'un ticket de service Kerberos a été refusé parce que l'utilisateur, le périphérique ou les deux ne satisfont pas aux limitations de contrôle d'accès appliquées.<p>Affiche les noms du périphérique, de la stratégie et du silo.|
+|306<p>**AuthenticationPolicyFailures-DomainController**|Raison : un échec de restriction Kerberos peut se produire parce que l’utilisateur ou l’appareil n’a pas été autorisé à s’authentifier auprès du serveur.<p>En mode audit, un événement d'information est consigné sur le contrôleur de domaine pour indiquer qu'un ticket de service Kerberos sera refusé parce que l'utilisateur, le périphérique ou les deux ne satisfont pas aux limitations de contrôle d'accès.<p>Affiche les noms du périphérique, de la stratégie et du silo.|
 
 ## <a name="see-also"></a>Voir aussi
 [Comment configurer des comptes protégés](how-to-configure-protected-accounts.md)

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5a64e790-6725-4099-aa08-8067d57c3168
 title: Créer une application côté serveur à l’aide de clients de confidentialité OAuth avec AD FS 2016 ou version ultérieure
-description: ''
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 5b2bf036de1de8300e36c3413c551e51d408a4d2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8a8567a497e10df66f77fb996c937791b4aa9e08
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407863"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857562"
 ---
 # <a name="build-a-server-side-application-using-oauth-confidential-clients-with-ad-fs-2016-or-later"></a>Créer une application côté serveur à l’aide de clients de confidentialité OAuth avec AD FS 2016 ou version ultérieure
 
@@ -46,13 +45,13 @@ La section suivante décrit comment configurer le groupe d’applications dans A
 
     ![AD FS OAuth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_3.PNG)  
 
-4.  Entrez les informations suivantes pour l' **URI de redirection :**  - . **https://localhost:44323**  Cliquez sur **Ajouter**. Cliquez sur **Suivant**.  
+4.  Entrez les informations suivantes pour l' **URI de redirection :**  -  **https://localhost:44323** .  Cliquez sur **Ajouter**. Cliquez sur **Suivant**.  
 
 5.  Dans l’écran **configurer les informations d’identification** de l’application, activez la case à cocher **générer un secret partagé** et copier le secret.  Ce sera utilisé ultérieurement comme valeur pour **Ida : ClientSecret** dans le fichier Web. config des applications.  Cliquez sur **Suivant**.  
 
     ![AD FS OAuth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_4.PNG)   
 
-6. Dans l’écran **configurer l’API Web** , entrez les informations - suivantes pour l' **https://contoso.com/WebApp** identificateur.  Cliquez sur **Ajouter**. Cliquez sur **Suivant**.  Cette valeur sera utilisée ultérieurement pour **Ida : GraphResourceId** dans le fichier Web. config des applications.  
+6. Dans l’écran **configurer l’API Web** , entrez les informations suivantes pour **identificateur** -  **https://contoso.com/WebApp** .  Cliquez sur **Ajouter**. Cliquez sur **Suivant**.  Cette valeur sera utilisée ultérieurement pour **Ida : GraphResourceId** dans le fichier Web. config des applications.  
 
     ![AD FS OAuth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_9.PNG)  
 
@@ -115,29 +114,29 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
     ![AD FS OAuth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_18.PNG)  
 
-9.  À présent, ouvrez le fichier Web. config et remplacez la valeur qui se trouve dans connectionString par la valeur que vous avez copiée ci-dessus.  Enregistrez le fichier Web. config.  
+9.  À présent, ouvrez le fichier Web. config et remplacez la valeur qui se trouve dans connectionString par la valeur que vous avez copiée ci-dessus.  Enregistrez le fichier Web.config.  
 
     > [!NOTE]  
     > Les étapes ci-dessus sont nécessaires pour que nous puissions récupérer la nouvelle connectionString.  Dans le cas contraire, lorsque nous exécutons la base de données Update-ci-dessous, une erreur se produira.  
 
     ![AD FS OAuth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_19.PNG)  
 
-10. En haut de Visual Studio, sélectionnez **afficher** ->  autre**console du gestionnaire de package** **Windows** -> .  
+10. En haut de Visual Studio, sélectionnez **afficher** -> autre **console du gestionnaire de package** **Windows** -> .  
 
     ![AD FS OAuth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_20.PNG)  
 
-11. En bas, dans la console du gestionnaire de package, entrez : `Enable-Migrations`, puis appuyez sur entrée.  
+11. En bas, dans la console du gestionnaire de package, entrez : `Enable-Migrations` et appuyez sur entrée.  
 
     > [!NOTE]  
     > Si vous recevez une erreur indiquant que l’applet de commande Enable-migrations n’est pas reconnue en tant que cmdlet, entrez Install-Package EntityFramework pour mettre à jour l’EntityFramework.  
 
     ![AD FS OAuth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_21.PNG)  
 
-12. En bas, dans la console du gestionnaire de package, entrez : `Add-Migration <anynamehere>`, puis appuyez sur entrée.  
+12. En bas, dans la console du gestionnaire de package, entrez : `Add-Migration <anynamehere>` et appuyez sur entrée.  
 
     ![AD FS OAuth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_22.PNG)  
 
-13. En bas, dans la console du gestionnaire de package, entrez : `Update-Database`, puis appuyez sur entrée.  
+13. En bas, dans la console du gestionnaire de package, entrez : `Update-Database` et appuyez sur entrée.  
 
     ![AD FS OAuth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_23.PNG)  
 
@@ -221,7 +220,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
         ![AD FS OAuth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_34.PNG)  
 
-## <a name="test-the-solution"></a>Tester la solution  
+## <a name="test-the-solution"></a>test de la solution  
 Dans cette section, nous allons tester la solution cliente confidentielle.  Utilisez la procédure suivante pour tester la solution.  
 
 #### <a name="testing-the-confidential-client-solution"></a>Test de la solution cliente confidentielle  
@@ -234,7 +233,7 @@ Dans cette section, nous allons tester la solution cliente confidentielle.  Util
 
    ![AD FS OAuth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_31.PNG)  
 
-3. Notez que le site ASP.NET indique Hello abby@contoso.com !.  Cliquez sur **Profil**.  
+3. Notez que le site ASP.NET indique Hello abby@contoso.com!.  Cliquez sur **Profile**.  
 
    ![AD FS OAuth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_32.PNG)  
 

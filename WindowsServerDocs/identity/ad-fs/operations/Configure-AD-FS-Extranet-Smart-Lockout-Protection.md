@@ -1,7 +1,6 @@
 ---
 ms.assetid: 777aab65-c9c7-4dc9-a807-9ab73fac87b8
 title: Configurer AD FS protection par verrouillage extranet
-description: ''
 author: billmath
 ms.author: billmath
 manager: mtilman
@@ -9,16 +8,16 @@ ms.date: 05/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 9ef595cc98a95caca0f2043b011868e0573a5b19
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 28f7fc4a8c7129d9f88cc030b1b150db44321bf9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407702"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859942"
 ---
 # <a name="ad-fs-extranet-lockout-and-extranet-smart-lockout"></a>AD FS le verrouillage extranet et le verrouillage intelligent extranet
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Overview
 
 Le verrouillage intelligent extranet (ESL) protège vos utilisateurs contre le verrouillage de compte extranet contre les activités malveillantes.  
 
@@ -44,25 +43,25 @@ Tous les nœuds secondaires contactent le nœud principal sur chaque nouvelle co
  Si le nœud secondaire ne parvient pas à contacter le maître, il écrit des événements d’erreur dans le journal d’administration AD FS. Les authentifications continuent d’être traitées, mais AD FS n’écrira que l’État mis à jour localement. AD FS tentera de contacter le maître toutes les 10 minutes et repassera au maître une fois que le serveur maître sera disponible.
 
 ### <a name="terminology"></a>Terminology
-- **FamiliarLocation**: Au cours d’une demande d’authentification, ESL vérifie toutes les adresses IP présentées. Ces adresses IP sont une combinaison de l’adresse IP du réseau, de l’adresse IP transférée et de l’adresse IP (x-forwardd) facultative. Si la demande aboutit, toutes les adresses IP sont ajoutées à la table d’activité du compte comme « adresses IP familières ». Si toutes les adresses IP de la demande sont présentes dans les « adresses IP familières », la demande est traitée comme un emplacement « familier ».
-- **UnknownLocation**: Si au moins une adresse IP est absente dans la liste « FamiliarLocation » existante, la demande est traitée comme un emplacement « inconnu ». Cela permet de gérer les scénarios de proxy, tels que l’authentification héritée Exchange Online, où les adresses Exchange Online gèrent les demandes ayant réussi et échoué.  
-- **badPwdCount**: Valeur représentant le nombre de fois où un mot de passe incorrect a été envoyé et l’authentification a échoué. Pour chaque utilisateur, des compteurs distincts sont conservés pour les emplacements connus et les emplacements inconnus.
-- **UnknownLockout**: Valeur booléenne par utilisateur si l’accès à partir d’emplacements inconnus est bloqué pour l’utilisateur. Cette valeur est calculée en fonction des valeurs badPwdCountUnfamiliar et ExtranetLockoutThreshold.
-- **ExtranetLockoutThreshold**: Cette valeur détermine le nombre maximal de tentatives de mot de passe incorrectes. Lorsque le seuil est atteint, ADFS rejette les demandes provenant de l’extranet jusqu’à ce que la fenêtre d’observation soit passée.
-- **ExtranetObservationWindow**: Cette valeur détermine la durée pendant laquelle les demandes de nom d’utilisateur et de mot de passe provenant d’emplacements inconnus sont verrouillées. Lorsque la fenêtre est passée, ADFS commence à effectuer une nouvelle authentification de nom d’utilisateur et mot de passe à partir d’emplacements inconnus.
-- **ExtranetLockoutRequirePDC**: Lorsqu’il est activé, le verrouillage extranet requiert un contrôleur de domaine principal (PDC). Lorsqu’il est désactivé, le verrouillage extranet fait un secours vers un autre contrôleur de domaine si le contrôleur de domaine principal n’est pas disponible.  
-- **ExtranetLockoutMode**: Contrôle le mode de verrouillage de l’application par rapport au mode de verrouillage intelligent extranet
-    - **ADFSSmartLockoutLogOnly**: Le verrouillage intelligent extranet est activé, mais AD FS n’écrira que les événements d’administrateur et d’audit, mais ne rejette pas les demandes d’authentification. Ce mode est destiné à être activé pour que FamiliarLocation soit rempli avant que « ADFSSmartLockoutEnforce » ne soit activé.
-    - **ADFSSmartLockoutEnforce**: Prise en charge complète du blocage des demandes d’authentification non familières lorsque les seuils sont atteints.
+- **FamiliarLocation**: lors d’une demande d’authentification, ESL vérifie toutes les adresses IP présentées. Ces adresses IP sont une combinaison de l’adresse IP du réseau, de l’adresse IP transférée et de l’adresse IP (x-forwardd) facultative. Si la demande aboutit, toutes les adresses IP sont ajoutées à la table d’activité du compte comme « adresses IP familières ». Si toutes les adresses IP de la demande sont présentes dans les « adresses IP familières », la demande est traitée comme un emplacement « familier ».
+- **UnknownLocation**: si une demande qui arrive dans a au moins une adresse IP qui n’est pas présente dans la liste « FamiliarLocation » existante, la demande sera traitée comme un emplacement « inconnu ». Cela permet de gérer les scénarios de proxy, tels que l’authentification héritée Exchange Online, où les adresses Exchange Online gèrent les demandes ayant réussi et échoué.  
+- **badPwdCount**: valeur représentant le nombre de fois où un mot de passe incorrect a été envoyé et l’authentification a échoué. Pour chaque utilisateur, des compteurs distincts sont conservés pour les emplacements connus et les emplacements inconnus.
+- **UnknownLockout**: valeur booléenne par utilisateur si l’utilisateur ne peut pas accéder à depuis des emplacements inconnus. Cette valeur est calculée en fonction des valeurs badPwdCountUnfamiliar et ExtranetLockoutThreshold.
+- **ExtranetLockoutThreshold**: cette valeur détermine le nombre maximal de tentatives de mot de passe incorrectes. Lorsque le seuil est atteint, ADFS rejette les demandes provenant de l’extranet jusqu’à ce que la fenêtre d’observation soit passée.
+- **ExtranetObservationWindow**: cette valeur détermine la durée pendant laquelle les demandes de nom d’utilisateur et de mot de passe provenant d’emplacements inconnus sont verrouillées. Lorsque la fenêtre est passée, ADFS commence à effectuer une nouvelle authentification de nom d’utilisateur et mot de passe à partir d’emplacements inconnus.
+- **ExtranetLockoutRequirePDC**: lorsque cette option est activée, le verrouillage extranet requiert un contrôleur de domaine principal (PDC). Lorsqu’il est désactivé, le verrouillage extranet fait un secours vers un autre contrôleur de domaine si le contrôleur de domaine principal n’est pas disponible.  
+- **ExtranetLockoutMode**: contrôle la journalisation uniquement en mode mis en œuvre du verrouillage intelligent extranet
+    - **ADFSSmartLockoutLogOnly**: le verrouillage intelligent extranet est activé, mais AD FS n’écrira que les événements d’administrateur et d’audit, mais ne rejette pas les demandes d’authentification. Ce mode est destiné à être activé pour que FamiliarLocation soit rempli avant que « ADFSSmartLockoutEnforce » ne soit activé.
+    - **ADFSSmartLockoutEnforce**: prise en charge complète du blocage des demandes d’authentification non familières lorsque les seuils sont atteints.
 
 Les adresses IPv4 et IPv6 sont prises en charge.
 
 ### <a name="anatomy-of-a-transaction"></a>Anatomie d’une transaction
-- **Vérification de pré-authentification**: Au cours d’une demande d’authentification, ESL vérifie toutes les adresses IP présentées. Ces adresses IP sont une combinaison de l’adresse IP du réseau, de l’adresse IP transférée et de l’adresse IP (x-forwardd) facultative. Dans les journaux d’audit, ces adresses IP sont répertoriées dans le <IpAddress> champ dans l’ordre x-ms-forwarded-client-IP, x-forwarded-for, x-ms-proxy-client-IP.
+- **Vérification de pré-authentification**: lors d’une demande d’authentification, ESL vérifie toutes les adresses IP présentées. Ces adresses IP sont une combinaison de l’adresse IP du réseau, de l’adresse IP transférée et de l’adresse IP (x-forwardd) facultative. Dans les journaux d’audit, ces adresses IP sont répertoriées dans le champ <IpAddress> dans l’ordre x-ms-forwarded-client-IP, x-forwarded-for, x-ms-proxy-client-IP.
 
-  Sur la base de ces adresses IP, ADFS détermine si la requête provient d’un emplacement familier ou inconnu, puis vérifie si le badPwdCount respectif est inférieur à la limite définie pour le seuil ou si la dernière tentative qui **a échoué** s’est produite plus longtemps que l’heure de la fenêtre d’observation. Frame. Si l’une de ces conditions est vraie, ADFS autorise cette transaction à être traitée ultérieurement et la validation des informations d’identification. Si les deux conditions ont la valeur false, le compte est déjà verrouillé jusqu’à ce que la fenêtre d’observation passe. Une fois que la fenêtre d’observation a réussi, l’utilisateur est autorisé à tenter de s’authentifier. Notez que, dans 2019, ADFS effectue une vérification par rapport à la limite de seuil appropriée en fonction de si l’adresse IP correspond à un emplacement connu.
-- **Connexion réussie**: Si la connexion se déroule correctement, les adresses IP de la demande sont ajoutées à la liste d’adresses IP de localisation familière de l’utilisateur.  
-- **Échec**de la connexion : Si la connexion échoue, le badPwdCount est augmenté. L’utilisateur passera à l’état de verrouillage si l’attaquant envoie plus de mots de passe incorrects au système que le seuil autorisé par le seuil. (badPwdCount > ExtranetLockoutThreshold)  
+  Sur la base de ces adresses IP, ADFS détermine si la requête provient d’un emplacement familier ou inconnu, puis vérifie si le badPwdCount respectif est inférieur à la limite définie pour le seuil ou si la dernière tentative qui **a échoué** s’est produite plus longtemps que le délai de la fenêtre d’observation. Si l’une de ces conditions est vraie, ADFS autorise cette transaction à être traitée ultérieurement et la validation des informations d’identification. Si les deux conditions ont la valeur false, le compte est déjà verrouillé jusqu’à ce que la fenêtre d’observation passe. Une fois que la fenêtre d’observation a réussi, l’utilisateur est autorisé à tenter de s’authentifier. Notez que, dans 2019, ADFS effectue une vérification par rapport à la limite de seuil appropriée en fonction de si l’adresse IP correspond à un emplacement connu.
+- **Connexion réussie**: si la connexion réussit, les adresses IP de la demande sont ajoutées à la liste d’adresses IP de localisation familière de l’utilisateur.  
+- **Échec**de la connexion : si la connexion échoue, le badPwdCount est augmenté. L’utilisateur passera à l’état de verrouillage si l’attaquant envoie plus de mots de passe incorrects au système que le seuil autorisé par le seuil. (badPwdCount > ExtranetLockoutThreshold)  
 
 ![configuration](media/configure-ad-fs-extranet-smart-lockout-protection/esl2.png)
 
@@ -145,7 +144,7 @@ La table AccountActivity est remplie à la fois en mode « journal uniquement 
 Cette fonctionnalité utilise les journaux d’audit de sécurité, de sorte que l’audit doit être activé dans AD FS, ainsi que la stratégie locale sur tous les serveurs AD FS.
 
 ### <a name="configuration-instructions"></a>Instructions de configuration
-Le verrouillage intelligent extranet utilise la propriété ADFS **ExtranetLockoutEnabled**. Cette propriété a été utilisée précédemment pour contrôler le « verrouillage logiciel extranet » dans le serveur 2012 R2. Si le verrouillage logiciel extranet a été activé, pour afficher la configuration actuelle de ` Get-AdfsProperties` la propriété, exécutez.
+Le verrouillage intelligent extranet utilise la propriété ADFS **ExtranetLockoutEnabled**. Cette propriété a été utilisée précédemment pour contrôler le « verrouillage logiciel extranet » dans le serveur 2012 R2. Si le verrouillage logiciel extranet a été activé, pour afficher la configuration actuelle de la propriété, exécutez ` Get-AdfsProperties`.
 
 ### <a name="configuration-recommendations"></a>Recommandations de configuration
 Lors de la configuration du verrouillage intelligent extranet, suivez les meilleures pratiques pour définir les seuils :  
@@ -154,7 +153,7 @@ Lors de la configuration du verrouillage intelligent extranet, suivez les meille
 
 `ExtranetLockoutThreshold: – 2x AD Threshold Value`
 
-Valeur AD : 20, ExtranetLockoutThreshold : 10
+Valeur Active Directory : 20, ExtranetLockoutThreshold : 10
 
 Active Directory le verrouillage fonctionne indépendamment du verrouillage intelligent extranet. Toutefois, si Active Directory verrouillage est activé, ExtranetLockoutThreshold dans AD FS seuil de verrouillage de compte < dans Active Directory
 
@@ -213,13 +212,13 @@ Ce comportement peut être substitué en passant le paramètre-Server.
 
 `Get-ADFSAccountActivity user@contoso.com`
 
-  Propriétés :
-    - BadPwdCountFamiliar: Incrémenté lorsqu’une authentification réussit à partir d’un emplacement connu.
-    - BadPwdCountUnknown: Incrémenté lorsqu’une authentification échoue à partir d’un emplacement inconnu
-    - LastFailedAuthFamiliar: Si l’authentification a échoué à partir d’un emplacement familier, LastFailedAuthUnknown est défini sur l’heure d’échec de l’authentification
-    - LastFailedAuthUnknown: Si l’authentification a échoué à partir d’un emplacement inconnu, LastFailedAuthUnknown est défini sur l’heure d’échec de l’authentification
-    - FamiliarLockout: Valeur booléenne qui est « true » si « BadPwdCountFamiliar » > ExtranetLockoutThreshold
-    - UnknownLockout: Valeur booléenne qui est « true » si « BadPwdCountUnknown » > ExtranetLockoutThreshold  
+  Propriétés :
+    - BadPwdCountFamiliar : incrémenté lorsqu’une authentification réussit à partir d’un emplacement connu.
+    - BadPwdCountUnknown : incrémenté lorsqu’une authentification échoue à partir d’un emplacement inconnu
+    - LastFailedAuthFamiliar : si l’authentification a échoué à partir d’un emplacement connu, LastFailedAuthUnknown est défini sur l’heure de l’échec de l’authentification
+    - LastFailedAuthUnknown : si l’authentification a échoué à partir d’un emplacement inconnu, LastFailedAuthUnknown est défini sur l’heure de l’échec de l’authentification
+    - FamiliarLockout : valeur booléenne qui est « true » si « BadPwdCountFamiliar » > ExtranetLockoutThreshold
+    - UnknownLockout : valeur booléenne qui est « true » si « BadPwdCountUnknown » > ExtranetLockoutThreshold  
     - FamiliarIPs : 20 adresses IP au maximum qui sont familières à l’utilisateur. Lorsque cette opération est dépassée, l’adresse IP la plus ancienne de la liste est supprimée.
 -    Set-ADFSAccountActivity
 
@@ -250,41 +249,41 @@ En mode journal uniquement, vous pouvez consulter le journal d’audit de sécur
 
 |ID d’événement|Description|
 |-----|-----|
-|1203|Cet événement est écrit pour chaque tentative de mot de passe incorrecte. Dès que le badPwdCount atteint la valeur spécifiée dans ExtranetLockoutThreshold, le compte est verrouillé sur ADFS pour la durée spécifiée dans ExtranetObservationWindow.</br>ID de l’activité :% 1</br>XML :% 2|
-|1201|Cet événement est écrit chaque fois qu’un utilisateur est verrouillé. </br>ID de l’activité :% 1</br>XML :% 2|
-|557 (ADFS 2019)| Une erreur s’est produite lors de la tentative de communication avec le service REST du magasin de comptes sur le nœud% 1. S’il s’agit d’une batterie de serveurs WID, le nœud principal est peut-être hors connexion. S’il s’agit d’une batterie de serveurs SQL, ADFS sélectionne automatiquement un nouveau nœud pour héberger le rôle de maître du magasin d’utilisateurs.|
-|562 (ADFS 2019)|Une erreur s’est produite lors de la communcating du point de terminaison du magasin de comptes sur le serveur% 1.</br>Message d’exception :% 2|
-|563 (ADFS 2019)|Une erreur s’est produite lors du calcul de l’état du verrouillage extranet. En raison de la valeur du paramètre% 1, l’authentification est autorisée pour cet utilisateur et l’émission du jeton se poursuit. S’il s’agit d’une batterie de serveurs WID, le nœud principal est peut-être hors connexion. S’il s’agit d’une batterie de serveurs SQL, ADFS sélectionne automatiquement un nouveau nœud pour héberger le rôle de maître du magasin d’utilisateurs.</br>Nom du serveur de magasin de comptes :% 2</br>ID d’utilisateur :% 3</br>Message d’exception :% 4|
-|512|Le compte de l’utilisateur suivant est verrouillé. Une tentative de connexion est autorisée en raison de la configuration du système.</br>ID de l’activité :% 1 </br>Utilisateur :% 2 </br>Adresse IP du client :% 3 </br>Nombre de mots de passe incorrects :% 4  </br>Dernière tentative de mot de passe incorrect :% 5|
-|515|Le compte d’utilisateur suivant était dans un état verrouillé et le mot de passe approprié vient d’être fourni. Ce compte risque d’être compromis.</br>Données supplémentaires </br>ID de l’activité :% 1 </br>Utilisateur :% 2 </br>Adresse IP du client :% 3 |
-|516|Le compte d’utilisateur suivant a été verrouillé en raison d’un trop grand nombre de tentatives de mot de passe incorrectes.</br>ID de l’activité :% 1  </br>Utilisateur :% 2  </br>Adresse IP du client :% 3  </br>Nombre de mots de passe incorrects :% 4  </br>Dernière tentative de mot de passe incorrect :% 5|
+|1203|Cet événement est écrit pour chaque tentative de mot de passe incorrecte. Dès que le badPwdCount atteint la valeur spécifiée dans ExtranetLockoutThreshold, le compte est verrouillé sur ADFS pour la durée spécifiée dans ExtranetObservationWindow.</br>ID de l’activité : %1</br>XML : %2|
+|1201|Cet événement est écrit chaque fois qu’un utilisateur est verrouillé. </br>ID de l’activité : %1</br>XML : %2|
+|557 (ADFS 2019)| Une erreur s’est produite lors de la tentative de communication avec le service REST du magasin de comptes sur le nœud %1. S’il s’agit d’une batterie de serveurs WID, le nœud principal est peut-être hors connexion. S’il s’agit d’une batterie de serveurs SQL, ADFS sélectionne automatiquement un nouveau nœud pour héberger le rôle de maître du magasin d’utilisateurs.|
+|562 (ADFS 2019)|Une erreur s’est produite lors de la communcating du point de terminaison du magasin de comptes sur le serveur %1.</br>Message d’exception : %2|
+|563 (ADFS 2019)|Une erreur s’est produite lors du calcul de l’état du verrouillage extranet. En raison de la valeur du paramètre %1, l’authentification est autorisée pour cet utilisateur et l’émission du jeton se poursuit. S’il s’agit d’une batterie de serveurs WID, le nœud principal est peut-être hors connexion. S’il s’agit d’une batterie de serveurs SQL, ADFS sélectionne automatiquement un nouveau nœud pour héberger le rôle de maître du magasin d’utilisateurs.</br>Nom du serveur de magasin de comptes : %2</br>ID d’utilisateur : %3</br>Message d’exception : %4|
+|512|Le compte de l’utilisateur suivant est verrouillé. Une tentative de connexion est autorisée en raison de la configuration du système.</br>ID de l’activité : %1 </br>Utilisateur : %2 </br>Adresse IP du client : %3 </br>Nombre de mots de passe incorrects : %4  </br>Dernière tentative de mot de passe incorrect : %5|
+|515|Le compte d’utilisateur suivant était dans un état verrouillé et le mot de passe approprié vient d’être fourni. Ce compte risque d’être compromis.</br>Données supplémentaires </br>ID de l’activité : %1 </br>Utilisateur : %2 </br>Adresse IP du client : %3 |
+|516|Le compte d’utilisateur suivant a été verrouillé en raison d’un trop grand nombre de tentatives de mot de passe incorrectes.</br>ID de l’activité : %1  </br>Utilisateur : %2  </br>Adresse IP du client : %3  </br>Nombre de mots de passe incorrects : %4  </br>Dernière tentative de mot de passe incorrect : %5|
 
 ## <a name="esl-frequently-asked-questions"></a>Forum aux questions sur ESL
 
 **Une batterie de serveurs ADFS utilisant le verrouillage intelligent extranet en mode d’application sera-t-elle toujours visible par les verrouillages des utilisateurs malveillants ?** 
 
-R : Si le verrouillage intelligent ADFS est défini sur le mode « appliquer », vous ne verrez jamais le compte d’utilisateur légitime verrouillé par force brute ou par déni de service. La seule façon de verrouiller un compte malveillant peut empêcher la connexion d’un utilisateur est si le mot de passe de l’utilisateur est incorrect ou s’il peut envoyer des requêtes à partir d’une adresse IP connue (familière) connue pour cet utilisateur. 
+R : si le verrouillage intelligent ADFS est défini sur le mode « appliquer », vous ne verrez jamais le compte de l’utilisateur légitime verrouillé par force brute ou par déni de service. La seule façon de verrouiller un compte malveillant peut empêcher la connexion d’un utilisateur est si le mot de passe de l’utilisateur est incorrect ou s’il peut envoyer des requêtes à partir d’une adresse IP connue (familière) connue pour cet utilisateur. 
 
 **Que se passe-t-il si ESL est activé et que le mauvais acteur a un mot de passe utilisateur ?** 
 
-R : L’objectif type du scénario d’attaque par force brute est de deviner un mot de passe et de se connecter correctement.  Si un utilisateur est victime d’un hameçonnage ou si un mot de passe est deviné, la fonctionnalité ESL ne bloquera pas l’accès, car la connexion répondra aux critères « réussis » du mot de passe correct et à la nouvelle adresse IP. L’adresse IP des acteurs incorrects apparaît alors comme « familière ». La meilleure atténuation dans ce scénario consiste à effacer l’activité de l’utilisateur dans ADFS et à exiger une authentification multifacteur pour les utilisateurs. Nous vous recommandons vivement d’installer la protection par mot de passe AAD qui garantit que les mots de passe devinés ne sont pas dans le système.
+R : l’objectif type du scénario d’attaque par force brute est de deviner un mot de passe et de se connecter correctement.  Si un utilisateur est victime d’un hameçonnage ou si un mot de passe est deviné, la fonctionnalité ESL ne bloquera pas l’accès, car la connexion répondra aux critères « réussis » du mot de passe correct et à la nouvelle adresse IP. L’adresse IP des acteurs incorrects apparaît alors comme « familière ». La meilleure atténuation dans ce scénario consiste à effacer l’activité de l’utilisateur dans ADFS et à exiger une authentification multifacteur pour les utilisateurs. Nous vous recommandons vivement d’installer la protection par mot de passe AAD qui garantit que les mots de passe devinés ne sont pas dans le système.
 
 **Si mon utilisateur ne s’est jamais connecté avec succès à partir d’une adresse IP et tente alors un mot de passe incorrect plusieurs fois, il pourra se connecter une fois qu’il aura finalement tapé son mot de passe correctement.** 
 
-R : Si un utilisateur envoie plusieurs mots de passe incorrects (par exemple, un typage légitime) et que, à la tentative suivante, le mot de passe est correct, l’utilisateur parvient immédiatement à se connecter.  Le nombre de mots de passe incorrects est alors effacé et l’adresse IP est ajoutée à la liste FamiliarIPs.  Toutefois, s’ils se trouvent au-dessus du seuil des échecs de connexion à partir de l’emplacement inconnu, ils entrent en état de verrouillage et doivent patienter au-delà de la fenêtre d’observation et se connectent avec un mot de passe valide ou nécessitent une intervention de l’administrateur pour réinitialiser leur compte.  
+R : si un utilisateur envoie plusieurs mots de passe incorrects (par exemple, un typage légitime) et que, lors de la tentative suivante, le mot de passe est correct, l’utilisateur parvient immédiatement à se connecter.  Le nombre de mots de passe incorrects est alors effacé et l’adresse IP est ajoutée à la liste FamiliarIPs.  Toutefois, s’ils se trouvent au-dessus du seuil des échecs de connexion à partir de l’emplacement inconnu, ils entrent en état de verrouillage et doivent patienter au-delà de la fenêtre d’observation et se connectent avec un mot de passe valide ou nécessitent une intervention de l’administrateur pour réinitialiser leur compte.  
  
 **ESL fonctionne-t-il également sur intranet ?**
 
-R : Si les clients se connectent directement aux serveurs ADFS et non via les serveurs proxy d’application Web, le comportement ESL ne s’applique pas.  
+R : si les clients se connectent directement aux serveurs ADFS et non via les serveurs proxy d’application Web, le comportement ESL ne s’applique pas.  
 
 **Je vois des adresses IP Microsoft dans le champ adresse IP du client. ESL bloque-t-elle les attaques en force brute proxy EXO ?**  
 
-R : ESL fonctionne bien pour empêcher Exchange Online ou d’autres scénarios d’attaque par force brute d’authentification. Une authentification héritée a un « ID d’activité » de 00000000-0000-0000-0000-000000000000. Dans ces attaques, l’acteur incorrect tire parti de l’authentification de base Exchange Online (également appelée authentification héritée) afin que l’adresse IP du client apparaisse en tant que Microsoft One. Les serveurs Exchange Online du Cloud proxy vérifient l’authentification pour le compte du client Outlook. Dans ces scénarios, l’adresse IP de l’expéditeur malveillant sera dans le x-ms-forwarded-client-IP et l’adresse IP du serveur Microsoft Exchange Online sera dans la valeur x-ms-client-IP.
+R : ESL fonctionne bien pour empêcher Exchange Online ou d’autres scénarios d’attaque par force brute d’authentification. Une authentification héritée a un « ID d’activité » de 00000000-0000-0000-0000-000000000000. Dans ces attaques, l’acteur incorrect tire parti de l’authentification de base Exchange Online (également appelée authentification héritée) afin que l’adresse IP du client apparaisse en tant que Microsoft One. Les serveurs Exchange Online du Cloud proxy vérifient l’authentification pour le compte du client Outlook. Dans ces scénarios, l’adresse IP de l’expéditeur malveillant sera dans le x-ms-forwarded-client-IP et l’adresse IP du serveur Microsoft Exchange Online sera dans la valeur x-ms-client-IP.
 Le verrouillage intelligent extranet vérifie les adresses IP du réseau, les adresses IP transférées, la valeur x-forwarded-client-IP et la valeur x-ms-client-IP. Si la demande aboutit, toutes les adresses IP sont ajoutées à la liste familière. Si une demande arrive et que l’une des adresses IP présentées ne figure pas dans la liste familière, la demande est marquée comme peu familière. L’utilisateur familier sera en mesure de se connecter avec succès alors que les demandes provenant des emplacements inconnus seront bloquées.  
 
-\* * Q : Puis-je estimer la taille du ADFSArtifactStore avant d’activer ESL ?
+\* * Q : puis-je estimer la taille du ADFSArtifactStore avant d’activer ESL ?
 
-R : Avec ESL activé, AD FS effectue le suivi de l’activité du compte et des emplacements connus pour les utilisateurs dans la base de données ADFSArtifactStore. Cette base de données est mise à l’échelle en fonction du nombre d’utilisateurs et d’emplacements connus suivis. Lorsque vous envisagez d’activer ESL, vous pouvez estimer la taille de la base de données ADFSArtifactStore pour qu’elle augmente jusqu’à 1 Go par 100 000 utilisateurs. Si la batterie de AD FS utilise la base de données interne Windows (WID), l’emplacement par défaut des fichiers de base de données est C:\Windows\WID\Data\. Pour empêcher le remplissage de ce lecteur, assurez-vous de disposer d’au moins 5 Go de stockage gratuit avant d’activer ESL. En plus du stockage sur disque, planifiez la croissance de la mémoire totale du processus après l’activation de ESL jusqu’à 1 Go de RAM supplémentaire pour les populations utilisateur de 500 000 ou moins.
+R : avec ESL activé, AD FS effectue le suivi de l’activité du compte et des emplacements connus pour les utilisateurs dans la base de données ADFSArtifactStore. Cette base de données est mise à l’échelle en fonction du nombre d’utilisateurs et d’emplacements connus suivis. Quand vous envisagez d’activer ESL, vous pouvez partir du principe que la taille de la base de données ADFSArtifactStore augmentera de 1 Go maximum tous les 100 000 utilisateurs. Si la batterie de AD FS utilise la base de données interne Windows (WID), l’emplacement par défaut des fichiers de base de données est C:\Windows\WID\Data\. Pour empêcher le remplissage de ce lecteur, assurez-vous de disposer d’au moins 5 Go de stockage gratuit avant d’activer ESL. En plus du stockage sur disque, planifiez l’augmentation de la mémoire totale de processus après l’activation d’ESL d’une valeur pouvant aller jusqu’à 1 Go de RAM supplémentaire pour les populations de 500 000 utilisateurs ou moins.
 
 
 ## <a name="additional-references"></a>Références supplémentaires  

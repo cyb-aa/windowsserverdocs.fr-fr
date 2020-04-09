@@ -2,21 +2,19 @@
 title: Utiliser la migration dynamique sans clustering de basculement pour déplacer un ordinateur virtuel
 description: Indique les conditions préalables et les instructions permettant d’exécuter une migration dynamique dans un environnement autonome.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 75c32e42-97f7-48df-aac9-1d82d34825e1
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 01/17/2017
-ms.openlocfilehash: 55c96ff4696871e4013c3abd6247209d0d4517c0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 41d5edb02d4384955e711024d4e4d68cee5d3937
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392558"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858922"
 ---
 # <a name="use-live-migration-without-failover-clustering-to-move-a-virtual-machine"></a>Utiliser la migration dynamique sans clustering de basculement pour déplacer un ordinateur virtuel
 
@@ -44,7 +42,7 @@ Pour pouvoir effectuer cette opération, vous avez besoin des éléments suivant
   
 4.  Utilisez les pages de l’Assistant pour choisir le type de déplacement, le serveur de destination et les options.
   
-5.  Dans la page **Résumé** , passez vos choix en revue, puis cliquez sur **Terminer**.  
+5.  Dans la page **Résumé**, passez vos choix en revue, puis cliquez sur **Terminer**.  
 
 ## <a name="use-windows-powershell-to-move-a-running-virtual-machine"></a>Utiliser Windows PowerShell pour déplacer un ordinateur virtuel en cours d’exécution
   

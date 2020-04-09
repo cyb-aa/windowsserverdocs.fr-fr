@@ -1,7 +1,6 @@
 ---
 ms.assetid: 6a852428-c1ec-4703-b3b3-a4bfdf8cbb9d
-title: Nouveautés&#39;de Active Directory Domain Services dans Windows Server 2016
-description: ''
+title: Nouveautés de Active Directory Domain Services dans Windows Server 2016
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,22 +8,22 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1ef77613919ea6caf39a7cb41ba575652680466d
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: a82f45772e5e35afffc632de2b40c02c75b5e5e4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950114"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856282"
 ---
-# <a name="whats-new-in-active-directory-domain-services-for-windows-server-2016"></a>Nouveautés de Active Directory Domain Services pour Windows Server 2016
+# <a name="whats-new-in-active-directory-domain-services-for-windows-server-2016"></a>Nouveautés des services Active Directory Domain Services (AD DS) pour Windows Server 2016
 
->S’applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
-Les nouvelles fonctionnalités suivantes de Active Directory Domain Services (AD DS) améliorent la capacité des organisations à sécuriser les environnements Active Directory et à les aider à migrer vers des déploiements dans le Cloud uniquement et des déploiements hybrides, où certains services et applications sont hébergé dans le Cloud et d’autres sont hébergés localement. Les améliorations incluent :  
+Les nouvelles fonctionnalités suivantes de Active Directory Domain Services (AD DS) améliorent la capacité des organisations à sécuriser les environnements Active Directory et à les aider à migrer vers des déploiements dans le Cloud uniquement et des déploiements hybrides, où certains services et applications sont hébergés dans le Cloud, et d’autres sont hébergés localement. Les améliorations sont les suivantes :  
   
 - [Privileged Access Management](https://docs.microsoft.com/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services)  
   
-- [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)
+- [Extension des fonctionnalités du Cloud aux appareils Windows 10 via Azure Active Directory Join](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)
   
 - [Connexion d’appareils joints à un domaine à des Azure AD pour les expériences Windows 10](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)
   
@@ -53,7 +52,7 @@ Privileged Access Management (PAM) permet de limiter les problèmes de sécurit�
 
 ### <a name="requirements-for-privileged-access-management"></a>Configuration requise pour Privileged Access Management
   
-- Gestionnaire d’identité Microsoft  
+- Microsoft Identity Manager  
   
 - Active Directory niveau fonctionnel de la forêt de Windows Server 2012 R2 ou version ultérieure.  
   
@@ -80,7 +79,7 @@ Avantages :
   
 Pour plus d’informations, consultez [Introduction à la gestion des appareils dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/overview).  
   
-## <a name="windows-hello-for-business"></a>Windows Hello Entreprise
+## <a name="windows-hello-for-business"></a>Windows Hello Entreprise
 
 Windows Hello entreprise est une approche d’authentification basée sur les clés qui s’appuie sur les organisations et les consommateurs, qui vont au-delà des mots de passe. Cette forme d’authentification s’appuie sur la violation, le vol et les informations d’identification résistantes au hameçonnage.  
   

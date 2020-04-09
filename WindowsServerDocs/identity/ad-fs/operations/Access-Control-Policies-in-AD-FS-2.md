@@ -1,7 +1,5 @@
 ---
-ms.assetid: ''
 title: Stratégies de Access Control client dans Services ADFS 2,0
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +7,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4f5d2cfa8383bcf3c0813b272f8c4828473b8df9
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 6ae1f34343e8574ce776fcc5761c078b12bc9977
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948606"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814822"
 ---
 # <a name="client-access-control-policies-in-ad-fs-20"></a>Stratégies de Access Control client dans AD FS 2,0
 Les stratégies d’accès client dans Services ADFS 2,0 vous permettent de restreindre ou d’accorder aux utilisateurs l’accès aux ressources.  Ce document explique comment activer les stratégies d’accès client dans AD FS 2,0 et comment configurer les scénarios les plus courants.
@@ -45,7 +43,7 @@ Sur l’Active Directory approbation de fournisseur de revendications, créez un
 5. Dans la page Configurer la règle, sous nom de la règle de revendication, tapez le nom d’affichage de cette règle. dans type de revendication entrante, tapez l’URL de type de revendication suivante, puis sélectionnez transmettre toutes les valeurs de revendication.</br>
         `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`</br>
 6. Pour vérifier la règle, sélectionnez-la dans la liste et cliquez sur modifier la règle, puis cliquez sur Afficher la langue de la règle. Le langage de règle de revendication doit se présenter comme suit : `c:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip"] => issue(claim = c);`
-7. Cliquez sur Terminer.
+7. Cliquez sur Finish.
 8. Dans la boîte de dialogue Modifier les règles de revendication, cliquez sur OK pour enregistrer les règles.
 9. Répétez les étapes 2 à 6 pour créer une règle de revendication supplémentaire pour chacun des quatre types de revendication restants indiqués ci-dessous jusqu’à ce que les cinq règles aient été créées.
 
@@ -83,7 +81,7 @@ Ce scénario de stratégie d’accès client autorise l’accès à partir de to
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");` 
-6. Cliquez sur Terminer. Vérifiez que la nouvelle règle s’affiche immédiatement sous la règle autoriser l’accès à tous les utilisateurs dans la liste règles d’autorisation d’émission.
+6. Cliquez sur Finish. Vérifiez que la nouvelle règle s’affiche immédiatement sous la règle autoriser l’accès à tous les utilisateurs dans la liste règles d’autorisation d’émission.
 7. Pour enregistrer la règle, dans la boîte de dialogue Modifier les règles de revendication, cliquez sur OK.
 
 >[!NOTE]
@@ -110,7 +108,7 @@ L’exemple suivant autorise l’accès à toutes les applications Office 365, y
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");`
-6. Cliquez sur Terminer. Vérifiez que la nouvelle règle s’affiche immédiatement sous la règle autoriser l’accès à tous les utilisateurs dans la liste règles d’autorisation d’émission.
+6. Cliquez sur Finish. Vérifiez que la nouvelle règle s’affiche immédiatement sous la règle autoriser l’accès à tous les utilisateurs dans la liste règles d’autorisation d’émission.
 7. Pour enregistrer la règle, dans la boîte de dialogue Modifier les règles de revendication, cliquez sur OK.
 
 >[!NOTE]
@@ -136,12 +134,12 @@ L’ensemble de règles s’appuie sur la règle d’autorisation d’émission 
     Value=~"customer-provided public ip address regex"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value == "/adfs/ls/"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");`
-6. Cliquez sur Terminer. Vérifiez que la nouvelle règle s’affiche immédiatement sous la règle autoriser l’accès à tous les utilisateurs dans la liste règles d’autorisation d’émission.
+6. Cliquez sur Finish. Vérifiez que la nouvelle règle s’affiche immédiatement sous la règle autoriser l’accès à tous les utilisateurs dans la liste règles d’autorisation d’émission.
 7. Pour enregistrer la règle, dans la boîte de dialogue Modifier les règles de revendication, cliquez sur OK.
 
 ### <a name="scenario-4-block-all-external-access-to-office-365-for-designated-active-directory-groups"></a>Scénario 4 : bloquer tous les accès externes à Office 365 pour les groupes de Active Directory désignés
 
-L’exemple suivant active l’accès à partir de clients internes en fonction de l’adresse IP. Il bloque l’accès à partir de clients résidant en dehors du réseau d’entreprise qui ont une adresse IP de client externe, à l’exception des individus d’un groupe de Active Directory spécifié. l’ensemble de règles s’appuie sur la règle d’autorisation d’émission par défaut intitulée autoriser l’accès à Tous les utilisateurs. Procédez comme suit pour ajouter une règle d’autorisation d’émission à l’approbation de la partie de confiance Microsoft Office 365 Identity Platform à l’aide de l’Assistant règle de revendication :
+L’exemple suivant active l’accès à partir de clients internes en fonction de l’adresse IP. Il bloque l’accès à partir de clients résidant en dehors du réseau d’entreprise et disposant d’une adresse IP de client externe, à l’exception des individus d’un groupe de Active Directory spécifié. l’ensemble de règles s’appuie sur la règle d’autorisation d’émission par défaut intitulée autoriser l’accès à tous les utilisateurs. Procédez comme suit pour ajouter une règle d’autorisation d’émission à l’approbation de la partie de confiance Microsoft Office 365 Identity Platform à l’aide de l’Assistant règle de revendication :
 
 #### <a name="to-create-a-rule-to-block-all-external-access-to-office-365-for-designated-active-directory-groups"></a>Pour créer une règle qui bloque tous les accès externes à Office 365 pour les groupes de Active Directory désignés
 
@@ -156,7 +154,7 @@ L’exemple suivant active l’accès à partir de clients internes en fonction 
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");`
-6. Cliquez sur Terminer. Vérifiez que la nouvelle règle s’affiche immédiatement sous la règle autoriser l’accès à tous les utilisateurs dans la liste règles d’autorisation d’émission.
+6. Cliquez sur Finish. Vérifiez que la nouvelle règle s’affiche immédiatement sous la règle autoriser l’accès à tous les utilisateurs dans la liste règles d’autorisation d’émission.
 7. Pour enregistrer la règle, dans la boîte de dialogue Modifier les règles de revendication, cliquez sur OK.
 
 
@@ -187,7 +185,7 @@ Une seule adresse IP : l’adresse IP du client qui est directement connecté �
 
 Les clients qui sont connectés au réseau d’entreprise par un VPN ou par Microsoft DirectAccess (DA) peuvent apparaître comme des clients d’entreprise internes ou comme clients externes, en fonction de la configuration du VPN ou de DA.
 
-Une ou plusieurs adresses IP : quand Exchange Online ne peut pas déterminer l’adresse IP du client qui se connecte, il définit la valeur en fonction de la valeur de l’en-tête x-forwarded-for, d’un en-tête non standard qui peut être inclus dans les requêtes basées sur HTTP et est pris en charge par de nombreux clients, équilibreurs de charge et proxys sur le marché.
+Une ou plusieurs adresses IP : quand Exchange Online ne peut pas déterminer l’adresse IP du client qui se connecte, il définit la valeur en fonction de la valeur de l’en-tête x-forwarded-for, un en-tête non standard qui peut être inclus dans les demandes HTTP et est pris en charge par de nombreux clients, équilibreurs de charge et proxys sur le marché.
 
 >[!Note]
 >Plusieurs adresses IP, indiquant l’adresse IP du client et l’adresse de chaque proxy qui a transmis la demande, sont séparées par une virgule.
@@ -271,6 +269,6 @@ AD FS événements de suivi sont consignés dans le journal de débogage AD FS 2
 
 Une fois que vous avez activé le suivi, utilisez la syntaxe de ligne de commande suivante pour activer le niveau de journalisation verbose : wevtutil. exe SL « AD FS 2,0 Tracing/Debug »/l : 5  
 
-## <a name="related"></a>Liens apparentés
+## <a name="related"></a>Associé
 Pour plus d’informations sur les nouveaux types de revendication, consultez [AD FS types de revendications](AD-FS-Claims-Types.md).
 

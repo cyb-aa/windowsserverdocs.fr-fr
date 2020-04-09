@@ -1,7 +1,6 @@
 ---
 ms.assetid: 45a65504-70b5-46ea-b2e0-db45263fabaa
 title: Prise en charge de l'utilisation de la réplication Hyper-V pour les contrôleurs de domaine virtualisés
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 92324ef7c0fab81e80974a1f05eeec4833f09875
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d882fc5a8e519c461e17a7a82c8abfc6c16fbe9c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390429"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824502"
 ---
 # <a name="support-for-using-hyper-v-replica-for-virtualized-domain-controllers"></a>Prise en charge de l'utilisation de la réplication Hyper-V pour les contrôleurs de domaine virtualisés
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit la prise en charge de l'utilisation de la réplication Hyper-V pour répliquer un ordinateur virtuel qui s'exécute en tant que contrôleur de domaine. La réplication Hyper-V est une nouvelle fonctionnalité de la technologie Hyper-V qui fait son apparition dans Windows Server 2012 et qui fournit un mécanisme de réplication intégrée au niveau d'un ordinateur virtuel.  
   
@@ -64,7 +63,7 @@ Le tableau suivant donne des explications sur la prise en charge des contrôleur
 |-|-|  
 |Basculement planifié|Basculement non planifié|  
 |Prise en charge|Prise en charge|  
-|Cas de test :<br /><br />-DC1 et DC2 exécutent Windows Server 2012.<br /><br />-DC2 est arrêté et un basculement est effectué sur DC2-Rec. Le basculement peut être planifié ou non planifié.<br /><br />-Une fois que DC2-Rec démarre, il vérifie si la valeur de VMGenID qu’il contient dans sa base de données est identique à la valeur du pilote d’ordinateur virtuel enregistré par le serveur de réplication Hyper-V.<br /><br />Par conséquent, DC2-Rec déclenche les dispositifs de protection de la virtualisation ; en d’autres termes, il réinitialise son invocation, abandonne son pool RID et définit une exigence de synchronisation initiale avant de supposer qu’il assume le rôle de maître d’opérations. Pour plus d'informations sur les conditions requises par la synchronisation initiale, voir l'article correspondant.<br /><br />-DC2-Rec enregistre ensuite la nouvelle valeur de VMGenID dans sa base de données et valide toutes les mises à jour ultérieures dans le contexte du nouvel invocation.<br /><br />-Suite à la réinitialisation de l’appel d’invocation, DC1 convergera sur tous les changements AD introduits par DC2-Rec, même s’il a été restauré dans le temps, ce qui signifie que les mises à jour Active Directory effectuées sur DC2-Rec après le basculement convergeront en toute sécurité|Le cas de test est le même que pour un basculement planifié, avec les exceptions suivantes :<br /><br />-Les mises à jour Active Directory reçues sur DC2 mais pas encore répliquées par AD vers un partenaire de réplication avant l’événement de basculement seront perdues.<br /><br />-Les mises à jour AD reçues sur DC2 après l’heure du point de récupération qui ont été répliquées par AD vers DC1 sont répliquées de DC1 vers DC2-Rec.|  
+|Cas de test :<p>-DC1 et DC2 exécutent Windows Server 2012.<p>-DC2 est arrêté et un basculement est effectué sur DC2-Rec. Le basculement peut être planifié ou non planifié.<p>-Une fois que DC2-Rec démarre, il vérifie si la valeur de VMGenID qu’il contient dans sa base de données est identique à la valeur du pilote d’ordinateur virtuel enregistré par le serveur de réplication Hyper-V.<p>Par conséquent, DC2-Rec déclenche les dispositifs de protection de la virtualisation ; en d’autres termes, il réinitialise son invocation, abandonne son pool RID et définit une exigence de synchronisation initiale avant de supposer qu’il assume le rôle de maître d’opérations. Pour plus d'informations sur les conditions requises par la synchronisation initiale, voir l'article correspondant.<p>-DC2-Rec enregistre ensuite la nouvelle valeur de VMGenID dans sa base de données et valide toutes les mises à jour ultérieures dans le contexte du nouvel invocation.<p>-Suite à la réinitialisation de l’appel d’invocation, DC1 convergera sur tous les changements AD introduits par DC2-Rec, même s’il a été restauré dans le temps, ce qui signifie que les mises à jour Active Directory effectuées sur DC2-Rec après le basculement convergeront en toute sécurité|Le cas de test est le même que pour un basculement planifié, avec les exceptions suivantes :<p>-Les mises à jour Active Directory reçues sur DC2 mais pas encore répliquées par AD vers un partenaire de réplication avant l’événement de basculement seront perdues.<p>-Les mises à jour AD reçues sur DC2 après l’heure du point de récupération qui ont été répliquées par AD vers DC1 sont répliquées de DC1 vers DC2-Rec.|  
   
 ### <a name="windows-server-2008-r2-and-earlier-versions"></a>Windows Server 2008 R2 et les versions antérieures
 
@@ -73,5 +72,5 @@ Le tableau suivant donne des explications sur la prise en charge des contrôleur
 |||  
 |-|-|  
 |Basculement planifié|Basculement non planifié|  
-|Pris en charge mais non recommandé, car les contrôleurs de domaine qui exécutent ces versions de Windows Server ne prennent pas en charge VMGenID ou n'utilisent pas les dispositifs de protection de virtualisation associés. Cela les expose aux risques liés à la restauration USN. Pour plus d’informations, consultez [USN et restauration USN](https://technet.microsoft.com/library/d2cae85b-41ac-497f-8cd1-5fbaa6740ffe(v=ws.10)).|Remarque non prise en charge **:** Le basculement non planifié est pris en charge quand la restauration USN ne représente aucun risque, par exemple dans le cas d'un contrôleur de domaine unique dans la forêt (configuration non recommandée).|  
-|Cas de test :<br /><br />-DC1 et DC2 exécutent Windows Server 2008 R2.<br /><br />-DC2 est arrêté et un basculement planifié est effectué sur DC2-Rec. Toutes les données du contrôleur de domaine DC2 sont répliquées sur DC2-Rec avant l'arrêt complet.<br /><br />-Une fois que DC2-Rec démarre, il reprend la réplication avec DC1 en utilisant le même invocation que DC2.|N/A|  
+|Pris en charge mais non recommandé, car les contrôleurs de domaine qui exécutent ces versions de Windows Server ne prennent pas en charge VMGenID ou n'utilisent pas les dispositifs de protection de virtualisation associés. Cela les expose aux risques liés à la restauration USN. Pour plus d’informations, consultez [USN et restauration USN](https://technet.microsoft.com/library/d2cae85b-41ac-497f-8cd1-5fbaa6740ffe(v=ws.10)).|Remarque non prise en charge **:** le basculement non planifié est pris en charge lorsque la restauration USN n’est pas un risque, par exemple un contrôleur de périphérique unique dans la forêt (configuration non recommandée).|  
+|Cas de test :<p>-DC1 et DC2 exécutent Windows Server 2008 R2.<p>-DC2 est arrêté et un basculement planifié est effectué sur DC2-Rec. Toutes les données sur DC2 sont répliquées sur DC2-Rec avant la fin de l’arrêt.<p>-Une fois que DC2-Rec démarre, il reprend la réplication avec DC1 en utilisant le même invocation que DC2.|N/A|  

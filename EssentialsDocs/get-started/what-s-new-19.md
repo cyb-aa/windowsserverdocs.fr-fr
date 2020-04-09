@@ -1,22 +1,18 @@
 ---
 title: Nouveautés dans Windows Server 2019 Essentials
 description: Décrit les modifications apportées à Windows Server Essentials 2019
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: affff774-5fa6-4944-887a-9bfde05f6a3f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
-ms.openlocfilehash: 11d12d3dc00357e09e156daa47c373a893ac40f7
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 321ada3c046b7c78f141d2697191f48e225b93be
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310282"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80817732"
 ---
 # <a name="whats-new-in-windows-server-2019-essentials"></a>Nouveautés dans Windows Server 2019 Essentials
 
@@ -28,8 +24,8 @@ Le rôle expérience Windows Server Essentials a été supprimé de toutes les r
 
 Avec la dépréciation du rôle expérience de Server Essentials, les fonctionnalités suivantes ne sont plus disponibles :
 
--   Sauvegarde du client 
--   Accès Web à distance 
+-    Sauvegarde du client 
+-    Accès Web à distance 
 
 ## <a name="microsoft-365-business-the-modern-small-business-solution"></a>Microsoft 365 Business : la solution de petite entreprise moderne 
 

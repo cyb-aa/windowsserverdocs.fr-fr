@@ -8,12 +8,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 292bec5f73e2746103ffc41cde729ddc59728e0b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c36de1c3565be7f0f0e6c6203a21345f3d227e96
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407876"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857322"
 ---
 # <a name="identity-delegation-scenario-with-ad-fs"></a>Scénario de délégation d’identité avec AD FS
 
@@ -30,16 +30,16 @@ Le diagramme suivant illustre un scénario de délégation d’identité classiq
 
 Les utilisateurs fictifs participant à ce scénario sont les suivants :
 
-- Franc Un employé de Fabrikam qui souhaite accéder aux ressources contoso.
-- Paul Un développeur d’applications Contoso qui implémente les modifications nécessaires dans l’application.
-- Adam L’administrateur informatique de contoso.
+- Frank : un employé de Fabrikam qui souhaite accéder aux ressources contoso.
+- Daniel : développeur d’applications Contoso qui implémente les modifications nécessaires dans l’application.
+- Adam : l’administrateur informatique de contoso.
 
 Les composants impliqués dans ce scénario sont les suivants :
 
-- web1 Application Web avec des liens vers des ressources principales qui requièrent l’identité déléguée de l’appelant initial. Cette application est générée avec ASP.NET.
+- web1 : application Web avec des liens vers des ressources principales qui requièrent l’identité déléguée de l’appelant initial. Cette application est générée avec ASP.NET.
 - Service Web qui accède à un SQL Server, qui requiert l’identité déléguée de l’appelant initial, ainsi que celui de l’appelant immédiat. Ce service est généré avec WCF.
-- sts1: STS qui est dans le rôle de fournisseur de revendications et qui émet des revendications attendues par l’application (web1). Il a établi une relation de confiance avec Fabrikam.com et également avec l’application.
-- sts2: STS qui est dans le rôle de fournisseur d’identité pour Fabrikam.com et fournit un point de terminaison que l’employé de Fabrikam utilise pour s’authentifier. Il a établi une relation de confiance avec Contoso.com afin que les employés de Fabrikam soient autorisés à accéder aux ressources sur Contoso.com.
+- sts1 : STS qui est dans le rôle de fournisseur de revendications et qui émet des revendications attendues par l’application (web1). Il a établi une relation de confiance avec Fabrikam.com et également avec l’application.
+- sts2 : un STS qui est dans le rôle de fournisseur d’identité pour Fabrikam.com et fournit un point de terminaison que l’employé de Fabrikam utilise pour s’authentifier. Il a établi une relation de confiance avec Contoso.com afin que les employés de Fabrikam soient autorisés à accéder aux ressources sur Contoso.com.
 
 >[!NOTE] 
 >Le terme « jeton ActAs », qui est souvent utilisé dans ce scénario, fait référence à un jeton émis par un STS et contenant l’identité de l’utilisateur. La propriété Actor contient l’identité du STS.
@@ -57,7 +57,7 @@ Comme indiqué dans le schéma précédent, le déroulement de ce scénario est 
 Trois options sont disponibles pour l’administrateur Fabrikam.com, Frank :
 
 
-1. Achetez et installez un produit STS, par exemple Active Directory® Federation Services (AD FS).
+1. Achetez et installez un produit STS, par exemple Active Directory&reg; Federation Services (AD FS).
 2. Abonnez-vous à un produit STS Cloud tel que LiveID STS.
 3. Générez un STS personnalisé à l’aide de WIF.
 

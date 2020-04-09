@@ -1,27 +1,23 @@
 ---
 title: Déploiement de MultiPoint Services
 description: Vue d’ensemble du processus de déploiement de MultiPoint services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 594bc09e-5d2d-4984-a9de-79d40b1308d6
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: 842b7b743624aa1e4b168b1be8e94f6d405d07e3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b6dff10519a951e002facc200beeb987546f5ee2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395690"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859742"
 ---
 # <a name="deploying-multipoint-services"></a>Déploiement de MultiPoint Services
-Ce guide explique comment déployer un serveur exécutant MultiPoint services et configurer des stations MultiPoint, installer et configurer votre système, configurer des comptes d’utilisateur et effectuer des tâches d’administration de base, telles que l’activation de la protection des disques et la configuration de sauvegardes. avant de commencer à utiliser votre système.  
+Ce guide décrit le déploiement d’un serveur exécutant MultiPoint services et la configuration de stations MultiPoint, l’installation et la configuration de votre système, la configuration de comptes d’utilisateur et l’exécution de tâches d’administration de base, telles que l’activation de la protection des disques et la configuration de sauvegardes, avant de commencer à utiliser votre système.  
   
 > [!NOTE]  
 > Pour obtenir une assistance supplémentaire, consultez l’aide de MultiPoint services, qui peut être ouverte en cliquant sur l’icône d’aide ou sur F1 sur un écran de tableau de bord multipoint Manager ou MultiPoint.  

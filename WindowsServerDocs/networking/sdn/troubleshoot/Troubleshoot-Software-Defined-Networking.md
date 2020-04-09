@@ -1,19 +1,19 @@
 ---
 title: Résoudre les problèmes de SDN
 description: Cette rubrique fournit des liens vers des informations sur la résolution des problèmes de mise en réseau définie par logiciel dans Windows Server 2016.
-manager: brianlic
+manager: grcusanz
 ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: 427048db-bab6-49b1-9611-099bb547ec0e
-ms.author: lizross
-author: eross-msft
-ms.openlocfilehash: 8358d52796fee29cc446aa78ae36572ee3332644
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.author: anpaul
+author: AnirbanPaul
+ms.openlocfilehash: 2b69541415d297f3831a5736e572956b69417a67
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80312864"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859562"
 ---
 # <a name="troubleshoot-sdn"></a>Résoudre les problèmes de SDN
 

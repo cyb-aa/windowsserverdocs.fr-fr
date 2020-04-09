@@ -1,7 +1,6 @@
 ---
 ms.assetid: 475e34f9-9399-43f4-a840-9dd77258e11a
 title: Créer une règle pour envoyer l’appartenance à un groupe en tant que revendication
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,20 +8,20 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b8217302cc0ec5bc6972004cb2f26ffae1371614
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e5777a3310776115f02395df365352be94a89928
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407582"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816662"
 ---
 # <a name="create-a-rule-to-send-group-membership-as-a-claim"></a>Créer une règle pour envoyer l’appartenance à un groupe en tant que revendication
 
-À l’aide du modèle de règle envoyer l’appartenance à un \(groupe\)en tant que revendication dans services ADFS AD FS, vous pouvez créer une règle qui vous permet de sélectionner un groupe de sécurité Active Directory à envoyer en tant que revendication. Une seule revendication est émise à partir de cette règle, en fonction du groupe que vous sélectionnez. Par exemple, vous pouvez utiliser ce modèle de règle pour créer une règle qui envoie une revendication de groupe avec la valeur admin si l’utilisateur est membre du groupe de sécurité administrateurs du domaine. Cette règle doit être utilisée uniquement pour les utilisateurs du domaine local Active Directory.  
+À l’aide du modèle de règle envoyer l’appartenance à un groupe en tant que revendication dans Services ADFS \(AD FS\), vous pouvez créer une règle qui vous permet de sélectionner un groupe de sécurité Active Directory à envoyer en tant que revendication. Une seule revendication est émise à partir de cette règle, en fonction du groupe que vous sélectionnez. Par exemple, vous pouvez utiliser ce modèle de règle pour créer une règle qui envoie une revendication de groupe avec la valeur admin si l’utilisateur est membre du groupe de sécurité administrateurs du domaine. Cette règle doit être utilisée uniquement pour les utilisateurs du domaine local Active Directory.  
   
-Vous pouvez utiliser la procédure suivante pour créer une règle de revendication avec le composant logiciel\-enfichable de gestion AD FS.  
+Vous pouvez utiliser la procédure suivante pour créer une règle de revendication avec le\-du composant logiciel enfichable Gestion de la AD FS dans.  
   
-Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs** ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
 
 ## <a name="to-create-a-rule-to-send-group-membership-as-a-claim-on-a-relying-party-trust-in-windows-server-2016"></a>Pour créer une règle pour envoyer l’appartenance à un groupe en tant que revendication sur une approbation de partie de confiance dans Windows Server 2016 
 
@@ -31,7 +30,7 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de partie de confiance**. 
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
   
 4.  Dans la boîte de dialogue **modifier la stratégie d’émission de revendication** , sous règles de transformation d' **émission** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle. 
@@ -40,7 +39,7 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 5.  Dans la page **Sélectionner le modèle de règle** , sous modèle de règle de **revendication**, sélectionnez **Envoyer l’appartenance à un groupe en tant que revendication** dans la liste, puis cliquez sur **suivant**.  
 ![créer une règle](media/Create-a-Rule-to-Send-Group-Membership-as-a-Claim/group3.PNG)      
 
-6.   Dans la **page Configurer la règle** , sous nom de la règle de **revendication** , tapez le nom complet de cette règle, dans **groupe de l’utilisateur** , cliquez sur **Parcourir** et sélectionnez un groupe, sous **type de revendication sortante** , sélectionnez le type de revendication souhaité, puis sous  **Type de revendication sortante** tapez une valeur.
+6.   Dans la **page Configurer la règle** , sous nom de la règle de **revendication** , tapez le nom complet de cette règle, dans **groupe de l’utilisateur** , cliquez sur **Parcourir** et sélectionnez un groupe, sous **type de revendication sortante** , sélectionnez le type de revendication souhaité, puis, sous **type de revendication sortante** , tapez une valeur.
 ![créer une règle](media/Create-a-Rule-to-Send-Group-Membership-as-a-Claim/group4.PNG)   
 
 7.  Cliquez sur le bouton **Terminer** .  
@@ -54,7 +53,7 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de fournisseur de revendications**. 
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
   
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
   
 4.  Dans la boîte de dialogue **modifier les règles de revendication** , sous règles de transformation d' **acceptation** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle.
@@ -63,7 +62,7 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 5.  Dans la page **Sélectionner le modèle de règle** , sous modèle de règle de **revendication**, sélectionnez **Envoyer l’appartenance à un groupe en tant que revendication** dans la liste, puis cliquez sur **suivant**.  
 ![créer une règle](media/Create-a-Rule-to-Send-Group-Membership-as-a-Claim/group3.PNG)     
 
-6.   Dans la **page Configurer la règle** , sous nom de la règle de **revendication** , tapez le nom complet de cette règle, dans **groupe de l’utilisateur** , cliquez sur **Parcourir** et sélectionnez un groupe, sous **type de revendication sortante** , sélectionnez le type de revendication souhaité, puis sous  **Type de revendication sortante** tapez une valeur. 
+6.   Dans la **page Configurer la règle** , sous nom de la règle de **revendication** , tapez le nom complet de cette règle, dans **groupe de l’utilisateur** , cliquez sur **Parcourir** et sélectionnez un groupe, sous **type de revendication sortante** , sélectionnez le type de revendication souhaité, puis, sous **type de revendication sortante** , tapez une valeur. 
 ![créer une règle](media/Create-a-Rule-to-Send-Group-Membership-as-a-Claim/group4.PNG)      
 
 7.  Cliquez sur le bouton **Terminer** .  
@@ -78,12 +77,12 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
   
 1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.  
   
-2.  Dans l’arborescence de la console, sous **\\AD FS relations d’approbation**, cliquez sur approbations de fournisseur de **revendications** ou **approbations de partie de confiance**, puis cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
+2.  Dans l’arborescence de la console, sous **AD FS\\relations d’approbation**, cliquez sur approbations de **fournisseur de revendications** ou **approbations de partie de confiance**, puis cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
   
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG)  
   
-4.  Dans la boîte de dialogue **modifier les règles de revendication** , sélectionnez l’un des onglets suivants, en fonction de l’approbation que vous modifiez et de l’ensemble de règles dans lequel vous souhaitez créer cette règle, puis cliquez sur Ajouter une **règle** pour démarrer l’Assistant règle associé à cet ensemble de règles. :  
+4.  Dans la boîte de dialogue **modifier les règles de revendication** , sélectionnez l’un des onglets suivants, en fonction de l’approbation que vous modifiez et de l’ensemble de règles dans lequel vous souhaitez créer cette règle, puis cliquez sur Ajouter une **règle** pour démarrer l’Assistant règle associé à cet ensemble de règles :  
   
     -   **Règles de transformation d’acceptation**  
   
@@ -97,7 +96,7 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 5.  Dans la page **Sélectionner le modèle de règle** , sous modèle de règle de **revendication**, sélectionnez **Envoyer l’appartenance à un groupe en tant que revendication** dans la liste, puis cliquez sur **suivant**.  
 ![créer une règle](media/Create-a-Rule-to-Send-Group-Membership-as-a-Claim/group1.PNG)
 
-6.  Dans la **page Configurer la règle** , sous nom de la règle de **revendication** , tapez le nom complet de cette règle, dans **groupe de l’utilisateur** , cliquez sur **Parcourir** et sélectionnez un groupe, sous **type de revendication sortante** , sélectionnez le type de revendication souhaité, puis sous  **Type de revendication sortante** tapez une valeur.  
+6.  Dans la **page Configurer la règle** , sous nom de la règle de **revendication** , tapez le nom complet de cette règle, dans **groupe de l’utilisateur** , cliquez sur **Parcourir** et sélectionnez un groupe, sous **type de revendication sortante** , sélectionnez le type de revendication souhaité, puis, sous **type de revendication sortante** , tapez une valeur.  
 ![créer une règle](media/Create-a-Rule-to-Send-Group-Membership-as-a-Claim/group2.PNG)  
 
 7.  Cliquez sur **Terminer**.  

@@ -2,21 +2,19 @@
 title: Gérer à distance les ordinateurs hôtes Hyper-V
 description: Décrit la compatibilité de version entre les ordinateurs hôtes Hyper-V et le Gestionnaire Hyper-V et comment se connecter aux hôtes distants dans différents environnements, y compris inter-domaines et autonomes.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 12/06/2016
-ms.openlocfilehash: 677e054fe42978697ef786b73daac75069f0408f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 592bb6352c4ca56770e1a3051ecbc88d9d378467
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392688"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859412"
 ---
 # <a name="remotely-manage-hyper-v-hosts-with-hyper-v-manager"></a>Gérer à distance les ordinateurs hôtes Hyper-V à l’aide du Gestionnaire Hyper-V
 
@@ -37,7 +35,7 @@ Le tableau suivant répertorie les versions d’un hôte Hyper-V que vous pouvez
 |Version du Gestionnaire Hyper-V | Version de l’hôte Hyper-V|
 |---|---|
 |Windows 2016, Windows 10|-Windows Server 2016 : toutes les éditions et options d’installation, y compris nano Server, et la version correspondante du serveur Hyper-V <br>-Windows Server 2012 R2 : toutes les éditions et options d’installation, et la version correspondante du serveur Hyper-V <br>-Windows Server 2012 : toutes les éditions et options d’installation, et la version correspondante du serveur Hyper-V <br> -Windows 10 <br> -Windows 8.1  |
-| Windows Server 2012 R2, Windows 8.1 | -Windows Server 2012 R2 : toutes les éditions et options d’installation, et la version correspondante du serveur Hyper-V <br>-Windows Server 2012 : toutes les éditions et options d’installation, et la version correspondante du serveur Hyper-V <br>-Windows 8.1
+| Windows Server 2012 R2, Windows 8.1 | -Windows Server 2012 R2 : toutes les éditions et options d’installation, et la version correspondante du serveur Hyper-V <br>-Windows Server 2012 : toutes les éditions et options d’installation, et la version correspondante du serveur Hyper-V <br>-Windows 8.1
 | Windows Server 2012 | -Windows Server 2012 : toutes les éditions et options d’installation, et la version correspondante du serveur Hyper-V
 | Windows Server 2008 R2 Service Pack 1, Windows 7 Service Pack 1 | -Windows Server 2008 R2 : toutes les éditions et options d’installation, et la version correspondante du serveur Hyper-V
 | Windows Server 2008, Windows Vista Service Pack 2 | -Windows Server 2008 : toutes les éditions et options d’installation, et la version correspondante du serveur Hyper-V
@@ -51,7 +49,7 @@ Pour vous connecter à un hôte Hyper-v à partir du Gestionnaire Hyper-V, cliqu
 
 ## <a name="manage-hyper-v-on-a-local-computer"></a>Gérer Hyper-V sur un ordinateur local
 
-Le Gestionnaire Hyper-V ne répertorie pas les ordinateurs qui hébergent Hyper-V tant que vous n’avez pas ajouté l’ordinateur, y compris un ordinateur local. Pour ce faire :
+Le Gestionnaire Hyper-V ne répertorie pas les ordinateurs qui hébergent Hyper-V tant que vous n’avez pas ajouté l’ordinateur, y compris un ordinateur local. Pour effectuer cette opération :
 
 1. Dans le volet gauche, cliquez avec le bouton droit sur **Gestionnaire Hyper-V**.
 2. Cliquez sur **se connecter au serveur**.
@@ -85,7 +83,7 @@ Le Gestionnaire Hyper-V dans Windows Server 2016 et Windows 10 offre plus de typ
 
 ### <a name="connect-to-a-windows-2016-or-windows-10-remote-host-as-a-different-user"></a>Se connecter à un hôte distant Windows 2016 ou Windows 10 en tant qu’utilisateur différent
 
-Cela vous permet de vous connecter à l’hôte Hyper-V lorsque vous n’êtes pas en cours d’exécution sur l’ordinateur local en tant qu’utilisateur membre du groupe administrateurs Hyper-V ou administrateurs sur l’hôte Hyper-V. Pour ce faire :
+Cela vous permet de vous connecter à l’hôte Hyper-V lorsque vous n’êtes pas en cours d’exécution sur l’ordinateur local en tant qu’utilisateur membre du groupe administrateurs Hyper-V ou administrateurs sur l’hôte Hyper-V. Pour effectuer cette opération :
 
 1. Dans le volet gauche, cliquez avec le bouton droit sur **Gestionnaire Hyper-V**.
 1. Cliquez sur **se connecter au serveur**.
@@ -97,7 +95,7 @@ Cela vous permet de vous connecter à l’hôte Hyper-V lorsque vous n’êtes p
 
 ### <a name="connect-to-a-windows-2016-or-windows-10-remote-host-using-ip-address"></a>Se connecter à un hôte distant Windows 2016 ou Windows 10 à l’aide d’une adresse IP
 
-Pour ce faire :
+Pour effectuer cette opération :
 
 1. Dans le volet gauche, cliquez avec le bouton droit sur **Gestionnaire Hyper-V**.
 1. Cliquez sur **se connecter au serveur**.
@@ -108,7 +106,7 @@ Pour ce faire :
 
 ### <a name="connect-to-a-windows-2016-or-windows-10-remote-host-outside-your-domain-or-with-no-domain"></a>Connectez-vous à un hôte distant Windows 2016 ou Windows 10 en dehors de votre domaine, ou sans domaine
 
-Pour ce faire :
+Pour effectuer cette opération :
 
 1. Sur l’hôte Hyper-V à gérer, ouvrez une session Windows PowerShell en tant qu’administrateur.
 
@@ -169,7 +167,7 @@ Pour utiliser Windows PowerShell, exécutez la commande suivante en tant qu’ad
 add-windowsfeature rsat-hyper-v-tools
 ```
 
-## <a name="see-also"></a>Voir également  
+## <a name="see-also"></a>Voir aussi  
  
 [Installer Hyper-V](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md) 
 

@@ -1,23 +1,19 @@
 ---
 title: Microsoft Azure et SDN
 description: Vous pouvez utiliser cette rubrique pour en savoir plus sur les technologies SDN (Software Defined Networking) fournies dans Microsoft Azure.
-manager: brianlic
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 79e87013-7f27-4031-8383-288bcb291731
-ms.author: lizross
-author: eross-msft
-ms.openlocfilehash: 503048688679cab352ce246c07ccb9316f8216d8
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.author: anpaul
+author: AnirbanPaul
+ms.openlocfilehash: f89024d3bbc97c8896858ee9ad3fee763e6d9fc3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309995"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859112"
 ---
 # <a name="microsoft-azure-and-software-defined-networking"></a>Microsoft Azure et mise en réseau SDN (Software Defined Networking)
 

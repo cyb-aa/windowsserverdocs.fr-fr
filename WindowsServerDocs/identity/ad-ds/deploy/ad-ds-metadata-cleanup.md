@@ -8,18 +8,18 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 7c9750a4f59cd17d0495e58dbc2fd8b2d2802c89
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 622ff33437a3aef14a185c9a4157dba68db0a2ee
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369526"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824783"
 ---
 # <a name="clean-up-active-directory-domain-controller-server-metadata"></a>Nettoyer les métadonnées du serveur de contrôleur domaine Active Directory
 
-S'applique à : Windows Server
+S’applique à : Windows Server
 
-Le nettoyage des métadonnées est une procédure obligatoire après une suppression forcée de Active Directory Domain Services (AD DS). Vous effectuez un nettoyage des métadonnées sur un contrôleur de domaine dans le domaine du contrôleur de domaine que vous avez supprimé de force. Le nettoyage des métadonnées supprime les données de AD DS qui identifie un contrôleur de domaine auprès du système de réplication. Le nettoyage des métadonnées supprime également les connexions de réplication du service de réplication de fichiers (FRS) et de système de fichiers DFS (DFS) et tente de transférer ou de prendre des rôles de maître d’opérations (également appelés opérations à maître unique flottant ou FSMO) que le domaine retiré le contrôleur est en bloc.
+Le nettoyage des métadonnées est une procédure obligatoire après une suppression forcée de Active Directory Domain Services (AD DS). Vous effectuez un nettoyage des métadonnées sur un contrôleur de domaine dans le domaine du contrôleur de domaine que vous avez supprimé de force. Le nettoyage des métadonnées supprime les données de AD DS qui identifie un contrôleur de domaine auprès du système de réplication. Le nettoyage des métadonnées supprime également les connexions de réplication de fichiers (FRS) et de réplication système de fichiers DFS (DFS), ainsi que les tentatives de transfert ou de saisie des rôles de maître d’opérations (également appelés opérations à maître unique flottant ou FSMO) que le contrôleur de domaine mis hors service détient.
 
 Il existe trois options pour nettoyer les métadonnées du serveur :
 
@@ -32,7 +32,7 @@ Il existe trois options pour nettoyer les métadonnées du serveur :
 
 ## <a name="clean-up-server-metadata-using-gui-tools"></a>Nettoyer les métadonnées du serveur à l’aide des outils d’interface utilisateur graphique
 
-Lorsque vous utilisez Outils d’administration de serveur distant (RSAT) ou la console utilisateurs et ordinateurs Active Directory (DSA. msc) qui est incluse dans Windows Server pour supprimer un compte d’ordinateur de contrôleur de domaine de l’unité d’organisation des contrôleurs de domaine, le le nettoyage des métadonnées du serveur s’effectue automatiquement. Avant Windows Server 2008, vous deviez effectuer une procédure distincte de nettoyage des métadonnées.
+Lorsque vous utilisez Outils d’administration de serveur distant (RSAT) ou la console utilisateurs et ordinateurs Active Directory (DSA. msc) qui est incluse dans Windows Server pour supprimer un compte d’ordinateur de contrôleur de domaine de l’unité d’organisation des contrôleurs de domaine, le nettoyage des métadonnées du serveur s’effectue automatiquement. Avant Windows Server 2008, vous deviez effectuer une procédure distincte de nettoyage des métadonnées.
 
 Vous pouvez également utiliser la console sites et services Active Directory (Dssite. msc) pour supprimer le compte d’ordinateur d’un contrôleur de domaine, ce qui complète automatiquement le nettoyage des métadonnées. Toutefois, Active Directory sites et services ne supprime les métadonnées automatiquement que lorsque vous supprimez d’abord l’objet Paramètres NTDS sous le compte d’ordinateur dans Dssite. msc.
 
@@ -43,7 +43,7 @@ Pour effectuer ces procédures, il est nécessaire d’appartenir au minimum au 
 ## <a name="clean-up-server-metadata-using-activedirectory-users-and-computers"></a>Nettoyer les métadonnées du serveur à l’aide d’utilisateurs et d’ordinateurs Active Directory
 
 1. Ouvrez **Utilisateurs et ordinateurs Active Directory**.
-2. Si vous avez identifié des partenaires de réplication en préparation pour cette procédure et si vous n’êtes pas connecté à un partenaire de réplication du contrôleur de domaine supprimé dont vous nettoyez les métadonnées, cliquez avec le bouton droit sur **Active Directory nœud utilisateurs et ordinateurs** . , puis cliquez sur **modifier le contrôleur de domaine**. Cliquez sur le nom du contrôleur de domaine à partir duquel vous souhaitez supprimer les métadonnées, puis cliquez sur **OK**.
+2. Si vous avez identifié des partenaires de réplication en préparation pour cette procédure et si vous n’êtes pas connecté à un partenaire de réplication du contrôleur de domaine supprimé dont vous nettoyez les métadonnées, cliquez avec le bouton droit sur **Active Directory nœud utilisateurs et ordinateurs** , puis cliquez sur **modifier le contrôleur de domaine**. Cliquez sur le nom du contrôleur de domaine à partir duquel vous souhaitez supprimer les métadonnées, puis cliquez sur **OK**.
 3. Développez le domaine du contrôleur de domaine qui a été supprimé de force, puis cliquez sur **contrôleurs de domaine**.
 4. Dans le volet d’informations, cliquez avec le bouton droit sur l’objet ordinateur du contrôleur de domaine dont vous souhaitez nettoyer les métadonnées, puis cliquez sur **supprimer**.
 5. Dans la boîte de dialogue **Active Directory Domain Services** , confirmez que le nom du contrôleur de domaine que vous souhaitez supprimer s’affiche, puis cliquez sur **Oui** pour confirmer la suppression de l’objet ordinateur.
@@ -53,8 +53,8 @@ Pour effectuer ces procédures, il est nécessaire d’appartenir au minimum au 
 
 ## <a name="clean-up-server-metadata-using-activedirectory-sites-and-services"></a>Nettoyer les métadonnées du serveur à l’aide de sites et services Active Directory
 
-1. Ouvrez le composant Sites et services Active Directory.
-2. Si vous avez identifié des partenaires de réplication en préparation pour cette procédure et si vous n’êtes pas connecté à un partenaire de réplication du contrôleur de domaine supprimé dont vous nettoyez les métadonnées, cliquez avec le bouton droit sur **Active Directory sites et services**, puis Cliquez ensuite sur **modifier le contrôleur de domaine**. Cliquez sur le nom du contrôleur de domaine à partir duquel vous souhaitez supprimer les métadonnées, puis cliquez sur **OK**.
+1. Ouvrez Sites et services Active Directory.
+2. Si vous avez identifié des partenaires de réplication en préparation pour cette procédure et si vous n’êtes pas connecté à un partenaire de réplication du contrôleur de domaine supprimé dont vous nettoyez les métadonnées, cliquez avec le bouton droit sur **Active Directory sites et services**, puis cliquez sur **modifier le contrôleur de domaine**. Cliquez sur le nom du contrôleur de domaine à partir duquel vous souhaitez supprimer les métadonnées, puis cliquez sur **OK**.
 3. Développez le site du contrôleur de domaine qui a été supprimé de force, développez **serveurs**, développez le nom du contrôleur de domaine, cliquez avec le bouton droit sur l’objet Paramètres NTDS, puis cliquez sur **supprimer**.
 4. Dans la boîte de dialogue **Active Directory les sites et services** , cliquez sur **Oui** pour confirmer la suppression des paramètres NTDS.
 5. Dans la boîte de dialogue suppression d’un **contrôleur de domaine** , sélectionnez **ce contrôleur de domaine est définitivement hors connexion et ne peut plus être rétrogradé à l’aide du Assistant Installation Active Directory Domain Services (dcpromo)** , puis cliquez sur **supprimer**.
@@ -69,8 +69,8 @@ Vous pouvez également nettoyer les métadonnées à l’aide de Ntdsutil. exe, 
 
 ## <a name="to-clean-up-server-metadata-by-using-ntdsutil"></a>Pour nettoyer les métadonnées du serveur à l’aide de Ntdsutil
 
-1. Ouvrez une invite de commandes en tant qu’administrateur : Dans le menu **Démarrer** , cliquez avec le bouton droit sur **invite de commandes**, puis cliquez sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **contrôle de compte d’utilisateur** s’affiche, fournissez les informations d’identification d’un administrateur d’entreprise si nécessaire, puis cliquez sur **Continuer**.
-2. À l'invite de commandes, tapez la commande suivante et appuyez sur Entrée :
+1. Ouvrez une invite de commandes en tant qu’administrateur : dans le menu **Démarrer** , cliquez avec le bouton droit sur **invite de commandes**, puis cliquez sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **contrôle de compte d’utilisateur** s’affiche, fournissez les informations d’identification d’un administrateur d’entreprise si nécessaire, puis cliquez sur **Continuer**.
+2. À l'invite de commandes, tapez la commande suivante, puis appuyez sur ENTRÉE :
 
    `ntdsutil`
 
@@ -86,7 +86,7 @@ Vous pouvez également nettoyer les métadonnées à l’aide de Ntdsutil. exe, 
 
    À ce stade, Ntdsutil confirme que le contrôleur de domaine a été correctement supprimé. Si vous recevez un message d’erreur indiquant que l’objet est introuvable, cela signifie peut-être que le contrôleur de domaine a été supprimé précédemment.
 
-6. À l' `metadata cleanup:` invite `ntdsutil:` de commandes et, `quit`tapez, puis appuyez sur entrée.
+6. À l' `metadata cleanup:` et `ntdsutil:` invites, tapez `quit`, puis appuyez sur entrée.
 
 7. Pour confirmer la suppression du contrôleur de domaine :
 

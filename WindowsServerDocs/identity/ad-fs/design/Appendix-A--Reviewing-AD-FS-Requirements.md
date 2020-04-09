@@ -1,7 +1,6 @@
 ---
 ms.assetid: 39ecc468-77c5-4938-827e-48ce498a25ad
 title: Annexe A-examen des exigences de AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,31 +8,31 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 281bb3763bc13e28b007a819254de382dc977f1c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e8a11c7e6072d4aaa1ace19885c92639acfdbbb8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408153"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858052"
 ---
-# <a name="appendix-a-reviewing-ad-fs-requirements"></a>Annexe A : examen de la configuration requise pour AD FS
+# <a name="appendix-a-reviewing-ad-fs-requirements"></a>Annexe A : examen de la configuration requise pour AD FS
 
-Pour que les partenaires organisationnels dans votre déploiement de Services ADFS (AD FS) puissent collaborer correctement, vous devez d’abord vous assurer que votre infrastructure de réseau d’entreprise est configurée pour prendre en charge les exigences de AD FS pour les comptes, le nom résolution et certificats. AD FS présente les types d’exigences suivants :  
+Pour que les partenaires organisationnels dans votre déploiement de Services ADFS (AD FS) puissent collaborer correctement, vous devez d’abord vous assurer que votre infrastructure de réseau d’entreprise est configurée pour prendre en charge les exigences de AD FS pour les comptes, la résolution de noms et les certificats. AD FS présente les conditions requises suivantes :  
   
 > [!TIP]  
 > Vous trouverez des liens vers des ressources AD FS supplémentaires à la page [Plan de contenu AD FS 2.0](https://social.technet.microsoft.com/wiki/contents/articles/2735.aspx) sur Microsoft TechNet Wiki. Cette page est gérée par les membres de la communauté AD FS et est régulièrement surveillée par l'équipe de produit AD FS.  
   
-## <a name="hardware-requirements"></a>Configuration matérielle requise  
+## <a name="hardware-requirements"></a>Configuration matérielle  
 Les configurations matérielles minimales et recommandées suivantes s’appliquent aux ordinateurs du serveur de Fédération et du serveur proxy de Fédération.  
   
 |Configuration matérielle|Configuration minimale requise|Configuration recommandée|  
 |------------------------|-----------------------|---------------------------|  
-|Vitesse du processeur|Cœur unique, 1 gigahertz (GHz)|quadruple cœur, 2 GHz|  
+|Vitesse UC|Cœur unique, 1 gigahertz (GHz)|quadruple cœur, 2 GHz|  
 |RAM|1 Go|4 Go|  
 |Espace disque|50 Mo|100 Mo|  
   
 ## <a name="software-requirements"></a>Configuration logicielle requise  
-AD FS s’appuie sur les fonctionnalités de serveur intégrées au système d’exploitation Windows Server® 2012.  
+AD FS s’appuie sur les fonctionnalités de serveur intégrées au système d’exploitation Windows Server&reg; 2012.  
   
 > [!NOTE]  
 > Les services de rôle Service de fédération et Proxy du service de fédération ne peuvent pas coexister sur le même ordinateur.  
@@ -41,27 +40,27 @@ AD FS s’appuie sur les fonctionnalités de serveur intégrées au système d�
 ## <a name="certificate-requirements"></a>Exigences de certificat  
 Les certificats jouent le rôle le plus important dans la sécurisation des communications entre les serveurs de fédération, les serveurs proxy de fédération, les applications prenant en charge les revendications et les clients web. La configuration requise pour les certificats varie selon que vous configurez un ordinateur serveur de fédération ou un ordinateur serveur proxy de fédération, comme décrit dans cette section.  
   
-### <a name="federation-server-certificates"></a>Certificats des serveurs de fédération  
-Les serveurs de fédération ont besoin des certificats indiqués dans le tableau suivant.  
+### <a name="federation-server-certificates"></a>Certificats de serveur de fédération  
+Les serveurs de fédération nécessitent les certificats du tableau suivant.  
   
-|Type de certificat|Description|Ce que vous devez savoir avant d'effectuer le déploiement|  
+|Type de certificat|Description|Ce que vous devez savoir avant de procéder au déploiement|  
 |--------------------|---------------|------------------------------------------|  
-|Certificat SSL (Secure Sockets Layer)|Certificat SSL (Secure Sockets Layer) standard qui permet de sécuriser les communications entre les serveurs de fédération et les clients.|Ce certificat doit être lié au site web par défaut dans Internet Information Services (IIS) pour un serveur de fédération ou un serveur proxy de fédération.  Dans le cas d'un Serveur proxy de fédération, vous devez configurer la liaison dans IIS avant d'exécuter l'Assistant Configuration du serveur proxy de fédération.<br /><br />**Recommandés** ce certificat devant être approuvé par les clients d'AD FS, utilisez un certificat d'authentification serveur émis par une autorité de certification publique (tierce), comme VeriSign. **Accélératrice** Le nom de sujet de ce certificat permet de représenter le nom du service de fédération pour chaque instance d'AD FS que vous déployez. Vous pouvez donc choisir pour tout nouveau certificat émis par une autorité de certification un nom de sujet qui reflète le nom de votre entreprise ou organisation auprès des partenaires.|  
+|Certificat SSL (Secure Sockets Layer)|Certificat SSL (Secure Sockets Layer) standard qui permet de sécuriser les communications entre les serveurs de fédération et les clients.|Ce certificat doit être lié au site web par défaut dans Internet Information Services (IIS) pour un serveur de fédération ou un serveur proxy de fédération.  Dans le cas d'un Serveur proxy de fédération, vous devez configurer la liaison dans IIS avant d'exécuter l'Assistant Configuration du serveur proxy de fédération.<p>**Recommandation :** ce certificat devant être approuvé par les clients d'AD FS, utilisez un certificat d'authentification serveur émis par une autorité de certification publique (tierce), comme VeriSign. **Astuce :** Le nom de sujet de ce certificat permet de représenter le nom du service de fédération pour chaque instance d'AD FS que vous déployez. Vous pouvez donc choisir pour tout nouveau certificat émis par une autorité de certification un nom de sujet qui reflète le nom de votre entreprise ou organisation auprès des partenaires.|  
 |Certificat de communication du service|Ce certificat active la sécurité de message WCF pour sécuriser les communications entre les serveurs de fédération.|Par défaut, le certificat SSL est utilisé en tant que certificat de communication du service.  Vous pouvez modifier ce paramétrage à l'aide de la console Gestion AD FS.|  
-|Certificat de signature de jetons|Certificat X509 standard qui permet de signer de manière sécurisée tous les jetons émis par le serveur de fédération.|Le certificat de signature de jetons doit contenir une clé privée et être lié à une source digne de confiance dans le service de fédération. Par défaut, AD FS crée un certificat auto-signé. Toutefois, vous pouvez modifier ce paramétrage à tout moment au profit d'un certificat émis par une autorité de certification à l'aide du composant logiciel enfichable Gestion AD FS, suivant les besoins de votre organisation.|  
-|Certificat de déchiffrement de jeton|Certificat SSL standard qui permet de déchiffrer les jetons entrants chiffrés par un serveur de fédération partenaire. Il est également publié dans les métadonnées de fédération.|Par défaut, AD FS crée un certificat auto-signé. Toutefois, vous pouvez modifier ce paramétrage à tout moment au profit d'un certificat émis par une autorité de certification à l'aide du composant logiciel enfichable Gestion AD FS, suivant les besoins de votre organisation.|  
+|Certificat de signature de jetons|Certificat X509 standard qui permet de signer de manière sécurisée tous les jetons émis par le serveur de fédération.|Le certificat de signature de jetons doit contenir une clé privée, et être chaîné à une racine approuvée du service de fédération. Par défaut, AD FS crée un certificat auto-signé. Toutefois, vous pouvez modifier ce paramétrage à tout moment au profit d'un certificat émis par une autorité de certification à l'aide du composant logiciel enfichable Gestion AD FS, suivant les besoins de votre organisation.|  
+|Certificat de déchiffrement de jeton|Certificat SSL standard qui permet de déchiffrer les jetons entrants chiffrés par un serveur de fédération partenaire. Il est également publié dans les métadonnées de fédération.|Par défaut, AD FS crée un certificat auto-signé. Toutefois, vous pouvez modifier ce paramétrage à tout moment au profit d'un certificat émis par une autorité de certification à l'aide du composant logiciel enfichable Gestion AD FS, suivant les besoins de votre organisation.|  
   
 > [!CAUTION]  
 > Les certificats utilisés pour la signature de jeton et pour le déchiffrement de jeton sont essentiels pour la stabilité du service de fédération. Comme la perte ou la suppression non planifiée d'un certificat configuré à cette fin peut perturber le service, vous devez sauvegarder tous les certificats de ce type.  
   
-Pour plus d'informations sur les certificats utilisés par les serveurs de fédération, consultez [Certificate Requirements for Federation Servers](Certificate-Requirements-for-Federation-Servers.md).  
+Pour plus d'informations sur les certificats utilisés par les serveurs de fédération, consultez [Certificats requis pour les serveurs de fédération](Certificate-Requirements-for-Federation-Servers.md).  
   
-### <a name="federation-server-proxy-certificates"></a>Certificats des serveurs proxy de fédération  
+### <a name="federation-server-proxy-certificates"></a>Certificats de serveur proxy de fédération  
 Les serveurs proxy de fédération ont besoin des certificats indiqués dans le tableau suivant.  
   
-|Type de certificat|Description|Ce que vous devez savoir avant d'effectuer le déploiement|  
+|Type de certificat|Description|Ce que vous devez savoir avant de procéder au déploiement|  
 |--------------------|---------------|------------------------------------------|  
-|Certificat d'authentification serveur|Certificat SSL (Secure Sockets Layer) standard qui permet de sécuriser les communications entre un serveur proxy de fédération et les ordinateurs client Internet.|Vous devez lier ce certificat au site web par défaut dans Internet Information Services (IIS) avant d'exécuter l'Assistant Configuration du serveur proxy de fédération AD FS.<br /><br />**Recommandés** ce certificat devant être approuvé par les clients d'AD FS, utilisez un certificat d'authentification serveur émis par une autorité de certification publique (tierce), comme VeriSign.<br /><br />**Accélératrice** Le nom de sujet de ce certificat permet de représenter le nom du service de fédération pour chaque instance d'AD FS que vous déployez. Vous pouvez donc choisir un nom de sujet qui reflète le nom de votre entreprise ou organisation auprès des partenaires.|  
+|Certificat d'authentification serveur|Certificat SSL (Secure Sockets Layer) standard qui permet de sécuriser les communications entre un serveur proxy de fédération et les ordinateurs client Internet.|Vous devez lier ce certificat au site web par défaut dans Internet Information Services (IIS) avant d'exécuter l'Assistant Configuration du serveur proxy de fédération AD FS.<p>**Recommandation :** ce certificat devant être approuvé par les clients d'AD FS, utilisez un certificat d'authentification serveur émis par une autorité de certification publique (tierce), comme VeriSign.<p>**Astuce :** Le nom de sujet de ce certificat permet de représenter le nom du service de fédération pour chaque instance d'AD FS que vous déployez. Vous pouvez donc choisir un nom de sujet qui reflète le nom de votre entreprise ou organisation auprès des partenaires.|  
   
 Pour plus d'informations sur les certificats utilisés par les serveurs proxy de fédération, consultez [Exigences de certificat pour les serveurs proxy de fédération](Certificate-Requirements-for-Federation-Server-Proxies.md).  
   
@@ -70,7 +69,7 @@ Bien que tout navigateur web actuel doté de la fonctionnalité JavaScript puiss
   
 L’équipe de produit AD FS chez Microsoft a testé avec succès les configurations de navigateur et de système d’exploitation dans le tableau suivant.  
   
-|Visiteur|Windows 7|Windows Vista|  
+|Navigateur.|Windows 7|Windows Vista|  
 |-----------|-------------|-----------------|  
 |Internet Explorer 7.0|X|X|  
 |Internet Explorer 8.0|X|X|  
@@ -86,14 +85,14 @@ AD FS crée des cookies persistants et de session qui doivent être stockés sur
   
 Pour des raisons de sécurité, la prise en charge de TLS/SSL est nécessaire.  
   
-## <a name="network-requirements"></a>Configuration requise pour le réseau  
-La configuration appropriée des services réseau suivants est essentielle pour réussir le déploiement de AD FS dans votre organisation.  
+## <a name="network-requirements"></a>Configuration réseau requise  
+La configuration appropriée des services réseau suivants est essentielle au succès du déploiement d'AD FS dans votre organisation.  
   
 ### <a name="tcpip-network-connectivity"></a>Connectivité réseau TCP/IP  
 Pour que AD FS fonctionne, la connectivité réseau TCP/IP doit exister entre le client ; un contrôleur de domaine ; et les ordinateurs qui hébergent le service FS (Federation Service), le proxy FSP (Federation Service Proxy) (quand il est utilisé) et le Agent Web AD FS.  
   
 ### <a name="dns"></a>DNS  
-Le service réseau principal essentiel au fonctionnement de AD FS, autre que Active Directory Domain Services (AD DS), est DNS (Domain Name System). Quand DNS est déployé, les utilisateurs peuvent se connecter aux ordinateurs et autres ressources sur les réseaux IP à l'aide de noms d'ordinateur conviviaux faciles à retenir.  
+Le service réseau principal essentiel au fonctionnement de AD FS, autre que Active Directory Domain Services (AD DS), est DNS (Domain Name System). Quand le DNS est déployé, les utilisateurs peuvent utiliser de manière conviviale les noms d’ordinateurs faciles à mémoriser pour se connecter aux ordinateurs et autres ressources des réseaux IP.  
   
  Windows Server 2008 utilise DNS pour la résolution de noms au lieu de la résolution de noms NetBIOS WINS (Windows Internet Name Service) qui a été utilisée dans les réseaux Windows NT 4.0. Vous pouvez toujours utiliser WINS pour les applications qui le nécessitent. Toutefois, AD DS et AD FS nécessitent la résolution de noms DNS.  
   
@@ -101,7 +100,7 @@ Le processus de configuration de DNS pour prendre en charge les AD FS varie selo
   
 -   Votre organisation possède déjà une infrastructure DNS. Dans la plupart des scénarios, la configuration DNS existante permet aux clients de navigateur web reliés à votre réseau d'entreprise d'accéder à Internet. Étant donné que l’accès à Internet et la résolution de noms sont des exigences de AD FS, cette infrastructure est supposée être en place pour votre déploiement AD FS.  
   
--   Vous envisagez d'ajouter un serveur fédéré à votre réseau d'entreprise. Pour l'authentification des utilisateurs sur le réseau d'entreprise, les serveurs DNS internes dans la forêt du réseau d'entreprise doivent être configurés de manière à retourner le nom CNAME du serveur interne qui exécute le service de fédération. Pour plus d'informations, voir [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md).  
+-   Vous envisagez d'ajouter un serveur fédéré à votre réseau d'entreprise. Pour l'authentification des utilisateurs sur le réseau d'entreprise, les serveurs DNS internes dans la forêt du réseau d'entreprise doivent être configurés de manière à retourner le nom CNAME du serveur interne qui exécute le service de fédération. Pour plus d'informations, consultez [Configuration de la résolution de noms pour les serveurs de fédération](Name-Resolution-Requirements-for-Federation-Servers.md).  
   
 -   Vous envisagez d'ajouter un serveur proxy fédéré à votre réseau de périmètre. Lorsque vous souhaitez authentifier des comptes d’utilisateur qui se trouvent dans le réseau d’entreprise de votre organisation partenaire d’identité, les serveurs DNS internes dans la forêt du réseau d’entreprise doivent être configurés pour retourner l’enregistrement CNAME du serveur proxy de Fédération interne. Pour plus d’informations sur la configuration de DNS pour prendre en charge l’ajout de serveurs proxys de Fédération, consultez la page [Configuration requise pour la résolution de noms pour les serveurs proxys de Fédération](Name-Resolution-Requirements-for-Federation-Server-Proxies.md).  
   
@@ -135,7 +134,7 @@ Si vous créez une batterie de serveurs de fédération, vous devez d'abord cré
 ### <a name="ldap"></a>LDAP  
 Quand vous utilisez d'autres magasins d'attributs LDAP (Lightweight Directory Access Protocol), vous devez vous connecter à un serveur LDAP qui prend en charge l'authentification intégrée de Windows. En outre, la chaîne de connexion LDAP doit être écrite sous la forme d'une URL LDAP, comme indiqué dans le document RFC 2255.  
   
-### <a name="sql-server"></a>SQL Server  
+### <a name="sql-server"></a>SQL Server  
 Pour que AD FS fonctionne correctement, les ordinateurs qui hébergent le magasin d’attributs du serveur langage SQL (SQL) doivent exécuter Microsoft SQL Server 2005 ou SQL Server 2008. Quand vous utilisez des magasins d'attributs SQL, vous devez également configurer une chaîne de connexion.  
   
 ### <a name="custom-attribute-stores"></a>Magasins d'attributs personnalisés  

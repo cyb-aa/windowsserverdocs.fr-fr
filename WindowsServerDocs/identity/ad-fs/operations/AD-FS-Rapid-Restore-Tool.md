@@ -1,7 +1,6 @@
 ---
 ms.assetid: 4deff06a-d0ef-4e5a-9701-5911ba667201
 title: Outil de restauration rapide ADFS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 07/02/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2570aae52da2925a62dd6c9262af325fb5461fff
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 506734812689a42ec17768652ac715f5c7e24401
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465263"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858102"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>Outil de restauration rapide ADFS
 
@@ -79,7 +78,7 @@ Jeux de paramètres
 
 - **BackupDKM** : sauvegarde le conteneur DKM Active Directory qui contient les clés de AD FS dans la configuration par défaut (génération automatique de certificats de signature et de déchiffrement de jetons). Cela utilise un outil AD « LDIFDE » pour exporter le conteneur AD et toutes ses sous-arborescences.
 
-- -**StorageType &lt;chaîne&gt;** : type de stockage que l’utilisateur souhaite utiliser. « FileSystem » indique que l’utilisateur veut le stocker dans un dossier local ou dans le réseau « Azure » indique que l’utilisateur souhaite le stocker dans le conteneur de stockage Azure lorsque l’utilisateur effectue la sauvegarde, il sélectionne l’emplacement de sauvegarde, soit le système de fichiers, soit le pluie. Pour utiliser Azure, les informations d’identification de stockage Azure doivent être transmises à l’applet de commande. Les informations d’identification de stockage contiennent le nom et la clé du compte. En outre, un nom de conteneur doit également être transmis. Si le conteneur n’existe pas, il est créé au cours de la sauvegarde. Pour le système de fichiers à utiliser, un chemin d’accès de stockage doit être fourni. Dans ce répertoire, un nouveau répertoire est créé pour chaque sauvegarde. Chaque répertoire créé contiendra les fichiers sauvegardés. 
+- -**StorageType &lt;chaîne&gt;** : type de stockage que l’utilisateur souhaite utiliser. « FileSystem » indique que l’utilisateur veut le stocker dans un dossier local ou dans le réseau « Azure » indique que l’utilisateur veut le stocker dans le conteneur de stockage Azure lorsque l’utilisateur effectue la sauvegarde, il sélectionne l’emplacement de sauvegarde, le système de fichiers ou dans le Cloud. Pour utiliser Azure, les informations d’identification de stockage Azure doivent être transmises à l’applet de commande. Les informations d’identification de stockage contiennent le nom et la clé du compte. En outre, un nom de conteneur doit également être transmis. Si le conteneur n’existe pas, il est créé au cours de la sauvegarde. Pour le système de fichiers à utiliser, un chemin d’accès de stockage doit être fourni. Dans ce répertoire, un nouveau répertoire est créé pour chaque sauvegarde. Chaque répertoire créé contiendra les fichiers sauvegardés. 
 
 - **EncryptionPassword &lt;chaîne&gt;** : mot de passe qui sera utilisé pour chiffrer tous les fichiers sauvegardés avant de les stocker.
 
@@ -117,7 +116,7 @@ Backup-ADFS -StorageType "Azure" -AzureConnectionCredentials $cred -AzureStorage
 
 ### <a name="backup-the-ad-fs-configuration-without-the-dkm-to-the-file-system"></a>Sauvegarder la configuration de AD FS sans DKM dans le système de fichiers
 
-```powershell   
+```powershell     
 Backup-ADFS -StorageType "FileSystem" -StoragePath "C:\Users\administrator\testExport\" -EncryptionPassword "password" -BackupComment "Clean Install of ADFS (FS)"
 ```
 

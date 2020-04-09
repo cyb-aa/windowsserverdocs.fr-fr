@@ -1,28 +1,24 @@
 ---
 title: Processus des informations d’identification dans l’authentification Windows
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-windows-auth
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 48c60816-fb8b-447c-9c8e-800c2e05b14f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 051cb88620065ed675f377f3369860f7b04460bd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2de8383ce6a946dfdd80cfc027478c495037169b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402284"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857582"
 ---
 # <a name="credentials-processes-in-windows-authentication"></a>Processus des informations d’identification dans l’authentification Windows
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique de référence pour les professionnels de l’informatique décrit comment l’authentification Windows traite les informations d’identification.
 
@@ -30,7 +26,7 @@ La gestion des informations d’identification Windows est le processus par lequ
 
 Par défaut, les informations d’identification Windows sont validées par rapport à la base de données du gestionnaire de comptes de sécurité (SAM) sur l’ordinateur local, ou par rapport à Active Directory sur un ordinateur joint à un domaine, par le biais du service Winlogon. Les informations d’identification sont collectées via l’entrée d’utilisateur sur l’interface utilisateur d’ouverture de session ou par programme via l’interface de programmation d’applications (API) à présenter à la cible d’authentification.
 
-Les informations de sécurité locales sont stockées dans le Registre sous **HKEY_LOCAL_MACHINE\SECURITY**. Les informations stockées incluent les paramètres de stratégie, les valeurs de sécurité par défaut et les informations de compte, telles que les informations d’identification d’ouverture de session mises en cache. Une copie de la base de données SAM est également stockée ici, bien qu’elle soit protégée en écriture.
+Les informations de sécurité locales sont stockées dans le Registre sous **HKEY_LOCAL_MACHINE \Security**. Les informations stockées incluent les paramètres de stratégie, les valeurs de sécurité par défaut et les informations de compte, telles que les informations d’identification d’ouverture de session mises en cache. Une copie de la base de données SAM est également stockée ici, bien qu’elle soit protégée en écriture.
 
 Le diagramme suivant montre les composants requis et les chemins d’accès que les informations d’identification effectuent via le système pour authentifier l’utilisateur ou le processus en vue d’une ouverture de session réussie.
 
@@ -43,11 +39,11 @@ Le tableau suivant décrit chaque composant qui gère les informations d’ident
 |Component|Description|
 |-------|--------|
 |Ouverture de session de l’utilisateur|Winlogon. exe est le fichier exécutable responsable de la gestion des interactions utilisateur sécurisées. Le service Winlogon lance le processus d’ouverture de session pour les systèmes d’exploitation Windows en passant les informations d’identification collectées par l’action de l’utilisateur sur le Bureau sécurisé (interface utilisateur de connexion) à l’autorité de sécurité locale (LSA) via secur32. dll.|
-|Ouverture de session d’application|Les ouvertures de session d’application ou de service qui ne nécessitent pas d’ouverture de session interactive. La plupart des processus initiés par l’utilisateur s’exécutent en mode utilisateur à l’aide de secur32. dll, tandis que les processus lancés au démarrage, tels que les services, s’exécutent en mode noyau à l’aide de KsecDD. sys.<br /><br />Pour plus d’informations sur le mode utilisateur et le mode noyau, consultez applications et mode utilisateur, services et mode noyau dans cette rubrique.|
+|Ouverture de session d’application|Les ouvertures de session d’application ou de service qui ne nécessitent pas d’ouverture de session interactive. La plupart des processus initiés par l’utilisateur s’exécutent en mode utilisateur à l’aide de secur32. dll, tandis que les processus lancés au démarrage, tels que les services, s’exécutent en mode noyau à l’aide de KsecDD. sys.<p>Pour plus d’informations sur le mode utilisateur et le mode noyau, consultez applications et mode utilisateur, services et mode noyau dans cette rubrique.|
 |Secur32.dll|Plusieurs fournisseurs d’authentification qui constituent la base du processus d’authentification.|
 |Lsasrv.dll|Le service serveur LSA, qui applique les stratégies de sécurité et agit comme gestionnaire de package de sécurité pour le LSA. Le LSA contient la fonction Negotiate, qui sélectionne le protocole NTLM ou Kerberos après avoir déterminé le protocole qui doit être exécuté.|
 |Fournisseurs de support de sécurité|Ensemble de fournisseurs qui peuvent appeler individuellement un ou plusieurs protocoles d’authentification. L’ensemble de fournisseurs par défaut peut changer avec chaque version du système d’exploitation Windows, et les fournisseurs personnalisés peuvent être écrits.|
-|Netlogon.dll|Les services exécutés par le service accès réseau sont les suivants :<br /><br />-Gère le canal sécurisé de l’ordinateur (à ne pas confondre avec Schannel) sur un contrôleur de domaine.<br />-Transmet les informations d’identification de l’utilisateur via un canal sécurisé au contrôleur de domaine et retourne les identificateurs de sécurité (SID) de domaine et les droits d’utilisateur de l’utilisateur.<br />-Publie les enregistrements de ressource de service dans le système DNS (Domain Name System) et utilise le DNS pour résoudre les noms en adresses IP des contrôleurs de domaine.<br />: Implémente le protocole de réplication basé sur l’appel de procédure distante (RPC) pour synchroniser les contrôleurs de domaine principaux (PDC) et les contrôleurs de domaine de sauvegarde (BDC).|
+|Netlogon.dll|Les services exécutés par le service accès réseau sont les suivants :<p>-Gère le canal sécurisé de l’ordinateur (à ne pas confondre avec Schannel) sur un contrôleur de domaine.<br />-Transmet les informations d’identification de l’utilisateur via un canal sécurisé au contrôleur de domaine et retourne les identificateurs de sécurité (SID) de domaine et les droits d’utilisateur de l’utilisateur.<br />-Publie les enregistrements de ressource de service dans le système DNS (Domain Name System) et utilise le DNS pour résoudre les noms en adresses IP des contrôleurs de domaine.<br />: Implémente le protocole de réplication basé sur l’appel de procédure distante (RPC) pour synchroniser les contrôleurs de domaine principaux (PDC) et les contrôleurs de domaine de sauvegarde (BDC).|
 |Samsrv. dll|Le gestionnaire de comptes de sécurité (SAM, Security Accounts Manager), qui stocke les comptes de sécurité locaux, applique les stratégies stockées localement et prend en charge les API.|
 |Registre|Le registre contient une copie de la base de données SAM, des paramètres de stratégie de sécurité locale, des valeurs de sécurité par défaut et des informations de compte qui sont accessibles uniquement au système.|
 
@@ -69,7 +65,7 @@ Cette rubrique contient les sections suivantes :
 
 -   [Certificats dans l’authentification Windows](#BKMK_CertificatesInWindowsAuthentication)
 
-## <a name="BKMK_CrentialInputForUserLogon"></a>Entrée d’informations d’identification pour l’ouverture de session utilisateur
+## <a name="credential-input-for-user-logon"></a><a name="BKMK_CrentialInputForUserLogon"></a>Entrée d’informations d’identification pour l’ouverture de session utilisateur
 Dans Windows Server 2008 et Windows Vista, l’architecture GINA (Graphical Identification and Authentication) a été remplacée par un modèle de fournisseur d’informations d’identification, ce qui permet d’énumérer différents types d’ouverture de session via l’utilisation des vignettes d’ouverture de session. Les deux modèles sont décrits ci-dessous.
 
 **Identification graphique et architecture d’authentification**
@@ -132,16 +128,16 @@ Le fournisseur d’informations d’identification énumère les vignettes d’o
 
 -   Le fournisseur d’informations d’identification énumère les vignettes en réponse à une demande de l’utilisateur afin de modifier leur mot de passe ou d’autres informations privées, telles qu’un code confidentiel. En règle générale, l’utilisateur actuellement connecté est la vignette par défaut. Toutefois, si plusieurs utilisateurs sont connectés, de nombreuses vignettes s’affichent.
 
--   Le fournisseur d’informations d’identification énumère les vignettes en fonction des informations d’identification sérialisées à utiliser pour l’authentification sur les ordinateurs distants. L’interface utilisateur des informations d’identification n’utilise pas la même instance du fournisseur que l’interface utilisateur d’ouverture de session, déverrouiller la station de travail ou modifier le mot de passe. Par conséquent, les informations d’État ne peuvent pas être conservées dans le fournisseur entre les instances de l’interface utilisateur des informations d’identification. Cette structure génère une vignette pour chaque ouverture de session de l’ordinateur distant, en supposant que les informations d’identification ont été correctement sérialisées. Ce scénario est également utilisé dans le contrôle de compte d’utilisateur (UAC), qui peut aider à empêcher les modifications non autorisées sur un ordinateur en invitant l’utilisateur à avoir l’autorisation ou un mot de passe d’administrateur avant d’autoriser des actions susceptibles d’affecter le fonctionnement de l’ordinateur. Sinon, cela peut modifier les paramètres qui affectent les autres utilisateurs de l’ordinateur.
+-   Le fournisseur d’informations d’identification énumère les vignettes en fonction des informations d’identification sérialisées à utiliser pour l’authentification sur les ordinateurs distants. L’interface utilisateur des informations d’identification n’utilise pas la même instance du fournisseur que l’interface utilisateur d’ouverture de session, déverrouiller la station de travail ou modifier le mot de passe. Par conséquent, les informations d’État ne peuvent pas être conservées dans le fournisseur entre les instances de l’interface utilisateur des informations d’identification. Cette structure génère une vignette pour chaque ouverture de session de l’ordinateur distant, en supposant que les informations d’identification ont été correctement sérialisées. Ce scénario est également utilisé dans le contrôle de compte d’utilisateur (UAC), qui peut aider à empêcher les modifications non autorisées sur un ordinateur en invitant l’utilisateur à avoir l’autorisation ou un mot de passe d’administrateur avant d’autoriser des actions susceptibles d’affecter le fonctionnement de l’ordinateur ou de modifier des paramètres qui affectent les autres utilisateurs de l’ordinateur.
 
 Le diagramme suivant illustre le processus d’information d’identification pour les systèmes d’exploitation désignés dans la liste **s’applique à** au début de cette rubrique.
 
 ![Diagramme illustrant le processus d’informations d’identification pour les systèmes d’exploitation désignés dans la liste * * s’applique à * * au début de cette rubrique.](../media/credentials-processes-in-windows-authentication/AuthN_CredMan_CredProv.gif)
 
-## <a name="BKMK_CredentialInputForApplicationAndServiceLogon"></a>Entrée des informations d’identification pour l’ouverture de session du service et de l’application
+## <a name="credential-input-for-application-and-service-logon"></a><a name="BKMK_CredentialInputForApplicationAndServiceLogon"></a>Entrée des informations d’identification pour l’ouverture de session du service et de l’application
 L’authentification Windows est conçue pour gérer les informations d’identification des applications ou des services qui ne nécessitent pas d’intervention de l’utilisateur. Les applications en mode utilisateur sont limitées en termes de ressources système auxquelles elles ont accès, tandis que les services peuvent avoir un accès illimité à la mémoire système et aux périphériques externes.
 
-Les services système et les applications de niveau transport accèdent à un fournisseur SSP (Security Support Provider) par le biais de l’interface SSPI (Security Support Provider Interface) de Windows, qui fournit des fonctions permettant d’énumérer les packages de sécurité disponibles sur un système, en sélectionnant un et l’utilisation de ce package pour obtenir une connexion authentifiée.
+Les services système et les applications de niveau transport accèdent à un fournisseur SSP (Security Support Provider) par le biais de l’interface SSPI (Security Support Provider Interface) de Windows, qui fournit des fonctions pour énumérer les packages de sécurité disponibles sur un système, sélectionner un package et utiliser ce package pour obtenir une connexion authentifiée.
 
 Lorsqu’une connexion client/serveur est authentifiée :
 
@@ -157,15 +153,15 @@ Lorsqu’une connexion client/serveur est authentifiée :
 
 **Applications et mode utilisateur**
 
-Le mode utilisateur dans Windows est composé de deux systèmes permettant de transmettre des demandes d’e/s aux pilotes en mode noyau appropriés : le système d’environnement, qui exécute des applications écrites pour de nombreux types différents de systèmes d’exploitation, et le système intégral, qui fonctionne fonctions spécifiques au système pour le compte du système d’environnement.
+Le mode utilisateur dans Windows est composé de deux systèmes permettant de transmettre des demandes d’e/s aux pilotes en mode noyau appropriés : le système d’environnement, qui exécute des applications écrites pour de nombreux types différents de systèmes d’exploitation, et le système intégral, qui exploite des fonctions spécifiques au système pour le compte du système d’environnement.
 
-Le système intégral gère les fonctions de system’specific d’exploitation pour le compte du système d’environnement et se compose d’un processus de système de sécurité (LSA), d’un service de station de travail et d’un service serveur. Le processus du système de sécurité traite les jetons de sécurité, accorde ou refuse les autorisations d’accès aux comptes d’utilisateur en fonction des autorisations de ressource, gère les demandes d’ouverture de session et lance l’authentification d’ouverture de session, et détermine les ressources système du système d’exploitation. doit effectuer un audit.
+Le système intégral gère les fonctions de system’specific d’exploitation pour le compte du système d’environnement et se compose d’un processus de système de sécurité (LSA), d’un service de station de travail et d’un service serveur. Le processus du système de sécurité traite des jetons de sécurité, accorde ou refuse des autorisations d’accès aux comptes d’utilisateur en fonction des autorisations de ressource, gère les demandes d’ouverture de session et lance l’authentification d’ouverture de session, et détermine les ressources système que le système d’exploitation doit auditer.
 
 Les applications peuvent s’exécuter en mode utilisateur, où l’application peut s’exécuter comme n’importe quel principal, y compris dans le contexte de sécurité du système local (système). Les applications peuvent également s’exécuter en mode noyau, où l’application peut s’exécuter dans le contexte de sécurité du système local (système).
 
-SSPI est disponible via le module secur32. dll, qui est une API utilisée pour obtenir des services de sécurité intégrés pour l’authentification, l’intégrité des messages et la confidentialité des messages. Il fournit une couche d’abstraction entre les protocoles de niveau application et les protocoles de sécurité. Étant donné que différentes applications requièrent différentes façons d’identifier ou d’authentifier les utilisateurs et les différentes méthodes de chiffrement des données lors de leur transit sur un réseau, SSPI offre un moyen d’accéder aux bibliothèques de liens dynamiques (dll) qui contiennent différentes authentifications. et les fonctions de chiffrement. Ces dll sont appelées fournisseurs de support de sécurité (SSP).
+SSPI est disponible via le module secur32. dll, qui est une API utilisée pour obtenir des services de sécurité intégrés pour l’authentification, l’intégrité des messages et la confidentialité des messages. Il fournit une couche d’abstraction entre les protocoles de niveau application et les protocoles de sécurité. Étant donné que les applications différentes nécessitent différentes façons d’identifier ou d’authentifier les utilisateurs et les différentes méthodes de chiffrement des données lors de leur transit sur un réseau, SSPI offre un moyen d’accéder aux bibliothèques de liens dynamiques (dll) qui contiennent différentes fonctions d’authentification et de chiffrement. Ces dll sont appelées fournisseurs de support de sécurité (SSP).
 
-Les comptes de service administrés et les comptes virtuels ont été introduits dans Windows Server 2008 R2 et Windows 7 pour fournir des applications cruciales, telles que Microsoft SQL Server et Internet Information Services (IIS), avec l’isolation de leurs propres comptes de domaine, alors que Il n’est pas nécessaire d’avoir un administrateur pour administrer manuellement le nom de principal du service (SPN) et les informations d’identification de ces comptes. Pour plus d’informations sur ces fonctionnalités et leur rôle dans l’authentification, consultez [la documentation sur les comptes de service administrés pour Windows 7 et Windows Server 2008 R2](https://technet.microsoft.com/library/ff641731(v=ws.10).aspx) et [vue d’ensemble des comptes de service administrés de groupe](../group-managed-service-accounts/group-managed-service-accounts-overview.md).
+Les comptes de service administrés et les comptes virtuels ont été introduits dans Windows Server 2008 R2 et Windows 7 pour fournir des applications cruciales, telles que Microsoft SQL Server et Internet Information Services (IIS), avec l’isolation de leurs propres comptes de domaine, tout en éliminant la nécessité pour un administrateur de gérer manuellement le nom de principal du service (SPN) et les informations d’identification de ces comptes. Pour plus d’informations sur ces fonctionnalités et leur rôle dans l’authentification, consultez [la documentation sur les comptes de service administrés pour Windows 7 et Windows Server 2008 R2](https://technet.microsoft.com/library/ff641731(v=ws.10).aspx) et [vue d’ensemble des comptes de service administrés de groupe](../group-managed-service-accounts/group-managed-service-accounts-overview.md).
 
 **Services et mode noyau**
 
@@ -180,7 +176,7 @@ Le fichier KsecDD. sys gère et chiffre ces informations d’identification et u
 
 Le mode noyau dispose d’un accès complet aux ressources matérielles et système de l’ordinateur. Le mode noyau arrête les services et applications en mode utilisateur pour accéder aux zones critiques du système d’exploitation auxquelles ils ne doivent pas avoir accès.
 
-## <a name="BKMK_LSA"></a>Autorité de sécurité locale
+## <a name="local-security-authority"></a><a name="BKMK_LSA"></a>Autorité de sécurité locale
 L’autorité de sécurité locale (LSA, Local Security Authority) est un processus système protégé qui authentifie et enregistre les utilisateurs sur l’ordinateur local. De plus, LSA gère les informations sur tous les aspects de la sécurité locale sur un ordinateur (ces aspects sont collectivement appelés stratégie de sécurité locale) et fournit plusieurs services pour la traduction entre les noms et les identificateurs de sécurité (SID). Le processus du système de sécurité, LSASS (local Security Authority Server Service), assure le suivi des stratégies de sécurité et des comptes qui sont en vigueur sur un système informatique.
 
 Le LSA valide l’identité d’un utilisateur en fonction de laquelle des deux entités suivantes ont émis le compte de l’utilisateur :
@@ -235,7 +231,7 @@ Introduite dans Windows 8.1, le système d’exploitation client offre une prote
 
 Pour plus d’informations sur ces protections supplémentaires, consultez Configuration d’une [protection LSA supplémentaire](../credentials-protection-and-management/configuring-additional-lsa-protection.md).
 
-## <a name="BKMK_CachedCredentialsAndValidation"></a>Validation et informations d’identification mises en cache
+## <a name="cached-credentials-and-validation"></a><a name="BKMK_CachedCredentialsAndValidation"></a>Validation et informations d’identification mises en cache
 Les mécanismes de validation reposent sur la présentation des informations d’identification au moment de l’ouverture de session. Toutefois, lorsque l’ordinateur est déconnecté d’un contrôleur de domaine et que l’utilisateur présente des informations d’identification de domaine, Windows utilise le processus d’informations d’identification mises en cache dans le mécanisme de validation.
 
 Chaque fois qu’un utilisateur se connecte à un domaine, Windows met en cache les informations d’identification fournies et les stocke dans la ruche sécurité dans le Registre du système d’exploitation.
@@ -243,7 +239,7 @@ Chaque fois qu’un utilisateur se connecte à un domaine, Windows met en cache 
 Avec les informations d’identification mises en cache, l’utilisateur peut se connecter à un membre du domaine sans être connecté à un contrôleur de domaine au sein de ce domaine.
 
 
-## <a name="BKMK_CredentialStorageAndValidation"></a>Stockage et validation des informations d’identification
+## <a name="credential-storage-and-validation"></a><a name="BKMK_CredentialStorageAndValidation"></a>Stockage et validation des informations d’identification
 Il n’est pas toujours souhaitable d’utiliser un ensemble d’informations d’identification pour accéder à différentes ressources. Par exemple, un administrateur peut souhaiter utiliser des informations d’authentification plutôt que des informations d’identification de l’utilisateur lors de l’accès à un serveur distant. De même, si un utilisateur accède à des ressources externes, telles qu’un compte bancaire, il peut uniquement utiliser des informations d’identification différentes de celles de son domaine. Les sections suivantes décrivent les différences de gestion des informations d’identification entre les versions actuelles des systèmes d’exploitation Windows et les systèmes d’exploitation Windows Vista et Windows XP.
 
 ### <a name="remote-logon-credential-processes"></a>Processus d’informations d’identification d’ouverture de session à distance
@@ -259,7 +255,7 @@ Au redémarrage, l’utilisateur est automatiquement connecté via le mécanisme
 Pour plus d’informations sur connexion, consultez [connexion automatique de &#40;redémarrage connexion&#41;](winlogon-automatic-restart-sign-on-arso.md).
 
 ### <a name="stored-user-names-and-passwords-in-windows-vista-and-windows-xp"></a>Noms d’utilisateur et mots de passe stockés dans Windows Vista et Windows XP
-Dans Windows Server 2008, Windows Server 2003, Windows Vista et Windows XP, les **noms d’utilisateur et mots de passe stockés** dans le panneau de configuration simplifient la gestion et l’utilisation de plusieurs ensembles d’informations d’identification d’ouverture de session, y compris les certificats X. 509 utilisés avec les cartes à puce et Informations d’identification Windows Live (désormais appelées compte Microsoft). Les informations d’identification, qui font partie du profil de l’utilisateur, sont stockées jusqu’à ce qu’elles soient nécessaires. Cette action peut augmenter la sécurité pour chaque ressource en s’assurant que, si un mot de passe est compromis, la sécurité n’est pas compromise.
+Dans Windows Server 2008, Windows Server 2003, Windows Vista et Windows XP, les **noms d’utilisateur et mots de passe stockés** dans le panneau de configuration simplifient la gestion et l’utilisation de plusieurs ensembles d’informations d’identification d’ouverture de session, y compris les certificats X. 509 utilisés avec les cartes à puce et les informations d’identification Windows Live (désormais appelés compte Microsoft). Les informations d’identification, qui font partie du profil de l’utilisateur, sont stockées jusqu’à ce qu’elles soient nécessaires. Cette action peut augmenter la sécurité pour chaque ressource en s’assurant que, si un mot de passe est compromis, la sécurité n’est pas compromise.
 
 Lorsqu’un utilisateur ouvre une session et tente d’accéder à des ressources supplémentaires protégées par mot de passe, telles qu’un partage sur un serveur, et si les informations d’identification d’ouverture de session par défaut de l’utilisateur ne sont pas suffisantes pour accéder à, les **noms d’utilisateur et les mots de passe stockés** sont interrogés. Si d’autres informations d’identification avec les informations d’ouverture de session correctes ont été enregistrées dans les **noms d’utilisateur et mots de passe stockés**, ces informations d’identification sont utilisées pour accéder à. Dans le cas contraire, l’utilisateur est invité à fournir de nouvelles informations d’identification, qui peuvent ensuite être enregistrées en vue de leur réutilisation, soit plus tard dans la session de connexion, soit lors d’une session suivante.
 
@@ -269,7 +265,7 @@ Les restrictions suivantes s’appliquent :
 
 -   Les **noms d’utilisateur et mots de passe stockés** stockent les informations d’identification uniquement pour l’authentification NTLM, le protocole Kerberos, le compte Microsoft (anciennement Windows Live ID) et l’authentification protocole SSL (SSL). Certaines versions d’Internet Explorer maintiennent leur propre cache pour l’authentification de base.
 
-Ces informations d’identification deviennent une partie chiffrée du profil local d’un utilisateur dans le répertoire \Documents and Settings\Username\Application Data\Microsoft\Credentials. Par conséquent, ces informations d’identification peuvent être itinérantes avec l’utilisateur si la stratégie réseau de l’utilisateur prend en charge les profils utilisateur itinérants. Toutefois, si l’utilisateur a des copies de **noms d’utilisateurs et de mots de passe stockés** sur deux ordinateurs différents et modifie les informations d’identification associées à la ressource sur l’un de ces ordinateurs, la modification n’est pas propagée aux **noms d’utilisateur et mots de passe stockés.** sur le deuxième ordinateur.
+Ces informations d’identification deviennent une partie chiffrée du profil local d’un utilisateur dans le répertoire \Documents and Settings\Username\Application Data\Microsoft\Credentials. Par conséquent, ces informations d’identification peuvent être itinérantes avec l’utilisateur si la stratégie réseau de l’utilisateur prend en charge les profils utilisateur itinérants. Toutefois, si l’utilisateur a des copies de **noms d’utilisateurs et de mots de passe stockés** sur deux ordinateurs différents et modifie les informations d’identification associées à la ressource sur l’un de ces ordinateurs, la modification n’est pas propagée aux **noms d’utilisateur et mots de passe stockés** sur le deuxième ordinateur.
 
 ### <a name="windows-vault-and-credential-manager"></a>Coffre Windows et gestionnaire d’informations d’identification
 Le gestionnaire des informations d’identification a été introduit dans Windows Server 2008 R2 et Windows 7 en tant que fonctionnalité du panneau de configuration pour stocker et gérer les noms d’utilisateur et les mots de passe. Le gestionnaire d’informations d’identification permet aux utilisateurs de stocker des informations d’identification pertinentes pour d’autres systèmes et sites Web dans le coffre Windows sécurisé. Certaines versions d’Internet Explorer utilisent cette fonctionnalité pour l’authentification auprès des sites Web.
@@ -280,21 +276,21 @@ Lorsqu’un site Web, une application ou un autre ordinateur demande une authent
 
 La prochaine fois que le service est utilisé, Credential Manager fournit automatiquement les informations d’identification stockées dans le coffre Windows. Si ces informations sont refusées, l’utilisateur est invité à fournir les informations d’accès correctes. Si l’accès est accordé avec les nouvelles informations d’identification, le gestionnaire d’informations d’identification remplace les informations d’identification précédentes par le nouveau, puis stocke les nouvelles informations d’identification dans le coffre Windows.
 
-## <a name="BKMK_SAM"></a>Base de données du gestionnaire de comptes de sécurité
+## <a name="security-accounts-manager-database"></a><a name="BKMK_SAM"></a>Base de données du gestionnaire de comptes de sécurité
 Le gestionnaire de comptes de sécurité (SAM, Security Accounts Manager) est une base de données qui stocke les groupes et comptes d’utilisateurs locaux. Il est présent dans tous les systèmes d’exploitation Windows ; Toutefois, lorsqu’un ordinateur est joint à un domaine, Active Directory gère les comptes de domaine dans des domaines Active Directory.
 
-Par exemple, les ordinateurs clients qui exécutent un système d’exploitation Windows participent à un domaine de réseau en communiquant avec un contrôleur de domaine même si aucun utilisateur humain n’est connecté. Pour initier des communications, l’ordinateur doit disposer d’un compte actif dans le domaine. Avant d’accepter les communications à partir de l’ordinateur, l’autorité LSA sur le contrôleur de domaine authentifie l’identité de l’ordinateur, puis construit le contexte de sécurité de l’ordinateur de la même façon que pour un principal de sécurité humain. Ce contexte de sécurité définit l’identité et les fonctionnalités d’un utilisateur ou d’un service sur un ordinateur particulier ou un utilisateur, un service ou un ordinateur sur un réseau. Par exemple, le jeton d’accès contenu dans le contexte de sécurité définit les ressources (telles qu’un partage de fichiers ou une imprimante) auxquelles il est possible d’accéder et les actions (telles que la lecture, l’écriture ou la modification) qui peuvent être effectuées par ce principal (un utilisateur, un ordinateur ou un service sur cet ordinateur). ressource.
+Par exemple, les ordinateurs clients qui exécutent un système d’exploitation Windows participent à un domaine de réseau en communiquant avec un contrôleur de domaine même si aucun utilisateur humain n’est connecté. Pour initier des communications, l’ordinateur doit disposer d’un compte actif dans le domaine. Avant d’accepter les communications à partir de l’ordinateur, l’autorité LSA sur le contrôleur de domaine authentifie l’identité de l’ordinateur, puis construit le contexte de sécurité de l’ordinateur de la même façon que pour un principal de sécurité humain. Ce contexte de sécurité définit l’identité et les fonctionnalités d’un utilisateur ou d’un service sur un ordinateur particulier ou un utilisateur, un service ou un ordinateur sur un réseau. Par exemple, le jeton d’accès contenu dans le contexte de sécurité définit les ressources (telles qu’un partage de fichiers ou une imprimante) auxquelles il est possible d’accéder et les actions (telles que la lecture, l’écriture ou la modification) qui peuvent être effectuées par ce principal (un utilisateur, un ordinateur ou un service sur cette ressource).
 
 Le contexte de sécurité d’un utilisateur ou d’un ordinateur peut varier d’un ordinateur à un autre, par exemple lorsqu’un utilisateur se connecte à un serveur ou à une station de travail autre que la station de travail principale de l’utilisateur. Il peut également varier d’une session à l’autre, par exemple lorsqu’un administrateur modifie les droits et les autorisations de l’utilisateur. En outre, le contexte de sécurité est généralement différent lorsqu’un utilisateur ou un ordinateur fonctionne de façon autonome, dans un réseau ou dans le cadre d’un domaine de Active Directory.
 
-## <a name="BKMK_LocalDomainsAndTrustedDomains"></a>Domaines locaux et domaines approuvés
+## <a name="local-domains-and-trusted-domains"></a><a name="BKMK_LocalDomainsAndTrustedDomains"></a>Domaines locaux et domaines approuvés
 Lorsqu’il existe une approbation entre deux domaines, les mécanismes d’authentification de chaque domaine s’appuient sur la validité des authentifications provenant de l’autre domaine. Les approbations permettent de fournir un accès contrôlé aux ressources partagées dans un domaine de ressource (domaine d’approbation) en vérifiant que les demandes d’authentification entrantes proviennent d’une autorité approuvée (le domaine approuvé). De cette façon, les approbations agissent comme des ponts qui permettent uniquement aux demandes d’authentification validées de circuler entre les domaines.
 
 La façon dont une approbation spécifique passe les demandes d’authentification dépend de la façon dont elles sont configurées. Les relations d’approbation peuvent être unidirectionnelles, en fournissant l’accès à partir du domaine approuvé aux ressources du domaine d’approbation, ou bidirectionnel, en fournissant un accès à partir de chaque domaine aux ressources de l’autre domaine. Les approbations sont également non transitives, auquel cas une approbation existe uniquement entre les deux domaines de partenaire de confiance, ou transitive. dans ce cas, une approbation s’étend automatiquement à tous les autres domaines approuvés par l’un des partenaires.
 
 Pour plus d’informations sur les relations d’approbation de domaine et de forêt concernant l’authentification, consultez [authentification déléguée et relations d’approbation](https://technet.microsoft.com/library/dn169022.aspx).
 
-## <a name="BKMK_CertificatesInWindowsAuthentication"></a>Certificats dans l’authentification Windows
+## <a name="certificates-in-windows-authentication"></a><a name="BKMK_CertificatesInWindowsAuthentication"></a>Certificats dans l’authentification Windows
 Une infrastructure à clé publique (PKI) est une combinaison de logiciels, de technologies de chiffrement, de processus et de services qui permettent à une organisation de sécuriser ses communications et ses transactions commerciales. La capacité d’une infrastructure à clé publique à sécuriser les communications et les transactions métier est basée sur l’échange de certificats numériques entre les utilisateurs authentifiés et les ressources approuvées.
 
 Un certificat numérique est un document électronique qui contient des informations sur l’entité à laquelle il appartient, l’entité sur laquelle il a été émis, un numéro de série unique ou d’autres dates d’identification, d’émission et d’expiration uniques, ainsi qu’une empreinte digitale numérique.
@@ -320,11 +316,11 @@ La technologie de carte à puce virtuelle a été introduite dans Windows 8. Il 
 
 **Authentification distante et sans fil**
 
-L’authentification réseau à distance et sans fil est une autre technologie qui utilise des certificats pour l’authentification. Le service d’authentification Internet (IAS) et les serveurs de réseau privé virtuel utilisent le protocole EAP-TLS (Extensible Authentication Protocol-Transport Level Security), le protocole PEAP (Protected Extensible Authentication Protocol) ou IPsec (Internet Protocol Security) pour effectuez l’authentification basée sur les certificats pour de nombreux types d’accès réseau, y compris les réseaux privés virtuels (VPN) et les connexions sans fil.
+L’authentification réseau à distance et sans fil est une autre technologie qui utilise des certificats pour l’authentification. Le service d’authentification Internet (IAS) et les serveurs de réseau privé virtuel utilisent le protocole EAP-TLS (Extensible Authentication Protocol-Transport Level Security), le protocole PEAP (Protected Extensible Authentication Protocol) ou IPsec (Internet Protocol Security) pour effectuer une authentification basée sur les certificats pour de nombreux types d’accès réseau, y compris les réseaux privés virtuels (VPN) et sans fil.
 
 Pour plus d’informations sur l’authentification basée sur les certificats dans la mise en réseau, consultez [authentification et certificats d’accès réseau](https://technet.microsoft.com/library/cc759575(WS.10).aspx).
 
-## <a name="BKMK_SeeAlso"></a>Voir aussi
+## <a name="see-also"></a><a name="BKMK_SeeAlso"></a>Voir aussi
 [Concepts de l’authentification Windows](https://docs.microsoft.com/windows-server/security/windows-authentication/windows-authentication-concepts)
 
 

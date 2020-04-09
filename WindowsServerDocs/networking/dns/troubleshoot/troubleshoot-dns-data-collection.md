@@ -2,18 +2,17 @@
 title: Résolution des problèmes liés au DNS (Domain Name System)
 description: Cet article explique comment collecter des données lorsque des problèmes DNS se produisent.
 manager: dcscontentpm
-ms.prod: ''
 ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: 11c52b3beca3afcc0a6bfc8cecee2143dce0f023
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 04bfbfbd2957aec21da966a48feca8d7f160a29c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265831"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860042"
 ---
 # <a name="troubleshooting-domain-name-system-dns-issues"></a>Résolution des problèmes liés au DNS (Domain Name System)
  
@@ -41,7 +40,7 @@ Pour collecter un diagnostic réseau Windows à partir d’un client affecté et
    ipconfig /flushdns
    ```
 
-3. Reproduire le problème.
+3. Reproduisez le problème.
 
 4. Arrêter et enregistrer des traces :
 

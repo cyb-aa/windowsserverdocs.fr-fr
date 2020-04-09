@@ -1,24 +1,20 @@
 ---
 title: wmic
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour WMIC, qui affiche des informations WMI dans un interpréteur de commandes interactif.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 76397c72-d06f-4cea-88cf-c7603315a983
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f5096ab82ebbd01cb4f3a7dc0cf0b15e4b9fae8e
-ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
+ms.openlocfilehash: 03ba4ecb4b12b03e010318bf6ca260dec00f28f3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781326"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829052"
 ---
 # <a name="wmic"></a>wmic
 
@@ -42,10 +38,10 @@ Les sous-commandes suivantes sont disponibles en permanence :
 |-----------|-----------|
 |classe|Échappe du mode d’alias par défaut de WMIC pour accéder directement aux classes dans le schéma WMI.|
 |path|Échappe du mode d’alias par défaut de WMIC pour accéder directement aux instances dans le schéma WMI.|
-|contexte|Affiche les valeurs actuelles de tous les commutateurs globaux.|
+|context|Affiche les valeurs actuelles de tous les commutateurs globaux.|
 |[quitter \| quitter]|Quitte l’interface de commande WMIC.|
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour afficher les valeurs actuelles de tous les commutateurs globaux, tapez :
 ```
@@ -75,6 +71,6 @@ Pour modifier l’ID de langue utilisé par la ligne de commande en anglais (ID 
 wmic /locale:ms_409
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

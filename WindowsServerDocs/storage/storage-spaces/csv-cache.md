@@ -2,21 +2,21 @@
 title: Cache de lecture en mémoire espaces de stockage direct
 ms.prod: windows-server
 ms.author: eldenc
-ms.manager: siroy
+manager: siroy
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 02/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 83fc923f505531f955fc0131d7dcc1ce98974daa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d9ebc40b69373dafbebdb87f2abe624a5a7a4375
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394085"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858952"
 ---
 # <a name="using-storage-spaces-direct-with-the-csv-in-memory-read-cache"></a>Utilisation de espaces de stockage direct avec le cache de lecture en mémoire CSV
-> S'applique à : Windows Server 2016, Windows Server 2019
+> S’applique à : Windows Server 2016, Windows Server 2019
 
 Cette rubrique explique comment utiliser la mémoire système pour améliorer les performances de [espaces de stockage direct](storage-spaces-direct-overview.md).
 
@@ -42,7 +42,7 @@ Le cache de lecture en mémoire CSV est disponible dans Windows Server 2016 et W
 
 | Version du système d'exploitation          | Taille du cache CSV par défaut |
 |---------------------|------------------------|
-| Windows Server 2016 | 0 (désactivé)           |
+| Windows Server 2016 | 0 (désactivé)           |
 | Windows Server 2019 | 1 Gio                   |
 
 Pour voir la quantité de mémoire allouée à l’aide de PowerShell, exécutez :

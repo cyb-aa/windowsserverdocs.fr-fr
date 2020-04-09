@@ -1,7 +1,6 @@
 ---
 ms.assetid: 22f53391-8c6a-4873-a1f4-08b4760ea621
 title: Rôle des revendications
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 851a70bbed606530ca8292f65bc4f776eae77fae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2477152231489e309fc48fd57d38e09a9bf658eb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407345"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860172"
 ---
 # <a name="the-role-of-claims"></a>Rôle des revendications
 Dans le modèle d’identité basé sur les revendications\-, les revendications jouent un rôle pivot dans le processus de Fédération, elles sont le composant clé par lequel le résultat de toutes les demandes d’authentification et d’autorisation basées sur le\-Web est déterminé. Ce modèle permet aux organisations de partager de manière sécurisée l'identité numérique et les droits d'accès , ou *revendications*, hors de l'entreprise de façon normalisée.  
@@ -58,9 +57,9 @@ Un type de revendication fournit le contexte de la valeur de la revendication. E
 |UPN|Nom d’utilisateur principal \(\) UPN de l’utilisateur|http :\/\/schemas.xmlsoap.org\/WS\/2005\/05\/identité\/revendications\/UPN|  
 |Nom commun|Nom commun de l'utilisateur|http :\/\/schemas.xmlsoap.org\/revendications\/CommonName|  
 |AD FS 1. x E\-adresse de messagerie|L’e\-adresse de messagerie de l’utilisateur lors de l’interopérabilité avec AD FS 1,1 ou ADFS 1,0|http :\/\/schemas.xmlsoap.org\/revendications\/EmailAddress|  
-|Group|Groupe dont l'utilisateur est membre|http :\/\/schemas.xmlsoap.org\/revendications\/groupe|  
+|Groupe|Groupe dont l'utilisateur est membre|http :\/\/schemas.xmlsoap.org\/revendications\/groupe|  
 |UPN AD FS 1.x|Nom d'utilisateur principal de l'utilisateur quand il interagit avec AD FS 1.1 ou AD FS 1.0|http :\/\/schemas.xmlsoap.org\/revendications\/UPN|  
-|Rôle|Rôle de l'utilisateur|\/rôle\/\/schemas.microsoft.com\/WS\/2008\/\/\/|  
+|Role|Rôle de l'utilisateur|\/rôle\/\/schemas.microsoft.com\/WS\/2008\/\/\/|  
 |Nom|Nom de l'utilisateur|http :\/\/schemas.xmlsoap.org\/WS\/2005\/05\/identité\/les revendications\/nom de famille|  
 |PPID|Identificateur privé de l'utilisateur|http :\/\/schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/claims\/PrivatePersonalIdentifier|  
 |Identificateur de nom|Identificateur de nom SAML de l'utilisateur|http :\/\/schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/claims\/NameIdentifier|  

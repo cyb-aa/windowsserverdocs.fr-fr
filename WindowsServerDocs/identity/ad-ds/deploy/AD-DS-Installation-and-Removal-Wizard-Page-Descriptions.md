@@ -1,7 +1,6 @@
 ---
 ms.assetid: ac727bd1-a892-47ed-a7ba-439b34187d4e
 title: Descriptions des pages des Assistants Installation et Suppression des services de domaine Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 3563c30e86c53435c10cafc840a71c7b8c526943
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 7370dfed68e22ca88030aec913db4eb52eef9ec3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323251"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825452"
 ---
 # <a name="ad-ds-installation-and-removal-wizard-page-descriptions"></a>Descriptions des pages des Assistants Installation et Suppression des services de domaine Active Directory
 
@@ -50,7 +49,7 @@ Cette rubrique décrit les commandes figurant sur les pages des Assistants suiva
   
 -   [Confirmer les sélections de suppression de rôle](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_ConfirmRoleRemovalPage)  
   
-## <a name="BKMK_DepConfigPage"></a>Configuration du déploiement  
+## <a name="deployment-configuration"></a><a name="BKMK_DepConfigPage"></a>Configuration du déploiement  
 Dans le Gestionnaire de serveur, chaque installation d’un contrôleur de domaine débute par la page **Configuration de déploiement**. Dans cette page et les pages suivantes, les options disponibles et les champs requis varient selon l’opération de déploiement que vous sélectionnez. Par exemple, si vous créez une forêt, la page **options de préparation** n’apparaît pas, mais c’est le cas si vous installez le premier contrôleur de domaine qui exécute Windows Server 2012 dans une forêt ou un domaine existant.  
   
 Des tests de validation sont effectués sur cette page et, par la suite, dans le cadre de la vérification de la configuration requise. Par exemple, si vous essayez d’installer le premier contrôleur de domaine Windows Server 2012 dans une forêt qui a le niveau fonctionnel Windows 2000, une erreur s’affiche sur cette page.  
@@ -96,14 +95,14 @@ Les options suivantes apparaissent lorsque vous ajoutez un nouveau contrôleur d
   
 Pour plus d’informations sur l’ajout d’un contrôleur de domaine à un domaine existant, voir [installer un contrôleur de domaine Windows Server 2012 de réplication dans un domaine &#40;existant au niveau 200&#41;](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md).  
   
-## <a name="BKMK_DCOptionsPage"></a>Options du contrôleur de domaine  
+## <a name="domain-controller-options"></a><a name="BKMK_DCOptionsPage"></a>Options du contrôleur de domaine  
 Si vous créez une forêt, la page Options du contrôleur de domaine recense les options suivantes :  
   
 ![AD DS installer](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_DCOptions_Forest.gif)  
   
 -   Les niveaux fonctionnels de forêt et de domaine sont définis sur Windows Server 2012 par défaut.  
   
-    Une nouvelle fonctionnalité est disponible au niveau fonctionnel du domaine Windows Server 2012 : la stratégie de modèle d’administration du centre de gestion des droits relatifs à l’Access Control et au blindage Kerberos a deux paramètres (toujours fournir des revendications et une authentification non blindée demandes) qui nécessitent le niveau fonctionnel de domaine Windows Server 2012. Pour plus d’informations, consultez « prise en charge des revendications, de l’authentification composée et du blindage Kerberos » dans [Nouveautés de l’authentification Kerberos](https://technet.microsoft.com/library/hh831747.aspx).    
+    Une nouvelle fonctionnalité est disponible au niveau fonctionnel du domaine Windows Server 2012 : la prise en charge de la stratégie de modèle d’administration KDC de l’Access Control dynamique et du blindage Kerberos a deux paramètres (toujours fournir des revendications et rejeter les demandes d’authentification non blindées) qui nécessitent le niveau fonctionnel de domaine Windows Server 2012. Pour plus d’informations, consultez « prise en charge des revendications, de l’authentification composée et du blindage Kerberos » dans [Nouveautés de l’authentification Kerberos](https://technet.microsoft.com/library/hh831747.aspx).    
     Le niveau fonctionnel de la forêt Windows Server 2012 ne fournit aucune nouvelle fonctionnalité, mais il garantit que tout nouveau domaine créé dans la forêt fonctionne automatiquement au niveau fonctionnel du domaine Windows Server 2012. Le niveau fonctionnel de domaine Windows Server 2012 ne fournit pas de nouvelles fonctionnalités en plus de la prise en charge des Access Control dynamiques et du blindage Kerberos, mais il garantit que tous les contrôleurs de domaine du domaine exécutent Windows Server 2012. Pour plus d’informations sur les autres fonctionnalités disponibles à différents niveaux fonctionnels, voir [Présentation des niveaux fonctionnels des services de domaine Active Directory (AD DS)](../active-directory-functional-levels.md).  
   
     Au-delà des niveaux fonctionnels, un contrôleur de domaine qui exécute Windows Server 2012 fournit des fonctionnalités supplémentaires qui ne sont pas disponibles sur un contrôleur de domaine qui exécute une version antérieure de Windows Server. Par exemple, un contrôleur de domaine qui exécute Windows Server 2012 peut être utilisé pour le clonage de contrôleur de domaine virtuel, alors qu’un contrôleur de domaine qui exécute une version antérieure de Windows Server ne le peut pas.  
@@ -141,7 +140,7 @@ Si vous ajoutez un contrôleur de domaine à un domaine, la page Options du cont
   
 Pour plus d’informations sur l’ajout d’un contrôleur de domaine à un domaine existant, voir [installer un contrôleur de domaine Windows Server 2012 de réplication dans un domaine &#40;existant au niveau 200&#41;](../../ad-ds/deploy/../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md).  
   
-## <a name="BKMK_DNSOptionsPage"></a>Options DNS  
+## <a name="dns-options"></a><a name="BKMK_DNSOptionsPage"></a>Options DNS  
 Si vous installez Serveur DNS, la page **Options DNS** suivante s’affiche :  
   
 ![AD DS installer](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_DNSOptions_Replica.gif)  
@@ -168,7 +167,7 @@ Pour plus d’informations sur la délégation, voir présentation de la [délé
   
 -   [Fonctionnement des redirecteurs](https://go.microsoft.com/fwlink/?LinkId=164778) (https://go.microsoft.com/fwlink/?LinkId=164778)  
   
-## <a name="BKMK_RODCOptionsPage"></a>Options RODC  
+## <a name="rodc-options"></a><a name="BKMK_RODCOptionsPage"></a>Options RODC  
 Les options suivantes apparaissent lorsque vous installez un contrôleur de domaine en lecture seule (RODC).  
   
 ![AD DS installer](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_RODCOptions.gif)  
@@ -183,7 +182,7 @@ Les options suivantes apparaissent lorsque vous installez un contrôleur de doma
   
 Pour plus d’informations sur l’installation des [contrôleurs de domaine en lecture seule, consultez Installation d' &#40;un&#41; &#40;contrôleur de&#41;domaine Windows Server 2012 Active Directory niveau de contrôleur de domaine en lecture seule 200](../../ad-ds/deploy/RODC/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-.md).  
   
-## <a name="BKMK_AdditionalOptionsPage"></a>Options supplémentaires  
+## <a name="additional-options"></a><a name="BKMK_AdditionalOptionsPage"></a>Options supplémentaires  
 L’option suivante apparaît dans la page **Options supplémentaires** lorsque vous créez un domaine :  
   
 ![AD DS installer](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_AdditionalOptions_Child.gif)  
@@ -198,7 +197,7 @@ Les options suivantes apparaissent dans la page **Options supplémentaires** lor
   
 Pour plus d’informations sur la création d’un domaine, voir [installer un nouveau Windows Server 2012 Active Directory niveau de domaine &#40;enfant ou&#41;d’arborescence 200](../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md). Pour plus d’informations sur l’ajout d’un contrôleur de domaine à un domaine existant, voir [installer un contrôleur de domaine Windows Server 2012 de réplication dans un domaine &#40;existant au niveau 200&#41;](../../ad-ds/deploy/../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md).  
   
-## <a name="BKMK_Paths"></a>Trajet  
+## <a name="paths"></a><a name="BKMK_Paths"></a>Trajet  
 Les options suivantes apparaissent dans la page **Chemins d’accès**.  
   
 ![AD DS installer](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_Paths.gif)  
@@ -207,7 +206,7 @@ Les options suivantes apparaissent dans la page **Chemins d’accès**.
   
 Spécifiez l’emplacement de la base de données AD DS (NTDS.DIT), des fichiers journaux et de SYSVOL. Pour une installation locale, vous pouvez accéder à l’emplacement où vous voulez stocker les fichiers.  
   
-## <a name="BKMK_AdprepCreds"></a>Options de préparation  
+## <a name="preparation-options"></a><a name="BKMK_AdprepCreds"></a>Options de préparation  
 ![AD DS installer](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_PreparationOptions.gif)  
   
 Si vous n’êtes pas actuellement connecté avec des informations d’identification suffisantes pour exécuter les commandes adprep.exe et que l’exécution d’adprep est requise afin d’effectuer l’installation des services AD DS, vous êtes invité à entrer des informations d’identification pour exécuter adprep.exe. Adprep doit être exécuté pour ajouter le premier contrôleur de domaine qui exécute Windows Server 2012 à un domaine ou une forêt existant. Plus spécifiquement :  
@@ -220,14 +219,14 @@ Si vous n’êtes pas actuellement connecté avec des informations d’identific
   
 Pour plus d’informations sur adprep. exe, voir [intégration d’Adprep. exe](../../ad-ds/deploy/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal.md#BKMK_NewAdprep) et exécution d’Adprep [. exe](https://technet.microsoft.com/library/dd464018(WS.10).aspx).  
   
-## <a name="BKMK_ViewInstallOptionsPage"></a>Options de révision  
+## <a name="review-options"></a><a name="BKMK_ViewInstallOptionsPage"></a>Options de révision  
 ![AD DS installer](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_ReviewOptions.gif)  
   
 -   La page **Examiner les options** vous permet de valider vos paramètres et de vérifier qu’ils répondent à vos exigences avant le démarrage de l’installation. Notez que vous avez encore la possibilité d’arrêter l’installation à l’aide du Gestionnaire de serveur. Cette page vous permet simplement d’examiner et de confirmer vos paramètres avant de poursuivre la configuration.  
   
 -   La page **Examiner les options** du Gestionnaire de serveur offre également un bouton **Afficher le script** facultatif pour créer un fichier texte Unicode qui contient la configuration ADDSDeployment actuelle sous forme d’un script Windows PowerShell unique. Vous pouvez ainsi utiliser l’interface graphique Gestionnaire de serveur sous forme d’un studio de déploiement Windows PowerShell. Utilisez l’Assistant Configuration des services de domaine Active Directory pour configurer les options, exportez la configuration, puis annulez l’Assistant. Ce processus crée un exemple valide et correct du point de vue syntaxique pour permettre des modifications ultérieures ou une utilisation directe.  
   
-## <a name="BKMK_PrerqCheckPage"></a>Vérification de la configuration requise  
+## <a name="prerequisites-check"></a><a name="BKMK_PrerqCheckPage"></a>Vérification de la configuration requise  
 ![AD DS installer](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_PrerequisitesCheck.gif)  
   
 Parmi les avertissements qui apparaissent sur cette page, citons les suivants :  
@@ -240,7 +239,7 @@ Parmi les avertissements qui apparaissent sur cette page, citons les suivants :
   
 Pour plus d’informations sur les vérifications spécifiques de la configuration requise qui sont effectuées pour l’installation des services de domaine Active Directory, voir [Tests de configuration requise](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_ADDSInstallPrerequisiteTests).  
   
-## <a name="BKMK_Results"></a>About  
+## <a name="results"></a><a name="BKMK_Results"></a>About  
 ![AD DS installer](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_SMResultsBeta.gif)  
   
 Dans cette page, vous pouvez examiner les résultats de l’installation.  
@@ -249,7 +248,7 @@ Vous pouvez également choisir de redémarrer le serveur cible une fois l’Assi
   
 Si le serveur cible ne parvient pas à redémarrer dans ce cas, vous devez le redémarrer manuellement. Il est impossible de le redémarrer à l’aide d’outils tels que shutdown.exe ou Windows PowerShell. Vous pouvez utiliser les services Bureau à distance pour ouvrir une session et arrêter à distance le serveur cible.  
   
-## <a name="BKMK_RemovalCredsPage"></a>Informations d’identification de suppression de rôle  
+## <a name="role-removal-credentials"></a><a name="BKMK_RemovalCredsPage"></a>Informations d’identification de suppression de rôle  
 ![AD DS installer](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_RRW_Credentials.gif)  
   
 La page **Informations d’identification** vous permet de configurer des options de rétrogradation. Entrez les informations d’identification nécessaires pour effectuer la rétrogradation à partir de la liste suivante :  
@@ -263,7 +262,7 @@ La page **Informations d’identification** vous permet de configurer des option
   
 Pour plus d’informations sur la suppression des AD DS, consultez [supprimer des Active Directory Domain Services (niveau 100)](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c) et [rétrograder les contrôleurs de domaine et les domaines &#40;au niveau 200&#41;](Demoting-Domain-Controllers-and-Domains--Level-200-.md).  
   
-## <a name="BKMK_RemovalOptionsPage"></a>AD DS les options de suppression et les avertissements  
+## <a name="ad-ds-removal-options-and-warnings"></a><a name="BKMK_RemovalOptionsPage"></a>AD DS les options de suppression et les avertissements  
 Si vous avez besoin d’aide au sujet de la page Examiner les options, voir Examiner les options.  
   
 Si le contrôleur de domaine héberge des rôles supplémentaires, tels que le rôle Serveur DNS ou le serveur de catalogue global, la page d’avertissement suivante apparaît :  
@@ -298,14 +297,14 @@ Si le contrôleur de domaine est un serveur DNS qui est délégué pour héberge
   
 Pour plus d’informations sur la suppression des AD DS, consultez [supprimer des Active Directory Domain Services (niveau 100)](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c) et [rétrograder les contrôleurs de domaine et les domaines &#40;au niveau 200&#41;](Demoting-Domain-Controllers-and-Domains--Level-200-.md).  
   
-## <a name="BKMK_NewAdminPwdPage"></a>Nouveau mot de passe administrateur  
+## <a name="new-administrator-password"></a><a name="BKMK_NewAdminPwdPage"></a>Nouveau mot de passe administrateur  
 La page **nouveau mot de passe d’administrateur** vous oblige à fournir un mot de passe pour le compte administrateur de l’ordinateur local intégré, une fois que la rétrogradation est terminée et que l’ordinateur devient un serveur membre de domaine ou un ordinateur de groupe de travail.  
   
 ![AD DS installer](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_RRW_NewAdminPwd.gif)  
   
 Pour plus d’informations sur la suppression des AD DS, consultez [supprimer des Active Directory Domain Services (niveau 100)](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c) et [rétrograder les contrôleurs de domaine et les domaines &#40;au niveau 200&#41;](Demoting-Domain-Controllers-and-Domains--Level-200-.md).  
   
-## <a name="BKMK_ConfirmRoleRemovalPage"></a>Options de révision  
+## <a name="review-options"></a><a name="BKMK_ConfirmRoleRemovalPage"></a>Options de révision  
 La page **Examiner les options** vous donne la possibilité d’exporter les paramètres de configuration pour la rétrogradation vers un script Windows PowerShell de manière à automatiser des rétrogradations supplémentaires. Cliquez sur **Rétrograder** pour supprimer les services AD DS.  
   
 ![AD DS installer](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_RRW_ReviewOptions.gif)  

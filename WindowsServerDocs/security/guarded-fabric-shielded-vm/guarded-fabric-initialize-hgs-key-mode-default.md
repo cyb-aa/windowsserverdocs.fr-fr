@@ -1,22 +1,22 @@
 ---
 title: Initialiser le cluster SGH à l’aide du mode clé dans une nouvelle forêt dédiée (par défaut)
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: b8c5c090f97ee02a8c9e5bc6041eacb01c1fa4cf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: feae5230eec6b3f3c0471f75199970a47016a583
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402406"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856662"
 ---
 # <a name="initialize-the-hgs-cluster-using-key-mode-in-a-new-dedicated-forest-default"></a>Initialiser le cluster SGH à l’aide du mode clé dans une nouvelle forêt dédiée (par défaut)
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 
 1.  [!INCLUDE [Initialize HGS](../../../includes/guarded-fabric-initialize-hgs-default-step-one.md)] 

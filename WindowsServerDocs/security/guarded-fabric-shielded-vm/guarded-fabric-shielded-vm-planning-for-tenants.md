@@ -1,18 +1,18 @@
 ---
 title: Guide de planification de l’infrastructure protégée et de la machine virtuelle protégée pour les hébergeurs
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 392af37f-a02d-4d40-a25d-384211cbbfdd
 manager: dongill
 author: nirb-ms
+ms.author: nirb
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 255429960735d70ff3a4d260bd9090b95882b6bd
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 829d6a3efef082e35c6a4f98e0ba9e4b70c27a93
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949771"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856472"
 ---
 # <a name="guarded-fabric-and-shielded-vm-planning-guide-for-tenants"></a>Guide de planification de l’infrastructure protégée et de la machine virtuelle protégée pour les locataires
 
@@ -63,7 +63,7 @@ Les données de protection contiennent les secrets nécessaires au déploiement 
 
 Les données de protection sont créées à l’aide de l’Assistant fichier de données de protection et sont stockées dans des fichiers PDK que les propriétaires de machines virtuelles chargent sur l’infrastructure protégée.
 
-Les machines virtuelles protégées permettent de se protéger contre les attaques d’une structure de virtualisation compromise. nous avons donc besoin d’un mécanisme sécurisé pour transmettre des données d’initialisation sensibles, telles que le mot de passe de l’administrateur, les informations d’identification de jonction de domaine ou les certificats RDP, sans les divulguer à structure de virtualisation elle-même ou à ses administrateurs. En outre, les données de protection contiennent les éléments suivants :
+Les machines virtuelles protégées vous protègent contre les attaques d’une structure de virtualisation compromise. nous avons donc besoin d’un mécanisme sécurisé pour transmettre des données d’initialisation sensibles, telles que le mot de passe de l’administrateur, des informations d’identification de jonction de domaine ou des certificats RDP, sans les divulguer à la structure de virtualisation elle-même ou à ses administrateurs. En outre, les données de protection contiennent les éléments suivants :
 
 1. Niveau de sécurité – protégé ou chiffré-pris en charge
 2. Propriétaire et liste des gardiens hôtes approuvés où la machine virtuelle peut s’exécuter

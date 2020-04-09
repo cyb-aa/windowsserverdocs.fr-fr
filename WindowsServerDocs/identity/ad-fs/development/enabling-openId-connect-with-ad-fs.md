@@ -1,7 +1,6 @@
 ---
 ms.assetid: d282bb4e-38a0-4c7c-83d8-f6ea89278057
 title: Créer une application Web à l’aide de OpenID Connect avec AD FS 2016 et versions ultérieures
-description: ''
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 9b3d64558c27e7b4bda20b6af27e02d55431c94d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 49d952a49cf474708f57a0ae2a7760d2470af607
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358788"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857492"
 ---
 # <a name="build-a-web-application-using-openid-connect-with-ad-fs-2016-and-later"></a>Créer une application Web à l’aide de OpenID Connect avec AD FS 2016 et versions ultérieures
 
@@ -40,7 +39,7 @@ La section suivante décrit comment configurer le groupe d’applications dans A
 
 3.  Copiez la valeur de l' **identificateur du client** .  Il sera utilisé ultérieurement comme valeur pour Ida : ClientId dans le fichier Web. config des applications.  
 
-4.  Entrez les informations suivantes pour l' **URI de redirection :**  - . **https://localhost:44320/**  Cliquez sur **Ajouter**. Cliquez sur **Suivant**.  
+4.  Entrez les informations suivantes pour l' **URI de redirection :**  -  **https://localhost:44320/** .  Cliquez sur **Ajouter**. Cliquez sur **Suivant**.  
 
     ![AD FS OpenID](media/Enabling-OpenId-Connect-with-AD-FS-2016/AD_FS_OpenID_2.PNG)  
 
@@ -118,7 +117,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-openid
 
         -   Au lieu d’utiliser l’autorité pour communiquer les données relatives à l’émetteur approuvé, nous spécifions l’emplacement du document de découverte directement via MetadataAddress  
 
-        -   Azure AD n’impose pas la présence d’une redirect_uri dans la requête, contrairement à ADFS. Nous devons donc l’ajouter ici  
+        -   Azure AD n’impose pas la présence d’un redirect_uri dans la requête, contrairement à ADFS. Nous devons donc l’ajouter ici  
 
 ## <a name="verify-the-app-is-working"></a>Vérifier que l’application fonctionne  
 Une fois les modifications apportées ci-dessus effectuées, appuyez sur F5.  L’exemple de page s’affiche.  Cliquez sur connexion.  

@@ -2,25 +2,23 @@
 title: Installer le rôle Hyper-V sur Windows Server
 description: Fournit des instructions pour l’installation d’Hyper-V à l’aide de Gestionnaire de serveur ou Windows PowerShell
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 8e871317-09d2-4314-a6ec-ced12b7aee89
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 12/02/2016
-ms.openlocfilehash: 2687a907852e2a81f03b147df1425cd01b34fb76
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d4d8f2343f0935ea7185890319a3e33564750572
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392810"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860822"
 ---
 # <a name="install-the-hyper-v-role-on-windows-server"></a>Installer le rôle Hyper-V sur Windows Server
 
->S'applique à : Windows Server 2016, Windows Server 2019
+>S’applique à : Windows Server 2016, Windows Server 2019
   
 Pour créer et exécuter des ordinateurs virtuels, installez le rôle Hyper-V sur Windows Server à l’aide de Gestionnaire de serveur ou de l’applet de commande **install-WindowsFeature** dans Windows PowerShell. Pour Windows 10, consultez [installer Hyper-V sur Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
 
@@ -36,7 +34,7 @@ Si vous souhaitez installer uniquement les outils de gestion, tels que le Gestio
   
 1. Dans **Gestionnaire de serveur**, dans le menu **Gérer**, cliquez sur **Ajouter des rôles et fonctionnalités**.  
   
-2. Dans la page **Avant de commencer** , vérifiez que votre serveur de destination et environnement réseau sont préparés pour le rôle et la fonctionnalité que vous voulez installer. Cliquez sur **Suivant**.  
+2. Dans la page **Avant de commencer**, vérifiez que votre serveur de destination et environnement réseau sont préparés pour le rôle et la fonctionnalité que vous voulez installer. Cliquez sur **Suivant**.  
   
 3. Dans la page **Sélectionner le type d’installation**, cliquez sur **Installation basée sur un rôle ou une fonctionnalité**, puis sur **Suivant**.  
   

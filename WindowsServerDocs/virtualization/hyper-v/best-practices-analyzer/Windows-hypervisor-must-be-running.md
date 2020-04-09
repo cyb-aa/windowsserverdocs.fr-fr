@@ -2,31 +2,30 @@
 title: L’hyperviseur Windows doit être en cours d’exécution
 description: Fournit des instructions pour résoudre le problème signalé par cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 501a9beb-c464-46c0-88c5-e3e7e3e70101
-author: KBDAzure
+author: kbdazure
 ms.date: 10/03/2016
-ms.openlocfilehash: 51f863425bd1107894fb5e4d44ed7c742a806394
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b24700e0ed617177af888013e36f971870d0ac59
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393045"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860952"
 ---
 # <a name="windows-hypervisor-must-be-running"></a>L’hyperviseur Windows doit être en cours d’exécution
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
-|**Catégorie**|Prérequis|  
+|**Va**|Avertissement|  
+|**Catégorie**|Composants requis|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
   
@@ -38,9 +37,9 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 *Impossible de démarrer les machines virtuelles tant que l’hyperviseur Windows n’est pas en cours d’exécution.*  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
   
-*Check le catalogue Windows Server pour voir si ce serveur est qualifié pour exécuter Hyper-V. Ensuite, assurez-vous que le BIOS est activé pour la virtualisation d’assistance matérielle et la prévention de l’exécution des données appliquée par le matériel. Vérifiez ensuite le journal des événements hyperviseur Hyper-V.*  
+*Consultez le catalogue Windows Server pour voir si ce serveur est qualifié pour exécuter Hyper-V. Ensuite, assurez-vous que le BIOS est activé pour la virtualisation d’assistance matérielle et la prévention de l’exécution des données appliquée par le matériel. Vérifiez ensuite le journal des événements hyperviseur Hyper-V.*  
   
 Pour vérifier le catalogue, consultez le [Catalogue Windows Server](https://go.microsoft.com/fwlink/?LinkId=111228) (https://go.microsoft.com/fwlink/?LinkId=111228).  
   
@@ -76,7 +75,7 @@ Ensuite, consultez le journal des événements hyperviseur Hyper-V. En cas de pr
   
 #### <a name="to-check-the-event-logs"></a>Pour vérifier les journaux des événements  
   
-1.  Ouvrez l’observateur d’événements. Cliquez sur **Démarrer**, sur **Outils d’administration**, puis sur **Observateur d’événements**.  
+1.  Ouvrez Observateur d'événements. Cliquez sur **Démarrer**, sur **Outils d’administration**, puis sur **Observateur d’événements**.  
   
 2.  Ouvrez le journal des événements hyperviseur Hyper-V. Dans le volet de navigation, développez **journaux des applications et des Services** >> **Microsoft** >> **Windows** >> **Hyper-V-hyperviseur**, puis cliquez sur **opérationnel**.  
   
@@ -86,7 +85,7 @@ Ensuite, consultez le journal des événements hyperviseur Hyper-V. En cas de pr
   
 5.  Utilisez un filtre pour rechercher les événements hyperviseur Hyper-V :   
     1. Dans le volet **actions** , cliquez sur **filtrer le journal actuel**. Pour les **sources d’événements**, spécifiez « Hyper-V-hyperviseur ».   
-    2. Recherchez les événements qui signalent des problèmes. Par exemple, l’ID d’événement 41 indique un problème avec la configuration du BIOS : «Échec du lancement d’Hyper-V ; VMX n’est pas présent ou n’est pas activé dans le BIOS.»  
+    2. Recherchez les événements qui signalent des problèmes. Par exemple, l’ID d’événement 41 indique un problème avec la configuration du BIOS : «échec du lancement d’Hyper-V. VMX n’est pas présent ou n’est pas activé dans le BIOS.»  
   
 ### <a name="see-also"></a>Voir aussi  
 Pour plus d’informations sur l’utilisation d’Hyper-V sur Windows 10, notamment sur la façon de vérifier que votre ordinateur peut exécuter Hyper-V, voir [Configuration système requise pour Hyper](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility)-v dans Windows 10. 

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 155abe09-6360-4913-8dd9-7392d71ea4e6
 title: Configuration d’un ordinateur pour la résolution des problèmes
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 53af8acd7da8f9008c88ad7c6c14b00e63801847
-ms.sourcegitcommit: 1f3ffff0af340868dcf3a2cfef5b8f8aea69d96d
+ms.openlocfilehash: d9d279615dc1f70ffdcff9e49a4aa619f0106a93
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78278554"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822972"
 ---
 # <a name="configuring-a-computer-for-troubleshooting"></a>Configuration d’un ordinateur pour la résolution des problèmes
 
@@ -36,7 +35,7 @@ Pour plus d’informations sur l’installation de RSAT, consultez l’article [
 
 ### <a name="configure-reliability-and-performance-monitor"></a>Configurer l’analyseur de fiabilité et de performances
 
-Windows Server inclut le moniteur de fiabilité et de performances Windows, qui est un composant logiciel enfichable MMC (Microsoft Management Console) qui combine les fonctionnalités des outils autonomes précédents, y compris Journaux et alertes de performance, Server Performance Advisor, et le moniteur système. Ce composant logiciel enfichable fournit une interface graphique utilisateur pour la personnalisation des ensembles de collecteurs de données et des sessions de suivi d’événements.
+Windows Server inclut le moniteur de fiabilité et de performances Windows, qui est un composant logiciel enfichable MMC (Microsoft Management Console) qui combine les fonctionnalités des outils autonomes précédents, y compris Journaux et alertes de performance, Server Performance Advisor et le moniteur système. Ce composant logiciel enfichable fournit une interface graphique utilisateur pour la personnalisation des ensembles de collecteurs de données et des sessions de suivi d’événements.
 
 Le moniteur de fiabilité et de performances comprend également le moniteur de fiabilité, un composant logiciel enfichable MMC qui effectue le suivi des modifications apportées au système et les compare aux modifications de la stabilité du système, en fournissant une vue graphique de leur relation.
 

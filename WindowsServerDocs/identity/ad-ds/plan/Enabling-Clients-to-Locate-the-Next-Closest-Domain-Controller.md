@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7dd905ea-4235-4519-8400-31b4fa0ed1bf
 title: Permettre aux clients de localiser le contrôleur de domaine suivant le plus proche
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,18 +8,18 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ed7663242ae254ecea945a749ee3ce5fac8f96f6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 55e19728e247240ca35bf7cc7b47b36171f1f195
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408830"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822502"
 ---
 # <a name="enabling-clients-to-locate-the-next-closest-domain-controller"></a>Permettre aux clients de localiser le contrôleur de domaine suivant le plus proche
 
->S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Si vous disposez d’un contrôleur de domaine qui exécute Windows Server 2008 ou une version plus récente, vous pouvez permettre aux ordinateurs clients qui exécutent Windows Vista ou une version plus récente ou Windows Server 2008 ou une version plus récente de localiser les contrôleurs de domaine plus efficacement en activant le **site essayer le suivant le plus proche.** Paramètre stratégie de groupe. Ce paramètre améliore le localisateur de contrôleur de domaine en aidant à rationaliser le trafic réseau, en particulier dans les grandes entreprises qui ont de nombreux sites et succursales.
+Si vous disposez d’un contrôleur de domaine qui exécute Windows Server 2008 ou une version plus récente, vous pouvez permettre aux ordinateurs clients qui exécutent Windows Vista ou une version plus récente ou Windows Server 2008 ou version ultérieure de localiser les contrôleurs de domaine plus efficacement en activant le paramètre essayer le site le plus **proche suivant** stratégie de groupe. Ce paramètre améliore le localisateur de contrôleur de domaine en aidant à rationaliser le trafic réseau, en particulier dans les grandes entreprises qui ont de nombreux sites et succursales.
 
 Ce nouveau paramètre peut affecter la façon dont vous configurez les coûts des liens de sites, car il affecte l’ordre dans lequel les contrôleurs de domaine sont situés. Pour les entreprises qui possèdent de nombreux sites et succursales Hub, vous pouvez réduire de manière significative le trafic Active Directory sur le réseau en veillant à ce que les clients basculent vers le site concentrateur suivant le plus proche lorsqu’ils ne peuvent pas trouver de contrôleur de domaine dans le site du Hub le plus proche.
 
@@ -48,7 +47,7 @@ Par exemple, supposons qu’une topologie de site comporte quatre sites avec les
 
 ![activation des clients pour localiser le contrôleur de périphérique](media/Enabling-Clients-to-Locate-the-Next-Closest-Domain-Controller/beff4087-fb2a-463b-96ac-d440a9e29b75.gif)
 
-Lorsque le paramètre **essayer le prochain site le plus proche** stratégie de groupe est activé dans cet exemple, si un ordinateur client dans Site_B tente de localiser un contrôleur de domaine, il tente d’abord de trouver un contrôleur de domaine dans son propre Site_B. Si aucun n’est disponible dans Site_B, il tente de trouver un contrôleur de domaine dans Site_A.
+Lorsque le paramètre **essayer le prochain site le plus proche** stratégie de groupe est activé dans cet exemple, si un ordinateur client dans Site_B tente de localiser un contrôleur de domaine, il tente d’abord de trouver un contrôleur de domaine dans sa propre Site_B. Si aucun n’est disponible dans Site_B, il tente de trouver un contrôleur de domaine dans Site_A.
 
 Si le paramètre n’est pas activé, le client tente de trouver un contrôleur de domaine dans Site_A, Site_C ou Site_D si aucun contrôleur de domaine n’est disponible dans Site_B.
 

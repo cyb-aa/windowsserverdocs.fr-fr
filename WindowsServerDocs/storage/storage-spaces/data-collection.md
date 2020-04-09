@@ -1,21 +1,18 @@
 ---
 title: Collecter les données de diagnostic avec espaces de stockage direct
 description: Comprendre espaces de stockage direct outils de collecte de données, avec des exemples spécifiques sur la manière de les exécuter et de les utiliser.
-keywords: Espaces de stockage, collecte de données, dépannage, canaux d’événements, SDDCDiagnosticInfo
-ms.assetid: ''
 ms.prod: windows-server
 ms.author: adagashe
 ms.technology: storage-spaces
 ms.topic: article
 author: adagashe
 ms.date: 10/24/2018
-ms.localizationpriority: ''
-ms.openlocfilehash: 0d64e6188b24b5a1ec45242c3d99366fdde5a623
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 75a74017f48b357dd029b062a7ce06775836bd0a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465213"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858962"
 ---
 # <a name="collect-diagnostic-data-with-storage-spaces-direct"></a>Collecter les données de diagnostic avec espaces de stockage direct
 

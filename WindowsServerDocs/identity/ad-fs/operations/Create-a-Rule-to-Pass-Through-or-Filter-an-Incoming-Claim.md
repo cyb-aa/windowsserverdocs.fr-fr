@@ -1,7 +1,6 @@
 ---
 ms.assetid: 6127963f-71b2-4d8f-8b53-7c525bf06521
 title: Créer une règle pour transmettre ou filtrer une revendication entrante
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,20 +8,20 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 145558e620188c4311d79d2a9ba4ed7aaf7b13a8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fb885d8b822faf4bd5ee82ad70c59b99678a58e9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358141"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816832"
 ---
 # <a name="create-a-rule-to-pass-through-or-filter-an-incoming-claim"></a>Créer une règle pour transmettre ou filtrer une revendication entrante
 
-À l’aide du modèle de règle de transmission ou de filtrage d’une revendication entrante dans Services ADFS \(AD FS\), vous pouvez passer toutes les revendications entrantes avec un type de revendication sélectionné. Vous pouvez également filtrer les valeurs des revendications entrantes avec un type de revendication sélectionné. Par exemple, vous pouvez utiliser ce modèle de règle pour créer une règle qui enverra toutes les revendications de groupe entrantes. Vous pouvez également utiliser cette règle pour envoyer uniquement le nom d’utilisateur principal \(UPN\) les revendications qui se terminent par @fabrikam.  
+À l’aide du modèle de règle de transmission ou de filtrage d’une revendication entrante dans Services ADFS \(AD FS\), vous pouvez passer toutes les revendications entrantes avec un type de revendication sélectionné. Il permet également de filtrer les valeurs de revendications entrantes d'un type déterminé. Par exemple, vous pouvez utiliser ce modèle de règle pour créer une règle qui envoie toutes les revendications de groupe entrantes. Vous pouvez également utiliser cette règle pour envoyer uniquement le nom d’utilisateur principal \(UPN\) les revendications qui se terminent par @fabrikam.  
   
 Vous pouvez utiliser la procédure suivante pour créer une règle de revendication avec le\-du composant logiciel enfichable Gestion de la AD FS dans.  
   
-Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs** ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
 
 ## <a name="to-create-a-rule-to-pass-through-or-filter-an-incoming-claim-on-a-relying-party-trust-in-windows-server-2016"></a>Pour créer une règle de transmission ou de filtrage d’une revendication entrante sur une approbation de partie de confiance dans Windows Server 2016 
 

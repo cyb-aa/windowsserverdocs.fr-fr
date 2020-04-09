@@ -1,24 +1,19 @@
 ---
 title: Présentation des fonctionnalités
 description: Cette rubrique définit le concept de fonctionnalités dans System Insights et présente les fonctionnalités par défaut disponibles dans Windows Server 2019.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: system-insights
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.assetid: ''
 author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 6/05/2018
-ms.openlocfilehash: 131fbacaab97c1c2c42920a518ce96ba1b8f5d2b
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 9b0f043aab5773773785afc7fb48ba0295a76865
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465563"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858742"
 ---
 # <a name="understanding-capabilities"></a>Présentation des fonctionnalités
 
@@ -83,7 +78,7 @@ Chaque fonctionnalité analyse les données quotidiennes pour prévoir l’utili
  Prévision de la capacité de l’UC                | % de temps processeur  | Moyenne sur 2 heures maximum par jour   
  Prévision de la capacité réseau         | Total des octets/s         | Moyenne sur 2 heures maximum par jour  
 
-Lors de l’évaluation de la logique de filtrage ci-dessus, il est important de noter que chaque fonctionnalité cherche à informer les administrateurs lorsque l’utilisation future dépassera significativement la capacité disponible, même si le processeur atteint momentanément 100% d’utilisation, l’utilisation du processeur peut ne pas avoir a entraîné une dégradation significative des performances ou une contention des ressources. Pour le processeur et la mise en réseau, alors il doit y avoir une utilisation intensive élevée plutôt que des pics momentanés. La moyenne de l’utilisation de l’UC et de la mise en réseau tout au long de la journée, toutefois, risque de perdre des informations d’utilisation importantes, car quelques heures d’utilisation intensive du processeur ou de la mise en réseau pourraient avoir un impact significatif sur les performances de vos charges de travail critiques. La moyenne de 2 heures au maximum pour chaque jour évite ces extrêmes et produit toujours des données significatives pour chaque fonctionnalité à analyser.
+Lors de l’évaluation de la logique de filtrage ci-dessus, il est important de noter que chaque fonctionnalité cherche à informer les administrateurs lorsque l’utilisation future dépassera significativement la capacité disponible, même si le processeur atteint momentanément 100% d’utilisation, l’utilisation du processeur peut ne pas avoir entraîné une dégradation significative des performances ou une contention des ressources. Pour le processeur et la mise en réseau, alors il doit y avoir une utilisation intensive élevée plutôt que des pics momentanés. La moyenne de l’utilisation de l’UC et de la mise en réseau tout au long de la journée, toutefois, risque de perdre des informations d’utilisation importantes, car quelques heures d’utilisation intensive du processeur ou de la mise en réseau pourraient avoir un impact significatif sur les performances de vos charges de travail critiques. La moyenne de 2 heures au maximum pour chaque jour évite ces extrêmes et produit toujours des données significatives pour chaque fonctionnalité à analyser.
 
 Toutefois, pour l’utilisation du volume et du stockage total, l’utilisation du stockage ne peut pas dépasser la capacité disponible, même momentanément, l’utilisation maximale quotidienne est donc utilisée pour ces fonctionnalités. 
 

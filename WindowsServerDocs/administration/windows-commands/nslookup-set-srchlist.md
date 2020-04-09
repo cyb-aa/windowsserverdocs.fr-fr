@@ -1,28 +1,24 @@
 ---
 title: nslookup set srchlist
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8486266d-22ac-4ce5-aad6-1cd0c08110a2
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fb93a9f7cf969161536e88bec929b7e6ba0f0e5d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bbeb09501474ade670147a6021abd2bb25291d71
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372769"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838282"
 ---
 # <a name="nslookup-set-srchlist"></a>nslookup set srchlist
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 modifie la liste de recherche et le nom de domaine DNS (Domain Name System) par défaut.
 
@@ -30,7 +26,7 @@ modifie la liste de recherche et le nom de domaine DNS (Domain Name System) par 
 ```
 Set srchlist=<DomainName>[/...]
 ```
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |    Paramètre    |                                                                                        Description                                                                                        |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -39,12 +35,12 @@ Set srchlist=<DomainName>[/...]
 
 ## <a name="remarks"></a>Notes
 - La commande **Set srchlist**remplace la liste de recherche et le nom de domaine DNS par défaut de la commande **Set Domain** . Utilisez la commande **Set All** pour afficher la liste.
-  ## <a name="BKMK_examples"></a>Illustre
+  ## <a name="examples"></a><a name=BKMK_examples></a>Illustre
   L’exemple suivant définit le domaine DNS sur mfg.widgets.com et la liste de recherche sur les trois noms :
   ```
   set srchlist=mfg.widgets.com/mrp2.widgets.com/widgets.com
   ```
   ## <a name="additional-references"></a>Références supplémentaires
-  [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+  - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
   [nslookup Set Domain](nslookup-set-domain.md)
   [nslookup Set All](nslookup-set-all.md)

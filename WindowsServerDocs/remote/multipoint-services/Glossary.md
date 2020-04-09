@@ -1,24 +1,20 @@
 ---
 title: Glossaire
 description: Définit des mots, des termes et des concepts dans MultiPoint services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 807bce1d-b993-49c6-9783-b01a3c55846c
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 0c966f0c8e1ad239769c58e4648832ae5020d0dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9a5f76f0f41d9ff1726a1a468fde7f53b6a7634d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389648"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859222"
 ---
 # <a name="glossary"></a>Glossaire
 **associer une station**  
@@ -57,7 +53,7 @@ Voir *client USB Zero*.
 **Système MultiPoint services**  
 Ensemble de matériels et de logiciels comprenant un ordinateur sur lequel Windows Server 2016 est installé avec le rôle MultiPoint services activé et au moins une station MultiPoint. Pour plus d’informations sur les options de disposition du système, consultez [planification de site multipoint services](MultiPoint-services-Site-Planning.md) .  
   
-**partition**  
+**non**  
 Section d’espace sur un disque physique qui fonctionne comme s’il s’agissait d’un disque distinct.  
   
 **station principale**  
@@ -79,13 +75,13 @@ Contrairement à la *station principale*, qui peut être utilisée par un admini
 Point de terminaison de l’utilisateur pour la connexion à l’ordinateur qui exécute MultiPoint services. Trois types de station sont pris en charge : les stations connectées via une connexion vidéo, USB-zéro-client connectée et RDP-sur-LAN. Pour plus d’informations sur les stations, consultez [multipoint stations](MultiPoint-services-Stations.md).  
   
 **concentrateur de station**  
-Concentrateur USB qui a été associé à une analyse pour créer une station MultiPoint. Il connecte les périphériques USB aux services MultiPoint. Voir aussi : *Client USB Zero* et *concentrateur USB*.  
+Concentrateur USB qui a été associé à une analyse pour créer une station MultiPoint. Il connecte les périphériques USB aux services MultiPoint. Voir aussi : *client zéro USB* et *concentrateur USB*.  
   
 **mode station**  
 L’un des deux modes que MultiPoint services peut démarrer. En règle générale, le système MultiPoint services est en mode station. En mode station, les stations MultiPoint services se comportent comme si chaque station était un ordinateur distinct qui exécute le système d’exploitation Windows, et plusieurs utilisateurs peuvent utiliser le système en même temps. Voir aussi : *mode console*.  
   
 **Concentrateur USB**  
-Concentrateur d’extension USB multiport générique conforme aux spécifications USB (Universal Serial Bus) 2,0 ou ultérieures. De tels hubs possèdent généralement plusieurs ports USB, ce qui permet de connecter plusieurs périphériques USB à un port USB unique sur l’ordinateur. Les concentrateurs USB sont généralement des périphériques distincts qui peuvent être *alimentés* de manière externe ou *alimentés par bus*. Certains autres appareils, tels que certains claviers et moniteurs vidéo, peuvent intégrer un concentrateur USB à leur conception. Voir aussi : *Client USB Zero*.  
+Concentrateur d’extension USB multiport générique conforme aux spécifications USB (Universal Serial Bus) 2,0 ou ultérieures. De tels hubs possèdent généralement plusieurs ports USB, ce qui permet de connecter plusieurs périphériques USB à un port USB unique sur l’ordinateur. Les concentrateurs USB sont généralement des périphériques distincts qui peuvent être *alimentés* de manière externe ou *alimentés par bus*. Certains autres appareils, tels que certains claviers et moniteurs vidéo, peuvent intégrer un concentrateur USB à leur conception. Voir aussi : *client Zero USB*.  
   
 **Client USB sur zéro Ethernet**  
 Un client USB zéro qui se connecte à l’ordinateur par le biais d’une connexion LAN plutôt que d’un port USB. Ce client apparaît sur le serveur en tant que périphérique USB, même si les données sont envoyées via la connexion Ethernet.  

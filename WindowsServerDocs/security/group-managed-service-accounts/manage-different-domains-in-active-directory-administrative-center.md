@@ -1,22 +1,18 @@
 ---
 title: Gérer des domaines différents dans Centre d’administration Active Directory
-ms.prod: windows-server
 description: Sécurité de Windows Server
-ms.custom: na
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
+ms.prod: windows-server
 ms.assetid: 166351c3-4076-48be-aa8f-797adf1e9d68
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 71edf6bb38cc665fe5c780ce986d0c0b8807d6ab
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6690ffbc558db4026c3fe67168907ca953ad4081
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386931"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856982"
 ---
 # <a name="manage-different-domains-in-active-directory-administrative-center"></a>Gérer des domaines différents dans Centre d’administration Active Directory
 
@@ -24,7 +20,7 @@ ms.locfileid: "71386931"
 
   Lorsque vous ouvrez Active Directory administratif, le domaine sur lequel vous êtes actuellement connecté sur cet ordinateur \(le domaine local\) apparaît dans le volet de navigation Centre d’administration Active Directory \(le volet gauche\). En fonction des droits de votre jeu actuel d’informations d’identification d’ouverture de session, vous pouvez afficher ou gérer les objets Active Directory dans ce domaine local.
 
- Vous pouvez également utiliser le même jeu d’informations d’identification d’ouverture de session et la même instance de Centre d’administration Active Directory pour afficher ou gérer des objets Active Directory dans n’importe quel autre domaine de la même forêt, ou un domaine dans une autre forêt qui a une approbation établie avec le Domain. Les approbations et les approbations de deux\-sont toutes\-deux prises en charge.
+ Vous pouvez également utiliser le même jeu d’informations d’identification d’ouverture de session et la même instance de Centre d’administration Active Directory pour afficher ou gérer des objets Active Directory dans n’importe quel autre domaine de la même forêt, ou un domaine dans une autre forêt qui dispose d’une approbation établie avec le domaine local. Les approbations et les approbations de deux\-sont toutes\-deux prises en charge.
 
 > [!NOTE]
 >  S’il existe\-une relation d’approbation entre le domaine A et le domaine B par le biais duquel les utilisateurs du domaine A peuvent accéder aux ressources du domaine B, mais que les utilisateurs du domaine B ne peuvent pas accéder aux ressources du domaine A, si vous exécutez Centre d’administration Active Directory sur l’ordinateur où le domaine A est votre domaine local, vous pouvez vous connecter au domaine B avec l’ensemble actuel d’informations d’Centre d’administration Active Directory identification Toutefois, si vous exécutez Centre d’administration Active Directory sur l’ordinateur où le domaine B est votre domaine local, vous ne pouvez pas vous connecter au domaine A avec le même jeu d’informations d’identification dans la même instance du Centre d’administration Active Directory.

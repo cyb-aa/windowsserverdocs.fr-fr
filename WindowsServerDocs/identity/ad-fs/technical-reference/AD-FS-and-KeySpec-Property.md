@@ -1,6 +1,5 @@
 ---
 title: Services ADFS et informations sur les propriétés de la spécification de clé de certificat
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.prod: windows-server
 ms.assetid: a5307da5-02ff-4c31-80f0-47cb17a87272
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 51c9828cfe494c68422f4985e5b17113020c8414
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e3ddc427d84a79d831c61cad8087dbfa1d3fb564
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407425"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860242"
 ---
 # <a name="ad-fs-and-certificate-keyspec-property-information"></a>AD FS et certificater les informations de propriété de KeySpec
 La spécification de clé ("KeySpec") est une propriété associée à un certificat et une clé. Elle spécifie si une clé privée associée à un certificat peut être utilisée pour la signature, le chiffrement ou les deux.   
@@ -42,7 +41,7 @@ Vous pouvez voir les éléments suivants dans le journal des événements :
 ## <a name="what-causes-the-problem"></a>Ce qui est à l’origine du problème
 La propriété KeySpec identifie la manière dont une clé générée ou récupérée par Microsoft CryptoAPI (CAPI), à partir d’un fournisseur de stockage de chiffrement (CSP) hérité de Microsoft, peut être utilisée.
 
-La valeur KeySpec **1**ou **AT_KEYEXCHANGE**peut être utilisée pour la signature et le chiffrement.  La valeur **2**, ou **AT_SIGNATURE**, est utilisée uniquement pour la signature.
+Une valeur KeySpec de **1**ou **AT_KEYEXCHANGE**peut être utilisée pour la signature et le chiffrement.  La valeur **2**, ou **AT_SIGNATURE**, est utilisée uniquement pour la signature.
 
 L’utilisation de la mauvaise configuration KeySpec la plus courante utilise la valeur 2 pour un certificat autre que le certificat de signature de jetons.  
 
@@ -59,8 +58,8 @@ Les identificateurs d’algorithme de clé RSA sont mappés aux valeurs KeySpec 
 
 | Algorithme pris en charge par le fournisseur| Valeur de la spécification de clé pour les appels CAPI |
 | --- | --- |
-|CALG_RSA_KEYX : Clé RSA qui peut être utilisée pour la signature et le déchiffrement| AT_KEYEXCHANGE (ou KeySpec = 1)|
-CALG_RSA_SIGN : Clé RSA signature only |AT_SIGNATURE (ou KeySpec = 2)|
+|CALG_RSA_KEYX : clé RSA qui peut être utilisée pour la signature et le déchiffrement| AT_KEYEXCHANGE (ou KeySpec = 1)|
+CALG_RSA_SIGN : clé RSA signature only |AT_SIGNATURE (ou KeySpec = 2)|
 
 ## <a name="keyspec-values-and-associated-meanings"></a>Valeurs keyspecs et significations associées
 Voici la signification des différentes valeurs KeySpec :
@@ -69,7 +68,7 @@ Voici la signification des différentes valeurs KeySpec :
 | --- | --- | --- |
 |0|Le certificat est un certificat CNG|Certificat SSL uniquement|
 |1|Pour un certificat CAPI (non CNG) hérité, la clé peut être utilisée pour la signature et le déchiffrement|    SSL, signature de jetons, déchiffrement de jetons, certificats de communication de service|
-|2|Pour un certificat CAPI (non CNG) hérité, la clé peut être utilisée uniquement pour la signature|Non recommandé|
+|2|Pour un certificat CAPI (non CNG) hérité, la clé peut être utilisée uniquement pour la signature|non recommandé|
 
 ## <a name="how-to-check-the-keyspec-value-for-your-certificates--keys"></a>Comment vérifier la valeur KeySpec pour vos certificats/clés
 Pour afficher une valeur de certificat, vous pouvez utiliser l’outil en ligne de commande **certutil** .  
@@ -78,11 +77,11 @@ Voici un exemple : **certutil – v – Store My**.  Les informations de certif
 
 ![KeySpec CERT](media/AD-FS-and-KeySpec-Property/keyspec1.png)
 
-Sous CERT_KEY_PROV_INFO_PROP_ID, recherchez deux choses :
+Sous CERT_KEY_PROV_INFO_PROP_ID recherchez deux choses :
 
 
 1. **ProviderType :** cela indique si le certificat utilise un fournisseur de stockage de chiffrement (CSP) hérité ou un fournisseur de stockage de clés basé sur des API CNG (Certificate Next Generation) plus récentes.  Toute valeur différente de zéro indique un fournisseur hérité.
-2. **KeySpec** Vous trouverez ci-dessous les valeurs KeySpec valides pour un certificat AD FS :
+2. **KeySpec :** Vous trouverez ci-dessous les valeurs KeySpec valides pour un certificat AD FS :
 
    Fournisseur CSP hérité (ProviderType différent de 0) :
 
@@ -90,7 +89,7 @@ Sous CERT_KEY_PROV_INFO_PROP_ID, recherchez deux choses :
    | --- | --- |
    |Communication du service|1|
    |Déchiffrement de jetons|1|
-   |Signature des jetons|1 et 2|
+   |Signature de jeton|1 et 2|
    |SSL|1|
 
    Fournisseur CNG (ProviderType = 0) :
@@ -107,8 +106,8 @@ La modification de la valeur KeySpec ne requiert pas que le certificat soit rég
 2. Exportez le certificat incluant la clé privée dans un fichier PFX.
 3. Procédez comme suit pour chaque AD FS et serveur WAP
     1. Supprimer le certificat (à partir du AD FS/serveur WAP)
-    2. Ouvrez une invite de commandes PowerShell avec élévation de privilèges et importez le fichier PFX sur chaque AD FS et un serveur WAP à l’aide de la syntaxe d’applet de commande ci-dessous, en spécifiant la valeur AT_KEYEXCHANGE (qui fonctionne pour tous les rôles AD FS certifications) :
-        1. C : \>certutil – importpfx CertFile. pfx AT_KEYEXCHANGE
+    2. Ouvrez une invite de commandes PowerShell avec élévation de privilèges et importez le fichier PFX sur chaque AD FS et sur le serveur WAP à l’aide de la syntaxe d’applet de commande ci-dessous, en spécifiant la valeur de AT_KEYEXCHANGE (qui fonctionne pour tous les rôles AD FS certificat) :
+        1. C :\>certutil – importpfx CertFile. pfx AT_KEYEXCHANGE
         2. Entrer le mot de passe PFX
     3. Une fois l’opération ci-dessus terminée, procédez comme suit :
         1. vérifier les autorisations de la clé privée

@@ -1,7 +1,6 @@
 ---
 ms.assetid: eb778f63-f7be-438e-8c5e-1fd9b194b967
 title: Conception SSO Web
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d7f52cd36588a1e5de4536a760c38c147dd1e003
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 47c946ac617cc64c224c1bc3153fcaf55c2d069c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407834"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858512"
 ---
 # <a name="web-sso-design"></a>Conception SSO Web
 

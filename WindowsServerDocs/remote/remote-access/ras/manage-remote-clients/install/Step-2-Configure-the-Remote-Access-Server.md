@@ -2,22 +2,18 @@
 title: Étape 2 configurer le serveur d’accès à distance
 description: Cette rubrique fait partie du guide gérer des clients DirectAccess à distance dans Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c0257b98-5633-4264-9df6-b6ffae80592c
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: fa8cd203304b477761e9cfa0742efc8c9d8a5443
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 7fce9eff4376e2d292622fe3a29fc8b391ad3bab
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308145"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859182"
 ---
 # <a name="step-2-configure-the-remote-access-server"></a>Étape 2 configurer le serveur d’accès à distance
 

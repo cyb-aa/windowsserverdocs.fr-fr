@@ -2,22 +2,18 @@
 title: Ajouter un enregistrement de ressource DNS
 description: Cette rubrique fait partie du Guide de gestion des adresses IP (IPAM) de Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ipam
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5379373f-a3d9-4f51-b6fc-bf0f6df1d244
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: b89502a7ba5ceceea10e1f7cfae9e91f6a7ead59
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 67238c1546e8833298ec061cf6e05a038b9d474c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316907"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814842"
 ---
 # <a name="add-a-dns-resource-record"></a>Ajouter un enregistrement de ressource DNS
 

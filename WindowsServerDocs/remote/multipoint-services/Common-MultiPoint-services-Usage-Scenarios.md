@@ -1,24 +1,20 @@
 ---
 title: Scénarios courants d’utilisation de MultiPoint services
 description: En savoir plus sur les utilisations courantes de MultiPoint services
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9aefaf1b-3ba2-4f41-9068-9629a28157ad
 author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: b6e1ce47be76d8df1d8c9079204106f51c9067b3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9429bb297ead933f461b563951a628b1514f28c7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395581"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859082"
 ---
 # <a name="common-usage-scenarios"></a>Scénarios d’utilisation courants
 MultiPoint Services fournit aux postes de travail des utilisateurs individuels les éléments les plus importants de l’expérience utilisateur Windows 10. Il offre également un outil de gestion simple, le gestionnaire MultiPoint, que les administrateurs système peuvent utiliser pour la découverte et le contrôle de plusieurs serveurs et clients MultiPoint. En outre, MultiPoint services comprend le tableau de bord MultiPoint pour une visibilité en temps réel. Voici quelques exemples de ce que vous pouvez faire avec MultiPoint services :  

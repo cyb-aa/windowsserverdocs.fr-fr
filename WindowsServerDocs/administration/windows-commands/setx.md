@@ -1,28 +1,22 @@
 ---
 title: setx
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour setX, qui crée ou modifie des variables d’environnement dans l’environnement utilisateur ou système, sans nécessiter de programmation ou de script.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ef37482f-f8a8-4765-951a-2518faac3f44
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c206f36e2d0bc947329124b08fb797091e838bcd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 19f6625ffaaf745ae2af26e52986e97382f42702
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384032"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834342"
 ---
 # <a name="setx"></a>setx
-
-
 
 Crée ou modifie des variables d’environnement dans l’environnement utilisateur ou système, sans nécessiter de programmation ou de script. La commande **setx** récupère également les valeurs des clés de Registre et les écrit dans des fichiers texte.
 
@@ -33,10 +27,10 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 ```
 setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] <Variable> <Value> [/m]
 setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] [<Variable>] /k <Path> [/m]
-setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <FileName> {[<Variable>] {/a <X>,<Y> | /r <X>,<Y> "<String>"} [/m] | /x} [/d <Delimiters>]
+setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <FileName> {[<Variable>] {/a <X>,<Y> | /r <X>,<Y> <String>} [/m] | /x} [/d <Delimiters>]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |         Paramètre          |                                                                                                                                              Description                                                                                                                                              |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -48,10 +42,10 @@ setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <FileName>
 |         /k \<chemin d’accès >         | Spécifie que la variable est définie en fonction des informations d’une clé de registre. Le*Hemin* p utilise la syntaxe suivante :</br>`\\<HIVE>\<KEY>\...\<Value>`</br>Par exemple, vous pouvez spécifier le chemin d’accès suivant :</br>`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName` |
 |      /f \<nom du fichier >       |                                                                                                                               Spécifie le fichier que vous souhaitez utiliser.                                                                                                                                |
 |        /a \<X >,<Y>         |                                                                                                                    Spécifie les coordonnées absolues et le décalage en tant que paramètres de recherche.                                                                                                                    |
-|   /r \<X >,<Y> «<String>»   |                                                                                                            Spécifie les coordonnées relatives et le décalage par rapport à la **chaîne** en tant que paramètres de recherche.                                                                                                            |
+|   /r \<X >,<Y> <String>   |                                                                                                            Spécifie les coordonnées relatives et le décalage par rapport à la **chaîne** en tant que paramètres de recherche.                                                                                                            |
 |             /m             |                                                                                                Spécifie de définir la variable dans l’environnement système. Le paramètre par défaut est l’environnement local.                                                                                                 |
 |             /x             |                                                                                                       Affiche les coordonnées des fichiers, en ignorant les options de ligne de commande **/a**, **/r**et **/d** .                                                                                                        |
-|      les délimiteurs/d \<>      |                    Spécifie des délimiteurs tels que « **,** » ou « **\\** » à utiliser en plus des quatre délimiteurs intégrés (espace, tabulation, entrée et saut de ligne). Les délimiteurs valides incluent n’importe quel caractère ASCII. Le nombre maximal de délimiteurs est 15, y compris les délimiteurs intégrés.                    |
+|      les délimiteurs/d \<>      |                    Spécifie des délimiteurs tels que **,** ou **\\** à utiliser en plus des quatre délimiteurs intégrés (espace, tabulation, entrée et saut de ligne). Les délimiteurs valides incluent n’importe quel caractère ASCII. Le nombre maximal de délimiteurs est 15, y compris les délimiteurs intégrés.                    |
 |             /?             |                                                                                                                                 Affiche l'aide à l'invite de commandes.                                                                                                                                  |
 
 ## <a name="remarks"></a>Notes
@@ -66,7 +60,7 @@ setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <FileName>
 -   REG_DWORD valeurs de Registre sont extraites et utilisées en mode hexadécimal.
 -   Le mode de fichier prend en charge l’analyse des fichiers texte de retour chariot et de saut de ligne (CRLF) uniquement.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour définir la variable d’environnement de l’environnement local sur la valeur BRAND1, tapez :
 ```
@@ -74,7 +68,7 @@ setx MACHINE Brand1
 ```
 Pour définir la variable d’environnement d’ordinateur dans l’environnement système sur la valeur BRAND1 Computer, tapez :
 ```
-setx MACHINE "Brand1 Computer" /m
+setx MACHINE Brand1 Computer /m
 ```
 Pour définir la variable d’environnement MYPATH dans l’environnement local afin d’utiliser le chemin de recherche défini dans la variable d’environnement PATH, tapez :
 ```
@@ -102,11 +96,11 @@ setx /s computer1 /u maindom\hiropln /p p@ssW23 TZONE /k HKEY_LOCAL_MACHINE\Syst
 ```
 Pour définir la variable d’environnement de génération dans l’environnement système sur la valeur trouvée dans la clé de Registre **HKEY_LOCAL_MACHINE \software\microsoft\windowsnt\currentversion\currentbuildnumber** , tapez :
 ```
-setx BUILD /k "HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsNT\CurrentVersion\CurrentBuildNumber" /m
+setx BUILD /k HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsNT\CurrentVersion\CurrentBuildNumber /m
 ```
 Pour définir la variable d’environnement de génération dans l’environnement système d’un ordinateur distant nommé Computer1 sur la valeur trouvée dans la clé de Registre **HKEY_LOCAL_MACHINE \software\microsoft\windowsnt\currentversion\currentbuildnumber** , tapez :
 ```
-setx /s computer1 /u maindom\hiropln /p p@ssW23  BUILD /k "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\CurrentBuildNumber" /m
+setx /s computer1 /u maindom\hiropln /p p@ssW23  BUILD /k HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\CurrentBuildNumber /m
 ```
 Pour afficher le contenu d’un fichier nommé ipconfig. out, avec les coordonnées correspondantes, tapez :
 ```
@@ -116,11 +110,11 @@ Pour définir la variable d’environnement IPADDR dans l’environnement local 
 ```
 setx IPADDR /f ipconfig.out /a 5,11
 ```
-Pour définir la variable d’environnement OCTET1 dans l’environnement local à la valeur trouvée aux coordonnées 5, 3 dans le fichier ipconfig. out avec des délimiteurs **"# $\*."** , tapez :
+Pour définir la variable d’environnement OCTET1 dans l’environnement local à la valeur trouvée aux coordonnées 5, 3 dans le fichier ipconfig. out avec des délimiteurs **#$\*.** , tapez :
 ```
-setx OCTET1 /f ipconfig.out /a 5,3 /d "#$*." 
+setx OCTET1 /f ipconfig.out /a 5,3 /d #$*. 
 ```
-Pour définir la variable d’environnement IPGATEWAY dans l’environnement local à la valeur trouvée à la coordonnée 0, 7 en ce qui concerne la coordonnée « Gateway » dans le fichier ipconfig. out, tapez :
+Pour définir la variable d’environnement IPGATEWAY dans l’environnement local à la valeur trouvée à la coordonnée 0, 7 en ce qui concerne la coordonnée de la passerelle dans le fichier ipconfig. out, tapez :
 ```
 setx IPGATEWAY /f ipconfig.out /r 0,7 Gateway 
 ```
@@ -129,6 +123,6 @@ Pour afficher le contenu d’un fichier nommé ipconfig. out, ainsi que les coor
 setx /s computer1 /u maindom\hiropln /p p@ssW23 /f ipconfig.out /x 
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

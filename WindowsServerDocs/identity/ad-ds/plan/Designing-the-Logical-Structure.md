@@ -1,7 +1,6 @@
 ---
 ms.assetid: 9ad81367-f3fe-4b2e-bd7c-5900b2b9f77f
 title: Conception de la structure logique
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 8d72d7ed9617d18b42f1be10daeafbac994dad88
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: de56205c163abff1b05d57ea90954fa93606abce
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402638"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822612"
 ---
 # <a name="designing-the-logical-structure"></a>Conception de la structure logique
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Active Directory Domain Services (AD DS) permet aux organisations de créer une infrastructure évolutive, sécurisée et gérable pour la gestion des utilisateurs et des ressources. Il leur permet également de prendre en charge les applications compatibles avec l’annuaire.  
   
@@ -56,7 +55,7 @@ Lorsque vous concevez une structure logique Active Directory avant de déployer 
   
 -   [Création d’une conception d’unité d’organisation](../../ad-ds/plan/Creating-an-Organizational-Unit-Design.md)  
   
--   [Annexe A : inventaire DNS](../../ad-ds/plan/Appendix-A--DNS-Inventory.md)  
+-   [Annexe A : inventaire DNS](../../ad-ds/plan/Appendix-A--DNS-Inventory.md)  
   
 
 

@@ -2,19 +2,19 @@
 title: Utilisation de espaces de stockage direct sur une machine virtuelle
 ms.prod: windows-server
 ms.author: eldenc
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 10/25/2017
 description: Comment déployer des espaces de stockage direct dans un cluster invité d’ordinateur virtuel, par exemple, dans Microsoft Azure.
 ms.localizationpriority: medium
-ms.openlocfilehash: 34241183a56cdb9be4690e1edd68b56320cc01de
-ms.sourcegitcommit: a6ec589a39ef104ec2be958cd09d2f679816a5ab
+ms.openlocfilehash: 74b1b90a780a0b238a356e942f8348e2a483d94a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78261918"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856112"
 ---
 # <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>Utilisation de espaces de stockage direct dans les clusters d’ordinateurs virtuels invités
 
@@ -33,9 +33,9 @@ Les [modèles Azure](https://github.com/robotechredmond/301-storage-spaces-direc
 ## <a name="requirements"></a>Configuration requise
 
 Les considérations suivantes s’appliquent lors du déploiement d’espaces de stockage direct dans un environnement virtualisé.
-
-> [!TIP]
-> Les modèles Azure configurent automatiquement les éléments ci-dessous pour vous et sont la solution recommandée lors du déploiement dans des machines virtuelles IaaS Azure.
+       
+>        !TIP]
+>        zure templates will automatically configure the below considerations for you and are the recommended solution when deploying in Azure IaaS VMs.
 
 -   Au moins 2 nœuds et 3 nœuds au maximum
 
@@ -59,32 +59,33 @@ Les considérations suivantes s’appliquent lors du déploiement d’espaces de
 
     Ce nombre est différent des déploiements nus, car les disques virtuels peuvent être implémentés en tant que fichiers qui ne sont pas vulnérables aux défaillances physiques.
 
--   Désactivez les fonctionnalités de remplacement automatique de lecteur dans le Service de contrôle d’intégrité en exécutant l’applet de commande PowerShell suivante :
+-   Désactivez la LITIES « APAB » de remplacement automatique de lecteur dans le Service de contrôle d’intégrité en exécutant l’applet de commande PowerShell suivante :
 
     ```powershell
-    Get-storagesubsystem clus* | set-storagehealthsetting -name “System.Storage.PhysicalDisk.AutoReplace.Enabled” -value “False”
-    ```
+          Get-storagesubsystem clus* | set-storagehealthsetting -name "System.Storage.PhysicalDisk.AutoReplace.Enabled" -value "False"
+          ```
 
--   Pour offrir une plus grande résilience à la latence de stockage VHD/VHDX/VMDK possible dans les clusters invités, augmentez la valeur du délai d’attente d’e/s des espaces de stockage :
+-   To give greater resiliency to possible VHD / VHDX / VMDK storage latency in guest clusters, increase the Storage Spaces I/O timeout value:
 
     `HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\spaceport\\Parameters\\HwTimeout`
 
     `dword: 00007530`
 
-    L’équivalent décimal de la valeur hexadécimale 7530 est 30000, ce qui correspond à 30 secondes. Notez que la valeur par défaut est 1770 hexadécimale, ou 6000 décimal, soit 6 secondes.
+    The decimal equivalent of Hexadecimal 7530 is 30000, which is 30 seconds. Note that the default value is 1770 Hexadecimal, or 6000 Decimal, which is 6 seconds.
 
-## <a name="not-supported"></a>Non prise en charge
+## Not supported
 
--   Instantané/restauration du disque virtuel au niveau de l’hôte
+-   Host level virtual disk snapshot/restore
 
-    Au lieu de cela, utilisez les solutions de sauvegarde de niveau invité traditionnelles pour sauvegarder et restaurer les données sur les volumes de espaces de stockage direct.
+    Instead use traditional guest level backup solutions to backup and restore the data on the Storage Spaces Direct volumes.
 
--   Modification de la taille du disque virtuel au niveau de l’hôte
+-   Host level virtual disk size change
 
-    Les disques virtuels exposés via l’ordinateur virtuel doivent conserver la même taille et les mêmes caractéristiques. L’ajout d’une capacité supplémentaire au pool de stockage peut être effectué en ajoutant des disques virtuels à chacun des ordinateurs virtuels et en les ajoutant au pool. Il est fortement recommandé d’utiliser des disques virtuels de la même taille et des mêmes caractéristiques que les disques virtuels actuels.
+    The virtual disks exposed through the virtual machine must retain the same size and characteristics. Adding more capacity to the storage pool can be accomplished by adding more virtual disks to each of the virtual machines and adding them to the pool. It's highly recommended to use virtual disks of the same size and characteristics as the current virtual disks.
 
-## <a name="see-also"></a>Voir aussi
+## See also
 
-[Autres modèles de machine virtuelle IaaS Azure pour le déploiement de espaces de stockage direct, de vidéos et de guides pas à pas](https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126).
+[Additional Azure Iaas VM templates for deploying Storage Spaces Direct, videos, and step-by-step guides](https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126).
 
-[Présentation des espaces de stockage direct supplémentaires](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+[Additional Storage Spaces Direct Overview](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+""""""''''                                                                                                                                                                        """"""''''                                                                                                                                                                        

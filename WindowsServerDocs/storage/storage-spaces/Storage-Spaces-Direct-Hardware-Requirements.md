@@ -3,18 +3,18 @@ title: Configuration matérielle requise pour les espaces de stockage direct
 ms.prod: windows-server
 description: Configuration matérielle minimale requise pour tester les espaces de stockage direct
 ms.author: eldenc
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 08/05/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 63a7152ec6abb318a096ac321ae7ccfaaef4d199
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 42022b6e2e3564d1440e2ba1d45f9f98430242c0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402941"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861052"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Configuration matérielle requise pour les espaces de stockage direct
 
@@ -29,7 +29,7 @@ Pour la production, Microsoft recommande d’acheter une solution matérielle/lo
 
 ## <a name="base-requirements"></a>Exigences de base
 
-Les systèmes, les composants, les périphériques et les pilotes doivent être **Windows server 2016 certifiés** par le [Catalogue Windows Server](https://www.windowsservercatalog.com). En outre, nous recommandons que les serveurs, les lecteurs, les adaptateurs de bus hôte et les cartes réseau disposent des qualifications supplémentaires du **Centre de données défini par le logiciel (SDDC) standard** et/ou du **Centre de données défini par logiciel (SDDC) Premium** (AQS), comme indiqué dessus. Il y a plus de 1 000 composants avec le AQs SDDC.
+Les systèmes, les composants, les périphériques et les pilotes doivent être **Windows server 2016 certifiés** par le [Catalogue Windows Server](https://www.windowsservercatalog.com). En outre, nous recommandons que les serveurs, les lecteurs, les adaptateurs de bus hôte et les cartes réseau disposent des qualifications supplémentaires du **Centre de données défini par le logiciel (SDDC)** et/ou du **Centre de données défini par logiciel (** AQS), comme illustré ci-dessous. Il y a plus de 1 000 composants avec le AQs SDDC.
 
 ![capture d’écran du catalogue Windows Server montrant le AQs SDDC](media/hardware-requirements/sddc-aqs.png)
 
@@ -42,7 +42,7 @@ En outre, les conditions suivantes s’appliquent :
 - Deux serveurs minimum, 16 serveurs maximum
 - Il est recommandé que tous les serveurs soient les mêmes fabricant et modèle
 
-## <a name="cpu"></a>Processeur
+## <a name="cpu"></a>UC
 
 - Processeur Intel Nehalem ou version ultérieure compatible ; ni
 - Processeur compatible AMD EPYC ou version ultérieure
@@ -72,8 +72,8 @@ Connexion recommandée pour des performances élevées, à l’échelle ou dans 
 - carte réseau 25 Gbit/s ou plus rapide
 
 Interconnexions de nœuds commutées ou non
-- Mettent Les commutateurs réseau doivent être correctement configurés pour gérer la bande passante et le type de mise en réseau.  Si vous utilisez RDMA qui implémente le protocole RoCE, la configuration du commutateur et du périphérique réseau est encore plus importante. 
-- Aucune commutation : Les nœuds peuvent être interconnectés à l’aide de connexions directes, évitant ainsi l’utilisation d’un commutateur.  Chaque nœud a une connexion directe avec tous les autres nœuds du cluster.
+- Basculement : les commutateurs réseau doivent être correctement configurés pour gérer la bande passante et le type de réseau.  Si vous utilisez RDMA qui implémente le protocole RoCE, la configuration du commutateur et du périphérique réseau est encore plus importante. 
+- Sans changement : les nœuds peuvent être interconnectés à l’aide de connexions directes, évitant l’utilisation d’un commutateur.  Chaque nœud a une connexion directe avec tous les autres nœuds du cluster.
 
 
 ## <a name="drives"></a>Lecteurs
@@ -87,8 +87,8 @@ Espaces de stockage direct fonctionne avec les lecteurs SATA, SAS ou NVMe direct
 - Les appareils du cache doivent être de 32 Go ou plus
 - Lors de l’utilisation de périphériques de mémoire persistants comme périphériques de cache, vous devez utiliser des appareils de capacité NVMe ou SSD (vous ne pouvez pas utiliser de disques durs)
 - Le pilote NVMe est fourni par Microsoft et il est inclus dans Windows. (stornvme. sys)
-- Recommandé : Le nombre de lecteurs de capacité est un multiple entier du nombre de lecteurs de cache
-- Recommandé : Les lecteurs de cache doivent avoir une endurance en écriture élevée : au moins 3 écritures de lecteur par jour (DWPD) ou au moins 4 téraoctets écrits (TBW) par jour : consultez [la page comprendre les écritures de lecteur par jour (DWPD), téraoctets écrits (TBW) et le minimum recommandé pour espaces de stockage direct ](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
+- Recommandé : le nombre de lecteurs de capacité est un multiple entier du nombre de lecteurs de cache
+- Recommandé : les lecteurs de cache doivent avoir une forte endurance en écriture : au moins 3 écritures de lecteur par jour (DWPD) ou au moins 4 téraoctets écrits (TBW) par jour : consultez [la page comprendre les écritures de lecteur par jour (DWPD), téraoctets écrits (TBW) et le minimum recommandé pour espaces de stockage direct](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
 
 Voici comment les lecteurs peuvent être connectés pour espaces de stockage direct :
 
@@ -96,7 +96,7 @@ Voici comment les lecteurs peuvent être connectés pour espaces de stockage dir
 - Lecteurs NVMe directement attachés
 - Adaptateur de bus hôte SAS avec lecteurs SAS
 - Adaptateur de bus hôte SAS avec lecteurs SATA
-- **NON PRIS EN CHARGE :** Les cartes de contrôleur RAID ou le stockage SAN (Fibre Channel, iSCSI, FCoE). Les cartes HBA doivent implémenter le mode de transfert simple.
+- **non pris en charge :** Les cartes de contrôleur RAID ou le stockage SAN (Fibre Channel, iSCSI, FCoE). Les cartes HBA doivent implémenter le mode de transfert simple.
 
 ![diagramme des interconnexions de lecteur prises en charge](media/hardware-requirements/drive-interconnect-support-1.png)
 
@@ -104,7 +104,7 @@ Les lecteurs peuvent être internes au serveur ou dans un boîtier externe conne
 
 - Lecteurs internes au serveur
 - Lecteurs d’un boîtier externe (« JBOD ») connectés à un serveur
-- **NON PRIS EN CHARGE :** Boîtiers SAS partagés connectés à plusieurs serveurs ou toute forme de MPIO (Multipath IO) où les lecteurs sont accessibles par plusieurs chemins d’accès.
+- **non pris en charge :** Boîtiers SAS partagés connectés à plusieurs serveurs ou toute forme de MPIO (Multipath IO) où les lecteurs sont accessibles par plusieurs chemins d’accès.
 
 ![diagramme des interconnexions de lecteur prises en charge](media/hardware-requirements/drive-interconnect-support-2.png)
 
@@ -129,7 +129,7 @@ Les lecteurs peuvent être internes au serveur ou dans un boîtier externe conne
 
 ### <a name="maximum-capacity"></a>Capacité maximale
 
-| Valeurs maximales                | Windows Server 2019  | Windows Server 2016  |
+| Valeurs maximales                | Windows Server 2019  | Windows Server 2016  |
 | ---                     | ---------            | ---------            |
 | Capacité brute par serveur | 400 TO               | 100 TO               |
 | Capacité du pool           | 4 PO (4 000 TO)      | 1 PO                 |

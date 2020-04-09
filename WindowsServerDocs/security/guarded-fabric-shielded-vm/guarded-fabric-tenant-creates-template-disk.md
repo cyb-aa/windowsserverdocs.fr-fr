@@ -1,19 +1,19 @@
 ---
 title: Machines virtuelles protégées pour les locataires-création d’un disque de modèle-facultatif
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: c1992f8b-6f88-4dbc-b4a5-08368bba2787
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 8e5080dd74506e86687dddb7be0fd35af92f5b56
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1f51a0f90f60847929f6fe46732c98f355a6a859
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403435"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856442"
 ---
 # <a name="shielded-vms-for-tenants---creating-a-template-disk-optional"></a>Machines virtuelles protégées pour les locataires-création d’un disque de modèle (facultatif)
 
@@ -28,10 +28,10 @@ Pour créer une nouvelle machine virtuelle protégée, vous devez utiliser un di
 
 Pour créer un disque de modèle protégé, vous devez d’abord préparer un disque de système d’exploitation qui sera exécuté via l’Assistant disque de modèle. Ce disque sera utilisé comme disque de système d’exploitation dans les machines virtuelles protégées. Vous pouvez utiliser n’importe quel outil existant pour créer ce disque, tel que Microsoft Desktop image Service Manager (DISM), ou configurer manuellement une machine virtuelle avec un VHDX vide et installer le système d’exploitation sur ce disque. Quand vous configurez le disque, celui-ci doit respecter les conditions suivantes qui sont spécifiques aux machines virtuelles de génération 2 et/ou protégées : 
 
-| Exigence pour VHDX | Reason |
+| Exigence pour VHDX | Raison |
 |-----------|----|
 |Doit être un disque de table de partition GUID (GPT) | Nécessaire pour que les ordinateurs virtuels de génération 2 prennent en charge UEFI|
-|Le type de disque doit être de **base** et non **dynamique**. <br>Remarque : Cela fait référence au type de disque logique, et non à la fonctionnalité VHDX « extensible dynamiquement » prise en charge par Hyper-V. | BitLocker ne prend pas en charge les disques dynamiques.|
+|Le type de disque doit être de **base** et non **dynamique**. <br>Remarque : cela fait référence au type de disque logique, et non à la fonctionnalité VHDX « extensible dynamiquement » prise en charge par Hyper-V. | BitLocker ne prend pas en charge les disques dynamiques.|
 |Le disque comporte au moins deux partitions. Une partition doit inclure le lecteur sur lequel Windows est installé. Il s’agit du lecteur que BitLocker chiffrera. L’autre partition est la partition active, qui contient le chargeur de démarrage et reste non chiffrée afin que l’ordinateur puisse être démarré.|Requis pour BitLocker|
 |Le système de fichiers est NTFS | Requis pour BitLocker|
 |Le système d’exploitation installé sur le VHDX est l’un des éléments suivants :<br>-Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 <br>-Windows 10, Windows 8.1, Windows 8| Nécessaire pour prendre en charge les ordinateurs virtuels de 2e génération et le modèle de démarrage sécurisé Microsoft|
@@ -74,7 +74,7 @@ Effectuez les étapes suivantes sur un ordinateur exécutant Windows Server 2016
 
 4. Démarrez l' **Assistant disque de modèle** à partir du dossier **Outils d’administration** du menu Démarrer ou en tapant **TemplateDiskWizard. exe** dans une invite de commandes.
 
-5. Sur la page **certificat** , cliquez sur **Parcourir** pour afficher la liste des certificats. Sélectionnez le certificat avec lequel signer le modèle de disque. Cliquez sur **OK** , puis sur **Suivant**.
+5. Sur la page **certificat** , cliquez sur **Parcourir** pour afficher la liste des certificats. Sélectionnez le certificat avec lequel signer le modèle de disque. Cliquez sur **OK**, puis sur **Suivant**.
 
 6. Sur la page disque virtuel, cliquez sur **Parcourir** pour sélectionner le VHDX que vous avez préparé, puis cliquez sur **suivant**.
 

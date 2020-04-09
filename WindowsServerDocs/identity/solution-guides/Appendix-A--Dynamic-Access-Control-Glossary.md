@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7f6b27e5-dc55-4ffc-8e76-6d57e65a870b
 title: Annexe A Dynamic Access Control Glossaire
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5508c3397039a1a70c07f1dc5f29e06bd02234a0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 328d8c74e57150c94d0a6032ff88a3600fe0baf3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357611"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859282"
 ---
 # <a name="appendix-a-dynamic-access-control-glossary"></a>Annexe A : Glossaire de contrôle d’accès dynamique
 
@@ -33,7 +32,7 @@ Voici la liste des termes et définitions inclus dans le scénario de Access Con
 |Revendication d’appareil|Revendication associée au système.  Avec les revendications d’utilisateur, il est inclus dans le jeton d’un utilisateur qui tente d’accéder à une ressource.|  
 |Liste de contrôle d’accès discrétionnaire (DACL)|Liste de contrôle d’accès qui identifie les destinataires autorisés ou non à accéder à une ressource sécurisable. Elle peut être modifiée à la discrétion du propriétaire de la ressource.|  
 |Propriété de ressource|Propriétés (telles que des étiquettes) qui décrivent un fichier et qui sont affectées à des fichiers à l’aide d’une classification automatique ou d’une classification manuelle. Les exemples incluent : la sensibilité, le projet et la période de rétention.|  
-|Gestionnaire de ressources du serveur de fichiers|Fonctionnalité du système d’exploitation Windows Server qui assure la gestion des quotas de dossiers, le filtrage des fichiers, les rapports de stockage, la classification des fichiers et les travaux de gestion des fichiers sur un serveur de fichiers.|  
+|Outils de gestion de ressources pour serveur de fichiers|Fonctionnalité du système d’exploitation Windows Server qui assure la gestion des quotas de dossiers, le filtrage des fichiers, les rapports de stockage, la classification des fichiers et les travaux de gestion des fichiers sur un serveur de fichiers.|  
 |Propriétés et étiquettes du dossier|Les propriétés et les étiquettes qui décrivent un dossier et sont affectées manuellement par les administrateurs et les propriétaires de dossiers. Ces propriétés attribuent des valeurs de propriété par défaut aux fichiers de ces dossiers, par exemple, le secret ou le service.|  
 |Stratégie de groupe|Ensemble de règles et de stratégies qui contrôlent l’environnement de travail des utilisateurs et des ordinateurs dans un environnement de Active Directory.|  
 |Classification en temps quasi réel|Classification automatique qui est exécutée peu après la création ou la modification d’un fichier.|  

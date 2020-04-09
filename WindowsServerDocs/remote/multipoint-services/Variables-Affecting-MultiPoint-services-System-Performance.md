@@ -1,31 +1,27 @@
 ---
 title: Variables qui affectent les performances du système MultiPoint Services
 description: Informations sur les performances de MultiPoint services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0f3e8875-1b5e-4789-b16c-d06d6e31f38e
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: cba973e3b0a89c26f886a67154c27831adb2c8cc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 44f268c958ed32e527b66cebe1a10d33652eb9b0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394830"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858912"
 ---
 # <a name="variables-affecting-multipoint-services-system-performance"></a>Variables qui affectent les performances du système MultiPoint Services
 Il existe de nombreuses variables qui peuvent affecter les performances globales de votre système MultiPoint services. Vous souhaiterez peut-être les prendre en compte lors de la conception de votre système.  
   
 ## <a name="usage"></a>Utilisation  
   
--   **Applications** Le type et le nombre d’applications qui s’exécutent en même temps\-, en particulier les applications graphiques lourdes ou gourmandes en mémoire, affectent les performances globales de votre système. Pour plus d’informations, consultez [applications et contenu Internet](hardware-and-performance-recommendations.md#applications-and-internet-content).  
+-   **Applications** Le type et le nombre d’applications qui s’exécutent en même temps, en particulier les applications graphiques\-lourdes ou gourmandes en mémoire, affectent les performances globales de votre système. Pour plus d’informations, consultez [applications et contenu Internet](hardware-and-performance-recommendations.md#applications-and-internet-content).  
   
 -   **Utilisation d’Internet** Déterminez si vos utilisateurs visualisent du contenu multimédia ou des pages Web qui utilisent des vidéos en mode plein mouvement. Ce type de contenu peut surcharger le système si un trop grand nombre d’utilisateurs sont affichés simultanément.  
   

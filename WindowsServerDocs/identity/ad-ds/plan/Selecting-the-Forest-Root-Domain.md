@@ -1,7 +1,6 @@
 ---
 ms.assetid: ef4ef4a9-8969-4ad0-bd17-b2bb24f36ef6
 title: Sélection du domaine racine de forêt
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 80d39a5910d06559b98211eaf55a4cd0c82442a1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3fddf5179e2944800d57568f0b8e52262c04cd43
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402504"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821902"
 ---
 # <a name="selecting-the-forest-root-domain"></a>Sélection du domaine racine de forêt
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Le premier domaine que vous déployez dans une forêt Active Directory est appelé domaine racine de la forêt. Ce domaine reste le domaine racine de la forêt pour le cycle de vie du déploiement AD DS.  
   
@@ -89,4 +88,4 @@ Il est important que le propriétaire DNS Active Directory collabore avec le pro
   
 ## <a name="documenting-the-forest-root-domain-name"></a>Documentation du nom de domaine racine de la forêt
 
-Documentez le préfixe et le suffixe DNS que vous sélectionnez pour le domaine racine de forêt. À ce stade, identifiez le domaine qui sera la racine de la forêt. Vous pouvez ajouter les informations du nom de domaine racine de la forêt à la feuille de calcul « planification de domaine » que vous avez créée pour documenter votre plan pour les domaines nouveaux et mis à niveau et vos noms de domaine. Pour l’ouvrir, téléchargez Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip à partir des [outils de gestion des travaux pour Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558) et ouvrez « Domain Planning » (DSSLOGI_5. doc).
+Documentez le préfixe et le suffixe DNS que vous sélectionnez pour le domaine racine de forêt. À ce stade, identifiez le domaine qui sera la racine de la forêt. Vous pouvez ajouter les informations du nom de domaine racine de la forêt à la feuille de calcul « planification de domaine » que vous avez créée pour documenter votre plan pour les domaines nouveaux et mis à niveau et vos noms de domaine. Pour l’ouvrir, téléchargez Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip à partir des [outils de gestion des travaux pour le kit de déploiement Windows Server 2003](https://go.microsoft.com/fwlink/?LinkID=102558) et ouvrez « planification de domaine » (DSSLOGI_5. doc).

@@ -2,20 +2,19 @@
 title: L’authentification basée sur les certificats est recommandée pour la réplication
 description: Version en ligne du texte de cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: d931cc57-414f-4bdf-9ebd-08fd5e22b19d
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 0eac99fddd8bbc6dc585931cd25f2a440be16c76
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c5e356792ba93d21d9ce130a46e1d60336c99844
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365178"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857672"
 ---
 # <a name="certificate-based-authentication-is-recommended-for-replication"></a>L’authentification basée sur les certificats est recommandée pour la réplication
 
@@ -25,9 +24,9 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -35,7 +34,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ## <a name="issue"></a>**Problème**  
 *Une ou plusieurs machines virtuelles sélectionnées pour la réplication sont configurées pour l’authentification Kerberos.*  
   
-## <a name="impact"></a>**Impact**  
+## <a name="impact"></a>**Effet**  
 *Le trafic réseau de réplication entre le serveur principal et le serveur de réplication n’est pas chiffré. Cela a un impact sur les machines virtuelles suivantes :*  
   
 \<liste des machines virtuelles >  

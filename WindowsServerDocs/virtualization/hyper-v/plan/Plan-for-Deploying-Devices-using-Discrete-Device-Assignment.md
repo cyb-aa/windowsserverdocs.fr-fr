@@ -2,19 +2,17 @@
 title: Planifier le déploiement d’appareils à l’aide de l’affectation discrète des appareils
 description: En savoir plus sur le fonctionnement de DDA dans Windows Server
 ms.prod: windows-server
-ms.service: na
 ms.technology: hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.date: 08/21/2019
-ms.openlocfilehash: 114dd87b86bfffd1070229af57ae65deea2c2db0
-ms.sourcegitcommit: 81198fbf9e46830b7f77dcd345b02abb71ae0ac2
+ms.openlocfilehash: 9cc9614524c424398df550351aa2abfa7d173d43
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72923862"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856092"
 ---
 # <a name="plan-for-deploying-devices-using-discrete-device-assignment"></a>Planifier le déploiement d’appareils à l’aide de l’affectation discrète des appareils
 >S’applique à : Microsoft Hyper-V Server 2016, Windows Server 2016, Microsoft Hyper-V Server 2019, Windows Server 2019
@@ -28,12 +26,12 @@ Pour en savoir plus sur les autres méthodes de virtualisation de GPU, consultez
 ## <a name="supported-virtual-machines-and-guest-operating-systems"></a>Machines virtuelles et systèmes d’exploitation invités pris en charge
 L’affectation discrète d’appareils est prise en charge pour les machines virtuelles de génération 1 ou 2.  En outre, les invités pris en charge incluent Windows 10, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 avec [KB 3133690](https://support.microsoft.com/kb/3133690) appliqué et diverses distributions du [système d’exploitation Linux.](../supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows.md)
 
-## <a name="system-requirements"></a>Configuration système
-En plus de la [Configuration système requise pour Windows Server](../../../get-started/System-Requirements--and-Installation.md) et de la [Configuration système requise pour Hyper-V](../System-requirements-for-Hyper-V-on-Windows.md), l’affectation discrète des appareils nécessite un matériel de classe serveur capable d’accorder le contrôle du système d’exploitation à la configuration du PCIe infrastructure (contrôle PCI Express natif). En outre, la racine PCIe complexe doit prendre en charge « services de Access Control » (ACS), qui permet à Hyper-V de forcer tout le trafic PCIe via la MMU d’e/s.
+## <a name="system-requirements"></a>Configuration système requise
+En plus de la [Configuration système requise pour Windows Server](../../../get-started/System-Requirements--and-Installation.md) et [de la configuration système requise pour Hyper-V](../System-requirements-for-Hyper-V-on-Windows.md), l’affectation discrète des appareils nécessite un matériel de classe serveur capable d’accorder le contrôle du système d’exploitation à la configuration de la structure PCIe (contrôle PCI Express natif). En outre, la racine PCIe complexe doit prendre en charge « services de Access Control » (ACS), qui permet à Hyper-V de forcer tout le trafic PCIe via la MMU d’e/s.
 
 Ces fonctionnalités ne sont généralement pas exposées directement dans le BIOS du serveur et sont souvent masquées derrière d’autres paramètres.  Par exemple, les mêmes fonctionnalités sont requises pour la prise en charge de SR-IOV et dans le BIOS, vous devrez peut-être définir « Enable SR-IOV ».  Veuillez contacter votre fournisseur de système si vous ne parvenez pas à identifier le paramètre correct dans votre BIOS.
 
-Pour s’assurer que le matériel est capable d’attribuer des appareils discrets, nos ingénieurs ont rassemblé un [script de profil d’ordinateur](#machine-profile-script) que vous pouvez exécuter sur un hôte Hyper-V pour tester si votre serveur est correctement configuré et quels appareils sont capables de Attribution d’appareil discrète.
+Pour s’assurer que le matériel est en mesure d’attribuer des appareils discrets, nos ingénieurs ont rassemblé un [script de profil d’ordinateur](#machine-profile-script) que vous pouvez exécuter sur un hôte Hyper-V pour tester si votre serveur est correctement configuré et quels appareils sont capables d’attribuer des appareils discrets.
 
 ## <a name="device-requirements"></a>Configuration requise pour l’appareil
 Tous les périphériques PCIe ne peuvent pas être utilisés avec l’affectation discrète des appareils.  Par exemple, les appareils plus anciens qui tirent parti des interruptions PCI héritées (INTx) ne sont pas pris en charge. Les billets de [blog](https://blogs.technet.microsoft.com/virtualization/2015/11/20/discrete-device-assignment-machines-and-devices/) de julien Oshin sont plus détaillés. Toutefois, pour le consommateur, l’exécution du [script de profil d’ordinateur](#machine-profile-script) affiche les appareils qui peuvent être utilisés pour l’affectation discrète des appareils.
@@ -63,7 +61,7 @@ Si vous souhaitez contourner les vérifications de sécurité pour un appareil q
 Le chemin d’accès à l’emplacement PCIe est requis pour démonter et monter l’appareil à partir de l’hôte.  Un exemple de chemin d’accès à l’emplacement ressemble à ce qui suit : `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`.   Le [script de profil d’ordinateur](#machine-profile-script) retourne également le chemin d’accès de l’emplacement du périphérique PCIe.
 
 ### <a name="getting-the-location-path-by-using-device-manager"></a>Obtention du chemin d’accès à l’emplacement à l’aide de Device Manager
-![Gestionnaire de périphériques](../deploy/media/dda-devicemanager.png)
+![Gestionnaire de périphérique](../deploy/media/dda-devicemanager.png)
 - Ouvrez Device Manager et recherchez l’appareil.  
 - Cliquez avec le bouton droit sur l’appareil et sélectionnez « Propriétés ».
 - Accédez à l’onglet Détails et sélectionnez « chemins d’accès des emplacements » dans la liste déroulante des propriétés.  

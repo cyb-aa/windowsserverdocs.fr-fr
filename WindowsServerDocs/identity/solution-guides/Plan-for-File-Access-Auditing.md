@@ -1,7 +1,6 @@
 ---
 ms.assetid: 3ea48a72-20a2-4da4-84e4-26b5728513ce
 title: Planifier l’audit d’accès aux fichiers
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 25d6e1c3dd3ab0d10f04cef3e88a7671957b51db
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ffe8843f9ace604bc0904ba2d1eaef78d2872b99
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407085"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861162"
 ---
 # <a name="plan-for-file-access-auditing"></a>Planifier l’audit d’accès aux fichiers
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Les informations contenues dans cette rubrique expliquent les améliorations apportées à l’audit de sécurité introduites dans Windows Server 2012 et les nouveaux paramètres d’audit que vous devez prendre en compte lorsque vous déployez des Access Control dynamiques dans votre entreprise. Les paramètres de stratégie d’audit actuels que vous déployez dépendront de vos objectifs. Il peut s’agir notamment de la conformité aux normes, de l’analyse, de l’analyse d’investigation et de la résolution des problèmes.  
   

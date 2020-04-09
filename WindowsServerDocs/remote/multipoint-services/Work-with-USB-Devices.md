@@ -1,27 +1,23 @@
 ---
 title: Utiliser des périphériques USB
 description: En savoir plus sur le fonctionnement des périphériques USB avec MultiPoint services
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a33f2b83-bbc2-4fc1-8a94-aaa985dfe1f9
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: ce4338eccc5640f8743093649685054718f9ed2a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d366e8c61da86d0e47b2ce99d08a2046c8f8bd0a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394776"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858032"
 ---
 # <a name="work-with-usb-devices"></a>Utiliser des périphériques USB
-Vous pouvez connecter des appareils à l’ordinateur de votre système MultiPoint services ou à un concentrateur de station MultiPoint. Selon son emplacement de connexion et son type, un périphérique est disponible pour l’ensemble ou pour certains des utilisateurs du système, ou n’est disponible pour aucun utilisateur. Voici quelques exemples de types de connexions :  
+Vous pouvez connecter des périphériques à l’ordinateur du système MultiPoint Services ou à un concentrateur de station MultiPoint. Selon son emplacement de connexion et son type, un périphérique est disponible pour l’ensemble ou pour certains des utilisateurs du système, ou n’est disponible pour aucun utilisateur. Voici quelques exemples de types de connexions :  
   
 -   Si vous connectez un périphérique directement à l’ordinateur, comme une imprimante ou un périphérique de stockage de masse USB, il est accessible à tous les utilisateurs de la session sur le système MultiPoint Services. Les utilisateurs de station de bureau virtuel ne sont pas en mesure d’accéder aux périphériques connectés directement à l’ordinateur.  
   
@@ -33,15 +29,15 @@ Le tableau suivant répertorie quelques périphériques et leur fonctionnement s
   
 |||||  
 |-|-|-|-|  
-|**Appareil**|**Comportement lorsqu’il est directement connecté à l’ordinateur**|**Comportement lorsqu’il est connecté à une station**|**Notes**|  
-|Clavier|Il est déconseillé de connecter un clavier directement à l’ordinateur.|Accessible uniquement à l’utilisateur de la station.|Si le clavier contient un port USB, le concentrateur USB à l’intérieur du clavier peut être le concentrateur de station. Les autres périphériques USB connectés à ce port sont disponibles uniquement pour l’utilisateur de ce clavier.<br /><br />Certains concentrateurs de station sont équipés d’un port souris PS\/2 qui est converti en une connexion USB dans le concentrateur.|  
+|**Passerelle**|**Comportement lorsqu’il est directement connecté à l’ordinateur**|**Comportement lorsqu’il est connecté à une station**|**Notes**|  
+|Clavier|Il est déconseillé de connecter un clavier directement à l’ordinateur.|Accessible uniquement à l’utilisateur de la station.|Si le clavier contient un port USB, le concentrateur USB à l’intérieur du clavier peut être le concentrateur de station. Les autres périphériques USB connectés à ce port sont disponibles uniquement pour l’utilisateur de ce clavier.<p>Certains concentrateurs de station sont équipés d’un port souris PS\/2 qui est converti en une connexion USB dans le concentrateur.|  
 |Souris|Il est déconseillé de connecter une souris directement à l’ordinateur.|Accessible uniquement à l’utilisateur de la station.|Certains concentrateurs de station sont équipés d’un port souris PS\/2 qui est converti en une connexion USB dans le concentrateur.|  
 |Concentrateur USB|Consultez [utilisation des concentrateurs de station](#working-with-station-hubs).|Consultez [utilisation des concentrateurs de station](#working-with-station-hubs).||  
 |Moniteur vidéo|Consultez [périphériques vidéo multipoint services](work-with-video-devices.md).|Consultez [périphériques vidéo multipoint services](work-with-video-devices.md).||  
 |Périphériques de sortie audio, tels qu’un casque|Il est déconseillé de connecter un périphérique de sortie audio directement à l’ordinateur.|Accessible uniquement à l’utilisateur de la station.|Certains concentrateurs de station sont équipés d’un port audio analogique qui est converti en une connexion audio USB dans le concentrateur.|  
 |Périphériques d’entrée audio, tels qu’un micro|Il est déconseillé de connecter un périphérique d’entrée audio directement à l’ordinateur.|Accessible uniquement à l’utilisateur de la station.|Certains concentrateurs de station sont équipés d’un port audio analogique qui est converti en une connexion audio USB dans le concentrateur.|  
 |Imprimantes|Accessible à tous les utilisateurs sur le système. *|Accessible uniquement à l’utilisateur de la station.||  
-|Périphérique de stockage de masse USB|Accessible à tous les utilisateurs sur le système. \*|Accessible uniquement à l’utilisateur de la station.|Ces périphériques incluent les disques mémoire flash USB, les lecteurs de disques durs externes et les appareils photo numériques.|  
+|Périphérique de stockage de masse USB|Accessible à tous les utilisateurs sur le système.\*|Accessible uniquement à l’utilisateur de la station.|Ces périphériques incluent les disques mémoire flash USB, les lecteurs de disques durs externes et les appareils photo numériques.|  
 |Webcams|Accessible à tous les utilisateurs sur le système. *|Accessible uniquement à l’utilisateur de la station.|Un seul utilisateur peut se connecter à la webcam à la fois.|  
   
 \* Les appareils qui sont connectés à l’ordinateur hôte ne sont pas visibles par les utilisateurs qui sont connectés à des stations de travail virtuelles.  

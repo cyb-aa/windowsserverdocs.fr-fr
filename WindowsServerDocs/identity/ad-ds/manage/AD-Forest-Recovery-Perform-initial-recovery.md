@@ -1,6 +1,5 @@
 ---
 title: Récupération de la forêt Active Directory-effectuer la récupération initiale
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: a369347fe889c7f6675d0091d05a6dee93cb4434
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7d592198187d44927f643b45e7a8bb4c2eec2a69
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369068"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823902"
 ---
 # <a name="perform-initial-recovery"></a>Effectuer la récupération initiale  
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
 Cette section comprend les étapes suivantes :  
 
@@ -53,11 +52,11 @@ Ensuite, procédez comme suit. Les procédures relatives à l’exécution de ce
 
       **HKLM\System\CurrentControlSet\Services\NTDS\Parameters\Repl effectuer les synchronisations initiales**  
   
-      Créez l’entrée avec le type de données **REG_DWORD** et la valeur **0**. Une fois que la forêt est entièrement récupérée, vous pouvez réinitialiser la valeur de cette entrée à **1**, ce qui nécessite qu’un contrôleur de domaine redémarre et conserve les rôles de maître d’opérations pour réussir AD DS réplication entrante et sortante avec son réplica connu. avant de se publier en tant que contrôleur de domaine et de fournir des services aux clients. Pour plus d’informations sur la configuration requise pour la synchronisation initiale, voir l’article [305476](https://support.microsoft.com/kb/305476)de la base de connaissances. 
+      Créez l’entrée avec le type de données **REG_DWORD** et la valeur **0**. Une fois la forêt entièrement récupérée, vous pouvez réinitialiser la valeur de cette entrée à **1**, ce qui nécessite qu’un contrôleur de domaine redémarre et conserve les rôles de maître d’opérations pour réussir AD DS réplication entrante et sortante avec ses partenaires de réplication connus avant de se publier en tant que contrôleur de domaine et de fournir des services aux clients. Pour plus d’informations sur la configuration requise pour la synchronisation initiale, voir l’article [305476](https://support.microsoft.com/kb/305476)de la base de connaissances. 
   
       Passez aux étapes suivantes uniquement après avoir restauré et vérifié les données et avant de joindre cet ordinateur au réseau de production. 
   
-4. Si vous pensez que la défaillance à l’ensemble de la forêt était liée à une intrusion de réseau ou à une attaque malveillante, réinitialisez les mots de passe de compte pour tous les comptes d’administration, y compris les membres des groupes Administrateurs de l’entreprise, admins du domaine, administrateurs du schéma, opérateurs de serveur, compte. Opérateurs, etc. La réinitialisation des mots de passe des comptes d’administration doit être effectuée avant l’installation de contrôleurs de domaine supplémentaires lors de la phase suivante de la récupération de la forêt. 
+4. Si vous pensez que la défaillance à l’ensemble de la forêt était liée à une intrusion de réseau ou à une attaque malveillante, réinitialisez les mots de passe de compte pour tous les comptes d’administration, y compris les membres des groupes Administrateurs de l’entreprise, admins du domaine, administrateurs du schéma, opérateurs de serveur, opérateurs de compte, etc. La réinitialisation des mots de passe des comptes d’administration doit être effectuée avant l’installation de contrôleurs de domaine supplémentaires lors de la phase suivante de la récupération de la forêt. 
 5. Sur le premier contrôleur de domaine restauré dans le domaine racine de forêt, saisissez tous les rôles de maître d’opérations à l’ensemble du domaine et de la forêt. Les informations d’identification administrateurs de l’entreprise et administrateurs du schéma sont nécessaires pour prendre les rôles de maître d’opérations à l’ensemble de la forêt. 
   
      Dans chaque domaine enfant, prenez les rôles de maître d’opérations à l’ensemble du domaine. Même si vous ne pouvez conserver les rôles de maître d’opérations que temporairement sur le contrôleur de périphérique restauré, la prise de ces rôles vous garantit quel contrôleur de bus les héberge à ce stade du processus de récupération de forêt. Dans le cadre de votre processus de récupération après récupération, vous pouvez redistribuer les rôles de maître d’opérations en fonction des besoins. Pour plus d’informations sur la prise des rôles de maître d’opérations, consultez [prise d’un rôle de maître d’opérations](AD-forest-recovery-seizing-operations-master-role.md). Pour obtenir des recommandations sur l’emplacement des rôles de maître d’opérations, consultez [que sont les maîtres d’opérations ?](https://technet.microsoft.com/library/cc779716.aspx). 
@@ -77,7 +76,7 @@ Ensuite, procédez comme suit. Les procédures relatives à l’exécution de ce
   
      Dans chaque domaine enfant, configurez le contrôleur de domaine restauré avec l’adresse IP du premier serveur DNS du domaine racine de la forêt en tant que serveur DNS préféré. Vous pouvez configurer ce paramètre dans les propriétés TCP/IP de la carte réseau. Pour plus d’informations, consultez [Configurer TCP/IP pour utiliser DNS](https://technet.microsoft.com/library/cc779282\(WS.10\).aspx). 
   
-     Dans les zones _ msdcs et Domain DNS, supprimez les enregistrements NS des contrôleurs de domaine qui n’existent plus après le nettoyage des métadonnées. Vérifiez si les enregistrements SRV des contrôleurs de contrôle d’accès ont été supprimés. Pour accélérer la suppression de l’enregistrement SRV DNS, exécutez :  
+     Dans les zones DNS du _msdcs et du domaine, supprimez les enregistrements NS des contrôleurs de domaine qui n’existent plus après le nettoyage des métadonnées. Vérifiez si les enregistrements SRV des contrôleurs de contrôle d’accès ont été supprimés. Pour accélérer la suppression de l’enregistrement SRV DNS, exécutez :  
   
     ```  
     nltest.exe /dsderegdns:server.domain.tld  
@@ -111,7 +110,7 @@ Ensuite, procédez comme suit. Les procédures relatives à l’exécution de ce
   
      Un deuxième problème est qu’un compte d’utilisateur qui n’existe plus peut toujours apparaître dans la liste d’adresses globale. Un troisième problème est qu’un groupe universel qui n’existe plus peut toujours apparaître dans le jeton d’accès d’un utilisateur. 
   
-     Si vous avez restauré un contrôleur de service qui était un catalogue global, soit par inadvertance, soit par la sauvegarde solitaires que vous avez approuvée, nous vous recommandons d’empêcher l’occurrence d’objets en attente en désactivant le catalogue global peu de temps après l’opération de restauration. Remplissez. La désactivation de l’indicateur de catalogue global entraînera la perte par l’ordinateur de tous ses réplicas partiels (partitions) et de la redélégation à l’état de contrôleur de jeu normal. 
+     Si vous avez restauré un contrôleur de service qui était un catalogue global, soit par inadvertance, soit par la sauvegarde solitaires que vous avez approuvée, nous vous recommandons d’empêcher l’occurrence d’objets en attente en désactivant le catalogue global peu de temps après l’opération de restauration. La désactivation de l’indicateur de catalogue global entraînera la perte par l’ordinateur de tous ses réplicas partiels (partitions) et de la redélégation à l’état de contrôleur de jeu normal. 
   
 13. Configurez le service de temps Windows. Dans le domaine racine de forêt, configurez l’émulateur de contrôleur de domaine principal pour synchroniser l’heure à partir d’une source de temps externe. Pour plus d’informations, consultez [configurer le service de temps Windows sur l’émulateur de contrôleur de domaine principal dans le domaine racine de la forêt](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29). 
   
@@ -126,7 +125,7 @@ Après la validation, joignez les contrôleurs de réseau au réseau de producti
 
 - Pour résoudre le problème de résolution de noms, créez des enregistrements de délégation DNS et configurez le transfert DNS et les indications de racine en fonction des besoins. Exécutez **repadmin/replsum.** pour vérifier la réplication entre les contrôleurs de contrôle. 
 - Si les contrôleurs de service restaurés ne sont pas des partenaires de réplication directe, la récupération de la réplication est beaucoup plus rapide en créant des objets de connexion temporaires entre eux. 
-- Pour valider le nettoyage des métadonnées, exécutez **repadmin/viewlist \\** * pour obtenir la liste de tous les contrôleurs de contrôle dans la forêt. Exécutez **Nltest/DCList :** *< Domain\>*  pour obtenir la liste de tous les contrôleurs de domaine du domaine. 
+- Pour valider le nettoyage des métadonnées, exécutez **repadmin/viewlist \\** * pour obtenir la liste de tous les contrôleurs de contrôle dans la forêt. Exécutez **Nltest/DCList :** *<\>de domaine* pour obtenir la liste de tous les contrôleurs de domaine du domaine. 
 - Pour vérifier l’intégrité du contrôleur de domaine et du DNS, exécutez DCDiag/v pour signaler les erreurs sur tous les contrôleurs de domaine de la forêt. 
 
 ## <a name="add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain"></a>Ajouter le catalogue global à un contrôleur de domaine dans le domaine racine de la forêt

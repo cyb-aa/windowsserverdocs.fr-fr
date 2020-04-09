@@ -1,24 +1,20 @@
 ---
 title: extend
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2414e21d-fc0b-40e8-9e33-3e072f8ad76b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bb54a661bf60b55fd95bf3a686d758d13831a6ba
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 11991f9fc338dca5201d8f9c9c598b9d7dcf239b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377307"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844782"
 ---
 # <a name="extend"></a>extend
 
@@ -35,14 +31,14 @@ extend [size=<n>] [disk=<n>] [noerr]
 extend filesystem [noerr]  
 ```  
   
-## <a name="parameters"></a>Paramètres  
+### <a name="parameters"></a>Paramètres  
   
 | Paramètre  |                                                                                             Description                                                                                              |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | taille\=<n>  |      Spécifie la quantité d’espace en mégaoctets \(Mo\) à ajouter au volume ou à la partition en cours. Si aucune taille n’est donnée, tout l’espace libre contigu disponible sur le disque est utilisé.       |
 | disque\=<n>  |                          Spécifie le disque sur lequel le volume ou la partition est étendu (e). Si aucun disque n’est spécifié, le volume ou la partition est étendu sur le disque actuel.                          |
 | FileSystem |                                   étend le système de fichiers du volume qui a le focus. À utiliser uniquement sur les disques où le système de fichiers n’a pas été étendu avec le volume.                                    |
-|   noerr    | à des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur. |
+|   noerr    | À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur. |
   
 ## <a name="remarks"></a>Notes  
   
@@ -58,7 +54,7 @@ extend filesystem [noerr]
   
 -   La partition doit avoir un volume associé pour pouvoir être étendue.  
   
-## <a name="BKMK_examples"></a>Illustre  
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre  
 Pour étendre le volume ou la partition avec le focus de 500 mégaoctets, sur le disque 3, tapez :  
   
 ```  
@@ -71,8 +67,8 @@ Pour étendre le système de fichiers d’un volume après son extension, tapez�
 extend filesystem  
 ```  
   
-#### <a name="additional-references"></a>Références supplémentaires  
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
+## <a name="additional-references"></a>Références supplémentaires  
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
   
 
   

@@ -1,7 +1,6 @@
 ---
 title: Résolution des problèmes de espaces de stockage direct
 description: Découvrez comment résoudre les problèmes liés à votre déploiement espaces de stockage direct.
-keywords: Espaces de stockage
 ms.prod: windows-server
 ms.author: ''
 ms.technology: storage-spaces
@@ -9,12 +8,12 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ace19b711445106956ae223f17afb6b4181d352d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 429eddf30fddf6bfd035d1f928196a3b66d14646
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365939"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820942"
 ---
 # <a name="troubleshoot-storage-spaces-direct"></a>Résoudre les espaces de stockage direct
 
@@ -36,12 +35,12 @@ Si vous rencontrez toujours des problèmes, passez en revue les scénarios ci-de
 ## <a name="virtual-disk-resources-are-in-no-redundancy-state"></a>Les ressources de disque virtuel ne sont pas dans un état de redondance
 Les nœuds d’un espaces de stockage direct système redémarrent de manière inattendue en raison d’un incident ou d’une panne d’alimentation. Ensuite, un ou plusieurs disques virtuels peuvent ne pas être mis en ligne et la description « informations de redondance insuffisantes » s’affiche.
 
-|FriendlyName|ResiliencySettingName| OperationalStatus| HealthStatus| IsManualAttach|Size| PSComputerName|
+|FriendlyName|ResiliencySettingName| OperationalStatus| HealthStatus| IsManualAttach|Taille| PSComputerName|
 |------------|---------------------| -----------------| ------------| --------------|-----| --------------|
-|Disk4| Mirror| OK|  Healthy| True|  10 TO|  Nœud-01. Conto...|
-|Disk3         |Mirror                 |OK                          |Healthy       |True            |10 TO | Nœud-01. Conto...|
-|Disk2         |Mirror                 |Aucune redondance               |Unhealthy     |True            |10 TO | Nœud-01. Conto...|
-|Disk1         |Mirror                 |{Aucune redondance, InService}  |Unhealthy     |True            |10 TO | Nœud-01. Conto...| 
+|Disk4| Miroir| OK|  Intègre| True|  10 TO|  Nœud-01. Conto...|
+|Disk3         |Miroir                 |OK                          |Intègre       |True            |10 TO | Nœud-01. Conto...|
+|Disk2         |Miroir                 |Aucune redondance               |Non intègre     |True            |10 TO | Nœud-01. Conto...|
+|Disk1         |Miroir                 |{Aucune redondance, InService}  |Non intègre     |True            |10 TO | Nœud-01. Conto...| 
 
 En outre, après avoir essayé de mettre le disque virtuel en ligne, les informations suivantes sont consignées dans le journal du cluster (DiskRecoveryAction).  
 
@@ -99,12 +98,12 @@ Quand vous exécutez l’applet de commande **VirtualDisk** , le OperationalStat
 
 Voici un exemple de sortie de l’applet de commande **VirtualDisk** .
 
-|FriendlyName|  ResiliencySettingName|  OperationalStatus|   HealthStatus|  IsManualAttach|  Size|   PSComputerName|
+|FriendlyName|  ResiliencySettingName|  OperationalStatus|   HealthStatus|  IsManualAttach|  Taille|   PSComputerName|
 |-|-|-|-|-|-|-|
-|Disk4|         Mirror|                 OK|                  Healthy|       True|            10 TO|  Nœud-01. Conto...|
-|Disk3|         Mirror|                 OK|                  Healthy|       True|            10 TO|  Nœud-01. Conto...|
-|Disk2|         Mirror|                 Détaché|            Inconnu|       True|            10 TO|  Nœud-01. Conto...|
-|Disk1|         Mirror|                 Détaché|            Inconnu|       True|            10 TO|  Nœud-01. Conto...| 
+|Disk4|         Miroir|                 OK|                  Intègre|       True|            10 TO|  Nœud-01. Conto...|
+|Disk3|         Miroir|                 OK|                  Intègre|       True|            10 TO|  Nœud-01. Conto...|
+|Disk2|         Miroir|                 Détaché|            Inconnu.|       True|            10 TO|  Nœud-01. Conto...|
+|Disk1|         Miroir|                 Détaché|            Inconnu.|       True|            10 TO|  Nœud-01. Conto...| 
 
 
 En outre, les événements suivants peuvent être consignés sur les nœuds :
@@ -151,7 +150,7 @@ DeviceName:
 Volume Name:
 ``` 
 
-L' **état opérationnel détaché** peut se produire si le journal DRT (Dirty Region Tracking) est saturé. Les espaces de stockage utilisent le suivi des régions modifiées (DRT) pour les espaces en miroir pour s’assurer qu’en cas de panne de courant, toutes les mises à jour en cours des métadonnées sont journalisées pour s’assurer que l’espace de stockage peut rétablir ou annuler les opérations pour ramener l’espace de stockage dans un État flexible. et un état cohérent lorsque l’alimentation est restaurée et que le système est rétabli. Si le journal DRT est plein, le disque virtuel ne peut pas être mis en ligne tant que les métadonnées DRT ne sont pas synchronisées et vidées. Ce processus nécessite l’exécution d’une analyse complète, qui peut prendre plusieurs heures.
+L' **état opérationnel détaché** peut se produire si le journal DRT (Dirty Region Tracking) est saturé. Les espaces de stockage utilisent le suivi des régions modifiées (DRT) pour les espaces en miroir afin de s’assurer qu’en cas de panne de courant, toutes les mises à jour en cours des métadonnées sont journalisées pour s’assurer que l’espace de stockage peut effectuer des opérations de restauration ou d’annulation pour ramener l’espace de stockage dans un État flexible et cohérent lorsque l’alimentation est restaurée Si le journal DRT est plein, le disque virtuel ne peut pas être mis en ligne tant que les métadonnées DRT ne sont pas synchronisées et vidées. Ce processus nécessite l’exécution d’une analyse complète, qui peut prendre plusieurs heures.
 
 Pour résoudre ce problème, procédez comme suit :
 1. Supprimez les disques virtuels affectés du volume partagé de cluster.
@@ -206,7 +205,7 @@ Pour plus d’informations, consultez [résolution des problèmes de espaces de 
 ## <a name="event-5120-with-status_io_timeout-c00000b5"></a>Événement 5120 avec STATUS_IO_TIMEOUT c00000b5 
 
 > [!Important]
-> **Pour Windows Server 2016 :** Pour réduire le risque de rencontrer ces problèmes lors de l’application de la mise à jour avec le correctif, il est recommandé d’utiliser la procédure du mode de maintenance du stockage ci-dessous pour installer la [mise à jour cumulative 18 octobre 2018 pour Windows Server 2016](https://support.microsoft.com/help/4462928) ou une version ultérieure Lorsque les nœuds ont installé une mise à jour cumulative de Windows Server 2016 publiée du [2018 8 mai](https://support.microsoft.com/help/4103723) au [9 octobre 2018](https://support.microsoft.com/help/KB4462917).
+> **Pour Windows Server 2016 :** Pour réduire le risque de rencontrer ces problèmes lors de l’application de la mise à jour avec le correctif, il est recommandé d’utiliser la procédure du mode de maintenance du stockage ci-dessous pour installer la mise à jour cumulative [18 octobre 2018 pour Windows server 2016](https://support.microsoft.com/help/4462928) ou une version ultérieure quand les nœuds ont installé une mise à jour cumulative de windows server 2016 publiée du [2018 8 mai](https://support.microsoft.com/help/4103723) au [9 octobre 2018](https://support.microsoft.com/help/KB4462917).
 
 Vous pouvez obtenir l’événement 5120 avec STATUS_IO_TIMEOUT c00000b5 après avoir redémarré un nœud sur Windows Server 2016 avec la mise à jour cumulative qui a été publiée du [8 mai à 2018 kb 4103723](https://support.microsoft.com/help/4103723) au [9 octobre, 2018 Ko 4462917](https://support.microsoft.com/help/4462917) installé.
 
@@ -217,7 +216,7 @@ Event Source: Microsoft-Windows-FailoverClustering
 Event ID: 5120
 Description:    Cluster Shared Volume 'CSVName' ('Cluster Virtual Disk (CSVName)') has entered a paused state because of 'STATUS_IO_TIMEOUT(c00000b5)'. All I/O will temporarily be queued until a path to the volume is reestablished. 
 
-Cluster Shared Volume ‘CSVName' ('Cluster Virtual Disk (CSVName)') has entered a paused state because of 'STATUS_CONNECTION_DISCONNECTED(c000020c)'. All I/O will temporarily be queued until a path to the volume is reestablished.    
+Cluster Shared Volume 'CSVName' ('Cluster Virtual Disk (CSVName)') has entered a paused state because of 'STATUS_CONNECTION_DISCONNECTED(c000020c)'. All I/O will temporarily be queued until a path to the volume is reestablished.    
 ```
 
 Lorsqu’un événement 5120 est enregistré, un vidage instantané est généré pour collecter des informations de débogage susceptibles de provoquer des symptômes supplémentaires ou d’avoir un effet sur les performances. La génération de l’image mémoire dynamique crée une brève pause pour permettre la création d’un instantané de la mémoire pour l’écriture du fichier de vidage. Les systèmes disposant d’une grande quantité de mémoire et sont soumis à un stress peuvent entraîner la suppression de l’appartenance au cluster des nœuds et entraîner l’enregistrement de l’événement 1135 suivant.
@@ -275,7 +274,7 @@ Il existe deux méthodes pour désactiver les dumps dynamiques, comme décrit ci
 Pour désactiver complètement tous les vidages, y compris les dumps dynamiques à l’ensemble du système, procédez comme suit :
 
 1. Créez la clé de Registre suivante : HKLM\System\CurrentControlSet\Control\CrashControl\ForceDumpsDisabled
-2. Sous la nouvelle clé **ForceDumpsDisabled** , créez une propriété REG_DWORD en tant que GuardedHost, puis définissez sa valeur sur 0x10000000.
+2. Sous la nouvelle clé **ForceDumpsDisabled** , créez une REG_DWORD propriété en tant que GuardedHost, puis définissez sa valeur sur 0x10000000.
 3. Appliquez la nouvelle clé de Registre à chaque nœud de cluster.
 
 >[!NOTE]
@@ -318,13 +317,13 @@ Il existe deux façons de vérifier :
     {26e2e40f-a243-1196-49e3-8522f987df76},3,false,true,1,48,{1ff348f1-d10d-7a1a-d781-4734f4440481},CacheDiskStateInitializedAndBound,1,8087,54,false,false,HGST    ,HUH721010AL4200 ,        7PG3N2ER,A21D,{d5e27a3b-42fb-410a-81c6-9d8cc12da20c},[R/M 0 R/U 0 R/T 0 W/M 0 W/U 0 W/T 0],
     ```
 
-    Cache non activé : Ici, nous pouvons voir qu’il n’y a aucun GUID présent et que l’État est CacheDiskStateNonHybrid. 
+    Cache non activé : ici, nous pouvons voir qu’il n’y a aucun GUID présent et que l’État est CacheDiskStateNonHybrid. 
     ```
    [=== SBL Disks ===]
     {426f7f04-e975-fc9d-28fd-72a32f811b7d},12,false,true,1,24,{00000000-0000-0000-0000-000000000000},CacheDiskStateNonHybrid,0,0,0,false,false,HGST    ,HUH721010AL4200 ,        7PGXXG6C,A21D,{d5e27a3b-42fb-410a-81c6-9d8cc12da20c},[R/M 0 R/U 0 R/T 0 W/M 0 W/U 0 W/T 0],
     ```
 
-    Cache non activé : Lorsque tous les disques ont le même type de casse n’est pas activé par défaut. Ici, nous pouvons voir qu’il n’y a aucun GUID présent et que l’État est CacheDiskStateIneligibleDataPartition. 
+    Cache non activé : lorsque tous les disques ont le même type de casse n’est pas activé par défaut. Ici, nous pouvons voir qu’il n’y a aucun GUID présent et que l’État est CacheDiskStateIneligibleDataPartition. 
     ```
     {d543f90c-798b-d2fe-7f0a-cb226c77eeed},10,false,false,1,20,{00000000-0000-0000-0000-000000000000},CacheDiskStateIneligibleDataPartition,0,0,0,false,false,NVMe    ,INTEL SSDPE7KX02,  PHLF7330004V2P0LGN,0170,{79b4d631-976f-4c94-a783-df950389fd38},[R/M 0 R/U 0 R/T 0 W/M 0 W/U 0 W/T 0], 
     ```  
@@ -333,19 +332,19 @@ Il existe deux façons de vérifier :
     2. Exécuter « stockage de bureau à partir »
     3. Exécutez « $d ». Notez que l’utilisation est sélection automatique, et non Journal, vous verrez une sortie semblable à celle-ci : 
 
-   |FriendlyName|  SerialNumber| Type de média| CanPool| OperationalStatus| HealthStatus| Utilisation| Size|
+   |FriendlyName|  SerialNumber| Type de média| CanPool| OperationalStatus| HealthStatus| Utilisation| Taille|
    |-----------|------------|---------| -------| -----------------| ------------| -----| ----|
-   |INTEL SSDPE7KX02 NVMe| PHLF733000372P0LGN| SSD| False|   OK|                Healthy|      Sélectionner automatiquement 1,82 to|
-   |INTEL SSDPE7KX02 NVMe |PHLF7504008J2P0LGN| SSD|  False|    OK|                Healthy| Sélection automatique| 1,82 TO|
-   |INTEL SSDPE7KX02 NVMe| PHLF7504005F2P0LGN| SSD|  False|  OK|                Healthy| Sélection automatique| 1,82 TO|
-   |INTEL SSDPE7KX02 NVMe |PHLF7504002A2P0LGN| SSD| False| OK|    Healthy| Sélection automatique| 1,82 TO|
-   |INTEL SSDPE7KX02 NVMe| PHLF7504004T2P0LGN |SSD| False|OK|       Healthy| Sélection automatique| 1,82 TO|
-   |INTEL SSDPE7KX02 NVMe |PHLF7504002E2P0LGN| SSD| False| OK|      Healthy| Sélection automatique| 1,82 TO|
-   |INTEL SSDPE7KX02 NVMe |PHLF7330002Z2P0LGN| SSD| False| OK|      Healthy|Sélection automatique| 1,82 TO|
-   |INTEL SSDPE7KX02 NVMe |PHLF733000272P0LGN |SSD| False| OK|  Healthy| Sélection automatique| 1,82 TO|
-   |INTEL SSDPE7KX02 NVMe |PHLF7330001J2P0LGN |SSD| False| OK| Healthy| Sélection automatique| 1,82 TO|
-   |INTEL SSDPE7KX02 NVMe| PHLF733000302P0LGN |SSD| False| OK|Healthy| Sélection automatique| 1,82 TO|
-   |INTEL SSDPE7KX02 NVMe| PHLF7330004D2P0LGN |SSD| False| OK| Healthy| Sélection automatique |1,82 TO|
+   |INTEL SSDPE7KX02 NVMe| PHLF733000372P0LGN| SSD| False|   OK|                Intègre|      Sélectionner automatiquement 1,82 to|
+   |INTEL SSDPE7KX02 NVMe |PHLF7504008J2P0LGN| SSD|  False|    OK|                Intègre| Sélection automatique| 1,82 TO|
+   |INTEL SSDPE7KX02 NVMe| PHLF7504005F2P0LGN| SSD|  False|  OK|                Intègre| Sélection automatique| 1,82 TO|
+   |INTEL SSDPE7KX02 NVMe |PHLF7504002A2P0LGN| SSD| False| OK|    Intègre| Sélection automatique| 1,82 TO|
+   |INTEL SSDPE7KX02 NVMe| PHLF7504004T2P0LGN |SSD| False|OK|       Intègre| Sélection automatique| 1,82 TO|
+   |INTEL SSDPE7KX02 NVMe |PHLF7504002E2P0LGN| SSD| False| OK|      Intègre| Sélection automatique| 1,82 TO|
+   |INTEL SSDPE7KX02 NVMe |PHLF7330002Z2P0LGN| SSD| False| OK|      Intègre|Sélection automatique| 1,82 TO|
+   |INTEL SSDPE7KX02 NVMe |PHLF733000272P0LGN |SSD| False| OK|  Intègre| Sélection automatique| 1,82 TO|
+   |INTEL SSDPE7KX02 NVMe |PHLF7330001J2P0LGN |SSD| False| OK| Intègre| Sélection automatique| 1,82 TO|
+   |INTEL SSDPE7KX02 NVMe| PHLF733000302P0LGN |SSD| False| OK|Intègre| Sélection automatique| 1,82 TO|
+   |INTEL SSDPE7KX02 NVMe| PHLF7330004D2P0LGN |SSD| False| OK| Intègre| Sélection automatique |1,82 TO|
 
 ## <a name="how-to-destroy-an-existing-cluster-so-you-can-use-the-same-disks-again"></a>Comment détruire un cluster existant afin de pouvoir réutiliser les mêmes disques
 
@@ -358,25 +357,25 @@ L’étape suivante consiste à supprimer le pool de stockage fantôme :
 
 Maintenant, si vous exécutez la fonction **obtenir-PhysicalDisk** sur l’un des nœuds, vous verrez tous les disques qui se trouvaient dans le pool. Par exemple, dans un laboratoire avec un cluster à 4 nœuds avec 4 disques SAS, 100 Go chacun présenté à chaque nœud. Dans ce cas, une fois que l’espace de stockage direct est désactivé, ce qui supprime la couche de bus de stockage (SBL), mais laisse le filtre, si vous exécutez l’opération **de récupération sur disque physique**, il doit signaler 4 disques à l’exclusion du disque de système d’exploitation local. Au lieu de cela, il a indiqué 16. Cela est identique pour tous les nœuds du cluster. Lorsque vous exécutez une commande d' **extraction de disque** , les disques attachés localement sont numérotés en tant que 0, 1, 2, etc., comme illustré dans l’exemple de sortie suivant :
 
-|Numéro| Nom convivial| Numéro de série|HealthStatus|OperationalStatus|Taille totale| Style de partition|
+|Numéro| Nom convivial| Numéro de série|HealthStatus|OperationalStatus|Total Size| Style de partition|
 |-|-|-|-|-|-|-|-|
-|0|Virtu msft...  ||Healthy | La licence|  127 Go| GPT|
-||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
-||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
-||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
-||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
-|1|Virtu msft...||Healthy| Hors connexion| 100 GO| PREMIÈRE|
-||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
-|2|Virtu msft...||Healthy| Hors connexion| 100 GO| PREMIÈRE|
-||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
-||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
-||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
-||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
-|4|Virtu msft...||Healthy| Hors connexion| 100 GO| PREMIÈRE|
-|3|Virtu msft...||Healthy| Hors connexion| 100 GO| PREMIÈRE|
-||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
-||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
-||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
+|0|Virtu msft...  ||Intègre | En ligne|  127 Go| GPT|
+||Virtu msft... ||Intègre| Hors connexion| 100 GO| RAW|
+||Virtu msft... ||Intègre| Hors connexion| 100 GO| RAW|
+||Virtu msft... ||Intègre| Hors connexion| 100 GO| RAW|
+||Virtu msft... ||Intègre| Hors connexion| 100 GO| RAW|
+|1|Virtu msft...||Intègre| Hors connexion| 100 GO| RAW|
+||Virtu msft... ||Intègre| Hors connexion| 100 GO| RAW|
+|2|Virtu msft...||Intègre| Hors connexion| 100 GO| RAW|
+||Virtu msft... ||Intègre| Hors connexion| 100 GO| RAW|
+||Virtu msft... ||Intègre| Hors connexion| 100 GO| RAW|
+||Virtu msft... ||Intègre| Hors connexion| 100 GO| RAW|
+||Virtu msft... ||Intègre| Hors connexion| 100 GO| RAW|
+|4|Virtu msft...||Intègre| Hors connexion| 100 GO| RAW|
+|3|Virtu msft...||Intègre| Hors connexion| 100 GO| RAW|
+||Virtu msft... ||Intègre| Hors connexion| 100 GO| RAW|
+||Virtu msft... ||Intègre| Hors connexion| 100 GO| RAW|
+||Virtu msft... ||Intègre| Hors connexion| 100 GO| RAW|
 
 
 ## <a name="error-message-about-unsupported-media-type-when-you-create-an-storage-spaces-direct-cluster-using-enable-clusters2d"></a>Message d’erreur relatif au type de média non pris en charge lorsque vous créez un cluster espaces de stockage direct à l’aide de Enable-ClusterS2D  
@@ -394,7 +393,7 @@ Les informations suivantes s’affichent dans le rapport de validation :
     Disk <identifier> connected to node <nodename> returned a SCSI Port Association and the corresponding enclosure device could not be found. The hardware is not compatible with Storage Spaces Direct (S2D), contact the hardware vendor to verify support for SCSI Enclosure Services (SES). 
 
 
-Le problème est lié à la carte d’extension HPE SAS qui se trouve entre les disques et la carte HBA. L’Expander SAS crée un ID en double entre le premier lecteur connecté à l’Expander et l’Expander lui-même.  Cela a été résolu dans [le microprogramme SAS Expander des contrôleurs HPE Smart Array : 4,02](https://support.hpe.com/hpsc/swd/public/detail?sp4ts.oid=7304566&swItemId=MTX_ef8d0bf4006542e194854eea6a&swEnvOid=4184#tab3).
+Le problème est lié à la carte d’extension HPE SAS qui se trouve entre les disques et la carte HBA. L’Expander SAS crée un ID en double entre le premier lecteur connecté à l’Expander et l’Expander lui-même.  Cela a été résolu dans le [microprogramme SAS Expander des contrôleurs HPE Smart Array : 4,02](https://support.hpe.com/hpsc/swd/public/detail?sp4ts.oid=7304566&swItemId=MTX_ef8d0bf4006542e194854eea6a&swEnvOid=4184#tab3).
 
 ## <a name="intel-ssd-dc-p4600-series-has-a-non-unique-nguid"></a>La série P4600 Intel SSD DC a un NGUID non unique
 Vous pouvez voir un problème où un appareil Intel SSD DC P4600 Series semble être à l’origine de la création de plusieurs espaces de noms, tels que 0100000001000000E4D25C000014E214 ou 0100000001000000E4D25C0000EEE214 dans l’exemple ci-dessous.
@@ -405,7 +404,7 @@ Vous pouvez voir un problème où un appareil Intel SSD DC P4600 Series semble �
 |           5000CCA251D12E30           |    0     |    HDD    |   SAS   |                 7PKR197G                 | 10000831348736 |  False  |     HGST     |  HUH721010AL4200  |
 | adresse EUI. 0100000001000000E4D25C000014E214 |    4     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  True   |    CARTES     |   SSDPE2KE016T7   |
 | adresse EUI. 0100000001000000E4D25C000014E214 |    5     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  True   |    CARTES     |   SSDPE2KE016T7   |
-| adresse EUI. 0100000001000000E4D25C0000EEE214 |    6\.     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_00EE_E214. | 1600321314816  |  True   |    CARTES     |   SSDPE2KE016T7   |
+| adresse EUI. 0100000001000000E4D25C0000EEE214 |    6     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_00EE_E214. | 1600321314816  |  True   |    CARTES     |   SSDPE2KE016T7   |
 | adresse EUI. 0100000001000000E4D25C0000EEE214 |    7     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_00EE_E214. | 1600321314816  |  True   |    CARTES     |   SSDPE2KE016T7   |
 
 Pour résoudre ce problème, mettez à jour le microprogramme sur les disques Intel vers la dernière version.  La version du microprogramme QDV101B1 de mai 2018 est connue pour résoudre ce problème.

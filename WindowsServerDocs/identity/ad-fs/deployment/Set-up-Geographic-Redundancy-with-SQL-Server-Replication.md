@@ -1,6 +1,5 @@
 ---
 title: Configurer la redondance géographique avec Réplication SQL Server
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.prod: windows-server
 ms.technology: active-directory-federation-services
 ms.author: billmath
 ms.assetId: 7b9f9a4f-888c-4358-bacd-3237661b1935
-ms.openlocfilehash: 16cf1a237043aa546d4fc24164045aa9f9a1e6ac
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 54106ae635d44368542986c7c469560981f9888a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359817"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855842"
 ---
 # <a name="setup-geographic-redundancy-with-sql-server-replication"></a>Configurer la redondance géographique avec Réplication SQL Server
 
@@ -24,7 +23,7 @@ ms.locfileid: "71359817"
   
 Si vous utilisez SQL Server comme base de données de configuration de AD FS, vous pouvez configurer la redondance géographique\-pour votre batterie de AD FS à l’aide de la réplication SQL Server. La redondance géographique\-réplique les données entre deux sites distants géographiquement, de sorte que les applications puissent basculer d’un site à un autre. Ainsi, en cas de défaillance d’un site, toutes les données de configuration peuvent toujours être disponibles sur le deuxième site. Pour plus d’informations, consultez la section « SQL Server de la redondance géographique » dans la [batterie de serveurs de Fédération à l’aide de SQL Server](../design/Federation-Server-Farm-Using-SQL-Server.md).  
   
-## <a name="prerequisites"></a>Conditions préalables  
+## <a name="prerequisites"></a>Composants requis  
 Installez et configurez une batterie de serveurs SQL Server. Pour plus d’informations, consultez [https://technet.microsoft.com/evalcenter/hh225126.aspx](https://technet.microsoft.com/evalcenter/hh225126.aspx). Dans le SQL Server initial, assurez-vous que le service SQL Server Agent est en cours d’exécution et qu’il est défini sur démarrage automatique.  
   
 ## <a name="create-the-second-replica-sql-server-for-geo-redundancy"></a>Créer le deuxième \(réplica\) SQL Server pour la redondance géo-\-  
@@ -156,11 +155,11 @@ Assurez-vous que vous avez créé les paramètres du serveur de publication sur 
   
 4.  En outre, vous pouvez consulter le nœud **SQL Server Agent\\des travaux** pour voir le travail\(\) planifié pour exécuter les opérations de la publication\/l’abonnement.  Seules les tâches locales sont affichées. Veillez donc à vérifier sur le serveur de publication et sur l’abonné pour la résolution des problèmes.  Cliquez avec le bouton\-droit sur un travail, puis sélectionnez **afficher l’historique** pour afficher l’historique et les résultats de l’exécution.  
   
-## <a name="sqlagent"></a>Configurer la connexion SQL pour le compte de domaine CONTOSO\\SQLAgent  
+## <a name="configure-sql-login-for-the-domain-account-contososqlagent"></a><a name="sqlagent"></a>Configurer la connexion SQL pour le compte de domaine CONTOSO\\SQLAgent  
   
 1.  Créez une nouvelle connexion sur le serveur principal et le SQL Server de réplica appelé CONTOSO\\SQLAgent \(le nom du nouvel utilisateur de domaine créé et configuré dans la page sécurité de l' **agent** dans les procédures ci-dessus.\)  
   
-2.  Dans SQL Server, cliquez avec le bouton\-droit sur la connexion que vous avez créée, sélectionnez Propriétés, puis sous l’onglet Mappage de l' **utilisateur** , mappez cette connexion aux bases de données **AdfsConfiguration** et **AdfsArtifact** avec les rôles genevaservice public et DB\_. Mappez également cette connexion à la base de données de distribution et ajoutez la base de données\_rôle propriétaire pour les tables distribution et adfsconfiguration.  Procédez comme applicable sur le serveur SQL principal et le réplica SQL Server. Pour plus d’informations, voir [Replication Agent Security Model](https://technet.microsoft.com/library/ms151868.aspx).  
+2.  Dans SQL Server, cliquez avec le bouton\-droit sur la connexion que vous avez créée, sélectionnez Propriétés, puis sous l’onglet Mappage de l' **utilisateur** , mappez cette connexion aux bases de données **AdfsConfiguration** et **AdfsArtifact** avec les rôles genevaservice public et DB\_. Mappez également cette connexion à la base de données de distribution et ajoutez la base de données\_rôle propriétaire pour les tables distribution et adfsconfiguration.  Procédez comme applicable sur le serveur SQL principal et le réplica SQL Server. Pour plus d’informations, consultez [modèle de sécurité de l’agent de réplication](https://technet.microsoft.com/library/ms151868.aspx).  
   
 3.  Accordez au compte de domaine correspondant des autorisations en lecture et en écriture sur le partage configuré en tant que serveur de distribution.  Veillez à définir les autorisations de lecture et d’écriture à la fois sur les autorisations de partage et sur les autorisations de fichier local.  
   

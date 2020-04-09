@@ -1,7 +1,6 @@
 ---
 ms.assetid: 299e4fb9-8f1a-4275-ad7d-dad4f1594657
 title: 'Procédure pas à pas : Workplace Join avec un appareil iOS'
-description: ''
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 10/18/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 5214165c2843461a2da8b574ad28f92b0e0bc64d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7b1d2a5f5c32d55e482f5f53a04668b34fc9aece
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407498"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815992"
 ---
 # <a name="walkthrough-workplace-join-with-an-ios-device"></a>Démonstration : joindre un espace de travail avec un appareil iOS
 
@@ -45,7 +44,7 @@ Cette démonstration indique comment joindre l'appareil à l'espace de travail.
 
 2. Connectez-vous à la page Web à l’aide d’un compte de domaine d’entreprise : <strong>roberth@contoso.com</strong> et mot de passe : <strong>P@ssword</strong>.
 
-3. Vous êtes invité à installer un profil. Dans l'écran **Installer un profil** , cliquez sur **Installer**.
+3. Vous êtes invité à installer un profil. Dans l'écran **Installer un profil**, cliquez sur **Installer**.
 
 4. Quand vous êtes invité à confirmer l'installation du profil, cliquez sur **Installer maintenant**.
 

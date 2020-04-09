@@ -1,7 +1,6 @@
 ---
 ms.assetid: 85ca191c-0cc7-4453-a72c-42060ddf2ea2
 title: Résumé
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 53f51d3a7a777ae378ce733ea9e66de66da5351a
-ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
+ms.openlocfilehash: 75b98e3f8078f33098512c8ecd01d3bb49a1c8ed
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781336"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823042"
 ---
 # <a name="executive-summary"></a>Résumé
 
@@ -23,9 +22,9 @@ ms.locfileid: "74781336"
 >[!IMPORTANT] 
 >La documentation suivante a été écrite en 2013 et est fournie à des fins d’historique uniquement.  Actuellement, nous examinons cette documentation et nous sommes susceptibles de changer.  Il peut ne pas refléter les meilleures pratiques actuelles.
 
-Aucune organisation dotée d’une infrastructure informatique n’est protégée contre les attaques, mais si des stratégies, des processus et des contrôles appropriés sont implémentés pour protéger des segments clés de l’infrastructure informatique d’une organisation, il peut être possible de Empêchez un événement de violation de croître vers un compromis de gros de l’environnement informatique.  
+Aucune organisation dotée d’une infrastructure informatique n’est protégée contre les attaques, mais si des stratégies, des processus et des contrôles appropriés sont implémentés pour protéger des segments clés de l’infrastructure informatique d’une organisation, il peut être possible d’empêcher un événement de violation de croître vers un compromis de gros de l’environnement informatique.  
   
-Ce résumé est destiné à être utile sous la forme d’un document autonome résumant le contenu du document, qui contient des recommandations qui aident les organisations à améliorer la sécurité de leurs installations Active Directory. En implémentant ces recommandations, les organisations sont en mesure d’identifier et de hiérarchiser les activités de sécurité, de protéger les segments clés de l’infrastructure informatique de leur organisation et de créer des contrôles qui réduisent considérablement la probabilité de attaques réussies contre les composants critiques de l’environnement informatique.  
+Ce résumé est destiné à être utile sous la forme d’un document autonome résumant le contenu du document, qui contient des recommandations qui aident les organisations à améliorer la sécurité de leurs installations Active Directory. En implémentant ces recommandations, les organisations sont en mesure d’identifier et de hiérarchiser les activités de sécurité, de protéger les segments clés de l’infrastructure informatique de leur organisation et de créer des contrôles qui réduisent considérablement la probabilité d’attaques réussies contre les composants critiques de l’environnement informatique.  
   
 Bien que ce document présente les attaques les plus courantes contre les Active Directory et les contre-mesures visant à réduire la surface d’attaque, il contient également des recommandations pour la récupération en cas de compromission complète. La seule façon de procéder à la récupération en cas de compromission complète de Active Directory doit être préparée à la compromission avant qu’elle ne se produise.  
   
@@ -40,7 +39,7 @@ Les principales sections de ce document sont les suivantes :
 -   Planification des compromis  
   
 ## <a name="avenues-to-compromise"></a>Voies de compromis  
-Cette section fournit des informations sur les vulnérabilités les plus couramment utilisées par les attaquants pour compromettre les infrastructures des clients. Elle contient des catégories générales de vulnérabilités et la façon dont elles sont utilisées pour pénétrer initialement les infrastructures des clients, propager la compromission sur des systèmes supplémentaires et finalement cibler Active Directory et les contrôleurs de domaine pour obtenir la totalité contrôle des forêts des organisations. Il ne fournit pas de recommandations détaillées sur la résolution de chaque type de vulnérabilité, en particulier dans les domaines dans lesquels les vulnérabilités ne sont pas utilisées pour cibler directement Active Directory. Toutefois, pour chaque type de vulnérabilité, nous avons fourni des liens vers des informations supplémentaires à utiliser pour développer des contre-mesures et réduire la surface d’attaque de l’organisation.  
+Cette section fournit des informations sur les vulnérabilités les plus couramment utilisées par les attaquants pour compromettre les infrastructures des clients. Il contient des catégories générales de vulnérabilités et la façon dont elles sont utilisées pour pénétrer initialement les infrastructures des clients, propager la compromission sur des systèmes supplémentaires et cibler finalement les Active Directory et les contrôleurs de domaine pour obtenir le contrôle total des forêts des organisations. Il ne fournit pas de recommandations détaillées sur la résolution de chaque type de vulnérabilité, en particulier dans les domaines dans lesquels les vulnérabilités ne sont pas utilisées pour cibler directement Active Directory. Toutefois, pour chaque type de vulnérabilité, nous avons fourni des liens vers des informations supplémentaires à utiliser pour développer des contre-mesures et réduire la surface d’attaque de l’organisation.  
   
 Les sujets suivants sont inclus :  
   
@@ -134,7 +133,7 @@ Les sujets suivants sont inclus dans cette section :
 -   **Recommandations de stratégie d’audit** : cette section décrit les paramètres de stratégie d’audit par défaut de Windows, les paramètres de stratégie d’audit recommandés par Microsoft et des recommandations plus agressives pour les organisations à utiliser pour auditer des serveurs et des stations de travail critiques.  
   
 ## <a name="planning-for-compromise"></a>Planification des compromis  
-Cette section contient des recommandations qui aident les organisations à se préparer à un compromis avant qu’elles ne se produisent, à implémenter des contrôles capables de détecter un événement compromis avant qu’une violation complète ne se produise, et à fournir des instructions de réponse et de récupération pour les cas où une compromission complète de l’annuaire est effectuée par des attaquants. Les sujets suivants sont inclus dans cette section :  
+Cette section contient des recommandations qui aident les organisations à se préparer à un compromis avant qu’elle ne se produise, à implémenter des contrôles capables de détecter un événement compromis avant qu’une violation complète ne se produise, et à fournir des instructions de réponse et de récupération pour les cas où une compromission complète de l’annuaire est effectuée par des attaquants. Les sujets suivants sont inclus dans cette section :  
   
 -   **Repenser l’approche** : contient des principes et des recommandations pour créer des environnements sécurisés dans lesquels une organisation peut placer les ressources les plus critiques. Ces instructions sont les suivantes :  
   

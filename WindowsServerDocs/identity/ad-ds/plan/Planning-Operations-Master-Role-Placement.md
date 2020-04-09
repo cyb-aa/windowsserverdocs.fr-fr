@@ -1,7 +1,6 @@
 ---
 ms.assetid: bd64a766-5362-4f29-b963-5465c2bb79e7
 title: Planification de l’emplacement des rôles de maître d’opérations
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: eb17ed55ba7d7ba23d21162fd41f4022821948fe
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 990f93d44189a6061653d5e190a176b049a280c4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402522"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822102"
 ---
 # <a name="planning-operations-master-role-placement"></a>Planification de l’emplacement des rôles de maître d’opérations
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Active Directory Domain Services (AD DS) prend en charge la réplication multimaître des données d’annuaire, ce qui signifie que n’importe quel contrôleur de domaine peut accepter des modifications d’annuaire et répliquer les modifications sur tous les autres contrôleurs de domaine. Toutefois, certaines modifications, telles que les modifications de schéma, sont impossibles à effectuer dans un mode multimaître. Pour cette raison, certains contrôleurs de domaine, connus sous le nom de maîtres d’opérations, détiennent des rôles chargés d’accepter des demandes pour certaines modifications spécifiques.  
   
@@ -56,7 +55,7 @@ Même si tous les contrôleurs de domaine sont mis à niveau vers Windows 2000, 
   
 Placez l’émulateur de contrôleur de domaine principal dans un emplacement qui contient un grand nombre d’utilisateurs de ce domaine pour les opérations de transfert de mot de passe, si nécessaire. En outre, assurez-vous que l’emplacement est bien connecté à d’autres emplacements pour réduire la latence de la réplication.  
   
-Pour obtenir une feuille de calcul qui vous aide à documenter les informations relatives à l’emplacement où vous envisagez de placer les émulateurs de contrôleur de domaine principal et le nombre d’utilisateurs pour chaque domaine représenté à chaque emplacement, consultez les outils d’aide pour le kit de déploiement Windows Server 2003 ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)), le travail de téléchargement _Aids_Designing_and_Deploying_Directory_and_Security_Services. zip et emplacement du contrôleur de domaine ouvert (DSSTOPO_4. doc).  
+Pour obtenir une feuille de calcul qui vous aide à documenter les informations relatives à l’emplacement où vous envisagez de placer les émulateurs de contrôleur de domaine principal et le nombre d’utilisateurs pour chaque domaine représenté dans chaque emplacement, consultez outils d’aide pour le kit de déploiement de Windows Server 2003 ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)), téléchargez Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip et emplacement du contrôleur de domaine (DSSTOPO_4. doc).  
   
 Vous devez faire référence aux informations sur les emplacements dans lesquels vous devez placer des émulateurs de contrôleur de domaine principal lorsque vous déployez des domaines régionaux. Pour plus d’informations sur le déploiement de domaines régionaux, voir [déploiement de domaines régionaux Windows Server 2008](https://technet.microsoft.com/library/cc755118.aspx).  
   
@@ -83,10 +82,10 @@ Bien que cette configuration entraîne la réussite de la réplication entre tou
 - Les contrôleurs de domaine dans les sites C et D ne peuvent pas ajouter ou supprimer des partitions d’applications d’annuaire, DNS ou personnalisées.  
 - Les contrôleurs de domaine dans les sites C et D ne peuvent pas apporter de modifications au schéma.  
   
-Pour obtenir une feuille de calcul pour vous aider à planifier le placement du rôle de maître d’opérations, consultez [les outils d’aide pour le kit de déploiement Windows Server 2003](https://go.microsoft.com/fwlink/?LinkID=102558), téléchargez Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip et ouvrez le contrôleur de domaine. Placement (DSSTOPO_4. doc).  
+Pour obtenir une feuille de calcul pour vous aider à planifier le placement du rôle de maître d’opérations, consultez [les outils d’aide pour le kit de déploiement Windows Server 2003](https://go.microsoft.com/fwlink/?LinkID=102558), téléchargez Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip et le placement du contrôleur de domaine (DSSTOPO_4. doc).  
   
 Vous devrez vous référer à ces informations lorsque vous créerez le domaine racine de forêt et les domaines régionaux. Pour plus d’informations sur le déploiement du domaine racine de la forêt, voir déploiement d’un [domaine racine de forêt Windows Server 2008](https://technet.microsoft.com/library/cc731174.aspx). Pour plus d’informations sur le déploiement de domaines régionaux, voir [déploiement de domaines régionaux Windows Server 2008](https://technet.microsoft.com/library/cc755118.aspx).  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
 Vous trouverez des informations supplémentaires sur l’emplacement des rôles FSMO dans la rubrique de support [placement et optimisation du rôle FSMO sur les contrôleurs de domaine Active Directory](https://support.microsoft.com/help/223346)

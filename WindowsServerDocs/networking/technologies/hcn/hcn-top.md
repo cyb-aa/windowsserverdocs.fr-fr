@@ -3,13 +3,14 @@ title: API du service HCN (Host Compute Network) pour les machines virtuelles et
 description: L’API de service HCN (Host Compute Network) est une API Win32 publique qui fournit un accès au niveau de la plateforme pour gérer les réseaux virtuels, les points de terminaison de réseau virtuel et les stratégies associées. Cela permet de connecter et de sécuriser les machines virtuelles et les conteneurs s’exécutant sur un hôte Windows.
 ms.author: jmesser
 author: jmesser81
+ms.prod: windows-server
 ms.date: 11/05/2018
-ms.openlocfilehash: e30a778d661fa7c6d2e248234218eb25fba007a1
-ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
+ms.openlocfilehash: 4afde574802bd63db8ea8ca8db9f5daf1a53dc93
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70031554"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859842"
 ---
 # <a name="host-compute-network-hcn-service-api-for-vms-and-containers"></a>API du service HCN (Host Compute Network) pour les machines virtuelles et les conteneurs
 
@@ -20,20 +21,20 @@ L’API de service HCN (Host Compute Network) est une API Win32 publique qui fou
 Les développeurs utilisent l’API de service HCN pour gérer la mise en réseau des machines virtuelles et des conteneurs dans leurs workflows d’application. L’API HCN a été conçue pour offrir la meilleure expérience aux développeurs. Les utilisateurs finaux n’interagissent pas directement avec ces API.  
 
 ## <a name="features-of-the-hcn-service-api"></a>Fonctionnalités de l’API du service HCN
--   Implémenté en tant qu’API C hébergée par le service de réseau hôte (HNS) sur la machine virtuelle OnCore/.
+-    Implémenté en tant qu’API C hébergée par le service de réseau hôte (HNS) sur la machine virtuelle OnCore/.
 
--   Offre la possibilité de créer, modifier, supprimer et énumérer des objets HCN tels que des réseaux, des points de terminaison, des espaces de noms et des stratégies. Les opérations s’exécutent sur des handles des objets (par exemple, un handle de réseau), et en interne, ces handles sont implémentés à l’aide de handles de contexte RPC.
+-    Offre la possibilité de créer, modifier, supprimer et énumérer des objets HCN tels que des réseaux, des points de terminaison, des espaces de noms et des stratégies. Les opérations s’exécutent sur des handles des objets (par exemple, un handle de réseau), et en interne, ces handles sont implémentés à l’aide de handles de contexte RPC.
 
--   Basé sur un schéma. La plupart des fonctions de l’API définissent les paramètres d’entrée et de sortie sous forme de chaînes contenant les arguments de l’appel de fonction en tant que documents JSON. Les documents JSON sont basés sur des schémas fortement typés et avec version, qui font partie de la documentation publique. 
+-    Basé sur un schéma. La plupart des fonctions de l’API définissent les paramètres d’entrée et de sortie sous forme de chaînes contenant les arguments de l’appel de fonction en tant que documents JSON. Les documents JSON sont basés sur des schémas fortement typés et avec version, qui font partie de la documentation publique. 
 
--   Une API d’abonnement/de rappel est fournie pour permettre aux clients de s’inscrire pour les notifications d’événements à l’ensemble du service, tels que les créations et les suppressions de réseau.
+-    Une API d’abonnement/de rappel est fournie pour permettre aux clients de s’inscrire pour les notifications d’événements à l’ensemble du service, tels que les créations et les suppressions de réseau.
 
--   L’API HCN fonctionne dans le pont Desktop (également appelé Centennial) qui s’exécutent dans les services système. L’API vérifie la liste de contrôle d’accès en extrayant le jeton d’utilisateur de l’appelant.
+-    L’API HCN fonctionne dans le pont Desktop (également appelé Centennial) qui s’exécutent dans les services système. L’API vérifie la liste de contrôle d’accès en extrayant le jeton d’utilisateur de l’appelant.
 
 >[!TIP]
 >L’API de service HCN est prise en charge dans les tâches en arrière-plan et les fenêtres non au premier plan. 
 
-## <a name="terminology-host-vs-compute"></a>Terminologie&nbsp;: Hôte et Calcul
+## <a name="terminology-host-vs-compute"></a>Terminologie : hôte et calcul
 Le service de calcul hôte permet aux appelants de créer et de gérer des ordinateurs virtuels et des conteneurs sur un seul ordinateur physique. Elle est nommée pour suivre la terminologie du secteur. 
 
 - L' **hôte** est largement utilisé dans le secteur de la virtualisation pour faire référence au système d’exploitation qui fournit des ressources virtualisées.
@@ -43,15 +44,15 @@ Le service de calcul hôte permet aux appelants de créer et de gérer des ordin
 ## <a name="schema-based-configuration-documents"></a>Documents de configuration basés sur un schéma
 Les documents de configuration basés sur des schémas bien définis sont une norme industrielle établie dans l’espace de virtualisation. La plupart des solutions de virtualisation, telles que docker et Kubernetes, fournissent des API basées sur les documents de configuration. Plusieurs initiatives du secteur, avec la participation de Microsoft, pilotent un écosystème pour la définition et la validation de ces schémas, tels que [openapi](https://www.openapis.org/).  Ces initiatives pilotent également la normalisation de définitions de schéma spécifiques pour les schémas utilisés pour les conteneurs, tels que [Open Container Initiative (OCI)](https://www.opencontainers.org/).
 
-La langue utilisée pour la création de documents de configuration est [JSON](https://tools.ietf.org/html/rfc8259), que vous utilisez conjointement à:
--   Définitions de schéma qui définissent un modèle objet pour le document
--   Validation du fait qu’un document JSON est conforme à un schéma
--   Conversion automatisée de documents JSON vers et à partir de représentations natives de ces schémas dans les langages de programmation utilisés par les appelants des API 
+La langue utilisée pour la création de documents de configuration est [JSON](https://tools.ietf.org/html/rfc8259), que vous utilisez conjointement à :
+-    Définitions de schéma qui définissent un modèle objet pour le document
+-    Validation du fait qu’un document JSON est conforme à un schéma
+-    Conversion automatisée de documents JSON vers et à partir de représentations natives de ces schémas dans les langages de programmation utilisés par les appelants des API 
 
-Les définitions de schéma fréquemment utilisées sont [openapi](https://www.openapis.org/) et le [schéma JSON](http://json-schema.org/), ce qui vous permet de spécifier les définitions détaillées des propriétés dans un document, par exemple:
--   Jeu de valeurs valide pour une propriété, tel que 0-100 pour une propriété représentant un pourcentage.
--   Définition des énumérations, qui sont représentées sous la forme d’un ensemble de chaînes valides pour une propriété.
--   Expression régulière pour le format attendu d’une chaîne. 
+Les définitions de schéma fréquemment utilisées sont [openapi](https://www.openapis.org/) et le [schéma JSON](http://json-schema.org/), ce qui vous permet de spécifier les définitions détaillées des propriétés dans un document, par exemple :
+-    Jeu de valeurs valide pour une propriété, tel que 0-100 pour une propriété représentant un pourcentage.
+-    Définition des énumérations, qui sont représentées sous la forme d’un ensemble de chaînes valides pour une propriété.
+-    Expression régulière pour le format attendu d’une chaîne. 
 
 Dans le cadre de la documentation des API HCN, nous envisageons de publier le schéma de nos documents JSON en tant que spécification OpenAPI. En fonction de cette spécification, les représentations spécifiques au langage du schéma peuvent permettre l’utilisation de type sécurisé des objets de schéma dans le langage de programmation utilisé par le client. 
 
@@ -59,7 +60,7 @@ Dans le cadre de la documentation des API HCN, nous envisageons de publier le sc
 
 Voici un exemple de ce flux de travail pour l’objet représentant un contrôleur SCSI dans le document de configuration d’une machine virtuelle. 
 
-Dans le code source Windows, nous définissons des schémas à l’aide de fichiers. mars: onecore/VM/DV/net/HNS/Schema/mars/Schema/HCN. Schema. Network. mars
+Dans le code source Windows, nous définissons des schémas à l’aide de fichiers. mars : onecore/VM/DV/net/HNS/Schema/mars/Schema/HCN. Schema. Network. mars
 
 ```
 enum IpamType
@@ -116,7 +117,7 @@ class Route
 >[!TIP]
 >Les annotations [NewIn ("2.0") font partie de la prise en charge du contrôle de version pour les définitions de schéma.
 
-À partir de cette définition interne, nous générons les spécifications OpenAPI pour le schéma:
+À partir de cette définition interne, nous générons les spécifications OpenAPI pour le schéma :
 
 ```
 { 
@@ -232,9 +233,9 @@ Vous pouvez utiliser des outils, tels que [Swagger](https://swagger.io/), pour g
 En plus de la génération et de la validation de code, vous pouvez utiliser des outils pour simplifier le travail avec des documents JSON, autrement dit, [Visual Studio code](https://code.visualstudio.com/Docs/languages/json).
 
 ### <a name="top-level-objects-defined-in-the-hcnschemasmars-file"></a>Objets de niveau supérieur définis dans HCN. Fichier schemas. mars
-Comme indiqué ci-dessus, vous trouverez le schéma de document pour les documents utilisés par les API HCN dans un ensemble de fichiers. mars sous: onecore/VM/DV/net/HNS/Schema/mars/Schema
+Comme indiqué ci-dessus, vous trouverez le schéma de document pour les documents utilisés par les API HCN dans un ensemble de fichiers. mars sous : onecore/VM/DV/net/HNS/Schema/mars/Schema
 
-Les objets de niveau supérieur sont les suivants:
+Les objets de niveau supérieur sont les suivants :
 - [HostComputeNetwork](hcn-scenarios.md#scenario-hcn)
 - [HostComputeEndpoint](hcn-scenarios.md#scenario-hcn-endpoint)
 - [HostComputeNamespace](hcn-scenarios.md#scenario-hcn-namespace)
@@ -277,10 +278,10 @@ class HostComputeLoadBalancer : HCN.Schema.Common.Base
 };
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
 - En savoir plus sur les [scénarios de HCN courants](hcn-scenarios.md).
 
-- En savoir plus sur les descripteurs [de contexte RPC pour HCN](hcn-declaration-handles.md).
+- En savoir plus sur les [descripteurs de contexte RPC pour HCN](hcn-declaration-handles.md).
 
 - En savoir plus sur les [schémas de document JSON HCN](hcn-json-document-schemas.md).

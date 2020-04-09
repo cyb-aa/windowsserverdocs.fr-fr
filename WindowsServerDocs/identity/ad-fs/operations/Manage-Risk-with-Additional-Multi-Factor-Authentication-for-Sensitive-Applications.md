@@ -1,7 +1,6 @@
 ---
 ms.assetid: 934ac796-e2ee-490d-8265-6a818be5ee79
 title: gérer les risques avec une authentification multifacteur supplémentaire pour les applications sensibles
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 79319f54ceb14195dffd56b5a4dfe1b17f048df9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dc6608713ddd60d20b0b717d4133d93d23fc7b25
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407522"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816252"
 ---
 # <a name="manage-risk-with-additional-multi-factor-authentication-for-sensitive-applications"></a>gérer les risques avec une authentification multifacteur supplémentaire pour les applications sensibles
 
@@ -39,10 +38,10 @@ Ce guide fournit les informations suivantes :
 
     Pour obtenir des instructions pas à pas détaillées pour la configuration et la vérification de ce scénario, consultez [Guide pas à pas : gérer les risques avec des multi-Factor Authentication supplémentaires pour les applications sensibles](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md).
 
-## <a name="BKMK_1"></a>Concepts clés : mécanismes d’authentification dans AD FS
+## <a name="key-concepts---authentication-mechanisms-in-ad-fs"></a><a name="BKMK_1"></a>Concepts clés : mécanismes d’authentification dans AD FS
 
 ### <a name="benefits-of-authentication-mechanisms-in-ad---fs"></a>Avantages des mécanismes d’authentification dans AD FS
-Services ADFS (AD FS) dans Windows Server 2012 R2 offre aux administrateurs informatiques un ensemble d’outils plus riches et plus flexibles pour l’authentification des utilisateurs qui souhaitent accéder aux ressources de l’entreprise. Elle offre aux administrateurs un contrôle flexible sur les méthodes d’authentification principales et supplémentaires, fournit une expérience de gestion complète pour la configuration des stratégies d’authentification (à la fois via l’interface utilisateur et Windows PowerShell) et améliore expérience des utilisateurs finaux qui accèdent aux applications et services sécurisés par AD FS. Voici quelques-uns des avantages de la sécurisation de votre application et de vos services avec AD FS dans Windows Server 2012 R2 :
+Services ADFS (AD FS) dans Windows Server 2012 R2 offre aux administrateurs informatiques un ensemble d’outils plus riches et plus flexibles pour l’authentification des utilisateurs qui souhaitent accéder aux ressources de l’entreprise. Elle permet aux administrateurs d’avoir un contrôle flexible sur les méthodes d’authentification principales et supplémentaires, offre une expérience de gestion complète pour la configuration des stratégies d’authentification (à la fois via l’interface utilisateur et Windows PowerShell) et améliore l’expérience des utilisateurs finaux qui accèdent aux applications et services sécurisés par AD FS. Voici quelques-uns des avantages de la sécurisation de votre application et de vos services avec AD FS dans Windows Server 2012 R2 :
 
 -   Stratégie d’authentification globale : fonction de gestion centralisée, à partir de laquelle un administrateur informatique peut choisir les méthodes d’authentification utilisées pour authentifier les utilisateurs en fonction de l’emplacement réseau à partir duquel ils accèdent aux ressources protégées. Les administrateurs peuvent ainsi effectuer les opérations suivantes :
 
@@ -118,7 +117,7 @@ Les options suivantes sont disponibles pour les paramètres d’authentification
 
 -   Vous pouvez exiger l’authentification multifacteur lorsque la demande d’accès pour les ressources protégées provient de l’extranet ou de l’intranet.
 
-## <a name="BKMK_2"></a>Vue d’ensemble du scénario
+## <a name="scenario-overview"></a><a name="BKMK_2"></a>Vue d’ensemble du scénario
 Dans ce scénario, vous activez l’authentification multifacteur en fonction des données d’appartenance au groupe de l’utilisateur pour une application spécifique. Autrement dit, vous allez configurer une stratégie d’authentification sur votre serveur de fédération pour exiger une authentification multifacteur lorsque des utilisateurs qui appartiennent à un certain groupe demandent l’accès à une application spécifique qui est hébergée sur un serveur Web.
 
 Plus spécifiquement, dans ce scénario, vous activez une stratégie d’authentification pour une application de test basée sur des revendications appelée **claimapp**, où l’utilisateur Active Directory **Robert Hatley** devra subir une authentification multifacteur, car il appartient à un groupe Active Directory nommé **Finance**.

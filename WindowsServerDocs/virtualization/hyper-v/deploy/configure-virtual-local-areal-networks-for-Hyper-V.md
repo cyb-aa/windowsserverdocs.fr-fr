@@ -2,21 +2,19 @@
 title: Configurer des réseaux locaux virtuels pour Hyper-V
 description: Fournit des instructions sur la configuration d’un réseau local virtuel (VLAN) pour une utilisation par les ordinateurs virtuels sur un ordinateur hôte Hyper-V.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8510a709-001c-4eee-b6d6-c451e8a8a836
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 10/11/2016
-ms.openlocfilehash: bf40d9ad2612df033db7a7e3b93ca9faf249daf2
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 08c0e5062715ccc11cdedfe228f8cc58f689f555
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465583"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860862"
 ---
 # <a name="configure-virtual-local-area-networks-for-hyper-v"></a>Configurer des réseaux locaux virtuels pour Hyper-V
 Les réseaux locaux virtuels \(les réseaux locaux virtuels\) offrent un moyen d’isoler le trafic réseau. Les réseaux locaux virtuels sont configurés dans des commutateurs et des routeurs qui prennent en charge 802.1 q. Si vous configurez plusieurs réseaux locaux virtuels et que vous souhaitez que la communication se produise entre eux, vous devez configurer les périphériques réseau pour l’autoriser.
