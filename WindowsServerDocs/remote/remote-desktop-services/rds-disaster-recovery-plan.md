@@ -1,27 +1,23 @@
 ---
 title: Créer votre plan de récupération d’urgence
 description: Découvrez comment créer un plan de récupération d’urgence pour votre déploiement des services Bureau à distance.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 05/05/2017
-ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: e4e9a9ab05e672c72925e3699900218abdf1c682
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 18342bb7fd3ad26427ae1e1a051e20444fdff7c2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404030"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859022"
 ---
 # <a name="create-your-disaster-recovery-plan-for-rds"></a>Créer votre plan de récupération d’urgence pour les services Bureau à distance
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Vous pouvez créer un plan de récupération d’urgence dans Azure Site Recovery pour automatiser le processus de basculement. Ajoutez toutes les machines virtuelles du composant des services Bureau à distance au plan de récupération.
 

@@ -1,24 +1,19 @@
 ---
 title: Le client Bureau à distance se déconnecte et ne peut pas se reconnecter à la même session
 description: 'Résolution du problème suivant : le client Bureau à distance se déconnecte et ne peut pas se reconnecter à la même session.'
-audience: itpro
-ms.custom: na
 ms.reviewer: rklemen
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.assetid: ''
 author: kaushika-msft
 manager: dcscontentpm
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2c54442a5ce1322f4157de5dbf82d1c662c6f91d
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 0d116c99b7c8b1daffc4ec58bd93414781eea321
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465593"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857202"
 ---
 # <a name="remote-desktop-client-disconnects-and-cant-reconnect-to-the-same-session"></a>Le client Bureau à distance se déconnecte et ne peut pas se reconnecter à la même session
 

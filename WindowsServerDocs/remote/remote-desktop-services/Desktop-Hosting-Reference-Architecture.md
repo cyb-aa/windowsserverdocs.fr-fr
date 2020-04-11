@@ -1,28 +1,24 @@
 ---
 title: Architecture de référence pour l’hébergement de postes de travail
 description: Recommandations architecturales pour la création d’une solution d’hébergement de bureaux avec Services Bureau à distance et Azure.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 11/02/2016
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1bac5dd3-8430-46ee-8bef-10cc4b7cc437
 author: lizap
 manager: dongill
-ms.openlocfilehash: b325117c6fecc41bc91fc4384a663c4112d9ddca
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c2bc0c2ba3d12ea1caf8737369ba882f69b111e4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387899"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80818452"
 ---
 # <a name="desktop-hosting-reference-architecture"></a>Architecture de référence pour l’hébergement de postes de travail
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Cet article définit un ensemble de blocs architecturaux qui permettent d’utiliser Services Bureau à distance et des machines virtuelles Microsoft Azure pour créer des services d’applications et de bureaux Windows hébergés multilocataires, appelés « hébergement de bureaux ». Vous pouvez utiliser cette référence d’architecture pour créer des solutions d’hébergement de bureaux extrêmement sûres, évolutives et fiables pour les petites et moyennes organisations comptant entre 5 et 5 000 utilisateurs.    
   

@@ -1,27 +1,23 @@
 ---
 title: Effectuer un scale-out de votre déploiement de services Bureau à distance en ajoutant une batterie de serveurs Hôte de session Bureau à distance
 description: Ajoutez un second hôte de session Bureau à distance à votre environnement de services Bureau à distance.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 04/10/2017
-ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: da0dbd4332cd05d580c2b1f4dc5eb0734b36b13e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 61d5569c44d7c7ea300b85bf635fccf86275423d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403887"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859052"
 ---
 # <a name="scale-out-your-remote-desktop-services-deployment-by-adding-an-rd-session-host-farm"></a>Effectuer un scale-out de votre déploiement de services Bureau à distance en ajoutant une batterie de serveurs Hôte de session Bureau à distance
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Vous pouvez améliorer la disponibilité et la mise à l’échelle de votre déploiement de services Bureau à distance en ajoutant une batterie de serveurs Hôte de session Bureau à distance (RDSH).   
   
@@ -44,7 +40,7 @@ Utilisez les étapes suivantes pour ajouter un nouvel hôte de session Bureau à
    
    1. Créez une adresse IP publique pour la machine virtuelle exécutant les services de gestion Bureau à distance. La machine virtuelle RDMS est généralement la machine virtuelle qui exécute la première instance du rôle Service Broker pour les connexions Bureau à distance.  
        1. Dans le portail Azure, cliquez sur **Parcourir > Groupes de ressources**, puis cliquez sur le groupe de ressources pour le déploiement, et sur la machine virtuelle RDMS (par exemple, Contoso-Cb1).  
-       2. Cliquez sur **Paramètres > Interfaces réseau**, puis sur l’interface réseau correspondante.   
+       2. Cliquez sur **Paramètres > Interfaces réseau**, puis cliquez sur l’interface réseau correspondante.   
        3. Cliquez sur **Paramètres > Adresse IP**.
        4. Pour **Adresse IP publique**, sélectionnez **Activé**, puis cliquez sur **Adresse IP**.   
        5. Si vous souhaitez utiliser une adresse IP publique existante, sélectionnez-la dans la liste. Sinon, cliquez sur **Créer**, entrez un nom, puis cliquez sur **OK** et ensuite sur **Enregistrer**.   

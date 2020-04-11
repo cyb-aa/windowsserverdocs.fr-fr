@@ -1,20 +1,19 @@
 ---
 ms.assetid: d1953097-63ea-4a0e-b860-2f3b7c175c41
 title: Fonctionnement du service de temps Windows
-description: ''
-author: eross-msft
-ms.author: lizross
+author: dcuomo
+ms.author: dacuo
 manager: dougkim
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: d8532dedb6473a34591a1f160a94a785cc4ba367
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: b8b30893abe4cdfe8d7e8c5a95ede651f85643a9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80315172"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861662"
 ---
 # <a name="how-the-windows-time-service-works"></a>Fonctionnement du service de temps Windows
 
@@ -207,10 +206,10 @@ Le tableau suivant liste les requêtes qu’effectue un contrôleur de domaine p
 |----------------|---------------------|------------|------------------------------|  
 |1|Contrôleur de domaine parent|Sur site|Préfère une source de temps fiable, mais peut se synchroniser avec une source de temps non fiable si c’est la seule à être disponible.|  
 |2|Contrôleur de domaine local|Sur site|Se synchronise uniquement avec une source de temps fiable.|  
-|3|Émulateur PDC local|Sur site|Non applicable.<br /><br />Un contrôleur de domaine ne tente pas de se synchroniser avec lui-même.|  
+|3|Émulateur PDC local|Sur site|Non applicable.<p>Un contrôleur de domaine ne tente pas de se synchroniser avec lui-même.|  
 |4|Contrôleur de domaine parent|Hors site|Préfère une source de temps fiable, mais peut se synchroniser avec une source de temps non fiable si c’est la seule à être disponible.|  
 |5|Contrôleur de domaine local|Hors site|Se synchronise uniquement avec une source de temps fiable.|  
-|6|Émulateur PDC local|Hors site|Non applicable.<br /><br />Un contrôleur de domaine ne tente pas de se synchroniser avec lui-même.| 
+|6|Émulateur PDC local|Hors site|Non applicable.<p>Un contrôleur de domaine ne tente pas de se synchroniser avec lui-même.| 
   
 **Remarque**  
   

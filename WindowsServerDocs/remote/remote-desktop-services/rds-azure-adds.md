@@ -1,23 +1,19 @@
 ---
 title: Azure AD Domain Services et services Bureau à distance
 description: Découvrez comment intégrer Azure AD Domain Services à votre déploiement des services Bureau à distance.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: chrimo
 ms.date: 10/02/2017
-ms.tgt_pltfrm: na
 ms.topic: article
 author: christianmontoya
 ms.localizationpriority: medium
-ms.openlocfilehash: d3fe370f18df980acaeaa847bd96642b97613f80
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bc70300df8bc8aef78371f4b84fe697bf8e66749
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387633"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852982"
 ---
 # <a name="integrate-azure-ad-domain-services-with-your-rds-deployment"></a>Intégrer Azure AD Domain Services à votre déploiement des services Bureau à distance
 
@@ -37,7 +33,7 @@ Pour mieux comprendre Azure AD DS, consultez [Vue d’ensemble d’Azure AD DS
 
 Utilisez les informations suivantes pour déployer Azure AD DS avec les services Bureau à distance.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de pouvoir utiliser vos identités Azure AD dans un déploiement des services Bureau à distance, [configurez Azure AD pour enregistrer les mots de passe hachés des identités de vos utilisateurs](/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync). Les organisations nées dans le cloud n’ont pas besoin d’apporter des changements supplémentaires à leur annuaire. Toutefois, les organisations locales doivent autoriser la synchronisation et le stockage des hachages de mots de passe dans Azure AD, ce qui n’est peut-être pas autorisé par certaines d’entre elles. Les utilisateurs doivent réinitialiser leurs mots de passe après ce changement de configuration.
 

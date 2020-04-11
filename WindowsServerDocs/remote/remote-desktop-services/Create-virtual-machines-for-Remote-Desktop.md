@@ -1,28 +1,24 @@
 ---
 title: Créer des machines virtuelles pour les services Bureau à distance
 description: Créez des machines virtuelles pour héberger des composants de Bureau à distance dans le cloud.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 08/01/2016
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b0f62d6f-0915-44ca-afef-be44a922e20e
 author: lizap
 manager: dongill
-ms.openlocfilehash: 6db9973402578736b2e1283dcfa405642591eccc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fa17c472e3311e4e34ac7b2176d0045886463274
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387984"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80818462"
 ---
 # <a name="create-virtual-machines-for-remote-desktop"></a>Créer des machines virtuelles pour les services Bureau à distance
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Suivez les étapes ci-après pour créer des machines virtuelles dans l’environnement du locataire, qui seront utilisées pour exécuter les rôles, services et fonctionnalités Windows Server 2016 nécessaires au déploiement de l’hébergement de bureaux.   
   

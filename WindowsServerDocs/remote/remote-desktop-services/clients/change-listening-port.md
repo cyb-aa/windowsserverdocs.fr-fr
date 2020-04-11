@@ -1,27 +1,23 @@
 ---
 title: Modifier le port d’écoute dans Bureau à distance
 description: Découvrez comment modifier le port d’écoute pour un client Bureau à distance.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.date: 07/19/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: b6b5a48435a99b1bf1392acb6a5764b106984bbe
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 818ae5217d0144b2a4ec6e45f3a7757455cfabf1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404189"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854662"
 ---
 # <a name="change-the-listening-port-for-remote-desktop-on-your-computer"></a>Modifier le port d’écoute pour Bureau à distance sur votre ordinateur
 
->S’applique à : Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
+>S'applique à : Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
 
 Lorsque vous vous connectez à un ordinateur (un client Windows ou Windows Server) via le client Bureau à distance, la fonctionnalité Bureau à distance sur votre ordinateur « entend » la requête de connexion via un port d’écoute défini (3389 par défaut). Vous pouvez modifier ce port d’écoute sur les ordinateurs Windows en modifiant le registre.
 

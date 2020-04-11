@@ -1,28 +1,24 @@
 ---
 title: Créer une collection de services Bureau à distance
 description: Découvrez comment ajouter des programmes RemoteApp et RDSH à votre déploiement RDS.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 10/22/2019
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ae9767e3-864a-4eb2-96c0-626759ce6d60
 author: lizap
 manager: dongill
-ms.openlocfilehash: 92af2b4e9fb174f1aa815256148ee8d5c7c7181a
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: 6a842c7984dc63fe40c05300f6cfbb6718846525
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812256"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852952"
 ---
 # <a name="create-a-remote-desktop-services-collection-for-desktops-and-apps-to-run"></a>Créer une collection de services Bureau à distance pour les bureaux et les applications à exécuter
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Suivez les étapes suivantes pour créer une collection de sessions des services Bureau à distance. Une collection de sessions conserve les applications et les postes de travail que vous souhaitez rendre disponibles aux utilisateurs. Une fois la collection créée, publiez-la afin que les utilisateurs puissent y accéder.
 
@@ -45,7 +41,7 @@ Quel que soit le type de collection que vous choisissez, vous devez remplir ces 
 3.  Sélectionnez le serveur hôte de la session Bureau à distance que vous avez créé (par exemple, Contoso-Shr1).  
 4.  Acceptez la valeur par défaut pour **Groupes d’utilisateurs**.  
 5.  Entrez l’emplacement du partage de fichiers que vous avez créé pour les disques de profil utilisateur pour cette collection (par exemple, **\Contoso-Cb1\UserDisksr**).   
-6.  Cliquez sur **Create (Créer)** . Une fois la collection créée, cliquez sur **Fermer**.  
+6.  Cliquez sur **Créer**. Une fois la collection créée, cliquez sur **Fermer**.  
 
 
 ## <a name="create-a-personal-desktop-session-collection"></a>Créer une collection de sessions de bureaux personnelles

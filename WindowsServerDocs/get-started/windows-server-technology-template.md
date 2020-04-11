@@ -1,19 +1,19 @@
 ---
-title: Technologies WindowsServer2016
+title: Technologies Windows Server 2016
 description: Offre une vue d’ensemble des différentes technologies.
 ms.prod: windows-server
 ms.author: daveba
 ms.date: 10/17/2017
 ms.topic: article
 author: daveba
-ms.openlocfilehash: ce835d25811680a5dcb49f8a66005e12b31d3089
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 255d962bf1db5d20eddaff2655f6133710ae98e5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391257"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825862"
 ---
-# <a name="technology-in-windows-server-2016"></a>Technologies WindowsServer2016 
+# <a name="technology-in-windows-server-2016"></a>Technologies Windows Server 2016 
 
 <img src="media/6-networking.png" style='align:left'> *Présentation des technologies. Celle-ci vise à établir un lien entre le marketing des différentes technologies et le contenu. Remplacez l’icône par celle de votre domaine technologique dans la page d’accueil.*
 
@@ -22,7 +22,7 @@ ms.locfileid: "71391257"
 
 
 >[!Note]
-> Pour télécharger Windows Server 2016, voir [Windows Server - Évaluations](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016).
+> Pour télécharger Windows Server 2016, voir [Windows Server - Évaluations](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016).
 
 *Présentez les nouvelles fonctionnalités les plus intéressantes ici.*
 
@@ -36,7 +36,7 @@ ms.locfileid: "71391257"
 ### <a name="link-to-article-about-sub-technology"></a>Lien vers l’article relatif à la technologie secondaire
 
 ## <a name="sub-technology"></a>Technologie secondaire
-
+    
 ### <a name="link-to-article-about-sub-technology"></a>Lien vers l’article relatif à la technologie secondaire
 
 ### <a name="link-to-article-about-sub-technology"></a>Lien vers l’article relatif à la technologie secondaire
@@ -49,3 +49,4 @@ ms.locfileid: "71391257"
 ### <a name="link-to-article-about-sub-technology"></a>Lien vers l’article relatif à la technologie secondaire
 
 ### <a name="link-to-article-about-sub-technology"></a>Lien vers l’article relatif à la technologie secondaire
+    

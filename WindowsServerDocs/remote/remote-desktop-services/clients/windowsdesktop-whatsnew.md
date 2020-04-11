@@ -1,24 +1,20 @@
 ---
 title: Nouveautés du client Windows Desktop
 description: Découvrir les dernières modifications apportées au client Bureau à distance pour Windows Desktop
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
 ms.date: 03/24/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 38b779b12b841e276d8f807af6f6332469c20817
-ms.sourcegitcommit: 9e8fddf683c9a36aad330ebef9b80d57f75ffb43
+ms.openlocfilehash: 34f5fdb5a2826173edf471fd65248008761863dd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80233305"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861412"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Nouveautés du client Windows Desktop
 

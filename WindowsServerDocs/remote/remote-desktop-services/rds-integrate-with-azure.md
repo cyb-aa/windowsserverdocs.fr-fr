@@ -1,22 +1,18 @@
 ---
 title: Services Bureau à distance - Intégration aux services Azure
 description: Apprenez à intégrer les services Bureau à distance à votre déploiement Azure, et inversement.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 08/18/2017
-ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
-ms.openlocfilehash: ba53a16c75f205c329bf5e388cf52dd2bf40bb91
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2c792a22608fe0e7ae826b27d6917202037559e4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387404"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855072"
 ---
 # <a name="remote-desktop-services---integrating-with-azure-services"></a>Services Bureau à distance - Intégration aux services Azure
 

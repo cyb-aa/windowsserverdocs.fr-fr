@@ -1,28 +1,24 @@
 ---
 title: Activer le serveur de licences des Services Bureau à distance
 description: Installer et activer le serveur de licences des Services Bureau à distance
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: eb24ddd2-0361-41fe-bd6b-c7c63427cb71
 author: lizap
 ms.author: elizapo
 ms.date: 09/20/2016
 manager: dongill
-ms.openlocfilehash: 68a688fff8c935ae051223aeeea69e1d1ef5b9db
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3eaa999c03c97ad3188d4dcd8514b2705bf0a3b1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404067"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852972"
 ---
 # <a name="activate-the-remote-desktop-services-license-server"></a>Activer le serveur de licences des Services Bureau à distance
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Le serveur de licences des services Bureau à distance délivre des licences d'accès client (CAL) aux utilisateurs et aux périphériques lorsqu'ils accèdent à l'hôte de session de Bureau à distance. Vous pouvez activer le serveur de licences à l’aide du Gestionnaire de licences des services Bureau à distance. 
 

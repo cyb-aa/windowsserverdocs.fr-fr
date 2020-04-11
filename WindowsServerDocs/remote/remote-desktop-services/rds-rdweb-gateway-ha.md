@@ -1,27 +1,23 @@
 ---
 title: Ajouter la haute disponibilité au serveur frontal d’accès web et de passerelle des services Bureau à distance
 description: Fournit les étapes de l’installation des serveurs d’accès web et de passerelle Bureau à distance dans un déploiement de services Bureau à distance.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.date: 11/08/2016
 manager: dongill
-ms.openlocfilehash: 5838480847e5f86a03f264a0ece1f8d4097597cc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e98bbda5460311dd379eab6f5a5bde0ec3845d5c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387229"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860282"
 ---
 # <a name="add-high-availability-to-the-rd-web-and-gateway-web-front"></a>Ajouter la haute disponibilité au serveur frontal d’accès web et de passerelle des services Bureau à distance
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 
 Vous pouvez déployer une batterie de serveurs d’accès web et de passerelle des services Bureau à distance (Accès Bureau à distance par le web et Passerelle des services Bureau à distance) pour améliorer la disponibilité et la mise à l’échelle d’un déploiement des services Bureau à distance de Windows Server. 
@@ -32,7 +28,7 @@ Utilisez les étapes suivantes pour ajouter un serveur de passerelle et d’acc�
 
 Configurez un serveur pour jouer le rôle d’accès web et de passerelle supplémentaires des services Bureau à distance ; il peut s’agir d’un serveur physique ou d’une machine virtuelle. Y sont incluses la jonction du serveur au domaine et l’activation de la gestion à distance.
 
-## <a name="step-1-configure-the-new-server-to-be-part-of-the-rds-environment"></a>Étape 1 : Configurer le nouveau serveur comme faisant partie de l’environnement des services Bureau à distance
+## <a name="step-1-configure-the-new-server-to-be-part-of-the-rds-environment"></a>Étape 1 : Configurer le nouveau serveur comme faisant partie de l’environnement des services Bureau à distance
 
 1. Connectez-vous au serveur RDMS dans le portail Azure à l’aide du client Connexion Bureau à distance.
 2. Ajoutez le nouveau serveur de passerelle et d’accès web Bureau à distance au Gestionnaire de serveur :
@@ -99,7 +95,7 @@ Si vous utilisez l’infrastructure Azure, vous pouvez créer un équilibreur de
     3.  Sélectionnez **Public** pour le **Schéma**.
     4.  Sous **Adresse IP publique**, sélectionnez **Choisir une adresse IP publique**, puis sélectionnez une adresse IP publique existante ou créez-en une.
     5.  Sélectionnez l’**Abonnement**, le **Groupe de ressources** et l’**Emplacement** appropriés.
-    6.  Cliquez sur **Create (Créer)** .  
+    6.  Cliquez sur **Créer**.  
 2. Créez une [sonde](https://azure.microsoft.com/documentation/articles/load-balancer-custom-probe-overview/) pour superviser les serveurs qui sont actifs :  
     1.  Dans le portail Azure, sélectionnez **Parcourir** > **Équilibreurs de charge**, puis choisissez l’équilibreur de charge que vous avez créé à l’étape précédente.
     2.  Sélectionnez **Tous les paramètres** > **Sondes** > **Ajouter**.  

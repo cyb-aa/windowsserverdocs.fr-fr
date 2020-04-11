@@ -2,26 +2,24 @@
 title: Résolution des problèmes de Nano Server
 description: Console de récupération, services de gestion d’urgence, débogage du noyau
 ms.prod: windows-server
-ms.service: na
 manager: DonGill
 ms.technology: server-nano
 ms.date: 09/06/2017
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e427c66f-9571-4b8c-b65d-e7370d91544d
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 48b63e74ab406d2e66996097d33d71f2eeaeaf20
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f134680792eda33343bb6743708b37cf4f9e5faa
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391555"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826452"
 ---
 # <a name="troubleshooting-nano-server"></a>Résolution des problèmes de Nano Server
 
->S'applique à : Windows Server 2016
+>S'applique à : Windows Server 2016
 
 > [!IMPORTANT]
 > À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image de système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Changements apportés à Nano Server](nano-in-semi-annual-channel.md). 

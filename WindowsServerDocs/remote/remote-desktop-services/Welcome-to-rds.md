@@ -1,25 +1,21 @@
 ---
 title: Bienvenue dans les services Bureau à distance de Windows Server 2016
 description: Fournit une vue d’ensemble des services Bureau à distance
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: chrimo
 ms.date: 02/22/2017
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 52b9e09f-39e0-41a9-9d3b-4d5f4eacf3e0
 author: christianmontoya
 manager: scottman
 ms.localizationpriority: medium
-ms.openlocfilehash: 46a04905d5247ae940ca900297171d1112cf936b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 70979eae2ad9f54ab895572f97d9b5968cff31d9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404209"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854682"
 ---
 # <a name="welcome-to-remote-desktop-services"></a>Bienvenue dans les services Bureau à distance 
 
@@ -46,7 +42,7 @@ Avec ces options et ces configurations, vous pouvez déployer en toute simplicit
 ## <a name="next-steps"></a>Étapes suivantes
 
 Voici quelques étapes à suivre pour mieux comprendre les services Bureau à distance ainsi que pour commencer éventuellement à déployer votre propre environnement :
--   Comprendre les [configurations prises en charge](rds-supported-config.md) pour les services Bureau à distance en fonction des différentes versions de Windows et de Windows Server
--   [Planifier et concevoir](rds-plan-and-design.md) un environnement des services Bureau à distance pour répondre à diverses exigences, notamment la haute disponibilité et l’authentification multifacteur
--   Passer en revue les [modèles d’architecture des services Bureau à distance](desktop-hosting-logical-architecture.md) qui conviennent le mieux à l’environnement souhaité
--   Commencer à [déployer votre environnement des services Bureau à distance avec ARM et la Place de marché Azure](rds-in-azure.md)
+-    Comprendre les [configurations prises en charge](rds-supported-config.md) pour les services Bureau à distance en fonction des différentes versions de Windows et de Windows Server
+-    [Planifier et concevoir](rds-plan-and-design.md) un environnement des services Bureau à distance pour répondre à diverses exigences, notamment la haute disponibilité et l’authentification multifacteur
+-    Passer en revue les [modèles d’architecture des services Bureau à distance](desktop-hosting-logical-architecture.md) qui conviennent le mieux à l’environnement souhaité
+-    Commencer à [déployer votre environnement des services Bureau à distance avec ARM et la Place de marché Azure](rds-in-azure.md)

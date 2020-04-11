@@ -1,24 +1,20 @@
 ---
 title: Architecture de Services Bureau à distance
 description: Schémas de l’architecture de Services Bureau à distance
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 02/10/2017
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7f73bb0a-ce98-48a4-9d9f-cf7438936ca1
 author: lizap
 manager: dongill
-ms.openlocfilehash: 7cd46cadf5ed5424e50556ee0c91a80804108113
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 441b0b24fd4b4dc18d3afd65283bbf7ff2417048
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323671"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80818434"
 ---
 # <a name="remote-desktop-services-architecture"></a>Architecture de Services Bureau à distance
 
@@ -32,8 +28,8 @@ Vous trouverez ci-dessous différentes configurations de déploiement de Service
 ## <a name="standard-rds-deployment-architectures"></a>Architectures de déploiement de Services de Bureau à distance standard
 
 La fonctionnalité Services Bureau à distance a deux architectures standard :
--   Déploiement de base : contient le nombre minimal de serveurs pour créer un environnement Services Bureau à distance pleinement efficace
--   Déploiement à haute disponibilité : contient tous les composants nécessaires pour que votre environnement Services Bureau à distance puisse bénéficier du temps de disponibilité maximal garanti
+-    Déploiement de base : contient le nombre minimal de serveurs pour créer un environnement Services Bureau à distance pleinement efficace
+-    Déploiement à haute disponibilité : contient tous les composants nécessaires pour que votre environnement Services Bureau à distance puisse bénéficier du temps de disponibilité maximal garanti
 
 ### <a name="basic-deployment"></a>Déploiement de base
 

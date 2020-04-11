@@ -1,12 +1,8 @@
 ---
 title: Bien démarrer avec le client Windows Store
 description: Étapes de configuration de base pour le client Bureau à distance pour Windows Store.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: lizap
@@ -14,16 +10,16 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 13fbe22ef33ea7861ae4c8677792b5758f37ad0f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 64362c6f6da77ee15a95ddcbaf33c6cb9ecd5cf4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387611"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861432"
 ---
 # <a name="get-started-with-the-windows-store-client"></a>Bien démarrer avec le client Windows Store
 
->S’applique à : Windows 10
+>S'applique à : Windows 10
 
 Le client Bureau à distance sur Windows vous permet d’utiliser des bureaux et applications Windows à distance depuis un autre appareil Windows.
 
@@ -57,8 +53,8 @@ Pour créer une connexion Bureau à distance :
    - **Se connecter à la session admin** : avec cette option, vous pouvez vous connecter à une session de console en vue d’administrer un serveur Windows.
    - **Permuter les boutons de la souris** : avec cette option, vous pouvez permuter les fonctions du bouton gauche de la souris sur le bouton droit de la souris. (Cela est particulièrement utile si le PC distant est configuré pour un utilisateur gaucher mais que vous utilisez une souris pour droitier.)
    - **Définir la résolution de ma session à distance sur** : sélectionnez la résolution souhaitée pour la session. **Choisir pour moi** : définit la résolution en fonction de la taille du client.
-   - **Modifier la taille de l’affichage** : si vous sélectionnez une haute résolution statique pour la session, vous pouvez agrandir les éléments à l’écran pour améliorer la lisibilité. Remarque: Cela s’applique uniquement pour les connexions à Windows 8.1 ou version ultérieure.
-   - **Mettre à jour la résolution de la session à distance après redimensionnement** : quand cette option est activée, le client met à jour dynamiquement la résolution de la session en fonction de la taille du client. Remarque: Cela s’applique uniquement pour les connexions à Windows 8.1 ou version ultérieure.
+   - **Modifier la taille de l’affichage** : si vous sélectionnez une haute résolution statique pour la session, vous pouvez agrandir les éléments à l’écran pour améliorer la lisibilité. Remarque : Cela s’applique uniquement pour les connexions à Windows 8.1 ou version ultérieure.
+   - **Mettre à jour la résolution de la session à distance après redimensionnement** : quand cette option est activée, le client met à jour dynamiquement la résolution de la session en fonction de la taille du client. Remarque : Cela s’applique uniquement pour les connexions à Windows 8.1 ou version ultérieure.
    - **Presse-papiers** : quand elle est activée, cette option vous permet de copier du texte et des images vers ou à partir du PC distant.
    - **Lecture audio** : sélectionnez l’appareil à utiliser pour l’audio pendant votre session à distance. Vous pouvez choisir d’activer le son sur les appareils locaux ou le PC distant, ou de désactiver entièrement le son.
    - **Enregistrement audio** : quand elle est activée, cette option vous permet d’utiliser un microphone local avec les applications sur un PC distant.
@@ -98,7 +94,7 @@ Une passerelle Bureau à distance vous permet de vous connecter à un ordinateur
 Pour configurer une nouvelle passerelle :
 
 1. Dans le Centre de connexion, appuyez sur **Paramètres**.
-2. À côté de Passerelle, appuyez sur **+** pour ajouter une nouvelle passerelle. Remarque: Une passerelle peut également être ajoutée quand vous ajoutez une nouvelle connexion.
+2. À côté de Passerelle, appuyez sur **+** pour ajouter une nouvelle passerelle. Remarque : Une passerelle peut également être ajoutée quand vous ajoutez une nouvelle connexion.
 3. Entrez les informations suivantes :
    - **Nom du serveur** : nom de l’ordinateur que vous souhaitez utiliser comme passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez aussi ajouter les informations de port au nom du serveur (par exemple : **RDGateway:443** ou **10.0.0.1:443**).
    - **Compte d’utilisateur** : sélectionnez ou ajoutez un compte d’utilisateur à utiliser avec la passerelle des services Bureau à distance à laquelle vous vous connectez. Vous pouvez également sélectionner **Utiliser le compte d’utilisateur du bureau** si vous préférez garder les mêmes informations d’identification que celles utilisées pour la connexion Bureau à distance.
@@ -193,7 +189,7 @@ Deux modes souris sont disponibles pour interagir avec la session.
 > [!NOTE]
 > Sur Windows 8 ou une version ultérieure, les mouvements d’interaction tactile natifs sont pris en charge en mode d’interaction tactile directe.
 
-| Mode souris    | Action avec la souris      | Mouvement                                                               |
+| Mode de la souris    | Action avec la souris      | Mouvement                                                               |
 |---------------|----------------------|-----------------------------------------------------------------------|
 | Interaction tactile directe  | Clic gauche           | Appuyez avec un doigt                                                          |
 | Interaction tactile directe  | Clic droit          | Appuyez longuement avec un doigt                                                 |

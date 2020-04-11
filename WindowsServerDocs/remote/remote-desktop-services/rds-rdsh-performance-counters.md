@@ -5,17 +5,16 @@ ms.prod: windows-server
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 07/11/2019
-ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b222104abd5b0b964bac748c3be15049075191d
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c33e5c6309c41e39aeda3a2bdff1a0caf72b2675
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950424"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860332"
 ---
 # <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Utiliser les compteurs de performance pour diagnostiquer les problèmes de performance des applications sur les hôtes de session Bureau à distance
 
@@ -84,13 +83,13 @@ Ce tableau montre un exemple visuel de ces instances. (Vous pouvez obtenir les m
 
 |Type de compteur|Nom de l'instance|Délai signalé (ms)|
 |---------------|-------------|-------------------|
-|Délai de l’entrée utilisateur par processus|1:4232 <Calculator.exe>|  200|
-|Délai de l’entrée utilisateur par processus|2:1000 <Calculator.exe>|  16|
-|Délai de l’entrée utilisateur par processus|1:2000 <Calculator.exe>|  32|
+|Délai de l’entrée utilisateur par processus|1:4232 <Calculator.exe>|    200|
+|Délai de l’entrée utilisateur par processus|2:1000 <Calculator.exe>|    16|
+|Délai de l’entrée utilisateur par processus|1:2000 <Calculator.exe>|    32|
 |Délai de l’entrée utilisateur par session|1|    200|
 |Délai de l’entrée utilisateur par session|2|    16|
-|Délai de l’entrée utilisateur par session|Moyenne|  108|
-|Délai de l’entrée utilisateur par session|Max.|  200|
+|Délai de l’entrée utilisateur par session|Moyenne|     108|
+|Délai de l’entrée utilisateur par session|Max.|     200|
 
 ## <a name="counters-used-in-an-overloaded-system"></a>Compteurs utilisés dans un système surchargé
 

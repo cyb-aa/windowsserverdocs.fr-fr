@@ -1,24 +1,20 @@
 ---
 title: Client Windows Desktop pour les administrateurs
 description: Informations sur le client Windows Desktop principalement utiles aux administrateurs.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
 ms.date: 09/16/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: c0a9f11aea9e24cc1a2bab275aae8dc0a81e9cba
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 202b39c33896f6b5e570c8abcf630dad436466c3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323661"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861422"
 ---
 # <a name="windows-desktop-client-for-admins"></a>Client Windows Desktop pour les administrateurs
 

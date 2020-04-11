@@ -1,29 +1,25 @@
 ---
 title: Configurer une installation minimale de Windows Server avec Sconfig.cmd
 description: Décrit l’utilisation de Sconfig.cmd
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 10/17/2017
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e6cac074-c6fc-46dd-9664-fa0342c0a5e8
 author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 8f07c3546fd43dd3ce9cfa32094bc691fa0bcb2e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e6c218b08cc39edd9b3d93ae78b0b5c7aa293858
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360248"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826672"
 ---
 # <a name="configure-a-server-core-installation-of-windows-server-2016-or-windows-server-version-1709-with-sconfigcmd"></a>Configurer une installation minimale de Windows Server 2016 ou Windows Server, version 1709, avec Sconfig.cmd
 
-> S’applique à : Windows Server (Canal semi-annuel) et Windows Server 2016
+> S'applique à : Windows Server (Canal semi-annuel) et Windows Server 2016
 
 Dans Windows Server 2016 et Windows Server, version 1709, vous pouvez utiliser l’outil de configuration de serveur (Sconfig.cmd) pour effectuer différentes tâches courantes de configuration et de gestion des serveurs en mode d’installation minimale. Pour utiliser cet outil, vous devez être membre du groupe Administrateurs.
 

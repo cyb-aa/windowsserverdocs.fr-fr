@@ -1,28 +1,24 @@
 ---
 title: Suivi de vos licences d'accès client aux services Bureau à distance
 description: Apprenez à effectuer le suivi des licences d'accès client de votre déploiement de services Bureau à distance.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 80d82d30-3ad0-4a8c-9a9b-2773c47eee19
 author: lizap
 ms.author: elizapo
 ms.date: 05/11/2017
 manager: dongill
-ms.openlocfilehash: 278aa7a2d35aeacfaee8deddcd64e668a320853f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7e5793427b4a294d90c7b9ebeb66bb27578be190
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387119"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857332"
 ---
 # <a name="track-your-remote-desktop-services-client-access-licenses-rds-cals"></a>Suivi de vos licences d'accès client aux services Bureau à distance
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Vous pouvez utiliser l'outil Gestionnaire de licences des services Bureau à distance pour créer des rapports de suivi des licences d'accès client aux services Bureau à distance par utilisateur émises par un serveur de licences Bureau à distance.
 

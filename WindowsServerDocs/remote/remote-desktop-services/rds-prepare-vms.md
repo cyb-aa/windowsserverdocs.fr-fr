@@ -1,28 +1,24 @@
 ---
 title: Préparer les machines virtuelles pour les services Bureau à distance
 description: Préparer vos machines virtuelles pour les composants Bureau à distance
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 07/21/2017
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2fc39dff-61ca-4eba-81ab-52289081bead
 author: lizap
 manager: dongill
-ms.openlocfilehash: 6a1f0bfef21351894d3b9c2cfd8d044491834f6c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5aec90275db1e09906e051419929086a40a34800
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387250"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858132"
 ---
 # <a name="create-virtual-machines-for-remote-desktop"></a>Créer des machines virtuelles pour les services Bureau à distance
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Vous pouvez installer les composants Services Bureau à distance sur des serveurs physiques ou des machines virtuelles. 
 

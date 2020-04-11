@@ -1,22 +1,19 @@
 ---
 title: Optimisation de Windows 10 version 1803 pour un rôle VDI (Virtual Desktop Infrastructure)
 description: Paramètres et configuration recommandés pour réduire la charge pour les postes de travail Windows 10 (1803) utilisés comme images VDI
-ms.custom: na
 ms.prod: windows-server
 ms.reviewer: robsmi
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: jaimeo, robsmi
-ms.tgt_pltfrm: na
 ms.topic: article
 author: jaimeo
 manager: dougkim
-ms.openlocfilehash: e7708ffe5639c80067ed0dbc2794c4d6694e6247
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.openlocfilehash: b96064f1c05e61223b84a2285535f02733160abe
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517504"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857292"
 ---
 # <a name="optimizing-windows-10-version-1803-for-a-virtual-desktop-infrastructure-vdi-role"></a>Optimisation de Windows 10 version 1803 pour un rôle VDI (Virtual Desktop Infrastructure)
 

@@ -1,33 +1,29 @@
 ---
 title: Gérer les utilisateurs de votre collection de services Bureau à distance
 description: Découvrez comment gérer les utilisateurs dans les services Bureau à distance.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2727e1ab-69b8-46f3-9f6d-2540324fe596
 author: christianmontoya
 ms.author: chrimo
 ms.date: 03/27/2018
 manager: scottman
-ms.openlocfilehash: 870a6360f685c2de31485135202b0f1415c90d85
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 430c38f98dd9aec3034e023d737952e3015622eb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403857"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858682"
 ---
 # <a name="manage-users-in-your-rds-collection"></a>Gérer les utilisateurs de votre collection de services Bureau à distance
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 En tant qu’administrateur, vous pouvez gérer directement les utilisateurs ayant accès à des collections spécifiques. Ainsi, vous pouvez créer une collection avec des applications standard pour les travailleurs de l’information, puis créer une collection distincte avec des applications de modélisation graphique pour les ingénieurs. La gestion de l’accès utilisateur dans un déploiement des Services Bureau à distance nécessite deux étapes principales :
 
-1.  [Créer des utilisateurs et groupes dans Active Directory](#create-your-users-and-groups-in-active-directory)
-2.  [Affecter des utilisateurs et des groupes à des collections](#assign-users-and-groups-to-collections)
+1.    [Créer des utilisateurs et groupes dans Active Directory](#create-your-users-and-groups-in-active-directory)
+2.    [Affecter des utilisateurs et des groupes à des collections](#assign-users-and-groups-to-collections)
 
 
 ## <a name="create-your-users-and-groups-in-active-directory"></a>Créer vos utilisateurs et groupes dans Active Directory
@@ -41,7 +37,7 @@ Les étapes suivantes décrivent comment installer les outils AD DS sur un serve
 1. Connectez-vous au serveur exécutant Active Directory Domain Services. Pour les déploiements Azure :
    1. Dans le portail Azure, cliquez sur **Parcourir > Groupes de ressources**, puis cliquez sur le groupe de ressources pour le déploiement.
    2. Sélectionnez la machine virtuelle Active Directory.
-   3. Cliquez sur **Se connecter > Ouvrir** pour ouvrir le client Bureau à distance. Si **Se connecter** est grisé, il est possible que la machine virtuelle n’ait pas d’adresse IP publique. Pour lui en affecter une, effectuez les étapes suivantes, puis réessayez cette étape.
+   3. Cliquez sur **Connexion > Ouvrir** pour ouvrir le client Bureau à distance. Si **Se connecter** est grisé, il est possible que la machine virtuelle n’ait pas d’adresse IP publique. Pour lui en affecter une, effectuez les étapes suivantes, puis réessayez cette étape.
       1. Cliquez sur **Paramètres > Interfaces réseau**, puis sur l’interface réseau correspondante.
       2. Cliquez sur **Paramètres > Adresse IP**.
       3. Pour **Adresse IP publique**, sélectionnez **Activé**, puis cliquez sur **Adresse IP**.

@@ -2,26 +2,24 @@
 title: Développement pour Nano Server
 description: Communication à distance PowerShell et sessions CIM
 ms.prod: windows-server
-ms.service: na
 manager: DonGill
 ms.technology: server-nano
 ms.date: 09/06/2017
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 57079470-a1c1-4fdc-af15-1950d3381860
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 6cf21d9db4221fd6bd76cfd5c362bb9f168d1ce9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5933b031260a69bf986d7ca2f7abd832055421fa
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360320"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827082"
 ---
 # <a name="developing-for-nano-server"></a>Développement pour Nano Server
 
->S'applique à : Windows Server 2016
+>S'applique à : Windows Server 2016
 
 > [!IMPORTANT]
 > À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image de système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Modifications apportées à Nano Server](nano-in-semi-annual-channel.md). 
@@ -40,14 +38,14 @@ Pour gérer Nano Server avec la communication à distance Windows PowerShell, vo
   
 Pour ajouter le serveur Nano Server à la liste des hôtes approuvés, exécutez cette commande à partir d’une invite Windows PowerShell avec élévation de privilèges :  
   
-`Set-Item WSMan:\localhost\Client\TrustedHosts "<IP address of Nano Server>"`  
+`Set-Item WSMan:\localhost\Client\TrustedHosts <IP address of Nano Server>`  
   
 Pour démarrer la session Windows PowerShell à distance, démarrez une session Windows PowerShell locale avec élévation de privilèges, puis exécutez les commandes suivantes :  
   
   
 ```  
-$ip = "\<IP address of Nano Server>"  
-$user = "$ip\Administrator"  
+$ip = \<IP address of Nano Server>  
+$user = $ip\Administrator  
 Enter-PSSession -ComputerName $ip -Credential $user  
 ```  
   
@@ -66,7 +64,7 @@ Pour démarrer la session CIM, exécutez les commandes suivantes dans une invite
   
   
 ```  
-$ip = "<IP address of the Nano Server\>"  
+$ip = <IP address of the Nano Server\>  
 $ip\Administrator  
 $cim = New-CimSession -Credential $user -ComputerName $ip  
 ```  
@@ -77,7 +75,7 @@ Une fois la session établie, vous pouvez exécuter différentes commandes WMI, 
   
 ```  
 Get-CimInstance -CimSession $cim -ClassName Win32_ComputerSystem | Format-List *  
-Get-CimInstance -CimSession $Cim -Query "SELECT * from Win32_Process WHERE name LIKE 'p%'"  
+Get-CimInstance -CimSession $Cim -Query SELECT * from Win32_Process WHERE name LIKE 'p%'  
 ```  
   
   

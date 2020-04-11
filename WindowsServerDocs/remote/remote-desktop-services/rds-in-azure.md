@@ -1,28 +1,24 @@
 ---
 title: Déployer en toute transparence des services Bureau à distance avec ARM et la Place de marché Azure
 description: Découvrez comment créer un déploiement de Services Bureau à distance réduit dans Azure en utilisant les modèles ARM et la Place de marché Azure.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5f72ceb6-6f90-48f6-bfc3-bdad63984ce7
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 02/10/2017
-ms.openlocfilehash: 9ada41e929c5e67cfcb1dcc5e7b4bc761c762d99
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 55f43e90aabd4c8ace3a333e3e6d86a49fb69210
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387448"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855082"
 ---
 # <a name="seamlessly-deploy-rds-with-arm-and-azure-marketplace"></a>Déployer en toute transparence des services Bureau à distance avec ARM et la Place de marché Azure
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 La plateforme des Services Bureau à distance (RDS) est idéale pour héberger à moindre coût des applications et des ordinateurs de bureau Windows. Vous pouvez utiliser une offre de la [Place de marché Azure](#basic-rds-through-the-azure-marketplace) ou un [modèle de démarrage rapide](#customized-rds-using-quickstart-templates) pour créer rapidement un service Bureau à distance sur un déploiement Azure IaaS. La Place de marché Azure crée un domaine de test, simplifiant ainsi le mécanisme de test et d’établissement de la preuve de concept. Les modèles de démarrage rapide, quant à eux, peuvent utiliser un domaine existant, ce qui en fait un excellent outil pour créer un environnement de production. Une fois la configuration terminée, vous pouvez vous connecter aux postes de travail et applications publiés depuis différentes plates-formes et périphériques, en utilisant les applications Bureau à distance Microsoft pour Windows, Mac, iOS et Android.
 

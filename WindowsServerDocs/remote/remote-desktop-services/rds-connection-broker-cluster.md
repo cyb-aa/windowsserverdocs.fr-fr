@@ -1,27 +1,23 @@
 ---
 title: Ajouter un serveur du service Broker pour les connexions Bureau à distance afin de configurer la haute disponibilité dans les services Bureau à distance
 description: Découvrez comment ajouter un service Broker pour les connexions Bureau à distance à un déploiement des services Bureau à distance à des fins de haute disponibilité.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 04/10/2017
-ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 511f852568aa4cc7498e3a0b8deacea83db22c08
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dc6a9fa0d6834f63c9935518e4b2c26320a04082
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404054"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852962"
 ---
 # <a name="add-the-rd-connection-broker-server-to-the-deployment-and-configure-high-availability"></a>Ajouter le serveur du service Broker pour les connexions Bureau à distance au déploiement et configurer la haute disponibilité
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Vous pouvez déployer un cluster du service Broker pour les connexions Bureau à distance afin d’améliorer la disponibilité et d’adapter votre infrastructure des services Bureau à distance. 
 
@@ -31,7 +27,7 @@ Configurez un serveur pour qu’il agisse en tant que second serveur du service 
 
 Configurez une base de données du service Broker pour les connexions. Vous pouvez utiliser une instance [Azure SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-get-started/#create-a-new-aure-sql-database) ou SQL Server dans votre environnement local. Nous évoquons l’utilisation d’Azure SQL ci-dessous, mais les étapes s’appliquent tout de même à SQL Server. Vous devez trouver la chaîne de connexion de la base de données et vérifier que vous disposez du pilote ODBC approprié.
 
-## <a name="step-1-configure-the-database-for-the-connection-broker"></a>Étape 1 : Configurer la base de données du service Broker pour les connexions
+## <a name="step-1-configure-the-database-for-the-connection-broker"></a>Étape 1 : Configurer la base de données du service Broker pour les connexions
 
 1. Recherchez la chaîne de connexion de la base de données que vous avez créée. Vous allez en avoir besoin pour identifier la version du pilote ODBC nécessaire et, plus tard, au moment de configurer le service Broker pour les connexions proprement dit (étape 3). Vous devez donc enregistrer la chaîne à un endroit facile à référencer. Voici comment trouver la chaîne de connexion pour Azure SQL :  
     1. Dans le portail Azure, cliquez sur **Parcourir > Groupes de ressources**, puis cliquez sur le groupe de ressources du déploiement.   

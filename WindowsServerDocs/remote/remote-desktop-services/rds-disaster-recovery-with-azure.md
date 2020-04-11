@@ -1,27 +1,23 @@
 ---
 title: Configurer la reprise d’activité après sinistre pour les services Bureau à distance avec Azure Site Recovery
 description: Découvrir comment utiliser Azure Site Recovery pour la reprise d’activité après sinistre dans un déploiement des services Bureau à distance
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 06/12/2017
-ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 514262fde3b433baf89fe8f5a0cf8b04ef267354
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 68fa7026a3198b7800c4855f8472f4a0bec62009
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387537"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858992"
 ---
 # <a name="set-up-disaster-recovery-for-rds-using-azure-site-recovery"></a>Configurer la reprise d’activité après sinistre pour les services Bureau à distance avec Azure Site Recovery
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Vous pouvez utiliser Azure Site Recovery pour créer une solution de reprise d’activité après sinistre de votre déploiement des services Bureau à distance. 
 
@@ -39,7 +35,7 @@ Vous pouvez déployer les services Bureau à distance sur des serveurs physiques
 | Bureau virtuel mis en pool (managé, sans UPD) | Oui|Non|Non|Non|
 | Sessions RemoteApps et de bureau (sans UPD) | Oui|Oui|Oui|Oui  |
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de pouvoir configurer Azure Site Recovery pour votre déploiement, assurez-vous que les conditions suivantes sont remplies :
 

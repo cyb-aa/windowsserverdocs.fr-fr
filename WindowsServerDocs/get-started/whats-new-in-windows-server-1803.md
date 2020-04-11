@@ -8,18 +8,18 @@ author: greg-lindsay
 ms.author: greg-lindsay
 ms.localizationpriority: high
 ms.date: 05/07/2018
-ms.openlocfilehash: 211a0e2b49e9f15682a251f96dc338d124e2f998
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8b359ac883c24d559e2c3d47db5b68e4f5341338
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391382"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826002"
 ---
 # <a name="whats-new-in-windows-server-version-1803"></a>Nouveautés de Windows Server version 1803
 
 >S'applique à : Windows Server (canal semi-annuel)
 
-<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Pour découvrir les dernières fonctionnalités de Windows, consultez [Nouveautés de Windows Server](whats-new-in-windows-server.md). Le contenu de cette section décrit les nouveautés et les modifications de Windows Server, version 1803. Les nouvelles fonctionnalités et modifications répertoriées ici sont celles qui sont susceptibles d'avoir l'impact le plus important quand vous utilisez cette version. Consultez également [Mise à jour Windows Server (canal semi-annuel)](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/).
+<img src=../media/landing-icons/new.png style='float:left; padding:.5em;' alt=Icon showing a newspaper>&nbsp;Pour découvrir les dernières fonctionnalités de Windows, consultez [Nouveautés de Windows Server](whats-new-in-windows-server.md). Le contenu de cette section décrit les nouveautés et les modifications de Windows Server, version 1803. Les nouvelles fonctionnalités et modifications répertoriées ici sont celles qui sont susceptibles d'avoir l'impact le plus important quand vous utilisez cette version. Consultez également [Mise à jour Windows Server (canal semi-annuel)](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/).
 
 ## <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -43,10 +43,10 @@ Les scénarios spécifiques pour le canal semi-annuel et le canal de maintenance
 | ------------- | ------------- | ------------ |
 | Scénarios recommandés     | Serveurs de fichiers usage général, charges de travail internes et tierces, applications traditionnelles, rôles d’infrastructure, centre de données défini par logiciel et infrastructure hyperconvergée  | Scénarios d’applications en conteneur, d’hôtes de conteneur et d’application bénéficiant d’une innovation plus rapide |
 | Nouvelles versions  | Tous les 2 à 3 ans  | Tous les 6 mois |
-| Support  | 5 ans de support standard + 5 ans de support étendu  | 18 mois |
+| Assistance  | 5 ans de support standard + 5 ans de support étendu  | 18 mois |
 | Éditions  | Toutes les éditions disponibles de Windows Server  | Éditions Standard et Datacenter |
 | Qui peut l’utiliser  | Tous les clients par le biais de tous les canaux | Clients Software Assurance et cloud uniquement |
-| Options d’installation  | Server Core et Serveur avec Expérience utilisateur  | Server Core pour hôte et image de conteneur et image du conteneur Nano Server |
+| Options d'installation  | Server Core et Serveur avec Expérience utilisateur  | Server Core pour hôte et image de conteneur et image du conteneur Nano Server |
 
 ## <a name="application-platform-and-containers"></a>Conteneurs et plateforme d’applications
 
@@ -108,7 +108,7 @@ Vous pouvez utiliser la commande Windows PowerShell suivante pour activer le ser
 Install-WindowsFeature -Name WDS
 ```
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Voir aussi
 
 [Informations de publication de Windows Server](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)<br>
 [Nouveautés de Windows 10 version 1803 concernant les contenus destinés aux professionnels de l’informatique](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1803)

@@ -8,16 +8,16 @@ ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
-ms.openlocfilehash: 1ce821c2e793792032e2f91aa806b1bd8d8a76f6
-ms.sourcegitcommit: b9ec35416a06854c1bc875a2b731d42a436fe313
+ms.openlocfilehash: 6c424d19c006cfae6343d577dc08ff3553a5616b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73956072"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825872"
 ---
 # <a name="whats-new-in-windows-server"></a>Nouveautés de Windows Server
 
-> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (Canal semi-annuel)
+> S'applique à : Windows Server 2019, Windows Server 2016, Windows Server (Canal semi-annuel)
 
 Vous trouverez ici les nouvelles fonctionnalités pour chacune de ces versions de Windows Server.  
 
@@ -35,7 +35,7 @@ Versions du canal semi-annuel :
 
 Les versions Windows Server du canal semi-annuel proposent de nouvelles fonctionnalités de système d’exploitation à un rythme plus rapide. Une nouvelle version est publiée tous les six mois, et est prise en charge pendant les 18 mois suivants. Consultez les [Informations de publication de Windows Server](windows-server-release-info.md) et la [Page de support des cycles de vie](https://support.microsoft.com/lifecycle) pour connaître les dates de support, et utilisez toujours la dernière version dans la mesure du possible.
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Voir aussi
 
 - [Notes de publication : problèmes importants dans Windows Server 2019](../get-started-19/rel-notes-19.md)
 - [Notes de publication : problèmes importants sur Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)

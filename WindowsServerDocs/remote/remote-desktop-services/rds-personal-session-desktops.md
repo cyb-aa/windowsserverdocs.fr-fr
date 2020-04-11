@@ -1,27 +1,23 @@
 ---
 title: Utiliser des bureaux de session personnels avec les services Bureau à distance
 description: Apprenez à partager des appareils de bureau personnalisés affectés par le biais des services Bureau à distance.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.date: 10/22/2019
 manager: dongill
-ms.openlocfilehash: 9386733911ca81ad60d038854bd68e5603aae4cf
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: c0c36793d08391ad98fa797004ed6dec9883e9f1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812285"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857402"
 ---
 # <a name="use-personal-session-desktops-with-remote-desktop-services"></a>Utiliser des bureaux de session personnels avec les services Bureau à distance
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Vous pouvez déployer des appareils de bureau personnels basés sur serveur dans un environnement de cloud computing à l'aide de bureaux de session personnels.  (Un environnement de cloud computing sépare les serveurs d'infrastructure Hyper-V des machines virtuelles invitées, comme Microsoft Azure Cloud ou la plateforme Microsoft Cloud.) La fonctionnalité de bureau de session personnel étend le scénario de déploiement de bureau basé sur une session aux services Bureau à distance pour créer un nouveau type de collection de sessions dans lequel chaque utilisateur est affecté à son propre hôte de session personnel avec des droits d'administration. 
 
@@ -99,4 +95,4 @@ L'applet de commande **Export-RDPersonalPersonalDesktopAssignment** exporte les 
 -Path \<chaîne\>
 
 
-Les nouvelles applets de commande prennent toutes en charge les paramètres courants : -Verbose, -Debug, -ErrorAction, -ErrorVariable, -OutBuffer et -OutVariable. Pour plus d'informations, consultez [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216).
+Les nouvelles applets de commande prennent toutes en charge les paramètres courants : -Verbose, -Debug, -ErrorAction, -ErrorVariable, -OutBuffer et -OutVariable. Pour plus d’informations, consultez [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216).

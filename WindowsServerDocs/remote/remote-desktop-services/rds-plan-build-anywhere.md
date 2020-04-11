@@ -1,28 +1,24 @@
 ---
 title: 'Services Bureau à distance : création n’importe où'
 description: Les informations de planification vous aident à déterminer où héberger votre déploiement de services Bureau à distance.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c803a383-0eea-4e11-bca5-d204ab758048
 author: lizap
 ms.author: elizapo
 ms.date: 09/07/2016
 manager: dongill
-ms.openlocfilehash: 16f85531f8ac58ed80d4d3f666692b307977c68c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9b56614e347b36fb86e6e4680f1b179accaef058
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403942"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857372"
 ---
 # <a name="remote-desktop-services---build-anywhere"></a>Services Bureau à distance : création n’importe où
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Déployez en local, dans le cloud, ou un mélange des deux. Modifiez votre déploiement, ainsi que l’évolution de vos besoins.
 

@@ -1,28 +1,24 @@
 ---
 title: Déployer un environnement des services Bureau à distance
-ms.custom: na
 ms.prod: windows-server
 description: Étapes de base pour déployer un environnement des services Bureau à distance.
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 04/10/2017
-ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: e00be471b2607ad4bc8cc8e11652d428419b4fd6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 31bb6afaca92b36453d4565c1f79aae35a6f0900
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404014"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855752"
 ---
 # <a name="deploy-your-remote-desktop-environment"></a>Déployer un environnement des services Bureau à distance
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Effectuez les étapes suivantes pour déployer les serveurs Bureau à distance dans votre environnement. Vous pouvez installer les rôles serveur sur des ordinateurs physiques ou des machines virtuelles, selon que vous créez un environnement local, hybride ou basé sur le cloud. 
 
