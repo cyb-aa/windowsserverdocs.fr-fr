@@ -8,12 +8,12 @@ ms.date: 04/30/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: web-app-proxy
-ms.openlocfilehash: 18851463b82afc1dc34615e6faaa14622c80224a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f859d40ed04cc25285212968e6cd186cffe760ae
+ms.sourcegitcommit: 5c93c685dca3cafeea916cedcc0f915c528484ca
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80818682"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81119249"
 ---
 # <a name="publishing-applications-with-sharepoint-exchange-and-rdg"></a>Publication d’applications avec SharePoint, Exchange et la passerelle des services Bureau à distance
 
@@ -112,7 +112,7 @@ Si vous souhaitez restreindre l’accès à votre passerelle d’accès à dista
 5.  Si le nom de domaine complet interne et externe est différent, vous ne devez pas désactiver la conversion d’en-tête de demande sur la règle de publication RDWeb. Pour ce faire, exécutez le script PowerShell suivant sur le serveur proxy d’application Web, mais il doit être activé par défaut :
 
     ```PowerShell
-    Get-WebApplicationProxyApplication applicationname | Set-WebApplicationProxyApplication -DisableTranslateUrlInRequestHeaders:$false
+    Get-WebApplicationProxyApplication applicationname | Set-WebApplicationProxyApplication -DisableTranslateUrlInRequestHeaders:$true
     ```
 
 6.  Désactivez la propriété de cookie HttpOnly dans le proxy d’application Web sur l’application publiée RDG. Pour autoriser le contrôle ActiveX RDG à accéder au cookie d’authentification du proxy d’application Web, vous devez désactiver la propriété HttpOnly sur le cookie du proxy d’application Web.

@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setnotifyflags
-description: La rubrique commandes Windows pour Bitsadmin setnotifyflags, qui définit les indicateurs de notification d’événement pour le travail spécifié.
+description: La rubrique commandes Windows pour **Bitsadmin setnotifyflags**, qui définit les indicateurs de notification d’événement pour le travail spécifié.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fd3001fa4ae7f51cab92556f4f2f498511cca5ae
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 73c088ce2bae8d2ad99b313417c14449ddd822b5
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849282"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122799"
 ---
 # <a name="bitsadmin-setnotifyflags"></a>bitsadmin setnotifyflags
 
@@ -23,27 +23,22 @@ Définit les indicateurs de notification d’événement pour le travail spécif
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /SetNotifyFlags <Job> <NotifyFlags>
+bitsadmin /setnotifyflags <job> <notifyflags>
 ```
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|Tâche|Nom complet ou GUID du travail|
-|NotifyFlags|Voir les notes|
+| Paramètre | Description |
+| --------- | ----------- |
+| le travail | Nom complet ou GUID du travail. |
+| notifyflags | Peut inclure un ou plusieurs des indicateurs de notification suivants, notamment :<ul><li>**1.** génère un événement lorsque tous les fichiers du travail ont été transférés.</li><li>**2.** génère un événement lorsqu’une erreur se produit.</li><li>**3.** génère un événement lorsque tous les fichiers ont été transférés ou lorsqu’une erreur se produit.</li><li>**4.** désactive les notifications.</li></ul> |
 
-## <a name="remarks"></a>Notes
+## <a name="examples"></a>Exemples
 
-Le paramètre **NotifyFlags** peut contenir un ou plusieurs des indicateurs de notification suivants.
+L’exemple suivant définit les indicateurs de notification pour générer un événement lorsqu’une erreur se produit, pour un travail nommé *myDownloadJob*.
 
-|-----|-----| | 1 | Générez un événement lorsque tous les fichiers du travail ont été transférés. | | 2 | Génère un événement lorsqu’une erreur se produit. | | 4 | Désactiver les notifications. |
-
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
-
-L’exemple suivant définit le travail indicateurs de notification pour les événements de transfert et d’erreur pour le travail nommé *myDownloadJob*.
 ```
-C:\>bitsadmin /SetNotifyFlags myDownloadJob 3
+C:\>bitsadmin /setnotifyflags myDownloadJob 2
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires

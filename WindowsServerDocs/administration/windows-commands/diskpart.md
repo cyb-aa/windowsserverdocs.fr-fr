@@ -1,27 +1,27 @@
 ---
 title: DiskPart
-description: La rubrique commandes Windows pour DiskPart, qui vous permet de gérer les lecteurs de votre ordinateur.
+description: La rubrique commandes Windows pour **diskpart**, qui vous permet de gérer les lecteurs de votre ordinateur.
 ms.prod: windows-server
 ms.technology: storage
 author: jasongerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 45fe66e4843b96db8e4593c0e963e4a80dbd22c2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: eb2921d8da4a4a29c4f700107ef5b6d7bfb41481
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845472"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122536"
 ---
 # <a name="diskpart"></a>DiskPart
 
 >S’applique à : Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 et Windows Server 2008 R2, Windows Server 2008
 
-Les commandes DiskPart vous aident à gérer les lecteurs de votre ordinateur (disques, partitions, volumes ou disques durs virtuels). 
+Les commandes DiskPart vous aident à gérer les lecteurs de votre ordinateur (disques, partitions, volumes ou disques durs virtuels).
 
 Avant de pouvoir utiliser les commandes DiskPart, vous devez d’abord Lister, puis sélectionner un objet pour lui attribuer le focus. Quand un objet a le focus, toutes les commandes DiskPart que vous tapez agiront sur cet objet.
 
-## <a name="list-the-available-objects"></a>Répertorier les objets disponibles
+## <a name="list-available-objects"></a>Répertorier les objets disponibles
 
 Vous pouvez répertorier les objets disponibles et déterminer le numéro ou la lettre de lecteur d’un objet à l’aide de :
 
@@ -33,7 +33,7 @@ Vous pouvez répertorier les objets disponibles et déterminer le numéro ou la 
 
 - `list vdisk` : affiche tous les disques virtuels sur l’ordinateur.
 
-Lorsque vous utilisez les commandes de **liste** , un astérisque (\*) s’affiche en regard de l’objet qui a le focus.
+Lorsque vous utilisez les commandes de **liste** , un astérisque (*) s’affiche en regard de l’objet qui a le focus.
 
 ## <a name="determine-focus"></a>Déterminer le focus
 
@@ -52,9 +52,9 @@ diskpart
 ```
 
 > [!IMPORTANT]
-> Pour exécuter DiskPart, vous devez être dans le groupe **administrateurs** local ou un groupe disposant d’autorisations similaires. 
+> Pour exécuter DiskPart, vous devez être dans le groupe **administrateurs** local ou un groupe disposant d’autorisations similaires.
 
-Vous pouvez exécuter les commandes suivantes dans l’interpréteur de commandes DiskPart :
+Vous pouvez exécuter les commandes suivantes à partir de l’interpréteur de commandes DiskPart :
 
 | Commande | Description |
 | ------- | ----------- |
@@ -73,33 +73,33 @@ Vous pouvez exécuter les commandes suivantes dans l’interpréteur de commande
 | [Détacher vdisk](detach-vdisk.md) | Arrête l’affichage du disque dur virtuel sélectionné en tant que lecteur de disque dur local sur l’ordinateur hôte. |
 | [Détail](detail.md) | Affiche des informations sur le disque, la partition, le volume ou le disque dur virtuel sélectionné (VHD). |
 | [Quitter](exit.md) | Quitte l’interpréteur de commandes DiskPart. |
-| [Développer vdisk](expand-vdisk.md) | 
-| [Étendre](extend.md) | 
-| [Systèmes](filesystems.md) | 
-| [Format](format.md) | 
-| [GPT](gpt.md) | 
-| [Aide](help.md) | 
-| [Importer](import.md) | 
-| [Inactive](inactive.md) | 
-| [Tarifs](list.md) | 
-| [Merge vdisk](merge-vdisk.md) | 
-| [Hors connexion](offline.md) | 
-| [Service](online.md) | 
-| [Récupérer](recover.md) | 
-| [Livr](rem.md) | 
-| [Supprimer](remove.md) | 
-| [Résolution](repair.md) | 
-| [Relancer](rescan.md) | 
-| [Maintien](retain.md) | 
-| [Système](san.md) | 
-| [Sélectionné](select.md) | 
-| [ID d’ensemble](set-id.md) | 
-| [Réduire](shrink.md) | 
-| [Quei](uniqueid.md) | 
+| [Développer vdisk](expand-vdisk.md) | développe un disque dur virtuel (VHD) à la taille que vous spécifiez. |
+| [Étendre](extend.md) | Étend le volume ou la partition avec le focus, ainsi que son système de fichiers, à l’espace libre (non alloué) sur un disque. |
+| [Systèmes](filesystems.md) | Affiche des informations sur le système de fichiers actuel du volume qui a le focus et répertorie les systèmes de fichiers pris en charge pour la mise en forme du volume. |
+| [Format](format.md) | Met en forme un disque pour accepter des fichiers Windows. |
+| [GPT](gpt.md) | Attribue le ou les attributs GPT à la partition avec le focus sur des disques GPT (GUID partition table) de base. |
+| [Aide](help.md) | Affiche la liste des commandes disponibles ou des informations d’aide détaillées sur une commande spécifiée. |
+| [Importer](import.md) | Importe un groupe de disques étrangers dans le groupe de disques de l’ordinateur local. |
+| [Inactive](inactive.md) | Marque la partition système ou la partition de démarrage qui a le focus comme étant inactive sur les disques MBR (Master Boot Record) de base. |
+| [Tarifs](list.md) | Affiche la liste des disques, des partitions sur un disque, des volumes d’un disque ou des disques durs virtuels (VHD). |
+| [Merge vdisk](merge-vdisk.md) | Fusionne un disque dur virtuel de différenciation avec son disque dur virtuel parent correspondant. |
+| [Hors connexion](offline.md) | Met un disque ou un volume en ligne à l’état hors connexion. |
+| [Service](online.md) | Met un disque ou un volume hors connexion à l’État en ligne. |
+| [Récupérer](recover.md) | Actualise l’état de tous les disques d’un groupe de disques, tente de récupérer les disques d’un groupe de disques non valide et resynchronise les volumes en miroir et les volumes RAID-5 qui contiennent des données obsolètes. |
+| [Livr](rem.md) | Fournit un moyen d’ajouter des commentaires à un script. |
+| [Supprimer](remove.md) | Supprime une lettre de lecteur ou un point de montage d’un volume. |
+| [Résolution](repair.md) | Répare le volume RAID-5 actif en remplaçant la région du disque défaillant par le disque dynamique spécifié. |
+| [Relancer](rescan.md) | Localise les nouveaux disques qui ont pu être ajoutés à l’ordinateur. |
+| [Maintien](retain.md) | Prépare un volume simple dynamique existant à utiliser comme volume de démarrage ou de système. |
+| [Système](san.md) | Affiche ou définit la stratégie de réseau de zone de stockage (San) pour le système d’exploitation. |
+| [Sélectionné](select.md) | Déplace le focus sur un disque, une partition, un volume ou un disque dur virtuel (VHD). |
+| [ID d’ensemble](set-id.md) | Modifie le champ type de partition de la partition qui a le focus. |
+| [Réduire](shrink.md) | Réduit la taille du volume sélectionné en spécifiant la quantité spécifiée. |
+| [Quei](uniqueid.md) | Affiche ou définit l’identificateur de table de partition GUID (GPT) ou la signature d’enregistrement de démarrage principal (MBR) pour le disque qui a le focus. |
 
 ## <a name="additional-references"></a>Références supplémentaires
 
-- [Clé de syntaxe de ligne de commande] (command-line-syntax-key.md
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 - [Vue d’ensemble de la gestion des disques](https://docs.microsoft.com/windows-server/storage/disk-management/overview-of-disk-management)
 

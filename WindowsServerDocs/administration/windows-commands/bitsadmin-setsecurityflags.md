@@ -1,6 +1,6 @@
 ---
 title: Bitsadmin setsecurityflags
-description: La rubrique commandes Windows pour Bitsadmin setsecurityflags, qui définit des indicateurs pour HTTP qui déterminent si BITS doit vérifier la liste de révocation de certificats, ignorer certaines erreurs de certificat et définir la stratégie à utiliser lorsqu’un serveur redirige la requête HTTP.
+description: La rubrique commandes Windows pour **Bitsadmin setsecurityflags**, qui définit les indicateurs de sécurité pour http pour déterminer si bits doit vérifier la liste de révocation de certificats, ignorer certaines erreurs de certificat et définir la stratégie à utiliser lorsqu’un serveur redirige la requête http.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,49 +9,36 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8a7b857bb398e3061a3435a730bf9a751ee2c5e3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8d73361bceda8c0eb24992bdee176b47bf82a878
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849142"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122725"
 ---
 # <a name="bitsadmin-setsecurityflags"></a>Bitsadmin setsecurityflags
 
-Définit des indicateurs pour HTTP qui déterminent si BITS doit vérifier la liste de révocation de certificats, ignorer certaines erreurs de certificat et définir la stratégie à utiliser lorsqu’un serveur redirige la requête HTTP. La valeur est un entier non signé.
+Définit des indicateurs de sécurité pour le protocole HTTP pour déterminer si BITS doit vérifier la liste de révocation de certificats, ignorer certaines erreurs de certificat et définir la stratégie à utiliser lorsqu’un serveur redirige la requête HTTP. La valeur est un entier non signé.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /SetSecurityFlags <Job> <Value>
+bitsadmin /setsecurityflags <job> <value>
 ```
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|Tâche|Nom complet ou GUID du travail|
-|Valeur|Voir les notes|
+| Paramètre | Description |
+| -------------- | -------------- |
+| le travail | Nom complet ou GUID du travail. |
+| valeur | Peut inclure un ou plusieurs des indicateurs de notification suivants, notamment :<ul><li>Définissez le bit le moins significatif pour activer la vérification de la liste de révocation de certificats.</li><li>Définissez le 2e bit à partir de la droite pour ignorer les noms communs incorrects dans le certificat de serveur.</li><li>Définissez le troisième bit de droite pour ignorer les dates incorrectes dans le certificat de serveur.</li><li>Définissez le quatrième bit à partir de la droite pour ignorer les autorités de certification incorrectes dans le certificat de serveur.</li><li>Définissez le 5e bit à partir de la droite pour ignorer l’utilisation incorrecte du certificat de serveur.</li><li>Définissez le neuvième du 11 bits à partir de la droite pour implémenter votre stratégie de redirection spécifiée, notamment :<ul><li>**0, 0, 0.** Les redirections sont automatiquement autorisées.</li><li>**0, 0, 1.** Le nom distant dans l’interface **IBackgroundCopyFile** est mis à jour si une redirection se produit.</li><li>**0, 1, 0.** BITS fait échouer la tâche si une redirection se produit.</li></ul></li><li>Définissez le douzième bit à partir de la droite pour autoriser la redirection de HTTPs vers HTTP.</li></ul> |
 
-## <a name="remarks"></a>Notes
+## <a name="examples"></a>Exemples
 
-Le paramètre de **valeur** peut contenir un ou plusieurs des indicateurs de notification suivants.
+L’exemple suivant définit les indicateurs de sécurité pour activer la vérification de la liste de révocation de certificats pour la tâche nommée *myDownloadJob*.
 
-|Action|Représentation binaire|
-|------|---------------------|
-|Activer la vérification de la liste de révocation|Définir le bit le moins significatif|
-|Ignorer le nom commun non valide dans le certificat de serveur|Définir le 2e bit à partir de la droite|
-|Ignorer la date non valide dans le certificat de serveur|Définir le troisième bit à partir de la droite|
-|Ignorer l’autorité de certification non valide dans le certificat de serveur|Définir le quatrième bit à partir de la droite|
-|Ignorer l’utilisation non valide du certificat|Définir le 5e bit à partir de la droite|
-|Stratégie de redirection|Contrôlé par les 9 à 11 bits à partir de la droite</br>0, 0, 0-les redirections sont automatiquement autorisées.</br>0, 0, 1-le nom distant dans l’interface IBackgroundCopyFile sera mis à jour si une redirection se produit.</br>0, 1, 0-BITS échouera la tâche si une redirection se produit.|
-|Autoriser la redirection de HTTPs vers HTTP|Définir le douzième bit à partir de la droite|
-
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
-
-L’exemple suivant définit les indicateurs de sécurité pour activer la vérification de la liste de révocation de certificats pour la tâche nommée *myJob*.
 ```
-C:\>bitsadmin /SetSecurityFlags myJob 0x0001
+C:\>bitsadmin /setsecurityflags myDownloadJob 0x0001
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires

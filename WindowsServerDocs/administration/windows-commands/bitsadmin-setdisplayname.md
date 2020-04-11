@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setdisplayname
-description: La rubrique commandes Windows pour Bitsadmin SetDisplayName, qui définit le nom complet du travail spécifié.
+description: La rubrique commandes Windows pour **Bitsadmin SetDisplayName**, qui définit le nom complet du travail spécifié.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 601c5b406132e70fb7d4facb97329f7456002bb4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0b1086903dd130392800f325c451bb4750fbf8fa
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849542"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81123003"
 ---
 # <a name="bitsadmin-setdisplayname"></a>bitsadmin setdisplayname
 
@@ -23,21 +23,22 @@ Définit le nom d’affichage du travail spécifié.
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /SetDisplayName <Job> <DisplayName>
+bitsadmin /setdisplayname <job> <display_name>
 ```
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|Tâche|Nom complet ou GUID du travail|
-|DisplayName|Texte utilisé pour le nom complet du travail spécifié.|
+| Paramètre | Description |
+| --------- | ----------- |
+| le travail | Nom complet ou GUID du travail. |
+| display_name | Texte utilisé comme nom affiché pour le travail spécifique. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant définit le nom complet de la tâche nommée *myDownloadJob* sur *myDownloadJob2*.
+L’exemple suivant définit le nom complet du travail sur *myDownloadJob*.
+
 ```
-C:\>bitsadmin /SetDisplayName myDownloadJob Download Music Job
+C:\>bitsadmin /setdisplayname myDownloadJob
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires

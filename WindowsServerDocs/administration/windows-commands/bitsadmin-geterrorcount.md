@@ -1,6 +1,6 @@
 ---
 title: bitsadmin geterrorcount
-description: La rubrique commandes Windows pour Bitsadmin GetErrorCount, qui récupère le nombre de fois où le travail spécifié a généré une erreur temporaire.
+description: La rubrique commandes Windows pour **Bitsadmin GetErrorCount**, qui récupère le nombre de fois où le travail spécifié a généré une erreur temporaire.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1711781dd416311e45874b7c611f3f8f42a06854
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ef0bf043517d4edfa8d72888746ca5d9c92ecc21
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850692"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81123134"
 ---
 # <a name="bitsadmin-geterrorcount"></a>bitsadmin geterrorcount
 

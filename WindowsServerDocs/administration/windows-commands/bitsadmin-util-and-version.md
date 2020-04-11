@@ -1,6 +1,6 @@
 ---
 title: Bitsadmin util et version
-description: La rubrique commandes Windows pour Bitsadmin util et version, qui affiche la version du service BITS.
+description: La rubrique commandes Windows pour **Bitsadmin util et version**, qui affiche la version du service bits.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,37 +9,38 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 087cc1033166ab93e7496caaa7335433cafd6249
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2c2518eb7a8f15d9a592ed9a77dd67a6f8d8afac
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80848832"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122478"
 ---
 # <a name="bitsadmin-util-and-version"></a>Bitsadmin util et version
 
 Affiche la version du service BITS (par exemple, 2,0).
 
-**BITSAdmin 1,5 et versions antérieures**: non pris en charge.
+> [!NOTE]
+> Cette commande n’est pas prise en charge par BITS 1,5 et versions antérieures.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /Util /Version [/Verbose]
+bitsadmin /util /version [/verbose]
 ```
 
-## <a name="remarks"></a>Notes
+### <a name="parameters"></a>Paramètres
 
-Le commutateur **Verbose** effectue les opérations suivantes :
--   Affiche la version de fichier pour chaque DLL liée à BITS
--   Vérifie que le service BITS peut être démarré
--   Affiche les valeurs de stratégie de groupe BITS (Windows Vista uniquement)
+| Paramètre | Description |
+| --------- | ----------- |
+| /verbose | Utilisez ce commutateur pour afficher la version de fichier pour chaque DLL liée à BITS et pour vérifier si le service BITS peut démarrer.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 L’exemple suivant illustre la version du service BITS.
+
 ```
-C:\>bitsadmin /Util /Version
+C:\>bitsadmin /util /version
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires

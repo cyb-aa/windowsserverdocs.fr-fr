@@ -1,6 +1,6 @@
 ---
 title: Bitsadmin setcustomheaders
-description: Rubrique relative aux commandes Windows pour Bitsadmin setcustomheaders, qui ajoute un en-tête HTTP personnalisé à une requête d’extraction.
+description: Rubrique relative aux commandes Windows pour **Bitsadmin setcustomheaders**, qui ajoute un en-tête HTTP personnalisé à une requête d’extraction.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,39 +9,36 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e5d97fae5f84637c80c3d1ef00aa36f09049bb17
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b5b1a28f03815a22a3f8d10b2c3d1d4a3a2ae635
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849612"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81123027"
 ---
 # <a name="bitsadmin-setcustomheaders"></a>Bitsadmin setcustomheaders
 
-Ajoutez un en-tête HTTP personnalisé à une requête d’extraction.
+Ajoutez un en-tête HTTP personnalisé à une demande d’extraction envoyée à un serveur HTTP.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /SetCustomHeaders <Job> <Header1> <Header2> <. . .>
+bitsadmin /setcustomheaders <job> <header1> <header2> <...>
 ```
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|Tâche|Nom complet ou GUID du travail|
-|Header1 Header2. . .|En-têtes personnalisés pour le travail|
+| Paramètre | Description |
+| --------- | ----------- |
+| le travail | Nom complet ou GUID du travail. |
+| `<header1> <header2>`, etc. | En-têtes personnalisés pour le travail. |
 
-## <a name="remarks"></a>Notes
+## <a name="examples"></a>Exemples
 
--   Ce commutateur est utilisé pour ajouter un en-tête HTTP personnalisé à une demande d’extraction envoyée à un serveur HTTP.
+L’exemple suivant ajoute un en-tête HTTP personnalisé pour le travail nommé *myDownloadJob*. Pour plus d’informations sur les requêtes d’extraction, consultez définitions de [méthode](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3) et [définitions de champ d’en-tête](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
-
-L’exemple suivant ajoute un en-tête HTTP personnalisé pour le travail nommé *myDownloadJob*.
 ```
-C:\>bitsadmin / SetCustomHeaders myDownloadJob Accept-encoding:deflate/gzip
+C:\>bitsadmin /setcustomheaders myDownloadJob accept-encoding:deflate/gzip
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires

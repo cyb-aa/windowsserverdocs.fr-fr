@@ -1,6 +1,6 @@
 ---
 title: Bitsadmin util et GETIEPROXY
-description: La rubrique commandes Windows pour Bitsadmin util et GETIEPROXY, qui récupère l’utilisation du proxy pour le compte de service donné.
+description: La rubrique commandes Windows pour **Bitsadmin util et GETIEPROXY**, qui récupère l’utilisation du proxy pour le compte de service donné.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,42 +9,38 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d0d2a8634f3b42d655632a280cb9b998111c800b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 22b24c4f9c0941c88c70b488a82de47c7901bd8b
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80848972"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122463"
 ---
 # <a name="bitsadmin-util-and-getieproxy"></a>Bitsadmin util et GETIEPROXY
 
 > S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Récupère l’utilisation du proxy pour le compte de service donné.
+Récupère l’utilisation du proxy pour le compte de service donné. Cette commande affiche la valeur de chaque utilisation du proxy, pas seulement l’utilisation du proxy que vous avez spécifiée pour le compte de service. Pour plus d’informations sur la définition de l’utilisation du proxy pour des comptes de service spécifiques, consultez la commande [Bitsadmin util et SETIEPROXY](bitsadmin-util-and-setieproxy.md) .
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /Util /GetIEProxy <Account> [/Conn <ConnectionName>]
+bitsadmin /util /getieproxy <account> [/conn <connectionname>]
 ```
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|-------|--------|
-|Account|Spécifie le compte de service dont vous souhaitez récupérer les paramètres de proxy. Les valeurs possibles sont :<p>-LOCALSYSTEM<br />-NETWORKSERVICE<br />-LOCALSERVICE|
-|ConnectionName|Facultatif utilisé avec le paramètre **/conn** pour spécifier la connexion par modem à utiliser. Si vous ne spécifiez pas le paramètre **/conn** , bits utilise la connexion LAN. Spécifiez le nom de connexion du modem immédiatement après le paramètre **/conn** .|
+| Paramètre | Description |
+| --------- | ---------- |
+| compte | Spécifie le compte de service dont vous souhaitez récupérer les paramètres de proxy. Les valeurs possibles incluent notamment :<ul><li>LOCALSYSTEM</li><li>   NETWORKSERVICE</li><li>Local.</li></ul> |
+| ConnectionName | Ce paramètre est facultatif. Utilisé avec le paramètre **/conn** pour spécifier la connexion par modem à utiliser. Si vous ne spécifiez pas le paramètre **/conn** , bits utilise la connexion LAN. |
 
-## <a name="remarks"></a>Notes
-
-Ce commutateur affiche la valeur de chaque utilisation du proxy, pas seulement l’utilisation du proxy que vous avez spécifiée pour le compte de service. Pour plus d’informations sur la définition de l’utilisation du proxy pour les comptes de service, consultez le commutateur [Bitsadmin util et SETIEPROXY](bitsadmin-util-and-setieproxy.md)
-
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 L’exemple suivant affiche l’utilisation du proxy pour le compte SERVICE réseau.
 
 ```
-C:\>bitsadmin /Util /GetIEProxy NETWORKSERVICE
+C:\>bitsadmin /util /getieproxy NETWORKSERVICE
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires

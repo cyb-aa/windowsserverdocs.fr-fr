@@ -1,6 +1,6 @@
 ---
 title: Bitsadmin sethelpertokenflags
-description: La rubrique commandes Windows pour Bitsadmin sethelpertokenflags, qui définit les indicateurs d’utilisation d’un jeton d’assistance associé à une tâche de transfert BITS.
+description: La rubrique commandes Windows pour **Bitsadmin sethelpertokenflags**, qui définit les indicateurs d’utilisation d’un jeton d’assistance associé à une tâche de transfert bits.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -8,31 +8,32 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: c644e82026cfc1d62f3fb5d20e3925002b871036
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 77fac03dba2bb0686a98206405622e2eb398953e
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849492"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122973"
 ---
 # <a name="bitsadmin-sethelpertokenflags"></a>Bitsadmin sethelpertokenflags
 
-Définit les indicateurs d’utilisation d’un [jeton d’assistance](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs) associé à une tâche de transfert bits.
+Définit les indicateurs d’utilisation d’un [jeton d’assistance](https://docs.microsoft.com/windows/win32/bits/helper-tokens-for-bits-transfer-jobs) associé à une tâche de transfert bits.
 
-**BITS 3,0 et versions antérieures**: non pris en charge.
+> [!NOTE]
+> Cette commande n’est pas prise en charge par BITS 3,0 et versions antérieures.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /SetHelperTokenFlags <Job> <Flags>
+bitsadmin /sethelpertokenflags <job> <flags>
 ```
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|Tâche|Nom complet ou GUID du travail.|
-|Flags|Les valeurs possibles sont les suivantes. 0x0001&mdash;le jeton d’assistance permet d’ouvrir le fichier local d’un travail de chargement, de créer ou de renommer le fichier temporaire d’un travail de téléchargement, ou de créer ou de renommer le fichier de réponse d’une tâche de chargement-réponse. 0x0002&mdash;le jeton d’assistance est utilisé pour ouvrir le fichier distant d’un travail de chargement ou de téléchargement SMB (Server Message Block), ou en réponse à un serveur HTTP ou à un problème de proxy pour les informations d’identification NTLM ou Kerberos implicites. Vous devez appeler `/SetCredentialsJob TargetScheme NULL NULL` pour permettre l’envoi des informations d’identification via HTTP.|
+| Paramètre | Description |
+| --------- | ----------- |
+| le travail | Nom complet ou GUID du travail. |
+| flags | Valeurs de jeton d’assistance possibles, notamment :<ul><li>**0x0001.** Permet d’ouvrir le fichier local d’un travail de chargement, de créer ou de renommer le fichier temporaire d’un travail de téléchargement, ou de créer ou de renommer le fichier de réponse d’une tâche de chargement-réponse.</li><li>**0x0002.** Permet d’ouvrir le fichier distant d’un travail de chargement ou de téléchargement SMB (Server Message Block), ou en réponse à un serveur HTTP ou à un problème de proxy pour les informations d’identification NTLM ou Kerberos implicites.</li></ul>Vous devez appeler `/setcredentialsjob targetscheme null null` pour envoyer les informations d’identification via HTTP. |
 
 ## <a name="additional-references"></a>Références supplémentaires
 

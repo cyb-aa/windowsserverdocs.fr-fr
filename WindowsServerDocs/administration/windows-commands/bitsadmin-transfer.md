@@ -1,6 +1,6 @@
 ---
-title: bitsadmin Transfer
-description: Rubrique relative aux commandes Windows pour Bitsadmin Transfer, qui transfère un ou plusieurs fichiers.
+title: transfert Bitsadmin
+description: Rubrique relative aux commandes Windows pour **Bitsadmin Transfer**, qui transfère un ou plusieurs fichiers.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,47 +9,50 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4e960b4d94416d57e6c42ec27057dafef5e44516
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9402f1b4907ffbe4a1085a04392349e1177092d7
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849002"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122675"
 ---
-# <a name="bitsadmin-transfer"></a>bitsadmin Transfer
+# <a name="bitsadmin-transfer"></a>transfert Bitsadmin
 
-Transfère un ou plusieurs fichiers. Pour transférer plusieurs fichiers, spécifiez plusieurs paires \<RemoteFileName\>-\<LocalFileName\>. Les paires sont délimitées par des espaces.
+Transfère un ou plusieurs fichiers.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /Transfer <Name> [<Type>] [/Priority <Job_Priority>] [/ACLFlags <Flags>] [/DYNAMIC] <RemoteFileName> <LocalFileName>
+bitsadmin /transfer <name> [<type>] [/priority <job_priority>] [/ACLflags <flags>] [/DYNAMIC] <remotefilename> <localfilename>
 ```
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|Nom|Nom du travail. Contrairement à la plupart des commandes, **Name** ne peut être qu’un nom et non un GUID.|
-|Type|Facultatif : spécifiez le type de travail. Utilisez **/Download** (valeur par défaut) pour un travail de téléchargement ou **/upload** pour un travail de chargement.|
-|Priorité|Facultatif : définissez le job_priority sur l’une des valeurs suivantes :</br>-PREMIER plan</br>-ÉLEVÉ</br>-NORMAL</br>-FAIBLE|
-|ACLFlags|Facultatif : indique que vous souhaitez conserver les informations relatives au propriétaire et à la liste de contrôle d’accès avec le fichier en cours de téléchargement. Par exemple, pour conserver le propriétaire et le groupe avec le fichier, affectez à indicateurs la valeur `OG`. Spécifiez un ou plusieurs des indicateurs suivants :</br>-O : copie des informations de propriétaire avec le fichier.</br>-G : copie des informations de groupe avec le fichier.</br>-D : copie des informations DACL avec le fichier.</br>-S : copie des informations SACL avec le fichier.|
-|/DYNAMIC|Configure le travail avec [**BITS_JOB_PROPERTY_DYNAMIC_CONTENT**](/windows/desktop/api/bits5_0/ne-bits5_0-bits_job_property_id), ce qui assouplit les exigences côté serveur.|
-|RemoteFileName|Nom du fichier en cas de transfert vers le serveur.|
-|LocalFileName|Nom du fichier qui réside localement.|
+| Paramètre | Description |
+| --------- | ----------- |
+| nom | Nom du travail. Cette commande ne peut pas être un GUID. |
+| type | Ce paramètre est facultatif. Définit le type de travail, notamment :<ul><li>**Downloader.** Valeur par défaut. Choisissez ce type pour les travaux de téléchargement.</li><li>**Amont.** Choisissez ce type pour les travaux de téléchargement.</li></ul> |
+| priority | Ce paramètre est facultatif. Définit la priorité du travail, y compris :<ul><li>FOREGROUND (avant-plan)</li><li>HIGH (élevée)</li><li>NORMAL (normale)</li><li>LOW (faible)</li></ul> |
+| ACLflags | Ce paramètre est facultatif. Indique que vous souhaitez conserver les informations relatives au propriétaire et à la liste de contrôle d’accès avec le fichier en cours de téléchargement. Spécifiez une ou plusieurs des valeurs, y compris :<ul><li>**o** -copier les informations de propriétaire avec le fichier.</li><li>**g** -copier les informations de groupe avec le fichier.</li><li>**d** -copie les informations discrétionnaires sur la liste de contrôle d’accès (DACL) avec le fichier.</li><li>**s** -copier les informations de la liste de contrôle d’accès système (SACL) avec le fichier.</li></ul> |
+| /DYNAMIC | Configure la tâche à l’aide de [**BITS_JOB_PROPERTY_DYNAMIC_CONTENT**](https://docs.microsoft.com/windows/win32/api/bits5_0/ne-bits5_0-bits_job_property_id), ce qui assouplit les exigences côté serveur. |
+| remotefilename | Nom du fichier après qu’il a été transféré vers le serveur. |
+| localfilename | Nom du fichier qui réside localement. |
 
 ## <a name="remarks"></a>Notes
 
-Par défaut, le service BITSAdmin crée un travail de téléchargement qui s’exécute à la priorité **normale** et met à jour la fenêtre de commande avec les informations de progression jusqu’à ce que le transfert soit terminé ou qu’une erreur critique se produise. Le service termine le travail s’il transfère avec succès tous les fichiers et annule le travail si une erreur critique se produit. Le service ne crée pas le travail s’il n’est pas en mesure d’ajouter des fichiers au travail ou si vous spécifiez une valeur non valide pour le *type* ou le *Job_Priority*. Pour transférer plusieurs fichiers, spécifiez plusieurs paires *RemoteFileName*-*localFileName* . Les paires sont délimitées par des espaces.
+Par défaut, le service BITSAdmin crée un travail de téléchargement qui s’exécute à la priorité **normale** et met à jour la fenêtre de commande avec les informations de progression jusqu’à ce que le transfert soit terminé ou qu’une erreur critique se produise.
+
+Le service termine le travail s’il transfère avec succès tous les fichiers et annule le travail si une erreur critique se produit. Le service ne crée pas le travail s’il n’est pas en mesure d’ajouter des fichiers au travail ou si vous spécifiez une valeur non valide pour le *type* ou le *job_priority*. Pour transférer plusieurs fichiers, spécifiez plusieurs paires de `<RemoteFileName>-<LocalFileName>`. Les paires doivent être délimitées par des espaces.
 
 > [!NOTE]
 > La commande BITSAdmin continue à s’exécuter si une erreur temporaire se produit. Pour mettre fin à la commande, appuyez sur CTRL + C.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 L’exemple suivant démarre une tâche de transfert avec nommé *myDownloadJob*.
+
 ```
-C:\>bitsadmin /Transfer myDownloadJob http://prodserver/audio.wma c:\downloads\audio.wma
+C:\>bitsadmin /transfer myDownloadJob http://prodserver/audio.wma c:\downloads\audio.wma
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires

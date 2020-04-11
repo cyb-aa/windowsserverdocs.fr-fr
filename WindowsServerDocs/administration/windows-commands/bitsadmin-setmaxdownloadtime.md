@@ -1,6 +1,6 @@
 ---
 title: Bitsadmin setmaxdownloadtime
-description: Rubrique relative aux commandes Windows pour Bitsadmin setmaxdownloadtime, qui définit le délai d’attente de téléchargement en secondes.
+description: Rubrique relative aux commandes Windows pour **Bitsadmin setmaxdownloadtime**, qui définit le délai d’attente de téléchargement en secondes.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fd44011cd14d575a9c3798ede45641fac4c3dc75
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f07931dfb9fabaec272384dced6d60f1335b6a94
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849372"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122914"
 ---
 # <a name="bitsadmin-setmaxdownloadtime"></a>Bitsadmin setmaxdownloadtime
 
@@ -23,25 +23,22 @@ Définit le délai d’attente de téléchargement en secondes.
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /SetMaxDownloadTime <Job> <Timeout>
+bitsadmin /setmaxdownloadtime <job> <timeout>
 ```
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|Tâche|Nom complet ou GUID du travail|
-|Délai d'expiration|Délai d’expiration en secondes|
+| Paramètre | Description |
+| --------- | ----------- |
+| le travail | Nom complet ou GUID du travail. |
+| timeout | Longueur du délai d’attente du téléchargement, en secondes. |
 
-## <a name="remarks"></a>Notes
-
--   N/A
-
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 L’exemple suivant définit le délai d’attente pour la tâche nommée *myDownloadJob* sur 10 secondes.
+
 ```
-C:\>bitsadmin /SetMaxDownloadTime myDownloadJob 10
+C:\>bitsadmin /setmaxdownloadtime myDownloadJob 10
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires

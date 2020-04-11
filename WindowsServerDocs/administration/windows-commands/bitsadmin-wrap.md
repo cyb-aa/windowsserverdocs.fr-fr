@@ -1,6 +1,6 @@
 ---
 title: bitsadmin wrap
-description: La rubrique commandes Windows pour Bitsadmin Wrap, qui encapsule toute ligne de texte de sortie qui s’étend au-delà du bord le plus à droite de la fenêtre de commande jusqu’à la ligne suivante.
+description: La rubrique commandes Windows pour **Bitsadmin Wrap**, qui encapsule toute ligne de texte de sortie qui s’étend au-delà du bord le plus à droite de la fenêtre de commande jusqu’à la ligne suivante.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,41 +9,39 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 009a0452f44c4944ae110ca6b9e0570793c32a72
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e754a765d94661baf24190431b455584d29991ec
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80848752"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122563"
 ---
 # <a name="bitsadmin-wrap"></a>bitsadmin wrap
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Encapsule toute ligne de texte de sortie qui s’étend au-delà du bord le plus à droite de la fenêtre de commande jusqu’à la ligne suivante.
+Encapsule toute ligne de texte de sortie qui s’étend au-delà du bord le plus à droite de la fenêtre de commande jusqu’à la ligne suivante. Vous devez spécifier ce commutateur avant tout autre commutateur.
+
+Par défaut, tous les commutateurs, à l’exception du commutateur [Bitsadmin Monitor](bitsadmin-monitor.md) , encapsulent le texte de sortie.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /Wrap Job
+bitsadmin /wrap <job>
 ```
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|-------|--------|
-|Tâche|Nom complet ou GUID du travail|
+| Paramètre | Description |
+| --------- | ---------- |
+| Tâche | Nom complet ou GUID du travail. |
 
-## <a name="remarks"></a>Notes
-
-Spécifiez avant les autres commutateurs. Par défaut, tous les commutateurs, à l’exception du commutateur [Bitsadmin Monitor](bitsadmin-monitor.md) , encapsulent la sortie.
-
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 L’exemple suivant récupère des informations pour le travail nommé *myDownloadJob* et encapsule la sortie.
 
 ```
-C:\>bitsadmin /Wrap /Info myDownloadJob /verbose
+C:\>bitsadmin /wrap /info myDownloadJob /verbose
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires

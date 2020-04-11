@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setreplyfilename
-description: La rubrique commandes Windows pour Bitsadmin setreplyfilename, qui spécifie le chemin d’accès du fichier qui contient la réponse du serveur.
+description: La rubrique commandes Windows pour **Bitsadmin setreplyfilename**, qui spécifie le chemin d’accès du fichier qui contient le chargement-réponse du serveur.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,41 +9,39 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fd45174a7deac89cc943fb19d544e372c0198139
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6c476073cb22ff66bcefc75a45fcd0526cdf3d25
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849182"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122735"
 ---
 # <a name="bitsadmin-setreplyfilename"></a>bitsadmin setreplyfilename
 
-Spécifie le chemin d’accès du fichier qui contient la réponse du serveur.
+Spécifie le chemin d’accès du fichier qui contient le chargement-réponse du serveur.
 
-**BITS 1,2 et versions antérieures**: non pris en charge.
+> [!NOTE]
+> Cette commande n’est pas prise en charge par BITS 1,2 et versions antérieures.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /SetReplyFileName <Job> <Path>
+bitsadmin /setreplyfilename <job> <file_path>
 ```
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|Tâche|Nom complet ou GUID du travail|
-|Chemin d'accès|Emplacement où la réponse du serveur doit être placée|
+| Paramètre | Description |
+| -------------- | -------------- |
+| le travail | Nom complet ou GUID du travail. |
+| file_path | Emplacement où placer le serveur-répondre. |
 
-## <a name="remarks"></a>Notes
+## <a name="examples"></a>Exemples
 
-Valide uniquement pour les travaux de chargement-réponse.
+L’exemple suivant définit le chemin d’accès de fichier de chargement-réponse pour le travail nommé *myDownloadJob*.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
-
-L’exemple suivant définit le nom de fichier de réponse pathfor la tâche nommée *myDownloadJob*.
 ```
-C:\>bitsadmin /SetReplyFileName myDownloadJob c:\reply
+C:\>bitsadmin /setreplyfilename myDownloadJob c:\upload-reply
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
