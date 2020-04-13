@@ -7,15 +7,14 @@ ms.sitesec: library
 author: mikeblodge
 ms.author: mikeblodge
 ms.date: 07/11/2018
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.openlocfilehash: 19e4abf1573b8d3ee99b8e8828c1674f24d27695
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: de9233e31c5530abd207a1bbba0e1e16a07d1561
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391504"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826122"
 ---
 # <a name="upload-a-windows-server-20082008-r2-specialized-image-to-azure"></a>Charger une image Windows Server 2008/2008 R2 spécialisée dans Azure 
 
@@ -86,26 +85,26 @@ Dans cette section, vous allez déployer le disque dur virtuel de l’image dans
 > [!IMPORTANT]
 > N’utilisez pas d’images prédéfinies par l’utilisateur dans Azure.
 
-1.  Créez un [groupe de ressources](https://docs.microsoft.com/rest/api/resources/resourcegroups/createorupdate). 
-2.  Créez un [objet blob de stockage](https://docs.microsoft.com/rest/api/storageservices/put-blob) dans le groupe de ressources.
-3.  Créez un [conteneur](https://docs.microsoft.com/rest/api/storageservices/create-container) à l’intérieur de l’objet blob de stockage.
-4.  Copiez l’URL du stockage blob à partir des propriétés.
-5.  Utilisez le script indiqué ci-dessus pour charger l’image vers le nouvel objet blob de stockage.
-6.  Créez un [disque](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) pour votre disque dur virtuel.   
-     a. Accédez à Disques, puis cliquez sur **Ajouter**.  
-     b. Entrez un nom pour le disque. Sélectionnez l’abonnement que vous souhaitez utiliser, définissez la région et choisissez le type de compte.   
+1.    Créez un [groupe de ressources](https://docs.microsoft.com/rest/api/resources/resourcegroups/createorupdate). 
+2.    Créez un [objet blob de stockage](https://docs.microsoft.com/rest/api/storageservices/put-blob) dans le groupe de ressources.
+3.    Créez un [conteneur](https://docs.microsoft.com/rest/api/storageservices/create-container) à l’intérieur de l’objet blob de stockage.
+4.    Copiez l’URL du stockage blob à partir des propriétés.
+5.    Utilisez le script indiqué ci-dessus pour charger l’image vers le nouvel objet blob de stockage.
+6.    Créez un [disque](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) pour votre disque dur virtuel.   
+     a.    Accédez à Disques, puis cliquez sur **Ajouter**.  
+     b.    Entrez un nom pour le disque. Sélectionnez l’abonnement que vous souhaitez utiliser, définissez la région et choisissez le type de compte.   
      c. Pour Type de source, sélectionnez stockage. Accédez à l’emplacement du disque dur virtuel blob créé à l’aide du script.  
      d. Sélectionnez le type de système d’exploitation Windows et la taille (par défaut : 1023).   
-     e. Cliquez sur **Create (Créer)** .   
+     e. Cliquez sur **Créer**.   
 
-7.  Accédez au disque créé et cliquez sur **Créer une machine virtuelle**.   
-     a. Donnez un nom à la machine virtuelle.   
-     b. Sélectionnez le groupe existant que vous avez créé à l’étape 5 quand vous avez chargé le disque.   
-     c. Choisissez une taille et un plan de référence SKU pour votre machine virtuelle.   
-     d. Sélectionnez une interface réseau dans la page Paramètres. Vérifiez que l’interface réseau présente la règle spécifiée suivante :
+7.    Accédez au disque créé et cliquez sur **Créer une machine virtuelle**.   
+     a.    Donnez un nom à la machine virtuelle.   
+     b.    Sélectionnez le groupe existant que vous avez créé à l’étape 5 quand vous avez chargé le disque.   
+     c.    Choisissez une taille et un plan de référence SKU pour votre machine virtuelle.   
+     d.    Sélectionnez une interface réseau dans la page Paramètres. Vérifiez que l’interface réseau présente la règle spécifiée suivante :
  
-        PORT:3389 Protocol: TCP Action: Allow Priority: 1000 Name: ‘RDP-Rule'.   
-     e. Cliquez sur **Create (Créer)** .
+        PORT:3389 Protocole : TCP Action : Autoriser Priorité : 1000 Nom : 'RDP-Rule'.   
+     e.    Cliquez sur **Créer**.
 
 
 

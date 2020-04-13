@@ -1,6 +1,6 @@
 ---
 title: Canaux de maintenance
-description: 'Explication des canaux de maintenance de Windows Server : LTSC et SAC'
+description: Explication des canaux de maintenance de Windows Server - LTSC et SAC
 ms.prod: windows-server
 ms.technology: server-general
 ms.topic: article
@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: 06f92e0a2f74ed229b42e936583a7f75d4584234
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: a10cb3b27e3434ab818b41e051edb38ab77626db
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822112"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827132"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Canaux de maintenance de Windows Server : LTSC et SAC
 
@@ -112,7 +112,7 @@ Nano Server est disponible en tant que système d’exploitation de conteneur d
 
 ## <a name="how-to-tell-whether-a-server-is-running-an-ltsc-or-sac-release"></a>Comment savoir si un serveur exécute une version LTSC ou SAC
 
-En règle générale, les versions du canal de maintenance à long terme telles que Windows Server 2019 sont publiées en même temps en tant que nouvelle version du canal semi-annuel, par exemple, Windows Server, version 1809. Du coup, il est un peu difficile de déterminer si un serveur exécute une version de canal semi-annuel. Au lieu de regarder le numéro de build, vous devez regarder le nom du produit : Les versions du canal semi-annuel utilisent le nom de produit « Windows Server Standard » ou « Windows Server Datacenter » sans numéro de version, tandis que les versions du canal de maintenance à long terme incluent le numéro de version, par exemple, « Windows Server 2019 Datacenter ».
+En règle générale, les versions du canal de maintenance à long terme telles que Windows Server 2019 sont publiées en même temps en tant que nouvelle version du canal semi-annuel, par exemple, Windows Server, version 1809. Du coup, il est un peu difficile de déterminer si un serveur exécute une version de canal semi-annuel. Au lieu de regarder le numéro de build, vous devez regarder le nom du produit : Les versions du canal semi-annuel utilisent le nom de produit Windows Server Standard ou Windows Server Datacenter sans numéro de version, tandis que les versions du canal de maintenance à long terme incluent le numéro de version, par exemple, Windows Server 2019 Datacenter.
 
 >[!Note]  
 > Les instructions ci-dessous sont destinées à aider à identifier et à différencier LTSC et SAC à des fins de cycle de vie et d’inventaire général uniquement.  Elles ne sont pas destinées à la compatibilité des applications ni à représenter une surface d'API spécifique.  Les développeurs d’applications doivent s’appuyer sur d’autres instructions pour assurer la compatibilité appropriée étant donné que les composants, les API et les fonctionnalités peuvent être éventuellement ajoutés pendant la durée de vie d’un système. [Version du système d’exploitation](https://docs.microsoft.com/windows/desktop/SysInfo/operating-system-version) est un meilleur point de départ pour les développeurs d’applications.
@@ -122,7 +122,7 @@ Ouvrez Powershell et utilisez l’applet de commande Get-ItemProperty, ou l’ap
 **Exemple Windows Server 2019 Datacenter Edition (LTSC) avec Expérience utilisateur :**
 
 ````PowerShell
-Get-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion" | Select ProductName, ReleaseId, InstallationType, CurrentMajorVersionNumber,CurrentMinorVersionNumber,CurrentBuild
+Get-ItemProperty -Path HKLM:\Software\Microsoft\Windows NT\CurrentVersion | Select ProductName, ReleaseId, InstallationType, CurrentMajorVersionNumber,CurrentMinorVersionNumber,CurrentBuild
 ````
 
 ````
@@ -137,7 +137,7 @@ CurrentBuild              : 17763
 **Exemple Windows Server, version 1809 (SAC) Standard Edition avec Server Core :**
 
 ````PowerShell
-Get-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion" | Select ProductName, ReleaseId, InstallationType, CurrentMajorVersionNumber,CurrentMinorVersionNumber,CurrentBuild
+Get-ItemProperty -Path HKLM:\Software\Microsoft\Windows NT\CurrentVersion | Select ProductName, ReleaseId, InstallationType, CurrentMajorVersionNumber,CurrentMinorVersionNumber,CurrentBuild
 ````
 
 ````
