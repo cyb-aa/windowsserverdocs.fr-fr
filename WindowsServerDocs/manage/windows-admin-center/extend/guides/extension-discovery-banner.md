@@ -8,18 +8,18 @@ ms.author: jol
 ms.date: 06/06/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: d761ba61ae5680373c334889799e82e5d092a0d4
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: f51070abfeed3a790055b12f733fc61be383472c
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950108"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269256"
 ---
 # <a name="enabling-the-extension-discovery-banner"></a>Activation de la bannière de détection des extensions
 
 >S’applique à : Windows Admin Center, Windows Admin Center Preview
 
-Une nouvelle fonctionnalité disponible dans la version préliminaire du centre d’administration Windows 1903 est la bannière de découverte des extensions. Cette fonctionnalité permet à une extension de déclarer le fabricant du matériel du serveur et les modèles qu’elle prend en charge, et lorsqu’un utilisateur se connecte à un serveur ou à un cluster pour lequel une extension est disponible, une bannière de notification s’affiche pour installer facilement l’extension. Les développeurs d’extensions pourront obtenir plus de visibilité sur leurs extensions et les utilisateurs pourront facilement découvrir de nouvelles fonctionnalités de gestion pour leurs serveurs.
+La fonctionnalité bannière détection des extensions a été introduite dans la version preview 1903 du centre d’administration Windows. Cette fonctionnalité permet à une extension de déclarer le fabricant du matériel du serveur et les modèles qu’elle prend en charge, et lorsqu’un utilisateur se connecte à un serveur ou à un cluster pour lequel une extension est disponible, une bannière de notification s’affiche pour installer facilement l’extension. Les développeurs d’extensions pourront obtenir plus de visibilité sur leurs extensions et les utilisateurs pourront facilement découvrir de nouvelles fonctionnalités de gestion pour leurs serveurs.
 
 ![Bannière détection des extensions](../../media/extend-guides-extension-discovery-banner/extension-discovery-banner.png)
 

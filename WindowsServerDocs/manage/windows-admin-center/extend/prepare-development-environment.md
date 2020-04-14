@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 09/18/2018
 ms.prod: windows-server
-ms.openlocfilehash: 67bd2a476cedd6d522daeaae54081b02fd893fbd
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 136107210d2a8a4b336c9e4eb809e2ca096bfba2
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949976"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269216"
 ---
 # <a name="prepare-your-development-environment"></a>Préparer votre environnement de développement
 
@@ -32,11 +32,12 @@ Pour commencer à développer avec le kit de développement logiciel (SDK), tél
 
 * [Centre d’administration Windows](https://aka.ms/WACDownloadPage) (version GA ou Preview)
 * Visual Studio ou [Visual Studio Code](https://code.visualstudio.com)
+* [Node. js](https://nodejs.org/en/download/releases/) (version 10.3.0)
 * [Gestionnaire de package de nœud](https://npmjs.com/get-npm) (8.12.0 ou version ultérieure)
 * [NuGet](https://www.nuget.org/downloads) (pour la publication des extensions)
 
 > [!NOTE]
-> Vous devez installer et exécuter Windows Admin Center en mode de développement pour effectuer les étapes ci-dessous. Le mode de développement autorise Windows Admin Center à charger des packages d’extension non signés.
+> Vous devez installer et exécuter Windows Admin Center en mode de développement pour effectuer les étapes ci-dessous. Le mode de développement autorise Windows Admin Center à charger des packages d’extension non signés. Le centre d’administration Windows peut uniquement être installé en mode dev sur un ordinateur Windows 10. 
 >
 >  Pour activer le mode de développement, installez Windows Admin Center à partir de la ligne de commande avec le paramètre DEV_MODE=1. Dans l’exemple ci-dessous, remplacez ```<version>``` par la version que vous installez, c'est-à-dire ```WindowsAdminCenter1809.msi```.
 >
@@ -49,7 +50,7 @@ Ensuite, installez ou mettez à jour les dépendances requises pour vos projets,
 ```
 npm install -g npm
 
-npm install -g @angular/cli@1.6.5
+npm install -g @angular/cli@7.1.2
 
 npm install -g gulp
 npm install -g typescript
@@ -58,9 +59,9 @@ npm install -g windows-admin-center-cli
 ```
 
 >[!NOTE]
->Vous pouvez installer une version ultérieure de @angular/cli, mais sachez que si vous installez une version supérieure à 1.6.5, vous recevrez un avertissement lors de l’étape de génération Gulp que la version locale de l’interface de commande ne correspond pas à la version installée.
+>Vous pouvez installer une version ultérieure de @angular/cli, mais sachez que si vous installez une version supérieure à 7.1.2, vous recevrez un avertissement lors de l’étape de génération Gulp que la version locale de l’interface de commande ne correspond pas à la version installée.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
 Maintenant que votre environnement est préparé, vous êtes prêt à commencer à créer du contenu.
 

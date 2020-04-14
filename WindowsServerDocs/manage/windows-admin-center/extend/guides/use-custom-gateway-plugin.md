@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 829cbf6df8cc2738bf4066b36210b860595774ed
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5bcaaa452a2b42a54cbc3b1d8f9a296504054e34
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385228"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269226"
 ---
 # <a name="use-a-custom-gateway-plugin-in-your-tool-extension"></a>Utiliser un plug-in de passerelle personnalisé dans votre extension d'outil
 
@@ -63,7 +63,7 @@ export class PluginService {
 
 Modifiez les références à ```Sample Uno``` et ```Sample%20Uno``` en fonction de votre nom de fonctionnalité.
 
-[!WARNING]
+> [!WARNING]
 > Il est recommandé d’utiliser le ```this.appContextService.node``` intégré pour appeler toute API définie dans le plug-in de votre passerelle personnalisée. Ainsi, si des informations d’identification sont requises dans le plug-in de votre passerelle, elles seront gérées correctement.
 
 ### <a name="modify-modulets"></a>Modifier le module. TS
