@@ -4,14 +4,14 @@ ms.date: 11/12/2012
 ms.prod: windows-server
 ms.technology: storage-failover-clustering
 author: JasonGerend
-manager: elizapo
+manager: lizross
 ms.author: jgerend
-ms.openlocfilehash: 47f3a515379eb79f628a0ee97ef2c7965c4d8d50
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c087b3f86dcb70c07221a5436d921b09fb5a917f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948156"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827892"
 ---
 # <a name="configuring-cluster-accounts-in-active-directory"></a>Configuration des comptes de cluster dans Active Directory
 
@@ -30,7 +30,7 @@ Cette section décrit les comptes d'ordinateur Active Directory (également appe
       
     Par exemple, si vous créez un cluster appelé Cluster1 et essayez de configurer un serveur d'impression en cluster appelé PrintServer1 sur votre cluster, le compte Cluster1 dans Active Directory devra conserver les autorisations appropriées afin qu'il puisse être utilisé pour créer un compte d'ordinateur appelé PrintServer1.  
       
-    Le compte du nom du cluster est créé dans le conteneur par défaut pour les comptes d'ordinateur dans Active Directory. Par défaut, il s'agit du conteneur « Ordinateurs », mais l'administrateur de domaine peut choisir de le rediriger vers un autre conteneur ou une autre unité d'organisation.  
+    Le compte du nom du cluster est créé dans le conteneur par défaut pour les comptes d'ordinateur dans Active Directory. Par défaut, il s’agit du conteneur « ordinateurs », mais l’administrateur de domaine peut choisir de le rediriger vers un autre conteneur ou une autre unité d’organisation.  
       
   - **Compte d’ordinateur (objet ordinateur) d’un service ou d’une application en cluster.** Ces comptes sont créés automatiquement par l'Assistant Haute disponibilité dans le cadre du processus de création de la plupart des types de services ou d'applications en cluster, l'exception étant un ordinateur virtuel Hyper-V. Le compte du nom du cluster dispose des autorisations nécessaires pour contrôler ces comptes.  
       
@@ -47,7 +47,7 @@ Le tableau suivant décrit les autorisations requises pour ces comptes.
 </colgroup>
 <thead>
 <tr class="header">
-<th>Compte</th>
+<th>Account</th>
 <th>Détails sur les autorisations</th>
 </tr>
 </thead>
@@ -107,7 +107,7 @@ Comme décrit dans les trois sections précédentes, certaines conditions doiven
           
       - Le compte (ou le groupe duquel le compte est un membre) doit recevoir les autorisations **Créer des objets d'ordinateur** et **Lire toutes les propriétés** dans le conteneur utilisé pour les comptes d'ordinateur dans le domaine. Pour plus d'informations, consultez [Étapes de la configuration du compte pour la personne qui installe le cluster](#steps-for-configuring-the-account-for-the-person-who-installs-the-cluster), ultérieurement dans ce guide.  
           
-      - Si votre organisation choisit de prédéfinir le compte du nom du cluster (compte d'ordinateur avec le même nom que le cluster), le compte du nom du cluster prédéfini doit donner l'autorisation « Contrôle total » au compte de la personne qui installe le cluster. Pour obtenir d'autres détails importants sur la façon de prédéfinir le compte du nom du cluster, consultez [Étapes de la prédéfinition du compte du nom du cluster](#steps-for-prestaging-the-cluster-name-account), ultérieurement dans ce guide.  
+      - Si votre organisation choisit de prédéfinir le compte du nom du cluster (un compte d’ordinateur portant le même nom que le cluster), le compte du nom du cluster prédéfini doit accorder l’autorisation « contrôle total » au compte de la personne qui installe le cluster. Pour obtenir d'autres détails importants sur la façon de prédéfinir le compte du nom du cluster, consultez [Étapes de la prédéfinition du compte du nom du cluster](#steps-for-prestaging-the-cluster-name-account), ultérieurement dans ce guide.  
           
 
 ### <a name="planning-ahead-for-password-resets-and-other-account-maintenance"></a>Planification à l'avance des réinitialisations de mots de passe et d'autres tâches de maintenance des comptes
@@ -126,13 +126,13 @@ L'appartenance à un groupe minimum obligatoire pour effectuer la procédure sui
 
 2.  Si le compte qui a été créé ou obtenu à l’étape 1 n’est pas automatiquement inclus dans le groupe **administrateurs** local sur les ordinateurs du domaine, ajoutez le compte au groupe **administrateurs** local sur les serveurs qui seront des nœuds dans le cluster de basculement :
     
-    1.  Cliquez successivement sur **Démarrer**, **Outils d'administration**, puis **Gestionnaire de serveur**.  
+    1.  Cliquez sur **Démarrer**, sur **Outils d’administration**, puis sur **Gestionnaire de serveur**.  
           
     2.  Dans l'arborescence de la console, développez **Configuration**, **Utilisateurs et groupes locaux**, puis **Groupes**.  
           
     3.  Dans le volet central, cliquez avec le bouton droit sur **Administrateurs**, cliquez sur **Ajouter au groupe**, puis sur **Ajouter**.  
           
-    4.  Sous **Entrez les noms des objets à sélectionner**, tapez le nom du compte d’utilisateur qui a été créé ou obtenu à l’étape 1. Si vous y êtes invité, entrez un nom de compte et un mot de passe avec des autorisations suffisantes pour cette action. Cliquez sur **OK**.  
+    4.  Sous **Entrez les noms des objets à sélectionner**, tapez le nom du compte d’utilisateur qui a été créé ou obtenu à l’étape 1. Si vous y êtes invité, entrez un nom de compte et un mot de passe avec des autorisations suffisantes pour cette action. Cliquez ensuite sur **OK**.  
           
     5.  Répétez ces étapes sur chaque serveur qui sera un nœud dans le cluster de basculement.  
 
@@ -151,7 +151,7 @@ L'appartenance à un groupe minimum obligatoire pour effectuer la procédure sui
           
    3.  Cliquez avec le bouton droit sur le conteneur **Ordinateurs** par défaut ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine, puis cliquez sur **Propriétés**. Les **ordinateurs** se trouvent dans <b>Active Directory utilisateurs et ordinateurs/</b><i>nœud de domaine</i><b>/Computers</b>.  
           
-   4.  Sous l’onglet **Sécurité** , cliquez sur **Avancé**.  
+   4.  Sous l’onglet **Sécurité**, cliquez sur **Avancé**.  
           
    5.  Cliquez sur **Ajouter**, tapez le nom du compte qui a été créé ou obtenu à l'étape 1, puis cliquez sur **OK**.  
           
@@ -187,7 +187,7 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe *
 
 8.  Cliquez avec le bouton droit sur le dossier sur lequel vous avez cliqué avec le bouton droit à l’étape 3, puis cliquez sur **Propriétés**.
 
-9.  Sous l’onglet **Sécurité** , cliquez sur **Avancé**.
+9.  Sous l’onglet **Sécurité**, cliquez sur **Avancé**.
 
 10. Cliquez sur **Ajouter**, sur **Types d'objets** et assurez-vous que **Ordinateurs** est sélectionné, puis cliquez sur **OK**. Ensuite, sous **Entrez le nom de l'objet à sélectionner**, tapez le nom du compte d'ordinateur que vous venez de créer, puis cliquez sur **OK**. Si un message qui indique que vous allez ajouter un objet désactivé apparaît, cliquez sur **OK**.
 
@@ -203,9 +203,9 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe *
           
     2.  Cliquez avec le bouton droit sur le compte d'ordinateur que vous avez créé, puis cliquez sur **Propriétés**.  
           
-    3.  Sous l’onglet **Sécurité** , cliquez sur **Ajouter**. Si la boîte de dialogue **Contrôle de compte d’utilisateur** apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.  
+    3.  Sous l’onglet **Sécurité**, cliquez sur **Ajouter**. Si la boîte de dialogue **Contrôle de compte d’utilisateur** apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.  
           
-    4.  Utilisez la boîte de dialogue **Sélectionner les utilisateurs, les ordinateurs ou les groupes** pour spécifier le compte d'utilisateur qui sera utilisé lors de la création du cluster. Cliquez sur **OK**.  
+    4.  Utilisez la boîte de dialogue **Sélectionner les utilisateurs, les ordinateurs ou les groupes** pour spécifier le compte d'utilisateur qui sera utilisé lors de la création du cluster. Cliquez ensuite sur **OK**.  
           
     5.  Assurez-vous que le compte d'utilisateur qui vous venez d'ajouter est sélectionné puis, en regard de **Contrôle total**, activez la case à cocher **Autoriser**.  
           
@@ -235,7 +235,7 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au minimum 
 
 7.  Cliquez avec le bouton droit sur le compte d'ordinateur que vous avez créé, puis cliquez sur **Propriétés**.
 
-8.  Sous l’onglet **Sécurité** , cliquez sur **Ajouter**.
+8.  Sous l’onglet **Sécurité**, cliquez sur **Ajouter**.
 
 9.  Cliquez sur **Types d'objets** et assurez-vous que **Ordinateurs** est sélectionné, puis cliquez sur **OK**. Ensuite, sous **Entrez le nom de l'objet à sélectionner**, tapez le compte du nom du cluster, puis cliquez sur **OK**. Si un message qui indique que vous allez ajouter un objet désactivé apparaît, cliquez sur **OK**.
 
@@ -262,7 +262,7 @@ Les messages d'événement qui correspondent à la description précédente indi
 
 Pour plus d'informations sur la garantie que les administrateurs de cluster ont les autorisations appropriées pour exécuter la procédure suivante si nécessaire, consultez Planification à l'avance des réinitialisations de mots de passe et d'autres tâches de maintenance des comptes, précédemment dans ce guide.
 
-L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condition minimale requise pour effectuer cette procédure. En outre, l'autorisation **Réinitialiser le mot de passe** doit être attribuée à votre compte pour le compte du nom du cluster (à moins que votre compte ne soit un compte **Admins du domaine** ou le propriétaire du créateur du compte du nom du cluster). Le compte qui a été utilisé par la personne qui a installé le cluster peut être utilisé pour cette procédure. Passez en revue les détails sur l’utilisation des comptes et des appartenances aux groupes appropriés sur [https://go.microsoft.com/fwlink/?LinkId=83477](https://go.microsoft.com/fwlink/?linkid=83477).
+L'appartenance au groupe **Administrateurs** local, ou à un groupe équivalent, est la condition requise minimale pour effectuer cette procédure. En outre, l'autorisation **Réinitialiser le mot de passe** doit être attribuée à votre compte pour le compte du nom du cluster (à moins que votre compte ne soit un compte **Admins du domaine** ou le propriétaire du créateur du compte du nom du cluster). Le compte qui a été utilisé par la personne qui a installé le cluster peut être utilisé pour cette procédure. Passez en revue les détails sur l’utilisation des comptes et des appartenances aux groupes appropriés sur [https://go.microsoft.com/fwlink/?LinkId=83477](https://go.microsoft.com/fwlink/?linkid=83477).
 
 #### <a name="to-troubleshoot-password-problems-with-the-cluster-name-account"></a>Pour résoudre les problèmes de mot de passe liés au compte du nom du cluster
 
@@ -296,7 +296,7 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe *
 
 6.  Cliquez sur **Propriétés**.
 
-7.  Sous l’onglet **Sécurité** , cliquez sur **Avancé**.
+7.  Sous l’onglet **Sécurité**, cliquez sur **Avancé**.
 
 8.  Dans la liste des comptes avec autorisations, cliquez sur le compte du nom du cluster, puis sur **Modifier**.
     
