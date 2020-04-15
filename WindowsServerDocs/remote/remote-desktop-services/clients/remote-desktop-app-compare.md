@@ -1,31 +1,27 @@
 ---
-title: Bureau à distance - Comparer les clients
-description: Comparez les fonctions et fonctionnalités prises en charge dans les différents clients Bureau à distance.
-ms.custom: na
+title: Bureau à distance - Comparer les applications clientes
+description: Comparez les fonctions et fonctionnalités prises en charge dans les différentes applications Bureau à distance.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 12efe858-6b76-4e08-9f72-b9603aceb0fc
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 03/28/2020
+ms.date: 04/06/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 11c91ac951db27915d9313f7f98e5e2cfc56b726
-ms.sourcegitcommit: 78c00944b6990702d28bdcc4a9215927ca901bfb
+ms.openlocfilehash: 8c41d2691f22e7feb89518a02736f3607940a2f6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80440370"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856222"
 ---
 # <a name="compare-the-clients"></a>Comparer les clients
 
 >S'applique à : Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
-Il nous est souvent demandé de comparer les différents clients Bureau à distance. Font-ils tous la même chose ? Voici les réponses à ces questions.
+Il nous est souvent demandé de comparer les différents clients Bureau à distance. Font-elles toutes la même chose ? Voici les réponses à ces questions.
 
 ## <a name="redirection-support"></a>Prise en charge de la redirection
 
@@ -53,15 +49,15 @@ Si vous vous connectez à distance à votre bureau personnel, il existe des redi
 
 Quand vous activez la redirection de port USB, tous les périphériques USB attachés au port USB sont automatiquement reconnus dans la session à distance.
 
-### <a name="other-redirection-devices-etc"></a>Autre redirection (périphériques, etc.)
+### <a name="other-redirection-devices-etc"></a>Autre redirection (appareils, etc.)
 
 | Redirection         | Boîte de réception Windows</br>(MSTSC) | Bureau Windows</br>(MSRDC) | Windows Store | Android | iOS         | macOS                           | Client web    |
 |---------------------|---------------------------|-----------------------------|---------------|---------|-------------|---------------------------------|---------------|
-| Appareils photo             | X                         | X                           |               |         |             | X                               |               |
-| Presse-papiers           | X                         | X                           | X             | texte    | texte, image | X                               | texte          |
-| Disque/stockage local | X                         | X                           |               | X       |             | X                               |               |
+| Appareils photo             | X                         | X                           |               |         |   X         | X                               |               |
+| Presse-papiers           | X                         | X                           | X             | Texte    | Texte, images | X                               | texte          |
+| Disque/stockage local | X                         | X                           |               | X       |   X        | X                               |               |
 | Emplacement            | X                         | X                           |               |         |             |                                 |               |
-| Microphones         | X                         | X                           | X             |         |             | X                               |               |
+| Microphones         | X                         | X                           | X             |         |  X          | X                               |               |
 | Imprimantes            | X                         | X                           |               |         |             | X (CUPS uniquement)                   | Impression PDF     |
 | Scanneurs            | X                         | X                           |               |         |             |                                 |               |
 | Smart Cards         | X                         | X                           |               |         |             | X (ouverture de session Windows non prise en charge) |               |

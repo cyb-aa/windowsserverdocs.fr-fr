@@ -1,28 +1,24 @@
 ---
 title: Installer un serveur avec Expérience utilisateur
-description: 'Explique comment obtenir et installer un serveur avec l’option Serveur avec Expérience utilisateur '
-ms.custom: na
+description: Explique comment obtenir et installer un serveur avec l’option Serveur avec Expérience utilisateur
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 01/18/2017
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5b38b8a0-4dfc-4130-be00-fc58bba99595
 author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 2d92ae9e0013d622c1e0a6b8b6a1662dc82360f2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 18c454d9ef4deb8c9ea681a486e85f356ad5c9cd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391787"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826942"
 ---
-# <a name="install-server-with-desktop-experience"></a>Installation avec Expérience utilisateur
-> S'applique à : Windows Server 2016
+# <a name="install-server-with-desktop-experience"></a>Installer un serveur avec Expérience utilisateur
+> S'applique à : Windows Server 2016
   
 
 Quand vous installez Windows Server 2016 à l’aide de l’Assistant Installation, vous pouvez choisir entre **Windows Server 2016** et **Windows Server (Serveur avec Expérience utilisateur)** . L’option Serveur avec Expérience utilisateur est l’équivalent Windows Server 2016 de l’option d’installation complète disponible dans Windows Server 2012 R2 avec la fonctionnalité Expérience utilisateur installée. Si vous n’effectuez pas de choix dans l’Assistant Installation, **Windows Server 2016** est installé ; il s’agit de l’option d’**installation minimale** (Server Core).
@@ -37,7 +33,7 @@ L’option Serveur avec Expérience utilisateur permet d’installer l’interfa
 
 **Installation, configuration et désinstallation des rôles serveur en local :** avec le Gestionnaire de serveur ou Windows PowerShell
 
-**Installation, configuration et désinstallation des rôles serveur à distance :** avec le Gestionnaire de serveur, le serveur distant, les outils d’administration de serveur distant (RSAT) ou Windows PowerShell
+**Installation, configuration et désinstallation des rôles serveur à distance :** avec le Gestionnaire de serveur, le serveur distant, les outils d’administration de serveur distant (RSAT) ou Windows PowerShell
 
 **Console MMC (Microsoft Management Console) : installée**
 
@@ -62,9 +58,9 @@ Si vous disposez déjà d’une installation complète du produit Windows Server
 > [!IMPORTANT]  
 > Dans cette version, la mise à niveau convient le mieux aux machines virtuelles qui ne nécessitent pas de pilotes de matériel OEM spécifiques pour que l’opération réussisse. Dans les autres cas, la migration est l’option recommandée.  
 
-- Les mises à niveau sur place des architectures 32 bits vers des architectures 64 bits ne sont pas prises en charge. Toutes les éditions de Windows Server2016 sont des éditions 64bits uniquement.
+- Les mises à niveau sur place des architectures 32 bits vers des architectures 64 bits ne sont pas prises en charge. Toutes les éditions de Windows Server 2016 sont des éditions 64 bits uniquement.
 - Les mises à niveau sur place d’une langue vers une autre ne sont pas prises en charge.
-- Si le serveur est un contrôleur de domaine, voir [Mettre à niveau des contrôleurs de domaine vers Windows Server2012 R2 et Windows Server2012](https://technet.microsoft.com/library/hh994618.aspx) pour obtenir des informations importantes.
+- Si le serveur est un contrôleur de domaine, voir [Mettre à niveau des contrôleurs de domaine vers Windows Server 2012 R2 et Windows Server 2012](https://technet.microsoft.com/library/hh994618.aspx) pour obtenir des informations importantes.
 - Les mises à niveau depuis des versions préliminaires de Windows Server 2016 ne sont pas prises en charge. Effectuez une nouvelle installation de Windows Server 2016.
 - Les mises à niveau qui passent d’une installation minimale à une installation Serveur avec Expérience utilisateur (et vice versa) ne sont pas prises en charge.
 
@@ -74,7 +70,7 @@ Si vous voyez plusieurs éditions dans la colonne de droite, la mise à niveau v
 
 |Si vous exécutez cette édition :|Vous pouvez effectuer une mise à niveau vers ces éditions :|  
 |-------------------|----------|  
-|Windows Server 2012 Standard|Windows Server 2016 Standard ou Datacenter|
+|Windows Server 2012 Standard|Windows Server 2016 Standard ou Datacenter|
 |Windows Server 2012 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Standard|Windows Server 2016 Standard ou Datacenter|
 |Windows Server 2012 R2 Datacenter|Windows Server 2016 Datacenter|
@@ -93,19 +89,19 @@ La capacité de migration varie selon le rôle serveur. Le tableau suivant prés
 
 |Rôle de serveur|Mise à niveau possible depuis Windows Server 2012 R2 ?|Mise à niveau possible depuis Windows Server 2012 ?|Migration prise en charge ?|Migration possible sans temps d’arrêt ?|  
 |-------------------|----------|--------------|--------------|----------|  
-|Services de certificats Active Directory| Oui|    Oui|    Oui|    Non|
-|Services de domaine Active Directory|  Oui|    Oui|    Oui|    Oui|
-|Services AD FS (Active Directory Federation Services)|  Non| Non| Oui|    Non (de nouveaux nœuds doivent être ajoutés à la batterie de serveurs)|
-|Services AD LDS (Active Directory Lightweight Directory Services)|   Oui|    Oui|    Oui|    Oui|
-|Services AD RMS (Active Directory Rights Management Services)|   Oui|    Oui|    Oui|    Non|
-|Cluster de basculement|Oui, avec le processus de [mise à niveau propagée du système d’exploitation de cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade), qui inclut la mise en pause, le drainage et la suppression de nœuds, la mise à niveau vers Windows Server 2016 et le retour au cluster d’origine. Oui, lorsque le serveur est supprimé par le cluster lors de la mise à niveau, puis ajouté à un autre cluster.|Pas lorsque le serveur fait partie d’un cluster. Oui, lorsque le serveur est supprimé par le cluster lors de la mise à niveau, puis ajouté à un autre cluster.  |Oui|Pas pour les clusters de basculement Windows Server 2012. Oui, pour les clusters de basculement Windows Server 2012 R2 avec des machines virtuelles Hyper-V ou les clusters de basculement Windows Server 2012 R2 exécutant le rôle Serveur de fichiers avec montée en puissance parallèle. Voir [Mise à niveau propagée du système d’exploitation de cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade).|
-|Services de fichiers et de stockage| Oui|    Oui|    Variable selon la sous-fonctionnalité|  Non|
-|Services d’impression et de télécopie|    Non| Non| Oui (Printbrm.exe)| Non|
-|Services Bureau à distance|   Oui, pour tous les sous-rôles, mais la batterie de serveurs en mode mixte n’est pas prise en charge.|   Oui, pour tous les sous-rôles, mais la batterie de serveurs en mode mixte n’est pas prise en charge.|   Oui|    Non|
-|Serveur Web (IIS)|  Oui|    Oui|    Oui|    Non|
-|Expérience Windows Server Essentials|  Oui|    N/A – Nouvelle fonctionnalité|  Oui|    Non|
+|Services de certificats Active Directory|    Oui|    Oui|    Oui|    Non|
+|Services de domaine Active Directory|    Oui|    Oui|    Oui|    Oui|
+|Services AD FS (Active Directory Federation Services)|    Non|    Non|    Oui|    Non (de nouveaux nœuds doivent être ajoutés à la batterie de serveurs)|
+|Services AD LDS (Active Directory Lightweight Directory Services)|    Oui|    Oui|    Oui|    Oui|
+|Services AD RMS (Active Directory Rights Management Services)|    Oui|    Oui|    Oui|    Non|
+|Cluster de basculement|Oui, avec le processus de [mise à niveau propagée du système d’exploitation de cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade), qui inclut la mise en pause, le drainage et la suppression de nœuds, la mise à niveau vers Windows Server 2016 et le retour au cluster d’origine. Oui, lorsque le serveur est supprimé par le cluster lors de la mise à niveau, puis ajouté à un autre cluster.|Pas lorsque le serveur fait partie d’un cluster. Oui, lorsque le serveur est supprimé par le cluster lors de la mise à niveau, puis ajouté à un autre cluster.    |Oui|Pas pour les clusters de basculement Windows Server 2012. Oui, pour les clusters de basculement Windows Server 2012 R2 avec des machines virtuelles Hyper-V ou les clusters de basculement Windows Server 2012 R2 exécutant le rôle Serveur de fichiers avec montée en puissance parallèle. Voir [Mise à niveau propagée du système d’exploitation de cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade).|
+|Services de fichiers et de stockage|    Oui|    Oui|    Variable selon la sous-fonctionnalité|    Non|
+|Services d’impression et de télécopie|    Non|    Non|    Oui (Printbrm.exe)|    Non|
+|Services Bureau à distance|    Oui, pour tous les sous-rôles, mais la batterie de serveurs en mode mixte n’est pas prise en charge.|    Oui, pour tous les sous-rôles, mais la batterie de serveurs en mode mixte n’est pas prise en charge.|    Oui|    Non|
+|Serveur Web (IIS)|    Oui|    Oui|    Oui|    Non|
+|Expérience Windows Server Essentials|    Oui|    N/A – Nouvelle fonctionnalité|    Oui|    Non|
 |Windows Server Update Services|    Oui|    Oui|    Oui|    Non|
-|Dossiers de travail|  Oui|    Oui|    Oui|    Oui, depuis un cluster WS 2012 R2 avec la [mise à niveau propagée du système d’exploitation de cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade).|
+|Dossiers de travail|    Oui|    Oui|    Oui|    Oui, depuis un cluster WS 2012 R2 avec la [mise à niveau propagée du système d’exploitation de cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade).|
 
 > [!IMPORTANT]  
 > Une fois que l’exécution du programme d’installation est terminée et que vous avez installé tous les rôles et fonctionnalités de serveur dont vous avez besoin, recherchez et installez les mises à jour disponibles pour Windows Server 2016 à l’aide de Windows Update ou d’autres méthodes de mise à jour.

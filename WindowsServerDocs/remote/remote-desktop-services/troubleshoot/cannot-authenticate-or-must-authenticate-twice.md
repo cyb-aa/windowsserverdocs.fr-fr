@@ -1,24 +1,19 @@
 ---
 title: L’utilisateur ne peut pas s’authentifier ou doit s’authentifier deux fois
 description: 'Résolution du problème suivant : l’utilisateur ne peut pas s’authentifier ou doit s’authentifier deux fois quand il établit une connexion Bureau à distance.'
-audience: itpro
-ms.custom: na
 ms.reviewer: rklemen
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.assetid: ''
 author: kaushika-msft
 manager: dcscontentpm
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 7dbb037e335af52dacbc56c920b1776be995e753
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 8fd7cfda8814347f8bab9dc7b3f7632e3b992ecb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265931"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857232"
 ---
 # <a name="user-cant-authenticate-or-must-authenticate-twice"></a>L’utilisateur ne peut pas s’authentifier ou doit s’authentifier deux fois
 
@@ -94,13 +89,13 @@ Notez que toutes ces solutions demandent des compromis en termes de performances
 
 ### <a name="user-cant-sign-in-to-a-windows-server-2008-sp2-computer-using-a-smart-card"></a>L’utilisateur ne peut pas se connecter à un ordinateur Windows Server 2008 SP2 à l’aide d’une carte à puce
 
-Ce problème se produit quand des utilisateurs se connectent à un ordinateur Windows Server 2008 SP2 qui a été mis à jour avec KB4093227 (2018.4B). Quand des utilisateurs tentent de se connecter à l’aide d’une carte à puce, ils se voient refuser l’accès avec des messages tels que « Aucun certificat valide n’a été trouvé. Vérifiez que la carte est bien insérée. » En même temps, l’ordinateur Windows Server enregistre l’événement d’application « Une erreur s’est produite lors du retrait d’un certificat numérique de la carte à puce insérée. Signature non valide. »
+Ce problème se produit quand des utilisateurs se connectent à un ordinateur Windows Server 2008 SP2 qui a été mis à jour avec KB4093227 (2018.4B). Quand des utilisateurs tentent de se connecter à l’aide d’une carte à puce, ils se voient refuser l’accès avec des messages tels que Aucun certificat valide n’a été trouvé. Vérifiez que la carte est bien insérée. En même temps, l’ordinateur Windows Server enregistre l’événement d’application « Une erreur s’est produite lors du retrait d’un certificat numérique de la carte à puce insérée. Signature non valide. »
 
 Pour résoudre ce problème, mettez à jour l’ordinateur Windows Server avec la nouvelle publication 2018.06 B de KB 4093227, [Description de la mise à jour de sécurité pour la vulnérabilité de déni de service dans le protocole RDP (Remote Desktop Protocol) pour Windows Server 2008 datée du 10 avril 2018](https://support.microsoft.com/help/4093227/security-update-for-vulnerabilities-in-windows-server-2008).
 
 ### <a name="cant-stay-signed-in-with-a-smart-card-and-remote-desktop-services-service-hangs"></a>Impossible de rester connecté avec une carte à puce, et le service Services Bureau à distance se bloque
 
-Ce problème se produit quand les utilisateurs se connectent à un ordinateur Windows ou Windows Server qui a été mis à jour avec le correctif KB 4056446. Dans un premier temps, l’utilisateur peut être en mesure de se connecter au système à l’aide d’une carte à puce, mais ensuite il reçoit un message d’erreur « SCARD\_E\_NO\_SERVICE ». L’ordinateur distant peut cesser de répondre.
+Ce problème se produit quand les utilisateurs se connectent à un ordinateur Windows ou Windows Server qui a été mis à jour avec le correctif KB 4056446. Dans un premier temps, l’utilisateur peut être en mesure de se connecter au système à l’aide d’une carte à puce, mais ensuite il reçoit un message d’erreur SCARD\_E\_NO\_SERVICE. L’ordinateur distant peut cesser de répondre.
 
 Pour contourner ce problème, redémarrez l’ordinateur distant.
 
@@ -116,7 +111,7 @@ Ce problème peut se produire quand un utilisateur tente de se connecter à un B
 
 Pour résoudre ce problème, mettez à jour l’ordinateur Windows 10 version 1709 avec le correctif KB 4343893, [30 août 2018—KB4343893 (build du système d’exploitation 16299.637)](https://support.microsoft.com/help/4343893/windows-10-update-kb4343893).
 
-## <a name="user-cant-sign-in-and-receives-authentication-error-and-credssp-encryption-oracle-remediation-messages"></a>L’utilisateur ne peut pas se connecter et reçoit des messages « Erreur d’authentification » et « Correction d’oracle de chiffrement CredSSP »
+## <a name="user-cant-sign-in-and-receives-authentication-error-and-credssp-encryption-oracle-remediation-messages"></a>L’utilisateur ne peut pas se connecter et reçoit des messages de type Erreur d’authentification ou Correction d’oracle de chiffrement CredSSP
 
 Quand des utilisateurs essaient de se connecter à l’aide de Windows Vista SP2 (ou version ultérieure) ou de Windows Server 2008 SP2 (ou version ultérieure), l’accès leur est refusé et ils reçoivent des messages tels que les suivants :
 
@@ -127,7 +122,7 @@ This could be due to CredSSP encryption oracle remediation
 ...
 ```
 
-Le terme « correction d’oracle de chiffrement CredSSP » fait référence à un ensemble de mises à jour de sécurité publiées en mars, avril et mai 2018. CredSSP est un fournisseur d’authentification qui traite les demandes d’authentification pour d’autres applications. Les mises à jour du 13 mars 2018, « 3B » et ultérieures traitent d’une faille de sécurité qui fait qu’un attaquant pourrait relayer les informations d’identification de l’utilisateur pour exécuter du code sur le système cible.
+Le terme correction d’oracle de chiffrement CredSSP fait référence à un ensemble de mises à jour de sécurité publiées en mars, avril et mai 2018. CredSSP est un fournisseur d’authentification qui traite les demandes d’authentification pour d’autres applications. Les mises à jour du 13 mars 2018, « 3B » et ultérieures traitent d’une faille de sécurité qui fait qu’un attaquant pourrait relayer les informations d’identification de l’utilisateur pour exécuter du code sur le système cible.
 
 Les mises à jour initiales ont ajouté la prise en charge d’un nouvel objet de stratégie de groupe, Correction d’oracle de chiffrement, qui peut avoir les paramètres suivants :
 

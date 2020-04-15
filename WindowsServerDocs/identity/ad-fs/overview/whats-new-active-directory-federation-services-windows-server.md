@@ -1,7 +1,6 @@
 ---
 ms.assetid: aa892a85-f95a-4bf1-acbb-e3c36ef02b0d
 title: Nouveautés des services de fédération Active Directory (AD FS) pour Windows Server 2016
-description: ''
 author: billmath
 ms.author: billmath
 manager: daveba
@@ -9,12 +8,12 @@ ms.date: 01/22/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 8061f41dab0f02bccd59a659e0bcd209bd73a249
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.openlocfilehash: e88297bdbd55d2f834f1bff72b6d05bdf356bb85
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517554"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860252"
 ---
 # <a name="whats-new-in-active-directory-federation-services"></a>Nouveautés des services de fédération Active Directory (AD FS)
 
@@ -46,13 +45,13 @@ Les fonctionnalités d’authentification/de stratégie suivantes sont disponibl
     - Les clients effectuent la transition d’un fournisseur d’authentification supplémentaire à un autre. De cette façon, quand ils intègrent des utilisateurs à un fournisseur d’authentification plus récent, ils peuvent utiliser des groupes pour contrôler quel le fournisseur d’authentification supplémentaire est appelé.
     - Les clients ont besoin d’un fournisseur d’authentification supplémentaire spécifique (par exemple un certificat) pour certaines applications. 
 - **Limiter l’authentification des appareils basée sur TLS uniquement aux applications qui en ont besoin** - Les clients peuvent maintenant restreindre les authentifications des appareils basées sur le protocole TLS aux seules applications qui effectuent un accès conditionnel basé sur l’appareil. Cela empêche toute invite indésirable pour l’authentification des appareils (ou les échecs si l’application cliente ne peut pas la gérer) pour les applications qui ne nécessitent pas l’authentification des appareils basée sur TLS.
-- **Prise en charge de l’actualisation MFA** - AD FS prend maintenant en charge la possibilité de redemander les informations d’identification du deuxième facteur en fonction de leur actualisation. Cela permet aux clients d’effectuer une transaction initiale avec deux facteurs et de se voir demander le deuxième facteur de manière périodique uniquement. Cela est uniquement disponible pour les applications qui peuvent fournir un paramètre supplémentaire dans la demande, et n’est pas un paramètre configurable dans AD FS. Ce paramètre est pris en charge par Azure AD quand l’option « Mémoriser mon authentification multifacteur pour X jours » est configurée et que l’indicateur « supportsMFA » a la valeur true dans les paramètres d’approbation de domaine fédéré dans Azure AD. 
+- **Prise en charge de l’actualisation MFA** - AD FS prend maintenant en charge la possibilité de redemander les informations d’identification du deuxième facteur en fonction de leur actualisation. Cela permet aux clients d’effectuer une transaction initiale avec deux facteurs et de se voir demander le deuxième facteur de manière périodique uniquement. Cela est uniquement disponible pour les applications qui peuvent fournir un paramètre supplémentaire dans la demande, et n’est pas un paramètre configurable dans AD FS. Ce paramètre est pris en charge par Azure AD quand l’option « Mémoriser mon authentification multifacteur pour X jours » est configurée et que l’indicateur « supportsMFA » a la valeur true dans les paramètres d’approbation de domaine fédéré dans Azure AD. 
 
 ### <a name="sign-in-sso-improvements"></a>Améliorations apportées à l’authentification unique pour la connexion
 Les améliorations suivantes ont été apportées à l’authentification unique pour la connexion dans AD FS 2019 :
 
 - [Expérience utilisateur paginée avec thème centré](../operations/AD-FS-paginated-sign-in.md) - AD FS dispose maintenant d’un flux d’expérience utilisateur paginé qui lui permet de valider et de fournir une expérience de connexion plus fluide. AD FS utilise désormais une interface utilisateur centrée (au lieu du côté droit de l’écran). Vous aurez peut-être besoin d’images de logo et d’arrière-plan plus récentes adaptées à cette expérience. Cela reflète également les fonctionnalités proposées dans Azure AD.
-- **Résolution de bogue : état d’authentification unique persistant pour les appareils Win10 lors de l’authentification PRT**   Cela résout un problème selon lequel l’état MFA n’était pas conservé lors de l’utilisation de l’authentification PRT pour les appareils Windows 10. La conséquence de ce problème était que les utilisateurs finaux étaient souvent invités à entrer des informations d’identification de deuxième facteur (MFA). Le correctif rend également l’expérience cohérente quand l’authentification de l’appareil est effectuée avec succès par le biais du protocole TLS du client et du mécanisme PRT. 
+- **Résolutions de bogues État d’authentification unique persistant pour les appareils Win10 lors de l’authentification PRT**   Cela résout un problème selon lequel l’état MFA n’était pas conservé lors de l’utilisation de l’authentification PRT pour les appareils Windows 10. La conséquence de ce problème était que les utilisateurs finaux étaient souvent invités à entrer des informations d’identification de deuxième facteur (MFA). Le correctif rend également l’expérience cohérente quand l’authentification de l’appareil est effectuée avec succès par le biais du protocole TLS du client et du mécanisme PRT. 
 
 
 ### <a name="suppport-for-building-modern-line-of-business-apps"></a>Prise en charge de la création d’applications métier modernes
@@ -72,7 +71,7 @@ Les améliorations de prise en charge suivantes ne font pas partie d’AD FS 20
 Les mises à jour de déploiement suivantes sont maintenant incluses dans AD FS 2019 :
 - **Niveau de comportement de batterie de serveurs 2019** - Comme avec AD FS 2016, une nouvelle version du niveau de comportement de batterie de serveurs est nécessaire pour activer les nouvelles fonctionnalités décrites ci-dessus. Cela permet de passer de :
     - 2012 R2-> 2019
-    - 2016 -> 2019   
+    - 2016 -> 2019     
 
 ### <a name="saml-updates"></a>Mises à jour SAML
 La mise à jour SAML suivante se trouve dans AD FS 2019 :

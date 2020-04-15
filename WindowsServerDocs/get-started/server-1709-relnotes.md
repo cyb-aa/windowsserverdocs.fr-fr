@@ -1,25 +1,21 @@
 ---
 title: Notes de publication - Points importants sur Windows Server, version 1709
 description: Résume les problèmes critiques nécessitant une solution de contournement pour éviter une panne, un blocage, un échec d’installation ou une perte de données.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 04/23/2018
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 134aab85-664f-4d44-87ef-9e5fd389071f
 author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: dcd50b287ad0f3dd49a0df3c1fe531379bd4078e
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: fea4b259986d1ca6e2f992168f7b0c2e1a177916
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948236"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826102"
 ---
 # <a name="release-notes-important-issues-in-windows-server-version-1709"></a>Notes de publication : Problèmes importants dans Windows Server, version 1709
 

@@ -1,25 +1,21 @@
 ---
 title: Configuration requise
 description: Configuration minimale requise pour le stockage, le processeur, le réseau, la mémoire et la RAM dans une nouvelle installation de chaque option d’installation.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 10/17/2017
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4a8b42d7-9fe5-4efe-9ea1-ace2131fe068
 author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 9e8b0c04137ff3b11cdaa7aba3c7899ca6300848
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: cd4666f9ac0677ce8893041ae4e937cca41e8164
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947740"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826492"
 ---
 # <a name="system-requirements"></a>Configuration requise
 
@@ -40,7 +36,7 @@ La configuration requise estimée pour Windows Server 2016 est présentée ci-d
 Sauf indication contraire, cette configuration minimale requise s’applique à toutes les options d’installation (installation minimale, Serveur avec Expérience utilisateur et Nano Server) et aux éditions Standard et Datacenter.  
 
 > [!IMPORTANT]  
-> Il serait irréaliste d’indiquer une configuration système requise « recommandée » susceptible d’être généralement applicable étant donné le nombre important des divers déploiements possibles. Consultez la documentation relative à chaque rôle de serveur que vous comptez déployer pour obtenir davantage de détails sur les besoins en ressource des rôles de serveur particuliers. Pour obtenir les meilleurs résultats, procédez à des déploiements tests afin de déterminer la configuration requise appropriée pour vos propres scénarios de déploiement.  
+> Il serait irréaliste d’indiquer une configuration système requise recommandée susceptible d’être généralement applicable étant donné le nombre important des déploiements possibles. Consultez la documentation relative à chaque rôle de serveur que vous comptez déployer pour obtenir davantage de détails sur les besoins en ressource des rôles de serveur particuliers. Pour obtenir les meilleurs résultats, procédez à des déploiements tests afin de déterminer la configuration requise appropriée pour vos propres scénarios de déploiement.  
 
 
 ## <a name="processor"></a>Processeur  

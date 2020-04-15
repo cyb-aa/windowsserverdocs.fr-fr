@@ -1,20 +1,19 @@
 ---
-ms.assetid: ''
 title: Temps Windows pour la traçabilité
 description: Dans de nombreux secteurs, les réglementations exigent que les systèmes soient traçables au format UTC.  Cela signifie que le décalage d’un système peut être attesté par rapport au temps universel coordonné (UTC).
-author: eross-msft
+author: dcuomo
 ms.author: dacuo
 manager: dougkim
 ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: e7f7a68d61729813583255d64afbf172475969e3
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 30952c7a15109ccdd8bcbb09d7c8dda44f716d5d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80314937"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859812"
 ---
 # <a name="windows-time-for-traceability"></a>Temps Windows pour la traçabilité
 >S'applique à : Windows Server 2016 version 1709 ou ultérieure et Windows 10 version 1703 ou ultérieure
@@ -126,7 +125,7 @@ Journalise chaque instance où l’heure système est modifiée à l’aide de l
 |||
 |---|---|
 |Description de l'événement |Fréquence d’horloge système ajustée |
-|Détails |La fréquence d’horloge système est constamment modifiée par W32time quand l’horloge n’est pas loin d’être synchronisée. Nous souhaitons capturer les ajustements « raisonnablement significatifs » apportés à la fréquence d’horloge sans saturer le journal des événements. |
+|Détails |La fréquence d’horloge système est constamment modifiée par W32time quand l’horloge n’est pas loin d’être synchronisée. Nous souhaitons capturer les ajustements raisonnablement significatifs apportés à la fréquence d’horloge sans saturer le journal des événements. |
 |Mécanisme de limitation  |Tous les ajustements d’horloge inférieurs à TimeAdjustmentAuditThreshold (min = 128 parties par million, par défaut = 800 parties par million) ne sont pas journalisés.<br><br>Une modification de 2 PPM de la fréquence d’horloge avec la précision actuelle engendre un changement de 120 μsec/s de la précision de l’horloge.<br><br>Sur un système synchronisé, la majorité des ajustements sont inférieurs à ce niveau. Si vous souhaitez un suivi plus fin, vous pouvez abaisser ce paramètre et/ou utiliser PerfCounters. |
 
 # <a name="263"></a>[263](#tab/263)

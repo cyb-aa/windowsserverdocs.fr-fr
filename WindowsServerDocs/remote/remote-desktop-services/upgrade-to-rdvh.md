@@ -1,28 +1,24 @@
 ---
 title: Mise à niveau de votre hôte de virtualisation des services Bureau à distance vers Windows Server 2016
 description: Cet article explique comment mettre à niveau vos déploiements existants des services Bureau à distance vers Windows Server 2016.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: spatnaik
 ms.date: 08/01/2016
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5aed8ba7-f541-4416-b01c-4d3b1712e2b1
 author: spatnaik
 manager: scottman
-ms.openlocfilehash: 319074987ae161e2b567c15e9e56cce0e2106a1f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7bbf5f6a81a18303d4f9f4b02a1b8dead3c9a53a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403786"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857112"
 ---
 # <a name="upgrading-your-remote-desktop-virtualization-host-to-windows-server-2016"></a>Mise à niveau de votre hôte de virtualisation des services Bureau à distance vers Windows Server 2016
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 ## <a name="supported-os-upgrades-with-rds-role-installed"></a>Mises à niveau des systèmes d’exploitation pris en charge avec le rôle Services Bureau à distance installé
 Les mises à niveau vers Windows Server 2016 sont uniquement prises en charge à partir de Windows Server 2012 R2 et Windows Server 2016 TP5.
@@ -38,7 +34,7 @@ Ces serveurs doivent être mis à niveau tous en même temps. Effectuez les éta
 ## <a name="rd-virtualization-host-servers-in-the-deployment-where-vms-are-stored-in-cluster-shared-volumes-csv"></a>Serveurs Hôte de virtualisation des services Bureau à distance dans le déploiement où les machines virtuelles sont stockées dans des volumes partagés de cluster (CSV) 
 
 1. Déterminez une stratégie de mise à niveau dans laquelle certains serveurs Hôte de virtualisation des services Bureau à distance (RDVH) sont mis à niveau tandis que d’autres continuent d’héberger des machines virtuelles sur Windows Server 2012 R2.  
-2. Isolez un ou plusieurs serveurs RDVH prévus pour la première série de mise à niveau. Pour cela, procédez à une migration de toutes les machines virtuelles vers les autres serveurs RDVH « à ne pas encore mettre à niveau » et qui feront toujours partie du cluster 2012 R2 d’origine.
+2. Isolez un ou plusieurs serveurs RDVH prévus pour la première série de mise à niveau. Pour cela, procédez à une migration de toutes les machines virtuelles vers les autres serveurs RDVH à ne pas encore mettre à niveau et qui feront toujours partie du cluster 2012 R2 d’origine.
     1. Ouvrez le Gestionnaire du cluster de basculement. 
     1. Cliquez sur **Rôles**. 
     1. Sélectionnez une ou plusieurs machines virtuelles. Cliquez avec le bouton droit pour ouvrir le menu contextuel. 
@@ -54,7 +50,7 @@ Ces serveurs doivent être mis à niveau tous en même temps. Effectuez les éta
     1. Cliquez sur **Rôles**. 
     1. Cliquez avec le bouton droit sur les objets de machine virtuelle, puis cliquez sur **Supprimer**. 
 10. Sur l’un des serveurs RDVH non mis à niveau, utilisez le Gestionnaire Hyper-V pour déplacer toutes les machines virtuelles sur un des serveurs RDVH mis à niveau et le nouveau volume partagé de cluster :
-    1. Ouvrez le Gestionnaire Hyper-V. 
+    1. Ouvrez le Gestionnaire Hyper-V. 
     2. Sélectionnez un des serveurs RDVH non mis à niveau. 
     3. Cliquez avec le bouton droit sur une des machines virtuelles à déplacer, puis cliquez sur **Déplacer**. 
     4. Choisissez **Déplacer la machine virtuelle**, puis cliquez sur **Suivant**. 

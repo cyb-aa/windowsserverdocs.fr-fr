@@ -1,12 +1,8 @@
 ---
 title: Bien démarrer avec le client Android
 description: Informations générales sur le client Android.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: heidilohr
@@ -14,12 +10,12 @@ manager: lizross
 ms.author: helohr
 ms.date: 03/12/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: d4ef08107c816aebf6563e57e5e76b12b793d472
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: a9cb49f2570b297c81f41412ad041215090538d0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323421"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856232"
 ---
 # <a name="get-started-with-the-android-client"></a>Bien démarrer avec le client Android
 
@@ -103,7 +99,7 @@ Le client Bureau à distance prend en charge l’épinglage des connexions à vo
 
 1. Appuyez sur **Applications** pour lancer le menu Applications.
 2. Appuyez sur **Widgets**.
-3. Faites défiler les widgets pour trouver l’icône Bureau à distance avec la description : « Épingler Bureau à distance ».
+3. Faites défiler les widgets pour trouver l’icône Bureau à distance avec la description : Épingler Bureau à distance.
 4. Appuyez longuement sur ce widget Bureau à distance et déplacez-le vers l’écran d’accueil.
 5. Quand vous relâchez l’icône, les bureaux à distance enregistrés s’affichent. Choisissez la connexion à enregistrer sur votre écran d’accueil.
 

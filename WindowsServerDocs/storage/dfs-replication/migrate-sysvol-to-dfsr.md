@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: d8d9d47ff8f14ce316d2352729247ab2dcf4acbc
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: eb7997b4ed16812ac6b1d6c7d3ccc220f8f63ce7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949704"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815582"
 ---
 # <a name="migrate-sysvol-replication-to-dfs-replication"></a>Migrer la réplication SYSVOL vers la réplication DFS
 

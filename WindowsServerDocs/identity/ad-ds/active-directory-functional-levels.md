@@ -1,7 +1,6 @@
 ---
 ms.assetid: f964d056-11bf-4d9b-b5ab-dceaad8bfbc3
 title: Niveaux fonctionnels de Windows Server 2016
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -11,12 +10,12 @@ ms.prod: windows-server
 ms.custom: it-pro
 ms.reviewer: maheshu
 ms.technology: identity-adds
-ms.openlocfilehash: 53793fc62b1bc1444c567f92c9f18642245fded9
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 5f7a8f08ff10102fbc04b6f8272320bd3b77785d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948183"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825492"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Niveaux fonctionnels de domaine et de forêt
 
@@ -193,7 +192,7 @@ Système d’exploitation de contrôleur de domaine pris en charge :
 * Toutes les fonctionnalités AD DS par défaut, toutes les fonctionnalités du niveau fonctionnel de domaine natif Windows 2000 ainsi que les fonctionnalités suivantes sont disponibles :
    * L’outil de gestion de domaine, Netdom.exe, qui vous permet de renommer les contrôleurs de domaine
    * Mises à jour relatives à l’horodatage d’ouverture de session
-      * L’attribut **lastLogonTimestamp** est mis à jour avec l’heure de la dernière ouverture de session de l’utilisateur ou ordinateur. Cet attribut est répliqué au sein du domaine. ;
+      * L’attribut **lastLogonTimestamp** est mis à jour avec l’heure de la dernière ouverture de session de l’utilisateur ou ordinateur. Cet attribut est répliqué au sein du domaine.) ;
    * Possibilité de définir l’attribut **userPassword** comme mot de passe effectif pour l’objet **inetOrgPerson** et les objets utilisateur
    * Possibilité de rediriger les conteneurs Utilisateurs et ordinateurs
       * Par défaut, deux conteneurs connus sont fournis pour héberger les comptes d’ordinateurs et d’utilisateurs, à savoir cn=Computers,<domain root> et cn=Users,<domain root>. Cette fonctionnalité permet de définir un nouvel emplacement connu pour ces comptes.

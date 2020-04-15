@@ -1,6 +1,6 @@
 ---
-title: Utiliser Robocopy pour prédéfinir des fichiers pour la réplication DFS
-description: Guide pratique de l’utilisation de Robocopy pour prédéfinir des fichiers pour la réplication DFS.
+title: Utiliser Robocopy afin de prédéfinir des fichiers pour la réplication DFS
+description: Comment utiliser Robocopy.exe en vue de prédéfinir des fichiers pour la réplication DFS.
 ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
@@ -8,25 +8,25 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ea5cd954dde6d4fa8fcaa7874f75cb9588115ab1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8ff800fc2a0885cec39ca104607d7207f0bd8ce0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402129"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815602"
 ---
-# <a name="use-robocopy-to-preseed-files-for-dfs-replication"></a>Utiliser Robocopy pour prédéfinir des fichiers pour la réplication DFS
+# <a name="use-robocopy-to-pre-seed-files-for-dfs-replication"></a>Utiliser Robocopy afin de prédéfinir des fichiers pour la réplication DFS
 
 >S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-Cette rubrique explique comment utiliser l’outil en ligne de commande **Robocopy.exe** pour prédéfinir les fichiers lors de la configuration de la réplication du système de fichiers DFS (également appelée DFSR ou DFS-R) dans Windows Server. En prédéfinissant les fichiers avant de configurer la réplication DFS, d’ajouter un nouveau partenaire de réplication ou de remplacer un serveur, vous pouvez accélérer la synchronisation initiale et activer le clonage de la base de données de réplication DFS dans Windows Server 2012 R2. La méthode Robocopy est l’une des nombreuses méthodes de prédéfinition. Pour obtenir une vue d’ensemble, consultez [Étape 1 : Prédéfinir des fichiers pour la réplication DFS](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn495046(v%3dws.11)>).
+Cette rubrique explique comment utiliser l’outil en ligne de commande **Robocopy.exe** afin de prédéfinir les fichiers lors de la configuration de la réplication du système de fichiers DFS (également appelée DFSR ou DFS-R) dans Windows Server. En prédéfinissant les fichiers avant de configurer la réplication DFS, d’ajouter un nouveau partenaire de réplication ou de remplacer un serveur, vous pouvez accélérer la synchronisation initiale et activer le clonage de la base de données de réplication DFS dans Windows Server 2012 R2. La méthode Robocopy est l’une des nombreuses méthodes de prédéfinition. Pour obtenir une vue d’ensemble, consultez [Étape 1 : Prédéfinir des fichiers pour la réplication DFS](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn495046(v%3dws.11)>).
 
 L’utilitaire en ligne de commande Robocopy (Robust File Copy, copie de fichiers robuste) est inclus avec Windows Server. Cet utilitaire fournit des options complètes qui incluent la sécurité de la copie, la prise en charge des API de sauvegarde, des fonctionnalités de nouvelle tentative et la journalisation. Les versions ultérieures incluent la prise en charge du multithreading et des E/S non mises en mémoire tampon.
 
 >[!IMPORTANT]
->Robocopy ne copie pas exclusivement les fichiers verrouillés. Si les utilisateurs ont tendance à verrouiller de nombreux fichiers pendant de longues durées sur vos serveurs de fichiers, envisagez d’utiliser une autre méthode de prédéfinition. La prédéfinition ne nécessite pas une correspondance parfaite entre les listes de fichiers sur le serveur source et sur le serveur destination, mais plus le nombre de fichiers qui n’existent pas quand la synchronisation initiale est effectuée pour la réplication DFS, moins la prédéfinition est efficace. Pour réduire les conflits de verrous, utilisez Robocopy pendant les heures creuses de votre organisation. Examinez toujours les journaux Robocopy après la prédéfinition pour vérifier que vous comprenez quels fichiers ont été ignorés en raison de verrous exclusifs.
+>Robocopy ne copie pas exclusivement les fichiers verrouillés. Si les utilisateurs ont tendance à verrouiller de nombreux fichiers pendant de longues durées sur vos serveurs de fichiers, utilisez une autre méthode de prédéfinition. La prédéfinition ne nécessite pas une correspondance parfaite entre la liste de fichiers du serveur source et celle du serveur destination. Toutefois, plus il y a de fichiers qui n’existent pas quand la synchronisation initiale est effectuée pour la réplication DFS, moins la prédéfinition est efficace. Pour réduire les conflits de verrous, utilisez Robocopy pendant les heures creuses de votre organisation. Examinez toujours les journaux Robocopy après la prédéfinition pour vérifier que vous comprenez quels fichiers ont été ignorés en raison de verrous exclusifs.
 
-Pour utiliser Robocopy afin de prédéfinir des fichiers pour la réplication DFS, effectuez les étapes suivantes :
+Pour utiliser Robocopy afin de prédéfinir des fichiers pour la réplication DFS, effectuez les étapes suivantes :
 
 1. [Télécharger et installer la dernière version de Robocopy.](#step-1-download-and-install-the-latest-version-of-robocopy)
 2. [Stabiliser les fichiers qui seront répliqués.](#step-2-stabilize-files-that-will-be-replicated)
@@ -85,13 +85,13 @@ Après avoir réduit les verrous sur les fichiers qui seront répliqués, vous p
 >[!NOTE]
 >Vous pouvez exécuter Robocopy sur l’ordinateur source ou sur l’ordinateur de destination. La procédure suivante décrit l’exécution de Robocopy sur le serveur de destination, qui exécute généralement un système d’exploitation plus récent, pour tirer parti des fonctionnalités Robocopy supplémentaires que le système d’exploitation plus récent peut fournir.
 
-### <a name="preseed-the-replicated-files-onto-the-destination-server-with-robocopy"></a>Prédéfinir les fichiers répliqués sur le serveur de destination avec Robocopy
+### <a name="pre-seed-the-replicated-files-onto-the-destination-server-with-robocopy"></a>Prédéfinir les fichiers répliqués sur le serveur de destination avec Robocopy
 
 1. Connectez-vous au serveur de destination avec un compte qui est membre du groupe Administrateurs local à la fois sur le serveur source et sur le serveur de destination.
 
 2. Ouvrez une invite de commandes avec des privilèges élevés.
 
-3. Pour prédéfinir les fichiers du serveur source sur le serveur de destination, exécutez la commande suivante, en remplaçant les valeurs entre crochets par le chemin de vos propres source, destination et fichier journal :
+3. Pour prédéfinir les fichiers du serveur source sur le serveur de destination, exécutez la commande suivante, en remplaçant les valeurs entre crochets par le chemin de votre source, votre destination et votre fichier journal :
     
     ```PowerShell
     robocopy "<source replicated folder path>" "<destination replicated folder path>" /e /b /copyall /r:6 /w:5 /MT:64 /xd DfsrPrivate /tee /log:<log file path> /v
@@ -117,7 +117,7 @@ Après avoir réduit les verrous sur les fichiers qui seront répliqués, vous p
     Par exemple, la commande suivante réplique des fichiers à partir du dossier source répliqué, E:\\RF01, sur le lecteur de données D situé sur le serveur de destination :
     
     ```PowerShell
-    robocopy.exe "\\srv01\e$\rf01" "d:\rf01" /e /b /copyall /r:6 /w:5 /MT:64 /xd DfsrPrivate /tee /log:c:\temp\preseedsrv02.log
+    robocopy.exe "\\srv01\e$\rf01" "d:\rf01" /e /b /copyall /r:6 /w:5 /MT:64 /xd DfsrPrivate /tee /log:c:\temp\pre-seedsrv02.log
     ```
     
     >[!NOTE]

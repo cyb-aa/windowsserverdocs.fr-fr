@@ -1,12 +1,8 @@
 ---
 title: Schéma d’URI des clients Bureau à distance
 description: Découvrez le schéma d’URI pour les clients Bureau à distance
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0c3f1eb6-835c-4522-99ff-56c6ee4bb911
 author: lizap
@@ -14,16 +10,16 @@ manager: dongill
 ms.author: elizapo
 ms.date: 06/11/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 56d11a2ab0afab1e119666aea17bb6d54cd5638b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 02f970cb2e793c1e342a2818a2bca3900327fa9c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404130"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856002"
 ---
 # <a name="remote-desktop-client-universal-resource-identifier-uri-scheme-support"></a>Prise en charge du schéma d’URI des clients Bureau à distance
 
->S’applique à : Windows Server version 1803, Windows Server 2019, Windows Server 2016, Windows 2012 R2
+>S'applique à : Windows Server version 1803, Windows Server 2019, Windows Server 2016, Windows 2012 R2
 
 L'activation d'un schéma d'URI (Uniform Resource Identifier) permet aux professionnels de l'informatique et aux développeurs d'intégrer des fonctionnalités des clients Bureau à distance sur plusieurs plateformes et enrichit l'expérience utilisateur en permettant aux : 
 
@@ -41,7 +37,7 @@ Les attributs RDP sont séparés par le symbole perluète (&). Par exemple, lors
 rdp://full%20address=s:mypc:3389&audiomode=i:2&disable%20themes=i:1
 ```
 
-Ce tableau fournit une liste complète des attributs pris en charge qui peuvent être utilisés avec les clients Bureau à distance iOS, Mac et Android. (Un « x » dans la colonne de plateforme indique que l'attribut est pris en charge. Les valeurs encadrées par les signes (<>) représentent les valeurs prises en charge par les clients Bureau à distance.)
+Ce tableau fournit une liste complète des attributs pris en charge qui peuvent être utilisés avec les clients Bureau à distance iOS, Mac et Android. Un « x » dans la colonne de plateforme indique que l’attribut est pris en charge. Les valeurs encadrées par les signes (<>) représentent les valeurs prises en charge par les clients Bureau à distance.)
 
 | **Attribut RDP**                                           | **Android** | **Mac** | **iOS** |
 |---------------------------------------------------------|---------|-----|-----|

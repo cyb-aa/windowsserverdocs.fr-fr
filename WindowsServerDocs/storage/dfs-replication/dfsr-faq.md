@@ -1,17 +1,17 @@
 ---
-title: 'Réplication DFS : Forum Aux Questions (FAQ)'
+title: 'Réplication DFS : Questions fréquentes (FAQ)'
 ms.date: 06/18/2014
 ms.prod: windows-server
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: e92ada07140b88ef4178a5aecdb263b825380c2d
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 1e11f6c596d7e5eb0bdf379adcf47d21e74e9f6b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950284"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815622"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>Réplication DFS : Forum Aux Questions (FAQ)
 
@@ -74,7 +74,7 @@ Oui. La réplication DFS est prise en charge sur les volumes VSS et les instanta
 
 Non, l’utilisation de la Sauvegarde Windows (NTBackup.exe) sur un ordinateur exécutant Windows Server 2003 ou une version antérieure pour sauvegarder le contenu d’un dossier répliqué sur un ordinateur exécutant Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008 n’est pas prise en charge.
 
-Pour sauvegarder des fichiers stockés dans un dossier répliqué, utilisez la Sauvegarde Windows Server ou Microsoft® System Center Data Protection Manager. Pour plus d’informations sur la fonctionnalité de sauvegarde et de récupération de Windows Server 2008 R2 et de Windows Server 2008, consultez [Sauvegarde et récupération](https://technet.microsoft.com/library/Cc754097). Pour plus d’informations, consultez [System Center Data Protection Manager](https://go.microsoft.com/fwlink/?linkid=182261) (https://go.microsoft.com/fwlink/?LinkId=182261).
+Pour sauvegarder des fichiers stockés dans un dossier répliqué, utilisez la Sauvegarde Windows Server ou Microsoft&reg; System Center Data Protection Manager. Pour plus d’informations sur la fonctionnalité de sauvegarde et de récupération de Windows Server 2008 R2 et de Windows Server 2008, consultez [Sauvegarde et récupération](https://technet.microsoft.com/library/Cc754097). Pour plus d’informations, consultez [System Center Data Protection Manager](https://go.microsoft.com/fwlink/?linkid=182261) (https://go.microsoft.com/fwlink/?LinkId=182261).
 
 ### <a name="do-file-system-policies-impact-dfs-replication"></a>Les stratégies de système de fichiers affectent-elles la réplication DFS ?
 
@@ -129,7 +129,7 @@ Les applications antivirus peuvent entraîner une réplication excessive si leur
 
 ### <a name="what-are-the-benefits-of-using-dfs-replication-instead-of-windows-sharepoint-services"></a>Quels sont les avantages de l’utilisation de la réplication DFS plutôt que Windows SharePoint Services ?
 
-Contrairement à la réplication DFS, Windows® SharePoint® Services offre une stricte cohérence sous la forme d’une fonctionnalité d’extraction de fichier. Si vous êtes concerné par la modification du même fichier par plusieurs personnes, nous vous recommandons d’utiliser Windows SharePoint Services. Windows SharePoint Services 2.0 avec Service Pack 2 est disponible en tant que composant de Windows Server 2003 R2. Windows SharePoint Services peut être téléchargé à partir du site web Microsoft. Il n’est pas inclus dans les versions plus récentes de Windows Server. Toutefois, si vous répliquez des données sur plusieurs sites et que les utilisateurs ne modifieront pas les mêmes fichiers en même temps, la réplication DFS offre une bande passante plus importante et une gestion plus simple.
+Contrairement à la réplication DFS, Windows&reg; SharePoint&reg; Services offre une stricte cohérence sous la forme d’une fonctionnalité d’extraction de fichier. Si vous êtes concerné par la modification du même fichier par plusieurs personnes, nous vous recommandons d’utiliser Windows SharePoint Services. Windows SharePoint Services 2.0 avec Service Pack 2 est disponible en tant que composant de Windows Server 2003 R2. Windows SharePoint Services peut être téléchargé à partir du site web Microsoft. Il n’est pas inclus dans les versions plus récentes de Windows Server. Toutefois, si vous répliquez des données sur plusieurs sites et que les utilisateurs ne modifieront pas les mêmes fichiers en même temps, la réplication DFS offre une bande passante plus importante et une gestion plus simple.
 
 ## <a name="limitations-and-requirements"></a>Limitations et exigences
 
@@ -152,7 +152,7 @@ La réplication DFS peut répliquer de manière sécurisée des fichiers de dos
 
 ### <a name="can-i-use-dfs-replication-in-a-workgroup"></a>Puis-je utiliser la réplication DFS dans un groupe de travail ?
 
-Non. La réplication DFS s’appuie sur Active Directory® Domain Services pour la configuration. Elle ne fonctionne que dans un domaine.
+Non. La réplication DFS s’appuie sur Active Directory&reg; Domain Services pour la configuration. Elle ne fonctionne que dans un domaine.
 
 ### <a name="can-more-than-one-folder-be-replicated-on-a-single-server"></a>Plusieurs dossiers peuvent-ils être répliqués sur un seul serveur ?
 
@@ -343,7 +343,7 @@ Dans Windows Server 2008, la réplication DFS comprend plusieurs amélioration
 
 ### <a name="how-does-dfs-replication-performance-compare-with-frs"></a>Quelles sont les performances de la réplication DFS par rapport à celles du service FRS ?
 
-La réplication DFS est beaucoup plus rapide que le service FRS, en particulier quand des changements mineurs sont apportés à des fichiers volumineux et que la compression RDC est activée. Par exemple, avec la compression RDC, un changement mineur apporté à une présentation PowerPoint® de 2 Mo peut entraîner l’envoi de seulement 60 kilo-octets (Ko) sur le réseau, soit une économie de 97 % en termes d’octets transférés.
+La réplication DFS est beaucoup plus rapide que le service FRS, en particulier quand des changements mineurs sont apportés à des fichiers volumineux et que la compression RDC est activée. Par exemple, avec la compression RDC, un changement mineur apporté à une présentation PowerPoint&reg; de 2 Mo peut entraîner l’envoi de seulement 60 Ko sur le réseau, soit une économie de 97 % au niveau des octets transférés.
 
 La compression RDC n’est pas utilisée sur les fichiers dont la taille est inférieure à 64 Ko et n’est pas forcément bénéfique sur les réseaux locaux à haut débit où la bande passante réseau n’est pas utilisée. La compression RDC peut être désactivée par connexion à l’aide de la Gestion DFS.
 

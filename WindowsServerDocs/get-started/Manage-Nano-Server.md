@@ -1,27 +1,25 @@
 ---
-title: Gérer Nano Server
+title: Gérer Nano Server
 description: mises à jour, packages de mise en service, suivi de mise en réseau, analyse des performances
 ms.prod: windows-server
-ms.service: na
 manager: DonGill
 ms.technology: server-nano
 ms.date: 09/06/2017
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 599d6438-a506-4d57-a0ea-1eb7ec19f46e
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 132f4e1966b332cd6bb6e21402984db7ceed4497
-ms.sourcegitcommit: d599eea5203f95609fb21801196252d5dd9f2669
+ms.openlocfilehash: 0b41113f302dad1c9917001bf137da28ef431d38
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72005216"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826782"
 ---
-# <a name="manage-nano-server"></a>Gérer Nano Server
+# <a name="manage-nano-server"></a>Gérer Nano Server
 
->S'applique à : Windows Server 2016
+>S'applique à : Windows Server 2016
 
 > [!IMPORTANT]
 > À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image de système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Changements apportés à Nano Server](nano-in-semi-annual-channel.md).   
@@ -45,14 +43,14 @@ Pour gérer Nano Server avec la communication à distance Windows PowerShell, vo
   
 Pour ajouter le serveur Nano Server à la liste des hôtes approuvés, exécutez cette commande à partir d’une invite Windows PowerShell avec élévation de privilèges :  
   
-`Set-Item WSMan:\localhost\Client\TrustedHosts "<IP address of Nano Server>"`  
+`Set-Item WSMan:\localhost\Client\TrustedHosts <IP address of Nano Server>`  
   
 Pour démarrer la session Windows PowerShell à distance, démarrez une session Windows PowerShell locale avec élévation de privilèges, puis exécutez les commandes suivantes :  
   
   
 ```  
-$ip = "<IP address of Nano Server>"  
-$user = "$ip\Administrator"  
+$ip = <IP address of Nano Server>  
+$user = $ip\Administrator  
 Enter-PSSession -ComputerName $ip -Credential $user  
 ```  
   
@@ -71,7 +69,7 @@ Pour démarrer la session CIM, exécutez les commandes suivantes dans une invite
   
   
 ```  
-$ip = "<IP address of the Nano Server\>"  
+$ip = <IP address of the Nano Server\>  
 $user = $ip\Administrator  
 $cim = New-CimSession -Credential $user -ComputerName $ip  
 ```  
@@ -82,16 +80,16 @@ Une fois la session établie, vous pouvez exécuter diverses commandes WMI, par 
   
 ```  
 Get-CimInstance -CimSession $cim -ClassName Win32_ComputerSystem | Format-List *  
-Get-CimInstance -CimSession $Cim -Query "SELECT * from Win32_Process WHERE name LIKE 'p%'"  
+Get-CimInstance -CimSession $Cim -Query SELECT * from Win32_Process WHERE name LIKE 'p%'  
 ```  
   
   
 ## <a name="windows-remote-management"></a>Gestion à distance de Windows  
-Vous pouvez exécuter des programmes à distance sur le serveur Nano Server à l’aide du service Gestion à distance de Windows (WinRM). Pour utiliser WinRM, commencez par configurer le service et définir la page de code avec les commandes suivantes dans une invite de commandes avec élévation de privilèges:  
+Vous pouvez exécuter des programmes à distance sur le serveur Nano Server à l’aide du service Gestion à distance de Windows (WinRM). Pour utiliser WinRM, commencez par configurer le service et définir la page de code avec les commandes suivantes dans une invite de commandes avec élévation de privilèges :  
   
 ```
 winrm quickconfig
-winrm set winrm/config/client @{TrustedHosts="<ip address of Nano Server>"}
+winrm set winrm/config/client @{TrustedHosts=<ip address of Nano Server>}
 chcp 65001
 ```
   
@@ -126,9 +124,9 @@ Un package de mise en service ou un correctif logiciel est souvent téléchargé
   
 1.  Téléchargez le package de mise en service (depuis l’article correspondant de la Base de connaissances ou depuis le [catalogue Microsoft Update](https://catalog.update.microsoft.com/v7/site/home.aspx). Enregistrez-le dans un répertoire ou un partage réseau local, par exemple : C:\ServicingPackages  
 2.  Créez un dossier dans lequel enregistrer le package de mise en service extrait.  Exemple : c:\KB3157663_développé  
-3.  Ouvrez une console Windows PowerShell et utilisez la commande `Expand` en spécifiant le chemin d’accès au fichier .msu du package de mise en service, y compris le paramètre `-f:*` et l’emplacement où vous souhaitez que le package de mise en service soit extrait.  Par exemple : `Expand "C:\ServicingPackages\Windows10.0-KB3157663-x64.msu" -f:* "C:\KB3157663_expanded"`  
+3.  Ouvrez une console Windows PowerShell et utilisez la commande `Expand` en spécifiant le chemin d’accès au fichier .msu du package de mise en service, y compris le paramètre `-f:*` et l’emplacement où vous souhaitez que le package de mise en service soit extrait.  Par exemple : `Expand C:\ServicingPackages\Windows10.0-KB3157663-x64.msu -f:* C:\KB3157663_expanded`  
   
-    Les fichiers développés se présenteront comme suit:  
+    Les fichiers développés se présenteront comme suit :  
 C:>dir C:\KB3157663_développé   
 Le volume dans le lecteur C s’appelle OS  
 Le numéro de série du volume est B05B-CC3D  
@@ -142,7 +140,7 @@ Le numéro de série du volume est B05B-CC3D
 17/04/2016  00:31        454 Windows10.0-KB3157663-x64.xml  
 17/04/2016  00:36           185 818 WSUSSCAN.cab  
                4 fichier(s) 94 073 136 octets  
-               2Rép(s) 328559427584 octets libres  
+               2 Rép(s) 328 559 427 584 octets libres  
 4.  Exécutez `New-NanoServerImage` avec le paramètre -ServicingPackagePath pointant vers le fichier .cab dans ce répertoire, par exemple : `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath C:\KB3157663_expanded\Windows10.0-KB3157663-x64.cab`  
 
 ## <a name="managing-updates-in-nano-server"></a>Gestion des mises à jour dans Nano Server
@@ -154,13 +152,13 @@ Dans tous les cas, commencez par établir une session Windows PowerShell à dist
 
 ### <a name="view-all-available-updates"></a>Afficher toutes les mises à jour disponibles  
 ---  
-Les commandes suivantes permettent d’obtenir la liste complète des mises à jour applicables:  
+Les commandes suivantes permettent d’obtenir la liste complète des mises à jour applicables :  
 ```  
 $sess = New-CimInstance -Namespace root/Microsoft/Windows/WindowsUpdate -ClassName MSFT_WUOperationsSession  
 
-$scanResults = Invoke-CimMethod -InputObject $sess -MethodName ScanForUpdates -Arguments @{SearchCriteria="IsInstalled=0";OnlineScan=$true}  
+$scanResults = Invoke-CimMethod -InputObject $sess -MethodName ScanForUpdates -Arguments @{SearchCriteria=IsInstalled=0;OnlineScan=$true}  
 ```  
-**Remarque :**  
+**Remarque :**  
 Si aucune mise à jour n’est disponible, cette commande renvoie l’erreur suivante :  
 ```  
 Invoke-CimMethod : A general error occurred that is not covered by a more specific error code.  
@@ -171,7 +169,7 @@ At line:1 char:16
 
 +                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
 
-    + CategoryInfo          : NotSpecified: (MSFT_WUOperatio...-5b842a3dd45d")  
+    + CategoryInfo          : NotSpecified: (MSFT_WUOperatio...-5b842a3dd45d)  
 
    :CimInstance) [Invoke-CimMethod], CimException  
 
@@ -191,7 +189,7 @@ $scanResults = Invoke-CimMethod -InputObject $sess -MethodName ApplyApplicableUp
 
 Restart-Computer  
 ```  
-**Remarque :**  
+**Remarque :**  
 Windows Defender empêche l’installation des mises à jour. Pour contourner ce problème, désinstallez Windows Defender, installez les mises à jour, puis réinstallez Windows Defender. Vous pouvez également télécharger les mises à jour sur un autre ordinateur, les copier sur le serveur Nano Server, puis les appliquer avec DISM.exe.  
 
 
@@ -201,11 +199,11 @@ Pour obtenir la liste des mises à jour actuellement installées, utilisez les c
 ```  
 $sess = New-CimInstance -Namespace root/Microsoft/Windows/WindowsUpdate -ClassName MSFT_WUOperationsSession  
 
-$scanResults = Invoke-CimMethod -InputObject $sess -MethodName ScanForUpdates -Arguments @{SearchCriteria="IsInstalled=1";OnlineScan=$true}  
+$scanResults = Invoke-CimMethod -InputObject $sess -MethodName ScanForUpdates -Arguments @{SearchCriteria=IsInstalled=1;OnlineScan=$true}  
 ```  
 
-**Remarque :**  
-Ces commandes répertorient les éléments installés, mais n’indiquent pas spécifiquement «installé» dans la sortie. Si vous avez besoin d’une sortie qui inclut cette information, par exemple pour un rapport, vous pouvez exécuter  
+**Remarque :**  
+Ces commandes listent les éléments installés, mais n’indiquent pas dans la sortie qu’ils sont installés. Si vous avez besoin d’une sortie qui inclut cette information, par exemple pour un rapport, vous pouvez exécuter  
 ```PowerShell
 Get-WindowsPackage -Online
 ```
@@ -214,7 +212,7 @@ Get-WindowsPackage -Online
 ---  
 Les commandes répertoriées ci-dessus interrogent les services Windows Update et Microsoft Update sur Internet pour rechercher et télécharger les mises à jour disponibles. Si vous utilisez WSUS, vous pouvez définir des clés de Registre sur le serveur Nano Server de manière à utiliser votre serveur WSUS à la place.  
   
-Consultez le tableau « Clés de Registre des options d’environnement de l’Agent Windows Update » dans l’article [Configurer les mises à jour automatiques dans un environnement non Active Directory](https://technet.microsoft.com/library/cc708449(v=ws.10).aspx).  
+Consultez le tableau Windows Update Agent Environment Options Registry Keys (Clés de Registre des options d’environnement de l’Agent Windows Update) dans l’article [Configure Automatic Updates in a Non-Active Directory Environment](https://technet.microsoft.com/library/cc708449(v=ws.10).aspx) (Configurer les mises à jour automatiques dans un environnement non Active Directory).  
   
 Vous devez définir au moins les clés de Registre **WUServer** et **WUStatusServer**, mais selon le mode d’implémentation de WSUS, d’autres valeurs peuvent être nécessaires. Vous pouvez toujours vérifier ces paramètres en examinant un autre serveur Windows dans le même environnement.  
 
@@ -244,7 +242,7 @@ wpr.exe -providers
 
 Vous pouvez filtrer la sortie sur le type d’événements qui vous intéresse. Par exemple :
 ```
-PS C:\> wpr.exe -providers | select-string "Storage"
+PS C:\> wpr.exe -providers | select-string Storage
 
        595f33ea-d4af-4f4d-b4dd-9dacdd17fc6e                              : Microsoft-Windows-StorageManagement-WSP-Host
        595f7f52-c90a-4026-a125-8eb5e083f15e                              : Microsoft-Windows-StorageSpaces-Driver
@@ -258,21 +256,21 @@ Pour ce faire, vous pouvez utiliser les nouvelles [applets de commande de gestio
 
 Créez et démarrez le suivi, en spécifiant un nom de fichier pour stocker les événements.
 ```
-PS C:\> New-EtwTraceSession -Name "ExampleTrace" -LocalFilePath c:\etrace.etl
+PS C:\> New-EtwTraceSession -Name ExampleTrace -LocalFilePath c:\etrace.etl
 ```
 
 Ajoutez un GUID de fournisseur au suivi. Utilisez ```wpr.exe -providers``` pour la conversion du nom du fournisseur en GUID. 
 ```
-PS C:\> wpr.exe -providers | select-string "Kernel-Memory"
+PS C:\> wpr.exe -providers | select-string Kernel-Memory
 
        d1d93ef7-e1f2-4f45-9943-03d245fe6c00                              : Microsoft-Windows-Kernel-Memory
 
-PS C:\> Add-EtwTraceProvider -Guid "{d1d93ef7-e1f2-4f45-9943-03d245fe6c00}" -SessionName "ExampleTrace"
+PS C:\> Add-EtwTraceProvider -Guid {d1d93ef7-e1f2-4f45-9943-03d245fe6c00} -SessionName ExampleTrace
 ```
 
 Supprimez le suivi ; la session de suivi est alors arrêtée et les événements vidés dans le fichier journal associé.
 ```
-PS C:\> Remove-EtwTraceSession -Name "ExampleTrace"
+PS C:\> Remove-EtwTraceSession -Name ExampleTrace
 
 PS C:\> dir .\etrace.etl
 
@@ -330,12 +328,12 @@ Pour collecter les événements pendant le démarrage du système, utilisez l’
 
 Commencez par créer une nouvelle configuration de journal automatique.
 ```
-PS C:\> New-AutologgerConfig -Name "BootPnpLog" -LocalFilePath c:\bootpnp.etl 
+PS C:\> New-AutologgerConfig -Name BootPnpLog -LocalFilePath c:\bootpnp.etl 
 ```
 
 Ajoutez un fournisseur ETW à cette configuration. Dans cet exemple, le fournisseur Plug-and-Play de noyau est utilisé. Appelez ```Add-EtwTraceProvider``` à nouveau en indiquant le même nom de journal automatique mais un GUID différent pour activer la collecte de suivis de démarrage de plusieurs sources.
 ```
-Add-EtwTraceProvider -Guid "{9c205a39-1250-487d-abd7-e831c6290539}" -AutologgerName BootPnpLog
+Add-EtwTraceProvider -Guid {9c205a39-1250-487d-abd7-e831c6290539} -AutologgerName BootPnpLog
 ```
 
 La session ETW ne démarre pas immédiatement, mais au prochain démarrage. Après le redémarrage, une nouvelle session ETW présentant le nom de la configuration de journal automatique est automatiquement démarrée avec les fournisseurs de suivi ajoutés activés. Une fois Nano Server démarré, la commande suivante permet d’arrêter la session de suivi après le vidage des événements consignés dans le fichier de suivi associé :
@@ -355,7 +353,7 @@ En règle générale, l’analyse des données de compteur de performance se fai
 
 Interrogez les compteurs disponibles (vous pouvez filtrer la sortie pour trouver facilement ceux qui vous intéressent).
 ```
-PS C:\> typeperf.exe -q | Select-String "UDPv6"
+PS C:\> typeperf.exe -q | Select-String UDPv6
 
 \UDPv6\Datagrams/sec
 \UDPv6\Datagrams Received/sec
@@ -366,14 +364,14 @@ PS C:\> typeperf.exe -q | Select-String "UDPv6"
 
 Les options permettent de spécifier le nombre de fois que les valeurs de compteur sont collectées et l’intervalle entre deux collectes. Dans l’exemple ci-dessous, la durée d’inactivité de processeur est collectée 5 fois avec un intervalle de 3 secondes.
 ```
-PS C:\> typeperf.exe "\Processor Information(0,0)\% Idle Time" -si 3 -sc 5
+PS C:\> typeperf.exe \Processor Information(0,0)\% Idle Time -si 3 -sc 5
 
-"(PDH-CSV 4.0)","\\ns-g2\Processor Information(0,0)\% Idle Time"
-"09/15/2016 09:20:56.002","99.982990"
-"09/15/2016 09:20:59.002","99.469634"
-"09/15/2016 09:21:02.003","99.990081"
-"09/15/2016 09:21:05.003","99.990454"
-"09/15/2016 09:21:08.003","99.998577"
+(PDH-CSV 4.0),\\ns-g2\Processor Information(0,0)\% Idle Time
+09/15/2016 09:20:56.002,99.982990
+09/15/2016 09:20:59.002,99.469634
+09/15/2016 09:21:02.003,99.990081
+09/15/2016 09:21:05.003,99.990454
+09/15/2016 09:21:08.003,99.998577
 Exiting, please wait...
 The command completed successfully.
 ```

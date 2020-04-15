@@ -1,28 +1,24 @@
 ---
-title: Nouveautés de la console Windows dans Windows Server2016
+title: Nouveautés de la console Windows dans Windows Server 2016
 description: Répertorie les nouvelles fonctionnalités importantes de la console Windows Server 2016.
-ms.custom: na
 ms.prod: windows-server
 ms.technology: server-general
-ms.reviewer: na
-ms.suite: na
 ms.date: 10/04/2016
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: da9fc582-033b-4973-84e7-0c6024ecfcbc
 author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 305363646aa1714504b0cfb4838170b994ce5da9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b055c379e1d5ee632e420ffd1362389878d3dfd1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391439"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825962"
 ---
-# <a name="whats-new-in-the-windows-console-in-windows-server-2016"></a>Nouveautés de la console Windows dans Windows Server2016
->S'applique à : Windows Server 2016
+# <a name="whats-new-in-the-windows-console-in-windows-server-2016"></a>Nouveautés de la console Windows dans Windows Server 2016
+>S'applique à : Windows Server 2016
 
 L’hôte de la console (le code sous-jacent qui prend en charge toutes les applications en mode caractère, notamment l’invite de commandes Windows et l’invite Windows PowerShell, entre autres) a été mis à jour de plusieurs manières pour ajouter un grand nombre de nouvelles fonctionnalités.  
 
@@ -84,7 +80,7 @@ Vous pouvez maintenant utiliser la sélection « cliquer et faire glisser » e
 |Si le curseur ne se trouve **pas** sur la ligne en cours de modification, utilisez cette commande pour étendre la sélection jusqu’à la marge gauche.|Maj+Début|  
 |Étendre la sélection d’un écran vers le bas|Maj+Page suivante|  
 |Étendre la sélection d’un écran vers le haut|Maj+Page précédente|  
-|Étendre la sélection d’un mot vers la droite. (Vous pouvez définir les délimiteurs de « mot » avec la clé de Registre WordDelimiters.)|Ctrl+Maj+Droite|  
+|Étendre la sélection d’un mot vers la droite. (Vous pouvez définir les délimiteurs de mot avec la clé de Registre WordDelimiters.)|Ctrl+Maj+Droite|  
 |Étendre la sélection d’un mot vers la gauche|Ctrl+Maj+Début|  
 |Étendre la sélection au début de la mémoire tampon d’écran|Ctrl+Maj+Fin|  
 |Sélectionner tout le texte après l’invite, si le curseur se trouve sur la ligne active et que la ligne n’est pas vide|Ctrl+A|  

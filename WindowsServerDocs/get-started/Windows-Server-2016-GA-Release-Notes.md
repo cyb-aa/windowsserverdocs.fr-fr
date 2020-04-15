@@ -1,23 +1,19 @@
 ---
 title: 'Notes de publication : problèmes importants dans Windows Server 2016'
 description: Résume les problèmes critiques nécessitant une solution de contournement pour éviter une panne, un blocage, un échec d’installation ou une perte de données.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 11/13/2018
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 134aab85-664f-4d44-87ef-9e5fd389071f
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: f4568e1781dbe385d8abe8a96f07841391506738
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 8ceff837c2b85466f5583eed03f39e73f32fd4a4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822162"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826382"
 ---
 # <a name="release-notes-important-issues-in-windows-server-2016"></a>Notes de publication : Principaux problèmes touchant Windows Server 2016
 
@@ -29,7 +25,7 @@ Ce document est continuellement mis à jour. Les problèmes critiques nécessita
 
 ## <a name="express-updates-available-starting-in-november-2018-new"></a>Disponibilité des mises à jour Express à partir de novembre 2018 (NOUVEAU)
 
-À partir de la mise à jour hebdomadaire du mardi (« Update Tuesday ») en novembre 2018, Windows publiera à nouveau les [mises à jour Express](express-updates.md) pour Windows Server 2016. Si vous utilisez WSUS et Configuration Manager, vous verrez de nouveau deux packages pour la mise à jour de Windows Server 2016 : une mise à jour complète et une mise à jour Express. Si vous souhaitez utiliser Express pour vos environnements de serveur, vous devez vérifier que le serveur a appliqué une mise à jour complète depuis novembre 2017 (KB 4048953) pour vous assurer que la mise à jour Express s’installe correctement. Si vous tentez une mise à jour Express sur un serveur qui n’a pas été mis à jour depuis la mise à jour 11B de 2017 (KB 4048953), vous rencontrerez des échecs répétés qui consomment de la bande passante et des ressources processeur dans une boucle infinie. Si ce problème survient, arrêtez la transmission de la mise à jour Express. Au lieu de ça, transmettez une mise à jour complète et récente pour arrêter la boucle de défaillance.
+À partir de la mise à jour hebdomadaire du mardi (Update Tuesday) en novembre 2018, Windows publiera à nouveau les [mises à jour Express](express-updates.md) pour Windows Server 2016. Si vous utilisez WSUS et Configuration Manager, vous verrez de nouveau deux packages pour la mise à jour de Windows Server 2016 : une mise à jour complète et une mise à jour Express. Si vous souhaitez utiliser Express pour vos environnements de serveur, vous devez vérifier que le serveur a appliqué une mise à jour complète depuis novembre 2017 (KB 4048953) pour vous assurer que la mise à jour Express s’installe correctement. Si vous tentez une mise à jour Express sur un serveur qui n’a pas été mis à jour depuis la mise à jour 11B de 2017 (KB 4048953), vous rencontrerez des échecs répétés qui consomment de la bande passante et des ressources processeur dans une boucle infinie. Si ce problème survient, arrêtez la transmission de la mise à jour Express. Au lieu de ça, transmettez une mise à jour complète et récente pour arrêter la boucle de défaillance.
 
 ## <a name="server-core-installation-option"></a>Option d’installation minimale
 
@@ -42,7 +38,7 @@ Pour éviter cela, après le premier démarrage, désactivez le spouleur d’imp
 ## <a name="containers"></a>Conteneurs
 
 [comment]: # (ID : 371 ; utilisateur procédant à la soumission : taylorb ; état : validé)
-- Avant d’utiliser des conteneurs, installez [Service de mise à jour de la pile pour Windows 10 Version 1607 : le 23 août 2016](https://support.microsoft.com/kb/3176936) ou les mises à jour ultérieures disponibles. Sinon, plusieurs problèmes peuvent survenir, notamment des échecs de création, de démarrage ou d’exécution de conteneurs, ainsi que des erreurs de type « CreateProcess a échoué dans Win32: le serveur RPC n’est pas disponible. »
+- Avant d’utiliser des conteneurs, installez [Service de mise à jour de la pile pour Windows 10 Version 1607 : le 23 août 2016](https://support.microsoft.com/kb/3176936) ou les mises à jour ultérieures disponibles. Sinon, plusieurs problèmes peuvent survenir, notamment des échecs de création, de démarrage ou d’exécution de conteneurs, ainsi que des erreurs de type « CreateProcess a échoué dans Win32: Le serveur RPC est indisponible.
 
 [comment]: # (ID : 373 ; utilisateur procédant à la soumission : plang ; état : validé)
 - Le fournisseur NanoServerPackage OneGet ne fonctionne pas dans les conteneurs Windows. Pour contourner ce problème, utilisez Find-NanoServerPackage et Save-NanoServerPackage sur un autre ordinateur (pas un conteneur) pour télécharger le package requis. Ensuite, copiez les packages dans le conteneur, puis installez-les.
@@ -86,7 +82,7 @@ Suite à l’installation de Windows Server 2016, certains systèmes peuvent pr
 
 ## <a name="copyright"></a>Copyright
 
-Ce document est fourni « en l'état ». Les informations contenues dans ce document, y compris les URL et autres références de sites Web, pourront faire l’objet de modifications sans préavis.  
+Ce document est fourni en l’état. Les informations contenues dans ce document, y compris les URL et autres références de sites Web, pourront faire l’objet de modifications sans préavis.  
 
 Ce document ne vous fournit aucun droit légal de propriété intellectuelle de tout produit Microsoft. Vous pouvez copier le présent document pour une utilisation interne à des fins de référence.  
 

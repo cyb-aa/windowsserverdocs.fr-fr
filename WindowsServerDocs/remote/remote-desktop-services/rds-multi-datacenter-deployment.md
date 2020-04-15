@@ -1,28 +1,24 @@
 ---
 title: Centres de données RDS géo-redondants dans Azure
 description: Découvrez comment créer un déploiement RDS utilisant plusieurs centres de données pour fournir une haute disponibilité dans différents emplacements géographiques.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 61c36528-cf47-4af0-83c1-a883f79a73a5
 author: haley-rowland
 ms.author: elizapo
 ms.date: 06/14/2017
 manager: dongill
-ms.openlocfilehash: 55b96c112dd7f7294ff674ee4675501af4287da4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5c0f5d6937a79f36df264597400fe71af3f3779b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403961"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855592"
 ---
 # <a name="create-a-geo-redundant-multi-data-center-rds-deployment-for-disaster-recovery"></a>Créer un déploiement RDS avec plusieurs centres de données géo-redondants pour la récupération d’urgence
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Vous pouvez activer la récupération d’urgence pour votre déploiement des services Bureau à distance en exploitant plusieurs centres de données dans Azure. Contrairement à un déploiement RDS standard à haute disponibilité (comme indiqué dans l’[architecture des services Bureau à distance](desktop-hosting-logical-architecture.md)), qui utilise des centres de données dans une seule région Azure (par exemple, l’Europe de l’ouest), un déploiement de plusieurs centres de données utilise des centres de données sur plusieurs emplacements géographiques, accroissant ainsi la disponibilité de votre déploiement : un centre de données Azure peut ne pas être disponible, mais il est peu probable que plusieurs régions soient affectées en même temps. En déployant une architecture RDS géo-redondante, vous pouvez activer le basculement en cas de défaillance catastrophique d’une région entière.
 
@@ -66,7 +62,7 @@ Créez les ressources suivantes dans Azure pour créer un déploiement RDS avec 
    
       2. Modifier les noms d’ordinateurs afin qu’ils ne soient pas en conflit avec ceux du déploiement dans RG A.
       
-         Recherchez les machines virtuelles dans la section **Ressources** du modèle. Modifier le champ **computerName** sous **osProfile**. Par exemple, « gateway » peut devenir « gateway **-b**» ; « [concat ('rdsh-', copyIndex())] » peut devenir « [concat ('rdsh - b-', copyIndex())] » et « broker » peut devenir « broker **-b**».
+         Recherchez les machines virtuelles dans la section **Ressources** du modèle. Modifier le champ **computerName** sous **osProfile**. Par exemple, « gateway » peut devenir « gateway **-b**» ; « [concat ('rdsh-', copyIndex())] » peut devenir « [concat ('rdsh - b-', copyIndex())] » et « broker » peut devenir « broker **-b** ».
       
          (Vous pouvez également modifier les noms des machines virtuelles manuellement après avoir exécuté le modèle.)
    2. Comme à l’étape 3 ci-dessus, utilisez les informations dans [Services Bureau à distance - Haute disponibilité](rds-plan-high-availability.md) afin de configurer les autres composants RDS pour une haute disponibilité.
@@ -103,7 +99,7 @@ Pour activer les UPD sur les deux déploiements, procédez comme suit :
 
 Créez un profil [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) et veillez à sélectionner la méthode de routage **Priorité**. Définissez les deux points de terminaison sur les adresses IP publiques de chaque déploiement. Sous **Configuration**, passez au protocole HTTPS (au lieu de HTTP) et utilisez le port 443 (au lieu de 80). Prenez note de la **durée de vie DNS**et configurez comme il convient pour les besoins de votre basculement. 
 
-Notez que Traffic Manager exige que les points de terminaison retournent 200 « OK » en réponse à une demande GET pour être marqués comme « sain ». L’objet publicIP créé à partir des modèles RDS fonctionnera, mais n’ajoutez pas d’addenda de chemin d’accès. Au lieu de cela, vous pouvez donner aux utilisateurs finaux l’URL de Traffic Manager avec « /RDWeb » ajouté, par exemple : ```http://deployment.trafficmanager.net/RDWeb```
+Notez que Traffic Manager exige que les points de terminaison retournent 200 « OK » en réponse à une demande GET pour être marqués comme « sain ». L’objet publicIP créé à partir des modèles RDS fonctionnera, mais n’ajoutez pas d’addenda de chemin d’accès. Au lieu de cela, vous pouvez donner aux utilisateurs finaux l’URL de Traffic Manager avec « /RDWeb » à sa suite, par exemple : ```http://deployment.trafficmanager.net/RDWeb```
 
 En déployant Azure Traffic Manager avec la méthode de routage par priorité, vous empêchez les utilisateurs finaux d’accéder au déploiement passif alors que le déploiement actif fonctionne. Si les utilisateurs finaux accèdent au déploiement passif et que le sens du réplica de stockage n’a pas été modifié pour le basculement, la connexion de l’utilisateur se bloque car le déploiement tente et ne parvient pas à accéder au partage de fichiers sur le cluster d’espaces de stockage direct passif. Le déploiement échoue finalement et donne à l’utilisateur un profil temporaire.  
 

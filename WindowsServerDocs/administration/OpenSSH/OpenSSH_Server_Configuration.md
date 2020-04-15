@@ -1,17 +1,16 @@
 ---
 ms.date: 09/27/2018
 ms.topic: conceptual
-keywords: OpenSSH, SSH, SSHD, installation, configuration
 contributor: maertendMSFT
-ms.product: w10
-author: maertendMSFT
+ms.product: windows-server
+author: maertendmsft
 title: Configuration du serveur OpenSSH pour Windows
-ms.openlocfilehash: 3d8e656981661f8263484437e90780a4e1463d94
-ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
+ms.openlocfilehash: 61f176f7f73495a6b9dbbcb1a25f2337a44ab99b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80639941"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852022"
 ---
 # <a name="openssh-server-configuration-for-windows-10-1809-and-server-2019"></a>Configuration du serveur OpenSSH pour Windows 10 1809 et Server 2019
 

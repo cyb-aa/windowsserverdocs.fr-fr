@@ -8,18 +8,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
 ms.date: 06/03/2019
-ms.openlocfilehash: 5dbbdc19707f2eadfa3b2c919af95b58645de441
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 07479bc5bd2fdf661db8a30e3a9f20c7cce0513e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391366"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825992"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Nouveautés de Windows Server, version 1709
 
 >S'applique à : Windows Server (canal semi-annuel)
 
-<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Pour découvrir les dernières fonctionnalités de Windows, consultez [Nouveautés de Windows Server](whats-new-in-windows-server.md). Le contenu de cette section décrit les nouveautés et les modifications de Windows Server, version 1709. Les nouvelles fonctionnalités et modifications répertoriées ici sont celles qui sont susceptibles d'avoir l'impact le plus important quand vous utilisez cette version. Voir également [Windows Server, version 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
+<img src=../media/landing-icons/new.png style='float:left; padding:.5em;' alt=Icon showing a newspaper>&nbsp;Pour découvrir les dernières fonctionnalités de Windows, consultez [Nouveautés de Windows Server](whats-new-in-windows-server.md). Le contenu de cette section décrit les nouveautés et les modifications de Windows Server, version 1709. Les nouvelles fonctionnalités et modifications répertoriées ici sont celles qui sont susceptibles d'avoir l'impact le plus important quand vous utilisez cette version. Voir également [Windows Server, version 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
 
 > [!IMPORTANT]
 > Windows Server, version 1709 n’est plus pris en charge à compter du 9 avril 2019.
@@ -56,7 +56,7 @@ Pour plus d’informations, consultez [Modifications apportées à Nano Server 
 Découvrez le [projet Honolulu](https://docs.microsoft.com/windows-server/manage/honolulu/honolulu) qui offre aux administrateurs informatiques une expérience intégrée, simplifiée et sécurisée facilitant la gestion des principaux scénarios de résolution des problèmes, de configuration et de maintenance.  Le projet Honolulu comprend des outils de nouvelle génération avec une interface simplifiée, intégrée, sécurisée et extensible.
 Le projet Honolulu propose une expérience de gestion intuitive entièrement nouvelle pour la gestion des PC, serveurs Windows, clusters de basculement, mais également une infrastructure hyperconvergée basée sur les espaces de stockage direct, ce qui permet de réduire les coûts d’exploitation.
 
-## <a name="compute"></a>Calcul :
+## <a name="compute"></a>Calcul
 
 **Conteneur Nano et conteneur Server Core** : cette version a pour objectif principal de favoriser l’innovation d’application. Nano Server ou Nano en tant qu’hôte est déprécié et remplacé par le conteneur Nano, qui correspond à Nano exécuté en tant qu’image conteneur. 
 
@@ -149,7 +149,7 @@ De **nouvelles fonctionnalités de Docker** sont disponibles. Pour plus d’info
 
 **Mise en réseau SDN (Software Defined Networking)**
 
-- Le **chiffrement de réseau virtuel** est une nouvelle fonctionnalité qui permet de chiffrer le trafic réseau virtuel entre les machines virtuelles qui communiquent entre elles au sein de sous-réseaux marqués comme ayant le « Chiffrement activé ». Cette fonctionnalité utilise le protocole DTLS (Datagram Transport Layer Security) sur le sous-réseau virtuel pour chiffrer les paquets.  DTLS offre une protection contre les écoutes clandestines, l’altération et la falsification par toute personne ayant accès au réseau physique.
+- Le **chiffrement de réseau virtuel** est une nouvelle fonctionnalité qui permet de chiffrer le trafic réseau virtuel entre les machines virtuelles qui communiquent entre elles au sein de sous-réseaux marqués comme ayant le chiffrement activé. Cette fonctionnalité utilise le protocole DTLS (Datagram Transport Layer Security) sur le sous-réseau virtuel pour chiffrer les paquets.  DTLS offre une protection contre les écoutes clandestines, l’altération et la falsification par toute personne ayant accès au réseau physique.
  
 **VPN Windows 10**
 

@@ -1,29 +1,27 @@
 ---
 title: Recommandations en matière de sécurité pour les services système sous Windows Server 2016
 description: Recommandations en matière de sécurité pour la désactivation des services sous Windows Server 2016 avec Expérience utilisateur
-ms.custom: na
 ms.prod: windows-server
 ms.technology: techgroup-security
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: nirb
 ms.author: nirb
-ms.openlocfilehash: 1711eb94b622775feaf02f6bada596fe03b08ea9
-ms.sourcegitcommit: b8e120fc574450e9eee13e7315424137a43e6a6c
+ms.openlocfilehash: f7bb6f73fb2d898c3e5170dda96fef5aea611a88
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74044805"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855052"
 ---
 # <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Conseils sur la désactivation des services système sous Windows Server 2016 avec Expérience utilisateur
 
-S’applique à : Windows Server 2016
+S'applique à : Windows Server 2016
 
 Le système d'exploitation Windows comprend de nombreux services système offrant d'importantes fonctionnalités. Ces services présentent différentes stratégies de démarrage par défaut : certains sont démarrés par défaut (automatiquement) ou si nécessaire (manuellement), et d'autres sont désactivés par défaut et doivent être explicitement activés pour être exécutés. Ces paramètres par défaut ont été soigneusement sélectionnés pour chaque service à des fins d'équilibre des performances, des fonctionnalités et de la sécurité pour les clients types.
 
-Toutefois, certains clients d'entreprise peuvent préférer un équilibre plus centré sur la sécurité de leurs PC et serveurs Windows, réduisant ainsi leur surface d’attaque au strict minimum, et peuvent alors souhaiter désactiver complètement tous les services inutiles dans leurs environnements spécifiques. Microsoft® fournit à ces clients les instructions correspondantes pour leur permettre de connaître les services qui peuvent être désactivés en toute sécurité.
+Toutefois, certains clients d'entreprise peuvent préférer un équilibre plus centré sur la sécurité de leurs PC et serveurs Windows, réduisant ainsi leur surface d’attaque au strict minimum, et peuvent alors souhaiter désactiver complètement tous les services inutiles dans leurs environnements spécifiques. Microsoft&reg; fournit à ces clients les instructions correspondantes pour leur permettre de connaître les services qui peuvent être désactivés en toute sécurité.
 
 Ces instructions sont réservées à Windows Server 2016 avec Expérience utilisateur (sauf utilisé en tant que remplacement de bureau pour les utilisateurs finaux). À partir de Windows Server 2019, ces instructions sont configurées par défaut. Chaque service présent sur le système est catégorisé comme suit :
 
@@ -209,7 +207,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Description du service** |   Définit automatiquement le fuseau horaire système.
 |   **Nom du service**    |   tzautoupdate
 |   **Installation**    |   Avec Expérience utilisateur uniquement
-|   **Type de démarrage**   |   Désactivée
+|   **Type de démarrage**   |   Désactivé
 |   **Recommandation**  |   Déjà désactivé
 |   **Commentaires**    |   
 |||         
@@ -366,7 +364,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Description du service** |   Tient à jour une liste des ordinateurs présents sur le réseau et fournit cette liste aux ordinateurs désignés comme navigateurs. Si ce service est arrêté, la liste ne sera pas mise ou tenue à jour. Si ce service est désactivé, le démarrage de tout service qui en dépend explicitement échouera.
 |   **Nom du service**    |   Navigateur
 |   **Installation**    |   Toujours installé
-|   **Type de démarrage**   |   Désactivée
+|   **Type de démarrage**   |   Désactivé
 |   **Recommandation**  |   Déjà désactivé
 |   **Commentaires**    |   
 |||         
@@ -1108,7 +1106,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Description du service** |   Gère les utilisateurs App-V et les applications virtuelles
 |   **Nom du service**    |   AppVClient
 |   **Installation**    |   Avec Expérience utilisateur uniquement
-|   **Type de démarrage**   |   Désactivée
+|   **Type de démarrage**   |   Désactivé
 |   **Recommandation**  |   Déjà désactivé
 |   **Commentaires**    |   
 |||         
@@ -1180,7 +1178,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Installation**    |   Toujours installé
 |   **Type de démarrage**   |   Manuelle
 |   **Recommandation**  |   Ne pas désactiver
-|   **Commentaires**    |   Sans ce service, les API de gestion du stockage échouent. Exemple : « Get-WmiObject -class MSFT_Disk -Namespace Root\Microsoft\Windows\Storage ».
+|   **Commentaires**    |   Sans ce service, les API de gestion du stockage échouent. Exemple : « Get-WmiObject -class MSFT_Disk -Namespace Root\Microsoft\Windows\Storage ».
 |||         
 
 
@@ -1192,7 +1190,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Description du service** |   Permet de partager des ports TCP sur le protocole net.tcp.
 |   **Nom du service**    |   NetTcpPortSharing
 |   **Installation**    |   Toujours installé
-|   **Type de démarrage**   |   Désactivée
+|   **Type de démarrage**   |   Désactivé
 |   **Recommandation**  |   Déjà désactivé
 |   **Commentaires**    |   
 |||         
@@ -1318,7 +1316,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Description du service** |   Le service Fichiers hors connexion effectue des activités de maintenance sur le cache Fichiers hors connexion, répond aux événements d’ouverture et de fermeture de session des utilisateurs, implémente les données internes de l’API public, et distribue aux utilisateurs intéressés les événements pertinents relatifs aux activités Fichiers hors connexion et aux modifications apportées en mémoire cache.
 |   **Nom du service**    |   CscService
 |   **Installation**    |   Avec Expérience utilisateur uniquement
-|   **Type de démarrage**   |   Désactivée
+|   **Type de démarrage**   |   Désactivé
 |   **Recommandation**  |   Déjà désactivé
 |   **Commentaires**    |   
 |||         
@@ -1409,12 +1407,12 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 
 
 
-## <a name="power"></a>Alimentation            
+## <a name="power"></a>Avancé            
 
 | | |           
 |---|---|       
 |   **Description du service** |   Gère la stratégie d’alimentation et la remise de notification de stratégie d’alimentation.
-|   **Nom du service**    |   Alimentation
+|   **Nom du service**    |   Avancé
 |   **Installation**    |   Toujours installé
 |   **Type de démarrage**   |   Automatique
 |   **Recommandation**  | Pas de recommandations   
@@ -1640,7 +1638,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Description du service** |   Offre aux entreprises des services de routage dans les environnements de réseau local ou étendu.
 |   **Nom du service**    |   RemoteAccess
 |   **Installation**    |   Toujours installé
-|   **Type de démarrage**   |   Désactivée
+|   **Type de démarrage**   |   Désactivé
 |   **Recommandation**  |   Déjà désactivé
 |   **Commentaires**    |   Déjà désactivé
 |||         
@@ -1741,7 +1739,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |
 |||
 
-## <a name="server"></a>Server           
+## <a name="server"></a>Server (Serveur)           
 
 | | |           
 |---|---|   
@@ -1776,7 +1774,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Description du service** |   Gère l’accès aux cartes à puce lues par cet ordinateur. Si ce service est arrêté, cet ordinateur ne pourra plus lire de cartes à puces. Si ce service est désactivé, le démarrage de tout service qui en dépend explicitement échouera.
 |   **Nom du service**    |   SCardSvr
 |   **Installation**    |   Toujours installé
-|   **Type de démarrage**   |   Désactivée
+|   **Type de démarrage**   |   Désactivé
 |   **Recommandation**  |   Déjà désactivé
 |   **Commentaires**    |   
 |||         
@@ -2168,7 +2166,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Description du service** |   Assure la prise en charge de l’itinérance des paramètres d’application et de système d’exploitation
 |   **Nom du service**    |   UevAgentService
 |   **Installation**    |   Avec Expérience utilisateur uniquement
-|   **Type de démarrage**   |   Désactivée
+|   **Type de démarrage**   |   Désactivé
 |   **Recommandation**  |   Déjà désactivé
 |   **Commentaires**    |   
 |||         
@@ -2587,7 +2585,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Description du service** |   Fournit des fonctionnalités d’indexation de contenu, de mise en cache des propriétés, de résultats de recherche pour les fichiers, les messages électroniques et autres contenus.
 |   **Nom du service**    |   WSearch
 |   **Installation**    |   Avec Expérience utilisateur uniquement
-|   **Type de démarrage**   |   Désactivée
+|   **Type de démarrage**   |   Désactivé
 |   **Recommandation**  |   Déjà désactivé
 |   **Commentaires**    |   
 |||         
@@ -2608,7 +2606,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 
 
 
-## <a name="windows-update"></a>Windows Update           
+## <a name="windows-update"></a>Windows Update           
 
 | | |           
 |---|---|       

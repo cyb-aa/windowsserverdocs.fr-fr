@@ -2,7 +2,6 @@
 title: Planifier votre déploiement WSUS
 description: Rubrique Windows Server Update Service (WSUS) - Vue d’ensemble du processus de planification de déploiement avec des liens vers les rubriques associées
 ms.prod: windows-server
-ms.reviewer: na
 ms.technology: manage-wsus
 ms.topic: article
 ms.assetid: 35865398-b011-447a-b781-1c52bc0c9e3a
@@ -10,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/24/2018
-ms.openlocfilehash: 8d284c51bfa1e04a38c32adf5dce2b6f5d948b0a
-ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
+ms.openlocfilehash: 68825c6bc4d24bca41c04a238fbf4d6291a6625b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80639933"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828192"
 ---
 # <a name="plan-your-wsus-deployment"></a>Planifier votre déploiement WSUS
 
@@ -218,7 +217,7 @@ WSUS (Windows Server Update Services) utilise deux types de systèmes de stockag
 Les mises à jour sont constituées de deux parties : les métadonnées qui décrivent la mise à jour et les fichiers requis pour installer la mise à jour. Les métadonnées de mise à jour sont généralement beaucoup plus petites que la mise à jour réelle et elles sont stockées dans la base de données WSUS. Les fichiers de mise à jour sont stockés sur un serveur WSUS local ou sur un serveur Web Microsoft Update.
 
 ### <a name="wsus-database"></a>Base de données WSUS
-WSUS requiert une base de données pour chaque serveur WSUS. WSUS prend en charge l’utilisation d’une base de données qui se trouve sur un ordinateur différent du serveur WSUS, avec quelques restrictions. Pour obtenir une liste des bases de données prises en charge et des limitations de bases de données distantes, voir la section « 1.1 Passer en revue les considérations initiales et la configuration requise » dans ce guide.
+WSUS requiert une base de données pour chaque serveur WSUS. WSUS prend en charge l’utilisation d’une base de données qui se trouve sur un ordinateur différent du serveur WSUS, avec quelques restrictions. Pour obtenir la liste des bases de données prises en charge et des limitations de bases de données distantes, consultez la section 1.1 Passer en revue les considérations initiales et la configuration requise dans ce guide.
 
 La base de données WSUS stocke les informations suivantes :
 

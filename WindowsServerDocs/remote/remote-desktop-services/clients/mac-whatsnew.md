@@ -1,30 +1,56 @@
 ---
 title: Nouveautés du client macOS
 description: En savoir plus sur les dernières modifications apportées au client Bureau à distance pour Mac
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 01/06/2020
+ms.date: 04/08/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: ef2a9966da7046a14fb1d9d4562f0ef9b1a09a45
-ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
+ms.openlocfilehash: c378d8c4a87b6aa0cf4f6b4f30f3bd5524dbb7a9
+ms.sourcegitcommit: f95d0e6904b103fc30dcae13e9199e138c287e2b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75919857"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80980851"
 ---
 # <a name="whats-new-in-the-macos-client"></a>Nouveautés du client macOS
 
 Nous mettons régulièrement à jour le [client Bureau à distance pour macOS](remote-desktop-mac.md), en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Vous y trouverez les dernières mises à jour.
 
 Si vous rencontrez des problèmes, vous pouvez toujours nous contacter en sélectionnant **Aide** > **Signaler un problème**.
+
+## <a name="updates-for-version-1039"></a>Mises à jour pour la version 10.3.9
+
+*Date de publication : 06/04/20*
+
+Dans cette version, nous avons apporté des modifications pour améliorer l’interopérabilité avec le [service Bureau virtuel Windows](https://azure.microsoft.com/services/virtual-desktop/). En outre, nous avons inclus les mises à jour suivantes :
+
+- Ctrl + Option + Suppr déclenche maintenant la séquence Ctrl + Alt + Suppr (qui nécessitait auparavant que l’utilisateur appuie sur la touche Fn).
+- Correction du modèle de couleurs des notifications en mode clavier pour le mode Clair.
+- Scénarios dans lesquels les connexions lancées à l’aide de la propriété de fichier RDP GatewayAccessToken ne fonctionnaient pas.
+
+>[!NOTE]
+>Il s’agit de la dernière version qui sera compatible avec macOS 10.12.
+
+## <a name="updates-for-version-1038"></a>Mises à jour pour la version 10.3.8
+
+*Date de publication : 12/02/20*
+
+Voici notre première version de l’année 2020 !
+
+Avec cette mise à jour, vous pouvez basculer entre les modes Scancode (Ctrl + Commande + K) et Unicode (Ctrl + Commande + U) lors d’une entrée clavier. Le mode Unicode permet de taper des caractères étendus à l’aide de la touche Option sur un clavier Mac. Par exemple, sur un clavier QWERTY US Mac, Option + 2 permet d’entrer le symbole de marque déposée (&trade;). Vous pouvez également entrer des caractères accentués en mode Unicode. Par exemple, sur un clavier QWERTY US, si vous appuyez sur Option + E et la touche « A » simultanément, vous entrez le caractère « á » dans votre session à distance.
+
+Les autres mises à jour de cette version sont les suivantes :
+
+- Nettoyage de l’expérience d’actualisation et de l’interface utilisateur de l’espace de travail.
+- Correction d’un problème de redirection de carte à puce qui entraînait le blocage de la session à distance au niveau de l’écran de connexion lorsque le message « Vérification de l’état » s’affichait.
+- Réduction du temps de création des fichiers temporaires utilisés pour le copier-coller des fichiers placés dans le Presse-papiers.
+- Les fichiers temporaires utilisés pour le copier-coller des fichiers du Presse-papiers sont désormais automatiquement supprimés lorsque vous quittez l’application. Il ne revient donc plus à macOS de les supprimer.
+- Les actions de signet du PC sont désormais affichées en haut à droite des miniatures.
+- Correction de problèmes signalés concernant les données de télémétrie des plantages.
 
 ## <a name="updates-for-version-1037"></a>Mises à jour pour la version 10.3.7
 
@@ -259,7 +285,7 @@ Quelques semaines se sont écoulées depuis notre dernière mise à jour, mais n
 
 *Date de publication : 06/08/2018*
 
-- Connectivité activée pour les PC joints à Azure Active Directory (AAD). Pour vous connecter à un PC joint à AAD, votre nom d’utilisateur doit être dans l’un des formats suivants : « AzureAD\user » ou « AzureAD\user@domain ».
+- Connectivité activée pour les PC joints à Azure Active Directory (AAD). Pour vous connecter à un PC joint à AAD, votre nom d’utilisateur doit être dans l’un des formats suivants : « AzureAD\user » ou « AzureAD\user@domain ».
 - Traitement de certains bogues qui affectaient l’utilisation de cartes à puce dans une session distante.
 
 ## <a name="updates-for-version-1020"></a>Mises à jour pour la version 10.2.0
@@ -310,7 +336,7 @@ Quelques semaines se sont écoulées depuis notre dernière mise à jour, mais n
 - Vous pouvez maintenant démarrer une connexion en appuyant sur ENTRÉE sur une vignette du bureau.
 - Lorsque vous êtes en mode plein écran, CMD + M est maintenant correctement mappé à WIN + M.
 - Les fenêtres À propos de, Préférences et Centre de connexion réagissent désormais à CMD+M.
-- Vous pouvez maintenant commencer la détection des flux en appuyant sur ENTRÉE sur la page **Adding Remote Resources** (Ajout des ressources distantes).
+- Vous pouvez maintenant commencer la détection des flux en appuyant sur ENTRÉE dans la page **Adding Remote Resources* (Ajout des ressources distantes).
 - Correction d’un problème où un nouveau flux de ressources distantes apparaissait comme étant vide dans le centre de connexion après l’actualisation.
 
 ## <a name="updates-for-version-1016"></a>Mises à jour pour la version 10.1.6

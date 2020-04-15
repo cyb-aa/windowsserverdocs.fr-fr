@@ -7,15 +7,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 04/17/2019
 ms.topic: article
-ms.custom: it-pro
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 48d93f515a5f3e5f8ce2c3ff9a1b40f300ca57ed
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: a1041bdc189238c7da32896e6f867f730e392d24
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265741"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814429"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur AD FS
 
@@ -105,7 +104,7 @@ Pour vous assurer que vos serveurs AD FS et WAP négocient uniquement les suites
 
 ## <a name="developer"></a>Développeur
 
-### <a name="when-generating-an-id_token-with-adfs-for-a-user-authenticated-against-ad-how-is-the-sub-claim-generated-in-the-id_token"></a>Lors de la génération d’un id_token avec AD FS pour un utilisateur authentifié auprès d’AD, comment la revendication « sub » est-elle générée dans l’id_token ?
+### <a name="when-generating-an-id_token-with-adfs-for-a-user-authenticated-against-ad-how-is-the-sub-claim-generated-in-the-id_token"></a>Lors de la génération d’un id_token avec AD FS pour un utilisateur authentifié auprès d’AD, comment la revendication « sub » est-elle générée dans l’id_token ?
 La valeur de la revendication « sub » est le hachage de la valeur de l’ID client et de la revendication d’ancrage.
 
 ### <a name="what-is-the-lifetime-of-the-refresh-tokenaccess-token-when-the-user-logs-in-via-a-remote-claims-provider-trust-over-ws-fedsaml-p"></a>Quelle est la durée de vie du jeton d’actualisation/jeton d’accès quand l’utilisateur se connecte par le biais d’une approbation de fournisseur de revendications distante sur WS-Fed/SAML-P ?
@@ -232,14 +231,14 @@ Cet événement concerne généralement un accès aux ressources non valide sur 
 
 ### <a name="why-am-i-seeing-a-warning-for-failure-to-add-the-ad-fs-service-account-to-the-enterprise-key-admins-group"></a>Pourquoi je reçois un avertissement indiquant l’échec de l’ajout du compte de service AD FS au groupe Administrateurs clés Enterprise ?
 Ce groupe est créé uniquement quand il existe un contrôleur de domaine Windows 2016 détenant le rôle de contrôleur de domaine principal FSMO dans le domaine. Pour résoudre l’erreur, vous pouvez créer le groupe manuellement et suivre les instructions ci-dessous pour accorder l’autorisation requise après avoir ajouté le compte de service en tant que membre du groupe.
-1.  Ouvrez **Utilisateurs et ordinateurs Active Directory**.
-2.  **Cliquez avec le bouton droit** sur votre nom de domaine dans le volet de navigation, puis cliquez sur **Propriétés**.
-3.  **Cliquez** sur Sécurité (si l’onglet Sécurité est manquant, activez les fonctionnalités avancées dans le menu Affichage).
-4.  **Cliquez** sur Paramètres avancés. **Cliquez** sur Ajouter. **Cliquez** sur Sélectionnez un principal.
-5.  La boîte de dialogue Sélectionner un utilisateur, un ordinateur, un compte de service ou un groupe s’ouvre.  Dans la zone de texte Entrez le nom de l’objet à sélectionner, tapez Administrateurs clés Enterprise.  Cliquez sur OK.
-6.  Dans la zone de liste S’applique à, sélectionnez **Objets utilisateur descendants**.
-7.  À l’aide de la barre de défilement, effectuez un défilement vers le bas de la page, puis **cliquez** sur Effacer tout.
-8.  Dans la section **Propriétés**, sélectionnez **Read msDS-KeyCredentialLink** et **Write msDS-KeyCredentialLink**.
+1.    Ouvrez **Utilisateurs et ordinateurs Active Directory**.
+2.    **Cliquez avec le bouton droit** sur votre nom de domaine dans le volet de navigation, puis cliquez sur **Propriétés**.
+3.    **Cliquez** sur Sécurité (si l’onglet Sécurité est manquant, activez les fonctionnalités avancées dans le menu Affichage).
+4.    **Cliquez** sur Paramètres avancés. **Cliquez** sur Ajouter. **Cliquez** sur Sélectionnez un principal.
+5.    La boîte de dialogue Sélectionner un utilisateur, un ordinateur, un compte de service ou un groupe s’ouvre.  Dans la zone de texte Entrez le nom de l’objet à sélectionner, tapez Administrateurs clés Enterprise.  Cliquez sur OK.
+6.    Dans la zone de liste S’applique à, sélectionnez **Objets utilisateur descendants**.
+7.    À l’aide de la barre de défilement, effectuez un défilement vers le bas de la page, puis **cliquez** sur Effacer tout.
+8.    Dans la section **Propriétés**, sélectionnez **Read msDS-KeyCredentialLink** et **Write msDS-KeyCredentialLink**.
 
 ### <a name="why-does-modern-authentication-from-android-devices-fail-if-the-server-does-not-send-all-the-intermediate-certificates-in-the-chain-with-the-ssl-cert"></a>Pourquoi l’authentification moderne des appareils Android échoue si le serveur n’envoie pas tous les certificats intermédiaires de la chaîne avec le certificat SSL ?
 

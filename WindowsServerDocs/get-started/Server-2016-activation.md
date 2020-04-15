@@ -1,25 +1,21 @@
 ---
 title: Activation de Microsoft Windows Server
 description: Comment activer Windows Server 2016.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 09/19/2018
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 99f7daa4-30ce-4d13-be65-0a45d5cc7a54
 author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 1354d89ba2c9169b302dca10ae52bad34ef80b43
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: fd9ea63785e8de313d2177113a466fa67c17410b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947762"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826642"
 ---
 # <a name="windows-server-2016-activation"></a>Activation de Windows Server 2016
 
@@ -37,9 +33,9 @@ Le tableau suivant récapitule la configuration requise par le client et l’hô
 
 |Groupe de clés de produit|Hébergement de KMS sur|Éditions de Windows activées par cet hôte KMS|  
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|  
-|Licence en volume pour Windows Server 2016|Windows Server 2012<br /><br />Windows Server 2012 R2<br /><br />Windows Server 2016<br /><br />|Canal semi-annuel Windows Server <br><br>Windows Server 2016 (toutes éditions)<br /><br />Windows 10 LTSB (2015 et 2016)<br /><br />Windows 10 Professionnel<br /><br />Windows 10 Entreprise<br /><br />Windows 10 Professionnel pour les Stations de travail<br><br>Windows 10 Éducation<br><br>Windows Server 2012 R2 (toutes éditions)<br /><br />Windows 8.1 Professionnel<br /><br />Windows 8.1 Enterprise<br /><br />Windows Server 2012 (toutes éditions)<br /><br />Windows Server 2008 R2 (toutes éditions)<br /><br />Windows Server 2008 (toutes éditions)<br /><br />Windows 7 Professionnel<br /><br />Windows 7 Entreprise| 
-|Licence en volume pour Windows 10|Windows 7<br /><br />Windows 8.1<br /><br /> Windows 10|Windows 10 Professionnel<br /><br /> Windows 10 Professionnel N<br /><br /> Windows 10 Entreprise<br /><br /> Windows 10 Entreprise N<br /><br /> Windows 10 Éducation<br /><br /> Windows 10 Éducation N<br /><br /> Windows 10 Entreprise LTSB (2015)<br /><br /> Windows 10 Entreprise LTSB N (2015)<br /><br /> Windows 10 Professionnel pour les Stations de travail<br><br>Windows 8.1 Professionnel<br /><br /> Windows 8.1 Enterprise<br /><br /> Windows 7 Professionnel<br /><br /> Windows 7 Entreprise<br /><br />|  
-|Licence en volume pour « Windows Server 2012 R2 pour Windows 10 »|Windows Server 2008 R2<br /><br /> Windows Server 2012 Standard<br /><br /> Windows Server 2012 Datacenter<br /><br /> Windows Server 2012 R2 Standard<br /><br />Windows Server 2012 R2 Datacenter|Windows 10 Professionnel<br /><br /> Windows 10 Entreprise<br /><br />Windows 10 Entreprise LTSB (2015)<br><br>Windows 10 Professionnel pour les Stations de travail<br><br>Windows 10 Éducation<br><br> Windows Server 2012 R2 (toutes éditions)<br /><br /> Windows 8.1 Professionnel<br /><br /> Windows 8.1 Enterprise<br /><br /> Windows Server 2012 (toutes éditions)<br /><br /> Windows Server 2008 R2 (toutes éditions)<br /><br />Windows Server 2008 (toutes éditions)<br /><br /> Windows 7 Professionnel<br /><br /> Windows 7 Entreprise|
+|Licence en volume pour Windows Server 2016|Windows Server 2012<p>Windows Server 2012 R2<p>Windows Server 2016<p>|Canal semi-annuel Windows Server <br><br>Windows Server 2016 (toutes éditions)<p>Windows 10 LTSB (2015 et 2016)<p>Windows 10 Professionnel<p>Windows 10 Entreprise<p>Windows 10 Professionnel pour les Stations de travail<br><br>Windows 10 Éducation<br><br>Windows Server 2012 R2 (toutes éditions)<p>Windows 8.1 Professionnel<p>Windows 8.1 Enterprise<p>Windows Server 2012 (toutes éditions)<p>Windows Server 2008 R2 (toutes éditions)<p>Windows Server 2008 (toutes éditions)<p>Windows 7 Professionnel<p>Windows 7 Entreprise| 
+|Licence en volume pour Windows 10|Windows 7<p>Windows 8.1<p> Windows 10|Windows 10 Professionnel<p> Windows 10 Professionnel N<p> Windows 10 Entreprise<p> Windows 10 Entreprise N<p> Windows 10 Éducation<p> Windows 10 Éducation N<p> Windows 10 Entreprise LTSB (2015)<p> Windows 10 Entreprise LTSB N (2015)<p> Windows 10 Professionnel pour les Stations de travail<br><br>Windows 8.1 Professionnel<p> Windows 8.1 Enterprise<p> Windows 7 Professionnel<p> Windows 7 Entreprise<p>|  
+|Licence en volume pour Windows Server 2012 R2 pour Windows 10|Windows Server 2008 R2<p> Windows Server 2012 Standard<p> Windows Server 2012 Datacenter<p> Windows Server 2012 R2 Standard<p>Windows Server 2012 R2 Datacenter|Windows 10 Professionnel<p> Windows 10 Entreprise<p>Windows 10 Entreprise LTSB (2015)<br><br>Windows 10 Professionnel pour les Stations de travail<br><br>Windows 10 Éducation<br><br> Windows Server 2012 R2 (toutes éditions)<p> Windows 8.1 Professionnel<p> Windows 8.1 Enterprise<p> Windows Server 2012 (toutes éditions)<p> Windows Server 2008 R2 (toutes éditions)<p>Windows Server 2008 (toutes éditions)<p> Windows 7 Professionnel<p> Windows 7 Entreprise|
 
 > [!NOTE]  
 > En fonction du système d’exploitation que votre serveur KMS exécute et des systèmes d’exploitation que vous souhaitez activer, il se peut que vous deviez installer une ou plusieurs de ces mises à jour :

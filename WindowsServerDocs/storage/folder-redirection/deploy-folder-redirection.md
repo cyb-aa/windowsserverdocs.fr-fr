@@ -1,5 +1,5 @@
 ---
-title: Déployer la redirection de dossiers avec Fichiers hors connexion
+title: Déployer la redirection de dossiers avec la redirection de dossiers FilesDeploy hors connexion et des fichiers hors connexion
 description: Découvrez comment utiliser Windows Server pour déployer la redirection de dossiers avec Fichiers hors connexion sur des ordinateurs clients Windows.
 ms.prod: windows-server
 ms.topic: article
@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 6d8f6bf0df67b76028945403352bd135e6641a5a
-ms.sourcegitcommit: ab3967d71dcbb962079af194875de58e7c32c4e2
+ms.openlocfilehash: e8e6e5a29c75c117f6faa3c1d1b3f288582d81a2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76967420"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855882"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Déployer la redirection de dossiers avec Fichiers hors connexion
 
@@ -30,7 +30,7 @@ Pour obtenir la liste des modifications récentes apportées à cette rubrique, 
 
 ### <a name="hardware-requirements"></a>Configuration matérielle requise
 
-La redirection de dossiers nécessite un ordinateur x64 ou x86. Elle n’est pas prise en charge par Windows® RT.
+La redirection de dossiers nécessite un ordinateur x64 ou x86. Elle n’est pas prise en charge par Windows&reg; RT.
 
 ### <a name="software-requirements"></a>Configuration logicielle requise
 
@@ -99,7 +99,7 @@ Voici comment créer un partage de fichiers sur Windows Server 2019, Windows Se
 | System     | Contrôle total        |    Ce dossier, ses sous-dossiers et ses fichiers     |
 | Administrateurs     | Contrôle total       | Ce dossier uniquement        |
 | Propriétaire créateur     |   Contrôle total      |   Sous-dossiers et fichiers uniquement      |
-| Groupe de sécurité des utilisateurs devant placer des données sur le partage (Utilisateurs de la redirection de dossiers)     |   Lister le dossier / Lire les données *(Autorisations avancées)* <br /><br />Créer les dossiers / Ajouter les données *(Autorisations avancées)* <br /><br />Lire les attributs *(Autorisations avancées)* <br /><br />Lire les attributs étendus *(Autorisations avancées)* <br /><br />Autorisations de lecture *(Autorisations avancées)*      |  Ce dossier uniquement       |
+| Groupe de sécurité des utilisateurs devant placer des données sur le partage (Utilisateurs de la redirection de dossiers)     |   Lister le dossier / Lire les données *(Autorisations avancées)* <p>Créer les dossiers / Ajouter les données *(Autorisations avancées)* <p>Lire les attributs *(Autorisations avancées)* <p>Lire les attributs étendus *(Autorisations avancées)* <p>Autorisations de lecture *(Autorisations avancées)*      |  Ce dossier uniquement       |
 | Autres groupes et comptes     |  Aucun (supprimer)       |         |
 
 ## <a name="step-3-create-a-gpo-for-folder-redirection"></a>Étape 3 : Créer un objet de stratégie de groupe pour la redirection de dossiers

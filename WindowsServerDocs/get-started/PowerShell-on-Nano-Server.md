@@ -2,21 +2,19 @@
 title: PowerShell sur Nano Server
 description: Différences dans l’ensemble réduit de fonctionnalités PowerShell sur Nano Server
 ms.prod: windows-server
-ms.service: na
 manager: DonGill
 ms.technology: server-nano
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9b25b939-1e2c-4bed-a8d3-2a8e8e46b53d
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 1105ba9f4415061b25d0655d3f2d56929dbbdfec
-ms.sourcegitcommit: 5b055fc1d73375f68149c214152f1d63396dd6ca
+ms.openlocfilehash: 4879ae58c24596d64d24b6bece54d4c35837f00f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76248395"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826762"
 ---
 # <a name="powershell-on-nano-server"></a>PowerShell sur Nano Server
 
@@ -67,7 +65,7 @@ CompatiblePSEditions Property   System.Collections.Generic.IEnumerable[string] C
 ```
 Lors de l’obtention de la liste des modules disponibles, vous pouvez filtrer cette liste par édition de PowerShell.
 ```powershell
-Get-Module -ListAvailable | ? CompatiblePSEditions -Contains "Desktop"
+Get-Module -ListAvailable | ? CompatiblePSEditions -Contains Desktop
 
     Directory: C:\Program Files\WindowsPowerShell\Modules
 
@@ -76,21 +74,21 @@ ModuleType Version    Name                                ExportedCommands
 ---------- -------    ----                                ----------------
 Manifest   1.0        ModuleWithPSEditions
 
-Get-Module -ListAvailable | ? CompatiblePSEditions -Contains "Core" | % CompatiblePSEditions
+Get-Module -ListAvailable | ? CompatiblePSEditions -Contains Core | % CompatiblePSEditions
 Desktop
 Core
 
 ```
 Les auteurs de scripts peuvent empêcher un script de s’exécuter sur les éditions non compatibles de PowerShell en utilisant le paramètre PSEdition dans une instruction #requires.
 ```powershell
-Set-Content C:\script.ps1 -Value "#requires -PSEdition Core
-Get-Process -Name PowerShell"
+Set-Content C:\script.ps1 -Value #requires -PSEdition Core
+Get-Process -Name PowerShell
 Get-Content C:\script.ps1
 #requires -PSEdition Core
 Get-Process -Name PowerShell
 
 C:\script.ps1
-C:\script.ps1 : The script 'script.ps1' cannot be run because it contained a "#requires" statement for PowerShell editions 'Core'. The edition of PowerShell that is required by the script does not match the currently running PowerShell Desktop edition.
+C:\script.ps1 : The script 'script.ps1' cannot be run because it contained a #requires statement for PowerShell editions 'Core'. The edition of PowerShell that is required by the script does not match the currently running PowerShell Desktop edition.
 At line:1 char:1
 + C:\script.ps1
 + ~~~~~~~~~~~~~
@@ -104,9 +102,9 @@ Nano Server inclut PowerShell Core par défaut dans toutes les installations. Po
 
 **Fonctionnalités Windows PowerShell non disponibles dans Nano Server**
 * Adaptateurs de type ADSI, ADO et WMI
-* Enable-PSRemoting, Disable-PSRemoting (la communication à distance PowerShell est activée par défaut ; voir la section « Utilisation de la communication à distance Windows PowerShell » dans [Installer Nano Server](Getting-Started-with-Nano-Server.md)).
+* Enable-PSRemoting, Disable-PSRemoting (la communication à distance PowerShell est activée par défaut. Voir la section Utilisation de la communication à distance Windows PowerShell dans [Installer Nano Server](Getting-Started-with-Nano-Server.md)).
 * Tâches planifiées et module PSScheduledJob
-* Applets de commande Computer pour la jonction à un domaine {Add | Remove} (pour connaître les autres méthodes pour joindre Nano Server à un domaine, voir la section « Jonction de Nano Server à un domaine » dans [Installer Nano Server](Getting-Started-with-Nano-Server.md)).
+* Applets de commande Computer pour la jonction à un domaine {Add | Remove} (pour connaître les autres méthodes pour joindre Nano Server à un domaine, voir la section Jonction de Nano Server à un domaine dans [Installer Nano Server](Getting-Started-with-Nano-Server.md)).
 * Reset-ComputerMachinePassword, Test-ComputerSecureChannel
 * Profils (vous pouvez ajouter un script de démarrage pour les connexions à distance entrantes avec `Set-PSSessionConfiguration`)
 * Applets de commande de Presse-papiers
