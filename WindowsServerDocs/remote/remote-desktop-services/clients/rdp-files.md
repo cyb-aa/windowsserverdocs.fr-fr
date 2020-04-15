@@ -1,28 +1,24 @@
 ---
 title: Paramètres pris en charge du fichier RDP du Bureau à distance
 description: Découvrez les paramètres du fichier RDP pour Bureau à distance
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
-author: btaintor
-manager: dongill
+author: heidilohr
+manager: lizross
 ms.author: helohr
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 6a596bcd29fdb80f8b2b0fa86ee808755dd09f43
-ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
+ms.openlocfilehash: 6af7559f1d74f2af38579ee357507bd1207f63b2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77125091"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855912"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>Paramètres pris en charge du fichier RDP du Bureau à distance
 
-Le tableau suivant contient la liste des paramètres du fichier RDP pris en charge et que vous pouvez utiliser avec les clients Windows et HTML. (Un « x » dans la colonne de plateforme indique que le paramètre est pris en charge. Toutefois, cette liste n’est pas une liste complète des paramètres pris en charge pour les clients Windows et HTML5. Nous continuerons à mettre à jour ce tableau pour inclure plus de paramètres RDP pris en charge pour les clients Windows et HTML5, ainsi que les clients macOS, iOS et Android.
+Le tableau suivant contient la liste des paramètres du fichier RDP pris en charge et que vous pouvez utiliser avec les clients Windows et HTML. Un « x » dans la colonne de plateforme indique que le paramètre est pris en charge. Toutefois, cette liste n’est pas une liste complète des paramètres pris en charge pour les clients Windows et HTML5. Nous continuerons à mettre à jour ce tableau pour inclure plus de paramètres RDP pris en charge pour les clients Windows et HTML5, ainsi que les clients macOS, iOS et Android.
 
 Consultez [cette documentation](https://go.microsoft.com/fwlink/?linkid=2098243&clcid=0x409) qui décrit comment utiliser PowerShell pour personnaliser les propriétés RDP d’un pool hôte.
 

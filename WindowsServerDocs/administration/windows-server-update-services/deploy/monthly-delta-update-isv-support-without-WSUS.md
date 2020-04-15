@@ -2,21 +2,18 @@
 title: Prise en charge par les ISV de la mise à jour delta mensuelle sans WSUS
 description: 'Rubrique Windows Server Update Service (WSUS) : comment des éditeurs de logiciels indépendants (ISV) peuvent-ils utiliser temporairement la mise à jour delta mensuelle au lieu de la distribution des mises à jour Express WSUS pour réduire la taille des packages'
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: get-started article
 author: sakitong
 ms.author: coreyp
 manager: dougkim
 ms.date: 10/16/2017
-ms.openlocfilehash: 4607827d73c34f50f721a2774fa498eb95f9dbb8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3ccddd3bfd55ae340dc5273905bb475e7d2cb98a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361733"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828742"
 ---
 # <a name="monthly-delta-update-isv-support-without-wsus"></a>Prise en charge par les ISV de la mise à jour delta mensuelle sans WSUS
 
@@ -39,7 +36,7 @@ La mise à jour delta mensuelle est une nouveauté et une solution provisoire po
 >[!IMPORTANT]
 >**La mise à jour Delta est disponible pour la maintenance de Windows 10, version 1607 (mise à jour anniversaire), version 1703 (Creators Update) et version 1709 (Fall Creators Update).** Pour les mises en production postérieures à la version 1709, vous devez implémenter une infrastructure de déploiement qui prend en charge la [distribution de mises à jour](express-update-delivery-ISV-support.md) pour continuer à profiter des mises à jour incrémentielles.
 
-Avec un mise à jour delta mensuelle, les packages ne contiennent que les mises à jour d’un mois. Une mise à jour cumulative mensuelle contient toutes les mises à jour jusqu’à cette mise en production de mise à jour. Elle produit ainsi un fichier volumineux dont la taille augmente chaque mois. Les mises à jour Delta et mensuelles sont publiées le deuxième mardi de chaque mois. On les appelle aussi « mises à jour du mardi ». Le tableau suivant compare les mises à jour delta et cumulatives :
+Avec un mise à jour delta mensuelle, les packages ne contiennent que les mises à jour d’un mois. Une mise à jour cumulative mensuelle contient toutes les mises à jour jusqu’à cette mise en production de mise à jour. Elle produit ainsi un fichier volumineux dont la taille augmente chaque mois. Les mises à jour Delta et mensuelles sont publiées le deuxième mardi de chaque mois. On les appelle aussi « Update Tuesday ». Le tableau suivant compare les mises à jour delta et cumulatives :
 
 |                    | Mise à jour **delta** mensuelle                                                                                                                                                                                                       | Mise à jour **cumulative** mensuelle                                                                                                                                                                                             |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

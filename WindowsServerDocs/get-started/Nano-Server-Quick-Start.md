@@ -2,28 +2,26 @@
 title: Démarrage rapide de Nano Server
 description: Étapes pour déployer rapidement un serveur Nano Server de base sur des machines virtuelles ou physiques
 ms.prod: windows-server
-ms.service: na
 manager: DonGill
 ms.technology: server-nano
 ms.date: 09/05/2017
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 5de589d9da1c7d4fc9eb116e6ea1f6a326d1ad7c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7729b853f2e54c7f99d428fcb821a68d7a22aef0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391721"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826812"
 ---
 # <a name="nano-server-quick-start"></a>Démarrage rapide de Nano Server
 
->S'applique à : Windows Server 2016
+>S'applique à : Windows Server 2016
 
 > [!IMPORTANT]
-> À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image de système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Modifications apportées à Nano Server](nano-in-semi-annual-channel.md). 
+> À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image de système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Changements apportés à Nano Server](nano-in-semi-annual-channel.md). 
 
 Suivez les étapes décrites dans cette section pour effectuer rapidement un déploiement de base de Nano Server, en utilisant DHCP pour obtenir une adresse IP. Vous pouvez exécuter un disque dur virtuel Nano Server dans une machine virtuelle ou le démarrer sur un ordinateur physique. La procédure est légèrement différente.
 
@@ -53,7 +51,7 @@ Suivez ces étapes pour créer un disque dur virtuel Nano Server qui s’exécut
   
    -   **Computer_name** indique le nom d’ordinateur attribué à la machine virtuelle Nano Server que vous créez.  
   
-   **Exemple :** `New-NanoServerImage -Edition Standard -DeploymentType Guest -MediaPath f:\ -BasePath .\Base -TargetPath .\Nano1\Nano.vhd -ComputerName Nano1`  
+   **Exemple :**  `New-NanoServerImage -Edition Standard -DeploymentType Guest -MediaPath f:\ -BasePath .\Base -TargetPath .\Nano1\Nano.vhd -ComputerName Nano1`  
   
    Cet exemple crée un disque dur virtuel à partir d’un fichier ISO monté sur f:\\. Lors de sa création, le disque dur virtuel utilisera un dossier appelé Base situé dans le même répertoire que celui où vous avez exécuté New-NanoServerImage. Il placera le fichier VHD (nommé Nano.vhd) dans le sous-dossier Nano1 du dossier à partir duquel la commande est exécutée. Le nom d’ordinateur sera Nano1. Le disque dur virtuel obtenu contiendra l’édition Standard de Windows Server 2016 et autorisera le déploiement de machines virtuelles Hyper-V. Si vous souhaitez une machine virtuelle de génération 1, créez une image VHD en spécifiant une extension **.vhd** dans -TargetPath. Si vous souhaitez une machine virtuelle de génération 2, créez une image VHDX en spécifiant une extension **.vhdx** dans -TargetPath. Vous pouvez générer directement un fichier WIM en spécifiant une extension **.wim** dans -TargetPath.  
   
@@ -64,7 +62,7 @@ Suivez ces étapes pour créer un disque dur virtuel Nano Server qui s’exécut
   
 5. Démarrez la machine virtuelle puis, dans le Gestionnaire Hyper-V, connectez-vous à la machine virtuelle.  
   
-6. Ouvrez une session sur la Console de récupération (consultez la section « Console de récupération de Nano Server » dans ce guide), en utilisant le nom d’administrateur et le mot de passe fournis lors de l’exécution du script à l’étape 3.  
+6. Ouvrez une session sur la Console de récupération (consultez la section Console de récupération de Nano Server dans ce guide), en utilisant le nom d’administrateur et le mot de passe fournis lors de l’exécution du script à l’étape 3.  
    > [!NOTE]  
    > La Console de récupération ne prend en charge que les fonctions de base du clavier. Les voyants du clavier, le pavé numérique et les touches de changement de la disposition du clavier, comme Verr Maj et Verr Num, ne sont pas pris en charge.
   
@@ -72,7 +70,7 @@ Suivez ces étapes pour créer un disque dur virtuel Nano Server qui s’exécut
   
 **Nano Server sur un ordinateur physique**  
   
-Vous pouvez également créer un disque dur virtuel qui exécutera Nano Server sur un ordinateur physique, à l’aide des pilotes de périphérique préinstallés. Si votre matériel requiert un pilote non fourni pour démarrer ou pour vous connecter à un réseau, suivez la procédure décrite dans la section « Ajout de pilotes supplémentaires » de ce guide.  
+Vous pouvez également créer un disque dur virtuel qui exécutera Nano Server sur un ordinateur physique, à l’aide des pilotes de périphérique préinstallés. Si votre matériel nécessite un pilote non fourni pour démarrer ou pour vous connecter à un réseau, suivez la procédure décrite dans la section Ajout de pilotes supplémentaires de ce guide.  
   
 ## <a name="to-quickly-deploy-nano-server-on-a-physical-computer"></a>Pour déployer rapidement Nano Server sur un ordinateur physique  
   
@@ -81,7 +79,7 @@ Vous pouvez également créer un disque dur virtuel qui exécutera Nano Server s
 2.  Démarrez Windows PowerShell en tant qu'administrateur, accédez au répertoire où vous avez placé le dossier NanoServerImageGenerator, puis importez le module avec `Import-Module .\NanoServerImageGenerator -Verbose`  
   
 >[!NOTE]  
->Il se peut que vous deviez modifier la stratégie d’exécution de Windows PowerShell. `Set-ExecutionPolicy RemoteSigned` devrait bien fonctionner.  
+>Il se peut que vous deviez modifier la stratégie d’exécution de Windows PowerShell. `Set-ExecutionPolicy RemoteSigned` devrait fonctionner.  
   
 3. Créez un disque dur virtuel qui définit un nom d’ordinateur et comprend les pilotes OEM ainsi que Hyper-V, en exécutant la commande suivante qui vous demandera un mot de passe d’administrateur pour le nouveau disque dur virtuel :  
   
@@ -111,8 +109,8 @@ Vous pouvez également créer un disque dur virtuel qui exécutera Nano Server s
   
 6. Démarrez l’ordinateur physique dans le disque dur virtuel Nano Server.  
   
-7. Ouvrez une session sur la Console de récupération (consultez la section « Console de récupération de Nano Server » dans ce guide), en utilisant le nom d’administrateur et le mot de passe fournis lors de l’exécution du script à l’étape 3.
+7. Ouvrez une session sur la Console de récupération (consultez la section Console de récupération de Nano Server dans ce guide), en utilisant le nom d’administrateur et le mot de passe fournis lors de l’exécution du script à l’étape 3.
    > [!NOTE]  
-   > La Console de récupération ne prend en charge que les fonctions de base du clavier. Les voyants du clavier, le pavé numérique et les touches de changement de la disposition du clavier, comme Verr. maj. et Verr. num., ne sont pas pris en charge. 
+   > La Console de récupération ne prend en charge que les fonctions de base du clavier. Les voyants du clavier, le pavé numérique et les touches de changement de la disposition du clavier, comme Verr Maj et Verr Num, ne sont pas pris en charge. 
   
 8. Obtenez l’adresse IP de l’ordinateur Nano Server et utilisez l’accès distant Windows PowerShell ou un autre outil d’administration à distance pour vous connecter à la machine virtuelle et la gérer à distance.  

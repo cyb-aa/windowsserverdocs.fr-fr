@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble des mises à niveau de Windows Server | Microsoft Docs
 description: Découvrez des informations générales sur la mise à niveau de Windows Server ainsi que les éléments à prendre en compte avant de procéder à la mise à niveau réelle.
-ms.prod: windows server
+ms.prod: windows-server
 ms.technology: server-general
 ms.topic: upgrade
 author: RobHindman
 ms.author: robhind
 ms.date: 09/10/2019
-ms.openlocfilehash: 6f57e52657ca3c80c92d56c54ea87e43aabd1e99
-ms.sourcegitcommit: 27f0caf74e88781054250455c3c1adf06deb6234
+ms.openlocfilehash: 1ac4cbe8b9bda4ac2de2c7ad7ec27b1534c0de72
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124789"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854232"
 ---
 # <a name="overview-about-windows-server-upgrades"></a>Vue d’ensemble des mises à niveau de Windows Server
 
@@ -42,3 +42,4 @@ Nous savons cependant que ce n’est pas toujours possible. Vous pouvez utiliser
 Windows Server peut généralement être mis à niveau via au moins une version, et parfois même deux versions. Par exemple, Windows Server 2012 R2 et Windows Server 2016 peuvent être mis à niveau sur place vers Windows Server 2019.
 
 Vous pouvez aussi effectuer une mise à niveau à partir d’une version d’évaluation du système d’exploitation vers une version commercialisée, d’une version commercialisée plus ancienne vers une version plus récente ou, dans certains cas, d’une édition de licence en volume du système d’exploitation vers une version commercialisée ordinaire. Pour plus d’informations sur les options de mise à niveau autres que la mise à niveau sur place, consultez [Options de mise à niveau et de conversion pour Windows Server](../get-started/supported-upgrade-paths.md).
+""

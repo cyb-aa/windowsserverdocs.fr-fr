@@ -4,38 +4,37 @@ description: Comment obtenir et effectuer une installation minimale sur Windows 
 ms.prod: windows-server
 ms.date: 05/21/2019
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2d22818c-fbb7-487a-bb82-81ef0a3f7ede
 author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: e6264a59a837003e49e82529750cfb153cc37b92
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 13d36c233094511216483f0fb37dc6a004212a50
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360339"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826972"
 ---
 # <a name="install-server-core"></a>Installation minimale de Windows Server
 
-> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (Canal semi-annuel)
+> S'applique à : Windows Server 2019, Windows Server 2016, Windows Server (Canal semi-annuel)
   
 Lorsque vous installez Windows Server pour la première fois, vous disposez des options d’installation suivantes :
 
 >[!NOTE]
-> Dans la liste suivante, les éditions sans « Expérience de bureau » sont les options d’installation minimale
+> Dans la liste suivante, les éditions sans Expérience de bureau sont les options d’installation minimale
 
--   Windows Server Standard
--   Windows Server Standard avec Expérience de bureau
--   Windows Server Datacenter
--   Windows Server Datacenter avec Expérience de bureau
+-    Windows Server Standard
+-    Windows Server Standard avec Expérience de bureau
+-    Windows Server Datacenter
+-    Windows Server Datacenter avec Expérience de bureau
 
 Lorsque vous installez Windows Server (canal semi-annuel), vous disposez des options d’installation suivantes :
 
--   Windows Server Standard 
--   Windows Server Datacenter
+-    Windows Server Standard 
+-    Windows Server Datacenter
 
 L’option d’installation minimale requiert moins d’espace disque et réduit la surface exposée aux attaques. Pour toutes ces raisons, nous vous recommandons de choisir l’installation minimale si vous n’avez pas besoin d’utiliser les éléments d’interface utilisateur et les outils de gestion graphiques que l’option Serveur avec Expérience de bureau fournit en plus. Si vous pensez avoir besoin des éléments d’interface utilisateur supplémentaires, voir [Installer un serveur avec Expérience de bureau](Getting-Started-with-Server-with-Desktop-Experience.md). 
 
@@ -47,7 +46,7 @@ Avec l’option d’installation minimale, l’interface utilisateur standard (c
 
 **Interface utilisateur :** invite de commandes
 
-**Installation, configuration et désinstallation des rôles serveur en local :** à une invite de commandes avec Windows PowerShell.
+**Installation, configuration et désinstallation des rôles serveur en local :** à une invite de commandes avec Windows PowerShell.
 
 **Installation, configuration et désinstallation des rôles serveur à distance à partir d’un ordinateur client Windows (ou un serveur avec Expérience de bureau installé :** les Outils d’administration de serveur distant (RSAT), Windows PowerShell ou Windows Admin Center.
 
@@ -58,8 +57,8 @@ Avec l’option d’installation minimale, l’interface utilisateur standard (c
 
 **Exemple de rôles serveur disponibles :**
 
-- Services de certificats Active Directory
-- Services de domaine Active Directory
+- Services de certificats Active Directory
+- Services de domaine Active Directory
 - Serveur DHCP
 - Serveur DNS
 - Services de fichiers (dont le Gestionnaire de ressources du serveur de fichiers)
@@ -74,7 +73,7 @@ Avec l’option d’installation minimale, l’interface utilisateur standard (c
    - Service Broker pour les connexions des services Bureau à distance
    - Licences
    - Virtualisation
-   - Services d'activation en volume
+   - Services d’activation en volume
 
 Pour les rôles ne figurant pas dans l’installation minimale, consultez [Rôles, services de rôle et fonctionnalités non inclus dans Windows Server - Installation minimale](../administration/server-core/server-core-removed-roles.md).
 

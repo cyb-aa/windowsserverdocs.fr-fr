@@ -1,25 +1,21 @@
 ---
 title: Recommandations pour le passage à Windows Server 2016
 description: Recommandations pour le passage à Windows Server 2016.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 10/18/2016
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 74aa1da3-7076-4a1f-ad5b-9e17bd46dba2
 author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: be63880e8a07e71aa6811f3a6979eb6e2fcd8eba
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 6b02a3caa0db2a66307754ebd95865d8ba10ef4f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947806"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826752"
 ---
 # <a name="recommendations-for-moving-to-windows-server-2016"></a>Recommandations pour le passage à Windows Server 2016
 
@@ -33,7 +29,7 @@ ms.locfileid: "75947806"
 |**Charges de travail d’applications d’éditeurs de logiciels indépendants**|- Les mises à niveau vers Windows Server 2016 doivent utiliser des instructions spécifiques à l’application. <br>- Pour plus d’informations sur la compatibilité de Windows Server avec des applications autres que Microsoft, rendez-vous sur le [portail de certification du logo Windows Server](https://msdn.microsoft.com/enterprisecloudcertified).|- Pour tirer parti des nouvelles fonctionnalités de Windows Server 2016, déployez un nouveau matériel ou installez Windows Server 2016 dans une machine virtuelle sur un hôte existant. Certaines nouvelles fonctionnalités fonctionnent mieux sur un hôte physique Windows Server 2016 exécutant Hyper-V. Suivez les guides de migration le cas échéant. <br>- Vous pouvez également rester sur votre système d’exploitation actuel et utiliser une machine virtuelle en cours d’exécution sur un hôte Windows Server 2016 ou Microsoft Azure. Contactez votre revendeur Accord Entreprise, responsable technique de compte ou Microsoft pour connaître les options de support étendu via la [Software Assurance](https://www.microsoft.com/Licensing/licensing-programs/software-assurance-default.aspx).|
 |**Charges de travail d’applications personnalisées**|- Renseignez-vous auprès des développeurs d’applications sur la compatibilité avec Windows Server 2016 et demandez des instructions de mise à niveau. <br>- Tirez parti de Microsoft Azure pour tester l’application sur Windows Server 2016 avant de basculer. <br>- Examinez l’ensemble des options dans la section suivante.|- Renseignez-vous auprès des développeurs d’applications sur la compatibilité avec Windows Server 2016 et demandez des instructions de mise à niveau. <br>- Tirez parti de Microsoft Azure pour tester votre application sur Windows Server 2016 avant de basculer. <br>- Pour tirer parti des nouvelles fonctionnalités de Windows Server 2016, déployez un nouveau matériel ou installez Windows Server 2016 dans une machine virtuelle sur un hôte existant. Certaines nouvelles fonctionnalités fonctionnent mieux sur un hôte physique Windows Server 2016 exécutant Hyper-V. <br>- Examinez l’ensemble des options dans la section suivante.|
 
-## <a name="complete-options-for-moving-servers-running-custom-or-in-house-applications-on-older-versions-of-windows-server-to-windows-server-2016"></a>Ensemble des options pour la migration des serveurs exécutant des applications personnalisées ou « internes » sur des anciennes versions de Windows Server vers Windows Server 2016
+## <a name="complete-options-for-moving-servers-running-custom-or-in-house-applications-on-older-versions-of-windows-server-to-windows-server-2016"></a>Ensemble des options pour la migration des serveurs exécutant des applications personnalisées ou internes sur des anciennes versions de Windows Server vers Windows Server 2016
 
 Il existe plus d’options que jamais pour aider vos clients et vous-même à tirer parti des fonctionnalités de Windows Server 2016, avec un impact minimal sur les charges de travail et les services actifs.
 
