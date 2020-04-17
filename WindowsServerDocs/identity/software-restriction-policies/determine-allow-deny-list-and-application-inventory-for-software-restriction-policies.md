@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 7609ebb0fdcb6d429cd40d99399eaaedb732df08
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c0fdb5c1d7c4b03610a173c6cd0575d39646a7d0
+ms.sourcegitcommit: af1cf89632d62a94943d3ad9f6b5234b88499278
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855092"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81524904"
 ---
 # <a name="determine-allow-deny-list-and-application-inventory-for-software-restriction-policies"></a>Déterminer la liste d’autorisation/exclusion et l’inventaire des applications pour les stratégies de restriction logicielle
 
@@ -48,9 +48,9 @@ Pour utiliser efficacement la règle autoriser les valeurs par défaut, vous dev
 
 2.  Créez la valeur de Registre suivante pour activer la fonctionnalité de journalisation avancée et définir le chemin d’accès à l’emplacement où le fichier journal doit être écrit.
 
-    **« HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\Windows\Safer\ CodeIdentifiers »**
+    **« HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\Windows\Safer\CodeIdentifiers »**
 
-    Valeur de chaîne : *chemin d’accès NameLogFile à NameLogFile*
+    Valeur de chaîne : *chemin LogFileName de LogFileName*
 
     Étant donné que le SRP évalue toutes les applications lors de son exécution, une entrée est écrite dans le fichier journal *NameLogFile* chaque fois que l’application est exécutée.
 
@@ -69,5 +69,4 @@ Pour utiliser efficacement la règle autoriser les valeurs par défaut, vous dev
     Exemple de sortie écrite dans un fichier journal :
 
 **Explorer. exe (PID = 4728) identifiedC : \ Windows\system32\onenote.exe en tant que règle usingpath non restreinte, Guid = {320bd852-aa7c-4674-82c5-9a80321670a3}**    Toutes les applications et le code associé que les stratégies de restriction logicielle (SRP) vérifient et configurent pour bloquer sont notés dans le fichier journal, que vous pouvez ensuite utiliser pour déterminer les exécutables à prendre en compte pour votre liste autorisée.
-
 
