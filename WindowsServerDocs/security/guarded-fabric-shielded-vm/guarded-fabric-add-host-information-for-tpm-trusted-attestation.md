@@ -22,7 +22,7 @@ ms.locfileid: "80856932"
 Pour le mode TPM, l’administrateur de l’infrastructure capture trois types d’informations de l’hôte, chacun d’entre eux devant être ajouté à la configuration SGH :
 
 - Un identificateur de module de plateforme sécurisée (EKpub) pour chaque hôte Hyper-V
-- Stratégies d’intégrité du code, liste blanche de fichiers binaires autorisés pour les hôtes Hyper-V
+- Stratégies d’intégrité du code, liste verte de fichiers binaires autorisés pour les hôtes Hyper-V
 - Une ligne de base TPM (mesures de démarrage) qui représente un ensemble d’ordinateurs hôtes Hyper-V qui s’exécutent sur la même classe de matériel
     
 AF er l’administrateur de l’infrastructure capture les informations, les ajoute à la configuration SGH, comme décrit dans la procédure suivante.

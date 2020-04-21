@@ -119,7 +119,7 @@ Vous allez effectuer les étapes suivantes pour configurer le déploiement RSA 
   
 2.  Ouvrez le dossier d’installation de C:\RSA et double-cliquez sur **Autorun. exe**.  
   
-3.  Cliquez sur **Installer maintenant**, cliquez sur **suivant**, sélectionnez l’option Top pour l’Amérique, puis cliquez sur **suivant**.  
+3.  Cliquez sur **Installer maintenant**, cliquez sur **suivant**, sélectionnez l’option Top pour les États-Unis, puis cliquez sur **suivant**.  
   
 4.  Sélectionnez **J’accepte les termes du contrat de licence**, puis cliquez sur **suivant**.  
   

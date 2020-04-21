@@ -67,11 +67,11 @@ Vous pouvez configurer les paramètres RRL pour contrôler la façon de répondr
   
 -   **Nombre maximal de réponses**. Il s’agit du nombre maximal de réponses que le serveur émettra à un client lorsque les réponses sont suspendues.  
   
--   **Domaines de liste blanche**. Il s’agit de la liste des domaines à exclure des paramètres RRL.  
+-   **Domaines de liste verte**. Il s’agit de la liste des domaines à exclure des paramètres RRL.  
   
 -   **Répertorier les sous-réseaux blancs**. Il s’agit de la liste des sous-réseaux à exclure des paramètres RRL.  
   
--   **Interfaces de serveur de liste blanche**. Il s’agit de la liste des interfaces de serveur DNS à exclure des paramètres RRL.  
+-   **Interfaces de serveur de liste verte**. Il s’agit de la liste des interfaces de serveur DNS à exclure des paramètres RRL.  
   
 ## <a name="dane-support"></a>Prise en charge de l’e
 

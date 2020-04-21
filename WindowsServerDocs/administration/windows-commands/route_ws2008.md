@@ -1,28 +1,24 @@
 ---
 title: route_ws2008
 description: Découvrez comment modifier et afficher des entrées dans la table de routage IP locale.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: afcd666c-0cef-47c2-9bcc-02d202b983b3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: cc68dd5634ae4832376924c1678dc10a0427f2b2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a0287fed8452cb155ea858ff0a544962dd765c3a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371421"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835602"
 ---
 # <a name="route_ws2008"></a>route_ws2008
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche et modifie les entrées dans la table de routage IP locale. Utilisé sans paramètres, **route** affiche l’aide.   
 
@@ -31,13 +27,13 @@ Affiche et modifie les entrées dans la table de routage IP locale. Utilisé san
 route [/f] [/p] [<Command> [<Destination>] [mask <Netmask>] [<Gateway>] [metric <Metric>]] [if <Interface>]]  
 ```  
 
-### <a name="parameters"></a>Paramètres  
+#### <a name="parameters"></a>Paramètres  
 
 |Paramètre|Description|  
 |-------|--------|  
-|/f|Efface la table de routage de toutes les entrées qui ne sont pas des itinéraires hôtes (itinéraires avec un masque réseau 255.255.255.255), l’itinéraire réseau de bouclage (itinéraires avec une destination de 127.0.0.0 et un masque réseau 255.0.0.0) ou un itinéraire de multidiffusion (itinéraires avec une destination de 224.0.0.0). et un masque réseau de 240.0.0.0). Si cette option est utilisée conjointement avec l’une des commandes (telles que Add, change ou Delete), la table est effacée avant l’exécution de la commande.|  
+|/f|Efface la table de routage de toutes les entrées qui ne sont pas des itinéraires hôtes (itinéraires avec un masque réseau 255.255.255.255), l’itinéraire réseau de bouclage (itinéraires avec une destination de 127.0.0.0 et un masque réseau 255.0.0.0), ou un itinéraire de multidiffusion (itinéraires avec une destination de 224.0.0.0 et un masque réseau de 240.0.0.0). Si cette option est utilisée conjointement avec l’une des commandes (telles que Add, change ou Delete), la table est effacée avant l’exécution de la commande.|  
 |/p|Lorsqu’il est utilisé avec la commande Add, l’itinéraire spécifié est ajouté au registre et est utilisé pour initialiser la table de routage IP chaque fois que le protocole TCP/IP est démarré. Par défaut, les itinéraires ajoutés ne sont pas conservés lorsque le protocole TCP/IP est démarré. Lorsqu’elle est utilisée avec la commande Imprimer, la liste des itinéraires persistants s’affiche. Ce paramètre est ignoré pour toutes les autres commandes. Les itinéraires persistants sont stockés à l’emplacement du Registre **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\tcpip\parameters\persistentroutes**.|  
-|> de commande \<|Spécifie la commande que vous souhaitez exécuter. Le tableau suivant répertorie les commandes valides :<br /><br />-   **Ajouter :** ajoute un itinéraire.<br />-   **modifier :** modifie un itinéraire existant.<br />-   **Delete :** supprime un itinéraire ou des itinéraires.<br />-   **Imprimer :** imprime un itinéraire ou des itinéraires.|  
+|> de commande \<|Spécifie la commande que vous souhaitez exécuter. Le tableau suivant répertorie les commandes valides :<p>-   **Ajouter :** ajoute un itinéraire.<br />-   **modifier :** modifie un itinéraire existant.<br />-   **Delete :** supprime un itinéraire ou des itinéraires.<br />-   **Imprimer :** imprime un itinéraire ou des itinéraires.|  
 |> de destination \<|Spécifie la destination réseau de l’itinéraire. La destination peut être une adresse réseau IP (où les bits d’hôte de l’adresse réseau sont définis sur 0), une adresse IP pour un itinéraire hôte ou 0.0.0.0 pour l’itinéraire par défaut.|  
 |masque \<réseau de masque >|Spécifie la destination réseau de l’itinéraire. La destination peut être une adresse réseau IP (où les bits d’hôte de l’adresse réseau sont définis sur 0), une adresse IP pour un itinéraire hôte ou 0.0.0.0 pour l’itinéraire par défaut.|  
 |> de la passerelle \<|Spécifie l’adresse IP de transfert ou de tronçon suivant sur laquelle le jeu d’adresses défini par la destination réseau et le masque de sous-réseau sont accessibles. Pour les itinéraires de sous-réseau attachés localement, l’adresse de la passerelle est l’adresse IP affectée à l’interface attachée au sous-réseau. Pour les itinéraires distants, disponibles sur un ou plusieurs routeurs, l’adresse de la passerelle est une adresse IP directement accessible qui est affectée à un routeur voisin.|  
@@ -45,7 +41,7 @@ route [/f] [/p] [<Command> [<Destination>] [mask <Netmask>] [<Gateway>] [metric 
 |Si \<interface >|Spécifie l’index d’interface pour l’interface sur laquelle la destination est accessible. Pour obtenir la liste des interfaces et leurs index d’interface correspondants, utilisez l’affichage de la commande route print. Vous pouvez utiliser des valeurs décimales ou hexadécimales pour l’index d’interface. Pour les valeurs hexadécimales, faites précéder le nombre hexadécimal de 0x. Lorsque le paramètre if est omis, l’interface est déterminée à partir de l’adresse de la passerelle.|  
 |/?|Affiche l'aide à l'invite de commandes.|  
 
-## <a name="remarks"></a>Notes  
+## <a name="remarks"></a>Remarks  
 - Les valeurs élevées de la colonne **métrique** de la table de routage sont le résultat de l’autorisation de TCP/IP à déterminer automatiquement la métrique des itinéraires dans la table de routage en fonction de la configuration de l’adresse IP, du masque de sous-réseau et de la passerelle par défaut pour chaque interface LAN. La détermination automatique de la métrique de l’interface, activée par défaut, détermine la vitesse de chaque interface et ajuste les métriques des itinéraires pour chaque interface afin que l’interface la plus rapide crée les itinéraires avec la métrique la plus faible. Pour supprimer les métriques volumineuses, désactivez la détermination automatique de la métrique de l’interface à partir des propriétés avancées du protocole TCP/IP pour chaque connexion LAN.  
 - Les noms peuvent être utilisés pour la *destination* s’il existe une entrée appropriée dans le fichier de réseaux locaux stocké dans le dossier <strong>systemroot\System32\Drivers\\</strong>etc. Les noms peuvent être utilisés pour la *passerelle* tant qu’ils peuvent être résolus en adresse IP par le biais de techniques de résolution de noms d’hôte standard, telles que les requêtes DNS (Domain Name System), l’utilisation du fichier hosts local stocké dans le dossier <strong>systemroot\System32\Drivers\\</strong>etc et la résolution de noms NetBIOS.  
 - Si la commande est **Print** ou **Delete**, le paramètre de la *passerelle* peut être omis et des caractères génériques peuvent être utilisés pour la destination et la passerelle. La valeur de *destination* peut être une valeur générique spécifiée par un astérisque (*). Si la destination spécifiée contient un astérisque (\*) ou un point d’interrogation ( ?), elle est traitée comme un caractère générique et seuls les itinéraires de destination correspondants sont imprimés ou supprimés. L’astérisque correspond à n’importe quelle chaîne et le point d’interrogation correspond à n’importe quel caractère unique. Par exemple, 10.\*. 1, 192,168.\*, 127.\*et \*224\* sont toutes des utilisations valides du caractère générique astérisque.  
@@ -53,7 +49,7 @@ route [/f] [/p] [<Command> [<Destination>] [mask <Netmask>] [<Gateway>] [metric 
 - Le paramètre **/p** est pris en charge uniquement sur la commande de routage pour windows NT 4,0, Windows 2000, Windows Millennium Edition, Windows XP et windows Server 2003. Ce paramètre n’est pas pris en charge par la commande de **routage** pour Windows 95 ou Windows 98.  
 - Cette commande est disponible uniquement si le protocole TCP/IP (Internet Protocol) est installé en tant que composant dans les propriétés d’une carte réseau dans connexions réseau.  
 
-## <a name="BKMK_Examples"></a>Illustre  
+## <a name="examples"></a><a name="BKMK_Examples"></a>Illustre  
 Pour afficher tout le contenu de la table de routage IP, tapez :  
 ```  
 route print  
@@ -96,4 +92,4 @@ route change 10.41.0.0 mask 255.255.0.0 10.27.0.25
 ```  
 
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
