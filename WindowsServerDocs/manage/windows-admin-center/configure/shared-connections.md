@@ -1,6 +1,6 @@
 ---
-title: Configurer des connexions partagées pour tous les utilisateurs de la passerelle du centre d’administration Windows
-description: Découvrez comment les administrateurs peuvent configurer la passerelle du centre d’administration Windows (Project Honolulu) une fois pour permettre à tous les utilisateurs de partager une seule liste de connexions.
+title: Configurer des connexions partagées pour tous les utilisateurs de la passerelle Windows Admin Center
+description: Découvrez comment les administrateurs peuvent configurer en une fois la passerelle Windows Admin Center (projet Honolulu) pour permettre à tous les utilisateurs de partager une liste de connexions.
 ms.technology: manage
 ms.topic: article
 author: haley-rowland
@@ -8,21 +8,21 @@ ms.author: harowl
 ms.date: 03/28/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: c632c178e91b92e0a80d8c72e8ea0ce3ce37b502
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.openlocfilehash: 943830a2743f7cfd3192a474eb36d57f734d3d34
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357288"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269306"
 ---
-# <a name="configure-shared-connections-for-all-users-of-the-windows-admin-center-gateway"></a>Configurer des connexions partagées pour tous les utilisateurs de la passerelle du centre d’administration Windows
+# <a name="configure-shared-connections-for-all-users-of-the-windows-admin-center-gateway"></a>Configurer des connexions partagées pour tous les utilisateurs de la passerelle Windows Admin Center
 
-> S'applique à : Centre d’administration Windows-version préliminaire, Centre d’administration Windows
+> S'applique à : Windows Admin Center Preview, Windows Admin Center
 
-Avec la possibilité de configurer des connexions partagées, les administrateurs de passerelle peuvent configurer la liste des connexions une seule fois pour tous les utilisateurs d’une passerelle du centre d’administration Windows donnée. 
+Pour les administrateurs de passerelle, la possibilité de configurer des connexions partagées signifie qu’ils peuvent configurer en une fois une liste de connexions pour tous les utilisateurs d’une passerelle Windows Admin Center donnée. Cette fonctionnalité est disponible uniquement dans le mode service de Windows Admin Center.
 
-À partir de l’onglet **connexions partagées** des paramètres de la passerelle du centre d’administration Windows, les administrateurs de passerelle peuvent ajouter des serveurs, des clusters et des connexions de PC comme vous le feriez à partir de la page toutes les connexions, y compris la possibilité de baliser les connexions. Toutes les connexions et toutes les balises ajoutées dans la liste des connexions partagées s’affichent pour tous les utilisateurs de cette passerelle du centre d’administration Windows, à partir de la page toutes les connexions.
+Dans les paramètres de la passerelle Windows Admin Center, l’onglet **Connexions partagées** permet aux administrateurs de passerelle d’ajouter des serveurs, des clusters et des connexions PC comme vous le feriez dans la page Toutes les connexions. Ils peuvent également étiqueter des connexions. Toutes les connexions et les étiquettes ajoutées dans la liste Connexions partagées apparaissent pour l’ensemble des utilisateurs de cette passerelle Windows Admin Center dans leur page Toutes les connexions.
     ![](../media/shared-cnxns-1.png)
 
-Quand un utilisateur du centre d’administration Windows accède à la page «toutes les connexions» après la configuration des connexions partagées, il voit ses connexions regroupées en deux sections: Connexions personnelles et partagées. Le groupe personnel est la liste des connexions d’un utilisateur spécifique et il est conservé dans les sessions du navigateur de cet utilisateur. Le groupe connexions partagées est le même pour tous les utilisateurs et ne peut pas être modifié à partir de la page toutes les connexions.
+Quand un utilisateur Windows Admin Center accède à la page « Toutes les connexions » après la configuration de connexions partagées, il voit ses connexions regroupées en deux sections : personnelles et partagées. Le groupe de connexions personnelles correspond à la liste de connexions d’un utilisateur spécifique. Il est conservé tout au long des sessions de cet utilisateur dans le navigateur. Le groupe de connexions partagées est le même pour tous les utilisateurs et ne peut pas être modifié dans la page Toutes les connexions.
 ![](../media/shared-cnxns-2.png)

@@ -7,14 +7,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 03/24/2020
+ms.date: 04/14/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 34f5fdb5a2826173edf471fd65248008761863dd
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 016a88999b93d686faff73134a660014fd602765
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80861412"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81279695"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Nouveautés du client Windows Desktop
 
@@ -27,7 +27,26 @@ Le client peut être configuré pour différents [groupes d’utilisateurs](wind
 |Groupe d’utilisateurs |Version  |
 |-----------|---------|
 |Public     |1.2.790  |
-|Insider    |1.2.790  |
+|Insider    |1.2.940  |
+
+## <a name="updates-for-version-12940"></a>Mises à jour pour la version 1.2.940
+
+*Date de publication : 14/04/2020*
+
+Télécharger²: [Windows 64 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4txZU), [Windows 32 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4txZV), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4tM6I)
+
+- Ajout de nouvelles options de paramètres d’affichage pour les connexions de bureau accessibles par clic droit sur une icône de bureau dans le centre de connexions.
+  - Trois options de configuration de l’affichage sont désormais disponibles : **Tous les affichages**, **Monoaffichage** et **Affichages spécifiques**.
+  - Désormais, nous présentons uniquement les paramètres disponibles quand une configuration d’affichage est sélectionnée.
+  - Dans le mode Affichages spécifiques, un nouvelle option **Agrandir sur les affichages actifs** vous permet de changer dynamiquement les affichages utilisés pour la session sans vous reconnecter. Quand cette option est activée, le fait d’agrandir une session la fait passer en mode plein écran sur tous les affichages touchés par la fenêtre de session.
+  - Nous avons ajouté une nouvelle option **Monoaffichage en mode fenêtré** pour les modes Tous les affichages et Affichages spécifiques. Cette option fait automatiquement passer votre session en mode monoaffichage quand vous quittez le mode plein écran, puis retourne automatiquement en mode multiaffichage quand vous agrandissez la fenêtre.
+- Nous avons ajouté un nouveau groupe **Paramètres d’affichage** au menu système que vous pouvez voir en cliquant avec le bouton droit sur la barre de titre d’une session ouverte en mode fenêtré. Vous pouvez ainsi changer des paramètres de manière dynamique durant une session. Par exemple, vous pouvez changer les nouveaux paramètres **Monoaffichage en mode fenêtré** et **Agrandir aux affichages actifs**.
+- Quand vous quittez le mode plein écran, la fenêtre de session revient à son emplacement d’origine (quand vous êtes entré dans ce mode).
+- Quand vous réinitialisez vos données utilisateur à partir de la page À propos de, le client n’est plus fermé au terme de l’opération. Vous êtes redirigé à la place vers le centre de connexions.
+- Résolution de certains problèmes d’accessibilité liés à la navigation par onglets et aux lecteurs d’écran.
+- Correction d’un problème de scintillement et de réduction se produisant lors du glissement d’une fenêtre de session ouverte entre des affichages avec des facteurs d’échelle différents.
+- Correction d’une erreur se produisant lors de la redirection des caméras.
+- Correction de plusieurs pannes pour améliorer la fiabilité.
 
 ## <a name="updates-for-version-12790"></a>Mises à jour relatives à la version 1.2.790
 

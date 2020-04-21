@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 12/02/2019
-ms.openlocfilehash: 503cd64cac0673829fe21bc15e8ad9d6a83bbb15
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: bd7ec8a5a072cbda99b036718d24ec1908fb8b53
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950514"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269246"
 ---
 # <a name="what-type-of-installation-is-right-for-you"></a>Quel type d’installation vous convient ?
 
@@ -50,7 +50,7 @@ Pour utiliser Windows Admin Center :
 
 Microsoft Edge (y compris [Microsoft Edge Insider](https://microsoftedgeinsider.com)) et Google Chrome sont testés et pris en charge sur Windows 10. D’autres navigateurs web, y compris Internet Explorer et Firefox, ne font pas actuellement partie de notre matrice de test et ne sont donc pas *officiellement* pris en charge. Ces navigateurs peuvent rencontrer des problèmes lors de l’exécution de Windows Admin Center. Par exemple, Firefox ayant son propre magasin de certificats, vous devez importer le certificat `Windows Admin Center Client` dans Firefox pour utiliser Windows Admin Center sur Windows 10. Pour plus d’informations, consultez [Problèmes connus propres au navigateur](../support/known-issues.md#browser-specific-issues).
 
-## <a name="management-target-supported-operating-systems"></a>Cible d’administration : systèmes d'exploitation pris en charge
+## <a name="management-target-supported-operating-systems"></a>Cible d’administration : Systèmes d'exploitation pris en charge
 
 Vous pouvez **administrer** les systèmes d’exploitation Windows suivants à l’aide de Windows Admin Center :
 
@@ -64,10 +64,9 @@ Vous pouvez **administrer** les systèmes d’exploitation Windows suivants à l
 | Windows Server 2012 R2 | Oui | Oui |
 | Microsoft Hyper-V Server 2012 R2 | Oui | Oui |
 | Windows Server 2012 | Oui | Oui |
-| Windows Server 2008 R2 | Oui, fonctionnalité limitée | NON APPLICABLE |
 
 > [!NOTE]
-> Windows Admin Center nécessite des fonctionnalités PowerShell qui ne sont pas incluses dans Windows Server 2008 R2, 2012 et 2012 R2. Si vous comptez gérer ces systèmes avec Windows Admin Center, vous devrez installer WMF (Windows Management Framework) version 5.1 ou ultérieure sur les serveurs concernés.
+> Windows Admin Center nécessite des fonctionnalités PowerShell qui ne sont pas incluses dans Windows Server 2012 et 2012 R2. Si vous comptez gérer ces systèmes avec Windows Admin Center, vous devrez installer WMF (Windows Management Framework) version 5.1 ou ultérieure sur les serveurs concernés.
 > 
 > Tapez `$PSVersiontable` dans PowerShell pour vérifier que WMF est installé, et que sa version est 5.1 ou ultérieure. 
 > 

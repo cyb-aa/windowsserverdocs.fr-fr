@@ -4,16 +4,16 @@ description: Informations de publication de Windows Server
 ms.prod: windows-server
 ms.technology: server-general
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 04/14/2020
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
-ms.openlocfilehash: 19911ceb52587a0897e7fde34bd4b95d375c13a8
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 455b5609c1409d7c01e464c51025042d3b0090c8
+ms.sourcegitcommit: 719b2ee1fe08429cb7929a201dd2816e861ec534
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80825842"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81385307"
 ---
 # <a name="windows-server-release-information"></a>Informations de publication de Windows Server
 
@@ -28,8 +28,11 @@ Le canal semi-annuel permet aux clients qui innovent rapidement de bénéficier 
 | Windows Server, version 1909 (canal semi-annuel) (Datacenter Core, Standard Core) | 1909  | 18363.418.191007-0143 | 12/11/2019 | 11/05/2021 | Note de révision |
 | Windows Server, version 1903 (canal semi-annuel) (Datacenter Core, Standard Core) | 1903  | 18362.30.190401-1528 | 21/05/2019 | 08/12/2020 | Note de révision |
 |Windows Server 2019 (canal de maintenance longue durée) (Datacenter, Essentials, Standard)|1809|17763.107.1010129-1455|13/11/2018|09/01/2024|09/01/2029|
-|Windows Server, version 1809 (canal semi-annuel) (Datacenter Core, Standard Core)|1809|17763.107.1010129-1455|13/11/2018|12/05/2020|Note de révision|
+|Windows Server, version 1809 (canal semi-annuel) (Datacenter Core, Standard Core)|1809|17763.107.1010129-1455|13/11/2018|10/11/2020|Note de révision|
 | Windows Server 2016 (canal de maintenance à long terme)| 1607 | 14393.0 | 15/10/2016 |11/01/2022| 11/01/2027|
 
-> [!NOTE]
+> [!IMPORTANT]
+> Fin de service pour Windows Server, la version 1809 a été retardée en raison de la crise sanitaire actuelle. Pour plus d’informations, consultez notre [article du service de support](https://support.microsoft.com/help/4557164).
+
+>[!NOTE]
 > Windows Server versions 1803 et ultérieures sont régis par la [politique moderne en matière de cycle de vie](https://support.microsoft.com/help/30881). Pour plus de détails concernant les conditions de maintenance et d’autres informations importantes, consultez [Cycle de vie de Windows : FAQ](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products) et [Comparaison des canaux de maintenance](../get-started-19/servicing-channels-19.md).

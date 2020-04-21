@@ -7,12 +7,12 @@ author: daniellee-msft
 ms.author: jol
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 7c1a70e36dfac9b23ded8f920ffcc8cccbfff023
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 2b8a9f5ebab22891b8b97c9c56bba3837cbb9371
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323581"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269296"
 ---
 # <a name="install-and-manage-extensions"></a>Installer et gérer des extensions
 
@@ -36,7 +36,7 @@ Windows Admin Center prend en charge plusieurs flux et vous pouvez afficher et g
 1. Cliquez sur le bouton **Paramètres** en haut à droite. Dans le volet gauche, cliquez sur **Extensions**.
 2. Dans le volet droit, cliquez sur l’onglet **Feeds** (Flux).
 3. Cliquez sur le bouton **Add** (Ajouter) pour ajouter un autre flux. Pour un flux NuGet, entrez l’URL du flux NuGet V2. L’administrateur ou le fournisseur de flux NuGet doit être en mesure de fournir les informations d’URL. Pour un partage de fichiers, entrez le chemin complet du partage de fichiers dans lequel les fichiers de package d’extension (.nupkg) sont stockés.
-4. Cliquez sur **Ajouter**. Si la passerelle doit s’exécuter en mode élevé pour effectuer cette modification, une invite d’élévation du contrôle de compte d’utilisateur s’affiche.
+4. Cliquez sur **Ajouter**. Si la passerelle doit s’exécuter en mode élevé pour effectuer cette modification, une invite d’élévation du contrôle de compte d’utilisateur s’affiche. Cette invite vous est uniquement présentée si vous exécutez Windows Admin Center en mode bureau.
 
 La liste **Extensions disponibles** affiche les extensions de tous les flux enregistrés. Vous pouvez vérifier le flux d’où provient chaque extension à l’aide de la colonne **flux du package**.
 

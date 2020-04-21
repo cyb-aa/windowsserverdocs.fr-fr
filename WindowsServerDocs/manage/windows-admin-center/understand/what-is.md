@@ -8,16 +8,16 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: 110e1442b6660c24dc1e3fd9649138390117ffd6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cb4e3ab2bf98a0c2d51483642fe5388e468dbbb4
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406814"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269266"
 ---
 # <a name="what-is-windows-admin-center"></a>Qu’est-ce que Windows Admin Center ?
 
-> S’applique à : Windows Admin Center, Windows Admin Center Preview
+> S'applique à : Windows Admin Center, Windows Admin Center Preview
 
 Windows Admin Center est un nouvel ensemble d’outils de gestion, basé sur un navigateur et déployé localement, qui vous permet d’administrer vos serveurs Windows, sans dépendance à Azure ni au cloud. Windows Admin Center vous donne un contrôle total sur tous les aspects de votre infrastructure de serveurs. Il s’avère particulièrement utile pour la gestion des serveurs sur les réseaux privés qui ne sont pas connectés à Internet.
 
@@ -27,7 +27,7 @@ Windows Admin Center est l’évolution moderne des outils de gestion « intégr
 
 ## <a name="how-does-windows-admin-center-work"></a>Comment fonctionne Windows Admin Center ?
 
-Windows Admin Center s’exécute dans un navigateur web et gère Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 10 etc., via la **passerelle Windows Admin Center** installée sur Windows Server ou Windows 10. La passerelle gère les serveurs à l’aide de Remote PowerShell et WMI sur WinRM. La passerelle est incluse dans Windows Admin Center dans un package .msi unique léger que vous pouvez [télécharger](https://aka.ms/windowsadmincenter).
+Windows Admin Center s’exécute dans un navigateur web et gère Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 10, etc. par le biais de la **passerelle Windows Admin Center** installée sur Windows Server ou Windows 10 joint à un domaine. La passerelle gère les serveurs à l’aide de Remote PowerShell et WMI sur WinRM. La passerelle est incluse dans Windows Admin Center dans un package .msi unique léger que vous pouvez [télécharger](https://aka.ms/windowsadmincenter).
 
 Lorsqu’elle est publiée dans DNS et qu’elle dispose d’un accès à travers les pare-feu d’entreprise correspondants, la passerelle Windows Admin Center vous permet de vous connecter en toute sécurité à vos serveurs et de les gérer depuis n’importe où avec Microsoft Edge ou Google Chrome.
 

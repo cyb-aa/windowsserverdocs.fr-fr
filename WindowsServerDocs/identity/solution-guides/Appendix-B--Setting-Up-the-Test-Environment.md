@@ -1,7 +1,6 @@
 ---
 ms.assetid: 82918181-525d-4e93-af96-957dac6aedb6
 title: Annexe B configuration de l’environnement de test
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: af045545826269630af9327480cda59093d219df
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5f529e6b0176b7ad416a728163b4ae9671040bf8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407145"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861282"
 ---
 # <a name="appendix-b-setting-up-the-test-environment"></a>Annexe B : configuration de l'environnement de test
 
@@ -22,7 +21,7 @@ ms.locfileid: "71407145"
 
 Cette rubrique décrit les étapes nécessaires pour créer un laboratoire de test du contrôle d'accès dynamique. Vous devez suivre les instructions dans l'ordre indiqué car de nombreux composants ont des dépendances.  
 
-## <a name="prerequisites"></a>Conditions préalables  
+## <a name="prerequisites"></a>Composants requis  
 **Configuration matérielle et logicielle requise**  
 
 Configuration requise pour la mise en place du laboratoire de test :  
@@ -68,13 +67,13 @@ Vous devez installer le rôle Hyper-V sur un ordinateur Windows Server 2008 R2 a
 
 2.  Dans la zone Résumé des rôles de la fenêtre principale du Gestionnaire de serveur, cliquez sur **Ajouter des rôles**.  
 
-3.  Dans la page **Sélectionner des rôles de serveurs** , cliquez sur **Hyper-V**.  
+3.  Dans la page **Sélectionner des rôles de serveurs**, cliquez sur **Hyper-V**.  
 
-4.  Dans la page **Créer des réseaux virtuels** , cliquez sur une ou plusieurs cartes réseau si vous souhaitez que leur connexion réseau soit accessible aux ordinateurs virtuels.  
+4.  Dans la page **Créer des réseaux virtuels**, cliquez sur une ou plusieurs cartes réseau si vous souhaitez que leur connexion réseau soit accessible aux ordinateurs virtuels.  
 
-5.  Dans la page **Confirmer les sélections pour l’installation** , cliquez sur **Installer**.  
+5.  Dans la page **Confirmer les sélections pour l'installation**, cliquez sur **Installer**.  
 
-6.  Vous devez redémarrer l'ordinateur pour terminer l'installation. Cliquez sur **Fermer** pour terminer l'Assistant, puis sur **Oui** pour redémarrer l'ordinateur.  
+6.  L'ordinateur doit être redémarré pour terminer l'installation. Cliquez sur **Fermer** pour terminer l'Assistant, puis sur **Oui** pour redémarrer l'ordinateur.  
 
 7.  Après avoir redémarré l'ordinateur, ouvrez une session avec le même compte que celui utilisé pour installer le rôle. Une fois que l'Assistant Reprise de la configuration a terminé l'installation, cliquez sur **Fermer** pour terminer l'Assistant.  
 
@@ -85,7 +84,7 @@ Vous allez maintenant créer un réseau virtuel interne nommé ID_AD_Network.
 
 1.  Ouvrez le Gestionnaire Hyper-V.  
 
-2.  Dans le menu **Actions** , cliquez sur **Gestionnaire de réseau virtuel**.  
+2.  Dans le menu **Actions**, cliquez sur **Gestionnaire de réseau virtuel**.  
 
 3.  Sous **Créer un réseau virtuel**, sélectionnez **Interne**.  
 
@@ -104,21 +103,21 @@ Créez un ordinateur virtuel qui servira de contrôleur de domaine (DC1). Instal
 
 2. Dans le Gestionnaire de serveur, cliquez sur **Gérer**, puis sur **Ajouter des rôles et des fonctionnalités**.  
 
-3. Sur la page **Before you begin**, cliquez sur **Next**.  
+3. Dans la page **Avant de commencer**, cliquez sur **Suivant**.  
 
 4. Dans la page **Sélectionner le type d'installation**, cliquez sur **Installation basée sur un rôle ou une fonctionnalité**, puis sur **Suivant**.  
 
 5. Dans la page **Sélectionner le serveur de destination**, cliquez sur **Suivant**.  
 
-6. Dans la page **Sélectionner des rôles de serveurs** , cliquez sur **Services de domaine Active Directory**. Dans la boîte de dialogue **Assistant Ajout de rôles et de fonctionnalités**, cliquez sur **Ajouter des fonctionnalités**, puis sur **Suivant**.  
+6. Dans la page **Sélectionner des rôles de serveurs**, cliquez sur **Services de domaine Active Directory**. Dans la boîte de dialogue **Assistant Ajout de rôles et de fonctionnalités**, cliquez sur **Ajouter des fonctionnalités**, puis sur **Suivant**.  
 
-7. Dans la page **Sélectionner les fonctionnalités** , cliquez sur **Suivant**.  
+7. Dans la page **Sélectionner les fonctionnalités**, cliquez sur **Suivant**.  
 
 8. Dans la page **Services de domaine Active Directory**, examinez les informations, puis cliquez sur **Suivant**.  
 
 9. Dans la page **Confirmer les sélections d’installation** , cliquez sur **Installer**. La barre de progression Installation de fonctionnalité de la page Résultats indique que le rôle est en cours d'installation.  
 
-10. Dans la page **Résultats** , vérifiez que l'installation a réussi, puis cliquez sur **Fermer**. Dans le Gestionnaire de serveur, cliquez sur l'icône d'avertissement avec un point d'exclamation qui se trouve en haut à droite de l'écran, à côté de **Gérer**. Dans la liste Tâches, cliquez sur le lien **Promouvoir ce serveur en contrôleur de domaine** .  
+10. Dans la page **Résultats**, vérifiez que l'installation a réussi, puis cliquez sur **Fermer**. Dans le Gestionnaire de serveur, cliquez sur l'icône d'avertissement avec un point d'exclamation qui se trouve en haut à droite de l'écran, à côté de **Gérer**. Dans la liste Tâches, cliquez sur le lien **Promouvoir ce serveur en contrôleur de domaine**.  
 
 11. Dans la page **Configuration du déploiement**, cliquez sur **Ajouter une nouvelle forêt**, tapez le nom du domaine racine, **contoso.com**, puis cliquez sur **Suivant**.  
 
@@ -164,7 +163,7 @@ Créez les utilisateurs suivants à l'aide du Centre d'administration Active Dir
 4. Créez les utilisateurs suivants avec les attributs indiqués :  
 
 
-   |       Utilisateur       |  Nom d'utilisateur  |     Adresse électronique      | Service |      Group       | Pays/région |
+   |       Utilisateur       |  Nom d'utilisateur  |     Adresse électronique      | Service |      Groupe       | Country/Region |
    |------------------|------------|------------------------|------------|------------------|----------------|
    | Myriam Delesalle | MDelesalle | MDelesalle@contoso.com |  Finance   |                  |       US       |
    |    Miles Reid    |   MReid    |   MReid@contoso.com    |  Finance   |   FinanceAdmin   |       US       |
@@ -213,7 +212,7 @@ Créez les utilisateurs suivants à l'aide du Centre d'administration Active Dir
 
 1.  Dans le Gestionnaire de serveur, cliquez sur **Ajouter des rôles et fonctionnalités**.  
 
-2.  Sur la page **Before you begin**, cliquez sur **Next**.  
+2.  Dans la page **Avant de commencer**, cliquez sur **Suivant**.  
 
 3.  Dans la page **Sélectionner le type d'installation**, cliquez sur **Suivant**.  
 
@@ -223,11 +222,11 @@ Créez les utilisateurs suivants à l'aide du Centre d'administration Active Dir
 
     Dans l'Assistant Ajout de rôles et de fonctionnalités, cliquez sur **Ajouter des fonctionnalités**, puis sur **Suivant**.  
 
-6.  Dans la page **Sélectionner les fonctionnalités** , cliquez sur **Suivant**.  
+6.  Dans la page **Sélectionner les fonctionnalités**, cliquez sur **Suivant**.  
 
 7.  Dans la page **Confirmer les sélections d’installation** , cliquez sur **Installer**.  
 
-8.  Dans la page **Progression de l'installation** , cliquez sur **Fermer**.  
+8.  Dans la page **Progression de l'installation**, cliquez sur **Fermer**.  
 
 #### <a name="install-the-microsoft-office-filter-packs-on-the-file-server"></a>Installer les Filter Packs de Microsoft Office sur le serveur de fichiers  
 Vous devez installer les packs de filtre Microsoft Office sur Windows Server 2012 pour activer les IFilters pour une plus grande variété de fichiers Office que ceux fournis par défaut.  Windows Server 2012 ne contient pas de IFilters pour les fichiers Microsoft Office installés par défaut, et l’infrastructure de classification des fichiers utilise des IFilters pour effectuer l’analyse du contenu.  
@@ -243,7 +242,7 @@ Quand vous créez des quotas et des filtres de fichiers, vous pouvez envoyer des
 
 2. Dans l'interface du Gestionnaire de ressources du serveur de fichiers, cliquez avec le bouton droit sur **Gestionnaire de ressources du serveur de fichiers**, puis cliquez sur **Configurer les options**. La boîte de dialogue **Options du Gestionnaire de ressources du serveur de fichiers** s'affiche.  
 
-3. Sous l'onglet **Notifications par courrier électronique** , sous Nom ou adresse IP du serveur SMTP, tapez le nom d'hôte ou l'adresse IP du serveur SMTP qui transfèrera les notifications par courrier électronique.  
+3. Sous l'onglet **Notifications par courrier électronique**, sous Nom ou adresse IP du serveur SMTP, tapez le nom d'hôte ou l'adresse IP du serveur SMTP qui transfèrera les notifications par courrier électronique.  
 
 4. Si vous souhaitez avertir régulièrement certains administrateurs d’événements de quota ou de filtrage de fichiers, sous **destinataires de l’administrateur par défaut**, tapez chaque adresse de messagerie, par exemple fileadmin@contoso.com. Utilisez le format account@domainet utilisez des points-virgules pour séparer plusieurs comptes.  
 
@@ -263,7 +262,7 @@ Quand vous créez des quotas et des filtres de fichiers, vous pouvez envoyer des
 
     -   **Finance Memo.docx**: Ajoutez du texte de nature financière dans le document. Par exemple, «les règles d’entreprise relatives aux personnes qui peuvent accéder aux documents financiers ont changé. Ces documents sont désormais accessibles uniquement aux membres du groupe FinanceExpert. Aucun autre service ou groupe n’y a accès.» Vous devez évaluer l'impact de ce changement avant de l'implémenter dans l'environnement. Assurez-vous que ce document comporte la mention CONFIDENTIEL CONTOSO dans le pied de page de chaque page.  
 
-    -   **Request for Approval to Hire.docx**: créez un formulaire dans ce document pour recueillir les informations relatives aux postulants à un emploi. Ce document doit comporter les champs suivants : **Nom du postulant, Numéro de sécurité sociale, Emploi, Salaire proposé, Date de début, Nom du responsable, Service**. Ajoutez une section supplémentaire au document qui comporte un formulaire pour **Signature du responsable, Salaire approuvé, Confirmation de l'offre**et **Statut de l'offre**.   
+    -   **Request for Approval to Hire.docx**: créez un formulaire dans ce document pour recueillir les informations relatives aux postulants à un emploi. Ce document doit comporter les champs suivants : **Nom du postulant, Numéro de sécurité sociale, Emploi, Salaire proposé, Date de début, Nom du responsable, Service**. Ajoutez une section supplémentaire au document qui comporte un formulaire pour **Signature du responsable, Salaire approuvé, Confirmation de l'offre** et **Statut de l'offre**.   
         Activez le document pour la gestion des droits.  
 
     -   **Word Document1.docx**: ajoutez du contenu test à ce document.  
@@ -294,15 +293,15 @@ Ajoutez les services AD RMS et toutes les fonctionnalités nécessaires à l'aid
 
 2. Dans le Gestionnaire de serveur, cliquez sur **Ajouter des rôles et fonctionnalités**. L’Assistant Ajout de rôles et de fonctionnalités apparaît.  
 
-3. Dans l'écran **Avant de commencer** , cliquez sur **Suivant**.  
+3. Dans l'écran **Avant de commencer**, cliquez sur **Suivant**.  
 
 4. Dans l'écran **Sélectionner le type d'installation**, cliquez sur **Installation basée sur un rôle ou une fonctionnalité**, puis sur **Suivant**.  
 
 5. Dans l'écran **Sélectionner les serveurs cibles**, cliquez sur **Suivant**.  
 
-6. Dans l'écran **Sélectionner des rôles de serveurs** , cochez la case **Services AD RMS (Active Directory Rights Management Services)** , puis cliquez sur **Suivant**.  
+6. Dans l'écran **Sélectionner des rôles de serveurs**, cochez la case **Services AD RMS (Active Directory Rights Management Services)** , puis cliquez sur **Suivant**.  
 
-7. Dans la boîte de dialogue **Ajouter les fonctionnalités requises pour Services AD RMS (Active Directory Rights Management Services) ?** , cliquez sur **Ajouter des fonctionnalités**.  
+7. Dans la boîte de dialogue **Ajouter les fonctionnalités requises pour Services AD RMS (Active Directory Rights Management Services) ?** , cliquez sur **Ajouter des fonctionnalités**.  
 
 8. Dans l'écran **Sélectionner des rôles de serveurs**, cliquez sur **Suivant**.  
 
@@ -310,13 +309,13 @@ Ajoutez les services AD RMS et toutes les fonctionnalités nécessaires à l'aid
 
 10. Dans l'écran **Services AD RMS (Active Directory Rights Management Services)** , cliquez sur Suivant.  
 
-11. Dans l'écran **Sélectionner des services de rôle** , cliquez sur **Suivant**.  
+11. Dans l'écran **Sélectionner des services de rôle**, cliquez sur **Suivant**.  
 
-12. Dans l’écran **Serveur Web (IIS)** , cliquez sur **Suivant**.  
+12. Dans l'écran **Serveur Web (IIS)** , cliquez sur **Suivant**.  
 
-13. Dans l'écran **Sélectionner des services de rôle** , cliquez sur **Suivant**.  
+13. Dans l'écran **Sélectionner des services de rôle**, cliquez sur **Suivant**.  
 
-14. Dans l'écran **Confirmer les sélections d'installation** , cliquez sur **Installer**.  
+14. Dans l'écran **Confirmer les sélections d'installation**, cliquez sur **Installer**.  
 
 15. Une fois l'installation terminée, dans l'écran **Progression de l'installation**, cliquez sur **Effectuer une configuration supplémentaire**. L'Assistant Configuration des services AD RMS s'affiche.  
 
@@ -324,7 +323,7 @@ Ajoutez les services AD RMS et toutes les fonctionnalités nécessaires à l'aid
 
 17. Dans l'écran **Cluster AD RMS**, sélectionnez **Créer un nouveau cluster racine AD RMS**, puis cliquez sur **Suivant**.  
 
-18. Dans l'écran **Base de données de configuration** , cliquez sur **Utiliser la base de données interne de Windows sur ce serveur**, puis cliquez sur **Suivant**.  
+18. Dans l'écran **Base de données de configuration**, cliquez sur **Utiliser la base de données interne de Windows sur ce serveur**, puis cliquez sur **Suivant**.  
 
     > [!NOTE]  
     > L'utilisation de la base de données interne de Windows est recommandée pour les environnements de test uniquement, car elle ne prend pas en charge plus d'un serveur dans le cluster AD RMS. Les déploiements de production doivent utiliser un serveur de bases de données distinct.  
@@ -333,11 +332,11 @@ Ajoutez les services AD RMS et toutes les fonctionnalités nécessaires à l'aid
 
 20. Dans l'écran **Mode de chiffrement**, cliquez sur **Mode de chiffrement 2**.  
 
-21. Dans l'écran **Stockage de clé de cluster** , cliquez sur **Suivant**.  
+21. Dans l'écran **Stockage de clé de cluster**, cliquez sur **Suivant**.  
 
 22. Dans l’écran mot de passe de la **clé de cluster** , dans les zones **mot de** passe et confirmer le **mot de passe** , tapez <strong>pass@word1</strong>, puis cliquez sur **suivant**.  
 
-23. Dans l'écran **Site Web de cluster** , vérifiez que **Site Web par défaut** est sélectionné, puis cliquez sur **Suivant**.  
+23. Dans l'écran **Site Web de cluster**, vérifiez que **Site Web par défaut** est sélectionné, puis cliquez sur **Suivant**.  
 
 24. Dans l'écran **Adresse du cluster**, sélectionnez l'option **Utiliser une connexion non chiffrée**, dans la zone **Nom de domaine complet**, tapez **FILE1.contoso.com**, puis cliquez sur **Suivant**.  
 
@@ -353,7 +352,7 @@ Ajoutez les services AD RMS et toutes les fonctionnalités nécessaires à l'aid
 
     Pour ouvrir la console AD RMS, dans le Gestionnaire de serveur, cliquez sur **Serveur local** dans l'arborescence de la console, cliquez sur **Outils**, puis sur **Services AD RMS (Active Directory Rights Management Services)** .  
 
-30. Cliquez sur **Créer un modèle de stratégie de droits distribué** dans le panneau de droite, cliquez sur **Ajouter**et sélectionnez les informations suivantes :  
+30. Cliquez sur **Créer un modèle de stratégie de droits distribué** dans le panneau de droite, cliquez sur **Ajouter** et sélectionnez les informations suivantes :  
 
     -   Language (Langue) : Anglais (US)  
 
@@ -548,7 +547,7 @@ Configurez Microsoft Exchange Server sur cet ordinateur. Pour plus d’informati
 
 1.  Ouvrez l'Éditeur du Registre et accédez à **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer**.  
 
-    -   Affectez à **EnableShellExecuteFileStreamCheck** la valeur **1**.  
+    -   Affectez la valeur **1** à **EnableShellExecuteFileStreamCheck**.  
 
     -   Valeur : DWORD  
 
@@ -575,21 +574,21 @@ Configurez Microsoft Exchange Server sur cet ordinateur. Pour plus d’informati
 
 2. Dans le Gestionnaire de serveur, cliquez sur **Gérer**, puis sur **Ajouter des rôles et des fonctionnalités**.  
 
-3. Sur la page **Before you begin**, cliquez sur **Next**.  
+3. Dans la page **Avant de commencer**, cliquez sur **Suivant**.  
 
 4. Dans la page **Sélectionner le type d'installation**, cliquez sur **Installation basée sur un rôle ou une fonctionnalité**, puis sur **Suivant**.  
 
-5. Dans la page **Sélectionner le serveur de destination** , cliquez sur **Sélectionner un serveur du pool de serveurs**, cliquez sur le nom du serveur où vous voulez installer les services AD DS, puis cliquez sur **Suivant**.  
+5. Dans la page **Sélectionner le serveur de destination**, cliquez sur **Sélectionner un serveur du pool de serveurs**, cliquez sur le nom du serveur où vous voulez installer les services AD DS, puis cliquez sur **Suivant**.  
 
-6. Dans la page **Sélectionner des rôles de serveurs** , cliquez sur **Services de domaine Active Directory**. Dans la boîte de dialogue **Assistant Ajout de rôles et de fonctionnalités**, cliquez sur **Ajouter des fonctionnalités**, puis sur **Suivant**.  
+6. Dans la page **Sélectionner des rôles de serveurs**, cliquez sur **Services de domaine Active Directory**. Dans la boîte de dialogue **Assistant Ajout de rôles et de fonctionnalités**, cliquez sur **Ajouter des fonctionnalités**, puis sur **Suivant**.  
 
 7. Dans la page **Sélectionner des fonctionnalités**, cliquez sur **Suivant**.  
 
-8. Dans la page **AD DS** , examinez les informations, puis cliquez sur **Suivant**.  
+8. Dans la page **AD DS**, examinez les informations, puis cliquez sur **Suivant**.  
 
 9. Dans la page **Confirmation**, cliquez sur **Installer**. La barre de progression Installation de fonctionnalité de la page Résultats indique que le rôle est en cours d'installation.  
 
-10. Dans la page **Résultats**, vérifiez que l'installation a réussi, puis cliquez sur l'icône d'avertissement avec un point d'exclamation qui se trouve en haut à droite de l'écran, à côté de **Gérer**. Dans la liste Tâches, cliquez sur le lien **Promouvoir ce serveur en contrôleur de domaine** .  
+10. Dans la page **Résultats**, vérifiez que l'installation a réussi, puis cliquez sur l'icône d'avertissement avec un point d'exclamation qui se trouve en haut à droite de l'écran, à côté de **Gérer**. Dans la liste Tâches, cliquez sur le lien **Promouvoir ce serveur en contrôleur de domaine**.  
 
     > [!IMPORTANT]  
     > Si vous fermez l'Assistant Installation à ce stade au lieu de cliquer sur **Promouvoir ce serveur en contrôleur de domaine**, vous pouvez continuer l'installation des services AD DS en cliquant sur **Tâches** dans le Gestionnaire de serveur.  
@@ -625,15 +624,15 @@ Lors de cette étape, vous allez créer une relation d'approbation entre le site
 
 ##### <a name="to-set-contoso-as-a-trusting-forest-to-adatum"></a>Pour définir Contoso comme forêt approuvée par Adatum  
 
-1.  Connectez-vous à DC2 en tant qu'administrateur. Dans l'écran d' **accueil** , tapez domain.msc.  
+1.  Connectez-vous à DC2 en tant qu'administrateur. Dans l'écran d'**accueil**, tapez domain.msc.  
 
 2.  Dans l'arborescence de la console, cliquez avec le bouton droit sur adatum.com, puis cliquez sur Propriétés.  
 
-3.  Sous l’onglet **Approbations** , cliquez sur **Nouvelle approbation**, puis sur **Suivant**.  
+3.  Sous l'onglet **Approbations**, cliquez sur **Nouvelle approbation**, puis sur **Suivant**.  
 
-4.  Dans la page **Nom d'approbation** , tapez **contoso.com**dans le champ de nom DNS (Domain Name System), puis cliquez sur **Suivant**.  
+4.  Dans la page **Nom d'approbation**, tapez **contoso.com** dans le champ de nom DNS (Domain Name System), puis cliquez sur **Suivant**.  
 
-5.  Dans la page **Type d'approbation** , cliquez sur **Approbation de la forêt**, puis sur **Suivant**.  
+5.  Dans la page **Type d'approbation**, cliquez sur **Approbation de la forêt**, puis sur **Suivant**.  
 
 6.  Dans la page **Direction de l'approbation**, cliquez sur **Bidirectionnelle**.  
 
@@ -693,9 +692,9 @@ Créez l’utilisateur Jeff Low avec le mot de passe <strong>pass@word1</strong>
 
 3.  Dans le volet gauche du Centre d'administration Active Directory, cliquez sur **Arborescence**. Dans le volet gauche, cliquez sur **Contrôle d'accès dynamique**, puis double-cliquez sur **Propriétés de ressource**.  
 
-4.  Sélectionnez **Company** dans la liste **Propriétés de ressource** , cliquez avec le bouton droit et sélectionnez **Propriétés**. Dans la section **Valeurs suggérées** , cliquez sur **Ajouter** pour ajouter les valeurs suggérées : Contoso et Adatum, puis cliquez deux fois sur **OK** .  
+4.  Sélectionnez **Company** dans la liste **Propriétés de ressource**, cliquez avec le bouton droit et sélectionnez **Propriétés**. Dans la section **Valeurs suggérées** , cliquez sur **Ajouter** pour ajouter les valeurs suggérées : Contoso et Adatum, puis cliquez deux fois sur **OK** .  
 
-5.  Sélectionnez **Company** dans la liste **Propriétés de ressource** , cliquez avec le bouton droit et sélectionnez **Activer**.  
+5.  Sélectionnez **Company** dans la liste **Propriétés de ressource**, cliquez avec le bouton droit et sélectionnez **Activer**.  
 
 ### <a name="enable-dynamic-access-control-on-adatumcom"></a><a name="BKMK_2.6"></a>Activer les Access Control dynamiques sur adatum.com  
 
@@ -742,9 +741,9 @@ Créez l’utilisateur Jeff Low avec le mot de passe <strong>pass@word1</strong>
 
 2. Cliquez avec le bouton droit sur **Règles d'accès central**, cliquez sur **Nouveau**, puis sur **Règle d'accès central**.  
 
-3. Dans le champ **Nom** , tapez **RègleAccèsEmployésAdatum**.  
+3. Dans le champ **Nom**, tapez **RègleAccèsEmployésAdatum**.  
 
-4. Dans la section **Autorisations** , sélectionnez l'option **Utiliser les autorisations suivantes en tant qu'autorisations actuelles** , cliquez sur **Modifier**, puis sur **Ajouter**. Cliquez sur le lien **Sélectionnez un principal** , tapez **Utilisateurs authentifiés**, puis cliquez sur **OK**.  
+4. Dans la section **Autorisations**, sélectionnez l'option **Utiliser les autorisations suivantes en tant qu'autorisations actuelles**, cliquez sur **Modifier**, puis sur **Ajouter**. Cliquez sur le lien **Sélectionnez un principal**, tapez **Utilisateurs authentifiés**, puis cliquez sur **OK**.  
 
 5. Dans la boîte de dialogue **Autorisations pour Autorisations**, cliquez sur **Ajouter une condition** et entrez les conditions suivantes : [**Utilisateur**] [**Société**] [**Égal**] [**Valeur**] [**Adatum**]. Les autorisations doivent être **Modification, Lecture et exécution, Lecture, Écriture**.  
 
@@ -754,7 +753,7 @@ Créez l’utilisateur Jeff Low avec le mot de passe <strong>pass@word1</strong>
 
    guides de solution ![](media/Appendix-B--Setting-Up-the-Test-Environment/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
 
-   L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+   La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
 
    ```  
    New-ADCentralAccessRule `  
@@ -783,10 +782,10 @@ Créez l’utilisateur Jeff Low avec le mot de passe <strong>pass@word1</strong>
 
 ##### <a name="to-apply-the-central-access-policy-across-file-servers-through-group-policy"></a>Pour appliquer la stratégie d'accès centralisée sur les serveurs de fichiers à l'aide de la stratégie de groupe  
 
-1.  Dans l’écran **Démarrer**, tapez **Outils d’administration**, puis dans la barre **Rechercher**, cliquez sur **Paramètres**. Dans les résultats **Paramètres** , cliquez sur **Outils d’administration**. Ouvrez la console de gestion des stratégies de groupe à partir du dossier **Outils d'administration**.  
+1.  Dans l'écran d'**accueil**, tapez **Outils d'administration**, puis dans la barre **Rechercher**, cliquez sur **Paramètres**. Dans les résultats **Paramètres**, cliquez sur **Outils d'administration**. Ouvrez la console de gestion des stratégies de groupe à partir du dossier **Outils d'administration**.  
 
     > [!TIP]  
-    > Si le paramètre **Afficher les outils d’administration** est désactivé, le dossier Outils d’administration et son contenu ne figurent pas dans les résultats **Paramètres** .  
+    > Si le paramètre **Afficher les outils d’administration** est désactivé, le dossier Outils d’administration et son contenu ne figurent pas dans les résultats **Paramètres**.  
 
 2.  Cliquez avec le bouton droit sur le domaine contoso.com, cliquez sur **créer un objet de stratégie de groupe dans ce domaine et le lier ici**  
 
@@ -794,10 +793,10 @@ Créez l’utilisateur Jeff Low avec le mot de passe <strong>pass@word1</strong>
 
 ##### <a name="to-apply-the-central-access-policy-to-the-file-server-through-group-policy"></a>Pour appliquer la stratégie d'accès centralisée au serveur de fichiers à l'aide de la stratégie de groupe  
 
-1.  Dans l'écran d' **accueil** , tapez **Gestion des stratégies de groupe**dans la zone **Rechercher** . Ouvrez **Gestion des stratégies de groupe** à partir du dossier Outils d'administration.  
+1.  Dans l'écran d'**accueil**, tapez **Gestion des stratégies de groupe** dans la zone **Rechercher**. Ouvrez **Gestion des stratégies de groupe** à partir du dossier Outils d'administration.  
 
     > [!TIP]  
-    > Si le paramètre **Afficher les outils d’administration** est désactivé, le dossier Outils d’administration et son contenu ne figurent pas dans les résultats Paramètres.  
+    > Si le paramètre **Afficher les outils d'administration** est désactivé, le dossier Outils d'administration et son contenu ne figurent pas dans les résultats Paramètres.  
 
 2.  Accédez à Contoso et sélectionnez-le comme suit : Gestion des stratégies de groupe\Forêt : contoso.com\Domaines, contoso.com.  
 
