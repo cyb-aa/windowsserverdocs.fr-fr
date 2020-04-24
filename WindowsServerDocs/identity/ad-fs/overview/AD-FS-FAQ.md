@@ -10,10 +10,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: a1041bdc189238c7da32896e6f867f730e392d24
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80814429"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur AD FS

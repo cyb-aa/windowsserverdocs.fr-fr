@@ -11,15 +11,15 @@ ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: 33c1aa654e4c660b4fe2f3305bfaf78b5191220a
-ms.sourcegitcommit: e58e1646ffd75d4a89576d967b2dbbbb84764303
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "70119198"
 ---
 # <a name="migrating-roles-and-features-in-windows-server"></a>Migration de rôles et de fonctionnalités dans Windows Server
 
-> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette page contient des liens vers des informations et des outils qui vous guident tout au long du processus de migration des rôles et des fonctionnalités vers une version plus récente de Windows Server. Vous pouvez migrer les serveurs de fichiers et le stockage avec le [service de migration de stockage](../storage/storage-migration-service/overview.md), tandis que de nombreux autres rôles et fonctionnalités peuvent être migrés avec les outils de migration de Windows Server, un ensemble d’applets de commande PowerShell qui ont été introduits dans Windows. Server 2008 R2 pour la migration des rôles et des fonctionnalités.
 
@@ -36,7 +36,7 @@ Avant de commencer la migration des rôles et des fonctionnalités, vérifiez qu
 
 Pour migrer les serveurs de fichiers et le stockage vers Windows Server 2019 ou Windows Server 2016 , nous vous recommandons d’utiliser le [service de migration de stockage](../storage/storage-migration-service/overview.md). Pour migrer d’autres rôles, reportez-vous aux conseils pour Windows Server 2016 et Windows Server 2012 R2.
 
-## <a name="windows-server-2016"></a>Windows Server 2016
+## <a name="windows-server-2016"></a>Windows Server 2016
 
 Voici les guides de migration pour Windows Server 2016. Notez que dans de nombreux cas, vous pouvez également utiliser les guides de migration de Windows Server 2012 R2.
 
@@ -47,7 +47,7 @@ Voici les guides de migration pour Windows Server 2016. Notez que dans de nombr
 
 Pour migrer des serveurs de fichiers vers Windows Server 2019 ou Windows Server 2016, nous vous recommandons d’utiliser le [service de migration de stockage](../storage/storage-migration-service/overview.md).
 
-## <a name="windows-server-2012-r2"></a>Windows Server 2012 R2
+## <a name="windows-server-2012-r2"></a>Windows Server 2012 R2
 
 Suivez les étapes décrites dans ces guides pour migrer des rôles et des fonctionnalités de serveurs qui exécutent Windows Server 2003, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 ou Windows Server 2012 R2 vers Windows Server 2012 R2. Les Outils de migration de Windows Server inclus dans Windows Server 2012 R2 prennent en charge les migrations entre sous-réseaux.
 
@@ -84,7 +84,7 @@ Suivez les étapes décrites dans ces guides pour migrer des rôles et des fonct
 
 Pour obtenir des ressources supplémentaires se rapportant à la migration, consultez [Migrer des rôles et des fonctionnalités vers Windows Server 2012](https://technet.microsoft.com/library/jj134039).
 
-## <a name="windows-server-2008-r2"></a>Windows Server 2008 R2
+## <a name="windows-server-2008-r2"></a>Windows Server 2008 R2
 
 Suivez les étapes décrites dans ces guides pour migrer des rôles et des fonctionnalités à partir des serveurs qui exécutent Windows Server 2003, Windows Server 2008 ou Windows Server 2008 R2 vers Windows Server 2008 R2. Les Outils de migration de Windows Server inclus dans Windows Server 2008 R2 ne prennent pas en charge les migrations entre sous-réseaux.
 

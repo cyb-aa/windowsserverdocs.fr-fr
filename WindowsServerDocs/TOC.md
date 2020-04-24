@@ -1,7 +1,7 @@
 # [Windows Server](windows-server.md)
 ## [Centre de données défini par logiciel Windows Server (SDDC)](sddc.md)
 ## [Mettre à niveau Windows Server](upgrade/upgrade-overview.md)
-## [Prise en main](get-started/Server-Basics.md)
+## [Démarrer](get-started/Server-Basics.md)
 ## [Gérer Windows Server](administration/manage-windows-server.md)
 ## [Se connecter à Azure](azure-hybrid-services/index.md)
 ## [Clustering de basculement](failover-clustering/failover-clustering-overview.md)

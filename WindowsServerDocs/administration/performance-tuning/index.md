@@ -8,10 +8,10 @@ ms.author: phstee
 author: phstee
 ms.date: 10/16/2017
 ms.openlocfilehash: f684a87b091ffd95bb65c0b5f3aa0dfc9f405825
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71355036"
 ---
 # <a name="performance-tuning-guidelines-for-windows-server-2016"></a>Recommandations relatives à l’optimisation des performances pour Windows Server 2016
@@ -23,10 +23,10 @@ Il est important que vos changements de paramètres tiennent compte du matériel
 > [!warning]
 > Les paramètres du Registre et les paramètres d’optimisation ont considérablement changé entre les différentes versions de Windows Server. Veillez à utiliser les recommandations d’optimisation les plus récentes pour éviter des résultats inattendus.
 
-## <a name="in-this-guide"></a>Dans ce guide
+## <a name="in-this-guide"></a>Contenu de ce guide
 Ce guide fournit des recommandations relatives aux performances et à l’optimisation de Windows Server 2016 qui sont réparties dans trois catégories :
 
-|Matériel de serveur | Rôle serveur | Sous-système de serveur |
+|Matériel de serveur | Rôle de serveur | Sous-système de serveur |
 |:---:|:---:|:---:|
 |[Considérations relatives aux performances du matériel](hardware/index.md) |[Serveurs Active Directory](role/active-directory-server/index.md) |[Gestion de la mémoire et du cache](subsystem/cache-memory-management/index.md)|
 |[Considérations relatives à la puissance du matériel](hardware/power.md)|[Serveurs de fichiers](role/file-server/index.md)|[Sous-système de mise en réseau](../../networking/technologies/network-subsystem/net-sub-performance-top.md)|

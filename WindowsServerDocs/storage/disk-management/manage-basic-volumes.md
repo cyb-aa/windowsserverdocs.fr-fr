@@ -9,15 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 2eee5820891c108475c58c9ad024cd7c00391e43
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71385924"
 ---
 # <a name="manage-basic-volumes"></a>Gérer les volumes de base
 
-> **S’applique à :** Windows 10, Windows 8.1, Windows Server (Canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **S’applique à :** Windows 10, Windows 8.1, Windows Server (Canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Un disque de base est un disque physique qui contient des partitions principales, des partitions étendues ou des lecteurs logiques. Les partitions et les lecteurs logiques de disques de base sont appelés volumes de base. Vous pouvez créer des volumes de base uniquement sur les disques de base.
 

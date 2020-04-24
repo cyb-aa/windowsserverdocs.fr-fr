@@ -1,10 +1,10 @@
 ---
 redirect_url: /windows-server/windows-server
 ms.openlocfilehash: 9ef5565af748b4dd592e71ec4bd34a2be58003d9
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "75947296"
 ---
 # <a name="windows-server-2016"></a>Windows Server 2016
@@ -38,7 +38,7 @@ Cette bibliothèque fournit des informations permettant aux professionnels de l�
       <br>Identité et accès </td>
     <td align='center' style="width:25%; border:0;"><br/>
       <a href="/windows-server/networking/networking"> &lt;img height=145 src=&quot;media/6-networking.png&quot; alt=&quot;Icône Réseau&quot; title=&quot;Réseau Windows Server&quot; /&gt; </a>
-      <br/>Réseau </td>
+      <br/>Mise en réseau </td>
     <td align='center' style="width:25%; border:0;"><br/>
       <a href="/windows-server/remote/index"> &lt;img height=145 src=&quot;media/remote.png&quot; alt=&quot;Icône Accès à distance&quot; title=&quot;Accès à distance et gestion de serveur&quot; /&gt; </a>
       <br/>Accès à distance </td>

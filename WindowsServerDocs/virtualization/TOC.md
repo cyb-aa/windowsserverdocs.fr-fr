@@ -18,7 +18,7 @@
 #### [Bonnes pratiques pour l’exécution de Linux](hyper-v/Best-Practices-for-running-Linux-on-Hyper-V.md)
 #### [Bonnes pratiques pour l’exécution de FreeBSD](hyper-v/Best-practices-for-running-FreeBSD-on-Hyper-V.md)
 ### [Compatibilité des fonctionnalités par génération et invité](hyper-v/Hyper-V-feature-compatibility-by-generation-and-guest.md)
-### [Prise en main](hyper-v/get-started/Get-started-with-Hyper-V-on-Windows.md)
+### [Bien démarrer](hyper-v/get-started/Get-started-with-Hyper-V-on-Windows.md)
 #### [Installer Hyper-V](hyper-v/get-started/Install-the-Hyper-V-role-on-Windows-Server.md)
 #### [Créer un commutateur virtuel](hyper-v/get-started/create-a-virtual-switch-for-Hyper-V-virtual-machines.md)
 #### [Créer une machine virtuelle](hyper-v/get-started/create-a-virtual-machine-in-Hyper-V.md)

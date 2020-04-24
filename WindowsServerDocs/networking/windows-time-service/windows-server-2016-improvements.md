@@ -9,10 +9,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
 ms.openlocfilehash: 2723868251f90429fb0ad5e966c9222a6a22ab0c
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "77520685"
 ---
 # <a name="windows-server-2016-improvements"></a>Améliorations apportées à Windows Server 2016
@@ -321,7 +321,7 @@ Pour vous conformer aux réglementations de suivi du temps, vous pouvez archiver
 ### <a name="event-logging"></a>Journalisation des événements
 Pour avoir tous les éléments, vous aurez également besoin des informations du journal des événements. En recueillant le journal des événements système et en filtrant sur Time-Server, Microsoft-Windows-Kernel-Boot, Microsoft-Windows-Kernel-General, vous pourrez peut-être déterminer si d’autres influences ont changé l’heure, par exemple des tiers. Ces journaux peuvent être nécessaires pour éliminer les interférences externes. La stratégie de groupe peut affecter les journaux des événements qui sont écrits dans le journal. Pour plus d’informations, consultez la section ci-dessus, Utilisation de la stratégie de groupe.
 
-### <a name="W32Logging"></a>Journalisation du débogage w32time
+### <a name="w32time-debug-logging"></a><a name="W32Logging"></a>Journalisation du débogage w32time
 Pour activer w32tm à des fins d’audit, la commande suivante active la journalisation qui affiche les mises à jour périodiques de l’horloge et indique l’horloge source. Redémarrez le service pour activer la nouvelle journalisation. 
 
 Pour plus d’informations, consultez [Guide pratique pour activer la journalisation du débogage dans le service de temps Windows](https://support.microsoft.com/kb/816043).

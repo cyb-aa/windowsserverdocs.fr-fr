@@ -9,10 +9,10 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 46ed1256ed9039311939f9de12ea46416443be9c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71402145"
 ---
 # <a name="overview-of-disk-management"></a>Vue d’ensemble de Gestion des disques
@@ -49,7 +49,7 @@ Si vous êtes curieux (nous avons lu vos commentaires !), Windows inclut génér
 
 Bien que la gestion des disques puisse afficher la partition système EFI et la partition de récupération comme ayant 100 % d’espace libre, ce n’est pas la vérité. Ces partitions sont généralement assez pleines, avec des fichiers très importants dont votre PC a besoin pour fonctionner correctement. Il est préférable de ne pas y toucher, afin qu’ils vous aident à démarrer votre PC et à résoudre les problèmes.
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Voir aussi
 
 - [Gérer les disques](manage-disks.md)
 - [Gérer les volumes de base](manage-basic-volumes.md)

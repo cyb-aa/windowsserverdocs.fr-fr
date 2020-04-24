@@ -9,10 +9,10 @@ manager: brianlic
 ms.date: 06/07/2019
 ms.author: jgerend
 ms.openlocfilehash: 8feed2adb606edfb6068d7fe10c18baf142077ac
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "76822342"
 ---
 # <a name="deploying-roaming-user-profiles"></a>Déploiement de profils utilisateur itinérants

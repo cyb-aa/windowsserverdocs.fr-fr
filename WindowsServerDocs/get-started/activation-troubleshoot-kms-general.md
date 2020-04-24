@@ -9,10 +9,10 @@ ms.author: v-tea
 manager: dcscontentpm
 ms.localizationpriority: medium
 ms.openlocfilehash: fc673d2c3e1404dbd750d4c0ef05ec6db50017aa
-ms.sourcegitcommit: 9855d6b59b1f8722f39ae74ad373ce1530da0ccf
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71963075"
 ---
 # <a name="guidelines-for-troubleshooting-the-key-management-service-kms"></a>Instructions pour le dépannage du service de gestion de clés (KMS)
@@ -133,7 +133,7 @@ Si vous devez appeler le support technique pour résoudre un problème d’activ
 - Sortie de la commande **Slmgr.vbs /dlv** sur l’hôte KMS et les systèmes clients KMS. Que vous utilisiez wscript ou cscript pour exécuter la commande, vous pouvez utiliser Ctrl+C pour copier la sortie, puis la coller dans le Bloc-notes pour l’envoyer au contact du support technique.
 - Les journaux des événements de l’hôte KMS (journal du service de gestion de clés) et des systèmes clients KMS (journal des applications)
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Voir aussi
 - [Ask the Core Team : #Activation](https://blogs.technet.microsoft.com/askcore/tag/Activation/)
 
 

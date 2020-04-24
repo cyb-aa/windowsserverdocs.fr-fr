@@ -9,10 +9,10 @@ ms.assetid: 134aab85-664f-4d44-87ef-9e5fd389071f
 author: jaimeo
 ms.author: jaimeo
 ms.openlocfilehash: 8ceff837c2b85466f5583eed03f39e73f32fd4a4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80826382"
 ---
 # <a name="release-notes-important-issues-in-windows-server-2016"></a>Notes de publication : Principaux problèmes touchant Windows Server 2016

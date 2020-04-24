@@ -8,10 +8,10 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: 6ae7bd9ed7aee5835ac1f53b9e10879ad8824f52
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71406944"
 ---
 # <a name="deploy-windows-admin-center-with-high-availability"></a>Déployer Windows Admin Center avec une haute disponibilité
@@ -35,12 +35,12 @@ Vous pouvez déployer Windows Admin Center dans un cluster de basculement pour f
 2. Connectez-vous au nœud par le biais du protocole RDP et exécutez le script ```Install-WindowsAdminCenterHA.ps1``` à partir de ce nœud avec les paramètres suivants :
     - `-clusterStorage` : chemin local du volume partagé de cluster pour stocker les données Windows Admin Center.
     - `-clientAccessPoint` : choisissez un nom que vous utiliserez pour accéder à Windows Admin Center. Par exemple, si vous exécutez le script avec le paramètre `-clientAccessPoint contosoWindowsAdminCenter`, vous accéderez au service Windows Admin Center en visitant `https://contosoWindowsAdminCenter.<domain>.com`.
-    - `-staticAddress` : facultatif. Une ou plusieurs adresses statiques pour le service générique de cluster. 
+    - `-staticAddress` : Facultatif. Une ou plusieurs adresses statiques pour le service générique de cluster. 
     - `-msiPath` : Chemin du fichier .msi de Windows Admin Center.
-    - `-certPath` : facultatif. Chemin d’un fichier de certificat .pfx.
-    - `-certPassword` : facultatif. Mot de passe SecureString pour le fichier de certificat .pfx fourni dans `-certPath`.
-    - `-generateSslCert` : facultatif. Si vous ne souhaitez pas fournir de certificat signé, incluez cet indicateur de paramètre pour générer un certificat auto-signé. Notez que le certificat auto-signé expire après 60 jours.
-    - `-portNumber` : facultatif. Si vous ne spécifiez pas de port, le service de passerelle est déployé sur le port 443 (HTTPS). Pour utiliser un port différent, spécifiez-le dans ce paramètre. Notez que si vous utilisez un port personnalisé (autre que 443), vous accéderez à Windows Admin Center en accédant à https://\<point_d’accès_client\>:\<port\>.
+    - `-certPath` : Facultatif. Chemin d’un fichier de certificat .pfx.
+    - `-certPassword` : Facultatif. Mot de passe SecureString pour le fichier de certificat .pfx fourni dans `-certPath`.
+    - `-generateSslCert` : Facultatif. Si vous ne souhaitez pas fournir de certificat signé, incluez cet indicateur de paramètre pour générer un certificat auto-signé. Notez que le certificat auto-signé expire après 60 jours.
+    - `-portNumber` : Facultatif. Si vous ne spécifiez pas de port, le service de passerelle est déployé sur le port 443 (HTTPS). Pour utiliser un port différent, spécifiez-le dans ce paramètre. Notez que si vous utilisez un port personnalisé (autre que 443), vous accéderez à Windows Admin Center en accédant à https://\<point_d’accès_client\>:\<port\>.
 
 > [!NOTE]
 > Le script ```Install-WindowsAdminCenterHA.ps1``` prend en charge les paramètres ```-WhatIf ``` et ```-Verbose```.

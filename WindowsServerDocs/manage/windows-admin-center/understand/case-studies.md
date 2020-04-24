@@ -9,10 +9,10 @@ ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: b0707f8aa7a09fdd18c2107e375ad06d3909955e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71356897"
 ---
 # <a name="windows-admin-center-case-studies"></a>Études de cas Windows Admin Center
@@ -138,7 +138,7 @@ Windows Admin Center est déployé par Inside Technologies sur un serveur unique
 
 Inside Technologies utilise Windows Admin Center pour gérer ses clients à distance, avec l’intégration d’Azure Active Directory et avec une sécurité accrue grâce à Multi-Factor Authentication.  Les tableaux de bord dans Windows Admin Center offrent une meilleure visibilité sur l’état de chaque rôle sur chaque serveur et facilitent la gestion jusqu’au niveau de détail maximum avec PowerShell.  Inside Technologies a ainsi obtenu une réduction du temps passé à gérer les serveurs, par rapport à l’utilisation de consoles différentes pour chaque rôle de serveur.
 
-## <a id="secureguard-copa-data"></a>SecureGUARD/COPA-DATA
+## <a name="secureguard--copa-data"></a><a id="secureguard-copa-data"></a>SecureGUARD/COPA-DATA
 
 La [SARL SecureGUARD](http://www.secureguard.at/) permet aux entreprises de résoudre des problèmes informatiques complexes en matière de sécurité et d’infrastructure cloud à l’aide d’une gamme de produits et de services d’ingénierie personnalisés. SecureGUARD crée des appliances de sécurité informatique et des appliances basées sur Microsoft Windows Server et, plus récemment, des appliances convergées au niveau du rack pour les infrastructures cloud. SecureGUARD est un Microsoft Gold Partner en développement d’applications et centre de données.
  

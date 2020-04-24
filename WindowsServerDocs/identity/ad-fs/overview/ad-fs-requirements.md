@@ -10,10 +10,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: a2f4c9ac05e72083fab3e3a926dbdd2876214a7b
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "77517534"
 ---
 # <a name="ad-fs-requirements"></a>Configuration AD FS requise
@@ -38,7 +38,7 @@ Voici les conditions requises pour le déploiement d’AD FS :
   
 -   [Conditions requises pour les autorisations](ad-fs-requirements.md#BKMK_13)  
   
-## <a name="BKMK_1"></a>Conditions requises pour les certificats  
+## <a name="certificate-requirements"></a><a name="BKMK_1"></a>Conditions requises pour les certificats  
   
 ### <a name="ssl-certificates"></a>Certificats SSL
 
@@ -90,7 +90,7 @@ Ce certificat est utilisé par les fournisseurs de revendications qui chiffrent 
 ### <a name="user-certificates"></a>Certificats utilisateur
 - Lors de l’utilisation de l’authentification par certificat utilisateur x509 avec AD FS, tous les certificats utilisateur doivent être chaînés à une autorité de certification racine approuvée par les serveurs Proxy d’application web et AD FS.
 
-## <a name="BKMK_2"></a>Configuration matérielle requise  
+## <a name="hardware-requirements"></a><a name="BKMK_2"></a>Configuration matérielle requise  
 La configuration matérielle (physique ou virtuelle) requise pour AD FS et le proxy d’application web est dictée par le processeur. Vous devez donc dimensionner votre batterie de serveurs en fonction de la capacité de traitement.  
 - Utilisez la [feuille de calcul de planification de capacité AD FS 2016](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx) pour déterminer le nombre de serveurs AD FS et Proxy d’application web dont vous aurez besoin.
 
@@ -106,7 +106,7 @@ Les besoins en mémoire et en disques pour AD FS sont relativement statiques. Co
 
 Si vous utilisez SQL Server pour votre base de données de configuration AD FS, dimensionnez le serveur SQL Server en fonction des recommandations SQL Server de base.  La base de données AD FS est très petite, et AD FS n’entraîne pas une charge de traitement importante sur l’instance de base de données.  En revanche, AD FS se connecte à la base de données plusieurs fois pendant une authentification ; la connexion réseau doit donc être robuste.  Malheureusement, SQL Azure n’est pas pris en charge pour la base de données de configuration AD FS.
   
-## <a name="BKMK_3"></a>Conditions requises pour le proxy  
+## <a name="proxy-requirements"></a><a name="BKMK_3"></a>Conditions requises pour le proxy  
   
 -   Pour l’accès extranet, vous devez déployer le service de rôle Proxy d’application web, qui fait partie du rôle serveur Accès à distance. 
 
@@ -116,7 +116,7 @@ Si vous utilisez SQL Server pour votre base de données de configuration AD FS, 
   
 -   Un serveur de fédération et le service de rôle Proxy d’application web ne peuvent pas être installés sur le même ordinateur.  
   
-## <a name="BKMK_4"></a>Configuration AD DS requise  
+## <a name="ad-ds-requirements"></a><a name="BKMK_4"></a>Configuration AD DS requise  
 **Conditions requises pour les contrôleurs de domaine**  
   
 - AD FS exige des contrôleurs de domaine exécutant Windows Server 2008 ou ultérieur.
@@ -165,7 +165,7 @@ Si vous utilisez SQL Server pour votre base de données de configuration AD FS, 
   
 -   Le compte de service AD FS doit avoir les autorisations nécessaires pour lire les attributs utilisateur dans chaque domaine qui contient des utilisateurs s’authentifiant auprès du service AD FS.  
   
-## <a name="BKMK_5"></a>Conditions requises pour la base de données de configuration  
+## <a name="configuration-database-requirements"></a><a name="BKMK_5"></a>Conditions requises pour la base de données de configuration  
 Cette section décrit les conditions requises et les restrictions pour les batteries de serveurs AD FS qui utilisent respectivement la base de données interne Windows (WID, Windows Internal Database) ou SQL Server comme base de données :  
   
 **Base de données interne Windows**  
@@ -188,7 +188,7 @@ Le tableau suivant fournit un récapitulatif du nombre de serveurs AD FS pris en
 
 - La résolution d’artefacts SAML et la détection de relecture de jetons sont prises en charge dans une batterie SQL Server.  
   
-## <a name="BKMK_6"></a>Conditions requises pour les navigateurs  
+## <a name="browser-requirements"></a><a name="BKMK_6"></a>Conditions requises pour les navigateurs  
 Quand l’authentification AD FS est effectuée par le biais d’un navigateur ou d’un contrôle de navigateur, votre navigateur doit remplir les conditions suivantes :  
   
 - JavaScript doit être activé.  
@@ -200,7 +200,7 @@ Quand l’authentification AD FS est effectuée par le biais d’un navigateur o
 - Pour le certificat utilisateur et l’authentification par certificat d’appareil, le navigateur doit prendre en charge l’authentification par certificat client SSL.  
 
 - Pour bénéficier d’une connexion fluide à l’aide de l’authentification Windows intégrée, le nom du service de fédération (par exemple https:\/\/fs.contoso.com) doit être configuré dans la zone Intranet local ou dans la zone Sites de confiance.
-  ## <a name="BKMK_7"></a>Conditions requises pour le réseau  
+  ## <a name="network-requirements"></a><a name="BKMK_7"></a>Conditions requises pour le réseau  
  
 **Exigences relatives au pare-feu**  
   
@@ -237,7 +237,7 @@ Pour plus d’informations, consultez [Bonnes pratiques pour la sécurisation de
 - Il n’est PAS recommandé d’utiliser le tourniquet (Round Robin) DNS pour équilibrer la charge. L’utilisation de ce type d’équilibrage de charge ne fournit pas de méthode automatisée pour supprimer un nœud de l’équilibreur de charge à l’aide de sondes d’intégrité. 
 - Il n’est PAS recommandé d’utiliser l’affinité de session basée sur IP ou des sessions rémanentes pour le trafic d’authentification vers AD FS au sein de l’équilibreur de charge. Cela peut entraîner une surcharge de certains nœuds lors de l’utilisation du protocole d’authentification hérité pour que les clients d’e-mail se connectent aux services de messagerie Office 365 (Exchange Online). 
 
-## <a name="BKMK_13"></a>Conditions requises pour les autorisations  
+## <a name="permissions-requirements"></a><a name="BKMK_13"></a>Conditions requises pour les autorisations  
 L’administrateur qui effectue l’installation et la configuration initiale d’AD FS doit disposer d’autorisations d’administrateur local sur le serveur AD FS.  Si l’administrateur local ne dispose pas des autorisations nécessaires pour créer des objets dans Active Directory, il doit d’abord demander à un administrateur de domaine de créer les objets AD nécessaires, puis configurer la batterie de serveurs AD FS à l’aide du paramètre AdminConfiguration.  
   
   

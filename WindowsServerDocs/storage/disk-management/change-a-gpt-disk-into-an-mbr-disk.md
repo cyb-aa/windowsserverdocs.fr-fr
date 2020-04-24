@@ -9,15 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 5c6efb0697af663b32ce6f0e27634c3962eca492
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71402107"
 ---
 # <a name="convert-a-gpt-disk-into-an-mbr-disk"></a>Convertir un disque GPT en disque MBR
 
-> **S’applique à :** Windows 10, Windows 8.1, Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **S’applique à :** Windows 10, Windows 8.1, Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Les disques d’enregistrement de démarrage principal (MBR) utilisent la table de partition BIOS standard. Les disques de table de partition GUID (GPT) utilisent l’interface UEFI (Unified Extensible Firmware Interface). Les disques MBR ne prennent pas en charge plus de quatre partitions par disque. La méthode de partition MBR n’est pas recommandée pour les disques supérieurs à deux téraoctets (To).
 
@@ -56,7 +56,7 @@ Vous pouvez convertir un disque GPT en disque MBR si le disque est vide et ne co
 
 7.  À l’invite **DISKPART**, tapez `convert mbr`.
 
-|                Valeur                  |      Description   |
+|                Value                  |      Description   |
 | ------------------------------------- | -----------------  |
 |  <strong>list disk</strong>  | Affiche une liste des disques ainsi que des informations les concernant, notamment leur taille, la quantité d’espace libre disponible, s’il s’agit d’un disque de base ou d’un disque dynamique et si le disque utilise le style de partition d’enregistrement de démarrage principal (MBR) ou de table de partition GUID (GPT). Le disque marqué d’un astérisque (\*) est celui sur lequel se trouve le focus. |
 | <strong>select disk</strong> |                                                                                                          Sélectionne le disque spécifié, où <em>numéro_de_disque</em> est le numéro du disque et place le focus sur celui-ci.                                                                                                           |

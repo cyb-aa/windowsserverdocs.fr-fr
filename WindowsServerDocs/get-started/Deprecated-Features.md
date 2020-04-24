@@ -1,5 +1,5 @@
 ---
-title: Fonctionnalités supprimées ou déconseillées dans Windows Server 2016
+title: Fonctionnalités supprimées ou déconseillées dans Windows Server 2016
 description: Une liste des fonctionnalités de Windows Server 2016 qui ont été supprimées de la version actuelle du produit ou qui vont l’être dans les versions ultérieures (déconseillées). Ce produit s’adresse aux professionnels de l’informatique qui mettent à jour des systèmes d’exploitation dans un environnement commercial.
 ms.prod: windows-server
 ms.technology: server-general
@@ -11,15 +11,15 @@ ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: 5e13886395040619a7509c3cf896112288c48115
-ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "74945208"
 ---
 # <a name="features-removed-or-deprecated-in--windows-server-2016"></a>Fonctionnalités supprimées ou déconseillées dans Windows Server 2016
 
->S’applique à : Windows Server 2016
+>S'applique à : Windows Server 2016
 
 Voici la liste des fonctionnalités de Windows Server 2016 qui ont été supprimées de la version actuelle du produit ou qui vont l’être dans les versions ultérieures (déconseillées). Ce produit s’adresse aux professionnels de l’informatique qui mettent à jour des systèmes d’exploitation dans un environnement commercial. Cette liste peut faire l’objet de modifications dans des versions ultérieures. Il est donc possible que certaines fonctionnalités déconseillées n’y figurent plus. Pour plus d’informations sur une fonctionnalité spécifique et la fonctionnalité qui la remplace, voir la documentation de la fonctionnalité.
 
@@ -55,7 +55,7 @@ L’Assistant Configuration de la sécurité est supprimé. En revanche, les fon
 
 Les composants d’adhésion qui gèrent la participation au programme d’amélioration de l’expérience utilisateur ont été supprimés. 
 
-### <a name="windows-update"></a>Windows Update
+### <a name="windows-update"></a>Windows Update
 
 La commande **wuauclt.exe /detectnow** a été supprimée et n’est plus prise en charge. Pour déclencher une recherche des mises à jour, effectuez l’une des opérations suivantes :
 

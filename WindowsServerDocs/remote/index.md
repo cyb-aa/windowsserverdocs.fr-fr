@@ -1,5 +1,5 @@
 ---
-title: Remote
+title: À distance
 description: Conseils sur l’exploitation de l’accès à distance et l’administration de serveur
 ms.prod: windows-server
 layout: LandingPage
@@ -10,13 +10,13 @@ ms.author: coreyp
 manager: dougkim
 ms.localizationpriority: high
 ms.openlocfilehash: 659f40f2e6e33378ef9828a746f72c43edaf0859
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71395868"
 ---
-# <a name="remote"></a>Remote
+# <a name="remote"></a>À distance
 
 >[!TIP]
 > Vous recherchez des informations sur des versions plus anciennes de Windows Server ? Consultez nos autres [bibliothèques Windows Server](/previous-versions/windows/) sur docs.microsoft.com. Vous pouvez également [rechercher dans ce site](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) des informations spécifiques.
@@ -93,7 +93,7 @@ ms.locfileid: "71395868"
                                         </div>
                                         <div class="cardText">
                                             <h3>MultiPoint Services</h3><hr />
-                                            <p>Ce billet de blog décrit utiliser les technologies Microsoft pour protéger vos investissements en centres de données et solutions cloud contre les menaces émergentes.  </p>
+                                            <p>Ce billet de blog décrit comment utiliser les technologies Microsoft pour protéger vos investissements dans les centres de données et les solutions cloud contre les nouvelles menaces.  </p>
                                         </div>
                                     </div>
                                 </div>

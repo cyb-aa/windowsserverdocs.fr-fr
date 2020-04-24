@@ -9,15 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 6ffa7e9dc769b8d8c892d0af1ceae5246df62d3e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71385808"
 ---
 # <a name="manage-virtual-hard-disks-vhd"></a>Gérer les disques durs virtuels (VHD)
 
-> **S’applique à :** Windows 10, Windows 8.1, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **S’applique à :** Windows 10, Windows 8.1, Windows Server (Canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit comment créer, attacher et détacher des disques durs virtuels avec l’outil Gestion des disques. Les disques durs virtuels (VHD) sont des fichiers de disques durs virtuels qui, une fois montés, apparaissent et fonctionnent quasiment de la même façon qu’un disque dur physique. Ils sont généralement utilisés avec les ordinateurs virtuels Hyper-V. 
 

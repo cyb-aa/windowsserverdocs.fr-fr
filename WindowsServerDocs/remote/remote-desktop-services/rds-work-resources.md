@@ -8,10 +8,10 @@ ms.date: 10/26/2017
 ms.topic: article
 author: Heidilohr
 ms.openlocfilehash: ea7e1505f705c87e58145e7a306ed355ab3acf7f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71387050"
 ---
 # <a name="customize-the-rds-title-work-resources-using-powershell-on-windows-server"></a>Personnaliser le titre « Ressources de travail » des services Bureau à distance à l’aide de PowerShell sur Windows Server
