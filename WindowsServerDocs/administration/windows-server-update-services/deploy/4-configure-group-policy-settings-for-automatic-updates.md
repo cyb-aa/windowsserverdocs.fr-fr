@@ -10,10 +10,10 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: d678c139ae2327eeecdff2731f1edb57d358a28a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80828842"
 ---
 # <a name="step-4-configure-group-policy-settings-for-automatic-updates"></a>Étape 4 : Configurer les paramètres de stratégie de groupe pour la fonctionnalité Mises à jour automatiques
@@ -220,7 +220,7 @@ Spécifie le temps pendant lequel la fonctionnalité Mises à jour automatiques 
 |systèmes d’exploitation Windows qui se trouvent toujours dans leur [cycle de vie du support de produits Microsoft](https://support.microsoft.com/gp/lifeselect).|null|
 
 > [!NOTE]
-> Cette stratégie s’applique uniquement lorsque la fonctionnalité Mises à jour automatiques est configurée pour effectuer des installations planifiées de mises à jour. Si le paramètre de stratégie Configurer les mises à jour automatiques est désactivé, cette stratégie est sans effet.
+> Cette stratégie s’applique uniquement lorsque la fonctionnalité Mises à jour automatiques est configurée pour effectuer des installations planifiées de mises à jour. Si le paramètre de stratégie Configurer les mises à jour automatiques est désactivé, cette stratégie est sans effet.
 
 |||
 |-|-|

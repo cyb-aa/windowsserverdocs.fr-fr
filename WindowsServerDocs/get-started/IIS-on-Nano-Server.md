@@ -11,10 +11,10 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: d2522dc94c0d3b68c75e14fec19466529256aad0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80826862"
 ---
 # <a name="iis-on-nano-server"></a>IIS sur Nano Server
@@ -240,7 +240,7 @@ Utilisez l’utilitaire Certoc.exe pour importer des certificats, comme dans cet
     $sm.CommitChanges()  
     ```  
 
-    Vous pouvez également utiliser l'Indication de nom de serveur (SNI) avec un nom d'hôte spécifique selon cette syntaxe : `$sm.Sites[Default Web Site].Bindings.Add(*:443: www.foo.bar.com, $hash, My, Sni.`  
+    Vous pouvez également utiliser l'Indication de nom de serveur (SNI) avec un nom d'hôte spécifique selon cette syntaxe : `$sm.Sites[Default Web Site].Bindings.Add(*:443:www.foo.bar.com, $hash, My, Sni.`  
 
 ## <a name="appendix-1-list-of-iis-sub-features"></a>Annexe 1 : Liste des sous-fonctionnalités d'IIS
 

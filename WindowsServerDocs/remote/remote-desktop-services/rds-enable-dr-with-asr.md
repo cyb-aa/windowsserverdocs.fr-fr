@@ -9,10 +9,10 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.openlocfilehash: 0c7af18be4aa767009f1dd0b82f145ffe6874768
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80861402"
 ---
 # <a name="enable-disaster-recovery-of-rds-using-azure-site-recovery"></a>Activer la reprise d’activité après sinistre des services Bureau à distance à l’aide d’Azure Site Recovery
