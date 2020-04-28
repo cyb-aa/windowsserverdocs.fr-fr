@@ -43,8 +43,23 @@ sections:
             image:
               src: ../media/i-network.svg
             title: Mise en réseau SDN (Software Defined Networking)
+          - href: ../manage/windows-admin-center/overview.md
+            html: <p>Gère votre cluster et d’autres serveurs Windows.</p>
+            image:
+              src: ../media/i-admin-center.svg
+            title: Windows Admin Center
+          - href: ../azure-hybrid-services.md
+            html: '<p>Connecte votre cluster aux services hybrides Azure pour la récupération de site, la surveillance et bien plus encore.</p>'
+            image:
+              src: ../media/i-microsoft-azure.svg
+            title: Connectez-vous aux services hybrides Azure
+          - href: ../azure-stack-hci
+            html: "<p>Associe les technologies de virtualisation et de mise en cluster de Windows Server\_2019 et les solutions matérielles validées par le partenaire de votre choix, ce qui simplifie l’optimisation des centres de données définis par logiciel.</p>"
+            image:
+              src: ../media/i-azure-stack.svg
+            title: Azure Stack HCI
           - href: 'https://www.microsoft.com/cloud-platform/software-defined-datacenter'
-            html: '<p>Associe les technologies de virtualisation et de mise en cluster de Windows Server et les solutions matérielles validées par le partenaire de votre choix, ce qui simplifie l’optimisation des centres de données définis par logiciel.</p>'
+            html: "<p>Associe les technologies de virtualisation et de mise en cluster de Windows Server\_2016 et les solutions matérielles validées par le partenaire de votre choix, ce qui simplifie l’optimisation des centres de données définis par logiciel.</p>"
             image:
               src: 'https://docs.microsoft.com/media/common/i_data-collection.svg'
             title: Windows Server Software-Defined (WSSD)

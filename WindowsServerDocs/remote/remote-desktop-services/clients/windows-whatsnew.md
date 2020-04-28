@@ -7,18 +7,33 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 01/02/2020
+ms.date: 04/20/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 540630ce4baa8246d654b0d50f203623705286c5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5fd9e353c18293d22b18c6ffb6a57ad97a819a4a
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859732"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "81650039"
 ---
 # <a name="whats-new-in-the-windows-store-client"></a>Nouveautés du client Windows Store
 
 Nous mettons régulièrement à jour le [client Windows Store](windows.md) en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Vous y trouverez les dernières mises à jour.
+
+## <a name="updates-for-version-1011215"></a>Mises à jour relatives à la version 10.1.1215
+
+*Date de publication : 20/04/2020*
+
+- Mise à jour de la chaîne de l’agent utilisateur pour Windows Virtual Desktop.
+
+## <a name="updates-for-version-1011195"></a>Mises à jour pour la version 10.1.1195
+
+*Date de publication : 06/03/2020*
+
+- L’audio de la session continue à s’exécuter même lorsque l’application est réduite ou en arrière-plan.
+- Correction d’un problème dans lequel les touches bascule (Verr. MAJ, Verr. num, etc.) étaient désynchronisées entre les PC locaux et les PC distants.
+- Améliorations apportées aux performances sur les périphériques 64 bits.
+- Correction d’un incident qui se produisait chaque fois que l’application était suspendue.
 
 ## <a name="updates-for-version-1011107"></a>Mises à jour pour la version 10.1.1107
 

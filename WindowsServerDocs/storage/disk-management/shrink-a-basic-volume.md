@@ -9,10 +9,10 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 2baf24ed656ef06d44dff93180701d25e6852500
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71385861"
 ---
 # <a name="shrink-a-basic-volume"></a>Réduire un volume de base
@@ -53,7 +53,7 @@ Lorsque vous réduisez une partition, tous les fichiers ordinaires sont automati
 
 4.  À l’invite **DISKPART**, tapez `shrink [desired=<desiredsize>] [minimum=<minimumsize>]`. Réduisez le volume sélectionné à la valeur *desiredsize* en mégaoctets (Mo) si possible, ou *minimumsize* si la valeur *desiredsize* est trop importante.
 
-| Valeur             | Description |
+| Value             | Description |
 | ---               | ----------- |
 | **list volume** | Affiche une liste des volumes de base et dynamiques sur tous les disques. |
 | **select volume** | Sélectionne le volume spécifié, où <em>volumenumber</em> est le numéro du volume et place le focus sur celui-ci. Si aucun volume n’est spécifié, la commande **select** répertorie le volume actuel avec le focus. Vous pouvez spécifier le volume par numéro, lettre de lecteur ou chemin d’accès de dossier de point de montage. Sur un disque de base, la sélection d’un volume positionne également le focus sur la partition correspondante. |
