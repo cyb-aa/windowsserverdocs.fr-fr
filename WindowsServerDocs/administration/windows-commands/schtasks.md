@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0d4c28072a8e4d01ea3a045314796bcda32c8a59
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2b50ca62aea7a46f9246fb8d5089c0ef41aa1316
+ms.sourcegitcommit: d669d4af166b9018bcf18dc79cb621a5fee80042
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835242"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82037168"
 ---
 # <a name="schtasks"></a>schtasks
 
@@ -30,7 +30,7 @@ Pour afficher la syntaxe de la commande, cliquez sur l’une des commandes suiva
 -   [SCHTASKS supprimer](#BKMK_delete)
 -   [requête schtasks](#BKMK_query)
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 - **Schtasks. exe** effectue les mêmes opérations que les **tâches planifiées** dans le **panneau de configuration**. Vous pouvez utiliser ces outils ensemble et de façon interchangeable.
 - **Schtasks** remplace **at. exe**, un outil inclus dans les versions précédentes de Windows. Bien que le fichier **. exe** soit toujours inclus dans la famille Windows Server 2003, **schtasks** est l’outil de planification des tâches de ligne de commande recommandé.
@@ -82,7 +82,7 @@ schtasks /create /sc <ScheduleType> /tn <TaskName> /tr <TaskRun> [/s <Computer> 
 
 ##### <a name="parameters"></a>Paramètres
 
-##### <a name="sc-scheduletype"></a>/SC \<ScheduleType >
+##### <a name="sc-scheduletype"></a>/SC \<ScheduleType>
 
 Spécifie le type de planification. Les valeurs valides sont les minutes, toutes les heures, tous les jours, toutes les semaines, tous les mois, une fois, ONSTARt, ONLOGON, ONIDLE.
 
@@ -94,65 +94,65 @@ Spécifie le type de planification. Les valeurs valides sont les minutes, toutes
 |ONLOGON|La tâche s’exécute chaque fois qu’un utilisateur (n’importe quel utilisateur) se connecte. Vous pouvez spécifier une date ou exécuter la tâche à la prochaine ouverture de session de l’utilisateur.|
 |ONIDLE|La tâche s’exécute chaque fois que le système est inactif pendant un laps de temps spécifié. Vous pouvez spécifier une date ou exécuter la tâche la prochaine fois que le système est inactif.|
 
-##### <a name="tn-taskname"></a>/TN \<TaskName >
+##### <a name="tn-taskname"></a>/TN \<nom_tâche>
 
 Spécifie un nom pour la tâche. Chaque tâche sur le système doit avoir un nom unique. Le nom doit être conforme aux règles applicables aux noms de fichiers et ne doit pas dépasser 238 caractères. Utilisez des guillemets pour encadrer les noms qui incluent des espaces.
 
-##### <a name="tr-taskrun"></a>/TR \<Exécution_tâche >
+##### <a name="tr-taskrun"></a>/TR \<exécution_tâche>
 
 Spécifie le programme ou la commande que la tâche exécute. Tapez le chemin d’accès complet et le nom de fichier d’un fichier exécutable, d’un fichier de script ou d’un fichier de commandes. Le nom du chemin d’accès ne doit pas dépasser 262 caractères. Si vous omettez le chemin d’accès, **schtasks** suppose que le fichier se trouve dans le répertoire *systemroot*\System32
 
-##### <a name="s-computer"></a>/s \<> de l’ordinateur
+##### <a name="s-computer"></a>/s \<ordinateur>
 
 Planifie une tâche sur l’ordinateur distant spécifié. Tapez le nom ou l’adresse IP d’un ordinateur distant (avec ou sans barre oblique inverse). La valeur par défaut est l'ordinateur local. Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**.
 
-##### <a name="u-domainuser"></a>/u [\<> de domaine\]<User>
+##### <a name="u-domainuser"></a>/u [\<domaine>\]<User>
 
-Exécute cette commande avec les autorisations du compte d’utilisateur spécifié. La valeur par défaut est les autorisations de l’utilisateur actuel de l’ordinateur local. Les paramètres **/u** et **/p** ne sont valides que pour la planification d’une tâche sur un ordinateur distant ( **/s**).
+Exécute cette commande avec les autorisations du compte d’utilisateur spécifié. La valeur par défaut est les autorisations de l’utilisateur actuel de l’ordinateur local. Les paramètres **/u** et **/p** ne sont valides que pour la planification d’une tâche sur un ordinateur distant (**/s**).
 
 Les autorisations du compte spécifié sont utilisées pour planifier la tâche et pour exécuter la tâche. Pour exécuter la tâche avec les autorisations d’un autre utilisateur, utilisez le paramètre **/ru** .
 
 Le compte d’utilisateur doit être membre du groupe Administrateurs sur l’ordinateur distant. En outre, l’ordinateur local doit se trouver dans le même domaine que l’ordinateur distant, ou dans un domaine approuvé par le domaine de l’ordinateur distant.
 
-##### <a name="p-password"></a>/p \<mot de passe >
+##### <a name="p-password"></a>/p \<mot de passe>
 
 Fournit le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** . Si vous utilisez le paramètre **/u** , mais omettez le paramètre **/p** ou l’argument Password, **schtasks** vous invite à entrer un mot de passe et masque le texte que vous tapez.
 
-Les paramètres **/u** et **/p** ne sont valides que pour la planification d’une tâche sur un ordinateur distant ( **/s**).
+Les paramètres **/u** et **/p** ne sont valides que pour la planification d’une tâche sur un ordinateur distant (**/s**).
 
-##### <a name="ru-domainuser--system"></a>/ru {[\<> de domaine\]<User> | Requise
+##### <a name="ru-domainuser--system"></a>/ru {[\<domaine>\] <User> | Requise
 
 Exécute la tâche avec les autorisations du compte d’utilisateur spécifié. Par défaut, la tâche s’exécute avec les autorisations de l’utilisateur actuel de l’ordinateur local, ou avec l’autorisation de l’utilisateur spécifié par le paramètre **/u** , le cas échéant. Le paramètre **/ru** est valide lors de la planification de tâches sur des ordinateurs locaux ou distants.
 
 
 |       Valeur        |                                                    Description                                                    |
 |--------------------|-------------------------------------------------------------------------------------------------------------------|
-| [\<> de domaine\]<User> |                                       Spécifie un autre compte d’utilisateur.                                        |
+| [\<Domaine>\]<User> |                                       Spécifie un autre compte d’utilisateur.                                        |
 |    Système ou     | Spécifie le compte système local, un compte doté de privilèges élevés utilisé par le système d’exploitation et les services système. |
 
-##### <a name="rp-password"></a>/RP \<mot de passe >
+##### <a name="rp-password"></a>> \<de mot de passe/RP
 
 Fournit le mot de passe du compte d’utilisateur spécifié dans le paramètre **/ru** . Si vous omettez ce paramètre lorsque vous spécifiez un compte d’utilisateur, **schtasks. exe** vous invite à entrer le mot de passe et masque le texte que vous tapez.
 
-N’utilisez pas le paramètre **/RP** pour les tâches exécutées avec les informations d’identification du compte système ( **/ru System**). Le compte système n’a pas de mot de passe et **schtasks. exe** ne demande pas de mot de passe.
+N’utilisez pas le paramètre **/RP** pour les tâches exécutées avec les informations d’identification du compte système (**/ru System**). Le compte système n’a pas de mot de passe et **schtasks. exe** ne demande pas de mot de passe.
 
-##### <a name="mo-modifier"></a>Modificateur de \</Mo >
+##### <a name="mo-modifier"></a>/Mo \<modificateur>
 
 Spécifie la fréquence d’exécution de la tâche dans son type de planification. Ce paramètre est valide, mais facultatif, pour une MINUTE, toutes les heures, tous les jours, toutes les semaines et tous les mois. La valeur par défaut est 1.
 
 |Type de planification|Valeurs de modificateur|Description|
 |-------------|---------------|-----------|
-|DERNIÈRES|1 - 1439|La tâche s’exécute chaque \<N > minutes.|
-|HORAIRE|1 - 23|La tâche s’exécute toutes les \<N > heures.|
-|DAILY|1 - 365|La tâche s’exécute chaque \<N > jours.|
-|HEBDOMADAIRE|1 - 52|La tâche s’exécute chaque \<N > semaines.|
+|MINUTE|1 - 1439|La tâche s’exécute \<toutes les N> minutes.|
+|HORAIRE|1 - 23|La tâche s’exécute \<toutes les N> heures.|
+|DAILY|1 - 365|La tâche s’exécute \<toutes les N> jours.|
+|HEBDOMADAIRE|1 - 52|La tâche s’exécute \<toutes les N> semaines.|
 |TOUTES|Aucun modificateur.|La tâche s’exécute une seule fois.|
 |ONSTART|Aucun modificateur.|La tâche s’exécute au démarrage.|
 |ONLOGON|Aucun modificateur.|La tâche s’exécute lorsque l’utilisateur spécifié par le paramètre **/u** ouvre une session.|
 |ONIDLE|Aucun modificateur.|La tâche s’exécute une fois que le système est inactif pendant le nombre de minutes spécifié par le paramètre **/i** , ce qui est requis pour une utilisation avec OnIdle.|
-|MENSUEL|1 - 12|La tâche s’exécute chaque \<N > mois.|
+|MENSUEL|1 - 12|La tâche s’exécute \<toutes les N> mois.|
 |MENSUEL|LASTDAY|La tâche s’exécute le dernier jour du mois.|
-|MENSUEL|PREMIER, DEUXIÈME, TROISIÈME, QUATRIÈME, DERNIER|Utilisez avec le paramètre **/d**\<jour > pour exécuter une tâche sur une semaine et un jour particuliers. Par exemple, le troisième mercredi du mois.|
+|MENSUEL|PREMIER, DEUXIÈME, TROISIÈME, QUATRIÈME, DERNIER|Utilisez avec le paramètre **/d**\<Day> pour exécuter une tâche sur une semaine et un jour particuliers. Par exemple, le troisième mercredi du mois.|
 
 ##### <a name="d-dayday--"></a>/d jour [, jour...] | *
 
@@ -163,46 +163,46 @@ Spécifie un jour (ou des jours) de la semaine ou un ou plusieurs jours d’un m
 |---------------|------------------------------------|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    HEBDOMADAIRE     |               1 - 52               | LUN-DIM [, LUN-DIM...] |                                                                                                     \*                                                                                                      |
 |    MENSUEL    | PREMIER, DEUXIÈME, TROISIÈME, QUATRIÈME, DERNIER |        LUN-DIM         |                                                                                   Requis pour une planification de semaine spécifique.                                                                                    |
-|    MENSUEL    |          Aucun ou {1-12}          |          1 - 31          | Facultatif et valide uniquement avec aucun paramètre de modificateur ( **/Mo**) (une planification de date spécifique) ou lorsque le **/Mo** est 1-12 (une planification chaque \<N > mois). La valeur par défaut est le jour 1 (le premier jour du mois). |
+|    MENSUEL    |          Aucun ou {1-12}          |          1 - 31          | Facultatif et valide uniquement avec aucun paramètre de modificateur (**/Mo**) (une planification de date spécifique) ou lorsque le **/Mo** est 1-12 ( \<une planification tous les N> mois). La valeur par défaut est le jour 1 (le premier jour du mois). |
 
 ##### <a name="m-monthmonth"></a>/m mois [, mois...]
 
 Spécifie un ou plusieurs mois de l’année pendant laquelle la tâche planifiée doit s’exécuter. Les valeurs valides sont JAN-DEC et * (tous les mois). Le paramètre **/m** est valide uniquement avec une planification mensuelle. Elle est requise lorsque le modificateur LASTDAY est utilisé. Dans le cas contraire, il est facultatif et la valeur par défaut est * (tous les mois).
 
-##### <a name="i-idletime"></a>/i \<> IdleTime
+##### <a name="i-idletime"></a>> \</i IdleTime
 
 Spécifie le nombre de minutes d’inactivité de l’ordinateur avant le démarrage de la tâche. Une valeur valide est un nombre entier compris entre 1 et 999. Ce paramètre est valide uniquement avec une planification ONIDLE, puis il est requis.
 
-##### <a name="st-starttime"></a>/St \<StartTime >
+##### <a name="st-starttime"></a>/St \<StartTime>
 
-Spécifie l’heure de début de la tâche (à chaque démarrage) au \<HH : MM > format 24 heures. La valeur par défaut est l’heure actuelle sur l’ordinateur local. Le paramètre **/St** est valide avec les planifications de minute, horaire, quotidienne, hebdomadaire, mensuelle et une fois. Il est requis pour une planification une fois.
+Spécifie l’heure de début de la tâche (à chaque démarrage) au \<format hh : mm> 24 heures. La valeur par défaut est l’heure actuelle sur l’ordinateur local. Le paramètre **/St** est valide avec les planifications de minute, horaire, quotidienne, hebdomadaire, mensuelle et une fois. Il est requis pour une planification une fois.
 
-##### <a name="ri-interval"></a>/RI \<intervalle >
+##### <a name="ri-interval"></a>/RI \<intervalle>
 
 Spécifie l’intervalle de répétition en minutes. Cela ne s’applique pas aux types de planification : MINUTE, heure, ONSTARt, ONLOGON et ONIDLE. La plage valide est comprise entre 1 et 599940 minutes (599940 minutes = 9999 heures). Si l’option/ET ou/DU est spécifiée, l’intervalle de répétition est défini par défaut à 10 minutes.
 
-##### <a name="et-endtime"></a>/et \<EndTime >
+##### <a name="et-endtime"></a>/et \<heure_fin>
 
-Spécifie l’heure de la journée pendant laquelle une minute ou une planification de tâche horaire se termine au \<HH : MM > format 24 heures. Après l’heure de fin spécifiée, **schtasks** ne redémarre pas la tâche avant la récurrence de l’heure de début. Par défaut, les planifications des tâches n’ont pas d’heure de fin. Ce paramètre est facultatif et valide uniquement avec une MINUTE ou une planification horaire.
-
-Pour obtenir un exemple, consultez :
--   Pour planifier une tâche qui s’exécute toutes les 100 minutes pendant les heures creuses dans la section **pour planifier une tâche qui s’exécute toutes** les \<N > **minutes** .
-
-##### <a name="du-duration"></a>Durée de \</du >
-
-Spécifie une durée maximale pour une minute ou une planification horaire dans \<HHHH : MM > format 24 heures. Une fois le temps spécifié écoulé, **schtasks** ne redémarre pas la tâche jusqu’à ce que l’heure de début se reproduise. Par défaut, les planifications des tâches n’ont pas de durée maximale. Ce paramètre est facultatif et valide uniquement avec une MINUTE ou une planification horaire.
+Spécifie l’heure de la journée à laquelle une minute ou une planification de \<tâche horaire se termine au format hh : mm> 24 heures. Après l’heure de fin spécifiée, **schtasks** ne redémarre pas la tâche avant la récurrence de l’heure de début. Par défaut, les planifications des tâches n’ont pas d’heure de fin. Ce paramètre est facultatif et valide uniquement avec une MINUTE ou une planification horaire.
 
 Pour obtenir un exemple, consultez :
--   Pour planifier une tâche qui s’exécute toutes les 3 heures pendant 10 heures dans la section **pour planifier une tâche qui s’exécute chaque** \<N > **heures** .
+-   Pour planifier une tâche qui s’exécute toutes les 100 minutes pendant les heures creuses dans la section **pour planifier une tâche qui s’exécute toutes** \<les N> **minutes** .
+
+##### <a name="du-duration"></a>> \<de durée/du
+
+Spécifie une durée maximale pour une minute ou une planification horaire dans \<hhhh : mm> format 24 heures. Une fois le temps spécifié écoulé, **schtasks** ne redémarre pas la tâche jusqu’à ce que l’heure de début se reproduise. Par défaut, les planifications des tâches n’ont pas de durée maximale. Ce paramètre est facultatif et valide uniquement avec une MINUTE ou une planification horaire.
+
+Pour obtenir un exemple, consultez :
+-   Pour planifier une tâche qui s’exécute toutes les 3 heures pendant 10 heures dans la section **pour planifier une tâche qui s’exécute toutes** \<les N> **heures** .
 
 ##### <a name="k"></a>/k
 
 Arrête le programme que la tâche exécute à l’heure spécifiée par **/et** ou **/du**. Sans **/k**, **schtasks** ne redémarre pas le programme après avoir atteint l’heure spécifiée par **/et** ou **/du**, mais il n’arrête pas le programme s’il est toujours en cours d’exécution. Ce paramètre est facultatif et valide uniquement avec une MINUTE ou une planification horaire.
 
 Pour obtenir un exemple, consultez :
--   Pour planifier une tâche qui s’exécute toutes les 100 minutes pendant les heures creuses dans la section **pour planifier une tâche qui s’exécute toutes** les \<N > **minutes** .
+-   Pour planifier une tâche qui s’exécute toutes les 100 minutes pendant les heures creuses dans la section **pour planifier une tâche qui s’exécute toutes** \<les N> **minutes** .
 
-##### <a name="sd-startdate"></a>/SD \<StartDate >
+##### <a name="sd-startdate"></a>/SD \<DateDébut>
 
 Spécifie la date de début de la planification des tâches. La valeur par défaut est la date actuelle sur l’ordinateur local. Le paramètre **/SD** est valide et facultatif pour tous les types de planification.
 
@@ -213,11 +213,11 @@ Les formats de date valides sont répertoriés dans le tableau suivant. Utilisez
 
 |       Valeur       |                                        Description                                         |
 |-------------------|--------------------------------------------------------------------------------------------|
-| \<MM >/<DD>/<YYYY> | À utiliser pour les formats mensuels, tels que l' **anglais (États-Unis)** et l' **espagnol (Panama)** . |
-| \<DD >/<MM>/<YYYY> |       À utiliser pour les formats quotidiens, tels que **bulgare** et **néerlandais (Pays-Bas)** .        |
-| \<YYYY >/<MM>/<DD> |          À utiliser pour les formats d’année en premier, tels que **suédois** et **français (Canada)** .          |
+| \<MM>/<DD>/<YYYY> | À utiliser pour les formats mensuels, tels que l' **anglais (États-Unis)** et l' **espagnol (Panama)**. |
+| \<DD>/<MM>/<YYYY> |       À utiliser pour les formats quotidiens, tels que **bulgare** et **néerlandais (Pays-Bas)**.        |
+| \<YYYY>/<MM>/<DD> |          À utiliser pour les formats d’année en premier, tels que **suédois** et **français (Canada)**.          |
 
-/Ed \<EndDate >
+/Ed \<EndDate>
 
 Spécifie la date de fin de la planification. Ce paramètre est facultatif. Elle n’est pas valide dans une planification une fois, ONSTARt, ONLOGON ou ONIDLE. Par défaut, les planifications n’ont pas de date de fin.
 
@@ -228,9 +228,9 @@ Les formats de date valides sont répertoriés dans le tableau suivant. Utilisez
 
 |       Valeur       |                                        Description                                         |
 |-------------------|--------------------------------------------------------------------------------------------|
-| \<MM >/<DD>/<YYYY> | À utiliser pour les formats mensuels, tels que l' **anglais (États-Unis)** et l' **espagnol (Panama)** . |
-| \<DD >/<MM>/<YYYY> |       À utiliser pour les formats quotidiens, tels que **bulgare** et **néerlandais (Pays-Bas)** .        |
-| \<YYYY >/<MM>/<DD> |          À utiliser pour les formats d’année en premier, tels que **suédois** et **français (Canada)** .          |
+| \<MM>/<DD>/<YYYY> | À utiliser pour les formats mensuels, tels que l' **anglais (États-Unis)** et l' **espagnol (Panama)**. |
+| \<DD>/<MM>/<YYYY> |       À utiliser pour les formats quotidiens, tels que **bulgare** et **néerlandais (Pays-Bas)**.        |
+| \<YYYY>/<MM>/<DD> |          À utiliser pour les formats d’année en premier, tels que **suédois** et **français (Canada)**.          |
 
 ##### <a name="it"></a>/IT
 
@@ -242,7 +242,7 @@ Pour obtenir des exemples, consultez :
 -   Pour planifier une tâche qui s’exécute tous les 70 jours si je suis connecté dans la section **pour planifier une tâche qui s’exécute tous** les *N* **jours** .
 -   Pour exécuter une tâche uniquement lorsqu’un utilisateur particulier est connecté dans la section **pour planifier une tâche qui s’exécute avec des autorisations différentes** .
 
-##### <a name="z"></a>z
+##### <a name="z"></a>/z
 
 Spécifie que la tâche doit être supprimée à la fin de sa planification.
 
@@ -262,7 +262,7 @@ Affiche l'aide à l'invite de commandes.
 schtasks /create /tn <TaskName> /tr <TaskRun> /sc minute [/mo {1 - 1439}] [/st <HH:MM>] [/sd <StartDate>] [/ed <EndDate>] [{/et <HH:MM> | /du <HHHH:MM>} [/k]] [/it] [/ru {[<Domain>\]<User> [/rp <Password>] | System}] [/s <Computer> [/u [<Domain>\]<User> [/p <Password>]]]
 ```
 
-#### <a name="remarks"></a>Notes
+#### <a name="remarks"></a>Notes 
 
 Dans une planification de minute, le paramètre **/SC minute** est requis. Le paramètre **/Mo** (modificateur) est facultatif et spécifie le nombre de minutes entre chaque exécution de la tâche. La valeur par défaut de **/Mo** est 1 (toutes les minutes). Les paramètres **/et** (heure de fin) et **/du** (durée) sont facultatifs et peuvent être utilisés avec ou sans le paramètre **/k** (tâche de fin).
 
@@ -292,7 +292,7 @@ schtasks /create /tn Security Script /tr sec.vbs /sc minute /mo 100 /st 17:00 /e
 schtasks /create /tn <TaskName> /tr <TaskRun> /sc hourly [/mo {1 - 23}] [/st <HH:MM>] [/sd <StartDate>] [/ed <EndDate>] [{/et <HH:MM> | /du <HHHH:MM>} [/k]] [/it] [/ru {[<Domain>\]<User> [/rp <Password>] | System}] [/s <Computer> [/u [<Domain>\]<User> [/p <Password>]]]
 ```
 
-#### <a name="remarks"></a>Notes
+#### <a name="remarks"></a>Notes 
 
 Au cours d’une planification horaire, le paramètre **/SC HOURLY** est requis. Le paramètre **/Mo** (modificateur) est facultatif et spécifie le nombre d’heures entre chaque exécution de la tâche. La valeur par défaut de **/Mo** est 1 (toutes les heures). Le paramètre **/k** (tâche fin) est facultatif et peut être utilisé avec l’option **/et** (terminer à l’heure spécifiée) ou **/du** (fin après l’intervalle spécifié).
 
@@ -332,7 +332,7 @@ Dans cet exemple, la tâche s’exécute à 12:00 h 00, 3:00 h 00, 6:00 h 00 et 
 schtasks /create /tn <TaskName> /tr <TaskRun> /sc daily [/mo {1 - 365}] [/st <HH:MM>] [/sd <StartDate>] [/ed <EndDate>] [/it] [/ru {[<Domain>\]<User> [/rp <Password>] | System}] [/s <Computer> [/u [<Domain>\]<User> [/p <Password>]]]
 ```
 
-#### <a name="remarks"></a>Notes
+#### <a name="remarks"></a>Notes 
 
 Dans une planification quotidienne, le paramètre **/SC Daily** est requis. Le paramètre **/Mo** (modificateur) est facultatif et spécifie le nombre de jours entre chaque exécution de la tâche. La valeur par défaut de **/Mo** est 1 (tous les jours).
 
@@ -364,7 +364,7 @@ schtasks /create /tn Security Script /tr sec.vbs /sc daily /mo 70 /it
 ```
 
 > [!NOTE]
-> Pour identifier les tâches avec la propriété interactif uniquement ( **/IT**), utilisez une requête détaillée **(/query/v**). Dans l’affichage des requêtes détaillées d’une tâche avec l’opération **/IT**, le champ **mode d’ouverture de session** a la valeur **interactif uniquement**.
+> Pour identifier les tâches avec la propriété interactif uniquement (**/IT**), utilisez une requête détaillée **(/query/v**). Dans l’affichage des requêtes détaillées d’une tâche avec l’opération **/IT**, le champ **mode d’ouverture de session** a la valeur **interactif uniquement**.
 
 ### <a name="to-schedule-a-task-that-runs-every-n-weeks"></a><a name=BKMK_weeks></a>Pour planifier une tâche qui s’exécute toutes les N semaines
 
@@ -374,11 +374,11 @@ schtasks /create /tn Security Script /tr sec.vbs /sc daily /mo 70 /it
 schtasks /create /tn <TaskName> /tr <TaskRun> /sc weekly [/mo {1 - 52}] [/d {<MON - SUN>[,MON - SUN...] | *}] [/st <HH:MM>] [/sd <StartDate>] [/ed <EndDate>] [/it] [/ru {[<Domain>\]<User> [/rp <Password>] | System}] [/s <Computer> [/u [<Domain>\]<User> [/p <Password>]]]
 ```
 
-#### <a name="remarks"></a>Notes
+#### <a name="remarks"></a>Notes 
 
 Dans une planification hebdomadaire, le paramètre **/SC Weekly** est requis. Le paramètre **/Mo** (modificateur) est facultatif et spécifie le nombre de semaines entre chaque exécution de la tâche. La valeur par défaut de **/Mo** est 1 (toutes les semaines).
 
-Les planifications hebdomadaires ont également un paramètre **/d** facultatif pour planifier l’exécution de la tâche les jours spécifiés de la semaine, ou tous les jours ( *). La valeur par défaut est MON (lundi). L’option tous les jours (* ) est équivalente à la planification d’une tâche quotidienne.
+Les planifications hebdomadaires ont également un paramètre **/d** facultatif pour planifier l’exécution de la tâche les jours spécifiés de la semaine, ou tous les jours (*). La valeur par défaut est MON (lundi). L’option tous les jours (*) est équivalente à la planification d’une tâche quotidienne.
 
 #### <a name="examples"></a>Exemples
 
@@ -445,9 +445,9 @@ schtasks /create /tn My App /tr c:\apps\myapp.exe /sc monthly /mo 2 /d 21 /st 00
 schtasks /create /tn <TaskName> /tr <TaskRun> /sc weekly [/d {<MON - SUN>[,MON - SUN...] | *}] [/mo {1 - 52}] [/st <HH:MM>] [/sd <StartDate>] [/ed <EndDate>] [/it] [/ru {[<Domain>\]<User> [/rp <Password>] | System}] [/s <Computer> [/u [<Domain>\]<User> [/p <Password>]]]
 ```
 
-#### <a name="remarks"></a>Notes
+#### <a name="remarks"></a>Notes 
 
-Le jour de la planification de la semaine est une variation de la planification hebdomadaire. Dans une planification hebdomadaire, le paramètre **/SC Weekly** est requis. Le paramètre **/Mo** (modificateur) est facultatif et spécifie le nombre de semaines entre chaque exécution de la tâche. La valeur par défaut de **/Mo** est 1 (toutes les semaines). Le paramètre **/d** , qui est facultatif, planifie la tâche pour qu’elle s’exécute les jours spécifiés de la semaine ou tous les jours (\*). La valeur par défaut est MON (lundi). L’option tous les jours ( **/d \*** ) est équivalente à la planification d’une tâche quotidienne.
+Le jour de la planification de la semaine est une variation de la planification hebdomadaire. Dans une planification hebdomadaire, le paramètre **/SC Weekly** est requis. Le paramètre **/Mo** (modificateur) est facultatif et spécifie le nombre de semaines entre chaque exécution de la tâche. La valeur par défaut de **/Mo** est 1 (toutes les semaines). Le paramètre **/d** , qui est facultatif, planifie la tâche pour qu’elle s’exécute les jours spécifiés de la semaine ou\*tous les jours (). La valeur par défaut est MON (lundi). L’option tous les jours **( \*/d **) est équivalente à la planification d’une tâche quotidienne.
 
 #### <a name="examples"></a>Exemples
 
@@ -473,9 +473,9 @@ schtasks /create /tn My App /tr c:\apps\myapp.exe /sc weekly /mo 8 /d MON,FRI
 schtasks /create /tn <TaskName> /tr <TaskRun> /sc monthly /mo {FIRST | SECOND | THIRD | FOURTH | LAST} /d MON - SUN [/m {JAN - DEC[,JAN - DEC...] | *}] [/st <HH:MM>] [/sd <StartDate>] [/ed <EndDate>] [/it] [/ru {[<Domain>\]<User> [/rp <Password>] | System}] [/s <Computer> [/u [<Domain>\]<User> [/p <Password>]]]
 ```
 
-#### <a name="remarks"></a>Notes
+#### <a name="remarks"></a>Notes 
 
-Dans ce type de planification, le paramètre **/sc monthly** , le paramètre **/Mo** (modificateur) et le paramètre **/d** (Day) sont requis. Le paramètre **/Mo** (modificateur) spécifie la semaine d’exécution de la tâche. Le paramètre **/d** spécifie le jour de la semaine. (Vous ne pouvez spécifier qu’un seul jour de la semaine pour ce type de planification.) Cette planification possède également un paramètre facultatif **/m** (mois) qui vous permet de planifier la tâche pour des mois particuliers ou tous les mois (\*). La valeur par défaut du paramètre **/m** est tous les mois (\*).
+Dans ce type de planification, le paramètre **/sc monthly** , le paramètre **/Mo** (modificateur) et le paramètre **/d** (Day) sont requis. Le paramètre **/Mo** (modificateur) spécifie la semaine d’exécution de la tâche. Le paramètre **/d** spécifie le jour de la semaine. (Vous ne pouvez spécifier qu’un seul jour de la semaine pour ce type de planification.) Cette planification possède également un paramètre facultatif **/m** (mois) qui vous permet de planifier la tâche pour des mois particuliers ou tous\*les mois (). La valeur par défaut du paramètre **/m** est tous les\*mois ().
 
 #### <a name="examples"></a>Exemples
 
@@ -501,11 +501,11 @@ schtasks /create /tn My App /tr c:\apps\myapp.exe /sc monthly /mo FIRST /d MON /
 schtasks /create /tn <TaskName> /tr <TaskRun> /sc monthly /d {1 - 31} [/m {JAN - DEC[,JAN - DEC...] | *}] [/st <HH:MM>] [/sd <StartDate>] [/ed <EndDate>] [/it] [/ru {[<Domain>\]<User> [/rp <Password>] | System}] [/s <Computer> [/u [<Domain>\]<User> [/p <Password>]]]
 ```
 
-#### <a name="remarks"></a>Notes
+#### <a name="remarks"></a>Notes 
 
 Dans le type de planification de date spécifique, le paramètre **/SC month** et le paramètre **/d** (Day) sont requis. Le paramètre **/d** spécifie une date du mois (1-31), et non un jour de la semaine. Vous ne pouvez spécifier qu’un seul jour dans la planification. Le paramètre **/Mo** (modificateur) n’est pas valide avec ce type de planification.
 
-Le paramètre **/m** (month) est facultatif pour ce type de planification et la valeur par défaut est tous les mois (<em>). **schtasks</em>*  ne vous permet pas de planifier une tâche pour une date qui ne se produit pas dans un mois spécifié par le paramètre **/m** . Toutefois, si vous omettez le paramètre **/m** et planifiez une tâche pour une date qui n’apparaît pas chaque mois, comme le 31ème jour, la tâche ne s’exécute pas dans les mois plus courts. Pour planifier une tâche le dernier jour du mois, utilisez le type de planification de la dernière journée.
+Le paramètre **/m** (month) est facultatif pour ce type de planification et la valeur par défaut est tous les mois (<em>). **schtasks</em> * ne vous permet pas de planifier une tâche pour une date qui ne se produit pas dans un mois spécifié par le paramètre **/m** . Toutefois, si vous omettez le paramètre **/m** et planifiez une tâche pour une date qui n’apparaît pas chaque mois, comme le 31ème jour, la tâche ne s’exécute pas dans les mois plus courts. Pour planifier une tâche le dernier jour du mois, utilisez le type de planification de la dernière journée.
 
 #### <a name="examples"></a>Exemples
 
@@ -531,7 +531,7 @@ schtasks /create /tn My App /tr c:\apps\myapp.exe /sc monthly /d 15 /m MAY,JUN /
 schtasks /create /tn <TaskName> /tr <TaskRun> /sc monthly /mo LASTDAY /m {JAN - DEC[,JAN - DEC...] | *} [/st <HH:MM>] [/sd <StartDate>] [/ed <EndDate>] [/it] [/ru {[<Domain>\]<User> [/rp <Password>] | System}] [/s <Computer> [/u [<Domain>\]<User> [/p <Password>]]]
 ```
 
-#### <a name="remarks"></a>Notes
+#### <a name="remarks"></a>Notes 
 
 Dans le type de planification du dernier jour, le paramètre **/sc monthly** , le paramètre **/Mo LASTDAY** (modificateur) et le paramètre **/m** (month) sont requis. Le paramètre **/d** (Day) n’est pas valide.
 
@@ -710,7 +710,7 @@ La commande utilise le paramètre **/s** pour fournir le nom de l’ordinateur d
 schtasks /create /tn Check Admin /tr AdminCheck.exe /sc weekly /d FRI /st 04:00 /s Public /u Domain3\Admin06 /ru Public\Admin01 /it
 ```
 **Remarque**
--   Pour identifier les tâches avec la propriété interactif uniquement ( **/IT**), utilisez une requête détaillée **(/query/v**). Dans l’affichage des requêtes détaillées d’une tâche avec l’opération **/IT**, le champ **mode d’ouverture de session** a la valeur **interactif uniquement**.
+-   Pour identifier les tâches avec la propriété interactif uniquement (**/IT**), utilisez une requête détaillée **(/query/v**). Dans l’affichage des requêtes détaillées d’une tâche avec l’opération **/IT**, le champ **mode d’ouverture de session** a la valeur **interactif uniquement**.
 
 ### <a name="to-schedule-a-task-that-runs-with-system-permissions"></a><a name=BKMK_sys_perms></a>Pour planifier une tâche qui s’exécute avec les autorisations système
 
@@ -722,7 +722,7 @@ Les tâches de tous les types peuvent s’exécuter avec les autorisations du co
 
 **Remarque**
 
-Pour identifier les tâches qui s’exécutent avec des autorisations système, utilisez une requête détaillée ( **/query** **/v**). Dans l’affichage de requête détaillée d’une tâche d’exécution système, le champ **exécuter en tant qu’utilisateur** a la valeur **NT AUTHORITY\SYSTEM** et le champ **mode d’ouverture de session** a la valeur **Background only**.
+Pour identifier les tâches qui s’exécutent avec des autorisations système, utilisez une requête détaillée (**/query** **/v**). Dans l’affichage de requête détaillée d’une tâche d’exécution système, le champ **exécuter en tant qu’utilisateur** a la valeur **NT AUTHORITY\SYSTEM** et le champ **mode d’ouverture de session** a la valeur **Background only**.
 
 #### <a name="examples"></a>Exemples
 
@@ -861,10 +861,10 @@ Idle Time: Disabled
 Power Management: Disabled
 ```
 
-#### <a name="remarks"></a>Notes
+#### <a name="remarks"></a>Notes 
 
 -   Pour exécuter une commande **/Create** avec les autorisations d’un autre utilisateur, utilisez le paramètre **/u** . Le paramètre **/u** est valide uniquement pour la planification de tâches sur des ordinateurs distants.
--   Pour afficher d’autres exemples de **SCHTASKS/Create** , tapez **SCHTASKS/Create/ ?** à l’invite de commandes.
+-   Pour afficher d’autres exemples de **SCHTASKS/Create** , tapez **SCHTASKS/Create/ ?** à une invite de commandes.
 -   Pour planifier une tâche qui s’exécute avec les autorisations d’un autre utilisateur, utilisez le paramètre **/ru** . Le paramètre **/ru** est valide pour les tâches sur les ordinateurs locaux et distants.
 -   Pour utiliser le paramètre **/u** , l’ordinateur local doit se trouver dans le même domaine que l’ordinateur distant ou dans un domaine approuvé par le domaine de l’ordinateur distant. Dans le cas contraire, soit la tâche n’est pas créée, soit la tâche est vide et la tâche ne s’exécute pas.
 -   **Schtasks** vous invite toujours à entrer un mot de passe, sauf si vous en fournissez un, même lorsque vous planifiez une tâche sur l’ordinateur local à l’aide du compte d’utilisateur actuel. Il s’agit d’un comportement normal pour **schtasks**.
@@ -876,10 +876,10 @@ Power Management: Disabled
 ## <a name="schtasks-change"></a><a name=BKMK_change></a>modification de schtasks
 
 Modifie une ou plusieurs des propriétés suivantes d’une tâche.
--   Le programme exécuté par la tâche ( **/TR**).
--   Compte d’utilisateur sous lequel la tâche s’exécute ( **/ru**).
--   Mot de passe du compte d’utilisateur ( **/RP**).
--   Ajoute la propriété interactif uniquement à la tâche ( **/IT**).
+-   Le programme exécuté par la tâche (**/TR**).
+-   Compte d’utilisateur sous lequel la tâche s’exécute (**/ru**).
+-   Mot de passe du compte d’utilisateur (**/RP**).
+-   Ajoute la propriété interactif uniquement à la tâche (**/IT**).
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -891,34 +891,34 @@ schtasks /change /tn <TaskName> [/s <Computer> [/u [<Domain>\]<User> [/p <Passwo
 
 |          Terme           |                                                                                                                                                                                                                                                                                                                                     Définition                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     /TN \<TaskName >     |                                                                                                                                                                                                                                                                                                               Identifie la tâche à modifier. Entrez le nom de la tâche.                                                                                                                                                                                                                                                                                                               |
-|     /s \<> de l’ordinateur      |                                                                                                                                                                                                                                                                               Spécifie le nom ou l’adresse IP d’un ordinateur distant (avec ou sans barre oblique inverse). La valeur par défaut est l'ordinateur local.                                                                                                                                                                                                                                                                               |
-|  /u [\<> de domaine\]<User>  |                                                                                                                                                                 Exécute cette commande avec les autorisations du compte d’utilisateur spécifié. La valeur par défaut est les autorisations de l’utilisateur actuel de l’ordinateur local. Le compte d’utilisateur spécifié doit être membre du groupe Administrateurs sur l’ordinateur distant. Les paramètres **/u** et **/p** ne sont valides que pour la modification d’une tâche sur un ordinateur distant ( **/s**).                                                                                                                                                                  |
-|     /p \<mot de passe >      |                                                                                                                                                                                              Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** . Si vous utilisez le paramètre **/u** , mais omettez le paramètre **/p** ou l’argument Password, **schtasks** vous invite à entrer un mot de passe.</br>Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**.                                                                                                                                                                                               |
-| /ru {[\<> de domaine\]<User> |                                                                                                                                                                                                                                                                                                                                       Requise                                                                                                                                                                                                                                                                                                                                       |
-|     /RP \<mot de passe >     |                                                                                                                                                                                                                                                 Spécifie un nouveau mot de passe pour le compte d’utilisateur existant ou le compte d’utilisateur spécifié par le paramètre **/ru** . Ce paramètre est ignoré avec utilisé avec le compte système local.                                                                                                                                                                                                                                                  |
-|     /TR \<Exécution_tâche >      |                                                                                                                                                                                  Modifie le programme exécuté par la tâche. Entrez le chemin d’accès complet et le nom de fichier d’un fichier exécutable, d’un fichier de script ou d’un fichier de commandes. Si vous omettez le chemin d’accès, **schtasks** suppose que le fichier se trouve dans le répertoire \<systemroot > \System32. Le programme spécifié remplace le programme d’origine exécuté par la tâche.                                                                                                                                                                                  |
-|    /St \<StartTime >     |                                                                                                                                                                                                                                                              Spécifie l’heure de début de la tâche, en utilisant le format de 24 heures, HH : mm. Par exemple, la valeur 14:30 équivaut à l’heure de 12 heures de 2:30 PM.                                                                                                                                                                                                                                                               |
-|     /RI \<intervalle >     |                                                                                                                                                                                                                                                                           Spécifie l’intervalle de répétition pour la tâche planifiée, en minutes. La plage valide est 1-599940 (599940 minutes = 9999 heures).                                                                                                                                                                                                                                                                            |
-|     /et \<EndTime >      |                                                                                                                                                                                                                                                               Spécifie l’heure de fin de la tâche, en utilisant le format de 24 heures, HH : mm. Par exemple, la valeur 14:30 équivaut à l’heure de 12 heures de 2:30 PM.                                                                                                                                                                                                                                                                |
-|     Durée de \</du >     |                                                                                                                                                                                                                                                                                                     Spécifie de fermer la tâche au \<EndTime > ou <Duration>, si elle est spécifiée.                                                                                                                                                                                                                                                                                                      |
+|     /TN \<nom_tâche>     |                                                                                                                                                                                                                                                                                                               Identifie la tâche à modifier. Entrez le nom de la tâche.                                                                                                                                                                                                                                                                                                               |
+|     /s \<ordinateur>      |                                                                                                                                                                                                                                                                               Spécifie le nom ou l’adresse IP d’un ordinateur distant (avec ou sans barre oblique inverse). La valeur par défaut est l'ordinateur local.                                                                                                                                                                                                                                                                               |
+|  /u [\<domaine>\]<User>  |                                                                                                                                                                 Exécute cette commande avec les autorisations du compte d’utilisateur spécifié. La valeur par défaut est les autorisations de l’utilisateur actuel de l’ordinateur local. Le compte d’utilisateur spécifié doit être membre du groupe Administrateurs sur l’ordinateur distant. Les paramètres **/u** et **/p** ne sont valides que pour la modification d’une tâche sur un ordinateur distant (**/s**).                                                                                                                                                                  |
+|     /p \<mot de passe>      |                                                                                                                                                                                              Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** . Si vous utilisez le paramètre **/u** , mais omettez le paramètre **/p** ou l’argument Password, **schtasks** vous invite à entrer un mot de passe.</br>Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**.                                                                                                                                                                                               |
+| /ru {[\<domaine>\]<User> |                                                                                                                                                                                                                                                                                                                                       Requise                                                                                                                                                                                                                                                                                                                                       |
+|     > \<de mot de passe/RP     |                                                                                                                                                                                                                                                 Spécifie un nouveau mot de passe pour le compte d’utilisateur existant ou le compte d’utilisateur spécifié par le paramètre **/ru** . Ce paramètre est ignoré avec utilisé avec le compte système local.                                                                                                                                                                                                                                                  |
+|     /TR \<exécution_tâche>      |                                                                                                                                                                                  Modifie le programme exécuté par la tâche. Entrez le chemin d’accès complet et le nom de fichier d’un fichier exécutable, d’un fichier de script ou d’un fichier de commandes. Si vous omettez le chemin d’accès, **schtasks** suppose que le fichier se trouve \<dans le répertoire SystemRoot> \System32 Le programme spécifié remplace le programme d’origine exécuté par la tâche.                                                                                                                                                                                  |
+|    /St \<StartTime>     |                                                                                                                                                                                                                                                              Spécifie l’heure de début de la tâche, en utilisant le format de 24 heures, HH : mm. Par exemple, la valeur 14:30 équivaut à l’heure de 12 heures de 2:30 PM.                                                                                                                                                                                                                                                               |
+|     /RI \<intervalle>     |                                                                                                                                                                                                                                                                           Spécifie l’intervalle de répétition pour la tâche planifiée, en minutes. La plage valide est 1-599940 (599940 minutes = 9999 heures).                                                                                                                                                                                                                                                                            |
+|     /et \<heure_fin>      |                                                                                                                                                                                                                                                               Spécifie l’heure de fin de la tâche, en utilisant le format de 24 heures, HH : mm. Par exemple, la valeur 14:30 équivaut à l’heure de 12 heures de 2:30 PM.                                                                                                                                                                                                                                                                |
+|     > \<de durée/du     |                                                                                                                                                                                                                                                                                                     Spécifie de fermer la tâche à \<l’heure de <Duration>fin> ou, si elle est spécifiée.                                                                                                                                                                                                                                                                                                      |
 |           /k            |                                                                                                                                                                   Arrête le programme que la tâche exécute à l’heure spécifiée par **/et** ou **/du**. Sans **/k**, **schtasks** ne redémarre pas le programme après avoir atteint l’heure spécifiée par **/et** ou **/du**, mais il n’arrête pas le programme s’il est toujours en cours d’exécution. Ce paramètre est facultatif et valide uniquement avec une MINUTE ou une planification horaire.                                                                                                                                                                   |
-|    /SD \<StartDate >     |                                                                                                                                                                                                                                                                                              Spécifie la première date à laquelle la tâche doit être exécutée. Le format de date est le suivant : MM/jj/aaaa.                                                                                                                                                                                                                                                                                               |
-|     /Ed \<EndDate >      |                                                                                                                                                                                                                                                                                                 Spécifie la dernière date à laquelle la tâche doit être exécutée. Le format est MM/jj/aaaa.                                                                                                                                                                                                                                                                                                  |
+|    /SD \<DateDébut>     |                                                                                                                                                                                                                                                                                              Spécifie la première date à laquelle la tâche doit être exécutée. Le format de date est le suivant : MM/jj/aaaa.                                                                                                                                                                                                                                                                                               |
+|     /Ed \<EndDate>      |                                                                                                                                                                                                                                                                                                 Spécifie la dernière date à laquelle la tâche doit être exécutée. Le format est MM/jj/aaaa.                                                                                                                                                                                                                                                                                                  |
 |         /ENABLE         |                                                                                                                                                                                                                                                                                                                       Spécifie l’activation de la tâche planifiée.                                                                                                                                                                                                                                                                                                                       |
 |        /DISABLE         |                                                                                                                                                                                                                                                                                                                      Spécifie la désactivation de la tâche planifiée.                                                                                                                                                                                                                                                                                                                       |
 |           /IT           | Spécifie d’exécuter la tâche planifiée uniquement lorsque l’utilisateur exécuter en tant qu’utilisateur (le compte d’utilisateur sous lequel la tâche s’exécute) est connecté à l’ordinateur.</br>Ce paramètre n’a aucun effet sur les tâches qui s’exécutent avec des autorisations système ou des tâches pour lesquelles la propriété interactif uniquement est déjà définie. Vous ne pouvez pas utiliser une commande de modification pour supprimer la propriété interactif uniquement d’une tâche.</br>Par défaut, l’utilisateur exécuter en tant qu’utilisateur est l’utilisateur actuel de l’ordinateur local lorsque la tâche est planifiée ou le compte spécifié par le paramètre **/u** , le cas échéant. Toutefois, si la commande comprend le paramètre **/ru** , alors l’utilisateur exécuter en tant que est le compte spécifié par le paramètre **/ru** . |
-|           z            |                                                                                                                                                                                                                                                                                                          Spécifie que la tâche doit être supprimée à la fin de sa planification.                                                                                                                                                                                                                                                                                                          |
+|           /z            |                                                                                                                                                                                                                                                                                                          Spécifie que la tâche doit être supprimée à la fin de sa planification.                                                                                                                                                                                                                                                                                                          |
 |           /?            |                                                                                                                                                                                                                                                                                                                        Affiche l'aide à l'invite de commandes.                                                                                                                                                                                                                                                                                                                         |
 
-### <a name="remarks"></a>Notes
+### <a name="remarks"></a>Notes 
 
 -   Les paramètres **/TN** et **/s** identifient la tâche. Les paramètres **/TR**, **/ru**et **/RP** spécifient les propriétés de la tâche que vous pouvez modifier.
 -   Les paramètres **/ru**et **/RP** spécifient les autorisations d’exécution de la tâche. Les paramètres **/u** et **/p** spécifient les autorisations utilisées pour modifier la tâche.
 -   Pour modifier des tâches sur un ordinateur distant, l’utilisateur doit être connecté à l’ordinateur local à l’aide d’un compte membre du groupe Administrateurs sur l’ordinateur distant.
--   Pour exécuter une commande **/change** avec les autorisations d’un autre utilisateur ( **/u**, **/p**), l’ordinateur local doit se trouver dans le même domaine que l’ordinateur distant ou dans un domaine approuvé par le domaine de l’ordinateur distant.
+-   Pour exécuter une commande **/change** avec les autorisations d’un autre utilisateur (**/u**, **/p**), l’ordinateur local doit se trouver dans le même domaine que l’ordinateur distant ou dans un domaine approuvé par le domaine de l’ordinateur distant.
 -   Le compte système ne dispose pas de droits d’ouverture de session interactifs. Les utilisateurs ne voient pas et ne peuvent pas interagir avec les programmes exécutés avec des autorisations système.
--   Pour identifier les tâches avec la propriété **/IT** , utilisez une requête détaillée ( **/query/v**). Dans l’affichage des requêtes détaillées d’une tâche avec l’opération **/IT**, le champ **mode d’ouverture de session** a la valeur **interactif uniquement**.
+-   Pour identifier les tâches avec la propriété **/IT** , utilisez une requête détaillée (**/query/v**). Dans l’affichage des requêtes détaillées d’une tâche avec l’opération **/IT**, le champ **mode d’ouverture de session** a la valeur **interactif uniquement**.
 
 ### <a name="examples"></a>Exemples
 
@@ -936,7 +936,7 @@ SUCCESS: The parameters of the scheduled task Virus Check have been changed.
 
 ### <a name="to-change-the-password-for-a-remote-task"></a>Pour modifier le mot de passe d’une tâche à distance
 
-La commande suivante modifie le mot de passe du compte d’utilisateur pour la tâche RemindMe sur l’ordinateur distant, Svr01. La commande utilise le paramètre **/TN** pour identifier la tâche et le paramètre **/s** pour spécifier l’ordinateur distant. Elle utilise le paramètre **/RP** pour spécifier le nouveau mot de passe, p@ssWord3.
+La commande suivante modifie le mot de passe du compte d’utilisateur pour la tâche RemindMe sur l’ordinateur distant, Svr01. La commande utilise le paramètre **/TN** pour identifier la tâche et le paramètre **/s** pour spécifier l’ordinateur distant. Elle utilise le paramètre **/RP** pour spécifier le nouveau mot de p@ssWord3passe,.
 
 Cette procédure est requise chaque fois que le mot de passe d’un compte d’utilisateur expire ou change. Si le mot de passe enregistré dans une tâche n’est plus valide, la tâche ne s’exécute pas.
 ```
@@ -1010,17 +1010,17 @@ schtasks /run /tn <TaskName> [/s <Computer> [/u [<Domain>\]<User> [/p <Password>
 
 |         Terme          |                                                                                                                                                                 Définition                                                                                                                                                                  |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /TN \<TaskName >    |                                                                                                                                                       Obligatoire. Identifie la tâche.                                                                                                                                                        |
-|    /s \<> de l’ordinateur     |                                                                                                           Spécifie le nom ou l’adresse IP d’un ordinateur distant (avec ou sans barre oblique inverse). La valeur par défaut est l'ordinateur local.                                                                                                           |
-| /u [\<> de domaine\]<User> | Exécute cette commande avec les autorisations du compte d’utilisateur spécifié. Par défaut, la commande s’exécute avec les autorisations de l’utilisateur actuel de l’ordinateur local.</br>Le compte d’utilisateur spécifié doit être membre du groupe Administrateurs sur l’ordinateur distant. Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**. |
-|    /p \<mot de passe >     |                          Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** . Si vous utilisez le paramètre **/u** , mais omettez le paramètre **/p** ou l’argument Password, **schtasks** vous invite à entrer un mot de passe.</br>Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**.                           |
+|    /TN \<nom_tâche>    |                                                                                                                                                       Obligatoire. Identifie la tâche.                                                                                                                                                        |
+|    /s \<ordinateur>     |                                                                                                           Spécifie le nom ou l’adresse IP d’un ordinateur distant (avec ou sans barre oblique inverse). La valeur par défaut est l'ordinateur local.                                                                                                           |
+| /u [\<domaine>\]<User> | Exécute cette commande avec les autorisations du compte d’utilisateur spécifié. Par défaut, la commande s’exécute avec les autorisations de l’utilisateur actuel de l’ordinateur local.</br>Le compte d’utilisateur spécifié doit être membre du groupe Administrateurs sur l’ordinateur distant. Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**. |
+|    /p \<mot de passe>     |                          Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** . Si vous utilisez le paramètre **/u** , mais omettez le paramètre **/p** ou l’argument Password, **schtasks** vous invite à entrer un mot de passe.</br>Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**.                           |
 |          /?           |                                                                                                                                                    Affiche l'aide à l'invite de commandes.                                                                                                                                                     |
 
-### <a name="remarks"></a>Notes
+### <a name="remarks"></a>Notes 
 
--   Utilisez cette opération pour tester vos tâches. Si une tâche ne s’exécute pas, recherchez les erreurs dans le journal des transactions du service Planificateur de tâches, \<systemroot > \SchedLgU.txt.
+-   Utilisez cette opération pour tester vos tâches. Si une tâche ne s’exécute pas, recherchez les erreurs dans le journal \<des transactions du service Planificateur de tâches, systemroot> \schedlgu.txt.
 -   L’exécution d’une tâche n’affecte pas la planification des tâches et ne modifie pas la prochaine exécution planifiée pour la tâche.
--   Pour exécuter une tâche à distance, la tâche doit être planifiée sur l’ordinateur distant. Lorsque vous l’exécutez, la tâche s’exécute uniquement sur l’ordinateur distant. Pour vérifier qu’une tâche est en cours d’exécution sur un ordinateur distant, utilisez le gestionnaire des tâches ou le journal des transactions Planificateur de tâches, \<systemroot > \SchedLgU.txt.
+-   Pour exécuter une tâche à distance, la tâche doit être planifiée sur l’ordinateur distant. Lorsque vous l’exécutez, la tâche s’exécute uniquement sur l’ordinateur distant. Pour vérifier qu’une tâche est en cours d’exécution sur un ordinateur distant, utilisez le gestionnaire des tâches ou \<le planificateur de tâches journal des transactions, systemroot> \schedlgu.txt.
 
 ### <a name="examples"></a>Exemples
 
@@ -1078,13 +1078,13 @@ schtasks /end /tn <TaskName> [/s <Computer> [/u [<Domain>\]<User> [/p <Password>
 
 |         Terme          |                                                                                                                                                               Définition                                                                                                                                                                |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /TN \<TaskName >    |                                                                                                                                         Obligatoire. Identifie la tâche qui a démarré le programme.                                                                                                                                         |
-|    /s \<> de l’ordinateur     |                                                                                                                        Spécifie le nom ou l’adresse IP d’un ordinateur distant. La valeur par défaut est l'ordinateur local.                                                                                                                        |
-| /u [\<> de domaine\]<User> | Exécute cette commande avec les autorisations du compte d’utilisateur spécifié. Par défaut, la commande s’exécute avec les autorisations de l’utilisateur actuel de l’ordinateur local. Le compte d’utilisateur spécifié doit être membre du groupe Administrateurs sur l’ordinateur distant. Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**. |
-|    /p \<mot de passe >     |                        Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** . Si vous utilisez le paramètre **/u** , mais omettez le paramètre **/p** ou l’argument Password, **schtasks** vous invite à entrer un mot de passe.</br>Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**.                         |
-|          /?           |                                                                                                                                                             Affiche l’aide.                                                                                                                                                              |
+|    /TN \<nom_tâche>    |                                                                                                                                         Obligatoire. Identifie la tâche qui a démarré le programme.                                                                                                                                         |
+|    /s \<ordinateur>     |                                                                                                                        Spécifie le nom ou l’adresse IP d’un ordinateur distant. La valeur par défaut est l'ordinateur local.                                                                                                                        |
+| /u [\<domaine>\]<User> | Exécute cette commande avec les autorisations du compte d’utilisateur spécifié. Par défaut, la commande s’exécute avec les autorisations de l’utilisateur actuel de l’ordinateur local. Le compte d’utilisateur spécifié doit être membre du groupe Administrateurs sur l’ordinateur distant. Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**. |
+|    /p \<mot de passe>     |                        Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** . Si vous utilisez le paramètre **/u** , mais omettez le paramètre **/p** ou l’argument Password, **schtasks** vous invite à entrer un mot de passe.</br>Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**.                         |
+|          /?           |                                                                                                                                                             Affiche de l’aide.                                                                                                                                                              |
 
-### <a name="remarks"></a>Notes
+### <a name="remarks"></a>Notes 
 
 **Schtasks. exe** termine uniquement les instances d’un programme démarrées par une tâche planifiée. Pour arrêter d’autres processus, utilisez TaskKill. Pour plus d’informations, consultez [taskkill](taskkill.md).
 
@@ -1126,17 +1126,17 @@ schtasks /delete /tn {<TaskName> | *} [/f] [/s <Computer> [/u [<Domain>\]<User> 
 
 |         Terme          |                                                                                                                                                                 Définition                                                                                                                                                                  |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   /TN {\<TaskName >    |                                                                                                                                                                     \*}                                                                                                                                                                     |
+|   /TN {\<TaskName>    |                                                                                                                                                                     \*}                                                                                                                                                                     |
 |          /f           |                                                                                                                                  Supprime le message de confirmation. La tâche est supprimée sans avertissement.                                                                                                                                  |
-|    /s \<> de l’ordinateur     |                                                                                                           Spécifie le nom ou l’adresse IP d’un ordinateur distant (avec ou sans barre oblique inverse). La valeur par défaut est l'ordinateur local.                                                                                                           |
-| /u [\<> de domaine\]<User> | Exécute cette commande avec les autorisations du compte d’utilisateur spécifié. Par défaut, la commande s’exécute avec les autorisations de l’utilisateur actuel de l’ordinateur local.</br>Le compte d’utilisateur spécifié doit être membre du groupe Administrateurs sur l’ordinateur distant. Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**. |
-|    /p \<mot de passe >     |                          Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** . Si vous utilisez le paramètre **/u** , mais omettez le paramètre **/p** ou l’argument Password, **schtasks** vous invite à entrer un mot de passe.</br>Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**.                           |
+|    /s \<ordinateur>     |                                                                                                           Spécifie le nom ou l’adresse IP d’un ordinateur distant (avec ou sans barre oblique inverse). La valeur par défaut est l'ordinateur local.                                                                                                           |
+| /u [\<domaine>\]<User> | Exécute cette commande avec les autorisations du compte d’utilisateur spécifié. Par défaut, la commande s’exécute avec les autorisations de l’utilisateur actuel de l’ordinateur local.</br>Le compte d’utilisateur spécifié doit être membre du groupe Administrateurs sur l’ordinateur distant. Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**. |
+|    /p \<mot de passe>     |                          Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** . Si vous utilisez le paramètre **/u** , mais omettez le paramètre **/p** ou l’argument Password, **schtasks** vous invite à entrer un mot de passe.</br>Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**.                           |
 |          /?           |                                                                                                                                                    Affiche l'aide à l'invite de commandes.                                                                                                                                                     |
 
-### <a name="remarks"></a>Notes
+### <a name="remarks"></a>Notes 
 
 - L’opération de **suppression** supprime la tâche de la planification. Elle ne supprime pas le programme exécuté par la tâche ou n’interrompt pas un programme en cours d’exécution.
-- La commande **delete \\** * supprime toutes les tâches planifiées pour l’ordinateur, pas seulement celles planifiées par l’utilisateur actuel.
+- La **commande \\Delete *** supprime toutes les tâches planifiées pour l’ordinateur, pas seulement celles planifiées par l’utilisateur actuel.
 
 ### <a name="examples"></a>Exemples
 
@@ -1154,7 +1154,7 @@ SUCCESS: The scheduled task Start Mail was successfully deleted.
 
 ### <a name="to-delete-all-tasks-scheduled-for-the-local-computer"></a>Pour supprimer toutes les tâches planifiées pour l’ordinateur local
 
-La commande suivante supprime toutes les tâches de la planification de l’ordinateur local, y compris les tâches planifiées par d’autres utilisateurs. Elle utilise le paramètre **/tn \\** * pour représenter toutes les tâches sur l’ordinateur et le paramètre **/f** pour supprimer le message de confirmation.
+La commande suivante supprime toutes les tâches de la planification de l’ordinateur local, y compris les tâches planifiées par d’autres utilisateurs. Elle utilise le **paramètre \\/TN *** pour représenter toutes les tâches sur l’ordinateur et le paramètre **/f** pour supprimer le message de confirmation.
 ```
 schtasks /delete /tn * /f
 ```
@@ -1177,15 +1177,15 @@ schtasks [/query] [/fo {TABLE | LIST | CSV}] [/nh] [/v] [/s <Computer> [/u [<Dom
 |         Terme          |                                                                                                                                                                 Définition                                                                                                                                                                  |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |       Query        |                                                                                                                        Le nom de l’opération est facultatif. Si vous tapez **schtasks** sans aucun paramètre, une requête est exécutée.                                                                                                                         |
-|      /FO {TABLE       |                                                                                                                                                                    LIST                                                                                                                                                                     |
+|      /FO \<format>    |  Spécifie le format de sortie. Les valeurs valides sont TABLE, LIST et CSV                                                                                                                                 |
 |          /NH          |                                                                                                            Omet les en-têtes de colonne de l’affichage du tableau. Ce paramètre est valide avec les formats de sortie **table** et **CSV** .                                                                                                             |
 |          /v           |                                                                                                         Ajoute des propriétés avancées des tâches à l’affichage.</br>Les requêtes utilisant **/v** doivent être au format **liste** ou **CSV**.                                                                                                          |
-|    /s \<> de l’ordinateur     |                                                                                                           Spécifie le nom ou l’adresse IP d’un ordinateur distant (avec ou sans barre oblique inverse). La valeur par défaut est l'ordinateur local.                                                                                                           |
-| /u [\<> de domaine\]<User> | Exécute cette commande avec les autorisations du compte d’utilisateur spécifié. Par défaut, la commande s’exécute avec les autorisations de l’utilisateur actuel de l’ordinateur local.</br>Le compte d’utilisateur spécifié doit être membre du groupe Administrateurs sur l’ordinateur distant. Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**. |
-|    /p \<mot de passe >     |                                        Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** . Si vous utilisez **/u**, mais omettez **/p** ou l’argument de mot de passe, **schtasks** vous invite à entrer un mot de passe.</br>Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**.                                         |
+|    /s \<ordinateur>     |                                                                                                           Spécifie le nom ou l’adresse IP d’un ordinateur distant (avec ou sans barre oblique inverse). La valeur par défaut est l'ordinateur local.                                                                                                           |
+| /u [\<domaine>\]<User> | Exécute cette commande avec les autorisations du compte d’utilisateur spécifié. Par défaut, la commande s’exécute avec les autorisations de l’utilisateur actuel de l’ordinateur local.</br>Le compte d’utilisateur spécifié doit être membre du groupe Administrateurs sur l’ordinateur distant. Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**. |
+|    /p \<mot de passe>     |                                        Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** . Si vous utilisez **/u**, mais omettez **/p** ou l’argument de mot de passe, **schtasks** vous invite à entrer un mot de passe.</br>Les paramètres **/u** et **/p** ne sont valides que lorsque vous utilisez **/s**.                                         |
 |          /?           |                                                                                                                                                    Affiche l'aide à l'invite de commandes.                                                                                                                                                     |
 
-### <a name="remarks"></a>Notes
+### <a name="remarks"></a>Notes 
 
 **Schtasks. exe** termine uniquement les instances d’un programme démarrées par une tâche planifiée. Pour arrêter d’autres processus, utilisez TaskKill. Pour plus d’informations, consultez [taskkill](taskkill.md).
 
@@ -1252,7 +1252,7 @@ Power Mgmt: Stop On Battery Mode: Disabled
 
 La commande suivante demande une liste de tâches planifiées pour un ordinateur distant et ajoute les tâches à un fichier journal séparé par des virgules sur l’ordinateur local. Vous pouvez utiliser ce format de commande pour collecter et suivre les tâches planifiées pour plusieurs ordinateurs.
 
-La commande utilise le paramètre **/s** pour identifier l’ordinateur distant, Reskit16, le paramètre **/FO** pour spécifier le format et le paramètre **/NH** pour supprimer les en-têtes de colonne. Le symbole d’ajout **>>** redirige la sortie vers le journal des tâches, P0102. csv, sur l’ordinateur local, Svr01. Étant donné que la commande s’exécute sur l’ordinateur distant, le chemin d’accès de l’ordinateur local doit être complet.
+La commande utilise le paramètre **/s** pour identifier l’ordinateur distant, Reskit16, le paramètre **/FO** pour spécifier le format et le paramètre **/NH** pour supprimer les en-têtes de colonne. Le **>>** symbole d’ajout redirige la sortie vers le journal des tâches, P0102. csv, sur l’ordinateur local, Svr01. Étant donné que la commande s’exécute sur l’ordinateur distant, le chemin d’accès de l’ordinateur local doit être complet.
 ```
 schtasks /query /s Reskit16 /fo csv /nh >> \\svr01\data\tasklogs\p0102.csv
 ```

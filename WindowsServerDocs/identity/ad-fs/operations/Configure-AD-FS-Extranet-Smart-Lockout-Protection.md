@@ -8,16 +8,16 @@ ms.date: 05/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 28f7fc4a8c7129d9f88cc030b1b150db44321bf9
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 843ed0b3ebf25d662d0b90c17f8fe23548829a7e
+ms.sourcegitcommit: 371e59315db0cca5bdb713264a62b215ab43fd0f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859942"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192598"
 ---
-# <a name="ad-fs-extranet-lockout-and-extranet-smart-lockout"></a>AD FS le verrouillage extranet et le verrouillage intelligent extranet
+# <a name="ad-fs-extranet-lockout-and-extranet-smart-lockout"></a>Verrouillage extranet et verrouillage intelligent extranet AD FS
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Vue d’ensemble
 
 Le verrouillage intelligent extranet (ESL) protège vos utilisateurs contre le verrouillage de compte extranet contre les activités malveillantes.  
 
@@ -34,7 +34,7 @@ Le verrouillage intelligent extranet dans AD FS 2019 ajoute les avantages suivan
 ### <a name="configuration-information"></a>Informations de configuration
 Lorsque ESL est activé, une nouvelle table dans la base de données d’artefacts, AdfsArtifactStore. AccountActivity, est créée et un nœud est sélectionné dans la batterie de AD FS en tant que maître d’activité de l’utilisateur. Dans une configuration WID, ce nœud est toujours le nœud principal. Dans une configuration SQL, un nœud est sélectionné comme maître d’activité utilisateur.  
 
-Pour afficher le nœud sélectionné en tant que maître d’activité utilisateur. AdfsFarmInformation. FarmRoles
+Pour afficher le nœud sélectionné en tant que maître d’activité utilisateur. (AdfsFarmInformation). FarmRoles
 
 Tous les nœuds secondaires contactent le nœud principal sur chaque nouvelle connexion via le port 80 pour connaître la valeur la plus récente du nombre de mots de passe incorrects et de nouvelles valeurs de localisation familières, et mettre à jour ce nœud après le traitement de la connexion.
 
@@ -42,7 +42,7 @@ Tous les nœuds secondaires contactent le nœud principal sur chaque nouvelle co
 
  Si le nœud secondaire ne parvient pas à contacter le maître, il écrit des événements d’erreur dans le journal d’administration AD FS. Les authentifications continuent d’être traitées, mais AD FS n’écrira que l’État mis à jour localement. AD FS tentera de contacter le maître toutes les 10 minutes et repassera au maître une fois que le serveur maître sera disponible.
 
-### <a name="terminology"></a>Terminology
+### <a name="terminology"></a>Terminologie
 - **FamiliarLocation**: lors d’une demande d’authentification, ESL vérifie toutes les adresses IP présentées. Ces adresses IP sont une combinaison de l’adresse IP du réseau, de l’adresse IP transférée et de l’adresse IP (x-forwardd) facultative. Si la demande aboutit, toutes les adresses IP sont ajoutées à la table d’activité du compte comme « adresses IP familières ». Si toutes les adresses IP de la demande sont présentes dans les « adresses IP familières », la demande est traitée comme un emplacement « familier ».
 - **UnknownLocation**: si une demande qui arrive dans a au moins une adresse IP qui n’est pas présente dans la liste « FamiliarLocation » existante, la demande sera traitée comme un emplacement « inconnu ». Cela permet de gérer les scénarios de proxy, tels que l’authentification héritée Exchange Online, où les adresses Exchange Online gèrent les demandes ayant réussi et échoué.  
 - **badPwdCount**: valeur représentant le nombre de fois où un mot de passe incorrect a été envoyé et l’authentification a échoué. Pour chaque utilisateur, des compteurs distincts sont conservés pour les emplacements connus et les emplacements inconnus.
@@ -57,7 +57,7 @@ Tous les nœuds secondaires contactent le nœud principal sur chaque nouvelle co
 Les adresses IPv4 et IPv6 sont prises en charge.
 
 ### <a name="anatomy-of-a-transaction"></a>Anatomie d’une transaction
-- **Vérification de pré-authentification**: lors d’une demande d’authentification, ESL vérifie toutes les adresses IP présentées. Ces adresses IP sont une combinaison de l’adresse IP du réseau, de l’adresse IP transférée et de l’adresse IP (x-forwardd) facultative. Dans les journaux d’audit, ces adresses IP sont répertoriées dans le champ <IpAddress> dans l’ordre x-ms-forwarded-client-IP, x-forwarded-for, x-ms-proxy-client-IP.
+- **Vérification de pré-authentification**: lors d’une demande d’authentification, ESL vérifie toutes les adresses IP présentées. Ces adresses IP sont une combinaison de l’adresse IP du réseau, de l’adresse IP transférée et de l’adresse IP (x-forwardd) facultative. Dans les journaux d’audit, ces adresses IP sont répertoriées dans le <IpAddress> champ dans l’ordre x-ms-forwarded-client-IP, x-forwarded-for, x-ms-proxy-client-IP.
 
   Sur la base de ces adresses IP, ADFS détermine si la requête provient d’un emplacement familier ou inconnu, puis vérifie si le badPwdCount respectif est inférieur à la limite définie pour le seuil ou si la dernière tentative qui **a échoué** s’est produite plus longtemps que le délai de la fenêtre d’observation. Si l’une de ces conditions est vraie, ADFS autorise cette transaction à être traitée ultérieurement et la validation des informations d’identification. Si les deux conditions ont la valeur false, le compte est déjà verrouillé jusqu’à ce que la fenêtre d’observation passe. Une fois que la fenêtre d’observation a réussi, l’utilisateur est autorisé à tenter de s’authentifier. Notez que, dans 2019, ADFS effectue une vérification par rapport à la limite de seuil appropriée en fonction de si l’adresse IP correspond à un emplacement connu.
 - **Connexion réussie**: si la connexion réussit, les adresses IP de la demande sont ajoutées à la liste d’adresses IP de localisation familière de l’utilisateur.  
@@ -143,10 +143,10 @@ La table AccountActivity est remplie à la fois en mode « journal uniquement 
 ### <a name="ensure-ad-fs-security-audit-logging-is-enabled"></a>Vérifier AD FS la journalisation d’audit de sécurité est activée
 Cette fonctionnalité utilise les journaux d’audit de sécurité, de sorte que l’audit doit être activé dans AD FS, ainsi que la stratégie locale sur tous les serveurs AD FS.
 
-### <a name="configuration-instructions"></a>Instructions de configuration
-Le verrouillage intelligent extranet utilise la propriété ADFS **ExtranetLockoutEnabled**. Cette propriété a été utilisée précédemment pour contrôler le « verrouillage logiciel extranet » dans le serveur 2012 R2. Si le verrouillage logiciel extranet a été activé, pour afficher la configuration actuelle de la propriété, exécutez ` Get-AdfsProperties`.
+### <a name="configuration-instructions"></a>Instructions relatives à la configuration
+Le verrouillage intelligent extranet utilise la propriété ADFS **ExtranetLockoutEnabled**. Cette propriété a été utilisée précédemment pour contrôler le « verrouillage logiciel extranet » dans le serveur 2012 R2. Si le verrouillage logiciel extranet a été activé, pour afficher la configuration actuelle de ` Get-AdfsProperties` la propriété, exécutez.
 
-### <a name="configuration-recommendations"></a>Recommandations de configuration
+### <a name="configuration-recommendations"></a>Recommandations relatives à la configuration
 Lors de la configuration du verrouillage intelligent extranet, suivez les meilleures pratiques pour définir les seuils :  
 
 `ExtranetObservationWindow (new-timespan -Minutes 30)`
@@ -235,10 +235,14 @@ Ce comportement peut être substitué en passant le paramètre-Server.
 
 ## <a name="event-logging--user-activity-information-for-ad-fs-extranet-lockout"></a>Journalisation des événements & des informations sur l’activité des utilisateurs pour AD FS le verrouillage extranet
 
-### <a name="connect-health"></a>Connecter l’intégrité
-La méthode recommandée pour surveiller l’activité d’un compte d’utilisateur consiste à connecter l’intégrité. Connect Health génère des rapports téléchargeables sur les adresses IP risquées et les tentatives de mot de passe erronées. Chaque élément du rapport d’adresse IP risquée affiche des informations agrégées sur les activités de connexion AD FS ayant échoué qui dépassent le seuil désigné. Les notifications par courrier électronique peuvent être définies pour alerter les administrateurs dès que cela se produit avec les paramètres de messagerie personnalisables. Pour obtenir des informations supplémentaires et des instructions d’installation, consultez la [documentation Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs).
+### <a name="connect-health"></a>Connect Health
+La méthode recommandée pour surveiller l’activité d’un compte d’utilisateur consiste à connecter l’intégrité. Connect Health génère des rapports téléchargeables sur les adresses IP risquées et les tentatives de mot de passe erronées. Chaque élément du rapport d’adresse IP risquée affiche des informations agrégées sur les échecs de connexion AD FS qui dépassent le seuil défini. Les notifications par courrier électronique peuvent être définies pour alerter les administrateurs dès que cela se produit avec les paramètres de messagerie personnalisables. Pour obtenir des informations supplémentaires et des instructions d’installation, consultez la [documentation Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs).
 
 ### <a name="ad-fs-extranet-smart-lockout-events"></a>AD FS les événements de verrouillage intelligent extranet.
+
+>[!NOTE]
+> Résoudre les problèmes de verrouillage intelligent extranet avec le [AD FS Guide de dépannage du verrouillage extranet](https://adfshelp.microsoft.com/TroubleshootingGuides/Workflow/a73d5843-9939-4c03-80a1-adcbbf3ccec8)
+
 Pour que les événements de verrouillage intelligent extranet soient écrits, ESL doit être activé en mode « journal uniquement » ou « appliquer » et l’audit de sécurité ADFS est activé.
 AD FS écrira des événements de verrouillage extranet dans le journal d’audit de sécurité :
 - Lorsqu’un utilisateur est verrouillé (atteint le seuil de verrouillage pour les tentatives de connexion ayant échoué)
@@ -247,7 +251,7 @@ AD FS écrira des événements de verrouillage extranet dans le journal d’audi
 En mode journal uniquement, vous pouvez consulter le journal d’audit de sécurité pour rechercher les événements de verrouillage. Pour tout événement trouvé, vous pouvez vérifier l’état utilisateur à l’aide de l’applet de commande ADFSAccountActivity pour déterminer si le verrouillage s’est produit à partir d’adresses IP familières ou inconnues, et pour vérifier la liste des adresses IP familières pour cet utilisateur.
 
 
-|ID d’événement|Description|
+|ID de l’événement|Description|
 |-----|-----|
 |1203|Cet événement est écrit pour chaque tentative de mot de passe incorrecte. Dès que le badPwdCount atteint la valeur spécifiée dans ExtranetLockoutThreshold, le compte est verrouillé sur ADFS pour la durée spécifiée dans ExtranetObservationWindow.</br>ID de l’activité : %1</br>XML : %2|
 |1201|Cet événement est écrit chaque fois qu’un utilisateur est verrouillé. </br>ID de l’activité : %1</br>XML : %2|
@@ -266,11 +270,11 @@ R : si le verrouillage intelligent ADFS est défini sur le mode « appliquer 
 
 **Que se passe-t-il si ESL est activé et que le mauvais acteur a un mot de passe utilisateur ?** 
 
-R : l’objectif type du scénario d’attaque par force brute est de deviner un mot de passe et de se connecter correctement.  Si un utilisateur est victime d’un hameçonnage ou si un mot de passe est deviné, la fonctionnalité ESL ne bloquera pas l’accès, car la connexion répondra aux critères « réussis » du mot de passe correct et à la nouvelle adresse IP. L’adresse IP des acteurs incorrects apparaît alors comme « familière ». La meilleure atténuation dans ce scénario consiste à effacer l’activité de l’utilisateur dans ADFS et à exiger une authentification multifacteur pour les utilisateurs. Nous vous recommandons vivement d’installer la protection par mot de passe AAD qui garantit que les mots de passe devinés ne sont pas dans le système.
+R : l’objectif type du scénario d’attaque par force brute est de deviner un mot de passe et de se connecter correctement.Si un utilisateur est victime d’un hameçonnage ou si un mot de passe est deviné, la fonctionnalité ESL ne bloquera pas l’accès, car la connexion répondra aux critères « réussis » du mot de passe correct et à la nouvelle adresse IP. L’adresse IP des acteurs incorrects apparaît alors comme « familière ».La meilleure atténuation dans ce scénario consiste à effacer l’activité de l’utilisateur dans ADFS et à exiger une authentification multifacteur pour les utilisateurs. Nous vous recommandons vivement d’installer la protection par mot de passe AAD qui garantit que les mots de passe devinés ne sont pas dans le système.
 
 **Si mon utilisateur ne s’est jamais connecté avec succès à partir d’une adresse IP et tente alors un mot de passe incorrect plusieurs fois, il pourra se connecter une fois qu’il aura finalement tapé son mot de passe correctement.** 
 
-R : si un utilisateur envoie plusieurs mots de passe incorrects (par exemple, un typage légitime) et que, lors de la tentative suivante, le mot de passe est correct, l’utilisateur parvient immédiatement à se connecter.  Le nombre de mots de passe incorrects est alors effacé et l’adresse IP est ajoutée à la liste FamiliarIPs.  Toutefois, s’ils se trouvent au-dessus du seuil des échecs de connexion à partir de l’emplacement inconnu, ils entrent en état de verrouillage et doivent patienter au-delà de la fenêtre d’observation et se connectent avec un mot de passe valide ou nécessitent une intervention de l’administrateur pour réinitialiser leur compte.  
+R : si un utilisateur envoie plusieurs mots de passe incorrects (par exemple, un typage légitime) et que, lors de la tentative suivante, le mot de passe est correct, l’utilisateur parvient immédiatement à se connecter. Le nombre de mots de passe incorrects est alors effacé et l’adresse IP est ajoutée à la liste FamiliarIPs.Toutefois, s’ils se trouvent au-dessus du seuil des échecs de connexion à partir de l’emplacement inconnu, ils entrent en état de verrouillage et doivent patienter au-delà de la fenêtre d’observation et se connectent avec un mot de passe valide ou nécessitent une intervention de l’administrateur pour réinitialiser leur compte.  
  
 **ESL fonctionne-t-il également sur intranet ?**
 
@@ -278,10 +282,10 @@ R : si les clients se connectent directement aux serveurs ADFS et non via les s
 
 **Je vois des adresses IP Microsoft dans le champ adresse IP du client. ESL bloque-t-elle les attaques en force brute proxy EXO ?**  
 
-R : ESL fonctionne bien pour empêcher Exchange Online ou d’autres scénarios d’attaque par force brute d’authentification. Une authentification héritée a un « ID d’activité » de 00000000-0000-0000-0000-000000000000. Dans ces attaques, l’acteur incorrect tire parti de l’authentification de base Exchange Online (également appelée authentification héritée) afin que l’adresse IP du client apparaisse en tant que Microsoft One. Les serveurs Exchange Online du Cloud proxy vérifient l’authentification pour le compte du client Outlook. Dans ces scénarios, l’adresse IP de l’expéditeur malveillant sera dans le x-ms-forwarded-client-IP et l’adresse IP du serveur Microsoft Exchange Online sera dans la valeur x-ms-client-IP.
+R : ESL fonctionne bien pour empêcher Exchange Online ou d’autres scénarios d’attaque par force brute d’authentification. Une authentification héritée a un « ID d’activité » de 00000000-0000-0000-0000-000000000000.Dans ces attaques, l’acteur incorrect tire parti de l’authentification de base Exchange Online (également appelée authentification héritée) afin que l’adresse IP du client apparaisse en tant que Microsoft One. Les serveurs Exchange Online du Cloud proxy vérifient l’authentification pour le compte du client Outlook. Dans ces scénarios, l’adresse IP de l’expéditeur malveillant sera dans le x-ms-forwarded-client-IP et l’adresse IP du serveur Microsoft Exchange Online sera dans la valeur x-ms-client-IP.
 Le verrouillage intelligent extranet vérifie les adresses IP du réseau, les adresses IP transférées, la valeur x-forwarded-client-IP et la valeur x-ms-client-IP. Si la demande aboutit, toutes les adresses IP sont ajoutées à la liste familière. Si une demande arrive et que l’une des adresses IP présentées ne figure pas dans la liste familière, la demande est marquée comme peu familière. L’utilisateur familier sera en mesure de se connecter avec succès alors que les demandes provenant des emplacements inconnus seront bloquées.  
 
-\* * Q : puis-je estimer la taille du ADFSArtifactStore avant d’activer ESL ?
+* * Q : puis-je estimer la taille du ADFSArtifactStore avant d’activer ESL ?
 
 R : avec ESL activé, AD FS effectue le suivi de l’activité du compte et des emplacements connus pour les utilisateurs dans la base de données ADFSArtifactStore. Cette base de données est mise à l’échelle en fonction du nombre d’utilisateurs et d’emplacements connus suivis. Quand vous envisagez d’activer ESL, vous pouvez partir du principe que la taille de la base de données ADFSArtifactStore augmentera de 1 Go maximum tous les 100 000 utilisateurs. Si la batterie de AD FS utilise la base de données interne Windows (WID), l’emplacement par défaut des fichiers de base de données est C:\Windows\WID\Data\. Pour empêcher le remplissage de ce lecteur, assurez-vous de disposer d’au moins 5 Go de stockage gratuit avant d’activer ESL. En plus du stockage sur disque, planifiez l’augmentation de la mémoire totale de processus après l’activation d’ESL d’une valeur pouvant aller jusqu’à 1 Go de RAM supplémentaire pour les populations de 500 000 utilisateurs ou moins.
 

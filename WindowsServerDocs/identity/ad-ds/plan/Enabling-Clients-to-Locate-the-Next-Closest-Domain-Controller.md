@@ -8,16 +8,16 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 55e19728e247240ca35bf7cc7b47b36171f1f195
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 75e31a435e8d8411fbe4db242e6d31fd7676fe4e
+ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80822502"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624247"
 ---
 # <a name="enabling-clients-to-locate-the-next-closest-domain-controller"></a>Permettre aux clients de localiser le contrôleur de domaine suivant le plus proche
 
->S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Si vous disposez d’un contrôleur de domaine qui exécute Windows Server 2008 ou une version plus récente, vous pouvez permettre aux ordinateurs clients qui exécutent Windows Vista ou une version plus récente ou Windows Server 2008 ou version ultérieure de localiser les contrôleurs de domaine plus efficacement en activant le paramètre essayer le site le plus **proche suivant** stratégie de groupe. Ce paramètre améliore le localisateur de contrôleur de domaine en aidant à rationaliser le trafic réseau, en particulier dans les grandes entreprises qui ont de nombreux sites et succursales.
 
@@ -31,7 +31,7 @@ Par défaut, le paramètre **essayer le site suivant le plus proche** n’est pa
 - Si aucun contrôleur de domaine n’est disponible sur le même site, essayez de trouver un contrôleur de domaine dans le domaine.
 
 > [!NOTE]
-> Il s’agit du même algorithme que celui utilisé dans les versions précédentes de Active Directory. Pour plus d’informations, consultez l’article sur le [fonctionnement de la prise en charge de DNS pour Active Directory](https://go.microsoft.com/fwlink/?LinkId=108587).
+> Il s’agit du même algorithme que celui utilisé dans les versions précédentes de Active Directory. Pour plus d’informations, consultez l’article sur le [fonctionnement de la prise en charge de DNS pour Active Directory](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc759550(v=ws.10)).
 
 Si vous activez le paramètre **essayer le site suivant le plus proche** , le localisateur de contrôleur de domaine utilise l’algorithme suivant pour localiser un contrôleur de domaine :
 
@@ -54,4 +54,4 @@ Si le paramètre n’est pas activé, le client tente de trouver un contrôleur 
 > [!NOTE]
 > Le paramètre de **site essayer suivant le plus proche** fonctionne en coordination avec la couverture de site automatique. Par exemple, si le site suivant le plus proche n’a pas de contrôleur de domaine, le localisateur de contrôleur de domaine tente de trouver le contrôleur de domaine qui exécute la couverture automatique de site pour ce site.
 
-Pour appliquer le paramètre **essayer le site suivant le plus proche** , vous pouvez créer un objet de stratégie de groupe (GPO) et le lier à l’objet approprié pour votre organisation, ou vous pouvez modifier la stratégie de domaine par défaut pour qu’elle affecte tous les clients qui exécutent Windows Vista ou une version plus récente et Windows Server 2008 ou une version plus récente dans le domaine. Pour plus d’informations sur la façon de définir le paramètre de **site essayer suivant le plus proche** , consultez [activer les clients pour localiser un contrôleur de domaine dans le site suivant le plus proche](https://technet.microsoft.com/library/cc772592.aspx).
+Pour appliquer le paramètre **essayer le site suivant le plus proche** , vous pouvez créer un objet de stratégie de groupe (GPO) et le lier à l’objet approprié pour votre organisation, ou vous pouvez modifier la stratégie de domaine par défaut pour qu’elle affecte tous les clients qui exécutent Windows Vista ou une version plus récente et Windows Server 2008 ou une version plus récente dans le domaine. Pour plus d’informations sur la façon de définir le paramètre de **site essayer suivant le plus proche** , consultez [activer les clients pour localiser un contrôleur de domaine dans le site suivant le plus proche](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772592(v=ws.10)).

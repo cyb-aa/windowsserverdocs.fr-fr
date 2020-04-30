@@ -1,6 +1,6 @@
 ---
 ms.assetid: 7671e0c9-faf0-40de-808a-62f54645f891
-title: Mise à niveau vers ADFS dans Windows Server2016
+title: Mise à niveau vers AD FS dans Windows Server 2016
 author: billmath
 manager: femila
 ms.date: 04/09/2018
@@ -8,14 +8,14 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 4c13a3ecbcc6ade1455c10dde5f6a89e0303e161
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9389d1565462572a5617856f0f2531580b069745
+ms.sourcegitcommit: 074b59341640a8ae0586d6b37df7ba256e03a0c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857632"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81650074"
 ---
-# <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Mise à niveau vers AD FS dans Windows Server 2016 à l'aide d'une base de données WID
+# <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Mise à niveau vers AD FS dans Windows Server 2016 à l’aide d’une base de données WID
 
 
 > [!NOTE]
@@ -56,17 +56,20 @@ Le reste du document contient les étapes permettant d’ajouter un serveur de F
 > [!NOTE]
 > Pour pouvoir passer à AD FS dans Windows Server 2019 FBL, vous devez supprimer tous les nœuds Windows Server 2016 ou 2012 R2. Vous ne pouvez pas simplement mettre à niveau un système d’exploitation Windows Server 2016 ou 2012 R2 vers Windows Server 2019 et le faire devenir un nœud 2019. Vous devez le supprimer et le remplacer par un nouveau nœud 2019.
 
+> [!NOTE]
+> Si les groupes AlwaysOnAvailability ou la réplication de fusion sont configurés dans AD FS, supprimez toutes les réplications des bases de données ADFS avant la mise à niveau et pointez tous les nœuds vers la base de données SQL principale. Après avoir effectué cette opération, effectuez la mise à niveau de la batterie de serveurs, comme indiqué. Après la mise à niveau, ajoutez des groupes AlwaysOnAvailability ou la réplication de fusion aux nouvelles bases de données.
+
 ##### <a name="to-upgrade-your-ad-fs-farm-to-windows-server-2019-farm-behavior-level"></a>Pour mettre à niveau votre batterie de serveurs AD FS au niveau du comportement de la batterie de serveurs Windows Server 2019
 
 1. À l’aide de Gestionnaire de serveur, installez le rôle Services ADFS sur Windows Server 2019
 
 2. À l’aide de l’Assistant Configuration de AD FS, joignez le nouveau serveur Windows Server 2019 à la batterie de AD FS existante.
 
-![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_1.png)
+![upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_1.png)
 
 3. Sur le serveur de Fédération Windows Server 2019, ouvrez gestion des AD FS. Notez que les fonctionnalités de gestion ne sont pas disponibles, car ce serveur de Fédération n’est pas le serveur principal.
 
-![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_3.png)
+![upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_3.png)
 
 4. Sur le serveur Windows Server 2019, ouvrez une fenêtre de commande PowerShell avec élévation de privilèges et exécutez l’applet de commande suivante :
 
@@ -74,7 +77,7 @@ Le reste du document contient les étapes permettant d’ajouter un serveur de F
 Set-AdfsSyncProperties -Role PrimaryComputer
 ```
 
-![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_4.png)
+![upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_4.png)
 
 5. Sur le serveur AD FS qui a été précédemment configuré comme principal, ouvrez une fenêtre de commande PowerShell avec élévation de privilèges et exécutez l’applet de commande suivante :
 
@@ -82,22 +85,22 @@ Set-AdfsSyncProperties -Role PrimaryComputer
 Set-AdfsSyncProperties -Role SecondaryComputer -PrimaryComputerName {FQDN}
 ```
 
-![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_5.png)
+![upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_5.png)
 
 6. Maintenant, sur le serveur de Fédération Windows Server 2016, ouvrez la gestion de AD FS. Notez que toutes les fonctionnalités d’administration s’affichent, car le rôle principal a été transféré vers ce serveur.
 
-![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_6.png)
+![upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_6.png)
 
-7. Si vous mettez à niveau une batterie de serveurs AD FS 2012 R2 vers 2016 ou 2019, la mise à niveau de la batterie de serveurs nécessite que le schéma AD soit au moins au niveau 85.  Pour mettre à niveau le schéma, à l’aide du support d’installation de Windows Server 2016, ouvrez une invite de commandes et accédez au répertoire support\adprep Exécutez la commande suivante : `adprep /forestprep`
+7. Si vous mettez à niveau une batterie de serveurs AD FS 2012 R2 vers 2016 ou 2019, la mise à niveau de la batterie de serveurs nécessite que le schéma AD soit au moins au niveau 85.  Pour mettre à niveau le schéma, à l’aide du support d’installation de Windows Server 2016, ouvrez une invite de commandes et accédez au répertoire support\adprep Exécutez la commande suivante : `adprep /forestprep`
 
-![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_7.png)
+![upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_7.png)
 
-Une fois l’exécution terminée `adprep/domainprep`
+Une fois l’exécution terminée`adprep/domainprep`
 
 > [!NOTE]
-> Avant d’exécuter l’étape suivante, assurez-vous que Windows Server est en cours d’exécution en exécutant Windows Update à partir de paramètres. Continuez ce processus jusqu’à ce qu’il n’y ait plus de mises à jour nécessaires.
+> Avant d’exécuter l’étape suivante, assurez-vous que Windows Server est en cours d’exécution en exécutant Windows Update à partir de paramètres. Poursuivez ce processus jusqu’à ce qu’aucune mise à jour supplémentaire ne soit nécessaire.
 
-![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_8.png)
+![upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_8.png)
 
 8. Maintenant, sur le serveur Windows Server 2016, ouvrez PowerShell et exécutez l’applet de commande suivante :
 
@@ -109,19 +112,19 @@ Une fois l’exécution terminée `adprep/domainprep`
 Invoke-AdfsFarmBehaviorLevelRaise
 ```
 
-![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_9.png)
+![upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_9.png)
 
 9. Lorsque vous y êtes invité, tapez o. Cela commencera à augmenter le niveau. Une fois cette opération terminée, vous avez correctement déclenché le FBL.
 
-![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_10.png)
+![upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_10.png)
 
 10. Maintenant, si vous accédez à AD FS Management, vous verrez que les nouvelles fonctionnalités ont été ajoutées pour la version AD FS ultérieure
 
-![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_12.png)
+![upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_12.png)
 
-11. De même, vous pouvez utiliser l’applet de commande PowerShell : `Get-AdfsFarmInformation` pour afficher le FBL actuel.
+11. De même, vous pouvez utiliser l’applet de `Get-AdfsFarmInformation` commande PowerShell : pour afficher le fbl actuel.
 
-![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_13.png)
+![upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_13.png)
 
 12. Pour mettre à niveau les serveurs WAP au niveau le plus récent, sur chaque proxy d’application Web, reconfigurez le WAP en exécutant l’applet de commande PowerShell suivante dans une fenêtre avec élévation de privilèges :
 
@@ -151,7 +154,7 @@ Cela terminera la mise à niveau des serveurs WAP.
 
 
 > [!NOTE] 
-> Un problème PRT connu existe dans AD FS 2019 si Windows Hello entreprise avec une approbation de certificat hybride est exécuté. Vous pouvez rencontrer cette erreur dans les journaux des événements d’administration ADFS : réception d’une requête OAuth non valide. Le client « NOM » n’est pas autorisé à accéder à la ressource avec l’étendue « ugs ». Pour corriger cette erreur : 
+> Un problème PRT connu existe dans AD FS 2019 si Windows Hello entreprise avec une approbation de certificat hybride est exécuté. Vous pouvez rencontrer cette erreur dans les journaux des événements d’administration ADFS : Requête OAuth non valide reçue. Le client « NOM » n’est pas autorisé à accéder à la ressource avec l’étendue « ugs ». Pour corriger cette erreur : 
 > 1. Lancez la console de gestion AD FS. Accédez à « Services > Descriptions d’étendue ».
 > 2. Cliquez avec le bouton droit sur « Descriptions d’étendue » et sélectionnez « Ajouter une description d’étendue ».
 > 3. Sous le nom, tapez « ugs » et cliquez sur Appliquer > OK.
@@ -159,5 +162,5 @@ Cela terminera la mise à niveau des serveurs WAP.
 > 5. Exécutez la commande « Get-AdfsApplicationPermission ». Recherchez l’élément ScopeNames :{openid, aza} qui contient le ClientRoleIdentifier. Notez la valeur de ObjectIdentifier.
 > 6. Exécutez la commande « Set-AdfsApplicationPermission -TargetIdentifier <ObjectIdentifier de l’étape 5> -AddScope 'ugs'
 > 7. Redémarrez le service ADFS.
-> 8. Sur le client : redémarrez le client. L’utilisateur est invité à provisionner WHFB.
+> 8. Sur le client : Redémarrez le client. L’utilisateur est invité à provisionner WHFB.
 > 9. Si la fenêtre de provisionnement ne s’affiche pas, collectez les journaux de suivi NGC pour un dépannage supplémentaire.

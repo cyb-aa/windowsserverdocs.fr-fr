@@ -11,12 +11,12 @@ ms.technology: compute-hyper-v
 ms.assetid: 444e1496-9e5a-41cf-bfbc-306e2ed8e00a
 audience: IT Pros
 ms.reviewer: kathydav
-ms.openlocfilehash: f5c9b932cabfea8df55ba8622165bbb04b4a4113
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ea78bf9cb892f8e8cb41f357242f3b38a5bca934
+ms.sourcegitcommit: d669d4af166b9018bcf18dc79cb621a5fee80042
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392719"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82037128"
 ---
 # <a name="create-hyper-v-vhd-set-files"></a>Créer des fichiers de jeu de disques durs virtuels Hyper-V
 Les fichiers de définition de VHD sont un nouveau modèle de disque virtuel partagé pour les clusters invités dans Windows Server 2016. Les fichiers de définition de VHD prennent en charge le redimensionnement en ligne des disques virtuels partagés, prennent en charge la réplication Hyper-V et peuvent être inclus dans des points de contrôle cohérents avec les applications. 
@@ -24,6 +24,9 @@ Les fichiers de définition de VHD sont un nouveau modèle de disque virtuel par
 Les fichiers de définition de disque dur virtuel utilisent un nouveau type de fichier VHD,. Durs. Les fichiers de définition de VHD stockent des informations de point de contrôle sur le disque virtuel de groupe utilisé dans les clusters invités, sous la forme de métadonnées.
 
 Hyper-V gère tous les aspects de la gestion des chaînes de points de contrôle et de la fusion de l’ensemble de disques durs virtuels partagés. Les logiciels de gestion peuvent exécuter des opérations de disque telles que le redimensionnement en ligne sur des fichiers de jeu de disques durs virtuels de la même façon que pour. Fichiers VHDX. Cela signifie que le logiciel de gestion n’a pas besoin de connaître le format de fichier de l’ensemble de disques durs virtuels.
+
+> [!NOTE]  
+> Il est important d’évaluer l’impact des fichiers de l’ensemble de disques durs virtuels avant le déploiement en production. Assurez-vous qu’il n’y a pas de performances ou de dégradation fonctionnelle dans votre environnement, telles que la latence de disque.
 
 ## <a name="create-a-vhd-set-file-from-hyper-v-manager"></a>Créer un fichier de définition de disque dur virtuel à partir du Gestionnaire Hyper-V
 

@@ -1,23 +1,23 @@
 ---
 ms.assetid: 4deff06a-d0ef-4e5a-9701-5911ba667201
-title: Outil de restauration rapide ADFS
+title: Outil de restauration rapide AD FS
 author: billmath
 ms.author: billmath
 manager: femila
-ms.date: 07/02/2019
+ms.date: 04/24/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 506734812689a42ec17768652ac715f5c7e24401
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dde9d60278a32ae4e6ba0baf35bc11ce631d4e02
+ms.sourcegitcommit: 371e59315db0cca5bdb713264a62b215ab43fd0f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80858102"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192599"
 ---
-# <a name="ad-fs-rapid-restore-tool"></a>Outil de restauration rapide ADFS
+# <a name="ad-fs-rapid-restore-tool"></a>Outil de restauration rapide AD FS
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Vue d’ensemble
 Aujourd’hui AD FS est rendu hautement disponible en configurant une batterie de serveurs AD FS. Certaines organisations souhaitent avoir un seul serveur AD FS déploiement, éliminant la nécessité de disposer de plusieurs serveurs AD FS et d’une infrastructure d’équilibrage de charge réseau, tout en ayant la garantie que le service peut être restauré rapidement en cas de problème.
 Le nouvel outil de restauration rapide AD FS offre un moyen de restaurer des données AD FS sans avoir à effectuer une sauvegarde et une restauration complètes du système d’exploitation ou de l’état du système. Vous pouvez utiliser le nouvel outil pour exporter AD FS configuration vers Azure ou vers un emplacement local.  Vous pouvez ensuite appliquer les données exportées à une nouvelle installation de AD FS, en recréant ou en dupliquant l’environnement AD FS. 
 
@@ -54,15 +54,15 @@ import-module 'C:\Program Files (x86)\ADFS Rapid Recreation Tool\ADFSRapidRecrea
 ```
 
 >[!NOTE] 
->Si vous utilisez la base de données intégrée de Windows (WID), cet outil doit être exécuté sur le serveur de AD FS principal.  Vous pouvez utiliser l’applet de commande `Get-AdfsSyncProperties` PowerShell pour déterminer si le serveur sur lequel vous êtes ou non est le serveur principal.
+>Si vous utilisez la base de données intégrée de Windows (WID), cet outil doit être exécuté sur le serveur de AD FS principal.  Vous pouvez utiliser l' `Get-AdfsSyncProperties` applet de commande PowerShell pour déterminer si le serveur sur lequel vous êtes ou non est le serveur principal.
 
-### <a name="system-requirements"></a>Configuration requise
+### <a name="system-requirements"></a>Configuration système requise
 
 - Cet outil fonctionne pour AD FS dans Windows Server 2012 R2 et versions ultérieures. 
 - Le .NET Framework requis est au moins 4,0. 
 - La restauration doit être effectuée sur un serveur AD FS de la même version que la sauvegarde et qui utilise le même compte Active Directory que le compte de service AD FS.
 
-## <a name="create-a-backup"></a>Créer une sauvegarde
+## <a name="create-a-backup"></a>Création d'une sauvegarde
 Pour créer une sauvegarde, utilisez l’applet de commande Backup-ADFS. Cette applet de commande sauvegarde la configuration AD FS, la base de données, les certificats SSL, etc. 
 
 L’utilisateur doit être au moins un administrateur local pour exécuter cette applet de commande. Pour sauvegarder le conteneur Active Directory DKM (requis dans la configuration de AD FS par défaut), l’utilisateur doit être un administrateur de domaine, doit transmettre les informations d’identification du compte de service AD FS ou avoir accès au conteneur DKM.  Si vous utilisez un compte gMSA, l’utilisateur doit être administrateur de domaine ou disposer d’autorisations sur le conteneur. vous ne pouvez pas fournir les informations d’identification gMSA. 
@@ -72,25 +72,25 @@ L’applet de commande prend les paramètres suivants :
     
 Jeux de paramètres
 
-![Outil de restauration rapide ADFS](media/AD-FS-Rapid-Restore-Tool/parameter1.png)
+![Outil de restauration rapide AD FS](media/AD-FS-Rapid-Restore-Tool/parameter1.png)
 
 ### <a name="detailed-description"></a>Description détaillée
 
 - **BackupDKM** : sauvegarde le conteneur DKM Active Directory qui contient les clés de AD FS dans la configuration par défaut (génération automatique de certificats de signature et de déchiffrement de jetons). Cela utilise un outil AD « LDIFDE » pour exporter le conteneur AD et toutes ses sous-arborescences.
 
-- -**StorageType &lt;chaîne&gt;** : type de stockage que l’utilisateur souhaite utiliser. « FileSystem » indique que l’utilisateur veut le stocker dans un dossier local ou dans le réseau « Azure » indique que l’utilisateur veut le stocker dans le conteneur de stockage Azure lorsque l’utilisateur effectue la sauvegarde, il sélectionne l’emplacement de sauvegarde, le système de fichiers ou dans le Cloud. Pour utiliser Azure, les informations d’identification de stockage Azure doivent être transmises à l’applet de commande. Les informations d’identification de stockage contiennent le nom et la clé du compte. En outre, un nom de conteneur doit également être transmis. Si le conteneur n’existe pas, il est créé au cours de la sauvegarde. Pour le système de fichiers à utiliser, un chemin d’accès de stockage doit être fourni. Dans ce répertoire, un nouveau répertoire est créé pour chaque sauvegarde. Chaque répertoire créé contiendra les fichiers sauvegardés. 
+- -** &lt;Chaîne&gt; StorageType** : type de stockage que l’utilisateur souhaite utiliser. « FileSystem » indique que l’utilisateur veut le stocker dans un dossier local ou dans le réseau « Azure » indique que l’utilisateur veut le stocker dans le conteneur de stockage Azure lorsque l’utilisateur effectue la sauvegarde, il sélectionne l’emplacement de sauvegarde, le système de fichiers ou dans le Cloud. Pour utiliser Azure, les informations d’identification de stockage Azure doivent être transmises à l’applet de commande. Les informations d’identification de stockage contiennent le nom et la clé du compte. En outre, un nom de conteneur doit également être transmis. Si le conteneur n’existe pas, il est créé au cours de la sauvegarde. Pour le système de fichiers à utiliser, un chemin d’accès de stockage doit être fourni. Dans ce répertoire, un nouveau répertoire est créé pour chaque sauvegarde. Chaque répertoire créé contiendra les fichiers sauvegardés. 
 
-- **EncryptionPassword &lt;chaîne&gt;** : mot de passe qui sera utilisé pour chiffrer tous les fichiers sauvegardés avant de les stocker.
+- **EncryptionPassword &lt;String&gt; ** -le mot de passe qui sera utilisé pour chiffrer tous les fichiers sauvegardés avant de les stocker
 
-- **AzureConnectionCredentials &lt;pscredential&gt;** -le nom et la clé du compte de stockage Azure
+- **AzureConnectionCredentials &lt;PSCredential&gt; ** -le nom et la clé du compte de stockage Azure
 
-- **AzureStorageContainer &lt;string&gt;** : le conteneur de stockage dans lequel la sauvegarde sera stockée dans Azure
+- **AzureStorageContainer &lt;chaîne&gt; ** -le conteneur de stockage dans lequel la sauvegarde sera stockée dans Azure
 
-- **StoragePath &lt;chaîne&gt;** : l’emplacement dans lequel les sauvegardes seront stockées.
+- **StoragePath &lt;chaîne&gt; ** : emplacement dans lequel les sauvegardes seront stockées.
 
-- **ServiceAccountCredential &lt;pscredential&gt;** : spécifie le compte de service utilisé pour le service AD FS qui s’exécute actuellement. Ce paramètre n’est nécessaire que si l’utilisateur souhaite sauvegarder le DKM et n’est pas administrateur de domaine ou n’a pas accès au contenu du conteneur. 
+- **ServiceAccountCredential &lt;PSCredential&gt; ** -spécifie le compte de service utilisé pour le service AD FS en cours d’exécution. Ce paramètre n’est nécessaire que si l’utilisateur souhaite sauvegarder le DKM et n’est pas administrateur de domaine ou n’a pas accès au contenu du conteneur. 
 
-- **BackupComment &lt;String []&gt;** -une chaîne d’information sur la sauvegarde qui sera affichée lors de la restauration, de la même façon que le concept de nom de point de contrôle Hyper-V. La valeur par défaut est une chaîne vide
+- **BackupComment &lt;String []&gt; ** : chaîne d’informations sur la sauvegarde qui sera affichée lors de la restauration, de la même façon que le concept de nom de point de contrôle Hyper-V. La valeur par défaut est une chaîne vide
 
  
 ## <a name="backup-examples"></a>Exemples de sauvegarde
@@ -123,7 +123,7 @@ Backup-ADFS -StorageType "FileSystem" -StoragePath "C:\Users\administrator\testE
 ## <a name="restore-from-backup"></a>Restaurer à partir d’une sauvegarde
 Pour appliquer une configuration créée à l’aide de Backup-ADFS à une nouvelle installation de AD FS, utilisez l’applet de commande Restore-ADFS.
 
-Cette applet de commande crée une batterie de AD FS à l’aide de l’applet de commande `Install-AdfsFarm` et restaure la configuration de la AD FS, la base de données, les certificats, etc.  Si le rôle de AD FS n’a pas été installé sur le serveur, l’applet de commande l’installe.  L’applet de commande vérifie l’emplacement de restauration des sauvegardes existantes et invite l’utilisateur à choisir une sauvegarde appropriée en fonction de la date/heure à laquelle elle a été prise et des commentaires de sauvegarde que l’utilisateur pourrait avoir attachés à la sauvegarde. S’il existe plusieurs configurations de AD FS avec des noms de service de Fédération différents, l’utilisateur est invité à choisir d’abord la configuration de AD FS appropriée.
+Cette applet de commande crée une batterie de AD FS à `Install-AdfsFarm` l’aide de l’applet de commande et restaure la configuration de la AD FS, la base de données, les certificats, etc.  Si le rôle de AD FS n’a pas été installé sur le serveur, l’applet de commande l’installe.  L’applet de commande vérifie l’emplacement de restauration des sauvegardes existantes et invite l’utilisateur à choisir une sauvegarde appropriée en fonction de la date/heure à laquelle elle a été prise et des commentaires de sauvegarde que l’utilisateur pourrait avoir attachés à la sauvegarde. S’il existe plusieurs configurations de AD FS avec des noms de service de Fédération différents, l’utilisateur est invité à choisir d’abord la configuration de AD FS appropriée.
 L’utilisateur doit être à la fois local et administrateur de domaine pour exécuter cette applet de commande.
 
 
@@ -132,32 +132,32 @@ L’utilisateur doit être à la fois local et administrateur de domaine pour ex
 
 L’applet de commande prend les paramètres suivants : 
 
-![Outil de restauration rapide ADFS](media/AD-FS-Rapid-Restore-Tool/parameter2.png)
+![Outil de restauration rapide AD FS](media/AD-FS-Rapid-Restore-Tool/parameter2.png)
 
 ### <a name="detailed-description"></a>Description détaillée
 
-- **StorageType &lt;chaîne&gt;** : type de stockage que l’utilisateur souhaite utiliser.
+- ** &lt;Chaîne&gt; StorageType** : type de stockage que l’utilisateur souhaite utiliser.
  « FileSystem » indique que l’utilisateur veut le stocker dans un dossier local ou dans le réseau « Azure » indique que l’utilisateur veut le stocker dans le conteneur de stockage Azure
 
-- **DecryptionPassword &lt;chaîne&gt;** : mot de passe utilisé pour chiffrer tous les fichiers sauvegardés 
+- **DecryptionPassword &lt;String&gt; ** -le mot de passe qui a été utilisé pour chiffrer tous les fichiers sauvegardés 
 
-- **AzureConnectionCredentials &lt;pscredential&gt;** -le nom et la clé du compte de stockage Azure
+- **AzureConnectionCredentials &lt;PSCredential&gt; ** -le nom et la clé du compte de stockage Azure
 
-- **AzureStorageContainer &lt;string&gt;** : le conteneur de stockage dans lequel la sauvegarde sera stockée dans Azure
+- **AzureStorageContainer &lt;chaîne&gt; ** -le conteneur de stockage dans lequel la sauvegarde sera stockée dans Azure
 
-- **StoragePath &lt;chaîne&gt;** : l’emplacement dans lequel les sauvegardes seront stockées.
+- **StoragePath &lt;chaîne&gt; ** : emplacement dans lequel les sauvegardes seront stockées.
 
-- **ADFSName &lt; string &gt;** : nom de la Fédération qui a été sauvegardée et qui va être restaurée. Si ce n’est pas le cas et qu’il n’existe qu’un seul nom de service de Fédération, celui-ci sera utilisé. Si plusieurs services de Fédération sont sauvegardés à l’emplacement, l’utilisateur est invité à choisir l’un des services de Fédération sauvegardés.
+- **ADFSName &lt; chaîne &gt; ** -nom de la Fédération qui a été sauvegardée et qui va être restaurée. Si ce n’est pas le cas et qu’il n’existe qu’un seul nom de service de Fédération, celui-ci sera utilisé. Si plusieurs services de Fédération sont sauvegardés à l’emplacement, l’utilisateur est invité à choisir l’un des services de Fédération sauvegardés.
 
-- **ServiceAccountCredential &lt; pscredential &gt;** : spécifie le compte de service qui sera utilisé pour le nouveau service AD FS en cours de restauration. 
+- **ServiceAccountCredential &lt; PSCredential &gt; ** -spécifie le compte de service qui sera utilisé pour la nouvelle AD FS service en cours de restauration 
 
-- **GroupServiceAccountIdentifier &lt;string&gt;** : GMSA que l’utilisateur souhaite utiliser pour le nouveau service AD FS en cours de restauration. Par défaut, si aucun n’est fourni, le nom du compte sauvegardé est utilisé s’il a été GMSA, sinon l’utilisateur est invité à insérer un compte de service
+- **GroupServiceAccountIdentifier &lt;String&gt; ** -GMSA que l’utilisateur souhaite utiliser pour le nouveau service AD FS en cours de restauration. Par défaut, si aucun n’est fourni, le nom du compte sauvegardé est utilisé s’il a été GMSA, sinon l’utilisateur est invité à insérer un compte de service
 
-- **DBConnectionString &lt;string&gt;** : si l’utilisateur souhaite utiliser une autre base de donnes pour la restauration, il doit passer la chaîne de connexion SQL ou le type dans WID pour WID.
+- ** &lt;Chaîne&gt; DBConnectionString** : si l’utilisateur souhaite utiliser une autre base de donnes pour la restauration, il doit passer la chaîne de connexion SQL ou le type dans wid pour WID.
 
-- **Force &lt;bool&gt;** -ignore les invites que l’outil peut avoir une fois que la sauvegarde est sélectionnée
+- **Force &lt;bool&gt; ** -ignore les invites que l’outil peut avoir une fois que la sauvegarde est sélectionnée
 
-- **RestoreDKM &lt;bool&gt;** -restaurer le conteneur DKM sur AD, doit être défini si vous accédez à une nouvelle publicité et que le DKM a été sauvegardé initialement.
+- **RestoreDKM &lt;bool&gt; ** -restaurer le conteneur DKM sur AD, doit être défini si vous accédez à une nouvelle publicité et que le DKM a été sauvegardé initialement.
 
 ## <a name="restore-examples"></a>Exemples de restauration
 
@@ -219,10 +219,21 @@ RngCryptoServiceProvider est utilisé pour générer le Salt utilisé par AES et
 
 ## <a name="version-release-history"></a>Historique de publication des versions
 
+### <a name="version-10823"></a>Version 1.0.82.3
+Publication : avril 2020
+
+**Problèmes résolus :**
+
+
+- Ajout de la prise en charge des certificats basés sur CNG
+
+
 ### <a name="version-10820"></a>Version 1.0.82.0
 Publication : juillet 2019
 
 **Problèmes résolus :**
+
+
 - Résolution de bogue pour les noms de compte de service AD FS qui contiennent des caractères d’échappement LDAP
 
 

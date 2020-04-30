@@ -8,16 +8,16 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: abc02bec101b39a66a78da871f838d2585d89377
-ms.sourcegitcommit: af1cf89632d62a94943d3ad9f6b5234b88499278
+ms.openlocfilehash: 1abf845ce69b395bf46a0f155db2c683c359207c
+ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81524924"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81623877"
 ---
 # <a name="selecting-the-forest-root-domain"></a>Sélection du domaine racine de forêt
 
-> S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Le premier domaine que vous déployez dans une forêt Active Directory est appelé domaine racine de la forêt. Ce domaine reste le domaine racine de la forêt pour le cycle de vie du déploiement AD DS.
 
@@ -68,7 +68,7 @@ Pour sélectionner un suffixe pour le domaine racine de la forêt :
 Nous vous recommandons d’utiliser des noms DNS inscrits auprès d’une autorité Internet dans l’espace de noms Active Directory. Seuls les noms enregistrés sont garantis globalement uniques. Si une autre organisation inscrit ultérieurement le même nom de domaine DNS (ou si votre organisation fusionne avec, acquiert ou est acquise par une autre société qui utilise le même nom DNS), les deux infrastructures ne peuvent pas interagir les unes avec les autres.
 
 > [!CAUTION]
-> N’utilisez pas de noms DNS en une partie. Pour plus d’informations, consultez ([déploiement et fonctionnement de Active Directory domaines configurés à l’aide de noms DNS en une partie](https://go.microsoft.com/fwlink/?LinkId=106631)). En outre, nous vous déconseillons d’utiliser des suffixes non enregistrés, tels que. local.
+> N’utilisez pas de noms DNS en une partie. Pour plus d’informations, consultez [déploiement et fonctionnement de Active Directory domaines configurés à l’aide de noms DNS en une partie](https://support.microsoft.com/help/300684/). En outre, nous vous déconseillons d’utiliser des suffixes non enregistrés, tels que. local.
 
 ### <a name="selecting-a-prefix"></a>Sélection d’un préfixe
 
@@ -78,14 +78,14 @@ Si vous avez sélectionné un domaine régional pour qu’il fonctionne comme un
 
 Le tableau suivant répertorie les règles de sélection d’un préfixe pour un nom DNS enregistré.
 
-|Règle|Explication|
-|--------|---------------|
-|Sélectionnez un préfixe qui n’est pas susceptible de devenir obsolète.|Évitez les noms tels qu’une gamme de produits ou un système d’exploitation qui pourraient changer à l’avenir. Nous vous recommandons d’utiliser des noms génériques tels que Corp ou DS.|
-|Sélectionnez un préfixe qui contient uniquement des caractères Internet standard.|A-Z, a-z, 0-9 et (-), mais pas entièrement numériques.|
-|Incluez 15 caractères ou moins dans le préfixe.|Si vous choisissez une longueur de préfixe de 15 caractères ou moins, le nom NetBIOS est le même que le préfixe.|
+| Règle     | Explication |
+| -------- | --------------- |
+| Sélectionnez un préfixe qui n’est pas susceptible de devenir obsolète. | Évitez les noms tels qu’une gamme de produits ou un système d’exploitation qui pourraient changer à l’avenir. Nous vous recommandons d’utiliser des noms génériques tels que Corp ou DS.|
+| Sélectionnez un préfixe qui contient uniquement des caractères Internet standard. | A-Z, a-z, 0-9 et (-), mais pas entièrement numériques. |
+| Incluez 15 caractères ou moins dans le préfixe. | Si vous choisissez une longueur de préfixe de 15 caractères ou moins, le nom NetBIOS est le même que le préfixe. |
 
 Il est important que le propriétaire DNS Active Directory collabore avec le propriétaire DNS de l’Organisation pour obtenir la propriété du nom qui sera utilisé pour l’espace de noms Active Directory. Pour plus d’informations sur la conception d’une infrastructure DNS pour prendre en charge des AD DS, consultez [création d’une conception d’infrastructure DNS](../../ad-ds/plan/Creating-a-DNS-Infrastructure-Design.md).
 
 ## <a name="documenting-the-forest-root-domain-name"></a>Documentation du nom de domaine racine de la forêt
 
-Documentez le préfixe et le suffixe DNS que vous sélectionnez pour le domaine racine de forêt. À ce stade, identifiez le domaine qui sera la racine de la forêt. Vous pouvez ajouter les informations du nom de domaine racine de la forêt à la feuille de calcul « planification de domaine » que vous avez créée pour documenter votre plan pour les domaines nouveaux et mis à niveau et vos noms de domaine. Pour l’ouvrir, téléchargez Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip à partir des [outils de gestion des travaux pour le kit de déploiement Windows Server 2003](https://www.microsoft.com/download/details.aspx?id=9608) et ouvrez « planification de domaine » (DSSLOGI_5. doc).
+Documentez le préfixe et le suffixe DNS que vous sélectionnez pour le domaine racine de forêt. À ce stade, identifiez le domaine qui sera la racine de la forêt. Vous pouvez ajouter les informations du nom de domaine racine de la forêt à la feuille de calcul « planification de domaine » que vous avez créée pour documenter votre plan pour les domaines nouveaux et mis à niveau et vos noms de domaine. Pour l’ouvrir, téléchargez Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip à partir des [outils de gestion des travaux pour le kit de déploiement Windows Server 2003](https://microsoft.com/download/details.aspx?id=9608) et ouvrez « planification de domaine » (DSSLOGI_5. doc).

@@ -8,13 +8,13 @@ ms.topic: article
 ms.assetid: a08648eb-eea0-4e2b-87fb-52bfe8953491
 author: shirgall
 ms.author: kathydav
-ms.date: 3/1/2019
-ms.openlocfilehash: 7baf71af401b8318ccd136fe12d6eb810cf9434e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.date: 04/15/2020
+ms.openlocfilehash: d8861369abe24ea0d34dce209a5d98e854c4c95d
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80853302"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82072235"
 ---
 # <a name="best-practices-for-running-linux-on-hyper-v"></a>Meilleures pratiques pour l’exécution de Linux sur Hyper-V
 
@@ -49,7 +49,7 @@ En raison de la suppression du matériel hérité de l’émulation dans les ord
 
 Étant donné que la minuterie PIT n’est pas présente dans les ordinateurs virtuels de 2e génération, les connexions réseau au serveur TFTP PxE peuvent être prématurées et empêcher le bootloader de lire la configuration GRUB et de charger un noyau à partir du serveur.
 
-Sur RHEL 6. x, le chargeur de point de 0.97 EFI v v Legacy hérité peut être utilisé à la place de grub2, comme décrit ici : [https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html)
+Sur RHEL 6. x, vous pouvez utiliser le chargeur d’initialisation EFI v 0.97 EFI hérité à la place de grub2, comme décrit ici :[https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html)
 
 Sur les distributions Linux autres que RHEL 6. x, vous pouvez suivre des étapes similaires pour configurer grub v 0.97 pour charger les noyaux Linux à partir d’un serveur PxE.
 
@@ -74,13 +74,15 @@ Les machines virtuelles Linux qui seront déployées à l’aide du clustering d
 
 Configurez et utilisez la carte Ethernet virtuelle, qui est une carte réseau spécifique à Hyper-V avec des performances améliorées. Si des cartes réseau spécifiques à l’ancien et à Hyper-V sont attachées à une machine virtuelle, les noms de réseau dans la sortie de **ifconfig-a** peuvent afficher des valeurs aléatoires comme **_tmp12000801310**. Pour éviter ce problème, supprimez toutes les cartes réseau héritées lors de l’utilisation de cartes réseau spécifiques à Hyper-V dans une machine virtuelle Linux.
 
-## <a name="use-io-scheduler-noop-for-better-disk-io-performance"></a>Utiliser le planificateur d’e/s NOOP pour améliorer les performances d’e/s disque
+## <a name="use-io-scheduler-noopnone-for-better-disk-io-performance"></a>Utiliser le planificateur d’e/s NOOP/None pour améliorer les performances d’e/s disque
 
-Le noyau Linux a quatre planificateurs d’e/s différents pour réorganiser les demandes avec des algorithmes différents. NOOP est une file d’attente de premier plan qui transmet la décision de planification à effectuer par l’hyperviseur. Il est recommandé d’utiliser NOOP comme planificateur lors de l’exécution de la machine virtuelle Linux sur Hyper-V. Pour modifier le planificateur d’un appareil spécifique, dans la configuration du chargeur de démarrage (/etc/grub.conf, par exemple), ajoutez **ascenseur = NOOP** aux paramètres du noyau, puis redémarrez.
+Le noyau Linux offre deux ensembles de planificateurs d’e/s disque pour réorganiser les demandes.  L’un est pour l’ancien sous-système « BLK » et l’autre pour le sous-système « BLK-MQ » plus récent. Dans les deux cas, avec les disques SSD actuels, il est recommandé d’utiliser un planificateur qui transmet les décisions de planification à l’hyperviseur Hyper-V sous-jacent. Pour les noyaux Linux utilisant le sous-système « BLK », il s’agit du planificateur « NOOP ». Pour les noyaux Linux utilisant le sous-système « BLK-MQ », il s’agit du planificateur « None ».
 
-## <a name="numa"></a>TECHNOLOGIE
+Pour un disque particulier, les planificateurs disponibles peuvent être consultés à cet emplacement du système de`<diskname>`fichiers:/sys/Class/Block//queue/Scheduler, avec le planificateur actuellement sélectionné entre crochets. Vous pouvez modifier le planificateur en écrivant à cet emplacement de système de fichiers. La modification doit être ajoutée à un script d’initialisation pour pouvoir être conservée entre les redémarrages. Pour plus d’informations, consultez la documentation de votre distribution Linux.
 
-Les versions du noyau Linux antérieures à 2.6.37 ne prennent pas en charge NUMA sur Hyper-V avec des tailles de machine virtuelle plus volumineuses. Ce problème affecte principalement les anciennes distributions à l’aide du noyau Red Hat 2.6.32 en amont et a été résolu dans Red Hat Enterprise Linux (RHEL) 6,6 (kernel-2.6.32-504). Les systèmes qui exécutent des noyaux personnalisés antérieurs à 2.6.37, ou les noyaux RHEL antérieurs à 2.6.32, doivent définir le paramètre de démarrage `numa=off` sur la ligne de commande du noyau dans grub. conf. Pour plus d’informations, consultez [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
+## <a name="numa"></a>NUMA
+
+Les versions du noyau Linux antérieures à la version 2.6.37 ne prennent pas en charge NUMA sur Hyper-V avec des machines virtuelles de taille supérieure. Ce problème concerne principalement les distributions antérieures utilisant le noyau Red Hat 2.6.32 en amont ; il a été corrigé dans Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Pour les systèmes exécutant des noyaux personnalisés dont la version est antérieure à la version 2.6.37 ou des noyaux basés sur RHEL antérieurs à la version 2.6.32-504, le paramètre de démarrage `numa=off` doit être défini sur la ligne de commande du noyau dans grub.conf. Pour plus d’informations, consultez l’article [KB 436883](https://access.redhat.com/solutions/436883) sur Red Hat.
 
 ## <a name="reserve-more-memory-for-kdump"></a>Réserver plus de mémoire pour kdump
 
