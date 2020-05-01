@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: 5c9e8b7e1e11deaa82fbec6f451b4f194609c299
-ms.sourcegitcommit: 1d83ca198c50eef83d105151551c6be6f308ab94
+ms.openlocfilehash: d7dc3455c5d7c6b00940008ceea646436b40bed0
+ms.sourcegitcommit: e51dd9dabec82c59e805e7a04c27e56c83773857
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/30/2020
-ms.locfileid: "82605549"
+ms.locfileid: "82613731"
 ---
 # <a name="windows-admin-center-known-issues"></a>Problèmes connus du centre d’administration Windows
 
@@ -28,6 +28,8 @@ Si vous rencontrez un problème qui n’est pas décrit dans cette page, [faites
 - L’utilisation du port inférieur à 1024 n’est pas prise en charge. En mode de service, vous pouvez éventuellement configurer le port 80 pour rediriger vers le port spécifié.
 
 ## <a name="general"></a>Général
+
+- Dans la version 1910,2 du centre d’administration Windows, vous ne pourrez peut-être pas vous connecter à des serveurs Hyper-V sur du matériel spécifique. Si vous êtes bloqué sur ce problème, [Téléchargez la version précédente](https://aka.ms/wacprevious). 
 
 - Si le centre d’administration Windows est installé en tant que passerelle sur **Windows Server 2016** en cas d’utilisation intensive, le service peut se bloquer avec une erreur dans ```Faulting application name: sme.exe``` le ```Faulting module name: WsmSvc.dll```journal des événements qui contient et. Cela est dû à un bogue qui a été corrigé dans Windows Server 2019. Le correctif pour Windows Server 2016 a été inclus dans la mise à jour cumulative du 2019 du 1er février, [KB4480977](https://www.catalog.update.microsoft.com/Search.aspx?q=4480977).
 
