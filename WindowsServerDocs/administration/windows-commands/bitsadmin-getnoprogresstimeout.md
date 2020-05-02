@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getnoprogresstimeout
-description: La rubrique commandes Windows pour **Bitsadmin getnoprogresstimeout**, qui récupère la durée, en secondes, pendant laquelle le service essaiera de transférer le fichier après une erreur temporaire se produit.
+description: Rubrique de référence pour la commande Bitsadmin getnoprogresstimeout, qui récupère la durée, en secondes, pendant laquelle le service tentera de transférer le fichier après qu’une erreur temporaire se soit produite.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cf2cfd77b494e221b60c8816ff46eed5f9252f39
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3ee0377bde8a438f23ca571bc9859deef92f18fb
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850602"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717813"
 ---
 # <a name="bitsadmin-getnoprogresstimeout"></a>bitsadmin getnoprogresstimeout
 
@@ -30,16 +30,18 @@ bitsadmin /getnoprogresstimeout <job>
 
 | Paramètre | Description |
 | -------------- | -------------- |
-| le travail | Nom complet ou GUID du travail. |
+| travail | Nom complet ou GUID du travail. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant récupère la valeur de délai d’attente de progression pour le travail nommé *myDownloadJob*.
+Pour récupérer la valeur du délai d’attente de la tâche nommée *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getnoprogresstimeout myDownloadJob
+bitsadmin /getnoprogresstimeout myDownloadJob
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)
