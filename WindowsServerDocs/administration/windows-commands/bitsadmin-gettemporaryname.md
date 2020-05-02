@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin gettemporaryname
-description: La rubrique commandes Windows pour **Bitsadmin gettemporaryname**, qui indique le nom de fichier temporaire du fichier donné au sein du travail.
+title: bitsadmin gettemporaryname
+description: Rubrique de référence pour la commande Bitsadmin gettemporaryname, qui indique le nom de fichier temporaire du fichier donné au sein du travail.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6c331ecf12cb02d34c76692158c79eafbe5691c5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f7780691f37fb78f1553fa993fd408d224be39ff
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850452"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717482"
 ---
-# <a name="bitsadmin-gettemporaryname"></a>Bitsadmin gettemporaryname
+# <a name="bitsadmin-gettemporaryname"></a>bitsadmin gettemporaryname
 
 Indique le nom de fichier temporaire du fichier donné au sein du travail.
 
@@ -30,17 +30,19 @@ bitsadmin /gettemporaryname <job> <file_index>
 
 | Paramètre | Description |
 | -------------- | -------------- |
-| le travail | Nom complet ou GUID du travail. |
+| travail | Nom complet ou GUID du travail. |
 | file_index | Démarre à partir de 0. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant indique le nom de fichier temporaire du fichier 2 pour le travail nommé *myDownloadJob*.
+Pour signaler le nom de fichier temporaire du fichier 2 pour le travail nommé *myDownloadJob*:
 
 ```
-C:\>bitsadmin /gettemporaryname myDownloadJob 1
+bitsadmin /gettemporaryname myDownloadJob 1
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

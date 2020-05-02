@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getstate
-description: La rubrique commandes Windows pour **Bitsadmin GetState**, qui récupère l’état du travail spécifié.
+description: Rubrique de référence pour la commande Bitsadmin GetState, qui récupère l’état du travail spécifié.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 43cd8c8e614cce65f55b16fc5395b1d37de0cf95
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ab014c96c6d5d62232243d704d41d33cfcfc50f0
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850462"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717539"
 ---
 # <a name="bitsadmin-getstate"></a>bitsadmin getstate
 
@@ -30,32 +30,34 @@ bitsadmin /getstate <job>
 
 | Paramètre | Description |
 | -------------- | -------------- |
-| le travail | Nom complet ou GUID du travail. |
+| travail | Nom complet ou GUID du travail. |
 
-## <a name="output"></a>Sortie
+#### <a name="output"></a>Output
 
-Les valeurs de sortie sont les suivantes :
+Les valeurs de sortie retournées peuvent être :
 
-| État | Description |
+| State | Description |
 | --------------- | ----------- |
-| Mis en file d'attente | Le travail est en attente d’exécution. |
-| Connexion en cours | BITS contacte le serveur. |
-| Porte | BITS transfère des données. |
+| Mis en file d'attente. | Le travail est en attente d’exécution. |
+| Connecting | BITS contacte le serveur. |
+| Transferring | BITS transfère des données. |
 | Port | Le service BITS a correctement transféré tous les fichiers du travail. |
-| Suspended | La tâche est suspendue. |
+| Interrompu | La tâche est suspendue. |
 | Error | Une erreur non récupérable s’est produite. le transfert ne sera pas retenté. |
 | Transient_Error | Une erreur récupérable s’est produite. le transfert réessaie lorsque le délai minimal entre deux tentatives expire. |
-| Un accusé | Le travail est terminé. |
-| Canceled | Le travail a été annulé. |
+| Reconnu | Le travail est terminé. |
+| Opération annulée | Le travail a été annulé. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant récupère l’état de la tâche nommée *myDownloadJob*.
+Pour récupérer l’état de la tâche nommée *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getstate myDownloadJob
+bitsadmin /getstate myDownloadJob
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

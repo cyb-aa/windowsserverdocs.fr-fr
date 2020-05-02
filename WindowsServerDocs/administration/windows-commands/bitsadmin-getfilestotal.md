@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getfilestotal
-description: La rubrique commandes Windows pour **Bitsadmin getfilestotal**, qui récupère le nombre de fichiers dans le travail spécifié.
+description: Rubrique de référence pour la commande Bitsadmin getfilestotal, qui récupère le nombre de fichiers dans le travail spécifié.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bad42a8bef57ca4c4a1411a12f20979e4a95d178
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5cf3b33c15bb18c8a141408f82fdd72a6e710817
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850682"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717975"
 ---
 # <a name="bitsadmin-getfilestotal"></a>bitsadmin getfilestotal
 
@@ -30,16 +30,18 @@ bitsadmin /getfilestotal <job>
 
 | Paramètre | Description |
 | -------------- | -------------- |
-| le travail | Nom complet ou GUID du travail. |
+| travail | Nom complet ou GUID du travail. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant récupère le nombre de fichiers inclus dans le travail nommé *myDownloadJob*.
+Pour récupérer le nombre de fichiers inclus dans le travail nommé *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getfilestotal myDownloadJob
+bitsadmin /getfilestotal myDownloadJob
 ```
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a> Voir aussi
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

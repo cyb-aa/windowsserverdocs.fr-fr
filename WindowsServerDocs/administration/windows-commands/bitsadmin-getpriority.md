@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin getPriority,
-description: La rubrique commandes Windows pour **Bitsadmin getPriority,** , qui récupère la priorité du travail spécifié.
+title: bitsadmin getpriority
+description: Rubrique de référence pour la commande Bitsadmin getPriority,, qui récupère la priorité du travail spécifié.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -8,14 +8,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: b27829a0fb852abb88c88a65e61e8d7693ca2df2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 38f92e83ccf5b048d168ce6a21c6026f490b18bf
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850542"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717677"
 ---
-# <a name="bitsadmin-getpriority"></a>Bitsadmin getPriority,
+# <a name="bitsadmin-getpriority"></a>bitsadmin getpriority
 
 Récupère la priorité du travail spécifié.
 
@@ -29,30 +29,32 @@ bitsadmin /getpriority <job>
 
 | Paramètre | Description |
 | -------------- | -------------- |
-| le travail | Nom complet ou GUID du travail. |
+| travail | Nom complet ou GUID du travail. |
 
-## <a name="remarks"></a>Notes
+#### <a name="output"></a>Output
 
-La priorité de cette commande peut être :
+La priorité renvoyée pour cette commande peut être :
 
 - **SOMBRE**
 
-- **RAPIDE**
+- **HIGH**
 
 - **NORMAL**
 
-- **ENTRÉE**
+- **LOW**
 
 - **CONNUE**
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant récupère la priorité pour la tâche nommée *myDownloadJob*.
+Pour récupérer la priorité pour la tâche nommée *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getpriority myDownloadJob
+bitsadmin /getpriority myDownloadJob
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

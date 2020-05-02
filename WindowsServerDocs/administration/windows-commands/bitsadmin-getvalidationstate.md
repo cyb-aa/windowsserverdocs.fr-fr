@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin getvalidationstate
-description: La rubrique commandes Windows pour **Bitsadmin getvalidationstate**, qui indique l’état de validation du contenu du fichier donné au sein du travail.
+title: bitsadmin getvalidationstate
+description: Rubrique de référence pour la commande Bitsadmin getvalidationstate, qui indique l’état de validation du contenu du fichier donné au sein du travail.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 52d7d983cc7858607c350483ed81223d107cee25
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ca753b20a1b7834d2e05d4ff8729a08332256f8c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850432"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717461"
 ---
-# <a name="bitsadmin-getvalidationstate"></a>Bitsadmin getvalidationstate
+# <a name="bitsadmin-getvalidationstate"></a>bitsadmin getvalidationstate
 
 Signale l’état de validation du contenu du fichier donné au sein du travail.
 
@@ -30,17 +30,19 @@ bitsadmin /getvalidationstate <job> <file_index>
 
 | Paramètre | Description |
 | -------------- | -------------- |
-| le travail | Nom complet ou GUID du travail. |
+| travail | Nom complet ou GUID du travail. |
 | file_index | Démarre à partir de 0. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant obtient l’état de validation du contenu du fichier 2 au sein du travail nommé *myDownloadJob*.
+Pour récupérer l’état de validation du contenu du fichier 2 au sein du travail nommé *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getvalidationstate myDownloadJob 1
+bitsadmin /getvalidationstate myDownloadJob 1
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

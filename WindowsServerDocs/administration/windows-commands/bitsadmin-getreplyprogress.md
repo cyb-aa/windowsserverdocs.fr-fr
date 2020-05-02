@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getreplyprogress
-description: La rubrique commandes Windows pour **Bitsadmin getreplyprogress**, qui récupère la taille et la progression de la réponse de chargement du serveur.
+description: Rubrique de référence pour la commande Bitsadmin getreplyprogress, qui récupère la taille et la progression du chargement-réponse du serveur.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 195ed669817bc0aca7ebc432e7f3c66ab1548162
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7c355c796d480e9deb444b8fd9ee7570136cade6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850482"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717586"
 ---
 # <a name="bitsadmin-getreplyprogress"></a>bitsadmin getreplyprogress
 
-Récupère la taille et la progression de la réponse de chargement du serveur.
+Récupère la taille et la progression du chargement-réponse du serveur.
 
 > [!NOTE]
 > Cette commande n’est pas prise en charge par BITS 1,2 et versions antérieures.
@@ -33,17 +33,18 @@ bitsadmin /getreplyprogress <job>
 
 | Paramètre | Description |
 | -------------- | -------------- |
-| le travail | Nom complet ou GUID du travail. |
+| travail | Nom complet ou GUID du travail. |
 
+## <a name="examples"></a>Exemples
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
-
-L’exemple suivant récupère la progression de la réponse de chargement pour la tâche nommée *myDownloadJob*.
+Pour récupérer la progression du chargement-réponse pour le travail nommé *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getreplyprogress myDownloadJob
+bitsadmin /getreplyprogress myDownloadJob
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

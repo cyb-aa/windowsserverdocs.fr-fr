@@ -1,6 +1,6 @@
 ---
 title: bitsadmin geterrorcount
-description: La rubrique commandes Windows pour **Bitsadmin GetErrorCount**, qui récupère le nombre de fois où le travail spécifié a généré une erreur temporaire.
+description: Rubrique de référence pour la commande Bitsadmin GetErrorCount, qui récupère le nombre de fois où le travail spécifié a généré une erreur temporaire.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ef0bf043517d4edfa8d72888746ca5d9c92ecc21
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 516bd02ed296a2eba75e174c6f084926bde63e90
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81123134"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718007"
 ---
 # <a name="bitsadmin-geterrorcount"></a>bitsadmin geterrorcount
 
@@ -30,16 +30,18 @@ bitsadmin /geterrorcount <job>
 
 | Paramètre | Description |
 | -------------- | -------------- |
-| le travail | Nom complet ou GUID du travail. |
+| travail | Nom complet ou GUID du travail. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant récupère des informations sur le nombre d’erreurs pour le travail nommé *myDownloadJob*.
+Pour récupérer les informations relatives au nombre d’erreurs pour le travail nommé *myDownloadJob*:
 
 ```
-C:\>bitsadmin /geterrorcount myDownloadJob
+bitsadmin /geterrorcount myDownloadJob
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

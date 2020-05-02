@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getreplyfilename
-description: La rubrique commandes Windows pour **Bitsadmin getreplyfilename**, qui obtient le chemin d’accès du fichier qui contient la réponse de chargement du serveur pour le travail.
+description: Rubrique de référence pour la commande Bitsadmin getreplyfilename, qui obtient le chemin d’accès du fichier qui contient le chargement-réponse du serveur pour le travail.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 541a6e60d641405b5da2e65fecbbbe87468c8702
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: daed755e0ddc045174b98a8d4f9ee84da155cba6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850492"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717592"
 ---
 # <a name="bitsadmin-getreplyfilename"></a>bitsadmin getreplyfilename
 
-Obtient le chemin d’accès du fichier qui contient la réponse de chargement du serveur pour le travail.
+Obtient le chemin d’accès du fichier qui contient le chargement-réponse du serveur pour le travail.
 
 > [!NOTE]
 > Cette commande n’est pas prise en charge par BITS 1,2 et versions antérieures.
@@ -33,17 +33,18 @@ bitsadmin /getreplyfilename <job>
 
 | Paramètre | Description |
 | -------------- | -------------- |
-| le travail | Nom complet ou GUID du travail. |
+| travail | Nom complet ou GUID du travail. |
 
+## <a name="examples"></a>Exemples
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
-
-L’exemple suivant récupère le nom de fichier de réponse de chargement pour la tâche nommée *myDownloadJob*.
+Pour récupérer le nom de fichier de chargement-réponse pour le travail nommé *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getreplyfilename myDownloadJob
+bitsadmin /getreplyfilename myDownloadJob
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

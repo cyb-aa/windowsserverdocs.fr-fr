@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getaclflags
-description: La rubrique commandes Windows pour **Bitsadmin GETACLFLAGS**, qui récupère les indicateurs de propagation de la liste de contrôle d’accès (ACL).
+description: Rubrique de référence pour la commande Bitsadmin GETACLFLAGS, qui récupère les indicateurs de propagation de la liste de contrôle d’accès (ACL).
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d53018e2fa5c659c8cf4b0ec985beda848a8c1af
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a9ca541b488c3c83e7a64a138bae0914001778e3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850792"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718173"
 ---
 # <a name="bitsadmin-getaclflags"></a>bitsadmin getaclflags
 
@@ -30,11 +30,11 @@ bitsadmin /getaclflags <job>
 
 | Paramètre | Description |
 | --------- | ----------- |
-| le travail | Nom complet ou GUID du travail. |
+| travail | Nom complet ou GUID du travail. |
 
-## <a name="remarks"></a>Notes
+### <a name="remarks"></a>Notes 
 
-Affiche une ou plusieurs des valeurs d’indicateur suivantes :
+Retourne une ou plusieurs des valeurs d’indicateur suivantes :
 
 - **o** -copier les informations de propriétaire avec le fichier.
 
@@ -44,14 +44,16 @@ Affiche une ou plusieurs des valeurs d’indicateur suivantes :
 
 - **s** -copier les informations de la liste de contrôle d’accès système (SACL) avec le fichier.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant récupère les indicateurs de propagation de la liste de contrôle d’accès pour le travail nommé *myDownloadJob*.
+Pour récupérer les indicateurs de propagation de la liste de contrôle d’accès pour le travail nommé *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getaclflags myDownloadJob
+bitsadmin /getaclflags myDownloadJob
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

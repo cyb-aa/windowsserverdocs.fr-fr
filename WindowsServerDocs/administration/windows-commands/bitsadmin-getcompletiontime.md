@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getcompletiontime
-description: La rubrique commandes Windows pour **Bitsadmin getcompletiontime**, qui récupère l’heure à laquelle le travail a fini de transférer des données.
+description: Rubrique de référence pour la commande Bitsadmin getcompletiontime, qui récupère l’heure à laquelle le travail a terminé le transfert des données.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5408e7e8c35135601a4a0af0ab7e9c55cea4c8dd
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9b3721401e450ae60fb77534f8eb845ff5ac3443
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850752"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718118"
 ---
 # <a name="bitsadmin-getcompletiontime"></a>bitsadmin getcompletiontime
 
@@ -30,16 +30,18 @@ bitsadmin /getcompletiontime <job>
 
 | Paramètre | Description |
 | -------------- | -------------- |
-| le travail | Nom complet ou GUID du travail. |
+| travail | Nom complet ou GUID du travail. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant récupère l’heure à laquelle le travail nommé *myDownloadJob* a terminé le transfert des données.
+Pour récupérer l’heure à laquelle le travail nommé *myDownloadJob* a terminé le transfert des données :
 
 ```
-C:\>bitsadmin /getcompletiontime myDownloadJob
+bitsadmin /getcompletiontime myDownloadJob
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

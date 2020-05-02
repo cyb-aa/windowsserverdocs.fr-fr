@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getowner
-description: La rubrique commandes Windows pour Bitsadmin **GetOwner**, qui récupère le propriétaire du travail spécifié.
+description: Rubrique de référence pour la commande Bitsadmin GetOwner, qui récupère le propriétaire du travail spécifié.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3e622c3759c9ec20867c693539c4481c70aa4f26
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2a345ea47232f1f4d6340e1341747c9dad92382b
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850562"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717720"
 ---
 # <a name="bitsadmin-getowner"></a>bitsadmin getowner
 
@@ -30,16 +30,18 @@ bitsadmin /getowner <job>
 
 | Paramètre | Description |
 | -------------- | -------------- |
-| le travail | Nom complet ou GUID du travail. |
+| travail | Nom complet ou GUID du travail. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant affiche le propriétaire du travail nommé *myDownloadJob*.
+Pour afficher le propriétaire du travail nommé *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getowner myDownloadJob
+bitsadmin /getowner myDownloadJob
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

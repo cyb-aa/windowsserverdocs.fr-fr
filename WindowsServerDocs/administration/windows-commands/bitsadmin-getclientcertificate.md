@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin GetClientCertificate
-description: La rubrique commandes Windows pour **Bitsadmin GetClientCertificate**, qui récupère le certificat client à partir du travail.
+title: bitsadmin getclientcertificate
+description: Rubrique de référence pour la commande Bitsadmin GetClientCertificate, qui récupère le certificat client à partir du travail.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c29d5c64fd172cfdd2d5d93c5ed22d519077806
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d2582950dd02ca1880e4765fb974c83c423b22bb
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850762"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718125"
 ---
-# <a name="bitsadmin-getclientcertificate"></a>Bitsadmin GetClientCertificate
+# <a name="bitsadmin-getclientcertificate"></a>bitsadmin getclientcertificate
 
 Récupère le certificat client du travail.
 
@@ -30,16 +30,18 @@ bitsadmin /getclientcertificate <job>
 
 | Paramètre | Description |
 | -------------- | -------------- |
-| le travail | Nom complet ou GUID du travail. |
+| travail | Nom complet ou GUID du travail. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant récupère le certificat client pour le travail nommé *myDownloadJob*.
+Pour récupérer le certificat client pour le travail nommé *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getclientcertificate myDownloadJob
+bitsadmin /getclientcertificate myDownloadJob
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)
