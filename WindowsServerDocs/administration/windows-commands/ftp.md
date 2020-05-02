@@ -1,6 +1,6 @@
 ---
 title: ftp
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6406093be682dbd74b92f1ca11f363e5eb9babee
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8fa956124e0c227d048d4c6eec844154187d5861
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842752"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725052"
 ---
 # <a name="ftp"></a>ftp
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Transfère les fichiers vers et à partir d’un ordinateur exécutant un service de serveur protocole FTP (FTP). **FTP** peut être utilisé de manière interactive ou en mode batch en traitant des fichiers texte ASCII. 
 ## <a name="syntax"></a>Syntaxe
@@ -33,24 +33,24 @@ ftp [-v] [-d] [-i] [-n] [-g] [-s:<FileName>] [-a] [-A] [-x:<SendBuffer>] [-r:<Re
 |        -d         |                                                                                                               Active le débogage, en affichant toutes les commandes passées entre le client FTP et le serveur FTP.                                                                                                                |
 |        -i         |                                                                                                                            Désactive les invites interactives pendant plusieurs transferts de fichiers.                                                                                                                             |
 |        -n         |                                                                                                                                    Supprime la connexion automatique lors de la connexion initiale.                                                                                                                                     |
-|        -g         |                                         Désactive le nom de fichier globbing.  **Glob** permet l’utilisation de l’astérisque (\*) et du point d’interrogation ( ?) comme caractères génériques dans les noms de fichiers et de chemins d’accès locaux. Pour plus d’informations, consultez [Références supplémentaires](ftp.md#BKMK_additionalRef).                                          |
-|   -s :<FileName>   | Spécifie un fichier texte qui contient des commandes **FTP** . Ces commandes s’exécutent automatiquement après le démarrage de **FTP** . Ce paramètre n’autorise aucun espace. Utilisez ce paramètre au lieu de redirection ( **<** ). **Remarque :** Dans les systèmes d’exploitation Windows 8 et Windows Server 2012 ou versions ultérieures, le fichier texte doit être écrit en UTF-8. |
+|        -g         |                                         Désactive le nom de fichier globbing.  **Glob** permet l’utilisation de l’astérisque (\*) et du point d’interrogation ( ?) comme caractères génériques dans les noms de fichier et de chemin d’accès locaux. Pour plus d’informations, consultez [Références supplémentaires](ftp.md#BKMK_additionalRef).                                          |
+|   x<FileName>   | Spécifie un fichier texte qui contient des commandes **FTP** . Ces commandes s’exécutent automatiquement après le démarrage de **FTP** . Ce paramètre n’autorise aucun espace. Utilisez ce paramètre au lieu de redirection (**<**). **Remarque :** Dans les systèmes d’exploitation Windows 8 et Windows Server 2012 ou versions ultérieures, le fichier texte doit être écrit en UTF-8. |
 |        -a         |                                                                                                                 Spécifie qu’une interface locale peut être utilisée lors de la liaison de la connexion de données FTP.                                                                                                                  |
 |        -A         |                                                                                                                                        Ouvre une session sur le serveur FTP comme anonyme.                                                                                                                                         |
-|  -x :<SendBuffer>  |                                                                                                                                     Remplace la taille de SO_SNDBUF par défaut de 8192.                                                                                                                                     |
-|  -r :<RecvBuffer>  |                                                                                                                                     Remplace la taille de SO_RCVBUF par défaut de 8192.                                                                                                                                     |
-| -b :<AsyncBuffers> |                                                                                                                                    Remplace le nombre de tampons Async par défaut de 3.                                                                                                                                     |
-| -w :<WindowsSize>  |                                                                                                                   Spécifie la taille de la mémoire tampon de transfert. La taille de fenêtre par défaut est de 4096 octets.                                                                                                                   |
+|  x<SendBuffer>  |                                                                                                                                     Remplace la taille de SO_SNDBUF par défaut de 8192.                                                                                                                                     |
+|  r<RecvBuffer>  |                                                                                                                                     Remplace la taille de SO_RCVBUF par défaut de 8192.                                                                                                                                     |
+| p<AsyncBuffers> |                                                                                                                                    Remplace le nombre de tampons Async par défaut de 3.                                                                                                                                     |
+| s<WindowsSize>  |                                                                                                                   Spécifie la taille de la mémoire tampon de transfert. La taille de fenêtre par défaut est de 4096 octets.                                                                                                                   |
 |        -?         |                                                                                                                                         Affiche l'aide à l'invite de commandes.                                                                                                                                          |
 |      <host>       |                                                                    Spécifie le nom de l’ordinateur, l’adresse IP ou l’adresse IPv6 du serveur FTP auquel se connecter. Le nom d’hôte ou l’adresse, s’il est spécifié, doit être le dernier paramètre de la ligne.                                                                    |
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 - Pour plus d’informations sur les commandes **FTP** sur Windows Server 2003, voir [FTP](https://technet.microsoft.com/library/cc756013(v=ws.10).aspx).
 - les paramètres de ligne de commande **FTP** respectent la casse.
 - Cette commande est disponible uniquement si le protocole **TCP/IP (Internet Protocol)** est installé en tant que composant dans les propriétés d’une carte réseau dans connexions réseau.
 - **FTP** peut être utilisé de manière interactive. Une fois le démarrage effectué, **FTP** crée un sous-environnement dans lequel vous pouvez utiliser des commandes **FTP** . Vous pouvez revenir à l’invite de commandes en tapant la commande **Quit** . Lorsque le sous-environnement **FTP** est en cours d’exécution, il est indiqué par l’invite de commandes **FTP >** . Pour plus d’informations, consultez les commandes **FTP** .
 - **FTP** prend en charge l’utilisation d’IPv6 lorsque le protocole IPv6 est installé. Pour plus d’informations, consultez [Références supplémentaires](ftp.md#BKMK_additionalRef).
-  ## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+  ## <a name="examples"></a>Exemples
   Pour ouvrir une session sur le serveur FTP nommé ftp.example.microsoft.com, tapez :
   ```
   ftp ftp.example.microsoft.com

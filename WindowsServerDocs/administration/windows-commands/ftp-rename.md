@@ -1,6 +1,6 @@
 ---
 title: changement de nom ftp
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bbe159f2833ce52921b46e46881a1d7aed8c5df8
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5dc5006c82df8417a8652a9c0ba20f7f1a002e7f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843022"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725111"
 ---
 # <a name="ftp-rename"></a>FTP : renommer
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 renomme les fichiers distants.   
 ## <a name="syntax"></a>Syntaxe  
@@ -32,7 +32,7 @@ rename <FileName> <NewFileName>
 |  <FileName>   | Spécifie le fichier que vous souhaitez renommer. |
 | <NewFileName> |        Spécifie le nouveau nom de fichier.         |
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre  
+## <a name="examples"></a>Exemples  
 Renommez le fichier distant **example. txt** en **example1. txt**  
 ```  
 rename example.txt example1.txt  

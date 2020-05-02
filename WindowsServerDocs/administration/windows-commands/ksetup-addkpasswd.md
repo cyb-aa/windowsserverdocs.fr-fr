@@ -1,6 +1,6 @@
 ---
 title: 'Ksetup : addkpasswd'
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 73abfff54ecfcd31ebbd7469c12228fff850fbf1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c260c711ae87f88be8b9466e73afaf3fe1c83a1e
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841822"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724737"
 ---
 # <a name="ksetupaddkpasswd"></a>Ksetup : addkpasswd
 
 
 
-Ajoute une adresse de serveur de mot de passe Kerberos (kpasswd) pour un domaine. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Ajoute une adresse de serveur de mot de passe Kerberos (kpasswd) pour un domaine.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,10 +34,10 @@ Si le domaine Kerberos sur lequel la station de travail doit s’authentifier pr
 
 |Paramètre|Description|
 |---------|-----------|
-|\<RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM et est indiqué comme domaine par défaut ou domaine = lorsque **Ksetup** est exécuté.|
-|\<KpasswdName >|Le nom du KDC qui doit être utilisé en tant que serveur de mot de passe Kerberos est indiqué comme un nom de domaine complet qui ne respecte pas la casse, par exemple mitkdc.microsoft.com. Si le nom du KDC est omis, DNS peut être utilisé pour localiser les KDC.|
+|\<RealmName>|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM et est indiqué comme domaine par défaut ou domaine = lorsque **Ksetup** est exécuté.|
+|\<KpasswdName>|Le nom du KDC qui doit être utilisé en tant que serveur de mot de passe Kerberos est indiqué comme un nom de domaine complet qui ne respecte pas la casse, par exemple mitkdc.microsoft.com. Si le nom du KDC est omis, DNS peut être utilisé pour localiser les KDC.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 Si le domaine Kerberos sur lequel la station de travail doit s’authentifier prend en charge le protocole de modification Kerberos, vous pouvez configurer un ordinateur client exécutant le système d’exploitation Windows pour qu’il utilise un serveur de mot de passe Kerberos.
 
@@ -45,7 +45,7 @@ Exécutez la commande **Ksetup** pour vérifier le nom du KDC. Si **kpasswd =** 
 
 Vous pouvez ajouter des noms KDC supplémentaires un par un.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Configurez le domaine, CORP. CONTOSO.COM, afin qu’il utilise le serveur KDC non-Windows, mitkdc.contoso.com, comme serveur de mot de passe :
 ```

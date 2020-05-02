@@ -1,6 +1,6 @@
 ---
 title: inactive
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 38a4f731bef9515a387b0343eaf4cb06142e6620
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4f1c0e0cd5ebbf92638a221852bc3133116f4911
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842122"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724831"
 ---
 # <a name="inactive"></a>inactive
 
@@ -31,11 +31,11 @@ inactive
 ## <a name="remarks"></a>Notes
 
 > [!CAUTION]
-> Il se peut que votre ordinateur ne démarre pas sans une partition active. Ne Marquez pas une partition système ou de démarrage comme inactive, sauf si vous êtes un utilisateur expérimenté ayant une connaissance approfondie de la famille de systèmes d’exploitation Windows.</br>> Si vous ne parvenez pas à démarrer votre ordinateur après avoir marqué le système ou la partition de démarrage comme étant inactif, insérez le CD installation de Windows dans le lecteur de CD-ROM, redémarrez l’ordinateur, puis réparez la partition à l’aide des commandes **FIXMBR** et **FIXBOOT** dans la console de récupération.
+> Il se peut que votre ordinateur ne démarre pas sans une partition active. Ne Marquez pas une partition système ou de démarrage comme inactive, sauf si vous êtes un utilisateur expérimenté ayant une connaissance approfondie de la famille de systèmes d’exploitation Windows.</br>> si vous ne parvenez pas à démarrer votre ordinateur après avoir marqué le système ou la partition de démarrage comme étant inactif, insérez le CD installation de Windows dans le lecteur de CD-ROM, redémarrez l’ordinateur, puis réparez la partition à l’aide des commandes **FIXMBR** et **FIXBOOT** dans la console de récupération.
 > -   Une fois que vous avez marqué la partition système ou la partition de démarrage comme inactive, votre ordinateur démarre à partir de l’option suivante spécifiée dans le BIOS, comme le lecteur de CD-ROM ou un environnement PXE (Pre-Boot eXecution Environment).
 > -   Une partition système ou de démarrage active doit être sélectionnée pour que cette opération aboutisse. Utilisez la commande **Sélectionner une partition** pour sélectionner la partition active et y déplacer le focus.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 ```
 inactive

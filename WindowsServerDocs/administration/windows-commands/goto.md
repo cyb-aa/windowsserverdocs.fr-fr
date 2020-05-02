@@ -1,6 +1,6 @@
 ---
 title: goto
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 928a9031a7f86261789676257afe95ffc3be8a99
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dd61575b8b31ed47463db464f4aad0a048e755b2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842562"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725003"
 ---
 # <a name="goto"></a>goto
 
@@ -22,7 +22,7 @@ ms.locfileid: "80842562"
 
 Dirige cmd. exe vers une ligne étiquetée dans un programme de traitement par lots. Dans un programme de traitement par lots, **goto** dirige le traitement des commandes vers une ligne identifiée par une étiquette. Lorsque l’étiquette est trouvée, le traitement continue à partir des commandes qui commencent sur la ligne suivante.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,10 +34,10 @@ goto <Label>
 
 |Paramètre|Description|
 |---------|-----------|
-|Étiquette \<>|Spécifie une chaîne de texte utilisée comme étiquette dans le programme de traitement par lots.|
+|\<Étiquette>|Spécifie une chaîne de texte utilisée comme étiquette dans le programme de traitement par lots.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Utilisation des extensions de commande
 
@@ -58,7 +58,7 @@ goto <Label>
 
     Vous pouvez utiliser **goto** avec d’autres commandes pour effectuer des opérations conditionnelles. Pour plus d’informations sur l’utilisation de **goto** pour les opérations conditionnelles, consultez la référence de commande [If](if.md) .
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Le programme batch suivant met en forme un disque dans le lecteur A en tant que disque système. Si l’opération réussit, la commande **goto** dirige le traitement vers l’étiquette de **fin** :
 ```
@@ -76,4 +76,4 @@ echo End of batch program.
 
 [Cmd](cmd.md)
 
-[Que](if.md)
+[If](if.md)

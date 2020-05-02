@@ -1,6 +1,6 @@
 ---
-title: aide
-description: Rubrique relative aux commandes Windows pour * * * *-
+title: help
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f7b6f3a563c59a55ff92b38f0854437b96478f6c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9d3a16c2534934a7bc8126b0a775ec7aa08462b3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842342"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724913"
 ---
-# <a name="help"></a>aide
+# <a name="help"></a>help
 
 
 
 Fournit des informations en ligne sur les commandes système (autrement dit, les commandes qui ne sont pas de réseau). En cas **d'** utilisation sans paramètre, répertorie et décrit brièvement chaque commande système.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -35,9 +35,9 @@ help [<Command>]
 
 |Paramètre|Description|
 |---------|-----------|
-|> de commande \<|Spécifie le nom de la commande sur laquelle vous souhaitez obtenir des informations.|
+|\<> de commande|Spécifie le nom de la commande sur laquelle vous souhaitez obtenir des informations.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour afficher des informations sur la commande **Robocopy** , tapez l’un des éléments suivants :
 ```

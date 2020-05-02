@@ -1,6 +1,6 @@
 ---
 title: label
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7ccb86e2167682e1048161f2d5f5386a8b5cf6ed
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 63603eda8d23b6f7b89b8d1ba858575a60e3c65c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841172"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724518"
 ---
 # <a name="label"></a>label
 
@@ -22,7 +22,7 @@ ms.locfileid: "80841172"
 
 Crée, modifie ou supprime l’étiquette de volume (autrement dit, le nom) d’un disque. En cas d’utilisation sans paramètre, la commande **label** modifie l’étiquette de volume en cours ou supprime l’étiquette existante.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -35,11 +35,11 @@ label [/mp] [<Volume>] [<Label>]
 |Paramètre|Description|
 |---------|-----------|
 |/mp|Spécifie que le volume doit être traité comme un point de montage ou un nom de volume.|
-|> du volume \<|Spécifie une lettre de lecteur (suivie d’un signe deux-points), d’un point de montage ou d’un nom de volume. Si un nom de volume est spécifié, le paramètre **/MP** n’est pas nécessaire.|
-|Étiquette \<>|Spécifie l’étiquette du volume.|
+|\<> du volume|Spécifie une lettre de lecteur (suivie d’un signe deux-points), d’un point de montage ou d’un nom de volume. Si un nom de volume est spécifié, le paramètre **/MP** n’est pas nécessaire.|
+|\<Étiquette>|Spécifie l’étiquette du volume.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 - Windows affiche le nom de volume et le numéro de série (le cas échéant) dans le cadre de la liste des répertoires.
 - Un nom de volume NTFS peut comporter jusqu’à 32 caractères, y compris les espaces. Les étiquettes de volume NTFS conservent et affichent le cas qui a été utilisé lors de la création de l’étiquette.
@@ -55,7 +55,7 @@ label [/mp] [<Volume>] [<Label>]
   ```  
   Appuyez sur Y pour supprimer l’étiquette ou sur N pour conserver l’étiquette.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour étiqueter un disque dans le lecteur A qui contient des informations de ventes pour le juillet, tapez :
 ```
@@ -72,7 +72,7 @@ Pour supprimer l’étiquette actuelle pour le lecteur C, procédez comme suit 
    Volume Serial Number is 6789-ABCD
    Volume label (32 characters, ENTER for none)?
    ```  
-2. Appuyez sur ENTRÉE. L’invite suivante doit s’afficher :  
+2. Appuyez sur Entrée. L’invite suivante doit s’afficher :  
    ```
    Delete current volume label (Y/N)?
    ```  

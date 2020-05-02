@@ -1,6 +1,6 @@
 ---
 title: remotehelp_1 FTP
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3c4a4ffec01fce5cde8b2aa9dd1fa0704f3a85ff
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dc4affb3f04eadaa4e0005e5edce0f564156f64a
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843052"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725132"
 ---
 # <a name="ftp-remotehelp_1"></a>FTP : remotehelp_1
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche l’aide relative aux commandes distantes.   
 ## <a name="syntax"></a>Syntaxe  
@@ -29,9 +29,9 @@ remotehelp [<Command>]
 |Paramètre|Description|  
 |-------|--------|  
 |[<Command>]|Spécifie le nom de la commande sur laquelle vous souhaitez obtenir de l’aide. Si la *commande* n’est pas spécifiée, **FTP** affiche une liste de toutes les commandes distantes.|  
-## <a name="remarks"></a>Notes  
+## <a name="remarks"></a>Notes   
 Vous pouvez exécuter des commandes distantes à l’aide d’un **guillemet** ou d’un **littéral**.  
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre  
+## <a name="examples"></a>Exemples  
 Affiche la liste des commandes distantes.  
 ```  
 remotehelp  

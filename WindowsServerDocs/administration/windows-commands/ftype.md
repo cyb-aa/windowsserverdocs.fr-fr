@@ -1,6 +1,6 @@
 ---
 title: ftype
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f982f68f25a4decbc9c572b533fa1ecc5e893a8c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 43108fad0e1981bffd110264809acf30c1c12ba1
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842702"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725017"
 ---
 # <a name="ftype"></a>ftype
 
 
 
-Affiche ou modifie les types de fichiers utilisés dans les associations d’extension de nom de fichier. S’il est utilisé sans opérateur d’assignation ( **=** ), **ftype** affiche la chaîne de commande actuellement ouverte pour le type de fichier spécifié. En cas d’utilisation sans paramètre, **ftype** affiche les types de fichiers pour lesquels des chaînes de commande ouvertes sont définies.
+Affiche ou modifie les types de fichiers utilisés dans les associations d’extension de nom de fichier. S’il est utilisé sans opérateur d'**=** assignation (), **ftype** affiche la chaîne de commande actuellement ouverte pour le type de fichier spécifié. En cas d’utilisation sans paramètre, **ftype** affiche les types de fichiers pour lesquels des chaînes de commande ouvertes sont définies.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,11 +34,11 @@ ftype [<FileType>[=[<OpenCommandString>]]]
 
 |Paramètre|Description|
 |---------|-----------|
-|\<FileType >|Spécifie le type de fichier à afficher ou à modifier.|
-|\<OpenCommandString >|Spécifie la chaîne de commande ouverte à utiliser lors de l’ouverture de fichiers du type de fichier spécifié.|
+|\<> de FileType|Spécifie le type de fichier à afficher ou à modifier.|
+|\<OpenCommandString>|Spécifie la chaîne de commande ouverte à utiliser lors de l’ouverture de fichiers du type de fichier spécifié.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 Le tableau suivant décrit comment **ftype** remplace les variables dans une chaîne de commande ouverte :
 
@@ -47,9 +47,9 @@ Le tableau suivant décrit comment **ftype** remplace les variables dans une cha
 |%0 ou %1|Est remplacé par le nom de fichier qui est lancé via l’Association.|
 |%*|Obtient tous les paramètres.|
 |%2, %3,...|Obtient le premier paramètre (%2), le deuxième paramètre (%3), et ainsi de suite.|
-|%~\<N >|Obtient tous les paramètres restants à partir du *n*ième paramètre, où *N* peut être un nombre compris entre 2 et 9.|
+|%~\<N>|Obtient tous les paramètres restants à partir du *n*ième paramètre, où *N* peut être un nombre compris entre 2 et 9.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour afficher les types de fichiers actuels pour lesquels des chaînes de commande ouvertes sont définies, tapez :
 ```
@@ -59,7 +59,7 @@ Pour afficher la chaîne de commande actuellement ouverte pour le type de fichie
 ```
 ftype txtfile
 ```
-Cette commande produit une sortie similaire à ce qui suit :
+Cette commande produit un résultat similaire au suivant :
 ```
 txtfile=%SystemRoot%\system32\NOTEPAD.EXE %1
 ```

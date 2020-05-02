@@ -1,6 +1,6 @@
 ---
 title: 'Ksetup : serveur'
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7889e1a03d3c0eec1958bf1d6356c67e9371a80f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 91549eb78f825264016ec0e03b7035f79132f260
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841442"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724593"
 ---
 # <a name="ksetupserver"></a>Ksetup : serveur
 
 
 
-Vous permet de spécifier un nom pour un ordinateur exécutant le système d’exploitation Windows afin que les modifications apportées à l’aide de **Ksetup** mettent à jour l’ordinateur cible. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Vous permet de spécifier un nom pour un ordinateur exécutant le système d’exploitation Windows afin que les modifications apportées à l’aide de **Ksetup** mettent à jour l’ordinateur cible.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,15 +32,15 @@ ksetup /server <ServerName>
 
 |Paramètre|Description|
 |---------|-----------|
-|\<ServerName >|Nom complet de l’ordinateur sur lequel la configuration sera effective, par exemple IPops897.corp.contoso.com.</br>Si un nom d’ordinateur de domaine complet incomplet est spécifié, la commande échoue.|
+|\<Nom du serveur>|Nom complet de l’ordinateur sur lequel la configuration sera effective, par exemple IPops897.corp.contoso.com.</br>Si un nom d’ordinateur de domaine complet incomplet est spécifié, la commande échoue.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 Il n’existe aucun moyen de supprimer le nom du serveur ciblé ; vous pouvez uniquement revenir au nom de l’ordinateur local, qui est la valeur par défaut.
 
 Le nom du serveur cible est stocké dans le registre dans **HKEY_LOCAL_MACHINE \system\controlset001\control\lsa\kerberos**. Elle n’est pas signalée à l’aide de **Ksetup**.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Faites en sorte que vos configurations **Ksetup** soient effectives sur l’ordinateur IPops897 connecté au domaine contoso :
 ```

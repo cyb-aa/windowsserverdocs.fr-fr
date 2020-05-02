@@ -1,6 +1,6 @@
 ---
 title: 'Ksetup : getenctypeattr'
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 60de138ac73140c69e9a863083e01a51c0e13ca3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f8363113d4fbb310d98b40d852b36a00f20320e6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841532"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724633"
 ---
 # <a name="ksetupgetenctypeattr"></a>Ksetup : getenctypeattr
 
 
 
-Récupère l’attribut de type de chiffrement pour le domaine. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Récupère l’attribut de type de chiffrement pour le domaine.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,17 +32,17 @@ ksetup /getenctypeattr <DomainName>
 
 |Paramètre|Description|
 |---------|-----------|
-|\<DomainName >|Nom du domaine auquel vous souhaitez établir une connexion. Utilisez le nom de domaine complet ou une forme simple du nom, par exemple corp.contoso.com ou contoso.|
+|\<Nom_domaine>|Nom du domaine auquel vous souhaitez établir une connexion. Utilisez le nom de domaine complet ou une forme simple du nom, par exemple corp.contoso.com ou contoso.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 Pour afficher le type de chiffrement du ticket TGT (Ticket-Granting Ticket) Kerberos et de la clé de session, exécutez la commande **Klist** et affichez la sortie.
 
 Si la commande réussit ou échoue, un message d’État s’affiche lorsque l’exécution a réussi ou a échoué.
 
-Pour définir le domaine auquel vous souhaitez vous connecter et utiliser, exécutez la commande **Ksetup/domain \<DomainName >** .
+Pour définir le domaine auquel vous souhaitez vous connecter et utiliser, exécutez la commande **Ksetup/Domain \<DomainName>** .
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Vérifiez l’attribut type de chiffrement pour le domaine :
 ```

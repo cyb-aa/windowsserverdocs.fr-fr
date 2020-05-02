@@ -1,6 +1,6 @@
 ---
 title: Charger les métadonnées
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b8db98611fd78c6e30070901effafddd6e678c16
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3d3132bca86533ec3f2d0a27247bd3c116cf55b6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841022"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724467"
 ---
 # <a name="load-metadata"></a>Charger les métadonnées
 
@@ -22,7 +22,7 @@ ms.locfileid: "80841022"
 
 Charge un fichier de métadonnées. cab avant d’importer un cliché instantané transportable ou charge les métadonnées de l’enregistreur dans le cas d’une restauration. En cas d’utilisation sans paramètre, **charger les métadonnées** affiche l’aide à l’invite de commandes.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,15 +34,15 @@ load metadata [<Drive>:][<Path>]<MetaData.cab>
 
 |Paramètre|Description|
 |---------|-----------|
-|[\<> de lecteur :] [<Path>]|Spécifie l’emplacement du fichier de métadonnées.|
+|[\<Lecteur> :] [<Path>]|Spécifie l’emplacement du fichier de métadonnées.|
 |MetaData. cab|Spécifie le fichier. cab de métadonnées à charger.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Vous pouvez utiliser la commande **Importer** pour importer un cliché instantané transportable basé sur les métadonnées spécifiées par **charger les métadonnées**.
 -   Cette commande est nécessaire avant la commande **Begin Restore** pour charger les enregistreurs et les composants sélectionnés pour la restauration.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour charger un fichier de métadonnées appelé Metafile. cab à partir de l’emplacement par défaut, tapez :
 ```

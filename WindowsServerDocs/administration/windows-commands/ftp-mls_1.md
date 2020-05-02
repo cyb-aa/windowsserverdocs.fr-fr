@@ -1,6 +1,6 @@
 ---
 title: mls_1 FTP
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ca3b8e04dd4a152b2d1bf8ce1ca8006d70186116
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 27f74d4c1d03cb4d9f665566f69485e80f8eccdc
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843292"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725206"
 ---
 # <a name="ftp-mls_1"></a>FTP : mls_1
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche une liste abrégée de fichiers et de sous-répertoires dans un répertoire distant.   
 ## <a name="syntax"></a>Syntaxe  
@@ -32,12 +32,12 @@ mls <remoteFile>[ ] <LocalFile>
 | <remoteFile> | Spécifie le fichier pour lequel vous souhaitez afficher une liste. |
 | <LocalFile>  |  Spécifie un fichier local dans lequel stocker la liste.  |
 
-## <a name="remarks"></a>Notes  
+## <a name="remarks"></a>Notes   
 - Spécification de *remoteFiles*  
-  tapez un trait d’Union ( **-** ) pour utiliser le répertoire de travail actuel sur l’ordinateur distant.  
+  tapez un trait d'**-** Union () pour utiliser le répertoire de travail actuel sur l’ordinateur distant.  
 - Spécification du *fichier_local*  
-  tapez un trait d’Union ( **-** ) pour afficher la liste à l’écran.  
-  ## <a name="examples"></a><a name=BKMK_Examples></a>Illustre  
+  tapez un trait d'**-** Union () pour afficher la liste à l’écran.  
+  ## <a name="examples"></a>Exemples  
   Affichez une liste abrégée de fichiers et de sous-répertoires pour **dir1** et **dir2**.  
   ```  
   mls dir1 dir2 -  

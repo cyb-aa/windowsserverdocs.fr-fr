@@ -1,6 +1,6 @@
 ---
 title: répertorier les ombres
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e22b0006709e1cf6636ad6c2bcc18432f59b4d1a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d22fc3bbe644983eaf072a430e565a0d34d1c4dd
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841162"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724472"
 ---
 # <a name="list-shadows"></a>répertorier les ombres
 
@@ -32,9 +32,9 @@ list shadows {all | set <SetID> | id <ShadowID>}
 
 |Paramètre|Description|
 |---------|-----------|
-|tous|Répertorie tous les clichés instantanés.|
-|définir \<SetID >|Répertorie les clichés instantanés qui appartiennent à l’ID du jeu de clichés instantanés spécifié.|
-|ID \<ShadowID >|Répertorie tout cliché instantané avec l’ID de cliché instantané spécifié.|
+|all|Répertorie tous les clichés instantanés.|
+|définir \<le> SetID|Répertorie les clichés instantanés qui appartiennent à l’ID du jeu de clichés instantanés spécifié.|
+|ID \<ShadowID>|Répertorie tout cliché instantané avec l’ID de cliché instantané spécifié.|
 
 ## <a name="additional-references"></a>Références supplémentaires
 

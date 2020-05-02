@@ -1,6 +1,6 @@
 ---
 title: importer
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7e098e7133bca18e1a6ba683e525783af17c3958
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 569d986c57ae8b3d7253c050146ac0583c7c92df
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842132"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724843"
 ---
 # <a name="import"></a>importer
 
@@ -34,12 +34,12 @@ import [noerr]
 |---------|-----------|
 |noerr|À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   La commande Import importe chaque disque qui se trouve dans le même groupe que le disque qui a le focus.
 -   Vous devez sélectionner un disque dynamique dans un groupe de disques étrangers pour que cette opération aboutisse. Utilisez la commande **Sélectionner le disque** pour sélectionner un disque et lui déplacer le focus.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour importer chaque disque qui se trouve dans le même groupe de disques que le disque ayant le focus dans le groupe de disques de l’ordinateur local, tapez :
 ```

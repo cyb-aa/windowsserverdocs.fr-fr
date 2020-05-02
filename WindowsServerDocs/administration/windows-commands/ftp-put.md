@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/30/2020
-ms.openlocfilehash: ecd579a313fe1cad1b8a5b4a622aaaec2d6a6d63
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d86ba8418f4c43c26f3745a9f70e676ca790c640
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843132"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725175"
 ---
 # <a name="ftp-put"></a>FTP : put
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Copie un fichier local sur l’ordinateur distant à l’aide du type de transfert de fichier actuel.
 ## <a name="syntax"></a>Syntaxe
@@ -32,10 +32,10 @@ put <LocalFile> [<remoteFile>]
 |   `<LocalFile>`  |         Spécifie le fichier local à copier.         |
 | `[<remoteFile>]` | Spécifie le nom à utiliser sur l’ordinateur distant. |
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 - La commande **put** est identique à la commande **Send** .
 - Si *remoteFile* n’est pas spécifié, le nom du *fichier_local* est attribué au fichier.
-  ## <a name="examples"></a><a name="BKMK_Examples"></a>Illustre
+  ## <a name="examples"></a>Exemples
   Copiez le fichier local **test. txt** et nommez-le **Test1. txt** sur l’ordinateur distant.
   ```
   put test.txt test1.txt

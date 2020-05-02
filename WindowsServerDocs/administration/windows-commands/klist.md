@@ -1,6 +1,6 @@
 ---
 title: klist
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b693e4496f4fc1275e1f2b364900564ce86e97cb
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f83a46f158cd83aa8393630aa0138271e8868575
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841962"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724752"
 ---
 # <a name="klist"></a>klist
 
 
 
-Affiche la liste des tickets Kerberos actuellement mis en cache. Ces informations s’appliquent à Windows Server 2012. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Affiche la liste des tickets Kerberos actuellement mis en cache. Ces informations s’appliquent à Windows Server 2012.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -46,7 +46,7 @@ klist [-lh <LogonId.HighPart>] [-li <LogonId.LowPart>] tickets | tgt | purge | s
 |kdcoptions|Affiche les options de centre de distribution de clés (KDC) spécifiées dans le document RFC 4120.|
 |/?|Affiche l’aide de cette commande.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 L’appartenance au **groupe Admins du domaine**, ou équivalent, est la condition minimale requise pour exécuter tous les paramètres de cette commande.
 
@@ -70,7 +70,7 @@ Les paramètres affichent les informations suivantes :
     Répertorie le ticket TGT Kerberos initial et les attributs suivants du ticket actuellement mis en cache :  
     -   LogonID : identifiée en notation hexadécimale
     -   ServiceName : krbtgt
-    -   TargetName \<SPN >: krbtgt
+    -   > \<SPN NomCible : krbtgt
     -   DomainName : nom du domaine qui émet le ticket TGT
     -   TargetDomainName : domaine auquel le TGT est émis
     -   AltTargetDomainName : domaine auquel le TGT est émis
@@ -93,7 +93,7 @@ Les paramètres affichent les informations suivantes :
 
     Vous permet d’afficher les informations du cache de délégation Kerberos avec restriction.  
     -   LogonID : s’il est spécifié, affiche les informations de cache pour la session de connexion en fonction de la valeur donnée. S’il n’est pas spécifié, affiche les informations de cache pour la session d’ouverture de session de l’utilisateur actuel.
--   **Télécharger**
+-   **get**
 
     Vous permet de demander un ticket à la cible spécifiée par le SPN.  
     -   LogonID : s’il est spécifié, demande un ticket à l’aide de la session de connexion par la valeur donnée. S’il n’est pas spécifié, demande un ticket à l’aide de la session d’ouverture de session de l’utilisateur actuel.
@@ -114,7 +114,7 @@ Les paramètres affichent les informations suivantes :
 **Autres considérations**
 -   Klist. exe est disponible dans Windows Server 2012 et Windows 8, et ne nécessite aucune installation particulière.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 1. Lors du diagnostic d’un ID d’événement 27 lors du traitement d’une demande TGS (Ticket-Granting Service) pour le serveur cible, le compte n’avait pas de clé appropriée pour générer un ticket Kerberos. Vous pouvez utiliser klist pour interroger le cache de tickets Kerberos afin de déterminer si des tickets sont manquants, si le serveur ou le compte cible est erroné, ou si le type de chiffrement n’est pas pris en charge.  
    ```

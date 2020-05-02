@@ -1,6 +1,6 @@
 ---
 title: importer
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 07fdd03c73c454e92218a4c6983eac7f29b50883
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 72cbd6195de64a6a0a7f2c258e19b2d5eb1378b1
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842172"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724856"
 ---
 # <a name="import"></a>importer
 
 
 
-importe un cliché instantané transportable à partir d’un fichier de métadonnées chargé dans le système.
+Importe un cliché instantané transportable à partir d’un fichier de métadonnées chargé dans le système.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -35,7 +35,7 @@ import
 -   Les clichés instantanés transportables ne sont pas stockés sur le système immédiatement. Leurs détails sont stockés dans un fichier XML de documents de composants de sauvegarde, que DiskShadow demande et enregistre automatiquement dans un fichier de métadonnées. cab dans le répertoire de travail. Vous pouvez modifier le chemin d’accès et le nom de ce fichier à l’aide de la commande **définir les métadonnées** .
 -   Avant de pouvoir utiliser l' **importation**, vous devez charger un fichier de métadonnées DiskShadow à l’aide de la commande **charger les métadonnées** .
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Voici un exemple de script DiskShadow qui illustre l’utilisation de la commande d' **importation** :
 ```

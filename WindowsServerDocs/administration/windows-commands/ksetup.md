@@ -1,6 +1,6 @@
 ---
 title: ksetup
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b3c61fd81691f9db44330eddbf40d4212d1786ff
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2f3fde0ada4ab8bcbe52eccf22b959f99f91319f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841252"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724542"
 ---
 # <a name="ksetup"></a>ksetup
 
@@ -64,7 +64,7 @@ ksetup
 |[Ksetup:server](ksetup-server.md)|Vous permet de spécifier le nom d’un ordinateur Windows sur lequel appliquer les modifications.|
 |[Ksetup:setcomputerpassword](ksetup-setcomputerpassword.md)|Définit le mot de passe du compte de domaine de l’ordinateur (ou du principal de l’hôte).|
 |[Ksetup:removerealm](ksetup-removerealm.md)|Supprime du registre toutes les informations pour le domaine spécifié.|
-|[Ksetup:domain](ksetup-domain.md)|Vous permet de spécifier un domaine (si \<nom_domaine > n’a pas été défini à l’aide de l’utilisation de la valeur **/Domain**).|
+|[Ksetup:domain](ksetup-domain.md)|Vous permet de spécifier un domaine (si \<DomainName> n’a pas été défini à l’aide de **/Domain**).|
 |[Ksetup:changepassword](ksetup-changepassword.md)|Vous permet d’utiliser le kpasswd pour modifier le mot de passe de l’utilisateur connecté.|
 |[Ksetup:listrealmflags](ksetup-listrealmflags.md)|Répertorie les indicateurs de domaine disponibles que **Ksetup** peut détecter.|
 |[Ksetup:setrealmflags](ksetup-setrealmflags.md)|Définit des indicateurs de domaine pour un domaine spécifique.|
@@ -79,7 +79,7 @@ ksetup
 |[Ksetup:delenctypeattr](ksetup-delenctypeattr.md)|Supprime l’attribut d’approbation des types de chiffrement pour le domaine.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 **Ksetup** est utilisé pour modifier les paramètres de l’ordinateur afin de localiser les domaines Kerberos. Dans les implémentations basées sur Kerberos non-Microsoft, ces informations sont généralement conservées dans le fichier krb5. conf. Dans les systèmes d’exploitation Windows Server, elle est conservée dans le registre. Vous pouvez utiliser cet outil pour modifier ces paramètres. Ces paramètres sont utilisés par les stations de travail pour localiser les domaines Kerberos et par les contrôleurs de domaine afin de localiser les domaines Kerberos pour les relations d’approbation entre domaines.
 

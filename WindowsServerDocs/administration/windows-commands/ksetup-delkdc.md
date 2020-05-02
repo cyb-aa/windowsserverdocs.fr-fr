@@ -1,6 +1,6 @@
 ---
 title: 'Ksetup : delkdc'
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 63b264da227d51b6f47f982c66828536bd677920
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 19ebe322d414d1ae9007275772ccd747f6f0ff8d
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841692"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724655"
 ---
 # <a name="ksetupdelkdc"></a>Ksetup : delkdc
 
 
 
-Supprime les instances de noms de centre de distribution de clés (KDC) pour le domaine Kerberos. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Supprime les instances de noms de centre de distribution de clés (KDC) pour le domaine Kerberos.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,10 +32,10 @@ ksetup /delkdc <RealmName> <KDCName>
 
 |Paramètre|Description|
 |---------|-----------|
-|\<RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM, et elle est indiquée comme domaine par défaut lorsque **Ksetup** est exécuté. Il s’agit de ce domaine à partir duquel vous tentez de supprimer l’autre KDC.|
-|\<KDCName >|Le nom KDC est indiqué comme un nom de domaine complet qui ne respecte pas la casse, par exemple mitkdc.contoso.com.|
+|\<RealmName>|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM, et elle est indiquée comme domaine par défaut lorsque **Ksetup** est exécuté. Il s’agit de ce domaine à partir duquel vous tentez de supprimer l’autre KDC.|
+|\<KDCName>|Le nom KDC est indiqué comme un nom de domaine complet qui ne respecte pas la casse, par exemple mitkdc.contoso.com.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 Ces mappages sont stockés dans le registre dans **HKEY_LOCAL_MACHINE \system\currentcontrolset\control\lsa\kerberos\domains**. Pour supprimer les données de configuration de domaine de plusieurs ordinateurs, utilisez le composant logiciel enfichable modèle de configuration de sécurité et la distribution de stratégie au lieu d’utiliser le modèle d’informations de **sécurité explicitement sur** des ordinateurs individuels.
 
@@ -43,7 +43,7 @@ Sur les ordinateurs exécutant Windows 2000 Server avec Service Pack 1 (SP1) et 
 
 Pour vérifier le nom de domaine par défaut de l’ordinateur, ou pour vérifier que cette commande fonctionnait comme prévu, exécutez **Ksetup** à l’invite de commandes et vérifiez que le KDC qui a été supprimé n’existe pas dans la liste.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Les exigences de sécurité de cet ordinateur ont été modifiées, de sorte que le lien entre le domaine Windows et le domaine non-Windows doit être supprimé. Tout d’abord, déterminez l’Association à supprimer et générez la sortie des associations existantes :
 ```

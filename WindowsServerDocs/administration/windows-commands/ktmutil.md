@@ -1,6 +1,6 @@
 ---
 title: ktmutil
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2e65312ea4bb3169b90c2550b8b945919b86587f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 47b447165ee54e6839bb6338801c6703d818caa8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841192"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724525"
 ---
 # <a name="ktmutil"></a>ktmutil
 
@@ -22,7 +22,7 @@ ms.locfileid: "80841192"
 
 Démarre l’utilitaire du gestionnaire de transactions du noyau. S’il est utilisé sans paramètres, **ktmutil** affiche les sous-commandes disponibles.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -39,9 +39,9 @@ ktmutil forget
 
 ### <a name="parameters"></a>Paramètres
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour forcer une transaction incertaine avec le GUID 311a9209-03f4-11dc-918f-00188b8f707b à valider, tapez :
 ```

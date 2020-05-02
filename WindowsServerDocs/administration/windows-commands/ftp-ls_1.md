@@ -1,6 +1,6 @@
 ---
 title: ls_1 FTP
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,19 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5ff63272fe3c5e59965b04bef258a06fee2da0c4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0dd661742288bdd43299f379f4eb04016b2ac799
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843362"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725242"
 ---
 # <a name="ftp-ls_1"></a>FTP : ls_1
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 > 
 > 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche une liste abrégée de fichiers et de sous-répertoires de l’ordinateur distant.   
 ## <a name="syntax"></a>Syntaxe  
@@ -35,7 +35,7 @@ ls [<remotedirectory>] [<LocalFile>]
 | [<remotedirectory>] | Spécifie le répertoire dont vous souhaitez afficher la liste. Si aucun répertoire n’est spécifié, le répertoire de travail actuel sur l’ordinateur distant est utilisé. |
 |    [<LocalFile>]    |               Spécifie un fichier local dans lequel stocker la liste. Si aucun fichier local n’est spécifié, les résultats s’affichent à l’écran.               |
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre  
+## <a name="examples"></a>Exemples  
 Affichez une liste abrégée des fichiers et sous-répertoires de l’ordinateur distant.  
 ```  
 ls  

@@ -1,6 +1,6 @@
 ---
 title: hash_1 FTP
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8ea6cdc3c93ecbba49168aedae0f93f5acc8d36e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7672bcd55cc4d96096dc484d80593dd52f507a98
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843422"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725275"
 ---
 # <a name="ftp-hash_1"></a>FTP : hash_1
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Active/désactive l’impression du signe dièse (#) pour chaque bloc de données transféré.   
 ## <a name="syntax"></a>Syntaxe  
@@ -26,11 +26,11 @@ Active/désactive l’impression du signe dièse (#) pour chaque bloc de donnée
 hash  
 ```  
 #### <a name="parameters"></a>Paramètres  
-aucune  
-## <a name="remarks"></a>Notes  
+Aucun  
+## <a name="remarks"></a>Notes   
 - La taille d’un bloc de données est de 2048 octets.  
 - Par défaut, le **hachage** est désactivé.  
-  ## <a name="examples"></a><a name=BKMK_Examples></a>Illustre  
+  ## <a name="examples"></a>Exemples  
   Activez/désactivez l’impression du signe dièse (#) pour chaque bloc de données transféré.  
   ```  
   hash  
