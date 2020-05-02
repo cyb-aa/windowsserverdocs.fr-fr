@@ -1,60 +1,42 @@
 ---
 title: convert
-description: La rubrique commandes Windows pour Convert, qui convertit les volumes FAT et FAT32 en système de fichiers NTFS, en laissant intacts les fichiers et les répertoires existants.
+description: Rubrique de référence pour la commande Convert, qui convertit un disque d’un type de disque à un autre.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
-ms.assetid: 96e437c0-1aa3-46ab-9078-a7b8cdaf3792
+ms.assetid: ae151297-af21-4701-bd69-21d775518e03
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0fb2981d6cd5a54737700b64b28f7a8a52de72b1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ab7189ea774750f8de2ceaecd9511fc8c3a71a97
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80847172"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720742"
 ---
 # <a name="convert"></a>convert
 
-Convertit les volumes FAT (File Allocation Table) et FAT32 dans le système de fichiers NTFS, en laissant intacts les fichiers et les répertoires existants. Les volumes convertis dans le système de fichiers NTFS ne peuvent pas être reconvertis en FAT ou FAT32.
-
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+Convertit un disque d’un type de disque à un autre.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-convert [<Volume>] /fs:ntfs [/v] [/cvtarea:<FileName>] [/nosecurity] [/x]
+convert basic
+convert dynamic
+convert gpt
+convert mbr
 ```
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|> du volume \<|Spécifie la lettre de lecteur (suivie d’un signe deux-points), d’un point de montage ou d’un nom de volume à convertir au format NTFS.|
-|/FS : NTFS|Obligatoire. Convertit le volume au format NTFS.|
-|/v|Exécute **Convert** en mode détaillé, qui affiche tous les messages pendant le processus de conversion.|
-|/CvtArea :\<nom de fichier >|Spécifie que la table de fichiers maîtres (MFT) et d’autres fichiers de métadonnées NTFS sont écrits dans un fichier d’espace réservé existant et contigu. Ce fichier doit se trouver dans le répertoire racine du système de fichiers à convertir. L’utilisation du paramètre **/Cvtarea** peut entraîner un système de fichiers moins fragmenté après la conversion. Pour de meilleurs résultats, la taille de ce fichier doit être de 1 Ko multiplié par le nombre de fichiers et de répertoires dans le système de fichiers, même si l’utilitaire **Convert** accepte des fichiers de n’importe quelle taille.</br>Important : vous devez créer le fichier d’espace réservé à l’aide de la commande **fsutil file CreateNew** avant d’exécuter **Convert**. **Convert** ne crée pas ce fichier pour vous. **Convert** remplace ce fichier par des métadonnées NTFS. Après la conversion, tout espace inutilisé dans ce fichier est libéré.|
-|/nosecurity|Spécifie que les paramètres de sécurité des fichiers et répertoires convertis autorisent l’accès de tous les utilisateurs.|
-|/x|Démonte le volume, si nécessaire, avant qu’il ne soit converti. Tous les descripteurs ouverts sur le volume ne sont alors plus valides.|
-|/?|Affiche l'aide à l'invite de commandes.|
-
-## <a name="remarks"></a>Notes
-
--   Si **Convert** ne peut pas verrouiller le lecteur (par exemple, le lecteur est le volume système ou le lecteur actif), vous avez la possibilité de convertir le lecteur la prochaine fois que vous redémarrez l’ordinateur. Si vous ne pouvez pas redémarrer l’ordinateur immédiatement pour terminer la conversion, planifiez une heure de redémarrage de l’ordinateur et attendez que le processus de conversion se termine.
--   Pour les volumes convertis à partir de FAT ou FAT32 vers NTFS :
-
-    En raison de l’utilisation des disques existants, la table MFT est créée à un autre emplacement que sur un volume à l’origine formaté avec NTFS. les performances du volume peuvent donc ne pas être aussi bonnes que sur les volumes au format NTFS. Pour des performances optimales, envisagez de recréer ces volumes et de les mettre en forme avec le système de fichiers NTFS.
-
-    La conversion de volume FAT ou FAT32 en NTFS laisse les fichiers intacts, mais le volume peut manquer d’avantages en matière de performances par rapport aux volumes initialement formatés avec NTFS. Par exemple, la table MFT peut devenir fragmentée sur des volumes convertis. En outre, sur les volumes de démarrage convertis, **Convert** applique la même sécurité par défaut que celle appliquée pendant installation de Windows.
-
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
-
-Pour convertir le volume sur le lecteur E en NTFS et afficher tous les messages pendant le processus de conversion, tapez :
-```
-convert e: /fs:ntfs /v
-```
+| Paramètre | Description |
+| --------- | ----------- |
+| [convertir la commande de base](convert-basic.md) | Convertit un disque dynamique vide en disque de base. |
+| [convertir la commande dynamique](convert-dynamic.md) | Convertit un disque de base en disque dynamique. |
+| [convertir la commande GPT](convert-gpt.md) | Convertit un disque de base vide avec le style de partition d’enregistrement de démarrage principal (MBR) en disque de base avec le style de partition GPT (GUID partition table). |
+| [commande convert mbr](convert-mbr.md) | Convertit un disque de base vide avec le style de partition GPT (GUID partition table) en disque de base avec le style de partition enregistrement de démarrage principal (MBR). |
 
 ## <a name="additional-references"></a>Références supplémentaires
 

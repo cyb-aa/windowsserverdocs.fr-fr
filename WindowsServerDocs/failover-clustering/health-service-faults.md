@@ -7,15 +7,16 @@ ms.technology: storage-health-service
 ms.topic: article
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: 913a596a46720718a165295345cb02e3e2baa1de
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5fe2f98c89d97325c1f59dc6ba292831e0ffa5ff
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827562"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720561"
 ---
 # <a name="health-service-faults"></a>Erreurs de Service de contrôle d’intégrité
-> S’applique à : Windows Server 2019, Windows Server 2016
+
+> S'applique à : Windows Server 2019, Windows Server 2016
 
 ## <a name="what-are-faults"></a>Que sont les erreurs ?
 
@@ -23,7 +24,7 @@ Le Service de contrôle d’intégrité surveille en permanence votre cluster es
 
 Chaque erreur contient cinq champs importants :  
 
--   Severity
+-   severity
 -   Description du problème
 -   Étapes suivantes recommandées pour traiter le problème
 -   Informations d’identification de l’entité défaillante
@@ -69,14 +70,13 @@ Get-FileShare -Name <Name> | Debug-FileShare
 
 Cela renvoie toutes les erreurs qui affectent uniquement le volume ou le partage de fichiers spécifique. La plupart du temps, ces erreurs sont liées à la planification de la capacité, à la résilience des données ou à des fonctionnalités telles que la qualité de service de stockage ou le réplica de stockage. 
 
-## <a name="usage-in-net-and-c"></a>Utilisation dans .NET etC#
+## <a name="usage-in-net-and-c"></a>Utilisation dans .NET et C #
 
 ### <a name="connect"></a>Se connecter
 
-Pour pouvoir interroger le Service de contrôle d’intégrité, vous devez établir un **CimSession** avec le cluster. Pour ce faire, vous aurez besoin de certains éléments qui ne sont disponibles que dans le .NET complet, ce qui signifie que vous ne pouvez pas effectuer cette opération directement à partir d’une application Web ou mobile. Ces exemples de code utilisent C\#, le choix le plus simple pour cette couche d’accès aux données.
+Pour pouvoir interroger le Service de contrôle d’intégrité, vous devez établir un **CimSession** avec le cluster. Pour ce faire, vous aurez besoin de certains éléments qui ne sont disponibles que dans le .NET complet, ce qui signifie que vous ne pouvez pas effectuer cette opération directement à partir d’une application Web ou mobile. Ces exemples de code utiliseront\#C, le choix le plus simple pour cette couche d’accès aux données.
 
-``` 
-...
+```
 using System.Security;
 using Microsoft.Management.Infrastructure;
 
@@ -105,7 +105,7 @@ Il est recommandé de construire la **SecureString** de mot de passe directement
 
 Une fois le **CimSession** établi, vous pouvez interroger Windows Management Instrumentation (WMI) sur le cluster.
 
-Avant de pouvoir récupérer des erreurs ou des métriques, vous devez récupérer les instances de plusieurs objets pertinents. Tout d’abord, **MSFT\_StorageSubSystem** qui représente espaces de stockage direct sur le cluster. À l’aide de cela, vous pouvez récupérer chaque **\_msft StorageNode** dans le cluster, et chaque **msft\_volume**, les volumes de données. Enfin, vous aurez besoin du **\_msft**, le service de contrôle d’intégrité lui-même.
+Avant de pouvoir récupérer des erreurs ou des métriques, vous devez récupérer les instances de plusieurs objets pertinents. Tout d’abord, le **StorageSubSystem msft\_** qui représente espaces de stockage direct sur le cluster. À l’aide de cela, vous pouvez récupérer chaque **StorageNode msft\_** dans le cluster et chaque **volume msft\_**, les volumes de données. Enfin, vous aurez besoin du **StorageHealth\_MSFT**, le service de contrôle d’intégrité lui-même.
 
 ```
 CimInstance Cluster;
@@ -133,12 +133,11 @@ public void DiscoverObjects(CimSession Session)
 }
 ```
 
-Il s’agit des mêmes objets que ceux que vous recevez dans PowerShell à l’aide d’applets de commande, telles que **« StorageSubSystem »** , **« obten-StorageNode**» et **« obtient-volume »** .
+Il s’agit des mêmes objets que ceux que vous recevez dans PowerShell à l’aide d’applets de commande, telles que **« StorageSubSystem »**, **« obten-StorageNode**» et **« obtient-volume »**.
 
 Vous pouvez accéder aux mêmes propriétés, documentées dans les classes de l' [API de gestion du stockage](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx).
 
 ```
-...
 using System.Diagnostics;
 
 foreach (CimInstance Node in Nodes)
@@ -213,7 +212,7 @@ La liste complète des propriétés de chaque erreur (**DiagnoseResult**) est d�
 
 Lorsque des erreurs sont créées, supprimées ou mises à jour, le Service de contrôle d’intégrité génère des événements WMI. Celles-ci sont essentielles pour assurer la synchronisation de l’état de votre application sans interrogation fréquente. elles peuvent vous aider à déterminer quand envoyer des alertes par courrier électronique, par exemple. Pour s’abonner à ces événements, cet exemple de code utilise à nouveau le modèle de conception observateur.
 
-Tout d’abord, abonnez-vous à **MSFT\_événements StorageFaultEvent** .
+Tout d’abord, abonnez-vous aux événements **StorageFaultEvent msft\_** .
 
 ```      
 public void ListenForFaultEvents()
@@ -284,13 +283,13 @@ Toutefois, dans certains cas, les erreurs peuvent être redécouvertes par le Se
 
 ### <a name="properties-of-faults"></a>Propriétés des erreurs
 
-Ce tableau présente plusieurs propriétés clés de l’objet d’erreur. Pour le schéma complet, inspectez la classe **MSFT\_StorageDiagnoseResult** dans *storagewmi. mof*.
+Ce tableau présente plusieurs propriétés clés de l’objet d’erreur. Pour le schéma complet, inspectez la classe **msft\_StorageDiagnoseResult** dans *storagewmi. mof*.
 
 | **Propriété**              | **Exemple**                                                     |
 |---------------------------|-----------------------------------------------------------------|
 | FaultId                   | {12345-12345-12345-12345-12345}                                 |
 | FaultType                 | Microsoft. Health. FaultType. volume. Capacity                      |
-| Raison                    | « Espace disponible insuffisant sur le volume. »                 |
+| Motif                    | « Espace disponible insuffisant sur le volume. »                 |
 | PerceivedSeverity         | 5                                                               |
 | FaultingObjectDescription | Contoso XYZ9000 S.N. 123456789                                  |
 | FaultingObjectLocation    | Rack A06, RU 25, emplacement 11                                        |
@@ -308,7 +307,7 @@ Ce tableau présente plusieurs propriétés clés de l’objet d’erreur. Pour 
 
 ## <a name="properties-of-fault-events"></a>Propriétés des événements d’erreur
 
-Ce tableau présente plusieurs propriétés clés de l’événement d’erreur. Pour le schéma complet, inspectez la classe **MSFT\_StorageFaultEvent** dans *storagewmi. mof*.
+Ce tableau présente plusieurs propriétés clés de l’événement d’erreur. Pour le schéma complet, inspectez la classe **msft\_StorageFaultEvent** dans *storagewmi. mof*.
 
 Notez le **ChangeType**, qui indique si une erreur est créée, supprimée ou mise à jour, et le **FaultId**. Un événement contient également toutes les propriétés de l’erreur affectée.
 
@@ -317,7 +316,7 @@ Notez le **ChangeType**, qui indique si une erreur est créée, supprimée ou mi
 | ChangeType                | 0                                                               |
 | FaultId                   | {12345-12345-12345-12345-12345}                                 |
 | FaultType                 | Microsoft. Health. FaultType. volume. Capacity                      |
-| Raison                    | « Espace disponible insuffisant sur le volume. »                 |
+| Motif                    | « Espace disponible insuffisant sur le volume. »                 |
 | PerceivedSeverity         | 5                                                               |
 | FaultingObjectDescription | Contoso XYZ9000 S.N. 123456789                                  |
 | FaultingObjectLocation    | Rack A06, RU 25, emplacement 11                                        |
@@ -374,7 +373,7 @@ Dans Windows Server 2016, le Service de contrôle d’intégrité fournit la cou
 ### <a name="virtual-disk-2"></a>**Disque virtuel (2)**
 
 #### <a name="faulttype-microsofthealthfaulttypevirtualdisksneedsrepair"></a>FaultType : Microsoft. Health. FaultType. Virtualdisks et. NeedsRepair
-* Gravité : informatif
+* Gravité : Informatif
 * Raison : *«certaines données sur ce volume ne sont pas entièrement résilientes. Il reste accessible.»*
 * RecommendedAction : *« restauration de la résilience des données ».*
 
@@ -390,7 +389,7 @@ Dans Windows Server 2016, le Service de contrôle d’intégrité fournit la cou
 * Raison : *«le pool de stockage n’a pas la capacité de réserve minimale recommandée. Cela peut limiter votre capacité à restaurer la résilience des données en cas de défaillances du disque.*
 * RecommendedAction : *"Ajoutez de la capacité supplémentaire au pool de stockage ou libérez de la capacité. La réserve minimale recommandée varie en fonction du déploiement, mais elle est d’environ 2 unités de capacité.*
 
-### <a name="volume-capacity-2sup1sup"></a>**Capacité du volume (2)** <sup>1</sup>
+### <a name="volume-capacity-2sup1sup"></a>**Capacité du volume (2)**<sup>1</sup>
 
 #### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>FaultType : Microsoft. Health. FaultType. volume. Capacity
 * Gravité : avertissement
@@ -497,7 +496,7 @@ Dans Windows Server 2016, le Service de contrôle d’intégrité fournit la cou
 * Raison : *« le déploiement du microprogramme a été annulé en raison d’un trop grand nombre de disques physiques qui n’ont pas pu être mis à jour. »*
 * RecommendedAction : *« Redémarrez le déploiement du microprogramme une fois que le problème du microprogramme a été résolu ».*
 
-### <a name="storage-qos-3sup2sup"></a>**Qualité de service de stockage (3)** <sup>2</sup>
+### <a name="storage-qos-3sup2sup"></a>**Qualité de service de stockage (3)**<sup>2</sup>
 
 #### <a name="faulttype-microsofthealthfaulttypestorqosinsufficientthroughput"></a>FaultType : Microsoft. Health. FaultType. StorQos. InsufficientThroughput
 * Gravité : avertissement
@@ -522,4 +521,4 @@ Dans Windows Server 2016, le Service de contrôle d’intégrité fournit la cou
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Service de contrôle d’intégrité dans Windows Server 2016](health-service-overview.md)
+- [Service de contrôle d’intégrité dans Windows Server 2016](health-service-overview.md)

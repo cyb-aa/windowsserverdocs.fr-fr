@@ -1,6 +1,6 @@
 ---
 title: AllServers
-description: La rubrique commandes Windows pour la commande AllServers, qui récupère des informations sur tous les serveurs des services de déploiement Windows.
+description: Rubrique de référence pour la fonction AllServers, qui récupère des informations sur tous les serveurs des services de déploiement Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b400d5a2be69e8e89a05b233cc2e8f29bec848f6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b623b5e95e2a57147b7d9d191d42556191dd8e4d
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80831212"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719982"
 ---
 # <a name="get-allservers"></a>AllServers
 
@@ -37,7 +37,7 @@ WDSUTIL [Options] /Get-AllServers /Show:{Config | Images | All} [/Detailed] [/Fo
 |  /Detailed  | Lorsqu’il est utilisé conjointement avec **/Show : images** ou **/Show : All**, retourne toutes les métadonnées d’image de chaque image. Si l’option **/detailed** n’est pas spécifiée, le comportement par défaut consiste à retourner le nom de l’image, la description et le nom du fichier. |
 | [/Forest : {Oui |                                                                                                                     Non}]                                                                                                                     |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour afficher des informations sur tous les serveurs, tapez :
 ```

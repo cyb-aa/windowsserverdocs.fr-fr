@@ -1,6 +1,6 @@
 ---
 title: flattemp
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,22 +9,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2a291c102d70ff9166a7bb0261e506792a49dc18
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0969209044784f87c917d90af257c5b3b523af16
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844572"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720101"
 ---
 # <a name="flattemp"></a>flattemp
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Active ou désactive les dossiers temporaires plats.
-pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
+
 
 > [!NOTE]
-> Sous Windows Server 2008 R2, les services Terminal Server sont appelés Services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
+> Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -39,7 +39,7 @@ flattemp {/query | /enable | /disable}
 |/Disable|Désactive les dossiers temporaires plats. Chaque dossier temporaire de l’utilisateur se trouve dans un dossier distinct (déterminé par l’ID de session de l’utilisateur).|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 -   La commande **flattemp** n’est disponible que si vous avez installé le service de rôle Terminal Server sur un ordinateur exécutant windows Server 2008 ou le service de rôle hôte de session Bureau à distance sur un ordinateur exécutant windows Server 2008 R2.
 -   Vous devez disposer d’informations d’identification d’administration pour exécuter **flattemp**.
 -   Une fois que chaque utilisateur dispose d’un dossier temporaire unique, utilisez **flattemp/Enable** pour activer les dossiers temporaires plats.
@@ -47,7 +47,7 @@ flattemp {/query | /enable | /disable}
 -   Vous pouvez rencontrer des erreurs d’application si le dossier temporaire de l’utilisateur se trouve sur un lecteur réseau. Cela se produit lorsque le lecteur réseau partagé est momentanément inaccessible sur le réseau. Étant donné que les fichiers temporaires de l’application sont inaccessibles ou ne sont pas synchronisés, ils répondent comme si le disque s’est arrêté. Le déplacement du dossier temporaire sur un lecteur réseau n’est pas recommandé. La valeur par défaut consiste à conserver les dossiers temporaires sur le disque dur local. Si vous rencontrez des erreurs de comportement ou d’altération du disque inattendues avec certaines applications, stabilisez votre réseau ou replacez les dossiers temporaires sur le disque dur local.
 -   Si vous désactivez l’utilisation de dossiers temporaires distincts par session, les paramètres **flattemp** sont ignorés. Cette option est définie dans l’outil de configuration Services Bureau à distance.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 -   Pour afficher le paramètre actuel des dossiers temporaires plats, tapez :
     ```
     flattemp /query

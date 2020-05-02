@@ -1,6 +1,6 @@
 ---
 title: driverquery
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c3e7cc5dc84794a5cfb5ac21edb00f8dacfaa18
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 993c05a930a7702880af23fcfa7c19a43aa8b22b
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845282"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720832"
 ---
 # <a name="driverquery"></a>driverquery
 
@@ -22,7 +22,7 @@ ms.locfileid: "80845282"
 
 Permet à un administrateur d’afficher une liste des pilotes de périphériques installés et leurs propriétés. En cas d’utilisation sans paramètre, **driverquery** s’exécute sur l’ordinateur local.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,16 +34,16 @@ driverquery [/s <System> [/u [<Domain>\]<Username> [/p <Password>]]] [/fo {table
 
 |         Paramètre         |                                                                                                                                         Description                                                                                                                                          |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|       /s \<système >        |                                                                                      Spécifie le nom ou l’adresse IP d’un ordinateur distant. N’utilisez pas de barres obliques inverses. La valeur par défaut est l'ordinateur local.                                                                                       |
-| /u [\<> de domaine\]<Username> | Exécute la commande avec les informations d’identification du compte *d’utilisateur,* tel que spécifié par l’utilisateur ou le *domaine*\*utilisateur<em>. Par défaut, \*\*/s</em>\* utilise les informations d’identification de l’utilisateur actuellement connecté à l’ordinateur qui émet la commande. **/u** ne peut pas être utilisé, sauf si **/s** est spécifié. |
-|      /p \<mot de passe >       |                                                                           Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** . **/p** ne peut pas être utilisé sauf si **/u** est spécifié.                                                                            |
+|       > \<système/s        |                                                                                      Spécifie le nom ou l’adresse IP d’un ordinateur distant. N’utilisez pas de barres obliques inverses. La valeur par défaut est l'ordinateur local.                                                                                       |
+| /u [\<domaine>\]<Username> | Exécute la commande avec les informations d’identification du compte d’utilisateur, tel que *spécifié par utilisateur ou utilisateur de* *domaine*\*<em>. Par défaut, \* \*/s</em> \* utilise les informations d’identification de l’utilisateur actuellement connecté à l’ordinateur qui émet la commande. **/u** ne peut pas être utilisé, sauf si **/s** est spécifié. |
+|      /p \<mot de passe>       |                                                                           Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** . **/p** ne peut pas être utilisé sauf si **/u** est spécifié.                                                                            |
 |        /FO {table         |                                                                                                                                             list                                                                                                                                             |
 |            /NH            |                                                                                      Omet la ligne d’en-tête des informations de pilote affichées. Non valide si le paramètre **/FO** est défini sur **List**.                                                                                      |
 |            /v             |                                                                                                               Affiche la sortie détaillée. **/v** n’est pas valide pour les pilotes signés.                                                                                                               |
 |            /Si            |                                                                                                                          Fournit des informations sur les pilotes signés.                                                                                                                          |
 |            /?             |                                                                                                                             Affiche l'aide à l'invite de commandes.                                                                                                                             |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour afficher la liste des pilotes de périphériques installés sur l’ordinateur local, tapez :
 ```

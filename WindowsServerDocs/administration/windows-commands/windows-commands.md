@@ -1,6 +1,6 @@
 ---
 title: Commandes Windows
-description: Commandes Windows
+description: Informations de référence
 ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: c703d07c-8227-4e86-94a6-8ef390f94cdc
@@ -9,12 +9,12 @@ ms.author: jgerend
 manager: dongill
 ms.date: 06/26/2019
 ms.prod: windows-server
-ms.openlocfilehash: 9d68e2becbf9c6522be7e1ff6e6742d44f3a8247
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7baec3bbe532bbcedb8c17628fd88d2c8eac34c6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829232"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720730"
 ---
 # <a name="windows-commands"></a>Commandes Windows
 
@@ -24,43 +24,43 @@ Cet ensemble de documentation décrit les commandes Windows que vous pouvez util
 
 Pour rechercher des informations sur une commande spécifique, dans le menu A-Z suivant, cliquez sur la lettre de départ de la commande, puis cliquez sur le nom de la commande.
 
-[Une](#a) |
+[A](#a) |
 [B](#b) | 
-[C](#c) | 
-[D](#d) | 
-[E](#e) | 
-[F](#f) | 
-[G](#g) | 
-[H](#h) | 
-[I](#i) |
+[M](#m)[D](#d) | 
+[V](#v)[C](#c) |
 [J](#j) | 
-[K](#k) | 
-[L](#l) | 
-[M](#m) | 
-[N](#n) | 
-[O](#o) | 
-[P](#p) | 
-[Q](#q) | 
-[R](#r) | 
-[S](#s) | 
-[t](#t) | 
-[U](#u) | 
-[V](#v) | 
-[W](#w) | 
-[X](#x) | O | Lettre
+[W](#w)[F](#f) | 
+[S](#s)[E](#e) | 
+[R](#r)[G](#g) | 
+[U](#u)[H](#h) | 
+[X](#x) [I](#i) | 
+[T](#t)[L](#l)[N](#n)[Q](#q)[O](#o)[P](#p)[K](#k)C D e F G H I J | 
+K L M | 
+N | 
+O | 
+P | 
+Q R S T U V W X | | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ O | Lettre
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Les informations contenues dans cette rubrique s’appliquent aux éléments suivants :
 
 -   Windows Server 2019
--   Windows Server (canal semi-annuel)
--   Windows Server 2016
--   Windows Server 2012 R2
+-   Windows Server (canal semi-annuel)
+-   Windows Server 2016
+-   Windows Server 2012 R2
 -   Windows Server 2012 
--   Windows Server 2008 R2
+-   Windows Server 2008 R2
 -   Windows Server 2008
--   Windows 10
+-   Windows 10
 -   Windows 8.1
 
 ### <a name="command-shell-overview"></a>Vue d’ensemble de l’interface de commande
@@ -76,7 +76,7 @@ Pour l’automatisation Windows à jour la plus robuste, nous vous recommandons 
 >Vous pouvez également télécharger et installer [PowerShell Core](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6), la version open source de PowerShell. 
 
 > [!CAUTION]
-> Une modification incorrecte du Registre peut sérieusement endommager votre système. Avant d’apporter les modifications suivantes au registre, vous devez sauvegarder toutes les données importantes sur l’ordinateur.
+> Une modification incorrecte du Registre peut endommager gravement votre système. Avant d’apporter les modifications suivantes au registre, vous devez sauvegarder toutes les données importantes sur l’ordinateur.
 
 > [!NOTE]
 > Pour activer ou désactiver la saisie semi-automatique des noms de fichiers et de répertoires dans l’interface de commande d’un ordinateur ou d’une session utilisateur, exécutez **regedit. exe** et définissez la **valeur de reg_DWOrd**suivante :
@@ -89,32 +89,32 @@ Pour l’automatisation Windows à jour la plus robuste, nous vous recommandons 
 
 Pour rechercher des informations sur une commande Windows spécifique, dans le menu A-Z suivant, cliquez sur la lettre de départ de la commande, puis cliquez sur le nom de la commande.
 
-[Une](#a) |
+[A](#a) |
 [B](#b) | 
-[C](#c) | 
-[D](#d) | 
-[E](#e) | 
-[F](#f) | 
-[G](#g) | 
-[H](#h) | 
-[I](#i) |
+[M](#m)[D](#d) | 
+[V](#v)[C](#c) |
 [J](#j) | 
-[K](#k) | 
-[L](#l) | 
-[M](#m) | 
-[N](#n) | 
-[O](#o) | 
-[P](#p) | 
-[Q](#q) | 
-[R](#r) | 
-[S](#s) | 
-[t](#t) | 
-[U](#u) | 
-[V](#v) | 
-[W](#w) | 
-[X](#x) | O | Lettre
+[W](#w)[F](#f) | 
+[S](#s)[E](#e) | 
+[R](#r)[G](#g) | 
+[U](#u)[H](#h) | 
+[X](#x) [I](#i) | 
+[T](#t)[L](#l)[N](#n)[Q](#q)[O](#o)[P](#p)[K](#k)C D e F G H I J | 
+K L M | 
+N | 
+O | 
+P | 
+Q R S T U V W X | | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ O | Lettre
 
-### <a name="a"></a>A
+### <a name="a"></a>Un
 -   [append](append.md)
 -   [arp](arp.md)
 -   [assoc](assoc.md)
@@ -302,7 +302,7 @@ Pour rechercher des informations sur une commande Windows spécifique, dans le m
 - [ftype](ftype.md)
 - [fveupdate](fveupdate.md)
 
-### <a name="g"></a>I
+### <a name="g"></a>G
 -   [getmac](getmac.md)
 -   [gettype](gettype.md)
 -   [goto](goto.md)
@@ -361,10 +361,10 @@ Pour rechercher des informations sur une commande Windows spécifique, dans le m
 - [logman](logman.md)
   -   [logman create](logman-create.md)
   -   [logman query](logman-query.md)
-  -   [logman start & 124 ; erreur](logman-start-stop.md)
+  -   [logman start &124 ; erreur](logman-start-stop.md)
   -   [logman delete](logman-delete.md)
   -   [logman update](logman-update.md)
-  -   [logman Import & 124 ; exporter](logman-import-export.md)
+  -   [logman Import &124 ; exporter](logman-import-export.md)
 - [logoff](logoff.md)
 - [lpq](lpq.md)
 - [lpr](lpr.md)
@@ -522,7 +522,7 @@ Pour rechercher des informations sur une commande Windows spécifique, dans le m
 - [rundll32](rundll32.md)
 - [rwinsta](rwinsta.md)
 
-### <a name="s"></a>T
+### <a name="s"></a>S
 - [schtasks](schtasks.md)
 - [scwcmd](Scwcmd.md)
   -   [scwcmd : analyser](scwcmd-analyze.md)

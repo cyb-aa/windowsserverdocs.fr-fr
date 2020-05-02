@@ -1,6 +1,6 @@
 ---
 title: doskey
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 72a5a362a225f57245a015de43a7538928c0937e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: fca89bd2e99b6139b13a5bd45481ae0ec2248574
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845262"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720812"
 ---
 # <a name="doskey"></a>doskey
 
@@ -22,7 +22,7 @@ ms.locfileid: "80845262"
 
 Appelle Doskey. exe (qui rappelle les commandes de ligne de commande entrées précédemment), modifie les lignes de commande et crée des macros.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -35,19 +35,19 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
 |       Paramètre        |                                                                                                                          Description                                                                                                                           |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |       /REINSTALL       |                                                                                            Installe une nouvelle copie de Doskey. exe et efface la mémoire tampon de l’historique des commandes.                                                                                            |
-|   /LISTSIZE = taille de\<>    |                                                                                                Spécifie le nombre maximal de commandes dans la mémoire tampon de l’historique.                                                                                                 |
-|        /macros         |                                        Affiche la liste de toutes les macros **doskey** . Vous pouvez utiliser le symbole de redirection ( **>** ) avec **/macros** pour rediriger la liste vers un fichier. Vous pouvez abréger **/macros** à **/m**.                                         |
+|   /LISTSIZE =\<taille>    |                                                                                                Spécifie le nombre maximal de commandes dans la mémoire tampon de l’historique.                                                                                                 |
+|        /macros         |                                        Affiche la liste de toutes les macros **doskey** . Vous pouvez utiliser le symbole de redirection (**>**) avec **/macros** pour rediriger la liste vers un fichier. Vous pouvez abréger **/macros** à **/m**.                                         |
 |      /macros : tout       |                                                                                                        Affiche les macros **doskey** pour tous les exécutables.                                                                                                         |
-|   /macros :\<ExeName >   |                                                                                             Affiche les macros **doskey** pour l’exécutable spécifié par *exeName*.                                                                                              |
-|        /History        |                                    Affiche toutes les commandes qui sont stockées en mémoire. Vous pouvez utiliser le symbole de redirection ( **>** ) avec **/History** pour rediriger la liste vers un fichier. Vous pouvez abréger **/History** comme **/h**.                                    |
+|   /macros :\<EXEName>   |                                                                                             Affiche les macros **doskey** pour l’exécutable spécifié par *exeName*.                                                                                              |
+|        /History        |                                    Affiche toutes les commandes qui sont stockées en mémoire. Vous pouvez utiliser le symbole de redirection (**>**) avec **/History** pour rediriger la liste vers un fichier. Vous pouvez abréger **/History** comme **/h**.                                    |
 | /Insert | Spécifie que le nouveau texte que vous tapez est inséré dans l’ancien texte. |
 | /overstrike | Spécifie que le nouveau texte remplace l’ancien texte. |
-|  /EXEName =\<ExeName >   |                                                                                        Spécifie le programme (c’est-à-dire, exécutable) dans lequel la macro **doskey** s’exécute.                                                                                         |
-| /MACROFILE =\<nom de fichier > |                                                                                              Spécifie un fichier qui contient les macros que vous souhaitez installer.                                                                                               |
-| \<nommacro > = [\<texte >]  | Crée une macro qui exécute les commandes spécifiées par le *texte*. *Nommacro* spécifie le nom que vous souhaitez assigner à la macro. *Texte* spécifie les commandes que vous souhaitez enregistrer. Si le *texte* n’est pas renseigné, la commande *nommacro* est désactivée pour toutes les commandes attribuées. |
+|  /EXEName =\<EXEName>   |                                                                                        Spécifie le programme (c’est-à-dire, exécutable) dans lequel la macro **doskey** s’exécute.                                                                                         |
+| /MACROFILE =\<nom de fichier> |                                                                                              Spécifie un fichier qui contient les macros que vous souhaitez installer.                                                                                               |
+| \<Nommacro>= [\<texte>]  | Crée une macro qui exécute les commandes spécifiées par le *texte*. *Nommacro* spécifie le nom que vous souhaitez assigner à la macro. *Texte* spécifie les commandes que vous souhaitez enregistrer. Si le *texte* n’est pas renseigné, la commande *nommacro* est désactivée pour toutes les commandes attribuées. |
 |           /?           |                                                                                                              Affiche l'aide à l'invite de commandes.                                                                                                              |
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 - Utilisation de Doskey. exe
 
@@ -58,10 +58,10 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
 
   |    Clé     |                              Description                              |
   |------------|-----------------------------------------------------------------------|
-  |  Haut  |  Rappelle la commande que vous avez utilisée avant celle qui est affichée.  |
+  |  Flèche haut  |  Rappelle la commande que vous avez utilisée avant celle qui est affichée.  |
   | Bas |  Rappelle la commande que vous avez utilisée après celle qui est affichée.   |
-  |  PAGE PRÉCÉDENTE   |    Rappelle la première commande que vous avez utilisée dans la session active.    |
-  | PAGE SUIVANTE  | Rappelle la commande la plus récente que vous avez utilisée dans la session active. |
+  |  Pg. préc   |    Rappelle la première commande que vous avez utilisée dans la session active.    |
+  | Pg. suiv  | Rappelle la commande la plus récente que vous avez utilisée dans la session active. |
 
 
 - Modification de la ligne de commande
@@ -73,12 +73,12 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
   | Touche ou combinaison de touches |                                                                                                                                                       Description                                                                                                                                                       |
   |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   |       Gauche       |                                                                                                                                      Déplace le point d’insertion d’un caractère vers l’arrière.                                                                                                                                      |
-  |      Droite       |                                                                                                                                    Déplace le point d’insertion d’un caractère vers l’avant.                                                                                                                                     |
-  |    CTRL + FLÈCHE GAUCHE     |                                                                                                                                        Déplace le point d’insertion d’un mot vers l’arrière.                                                                                                                                         |
-  |    CTRL + FLÈCHE DROITE    |                                                                                                                                       Déplace le point d’insertion d’un mot vers l’avant.                                                                                                                                       |
-  |          Début          |                                                                                                                                 Déplace le point d’insertion au début de la ligne.                                                                                                                                 |
-  |          Fin           |                                                                                                                                    Déplace le point d’insertion jusqu’à la fin de la ligne.                                                                                                                                    |
-  |          ÉCHAP           |                                                                                                                                          Efface la commande de l’affichage.                                                                                                                                           |
+  |      Flèche droite       |                                                                                                                                    Déplace le point d’insertion d’un caractère vers l’avant.                                                                                                                                     |
+  |    CTRL+FLECHE GAUCHE     |                                                                                                                                        Déplace le point d’insertion d’un mot vers l’arrière.                                                                                                                                         |
+  |    CTRL+FLECHE DROITE    |                                                                                                                                       Déplace le point d’insertion d’un mot vers l’avant.                                                                                                                                       |
+  |          Origine          |                                                                                                                                 Déplace le point d’insertion au début de la ligne.                                                                                                                                 |
+  |          END           |                                                                                                                                    Déplace le point d’insertion jusqu’à la fin de la ligne.                                                                                                                                    |
+  |          Échap           |                                                                                                                                          Efface la commande de l’affichage.                                                                                                                                           |
   |           F1           |                                                                      Copie un caractère d’une colonne du modèle vers la même colonne dans la fenêtre d’invite de commandes. (Le modèle est une mémoire tampon qui contient la dernière commande que vous avez tapée.)                                                                       |
   |           F2           |                                                                 Effectue une recherche vers le bas du modèle pour la touche suivante que vous tapez après avoir appuyé sur F2. Doskey. exe insère le texte à partir du modèle (jusqu’au caractère que vous spécifiez, mais sans l’inclure).                                                                  |
   |           F3           |                                                 Copie le reste du modèle sur la ligne de commande. Doskey. exe commence à copier les caractères à partir de la position dans le modèle qui correspond à la position indiquée par le point d’insertion sur la ligne de commande.                                                 |
@@ -114,19 +114,19 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
 
   |   Caractère   |                                                                                                                                                                               Description                                                                                                                                                                               |
   |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-  |   $G ou $g    |                                                                                   Redirige la sortie. Utilisez l’un de ces caractères spéciaux pour envoyer la sortie vers un appareil ou un fichier plutôt que vers l’écran. Ce caractère est équivalent au symbole de redirection pour la sortie ( **>** ).                                                                                    |
-  | $G $ G ou $g $ g  |                                                         Ajoute la sortie à la fin d’un fichier. Utilisez l’un ou l’autre de ces deux caractères pour ajouter la sortie à un fichier existant au lieu de remplacer les données du fichier. Ces caractères doubles sont équivalents au symbole de redirection d’ajout pour la sortie ( **>>** ).                                                         |
-  |   $L ou $l    |                                                                                  Redirige l’entrée. Utilisez l’un ou l’autre de ces caractères spéciaux pour lire l’entrée à partir d’un appareil ou d’un fichier au lieu du clavier. Ce caractère est équivalent au symbole de redirection pour l’entrée ( **<** ).                                                                                  |
+  |   $G ou $g    |                                                                                   Redirige la sortie. Utilisez l’un de ces caractères spéciaux pour envoyer la sortie vers un appareil ou un fichier plutôt que vers l’écran. Ce caractère est équivalent au symbole de redirection pour la sortie (**>**).                                                                                    |
+  | $G $ G ou $g $ g  |                                                         Ajoute la sortie à la fin d’un fichier. Utilisez l’un ou l’autre de ces deux caractères pour ajouter la sortie à un fichier existant au lieu de remplacer les données du fichier. Ces caractères doubles sont équivalents au symbole de redirection d’ajout pour la**>>** sortie ().                                                         |
+  |   $L ou $l    |                                                                                  Redirige l’entrée. Utilisez l’un ou l’autre de ces caractères spéciaux pour lire l’entrée à partir d’un appareil ou d’un fichier au lieu du clavier. Ce caractère est équivalent au symbole de redirection pour Input (**<**).                                                                                  |
   |   $B ou $b    |                                                                                                                                    Envoie la sortie de la macro à une commande. Ces caractères spéciaux sont équivalents à l’utilisation du canal (\*\*                                                                                                                                     |
-  |   $T ou $t    |                                                            Sépare les commandes. Utilisez l’un ou l’autre de ces caractères spéciaux pour séparer les commandes lorsque vous créez des macros ou tapez des commandes sur la ligne de commande **doskey** . Ces caractères spéciaux sont équivalents à l’utilisation de l’esperluette ( **&** ) sur une ligne de commande.                                                            |
-  |      $$       |                                                                                                                                                              Spécifie le caractère de signe dollar ( **$** ).                                                                                                                                                               |
+  |   $T ou $t    |                                                            Sépare les commandes. Utilisez l’un ou l’autre de ces caractères spéciaux pour séparer les commandes lorsque vous créez des macros ou tapez des commandes sur la ligne de commande **doskey** . Ces caractères spéciaux sont équivalents à l’utilisation de**&** l’esperluette () sur une ligne de commande.                                                            |
+  |      $$       |                                                                                                                                                              Spécifie le caractère de signe dollar**$**().                                                                                                                                                               |
   | de $1 à $9 |             Représente les informations de ligne de commande que vous souhaitez spécifier lorsque vous exécutez la macro. Les caractères spéciaux **$1** à **$9** sont des paramètres batch qui vous permettent d’utiliser des données différentes sur la ligne de commande chaque fois que vous exécutez la macro. Le caractère **$1** dans une commande **doskey** est semblable au caractère **%1** dans un programme de traitement par lots.             |
-  |      $\*      | Représente toutes les informations de ligne de commande que vous souhaitez spécifier lorsque vous tapez le nom de la macro. Le caractère spécial **$\\** \* est un paramètre remplaçable qui est similaire aux paramètres de lot **$1** à **$9**, avec une différence importante : tout ce que vous tapez sur la ligne de commande après le remplacement du nom de la macro par le **$\\** \* dans la macro. |
+  |      $\*      | Représente toutes les informations de ligne de commande que vous souhaitez spécifier lorsque vous tapez le nom de la macro. ** $ ** Le caractère \* spécial est un paramètre remplaçable qui est similaire aux paramètres de lot **$1** à **$9**, avec une différence importante : tout ce que vous tapez sur la ligne de commande après le remplacement ** $ ** du nom de la macro \* dans la macro. |
 
 
 - Exécution d’une macro **doskey**
 
-  Pour exécuter une macro, tapez le nom de la macro à l’invite de commandes, en commençant à la première position. Si la macro a été définie avec **$\\** * ou l’un des paramètres de lot **$1** à **$9**, utilisez un espace pour séparer les paramètres. Vous ne pouvez pas exécuter une macro **doskey** à partir d’un programme de traitement par lots.
+  Pour exécuter une macro, tapez le nom de la macro à l’invite de commandes, en commençant à la première position. Si la macro a été définie ** $ **avec * ou l’un des paramètres de lot **$1** à **$9**, utilisez un espace pour séparer les paramètres. Vous ne pouvez pas exécuter une macro **doskey** à partir d’un programme de traitement par lots.
 - Création d’une macro portant le même nom qu’une commande de la famille Windows Server 2003
 
   Si vous utilisez toujours une commande particulière avec des options de ligne de commande spécifiques, vous pouvez créer une macro qui porte le même nom que la commande. Pour spécifier si vous souhaitez exécuter la macro ou la commande, suivez ces instructions :  
@@ -139,7 +139,7 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
   doskey <MacroName> =
   ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Les options de ligne de commande **/macros** et **/History** sont utiles pour créer des programmes batch afin d’enregistrer des macros et des commandes. Par exemple, pour stocker toutes les macros **doskey** actuelles, tapez :
 ```
@@ -157,7 +157,7 @@ Pour définir une macro avec plusieurs commandes, utilisez **$t** pour séparer 
 ```
 doskey tx=cd temp$tdir/w $*
 ```
-Dans l’exemple précédent, la macro TX remplace le répertoire actuel par Temp, puis affiche une liste de répertoires dans un format d’affichage étendu. Vous pouvez utiliser **$\\** * à la fin de la macro pour ajouter d’autres options de ligne de commande à **dir** lorsque vous exécutez TX.
+Dans l’exemple précédent, la macro TX remplace le répertoire actuel par Temp, puis affiche une liste de répertoires dans un format d’affichage étendu. Vous pouvez utiliser ** $ *** à la fin de la macro pour ajouter d’autres options de ligne de commande à **dir** lorsque vous exécutez TX.
 
 La macro suivante utilise un paramètre batch pour un nouveau nom de répertoire :
 ```

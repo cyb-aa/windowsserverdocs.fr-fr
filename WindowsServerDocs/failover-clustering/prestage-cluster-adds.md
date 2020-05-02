@@ -1,5 +1,5 @@
 ---
-title: Préparer des objets d’ordinateur de cluster dans Active Directory Domain Services
+title: Préparer les comptes d’ordinateur de cluster dans Active Directory Domain Services
 description: Comment prédéfinir des objets ordinateur du cluster dans Active Directory Domain Services.
 ms.prod: windows-server
 ms.topic: article
@@ -9,16 +9,16 @@ manager: lizross
 ms.technology: storage-failover-clustering
 ms.date: 05/09/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: b14561a05778ed30e71363a2cd3b3b6fdf24f78e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: eb9077f40c33d615c0bbe18f1c02b29ce27165a2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827472"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720524"
 ---
-# <a name="prestage-cluster-computer-objects-in-active-directory-domain-services"></a>Préparer des objets d’ordinateur de cluster dans Active Directory Domain Services
+# <a name="prestage-cluster-computer-objects-in-active-directory-domain-services"></a>Préparer les comptes d’ordinateur de cluster dans Active Directory Domain Services
 
->S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+> S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique montre comment prédéfinir des objets ordinateur du cluster dans les services de domaine Active Directory (AD DS). Vous pouvez utiliser cette procédure pour permettre à un utilisateur ou un groupe de créer un cluster de basculement lorsqu’il n’a pas l’autorisation de créer des objets ordinateur dans AD DS.
 
@@ -65,13 +65,13 @@ Nous vous recommandons, à titre de meilleure pratique, de créer une unité d�
 
 Vous devez configurer des autorisations afin que le compte d’utilisateur qui sera utilisé pour créer le cluster de basculement dispose des autorisations Contrôle total sur l’objet nom de cluster.
 
-L’appartenance au groupe **Opérateurs de compte**  est la condition minimale requise pour effectuer cette étape.
+L’appartenance au groupe **Opérateurs de compte** est la condition minimale requise pour effectuer cette étape.
 
 Voici comment accorder aux utilisateurs les autorisations nécessaires pour créer le cluster :
 
 1. Dans Utilisateurs et ordinateurs Active Directory, dans le menu **Affichage**, vérifiez que l’option **Fonctionnalités avancées** est sélectionnée.
 2. Recherchez et cliquez avec le bouton droit sur CNO, puis sélectionnez **Propriétés**.
-3. Sous l’onglet **sécurité** , sélectionnez **Ajouter**.
+3. Sous l’onglet **Sécurité**, sélectionnez **Ajouter**.
 4. Dans la boîte de dialogue **Sélectionner les utilisateurs, les ordinateurs ou les groupes** , spécifiez le compte d’utilisateur ou le groupe auquel vous souhaitez accorder des autorisations, puis sélectionnez **OK**.
 5. Sélectionnez le compte d’utilisateur ou le groupe qui vous venez d’ajouter puis, en regard de **Contrôle total**, activez la case à cocher **Autoriser**.
   
@@ -128,7 +128,7 @@ Un administrateur sur le cluster de basculement peut maintenant créer des rôle
 4. Dans la zone nom de l' **ordinateur** , entrez le nom que vous allez utiliser pour le rôle en cluster, puis sélectionnez **OK**.
 5. Il est recommandé de cliquer avec le bouton droit sur le compte d’ordinateur que vous venez de créer, de sélectionner **Propriétés**, puis de sélectionner l’onglet **objet** . Sous l’onglet **objet** , activez la case à cocher **protéger l’objet des suppressions accidentelles** , puis sélectionnez **OK**.
 6. Cliquez avec le bouton droit sur le compte d’ordinateur que vous venez de créer, puis sélectionnez **Propriétés**.
-7. Sous l’onglet **sécurité** , sélectionnez **Ajouter**.
+7. Sous l’onglet **Sécurité**, sélectionnez **Ajouter**.
 8. Dans la boîte de dialogue **Sélectionner un utilisateur, un ordinateur, un compte de service ou des groupes** , sélectionnez **types d’objets**, activez la case à cocher **ordinateurs** , puis sélectionnez **OK**.
 9. Sous **Entrez les noms des objets à sélectionner**, entrez le nom du CNO, sélectionnez **vérifier les noms**, puis sélectionnez **OK**. Si vous recevez un message d’avertissement indiquant que vous êtes sur le paragraphe duquel vous allez ajouter un objet désactivé, sélectionnez **OK**.
 10. Assurez-vous que l’objet nom de cluster est sélectionné puis, en regard de **Contrôle total**, activez la case à cocher **Autoriser**.
@@ -136,7 +136,7 @@ Un administrateur sur le cluster de basculement peut maintenant créer des rôle
 
 Un administrateur sur le cluster de basculement peut maintenant créer le rôle en cluster avec un point d’accès client qui correspond au nom de l’objet ordinateur virtuel prédéfini, puis mettre la ressource en ligne.
 
-## <a name="more-information"></a>Informations supplémentaires
+## <a name="more-information"></a>Informations complémentaires
 
-- [Clustering avec basculement](failover-clustering.md)
+- [Clustering de basculement](failover-clustering.md)
 - [Configurer des comptes de cluster dans Active Directory](configure-ad-accounts.md)

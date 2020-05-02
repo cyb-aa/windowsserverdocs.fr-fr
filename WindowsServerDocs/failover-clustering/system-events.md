@@ -8,16 +8,16 @@ ms.author: jgerend
 manager: lizross
 ms.technology: storage-failover-clustering
 ms.date: 01/14/2020
-ms.openlocfilehash: 5d382807adcfd771215d1f87332a47842d25eda3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: eea98579a66f1db7f7ec873bda6a2c934841736f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827382"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720508"
 ---
 # <a name="failover-clustering-system-log-events"></a>Événements du journal du système de clustering de basculement
 
->S’applique à : Windows Server 2019, Windows Server 2016
+> S'applique à : Windows Server 2019, Windows Server 2016
 
 Cette rubrique répertorie les événements de clustering de basculement du journal système Windows Server (affichable dans observateur d’événements). Ces événements partagent tous la source d’événements de **FailoverClustering** et peuvent être utiles lors du dépannage d’un cluster.
 
@@ -134,7 +134,7 @@ Le service de cluster a rencontré un problème inattendu et va s’arrêter. Le
 
 Service de cluster n’a pas pu démarrer car ce nœud a détecté qu’il ne dispose pas de la dernière copie des données de configuration du cluster. Les modifications apportées au cluster s’est produite alors que ce nœud n’était pas membre et, par conséquent, n’a pas pu recevoir les mises à jour des données de configuration.
 
-#### <a name="guidance"></a>Aide
+#### <a name="guidance"></a>Assistance
 
 Essayez de démarrer le service de cluster sur tous les nœuds du cluster afin que les nœuds avec la dernière copie des données de configuration du cluster puissent tout d’abord former le cluster. Ce nœud pourra alors rejoindre le cluster et obtiendra automatiquement les données de configuration de cluster mises à jour. Si aucun nœud n’est disponible avec la dernière copie des données de configuration du cluster, exécutez l’applet de commande Windows PowerShell « Start-ClusterNode-FQ ». L’utilisation du paramètre ForceQuorum (FQ) permet de démarrer le service de cluster et de marquer la copie de ce nœud des données de configuration du cluster comme faisant autorité. Le quorum forcé sur un nœud avec une copie obsolète de la base de données du cluster peut entraîner des modifications de la configuration du cluster qui se sont produites alors que le nœud n’était pas impliqué dans le cluster à perdre.
 
@@ -185,7 +185,7 @@ L’heure de mise en quarantaine sera automatiquement désactivée : %3
 
 ### <a name="event-1024-cp_reg_ckpt_restore_failed"></a>Événement 1024 : CP_REG_CKPT_RESTORE_FAILED
 
-Impossible de restaurer le point de contrôle du Registre pour la ressource de cluster « %1 » dans la clé de Registre HKEY_LOCAL_MACHINE\\%2. La ressource peut ne pas fonctionner correctement.
+Impossible de restaurer le point de contrôle du Registre pour la ressource de cluster « %1 »\\dans la clé de Registre HKEY_LOCAL_MACHINE %2. La ressource peut ne pas fonctionner correctement.
 Assurez-vous qu’aucun autre processus n’a ouvert des descripteurs sur les clés de Registre dans cette sous-arborescence du Registre.
 
 ### <a name="event-1034-res_disk_missing"></a>Événement 1034 : RES_DISK_MISSING
@@ -498,7 +498,7 @@ La ressource de cluster' %1 'dans le rôle en cluster' %2 'a reçu une notificat
 
 La ressource de nom réseau de cluster n’a pas pu inscrire un ou plusieurs noms DNS associés, car la zone DNS correspondante n’accepte pas les mises à jour dynamiques.<br><br>Nom du réseau de clusters : « %1 »<br>Zone DNS : « %2 »
 
-#### <a name="guidance"></a>Aide
+#### <a name="guidance"></a>Assistance
 
 Assurez-vous que le DNS est configuré en tant que zone DNS dynamique. Si le serveur DNS n’accepte pas les mises à jour dynamiques, décochez les cases « enregistrer les adresses de cette connexion dans DNS » dans les propriétés de la carte réseau.
 
@@ -518,7 +518,7 @@ La ressource de nom réseau de cluster n’a pas pu inscrire un ou plusieurs nom
 
 La ressource de nom réseau de cluster n’a pas pu modifier l’inscription DNS.<br><br>Nom du réseau de clusters : « %1 »<br>Code d’erreur : ' %2 '
 
-#### <a name="guidance"></a>Aide
+#### <a name="guidance"></a>Assistance
 
 Assurez-vous que les cartes réseau associées aux ressources d’adresse IP dépendantes sont configurées avec un accès à au moins un serveur DNS.
 
@@ -526,7 +526,7 @@ Assurez-vous que les cartes réseau associées aux ressources d’adresse IP dé
 
 La ressource de nom réseau de cluster n’a pas pu modifier l’inscription DNS.<br><br>Nom du réseau de clusters : « %1 »<br>Raison : « %2 »
 
-#### <a name="guidance"></a>Aide
+#### <a name="guidance"></a>Assistance
 
 Assurez-vous que les cartes réseau associées aux ressources d’adresse IP dépendantes sont configurées avec un accès à au moins un serveur DNS.
 
@@ -534,7 +534,7 @@ Assurez-vous que les cartes réseau associées aux ressources d’adresse IP dé
 
 La ressource de nom réseau de cluster n’a pas pu publier l’enregistrement PTR dans la zone de recherche inversée DNS.<br><br>Nom du réseau de clusters : « %1 »<br>Code d’erreur : ' %2 '
 
-#### <a name="guidance"></a>Aide
+#### <a name="guidance"></a>Assistance
 
 Assurez-vous que les cartes réseau associées aux ressources d’adresse IP dépendantes sont configurées avec un accès à au moins un serveur DNS et que la zone de recherche inversée DNS existe.
 
@@ -542,7 +542,7 @@ Assurez-vous que les cartes réseau associées aux ressources d’adresse IP dé
 
 La ressource de nom réseau de cluster n’a pas pu publier l’enregistrement PTR dans la zone de recherche inversée DNS.<br><br>Nom du réseau de clusters : « %1 »<br>Raison : « %2 »
 
-#### <a name="guidance"></a>Aide
+#### <a name="guidance"></a>Assistance
 
 Assurez-vous que les cartes réseau associées aux ressources d’adresse IP dépendantes sont configurées avec un accès à au moins un serveur DNS et que la zone de recherche inversée DNS existe.
 
@@ -600,7 +600,7 @@ La ressource de nom de réseau de cluster « %1 » ne peut pas être mise en l
 
 ### <a name="event-1567-service_failed_to_change_log_size"></a>Événement 1567 : SERVICE_FAILED_TO_CHANGE_LOG_SIZE
 
-Service de cluster n’a pas pu modifier la taille du journal des traces. Vérifiez le paramètre ClusterLogSize avec l’applet de commande PowerShell « acquérir-cluster \| format-list \*». Utilisez également le composant logiciel enfichable analyseur de performances pour vérifier les paramètres de session de suivi d’événements pour FailoverClustering.
+Service de cluster n’a pas pu modifier la taille du journal des traces. Vérifiez le paramètre ClusterLogSize à l’aide de l’applet de \| commande PowerShell « \*obtient-cluster format-list ». Utilisez également le composant logiciel enfichable analyseur de performances pour vérifier les paramètres de session de suivi d’événements pour FailoverClustering.
 
 ### <a name="event-1567-res_vipaddr_address_interface_failed"></a>Événement 1567 : RES_VIPADDR_ADDRESS_INTERFACE_FAILED
 
@@ -610,7 +610,7 @@ Service de cluster n’a pas pu modifier la taille du journal des traces. Vérif
 
 La ressource témoin Cloud n’a pas pu atteindre Microsoft Azure services de stockage.<br><br>Ressource de cluster : %1 <br>Nœud de cluster : %2 
 
-#### <a name="guidance"></a>Aide
+#### <a name="guidance"></a>Assistance
 
 Cela peut être dû à une communication réseau entre le nœud de cluster et le service de Microsoft Azure bloqué. Vérifiez la connectivité Internet du nœud pour Microsoft Azure. Connectez-vous au Portail Microsoft Azure et vérifiez que le compte de stockage existe.
 
@@ -622,7 +622,7 @@ Le réseau « %1 » qui a été désactivé pour l’utilisation du cluster de
 
 La ressource de témoin Cloud n’a pas pu s’authentifier auprès des services de stockage Microsoft Azure. Une erreur de refus d’accès a été renvoyée lors de la tentative de contact du compte de stockage Microsoft Azure. <br><br>Ressource de cluster : %1 
 
-#### <a name="guidance"></a>Aide
+#### <a name="guidance"></a>Assistance
 
 La clé d’accès du compte de stockage n’est peut-être plus valide. Utilisez l’Assistant Configuration de quorum du cluster dans le Gestionnaire du cluster de basculement ou l’applet de commande Windows PowerShell Set-ClusterQuorum pour configurer la ressource de témoin Cloud avec la clé d’accès de compte de stockage mise à jour.
 
@@ -664,11 +664,11 @@ Le serveur de fichiers n’a pas pu démarrer car la dépendance attendue sur la
 
 ### <a name="event-1606-res_disk_cno_check_failed"></a>Événement 1606 : RES_DISK_CNO_CHECK_FAILED
 
-La ressource de disque de cluster « %1 » contient un volume protégé par BitLocker, « %2 », mais pour ce volume, le Active Directory compte de nom de cluster (également appelé objet nom de cluster ou CNO) n’est pas un protecteur BitLocker pour le volume. Cela est nécessaire pour les volumes protégés par BitLocker. Pour corriger cela, supprimez d’abord le disque du cluster. Ensuite, utilisez l’outil en ligne de commande Manage-bde. exe pour ajouter le nom du cluster en tant que protecteur ADAccountOrGroup, en utilisant le format Domain\\ClusterName\$ pour le nom du cluster. Rajoutez ensuite le disque au cluster. Pour plus d’informations, consultez la documentation de Manage-bde. exe.
+La ressource de disque de cluster « %1 » contient un volume protégé par BitLocker, « %2 », mais pour ce volume, le Active Directory compte de nom de cluster (également appelé objet nom de cluster ou CNO) n’est pas un protecteur BitLocker pour le volume. Cela est nécessaire pour les volumes protégés par BitLocker. Pour corriger cela, supprimez d’abord le disque du cluster. Ensuite, utilisez l’outil en ligne de commande Manage-bde. exe pour ajouter le nom du cluster en tant que protecteur ADAccountOrGroup\\,\$ en utilisant le format de domaine ClusterName pour le nom du cluster. Rajoutez ensuite le disque au cluster. Pour plus d’informations, consultez la documentation de Manage-bde. exe.
 
 ### <a name="event-1607-res_disk_cno_unlock_failed"></a>Événement 1607 : RES_DISK_CNO_UNLOCK_FAILED
 
-La ressource de disque de cluster « %1 » n’a pas pu déverrouiller le volume protégé par BitLocker « %2 ». L’objet nom de cluster (CNO) n’est pas configuré pour être un protecteur BitLocker valide pour ce volume. Pour corriger cela, supprimez le disque du cluster. Utilisez ensuite l’outil en ligne de commande Manage-bde. exe pour ajouter le nom du cluster en tant que protecteur ADAccountOrGroup, en utilisant le format Domain\\ClusterName\$, puis rajoutez le disque au cluster. Pour plus d’informations, consultez la documentation de Manage-bde. exe.
+La ressource de disque de cluster « %1 » n’a pas pu déverrouiller le volume protégé par BitLocker « %2 ». L’objet nom de cluster (CNO) n’est pas configuré pour être un protecteur BitLocker valide pour ce volume. Pour corriger cela, supprimez le disque du cluster. Utilisez ensuite l’outil en ligne de commande Manage-bde. exe pour ajouter le nom du cluster en tant que protecteur ADAccountOrGroup\\,\$en utilisant le format de domaine ClusterName, puis rajoutez le disque au cluster. Pour plus d’informations, consultez la documentation de Manage-bde. exe.
 
 ### <a name="event-1608-res_fileserver_leader_failed"></a>Événement 1608 : RES_FILESERVER_LEADER_FAILED
 
@@ -727,7 +727,7 @@ Le nœud de cluster local a été mis en quarantaine par « %1 ». Le nœud se
 
 Le service de cluster n’a pas pu atteindre un contrôleur de domaine disponible sur le domaine. Cela peut avoir un impact sur les fonctionnalités qui dépendent de l’authentification du nom du réseau de clusters.<br><br>Serveur de contrôleur de périphérique : %1 
 
-#### <a name="guidance"></a>Aide
+#### <a name="guidance"></a>Assistance
 
 Vérifiez que les contrôleurs de domaine sont accessibles sur le réseau aux nœuds du cluster.
 
@@ -735,14 +735,14 @@ Vérifiez que les contrôleurs de domaine sont accessibles sur le réseau aux n�
 
 La ressource de nom réseau de cluster n’a pas pu trouver l’objet ordinateur associé dans Active Directory. Cela peut avoir un impact sur les fonctionnalités qui dépendent de l’authentification du nom du réseau de clusters.<br><br>Nom réseau : %1<br>Unité d’organisation : %2
 
-#### <a name="guidance"></a>Aide
+#### <a name="guidance"></a>Assistance
 
 Restaurez l’objet ordinateur pour le nom réseau à partir de la corbeille de Active Directory. Vous pouvez également utiliser la ressource de nom réseau de cluster en mode hors connexion et exécuter l’action de réparation pour recréer l’objet ordinateur dans Active Directory.
 
 ### <a name="event-1685-res_netname_computer_object_cno_not_found"></a>Événement 1685 : RES_NETNAME_COMPUTER_OBJECT_CNO_NOT_FOUND
 
 La ressource de nom réseau de cluster n’a pas pu trouver l’objet ordinateur associé dans Active Directory. Cela peut avoir un impact sur les fonctionnalités qui dépendent de l’authentification du nom du réseau de clusters.<br><br>Nom réseau : %1<br>Unité d’organisation : %2
-#### <a name="guidance"></a>Aide
+#### <a name="guidance"></a>Assistance
 
 Restaurez l’objet ordinateur pour le nom réseau à partir de la corbeille de Active Directory.
 
@@ -750,7 +750,7 @@ Restaurez l’objet ordinateur pour le nom réseau à partir de la corbeille de 
 
 La ressource de nom réseau de cluster a trouvé l’objet ordinateur associé dans Active Directory à désactiver. Cela peut avoir un impact sur les fonctionnalités qui dépendent de l’authentification du nom du réseau de clusters.<br><br>Nom réseau : %1<br>Unité d’organisation : %2
 
-#### <a name="guidance"></a>Aide
+#### <a name="guidance"></a>Assistance
 
 Activez l’objet ordinateur pour le nom réseau dans Active Directory.
 
@@ -758,7 +758,7 @@ Activez l’objet ordinateur pour le nom réseau dans Active Directory.
 
 La ressource de nom réseau de cluster a trouvé l’objet ordinateur associé dans Active Directory à désactiver. Cela peut avoir un impact sur les fonctionnalités qui dépendent de l’authentification du nom du réseau de clusters.<br><br>Nom réseau : %1<br>Unité d’organisation : %2
 
-#### <a name="guidance"></a>Aide
+#### <a name="guidance"></a>Assistance
 
 Activez l’objet ordinateur pour le nom réseau dans Active Directory. Vous pouvez également mettre hors connexion la ressource de nom de réseau du cluster et exécuter l’action de réparation pour activer l’objet ordinateur dans Active Directory.
 
@@ -766,7 +766,7 @@ Activez l’objet ordinateur pour le nom réseau dans Active Directory. Vous pou
 
 La ressource de nom réseau de cluster a détecté que l’objet ordinateur associé dans Active Directory a été désactivé et sa tentative d’activation a échoué. Cela peut avoir un impact sur les fonctionnalités qui dépendent de l’authentification du nom du réseau de clusters.<br><br>Nom réseau : %1<br>Unité d’organisation : %2
 
-#### <a name="guidance"></a>Aide
+#### <a name="guidance"></a>Assistance
 
 Activez l’objet ordinateur pour le nom réseau dans Active Directory.
 
@@ -780,7 +780,7 @@ Le disque en cluster avec l’ID « %2 » n’a pas été libéré par le gest
 
 ### <a name="event-4613-nodecleanup_clear_clusdisk_database_failed"></a>Événement 4613 : NODECLEANUP_CLEAR_CLUSDISK_DATABASE_FAILED
 
-Le service de cluster n’a pas réussi à nettoyer correctement un disque en cluster avec l’ID « %2 » lors de la destruction du cluster. Le code d’erreur était « %1 ». Vous ne pouvez pas accéder à ce disque tant que le nettoyage n’a pas abouti. Pour le nettoyage manuel, supprimez la valeur « AttachedDisks » de la clé « HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\services\\ClusDisk\\Parameters » dans le Registre Windows.
+Le service de cluster n’a pas réussi à nettoyer correctement un disque en cluster avec l’ID « %2 » lors de la destruction du cluster. Le code d’erreur était « %1 ». Vous ne pouvez pas accéder à ce disque tant que le nettoyage n’a pas abouti. Pour le nettoyage manuel, supprimez la valeur « AttachedDisks » de la\\clé\\«\\HKEY_LOCAL_MACHINE\\System\\CurrentControlSet Services Clusdisk Parameters » dans le Registre Windows.
 
 ### <a name="event-4615-nodecleanup_disable_cluster_service_failed"></a>Événement 4615 : NODECLEANUP_DISABLE_CLUSTER_SERVICE_FAILED
 
@@ -909,7 +909,7 @@ Service de cluster n’a pas pu créer un jeton d’identité de cluster pour le
 
 ### <a name="event-5219-csv_register_snapshot_prov_with_vss_failed"></a>Événement 5219 : CSV_REGISTER_SNAPSHOT_PROV_WITH_VSS_FAILED
 
-Service de cluster n’a pas pu inscrire le fournisseur de capture instantanée des volumes partagés de cluster avec le service VSS (Volume Shadow service). Cela peut être dû au fait que le service VSS s’arrête ou peut être confronté à un problème avec le service VSS ayant un problème qui l’empêche d’accepter les demandes entrantes. <br>Erreur : %1
+Service de cluster n’a pas pu inscrire le fournisseur de capture instantanée des volumes partagés de cluster avec le service VSS (Volume Shadow service). Cela peut être dû au fait que le service VSS s’arrête ou peut être confronté à un problème avec le service VSS ayant un problème qui l’empêche d’accepter les demandes entrantes. <br>Erreur : %1
 
 ### <a name="event-5377-operation_exceeded_timeout"></a>Événement 5377 : OPERATION_EXCEEDED_TIMEOUT
 
@@ -927,7 +927,7 @@ La ressource de cluster « %1 » n’a pas pu créer ou modifier le compte d�
 
 Le cluster n’a pas pu démarrer. La dernière copie des données de configuration de cluster n’était pas disponible dans l’ensemble des nœuds tentant de démarrer le cluster. Les modifications apportées au cluster s’est produite alors que l’ensemble de nœuds n’était pas dans l’appartenance et n’a donc pas pu recevoir les mises à jour des données de configuration. .<br><br>Votes requis pour démarrer le cluster : %1<br>Votes disponibles : %2<br>Nœuds avec votes : %3
 
-#### <a name="guidance"></a>Aide
+#### <a name="guidance"></a>Assistance
 
 Essayez de démarrer le service de cluster sur tous les nœuds du cluster afin que les nœuds avec la dernière copie des données de configuration du cluster puissent tout d’abord former le cluster. Le cluster pourra démarrer et les nœuds obtiendront automatiquement les données de configuration de cluster mises à jour. Si aucun nœud n’est disponible avec la dernière copie des données de configuration du cluster, exécutez l’applet de commande Windows PowerShell « Start-ClusterNode-FQ ». L’utilisation du paramètre ForceQuorum (FQ) permet de démarrer le service de cluster et de marquer la copie de ce nœud des données de configuration du cluster comme faisant autorité. Le quorum forcé sur un nœud avec une copie obsolète de la base de données du cluster peut entraîner des modifications de la configuration du cluster qui se sont produites alors que le nœud n’était pas impliqué dans le cluster à perdre.
 
@@ -1114,7 +1114,7 @@ Consultez le journal des événements d’application pour obtenir des informati
 
 Impossible de mettre en ligne la ressource de disque physique de cluster.<br><br>Nom de la ressource de disque physique : %1<br>Code d’erreur : %2<br>Temps écoulé (secondes) : %3
 
-#### <a name="guidance"></a>Aide
+#### <a name="guidance"></a>Assistance
 
 Exécutez l’Assistant validation d’une configuration pour vérifier la configuration de votre stockage. Si le code d’erreur a été ERROR_CLUSTER_SHUTDOWN, l’État en attente en ligne a été annulé par un administrateur. S’il s’agit d’un volume répliqué, cela peut être dû à un échec de définition des attributs de disque. Pour plus d’informations, consultez les événements de réplication du stockage.
 

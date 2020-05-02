@@ -9,15 +9,15 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: d4a8f2c008c1a28e498edb7726a8c209e91f41af
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 12a9965515ef26e0cbccb2d20d25f66b54b23b8a
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843922"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720061"
 ---
 # <a name="fsutil-wim"></a>Fsutil Wim
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10
+> S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows 10
 
 Fournit des fonctions permettant de détecter et de gérer les fichiers d’image Windows (WIM).
 
@@ -35,11 +35,11 @@ fsutil wim [removewim] <drive name> <data source>
 |Paramètre|Description|
 |-------------|---------------|
 |EnumFiles|Énumère les fichiers WIM sauvegardés.|
-|nom du lecteur \<>|Spécifie le nom du lecteur.|
-|> de la source de données \<|Spécifie la source de données.|
+|\<nom du lecteur>|Spécifie le nom du lecteur.|
+|\<> de la source de données|Spécifie la source de données.|
 |enumwims|Énumère les fichiers WIM de sauvegarde.|
 |queryfile|Interroge si le fichier est sauvegardé par WIM et, le cas échéant, affiche des détails sur le fichier WIM.|
-|nom de fichier \<>|Spécifie le nom de fichier.|
+|\<nom de fichier>|Spécifie le nom de fichier.|
 |removewim|Supprime un fichier WIM des fichiers de sauvegarde.|
 
 

@@ -1,6 +1,6 @@
 ---
 title: Remove-ImageGroup
-description: Rubrique relative aux commandes Windows pour Remove-ImageGroup, qui supprime un groupe d’images d’un serveur.
+description: Rubrique de référence pour Remove-ImageGroup, qui supprime un groupe d’images d’un serveur.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d8406959037a958ea6d61b8e8145317635955e6d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f814d83a32a8c739e7462bc77251cf3f3f4fe20e
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80830352"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720351"
 ---
 # <a name="using-the-remove-imagegroup-command"></a>Utilisation de la commande Remove-ImageGroup
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Supprime un groupe d’images d’un serveur.
 
@@ -29,9 +29,9 @@ wdsutil [Options] /remove-ImageGroumediaGroup:<Image group name> [/Server:<Serve
 ### <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-mediaGroup :<Image group name>|Spécifie le nom du groupe d’images à supprimer|
+mediaGroup:<Image group name>|Spécifie le nom du groupe d’images à supprimer|
 |[/Server:<Server name>]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 Pour supprimer le groupe d’images, tapez l’un des éléments suivants :
 ```
 wdsutil /remove-ImageGroumediaGroup:ImageGroup1

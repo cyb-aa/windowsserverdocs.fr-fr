@@ -8,22 +8,22 @@ author: johnmarlin-msft
 ms.author: johnmar
 ms.date: 03/07/2019
 description: Cet article décrit l’affinité de cluster de basculement et les niveaux d’antiaffinité
-ms.openlocfilehash: c9910cac602802b753391fad1009fb7f1fa3d2f2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b0c2209680f3c34ac8376d5662620595aff92c0b
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828282"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720613"
 ---
 # <a name="cluster-affinity"></a>Affinité de cluster
 
-> S’applique à : Windows Server 2019, Windows Server 2016
+> S'applique à : Windows Server 2019, Windows Server 2016
 
-Un cluster de basculement peut contenir de nombreux rôles pouvant être déplacés entre les nœuds et exécutés.  Dans certains cas, certains rôles (par exemple, les machines virtuelles, les groupes de ressources, etc.) ne doivent pas s’exécuter sur le même nœud.  Cela peut être dû à la consommation des ressources, à l’utilisation de la mémoire, etc.  Par exemple, il existe deux machines virtuelles nécessitant beaucoup de mémoire et de processeur, et si les deux machines virtuelles s’exécutent sur le même nœud, l’un des ordinateurs virtuels ou les deux peut avoir des problèmes d’impact sur les performances.  Cet article explique les niveaux d’antiaffinité du cluster et comment vous pouvez les utiliser.
+Un cluster de basculement peut contenir de nombreux rôles pouvant être déplacés entre les nœuds et exécutés. Dans certains cas, certains rôles (par exemple, les machines virtuelles, les groupes de ressources, etc.) ne doivent pas s’exécuter sur le même nœud.  Cela peut être dû à la consommation des ressources, à l’utilisation de la mémoire, etc.  Par exemple, il existe deux machines virtuelles nécessitant beaucoup de mémoire et de processeur, et si les deux machines virtuelles s’exécutent sur le même nœud, l’un des ordinateurs virtuels ou les deux peut avoir des problèmes d’impact sur les performances.  Cet article explique les niveaux d’antiaffinité du cluster et comment vous pouvez les utiliser.
 
 ## <a name="what-is-affinity-and-antiaffinity"></a>Qu’est-ce que l’affinité et l’antiaffinité ?
 
-L’affinité est une règle que vous devez configurer pour établir une relation entre deux rôles (i, e, machines virtuelles, groupes de ressources, etc.) afin de les conserver ensemble.  L’antiaffinité est la même, mais elle est utilisée pour essayer et conserver les rôles spécifiés indépendamment l’un de l’autre.  Les clusters de basculement utilisent l’antiaffinité pour ses rôles.  Plus précisément, le paramètre [AntiAffinityClassNames](https://docs.microsoft.com/previous-versions/windows/desktop/mscs/groups-antiaffinityclassnames) défini sur les rôles pour qu’ils ne s’exécutent pas sur le même nœud.  
+L’affinité est une règle que vous devez configurer pour établir une relation entre deux rôles (i, e, machines virtuelles, groupes de ressources, etc.) afin de les conserver ensemble.  L’antiaffinité est la même, mais elle est utilisée pour essayer et conserver les rôles spécifiés indépendamment l’un de l’autre. Les clusters de basculement utilisent l’antiaffinité pour ses rôles.  Plus précisément, le paramètre [AntiAffinityClassNames](https://docs.microsoft.com/previous-versions/windows/desktop/mscs/groups-antiaffinityclassnames) défini sur les rôles pour qu’ils ne s’exécutent pas sur le même nœud.  
 
 ## <a name="antiaffinityclassnames"></a>AntiAffinityClassnames
 
@@ -88,6 +88,3 @@ Dans une liste PowerShell des groupes, vous voyez ceci :
 
 - L’utilisation de propriétaires préférés sur des groupes peut être combinée à l’antiaffinité dans un cluster à trois nœuds ou plus.
 - Les paramètres AntiAffinityClassNames et ClusterEnforcedAntiAffinity se produisent uniquement après un recyclage des ressources. savoir vous pouvez les définir, mais si les deux groupes sont en ligne sur le même nœud lorsqu’ils sont définis, ils continuent à rester en ligne.
-
-
-

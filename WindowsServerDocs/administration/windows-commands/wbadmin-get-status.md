@@ -1,6 +1,6 @@
 ---
 title: État de l’extraction de Wbadmin
-description: Rubrique relative aux commandes Windows pour Wbadmin obtenir l’État, qui indique l’état de l’opération de sauvegarde ou de récupération en cours d’exécution.
+description: Rubrique de référence relative à l’état de l’opération Wbadmin obtenir, qui indique l’état de la sauvegarde ou de la récupération en cours d’exécution.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f8ebf1a078632f78dc8d58c232550345f0de78f2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1e8e5194cd49770f72ce810f4652d9bc98af75e2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829742"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720156"
 ---
 # <a name="wbadmin-get-status"></a>État de l’extraction de Wbadmin
 
@@ -34,7 +34,7 @@ wbadmin get status
 
 Cette sous-commande n’a aucun paramètre.
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Cette sous-commande ne s’arrête pas tant que l’opération de sauvegarde ou de récupération n’est pas terminée ; la sous-commande continue de s’exécuter même si vous fermez la fenêtre de commande.
 -   Si vous souhaitez arrêter l’opération de sauvegarde ou de récupération en cours, utilisez la sous-commande **Wbadmin Stop Job** .

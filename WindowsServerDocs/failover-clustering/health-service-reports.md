@@ -7,15 +7,16 @@ ms.technology: storage-health-service
 ms.topic: article
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: 3b47e1abf3805b7e6e3dc180d5d937ddb2723fa4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0a03dc5d646d24c9f24f979df36fb3fe1eafe631
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827542"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720551"
 ---
 # <a name="health-service-reports"></a>Rapports de Service de contrôle d’intégrité
-> S’applique à : Windows Server 2019, Windows Server 2016
+
+> S'applique à : Windows Server 2019, Windows Server 2016
 
 ## <a name="what-are-reports"></a>Présentation des rapports  
 
@@ -43,14 +44,13 @@ Get-Volume -FileSystemLabel <Label> | Get-StorageHealthReport -Count <Count>
 Get-StorageNode -Name <Name> | Get-StorageHealthReport -Count <Count>
 ```
 
-## <a name="usage-in-net-and-c"></a>Utilisation dans .NET etC#
+## <a name="usage-in-net-and-c"></a>Utilisation dans .NET et C #
 
 ### <a name="connect"></a>Se connecter
 
-Pour pouvoir interroger le Service de contrôle d’intégrité, vous devez établir un **CimSession** avec le cluster. Pour ce faire, vous aurez besoin de certains éléments qui ne sont disponibles que dans le .NET complet, ce qui signifie que vous ne pouvez pas effectuer cette opération directement à partir d’une application Web ou mobile. Ces exemples de code utilisent C\#, le choix le plus simple pour cette couche d’accès aux données.
+Pour pouvoir interroger le Service de contrôle d’intégrité, vous devez établir un **CimSession** avec le cluster. Pour ce faire, vous aurez besoin de certains éléments qui ne sont disponibles que dans le .NET complet, ce qui signifie que vous ne pouvez pas effectuer cette opération directement à partir d’une application Web ou mobile. Ces exemples de code utiliseront\#C, le choix le plus simple pour cette couche d’accès aux données.
 
-``` 
-...
+```
 using System.Security;
 using Microsoft.Management.Infrastructure;
 
@@ -79,7 +79,7 @@ Il est recommandé de construire la **SecureString** de mot de passe directement
 
 Une fois le **CimSession** établi, vous pouvez interroger Windows Management Instrumentation (WMI) sur le cluster.
 
-Avant de pouvoir récupérer des erreurs ou des métriques, vous devez récupérer les instances de plusieurs objets pertinents. Tout d’abord, **MSFT\_StorageSubSystem** qui représente espaces de stockage direct sur le cluster. À l’aide de cela, vous pouvez récupérer chaque **\_msft StorageNode** dans le cluster, et chaque **msft\_volume**, les volumes de données. Enfin, vous aurez besoin du **\_msft**, le service de contrôle d’intégrité lui-même.
+Avant de pouvoir récupérer des erreurs ou des métriques, vous devez récupérer les instances de plusieurs objets pertinents. Tout d’abord, le **StorageSubSystem msft\_** qui représente espaces de stockage direct sur le cluster. À l’aide de cela, vous pouvez récupérer chaque **StorageNode msft\_** dans le cluster et chaque **volume msft\_**, les volumes de données. Enfin, vous aurez besoin du **StorageHealth\_MSFT**, le service de contrôle d’intégrité lui-même.
 
 ```
 CimInstance Cluster;
@@ -107,12 +107,11 @@ public void DiscoverObjects(CimSession Session)
 }
 ```
 
-Il s’agit des mêmes objets que ceux que vous recevez dans PowerShell à l’aide d’applets de commande, telles que **« StorageSubSystem »** , **« obten-StorageNode**» et **« obtient-volume »** .
+Il s’agit des mêmes objets que ceux que vous recevez dans PowerShell à l’aide d’applets de commande, telles que **« StorageSubSystem »**, **« obten-StorageNode**» et **« obtient-volume »**.
 
 Vous pouvez accéder aux mêmes propriétés, documentées dans les classes de l' [API de gestion du stockage](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx).
 
 ```
-...
 using System.Diagnostics;
 
 foreach (CimInstance Node in Nodes)
@@ -208,7 +207,7 @@ Il est inutile de préciser que ces métriques peuvent être visualisées, stock
 
 Chaque exemple de métrique est un « rapport » qui contient de nombreux « enregistrements » correspondant à des mesures individuelles.
 
-Pour obtenir le schéma complet, inspectez les classes **msft\_StorageHealthReport** et **msft\_HealthRecord** dans *storagewmi. mof*.
+Pour le schéma complet, inspectez les classes **msft\_StorageHealthReport** et **msft\_HealthRecord** dans *storagewmi. mof*.
 
 Chaque mesure a seulement trois propriétés, par cette table.
 
@@ -216,7 +215,7 @@ Chaque mesure a seulement trois propriétés, par cette table.
 | -------------|-------------------|
 | Nom         | IOLatencyAverage  |
 | Valeur        | 0,00021           |
-| Unités        | 3                 |
+| Units        | 3                 |
 
 Units = {0, 1, 2, 3, 4}, où 0 = « octets », 1 = « BytesPerSecond », 2 = « CountPerSecond », 3 = « secondes » ou 4 = « pourcentage ».
 
@@ -226,7 +225,7 @@ Voici les mesures disponibles pour chaque étendue dans Windows Server 2016.
 
 ### <a name="msft_storagesubsystem"></a>MSFT_StorageSubSystem
 
-| **Nom**                        | **Sections** |
+| **Nom**                        | **Units** |
 |---------------------------------|-----------|
 | CPUUsage                        | 4         |
 | CapacityPhysicalPooledAvailable | 0         |
@@ -250,7 +249,7 @@ Voici les mesures disponibles pour chaque étendue dans Windows Server 2016.
 
 ### <a name="msft_storagenode"></a>MSFT_StorageNode
 
-| **Nom**            | **Sections** |
+| **Nom**            | **Units** |
 |---------------------|-----------|
 | CPUUsage            | 4         |
 | IOLatencyAverage    | 3         |
@@ -267,7 +266,7 @@ Voici les mesures disponibles pour chaque étendue dans Windows Server 2016.
 
 ### <a name="msft_volume"></a>MSFT_Volume
 
-| **Nom**            | **Sections** |
+| **Nom**            | **Units** |
 |---------------------|-----------|
 | CapacityAvailable   | 0         |
 | CapacityTotal       | 0         |
@@ -283,4 +282,4 @@ Voici les mesures disponibles pour chaque étendue dans Windows Server 2016.
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Service de contrôle d’intégrité dans Windows Server 2016](health-service-overview.md)
+- [Service de contrôle d’intégrité dans Windows Server 2016](health-service-overview.md)

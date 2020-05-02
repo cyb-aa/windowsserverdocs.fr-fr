@@ -1,6 +1,6 @@
 ---
 title: xcopy
-description: La rubrique commandes Windows pour xcopy, w hich copie les fichiers et répertoires, y compris les sous-répertoires.
+description: Rubrique de référence pour xcopy, qui copie les fichiers et les répertoires, y compris les sous-répertoires.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: 660ef69a5f1df99c3b959a588984719c9d4dea6b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d0ee0a9f87eacefad619e82aa28f5fcf8419ed09
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828922"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720621"
 ---
 # <a name="xcopy"></a>xcopy
 
@@ -36,14 +36,14 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |[\<> de destination]|Spécifie la destination des fichiers que vous souhaitez copier. Ce paramètre peut inclure une lettre de lecteur et un signe deux-points, un nom de répertoire, un nom de fichier ou une combinaison de ceux-ci.|
 |/w|Affiche le message suivant et attend votre réponse avant de commencer à copier les fichiers :</br>**Appuyez sur n’importe quelle touche pour commencer à copier le ou les fichiers**|
 |/p|Vous invite à confirmer si vous souhaitez créer chaque fichier de destination.|
-|/c|Ignore les erreurs.|
+|/C|Ignore les erreurs.|
 |/v|Vérifie chaque fichier tel qu’il est écrit dans le fichier de destination pour s’assurer que les fichiers de destination sont identiques aux fichiers sources.|
 |/q|Supprime l’affichage des messages **xcopy** .|
 |/f|Affiche les noms des fichiers source et de destination lors de la copie.|
 |/l|Affiche la liste des fichiers à copier.|
 |/g|Crée des fichiers de *destination* déchiffrés lorsque la destination ne prend pas en charge le chiffrement.|
 |/d [ : MM-JJ-AAAA]|Copie les fichiers sources modifiés à la date spécifiée uniquement ou après. Si vous n’incluez pas de valeur *mm-jj-aaaa* , **xcopy** copie tous les fichiers *sources* plus récents que les fichiers de *destination* existants. Cette option de ligne de commande vous permet de mettre à jour les fichiers qui ont été modifiés.|
-|/u|Copie les fichiers de la *source* qui existent sur la *destination* uniquement.|
+|/U|Copie les fichiers de la *source* qui existent sur la *destination* uniquement.|
 |/i|Si la *source* est un répertoire ou contient des caractères génériques et que la *destination* n’existe pas, **xcopy** suppose que la *destination* spécifie un nom de répertoire et crée un répertoire. **Xcopy** copie ensuite tous les fichiers spécifiés dans le nouveau répertoire. Par défaut, **xcopy** vous invite à spécifier si la *destination* est un fichier ou un répertoire.|
 |/s|Copie les répertoires et les sous-répertoires, sauf s’ils sont vides. Si vous omettez **/s**, **xcopy** fonctionne dans un répertoire unique.|
 |/e|Copie tous les sous-répertoires, même s’ils sont vides. Utilisez **/e** avec les options de ligne de commande **/s** et **/t** .|
@@ -56,15 +56,15 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/n|Crée des copies en utilisant les noms de fichiers ou de répertoires courts NTFS. **/n** est requis lorsque vous copiez des fichiers ou des répertoires d’un volume NTFS vers un volume FAT ou lorsque la Convention d’affectation de noms du système de fichiers FAT (c’est-à-dire 8,3 caractères) est requise sur le système de fichiers de *destination* . Le système de fichiers de *destination* peut être FAT ou NTFS.|
 |/o|Copie la propriété du fichier et les informations de liste de contrôle d’accès discrétionnaire (DACL).|
 |/x|Copie les paramètres d’audit de fichier et les informations de liste de contrôle d’accès système (SACL) (implique **/o**).|
-|/Exclude : Nomfichier1 [+ [Nomfichier2] [+ [FileName3] (\)]|Spécifie une liste de fichiers. Au moins un fichier doit être spécifié. Chaque fichier contient des chaînes de recherche avec chaque chaîne sur une ligne distincte dans le fichier.</br>Lorsque l’une des chaînes correspond à une partie du chemin d’accès absolu du fichier à copier, ce fichier est exclu de la copie. Par exemple, la spécification de la chaîne **obj** exclut tous les fichiers sous le répertoire **obj** ou tous les fichiers avec l’extension **. obj** .|
+|/Exclude : Nomfichier1 [+ [Nomfichier2] [+ [FileName3] ( \)]|Spécifie une liste de fichiers. Au moins un fichier doit être spécifié. Chaque fichier contient des chaînes de recherche avec chaque chaîne sur une ligne distincte dans le fichier.</br>Lorsque l’une des chaînes correspond à une partie du chemin d’accès absolu du fichier à copier, ce fichier est exclu de la copie. Par exemple, la spécification de la chaîne **obj** exclut tous les fichiers sous le répertoire **obj** ou tous les fichiers avec l’extension **. obj** .|
 |/y|Supprime l’invite pour confirmer que vous souhaitez remplacer un fichier de destination existant.|
 |/-y|Invite à confirmer que vous souhaitez remplacer un fichier de destination existant.|
-|z|Copie sur un réseau en mode redémarrable.|
+|/z|Copie sur un réseau en mode redémarrable.|
 |/b|Copie le lien symbolique à la place des fichiers. Ce paramètre a été introduit dans Windows Vista®.|
 |/j|Copie les fichiers sans mise en mémoire tampon. Recommandé pour les fichiers de très grande taille. Ce paramètre a été ajouté dans Windows Server 2008 R2.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 - Utilisation de **/z**
 
@@ -88,7 +88,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 - Spécification de la *destination* d’un fichier ou d’un répertoire
 
-  Si la *destination* ne contient pas de répertoire existant et ne se termine pas par une barre oblique inverse (\), le message suivant s’affiche :
+  Si la *destination* ne contient pas de répertoire existant et ne se termine pas par\)une barre oblique inverse (, le message suivant s’affiche :
   
   ```
   Does <Destination> specify a file name or directory name on the target(F = file, D = directory)?
@@ -151,7 +151,7 @@ xcopy \rawdata \reports /d:12-29-1993 /l > xcopy.out
 
 Le fichier xcopy. out répertorie tous les fichiers qui doivent être copiés.
 
-**6.** pour copier le répertoire \Customer et tous les sous-répertoires dans le répertoire \\\\Public\Address sur le lecteur réseau h :, conservez l’attribut lecture seule et soyez invité à entrer un nouveau fichier sur h :, tapez :
+**6.** pour copier le répertoire \Customer et tous les sous-répertoires dans \\ \\le répertoire Public\Address sur le lecteur réseau h :, conservez l’attribut lecture seule et soyez invité à entrer un nouveau fichier sur h :, tapez :
 
 ```
 xcopy \customer h:\public\address /s /e /k /p
@@ -204,7 +204,7 @@ rem  .\d2\toc.yml
 rem  3 File(s) copied
 ```
 
-Dans l’exemple précédent, cette valeur de paramètre source particulière **.\\toc\*. yml** copiez les mêmes 3 fichiers, même si ses deux caractères de chemin d’accès **.\\** ont été supprimés. Toutefois, aucun fichier n’est copié si le caractère générique astérisque a été supprimé du paramètre source, ce qui le rend juste **.\\toc. yml**.
+Dans l’exemple précédent, cette valeur de paramètre source **particulière\\ . TOC\*. yml** copiez les mêmes 3 fichiers, même si ses deux **caractères\\ de** chemin d’accès ont été supprimés. Toutefois, aucun fichier n’est copié si le caractère générique astérisque a été supprimé du paramètre source, ce qui le rend juste **.\\ TOC. yml**.
 
 ## <a name="additional-references"></a>Références supplémentaires
 
@@ -213,5 +213,5 @@ Dans l’exemple précédent, cette valeur de paramètre source particulière **
 -   [Public](dir.md)
 -   [Attrib](attrib.md)
 -   [Convient](diskcopy.md)
--   [Que](if.md)
+-   [If](if.md)
 -   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

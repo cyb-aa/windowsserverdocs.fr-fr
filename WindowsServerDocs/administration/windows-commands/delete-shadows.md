@@ -1,6 +1,6 @@
 ---
 title: supprimer les ombres
-description: La rubrique commandes Windows pour supprimer les ombres, qui supprime les clichés instantanés.
+description: Rubrique de référence pour supprimer les ombres, qui supprime les clichés instantanés.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cd109f7ddc0365d03737eddba31a1a4b7f34915b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1dd367d76ad1699321af9caf47a0ddc351088a05
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846562"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720798"
 ---
 # <a name="delete-shadows"></a>supprimer les ombres
 
-supprime les clichés instantanés.
+Supprime les clichés instantanés.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -30,12 +30,12 @@ delete shadows [all | volume <Volume> | oldest <Volume> | set <SetID> | id <Shad
 
 | Paramètre | Description |
 | ---- | ---- |
-| tous | Supprime tous les clichés instantanés. |
-| volume \<volume > | Supprime tous les clichés instantanés du volume donné. |
-| > du volume de \<le plus ancien | Supprime le cliché instantané le plus ancien du volume donné. |
-| définir \<SetID > | Supprime les clichés instantanés dans le jeu de clichés instantanés de l’ID donné. Vous pouvez spécifier un alias à l’aide du symbole **%** si l’alias existe dans l’environnement actuel. |
-| ID \<ShadowID > | Supprime un cliché instantané de l’ID donné. Vous pouvez spécifier un alias à l’aide du symbole **%** si l’alias existe dans l’environnement actuel. |
-| > du lecteur {\<exposé | <MountPoint>} |
+| all | Supprime tous les clichés instantanés. |
+| \<volume de volume> | Supprime tous les clichés instantanés du volume donné. |
+| Volume \<le plus ancien> | Supprime le cliché instantané le plus ancien du volume donné. |
+| définir \<le> SetID | Supprime les clichés instantanés dans le jeu de clichés instantanés de l’ID donné. Vous pouvez spécifier un alias à l’aide **%** du symbole si l’alias existe dans l’environnement actuel. |
+| ID \<ShadowID> | Supprime un cliché instantané de l’ID donné. Vous pouvez spécifier un alias à l’aide **%** du symbole si l’alias existe dans l’environnement actuel. |
+| {\<Drive> exposé | <MountPoint>} |
 
 ## <a name="additional-references"></a>Références supplémentaires
 

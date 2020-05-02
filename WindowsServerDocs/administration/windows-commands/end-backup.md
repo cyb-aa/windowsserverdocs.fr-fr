@@ -1,6 +1,6 @@
 ---
 title: Terminer la sauvegarde
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a4d3ef3298fa690d425c6f0660f3be6ea2701c6f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 941ab648c4811facd284d49a4797e50ba5241ee6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845202"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720846"
 ---
 # <a name="end-backup"></a>Terminer la sauvegarde
 

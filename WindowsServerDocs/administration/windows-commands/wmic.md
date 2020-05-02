@@ -1,6 +1,6 @@
 ---
 title: wmic
-description: La rubrique commandes Windows pour WMIC, qui affiche des informations WMI dans un interpréteur de commandes interactif.
+description: Rubrique de référence pour WMIC, qui affiche des informations WMI dans un interpréteur de commandes interactif.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 03ba4ecb4b12b03e010318bf6ca260dec00f28f3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 252ba6b59c29378dd1f5e437de21a2ec4f5ec5c8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829052"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720652"
 ---
 # <a name="wmic"></a>wmic
 
@@ -22,7 +22,7 @@ ms.locfileid: "80829052"
 
 Affiche des informations WMI dans un interpréteur de commandes interactif.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,12 +36,12 @@ Les sous-commandes suivantes sont disponibles en permanence :
 
 |Sous-commande|Description|
 |-----------|-----------|
-|classe|Échappe du mode d’alias par défaut de WMIC pour accéder directement aux classes dans le schéma WMI.|
+|class|Échappe du mode d’alias par défaut de WMIC pour accéder directement aux classes dans le schéma WMI.|
 |path|Échappe du mode d’alias par défaut de WMIC pour accéder directement aux instances dans le schéma WMI.|
-|context|Affiche les valeurs actuelles de tous les commutateurs globaux.|
+|contexte|Affiche les valeurs actuelles de tous les commutateurs globaux.|
 |[quitter \| quitter]|Quitte l’interface de commande WMIC.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour afficher les valeurs actuelles de tous les commutateurs globaux, tapez :
 ```

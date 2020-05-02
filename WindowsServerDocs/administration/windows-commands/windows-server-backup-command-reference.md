@@ -1,6 +1,6 @@
 ---
 title: Référence des commandes de sauvegarde Windows Server
-description: Rubrique relative aux commandes Windows pour la référence des commandes de sauvegarde.
+description: Rubrique de référence pour la référence des commandes de sauvegarde.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ca6a2e17c68e362d8b3d26f67ab3b7e4c7bf86d4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 69121e445e5c7a967c30b0a911c639431c7dd74a
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829203"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720716"
 ---
 # <a name="windows-server-backup-command-reference"></a>Référence des commandes de sauvegarde Windows Server
 

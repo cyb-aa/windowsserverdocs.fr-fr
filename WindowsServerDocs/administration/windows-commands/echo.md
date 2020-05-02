@@ -1,6 +1,6 @@
 ---
 title: echo
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5e6e9c3c79cc8006efba0c97a574e3d6d94a6f7e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 05b42e4df38c3eafd3dcf3a92ced7b7b2c088e2b
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845242"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720867"
 ---
 # <a name="echo"></a>echo
 
@@ -36,16 +36,16 @@ echo [on | off]
 |Paramètre|Description|
 |---------|-----------|
 |[on \| OFF]|Active ou désactive la fonctionnalité d’écho de la commande. L’écho de la commande est activé par défaut.|
-|Message de \<>|Spécifie le texte à afficher à l’écran.|
+|\<> de messages|Spécifie le texte à afficher à l’écran.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   La commande **echo** *message* est particulièrement utile lorsque **echo** est désactivé. Pour afficher un message de plusieurs lignes sans afficher de commandes, vous pouvez inclure plusieurs commandes de **echo** *message* d’écho après la commande **echo off** dans votre programme de traitement par lots.
 -   Quand **echo** est désactivé, l’invite de commandes n’apparaît pas dans la fenêtre d’invite de commandes. Pour afficher l’invite de commandes, tapez **echo on.**
 -   S’il est utilisé dans un fichier de commandes, **echo on** et **echo off** n’affectent pas le paramètre à l’invite de commandes.
 -   Pour empêcher l’écho d’une commande particulière dans un fichier de commandes, insérez un arobase (@) devant la commande. Pour empêcher l’écho de toutes les commandes dans un fichier de commandes, incluez la commande **echo off** au début du fichier.
--   Pour afficher un canal ( **|** ) ou un caractère de redirection ( **<** ou **>** ) quand vous utilisez **echo**, utilisez un signe insertion (^) juste avant le caractère de redirection ou de redirection (par exemple, **^|** , **^>** ou **^<** ). Pour afficher un signe insertion, tapez deux signes de suite ( **^^** ).
+-   Pour afficher un canal (**|**) ou un caractère de redirection**<** ( **>** ou) quand vous utilisez **echo**, utilisez un signe insertion (^) immédiatement avant le caractère de redirection ou de canal (par exemple **^|** **^>**,, ou **^<**). Pour afficher un signe insertion, tapez deux signes de suite (**^^**).
 
 ## <a name="examples"></a>Exemples
 

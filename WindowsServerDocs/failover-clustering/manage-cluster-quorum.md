@@ -9,16 +9,16 @@ manager: lizross
 ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 16f141eceb4831f588e33aca5284425f69e9e417
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 67ef309bc2a09c5e241d52c747ab800cfde86168
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827512"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720530"
 ---
 # <a name="configure-and-manage-quorum"></a>Configurer et gérer le quorum
 
->S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+> S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique fournit des informations générales et des étapes pour configurer et gérer le quorum dans un cluster de basculement Windows Server.
 
@@ -59,8 +59,8 @@ Le tableau suivant fournit des informations et des considérations supplémentai
 | Type de témoin  | Description  | Conditions requises et recommandations  |
 | ---------    |---------        |---------                        |
 | Témoin de disque     |  <ul><li> Numéro d'unité logique dédié stockant une copie de la base de données de cluster</li><li> Particulièrement utile aux clusters dotés d'un stockage partagé (non répliqué)</li>       |  <ul><li>Le numéro d'unité logique doit avoir une taille minimale de 512 Mo</li><li> Son utilisation doit être dédiée au cluster et il ne doit pas être affecté à un rôle en cluster</li><li> Doit être inclus dans un stockage en cluster et réussir les tests de validation de stockage</li><li> Disque différent d'un volume partagé de cluster</li><li> Disque de base doté d'un seul volume</li><li> Ne nécessite pas de lettre de lecteur</li><li> Peut être formaté en NTFS ou ReFS</li><li> Peut éventuellement être configuré avec un RAID matériel à des fins de tolérance de panne</li><li> Doit être exclu des sauvegardes et des analyses antivirus</li><li> Un témoin de disque n’est pas pris en charge avec espaces de stockage direct</li>|
-| Témoin de partage de fichiers     | <ul><li>Partage de fichiers SMB configuré sur un serveur de fichiers exécutant Windows Server</li><li> Ne stocke pas de copie de la base de données de cluster</li><li> Consigne les informations de cluster dans un fichier witness.log uniquement</li><li> Essentiellement utile pour les clusters multisites dotés d'un stockage répliqué </li>       |  <ul><li>Doit disposer au minimum de 5 Mo d'espace libre</li><li> Doit être dédié au seul cluster et ne pas être utilisé pour stocker des données d'utilisateurs ou d'applications</li><li> Doit avoir les autorisations en écriture activées pour l'objet ordinateur correspondant au nom du cluster</li></ul><br>Les autres considérations qui suivent s'appliquent à un serveur de fichiers hébergeant le témoin de partage de fichiers :<ul><li>Il est possible de configurer un seul serveur de fichiers avec des témoins de partage de fichiers pour plusieurs clusters.</li><li> Le serveur de fichiers doit se trouver sur un site distinct de la charge de travail de cluster. Chaque site de cluster dispose ainsi des mêmes chances de survie en cas de perte de communication réseau entre les sites. Si le serveur de fichiers sur trouve sur le même site, ce dernier devient le site principal et il est le seul à pouvoir accéder au partage de fichiers.</li><li> Le serveur de fichiers peut s'exécuter sur un ordinateur virtuel si celui-ci n'est pas hébergé sur le cluster qui utilise le témoin de partage de fichiers.</li><li> Pour bénéficier d'un haut niveau de disponibilité, le serveur de fichiers peut être configuré sur un cluster de basculement distinct. </li>      |
-| Témoin Cloud     |  <ul><li>Fichier témoin stocké dans le stockage d’objets BLOB Azure</li><li> Recommandé lorsque tous les serveurs du cluster disposent d’une connexion Internet fiable.</li>      |  Consultez [déployer un témoin Cloud](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).       |
+| Témoin de partage de fichiers     | <ul><li>Partage de fichiers SMB configuré sur un serveur de fichiers exécutant Windows Server</li><li> Ne stocke pas de copie de la base de données de cluster</li><li> Consigne les informations de cluster dans un fichier witness.log uniquement</li><li> Essentiellement utile pour les clusters multisites dotés d'un stockage répliqué </li>       |  <ul><li>Doit disposer au minimum de 5 Mo d'espace libre</li><li> Doit être dédié au seul cluster et ne pas être utilisé pour stocker des données d'utilisateurs ou d'applications</li><li> Doit avoir les autorisations en écriture activées pour l'objet ordinateur correspondant au nom du cluster</li></ul><br>Les autres considérations qui suivent s'appliquent à un serveur de fichiers hébergeant le témoin de partage de fichiers :<ul><li>Il est possible de configurer un seul serveur de fichiers avec des témoins de partage de fichiers pour plusieurs clusters.</li><li> Le serveur de fichiers doit se trouver sur un site distinct de la charge de travail de cluster. Chaque site de cluster dispose ainsi des mêmes chances de survie en cas de perte de communication réseau entre les sites. Si le serveur de fichiers sur trouve sur le même site, ce dernier devient le site principal et il est le seul à pouvoir accéder au partage de fichiers.</li><li> Le serveur de fichiers peut s'exécuter sur un ordinateur virtuel si celui-ci n'est pas hébergé sur le cluster qui utilise le témoin de partage de fichiers.</li><li> Pour bénéficier d'un haut niveau de disponibilité, le serveur de fichiers peut être configuré sur un cluster de basculement distinct. </li>      |
+| Témoin de cloud     |  <ul><li>Fichier témoin stocké dans le stockage d’objets BLOB Azure</li><li> Recommandé lorsque tous les serveurs du cluster disposent d’une connexion Internet fiable.</li>      |  Consultez [déployer un témoin Cloud](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).       |
 
 ### <a name="node-vote-assignment"></a>Attribution de votes aux nœuds
 
@@ -137,7 +137,7 @@ L'appartenance au groupe **Administrateurs** local sur chaque serveur en cluster
           > [!NOTE]
           > Vous pouvez aussi sélectionner **Ne pas configurer de témoin de quorum**, puis complétez l'Assistant. Si vous avez un nom pair de nœuds votants dans votre cluster, il ne s'agit peut-être pas de la configuration recommandée.
 
-      2. Si vous sélectionnez l'option pour configurer un témoin de disque, dans la page **Configurer le témoin de stockage** , sélectionnez le volume de stockage que vous voulez affecter en tant que témoin de disque, puis complétez l'Assistant.
+      2. Si vous sélectionnez l'option pour configurer un témoin de disque, dans la page **Configurer le témoin de stockage**, sélectionnez le volume de stockage que vous voulez affecter en tant que témoin de disque, puis complétez l'Assistant.
       3. Si vous sélectionnez l'option pour configurer un témoin de partage de fichiers, dans la page **Configurer le témoin de partage de fichiers**, entrez ou localisez l'emplacement du partage de fichiers qui fera office de ressource de témoin, plus complétez l'Assistant.
 
     - Pour configurer les paramètres de gestion de quorum et ajouter ou modifier le témoin de quorum, sélectionnez **configuration de quorum avancée et sélection de témoin**, puis procédez comme suit. Pour obtenir des informations et des considérations sur les paramètres de configuration de quorum avancées, voir [Attribution de votes aux nœuds](#node-vote-assignment) et [Gestion de quorum dynamique](#dynamic-quorum-management) plus haut dans cette rubrique.
@@ -153,17 +153,17 @@ L'appartenance au groupe **Administrateurs** local sur chaque serveur en cluster
           > [!NOTE]
           > Vous pouvez aussi sélectionner **Ne pas configurer de témoin de quorum**, puis complétez l'Assistant. Si vous avez un nom pair de nœuds votants dans votre cluster, il ne s'agit peut-être pas de la configuration recommandée.
 
-      4. Si vous sélectionnez l'option pour configurer un témoin de disque, dans la page **Configurer le témoin de stockage** , sélectionnez le volume de stockage que vous voulez affecter en tant que témoin de disque, puis complétez l'Assistant.
+      4. Si vous sélectionnez l'option pour configurer un témoin de disque, dans la page **Configurer le témoin de stockage**, sélectionnez le volume de stockage que vous voulez affecter en tant que témoin de disque, puis complétez l'Assistant.
       5. Si vous sélectionnez l'option pour configurer un témoin de partage de fichiers, dans la page **Configurer le témoin de partage de fichiers**, entrez ou localisez l'emplacement du partage de fichiers qui fera office de ressource de témoin, plus complétez l'Assistant.
 
 4. Sélectionnez **Suivant**. Confirmez vos sélections dans la page de confirmation qui s’affiche, puis sélectionnez **suivant**.
 
-Après l’exécution de l’Assistant et la page **Résumé** qui s’affiche, si vous souhaitez afficher un rapport des tâches effectuées par l’Assistant, sélectionnez **afficher le rapport**. Le rapport le plus récent est conservé dans le dossier <em>systemroot</em> **\\cluster\\Reports** portant le nom **QuorumConfiguration. mht**.
+Après l’exécution de l’Assistant et la page **Résumé** qui s’affiche, si vous souhaitez afficher un rapport des tâches effectuées par l’Assistant, sélectionnez **afficher le rapport**. Le rapport le plus récent est conservé dans le dossier <em>systemroot</em>**\\cluster\\Reports** portant le nom **QuorumConfiguration. mht**.
 
 > [!NOTE]
 > Après avoir configuré le quorum de cluster, nous vous recommandons d'exécuter le test **Valider la configuration de quorum** pour vérifier les paramètres de quorum mis à jour.
 
-### <a name="windows-powershell-equivalent-commands"></a>commandes Windows PowerShell équivalentes
+### <a name="windows-powershell-equivalent-commands"></a>Commandes Windows PowerShell équivalentes
 
 Les exemples suivants montrent comment utiliser l’applet de commande [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum?view=win10-ps) et d’autres applets de commande Windows PowerShell pour configurer le quorum de cluster.
 
@@ -179,7 +179,7 @@ L'exemple suivant modifie la configuration de quorum sur le cluster local pour a
 Set-ClusterQuorum -NodeAndDiskMajority "Cluster Disk 2"
 ```
 
-L'exemple suivant modifie la configuration de quorum sur le cluster local pour adopter une configuration de nœud majoritaire avec témoin. La ressource de partage de fichiers nommée *\\\\contoso-FS\\FSW* est configurée en tant que témoin de partage de fichiers.
+L'exemple suivant modifie la configuration de quorum sur le cluster local pour adopter une configuration de nœud majoritaire avec témoin. La ressource de partage de fichiers nommée * \\ \\Contoso\\-FS FSW* est configurée en tant que témoin de partage de fichiers.
 
 ```PowerShell
 Set-ClusterQuorum -NodeAndFileShareMajority "\\fileserver\fsw"
@@ -311,8 +311,8 @@ Le tableau suivant résume les éléments à prendre en considération et les re
 - Seuls les nœuds de *SiteA* sont initialement configurés avec les votes de quorum. Cela est nécessaire pour éviter que l'état des nœuds de *SiteB* affecte le quorum du cluster.
 - La procédure de récupération peut varier selon que *SiteA* supporte une défaillance temporaire ou une défaillance de longue durée.
 
-## <a name="more-information"></a>Informations supplémentaires
+## <a name="more-information"></a>Informations complémentaires
 
-* [Clustering avec basculement](failover-clustering.md)
+* [Clustering de basculement](failover-clustering.md)
 * [Applets de commande Windows PowerShell pour les clusters de basculement](https://docs.microsoft.com/powershell/module/failoverclusters/?view=win10-ps)
 * [Fonctionnement du quorum de cluster et de pool](../storage/storage-spaces/understand-quorum.md)

@@ -7,15 +7,16 @@ ms.technology: storage-health-service
 ms.topic: article
 author: cosmosdarwin
 ms.date: 08/14/2017
-ms.openlocfilehash: 7ae78137bbd4e39291cc2e307f62697876c98135
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a8262567abdd18847e99026c43d722351a00d3f2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827522"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720541"
 ---
 # <a name="health-service-settings"></a>Paramètres de Service de contrôle d’intégrité
-> S’applique à : Windows Server 2019, Windows Server 2016
+
+> S'applique à : Windows Server 2019, Windows Server 2016
 
 Le Service de contrôle d’intégrité est une nouvelle fonctionnalité de Windows Server 2016 qui améliore la surveillance quotidienne et l’expérience opérationnelle pour les clusters exécutant espaces de stockage direct.
 
@@ -23,7 +24,7 @@ Un grand nombre des paramètres qui régissent le comportement du Service de con
 
 Utilisez l’applet de commande PowerShell suivante pour définir ou modifier des paramètres.
 
-### <a name="usage"></a>Utilisation
+### <a name="usage"></a>Usage
 
 ```PowerShell
 Get-StorageSubSystem Cluster* | Set-StorageHealthSetting -Name <SettingName> -Value <Value>  
@@ -35,7 +36,7 @@ Get-StorageSubSystem Cluster* | Set-StorageHealthSetting -Name <SettingName> -Va
 Get-StorageSubSystem Cluster* | Set-StorageHealthSetting -Name "System.Storage.Volume.CapacityThreshold.Warning" -Value 70
 ```
 
-### <a name="common-settings"></a>Paramètres communs
+### <a name="common-settings"></a>Paramètres courants
 
 Certains paramètres couramment modifiés sont répertoriés ci-dessous, ainsi que leurs valeurs par défaut.
 
@@ -100,5 +101,5 @@ Consultez la section précédente.
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Service de contrôle d’intégrité dans Windows Server 2016](health-service-overview.md)
+- [Service de contrôle d’intégrité dans Windows Server 2016](health-service-overview.md)
 - [espaces de stockage direct dans Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)

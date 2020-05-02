@@ -1,6 +1,6 @@
 ---
 title: wscript
-description: La rubrique commandes Windows pour WScript, qui fournit un environnement dans lequel les utilisateurs peuvent exécuter des scripts dans différents langages utilisant divers modèles objet pour effectuer des tâches.
+description: Rubrique de référence pour WScript, qui fournit un environnement dans lequel les utilisateurs peuvent exécuter des scripts dans différents langages utilisant divers modèles d’objet pour effectuer des tâches.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: 77a0087eee1287699d66c4e1e5ab2aef69551440
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cf2d23c7d5773662f679a9a20b0aaba118f35548
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828932"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720629"
 ---
 # <a name="wscript"></a>wscript
 
@@ -39,18 +39,18 @@ wscript [<scriptname>] [/b] [/d] [/e:<engine>] [{/h:cscript|/h:wscript}] [/i] [/
 |/h : cscript|Inscrit **cscript. exe** comme hôte de script par défaut pour l’exécution des scripts.|
 |/h : WScript|Inscrit **Wscript. exe** comme hôte de script par défaut pour l’exécution des scripts. Il s’agit de la valeur par défaut lorsque l’option **/h** est omise.|
 |/i|Spécifie le mode interactif, qui affiche les alertes, les erreurs de script et les invites d’entrée.</br>Il s’agit de la valeur par défaut et de l’opposé de **/b**.|
-|/travail : identificateur de\<>|Exécute la tâche identifiée par l' *identificateur* dans un fichier de script **. wsf** .|
+|/travail :\<identificateur>|Exécute la tâche identifiée par l' *identificateur* dans un fichier de script **. wsf** .|
 |/logo|Spécifie que la bannière Windows Script Host est affichée dans la console avant l’exécution du script.</br>Il s’agit de la valeur par défaut et de l’opposé de **/nologo**.|
 |/nologo|Spécifie que la bannière Windows Script Host ne s’affiche pas avant l’exécution du script. Il s’agit de l’opposé de **/logo**.|
 |/s|Enregistre les options d’invite de commandes actuelles pour l’utilisateur actuel.|
-|/t : nombre\<>|Spécifie la durée maximale d’exécution du script (en secondes). Vous pouvez spécifier jusqu’à 32 767 secondes.</br>La valeur par défaut est aucune limite de durée.|
+|/t :\<nombre>|Spécifie la durée maximale d’exécution du script (en secondes). Vous pouvez spécifier jusqu’à 32 767 secondes.</br>La valeur par défaut est aucune limite de durée.|
 |/x|Démarre le script dans le débogueur.|
 |ScriptArguments|Spécifie les arguments passés au script. Chaque argument de script doit être précédé d’une barre oblique (/).|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
--   Pour exécuter cette tâche, vous n'avez pas besoin d'avoir un profil d'administrateur. Par conséquent, pour des raisons de sécurité, envisagez d'effectuer cette tâche en tant qu'utilisateur ne disposant pas des informations d'identification d'administration.
+-   Pour effectuer cette tâche, vous n'avez pas besoin de disposer d'informations d'identification d'administration. Par conséquent, pour des raisons de sécurité, envisagez d'effectuer cette tâche en tant qu'utilisateur ne disposant pas des informations d'identification d'administration.
 -   Pour ouvrir une invite de commandes, dans l’écran d’**accueil**, tapez **cmd**, puis cliquez sur l’**invite de commandes**.
 -   Chaque paramètre est facultatif ; Toutefois, vous ne pouvez pas spécifier d’arguments de script sans spécifier de script. Si vous ne spécifiez pas de script ou d’argument de script, **Wscript. exe** affiche la boîte de dialogue **Windows Script Host Settings** , que vous pouvez utiliser pour définir les propriétés de script globales de tous les scripts exécutés par **Wscript. exe** sur l’ordinateur local.
 -   Le paramètre **/t** empêche l’exécution excessive de scripts en définissant un minuteur. Lorsque le délai dépasse la valeur spécifiée, **wscript** interrompt le moteur de script et met fin au processus.

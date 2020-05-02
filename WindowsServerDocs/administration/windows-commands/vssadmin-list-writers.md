@@ -1,5 +1,5 @@
 ---
-title: Enregistreurs de listes vssadmin
+title: Enregistreurs de liste Vssadmin
 description: Description de la commande d’écriture de la liste vssadmin.
 ms.prod: windows-server
 ms.topic: article
@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 9dfa0f70cd0790671869d76165c812a09661897a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3fbf5010b7ed4ae17775995111d86f56f0b1f5a7
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80830032"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720251"
 ---
-# <a name="vssadmin-list-writers"></a>Enregistreurs de listes vssadmin
+# <a name="vssadmin-list-writers"></a>Enregistreurs de liste Vssadmin
 
->S’applique à : Windows 10, Windows 8.1, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> S’applique à : Windows 10, Windows 8.1, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 Répertorie les writers de clichés instantanés de volume abonnés.
 
