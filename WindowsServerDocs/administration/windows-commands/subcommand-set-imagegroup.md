@@ -1,6 +1,6 @@
 ---
 title: Sous-commande Set-ImageGroup
-description: La rubrique commandes Windows pour la sous-commande Set-ImageGroup, qui modifie les attributs d’un groupe d’images.
+description: Rubrique de référence pour la sous-commande Set-ImageGroup, qui modifie les attributs d’un groupe d’images.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 966e3c10d9bcc13568f5fec4e1efd1ad46a121b0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 429a8fee5b0236d264eb421f110219a1bc037368
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833912"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721696"
 ---
 # <a name="subcommand-set-imagegroup"></a>Sous-commande : Set-ImageGroup
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Modifie les attributs d’un groupe d’images.
 
@@ -29,11 +29,11 @@ wdsutil [Options] /Set-ImageGroumediaGroup:<Image group name> [/Server:<Server n
 ### <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-mediaGroup :<Image group name>|Spécifie le nom du groupe d'images.|
+mediaGroup:<Image group name>|Spécifie le nom du groupe d'images.|
 |[/Server:<Server name>]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. S’il n’est pas spécifié, le serveur local est utilisé.|
 |[/Name :<New image group name>]|Spécifie le nouveau nom du groupe d’images.|
 |[/Security :<SDDL>]|Spécifie le nouveau descripteur de sécurité du groupe d’images, au format SDDL (Security Descriptor Definition Language).|
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 Pour définir le nom d’un groupe d’images, tapez :
 ```
 wdsutil /Set-ImageGroumediaGroup:ImageGroup1 /Name:New Image Group Name
@@ -44,8 +44,8 @@ wdsutil /verbose /Set-ImageGroumediaGroup:ImageGroup1 /Server:MyWDSServer /Name:
 /Security:O:BAG:S-1-5-21-2176941838-3499754553-4071289181-513 D:AI(A;ID;FA;;;SY)(A;OICIIOID;GA;;;SY)(A;ID;FA;;;BA)(A;OICIIOID;GA;;;BA) (A;ID;0x1200a9;;;AU)(A;OICIIOID;GXGR;;;AU)
 ```
 ## <a name="additional-references"></a>Références supplémentaires
-- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-[à l’aide de la commande add-ImageGroup](using-the-add-imagegroup-command.md)
-[à l’aide de la commande AllImageGroups](using-the-get-allimagegroups-command.md)
-à l’aide de la commande « [ImageGroup »](using-the-get-imagegroup-command.md)
-[à l’aide de la commande Remove-ImageGroup](using-the-remove-imagegroup-command.md)
+- [Clé](command-line-syntax-key.md)
+de syntaxe de ligne de commande[à l’aide de la commande Add-ImageGroup](using-the-add-imagegroup-command.md)
+[à](using-the-get-allimagegroups-command.md)
+l’aide de la commande-AllImageGroups à l’aide de la commande-[ImageGroup](using-the-get-imagegroup-command.md)
+avec[la commande Remove-ImageGroup](using-the-remove-imagegroup-command.md)

@@ -1,6 +1,6 @@
 ---
-title: désactivation
-description: La rubrique de commandes Windows pour Disable, qui désactive tous les services pour les services de déploiement Windows.
+title: disable
+description: Rubrique de référence pour Disable, qui désactive tous les services pour les services de déploiement Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ffb63db8a865f9e4368c180e86724120823d097e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e4523c75af4f75488f6dc0fad5dbb4ebc2442f7d
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80831652"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720979"
 ---
-# <a name="disable"></a>désactivation
+# <a name="disable"></a>disable
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Désactive tous les services pour les services de déploiement Windows.
 

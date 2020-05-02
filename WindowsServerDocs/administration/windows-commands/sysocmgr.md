@@ -1,6 +1,6 @@
 ---
 title: sysocmgr
-description: La rubrique Windows Commands pour sysocmgr, qui est dépréciée et n’est pas garantie pour être prise en charge dans les versions futures de Windows.
+description: La rubrique de référence pour sysocmgr, qui est dépréciée et n’est pas garantie pour être prise en charge dans les versions ultérieures de Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a8f410d99fa1296cdf2577d57368fda58cbdfd04
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 513bcab45b16f82e7f3dac0d77587a8db9d1c327
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833592"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721593"
 ---
 # <a name="sysocmgr"></a>sysocmgr
 

@@ -1,6 +1,6 @@
 ---
 title: Add-ImageDriverPackage
-description: Rubrique relative aux commandes Windows pour Add-ImageDriverPackage, qui ajoute un package de pilotes qui se trouve dans le magasin de pilotes à une image de démarrage existante sur le serveur.
+description: Rubrique de référence pour Add-ImageDriverPackage, qui ajoute un package de pilotes qui se trouve dans le magasin de pilotes à une image de démarrage existante sur le serveur.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9b61a5beabed655ae629ad5c1e43d681568d07db
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4c221d77f80cefdcf6e6214cdd7441ecde5cb693
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80831922"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721067"
 ---
 # <a name="add-imagedriverpackage"></a>Add-ImageDriverPackage
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ajoute un package de pilotes qui se trouve dans le magasin de pilotes à une image de démarrage existante sur le serveur. La version de l’image doit être Windows 7 ou Windows Server 2008 R2 ou version ultérieure.
 
@@ -33,15 +33,15 @@ wdsutil /add-ImageDriverPackage [/Server:<Server name>media:<Image namemediatype
 
 |                 Paramètre                  |                                                                                                                                                                                                            Description                                                                                                                                                                                                             |
 |--------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|           [/Server :<Server name>           |                                                                                                                                               Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.                                                                                                                                                |
-|             média :<Image name>             |                                                                                                                                                                                       Spécifie le nom de l’image à laquelle ajouter le pilote.                                                                                                                                                                                        |
+|           /Server<Server name>           |                                                                                                                                               Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.                                                                                                                                                |
+|             Media<Image name>             |                                                                                                                                                                                       Spécifie le nom de l’image à laquelle ajouter le pilote.                                                                                                                                                                                        |
 |               MediaType : démarrage               |                                                                                                                                                                Spécifie le type d’image auquel ajouter le pilote. Les packages de pilotes peuvent uniquement être ajoutés aux images de démarrage.                                                                                                                                                                 |
 | /Architecture : {x86 &#124; ia64 &#124; x64} |                                                                                                       Spécifie l’architecture de l’image de démarrage. Étant donné qu’il est possible d’avoir le même nom d’image pour les images de démarrage dans différentes architectures, vous devez spécifier l’architecture pour vous assurer que l’image correcte est utilisée.                                                                                                        |
 |           /Filename :<File name>]           |                                                                                                                                                        Spécifie le nom du fichier. Si l’image ne peut pas être identifiée de manière unique par son nom, le nom de fichier doit être spécifié.                                                                                                                                                        |
-|           [/DriverPackage :<Name>           |                                                                                                                                                                                   Spécifie le nom du package de pilotes à ajouter à l’image.                                                                                                                                                                                    |
+|           [/DriverPackage:<Name>           |                                                                                                                                                                                   Spécifie le nom du package de pilotes à ajouter à l’image.                                                                                                                                                                                    |
 |             [/PackageId :<ID>]              | Spécifie l’ID des services de déploiement Windows du package de pilotes. Vous devez spécifier cette option si le package de pilotes ne peut pas être identifié de manière unique par son nom. Pour trouver l’ID de package, cliquez sur le groupe de pilotes dans lequel se trouve le package (ou sur le nœud **tous les packages** ), cliquez avec le bouton droit sur le package, puis cliquez sur **Propriétés**. L’ID de package est indiqué sous l’onglet **général** . Par exemple : {DD098D20-1850-4fc8-8E35-EA24A1BEFF5E}. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 Pour ajouter un package de pilotes à une image de démarrage, tapez l’une des options suivantes :
 ```
 wdsutil /add-ImageDriverPackagmedia:WinPE Boot Imagemediatype:Boot /Architecture:x86 /DriverPackage:XYZ

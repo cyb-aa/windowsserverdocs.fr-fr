@@ -1,6 +1,6 @@
 ---
 title: Utilisation de la sous-commande Add-AllDriverPackages
-description: La rubrique commandes Windows pour Add-AllDriverPackages, qui ajoute tous les packages de pilotes stockés dans un dossier à un serveur.
+description: Rubrique de référence pour Add-AllDriverPackages, qui ajoute tous les packages de pilotes stockés dans un dossier à un serveur.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dc8252339fcae04517c2074c24bbfab44228b779
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 31daa8fc3e3304dba5079672ea4619fd085dd74f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832252"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721158"
 ---
 # <a name="add-alldriverpackages"></a>Add-AllDriverPackages
 
@@ -30,12 +30,12 @@ WDSUTIL /Add-AllDriverPackages /FolderPath:<Folder Path> [/Server:<Server name>]
 
 |          Paramètre           |                                                              Description                                                              |
 |------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-|  /FolderPath : chemin d’accès au dossier\<>  |                      Spécifie le chemin d’accès complet au dossier qui contient les fichiers. inf des packages de pilotes.                      |
-|   [/Server :\<nom du serveur >]   | Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé. |
+|  /FolderPath :\<chemin d’accès au dossier>  |                      Spécifie le chemin d’accès complet au dossier qui contient les fichiers. inf des packages de pilotes.                      |
+|   [/Server :\<nom du serveur>]   | Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé. |
 |     [/Architecture : {x86      |                                                                 ia64                                                                  |
-| [/DriverGroup : nom de groupe\<>] |                             Spécifie le nom du groupe de pilotes auquel les packages doivent être ajoutés.                             |
+| [/DriverGroup :\<nom de groupe>] |                             Spécifie le nom du groupe de pilotes auquel les packages doivent être ajoutés.                             |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour ajouter des packages de pilotes, tapez l’un des éléments suivants :
 ```

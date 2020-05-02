@@ -1,6 +1,6 @@
 ---
-title: copier
-description: La rubrique relative aux commandes Windows pour la copie, qui copie une image ou un groupe de pilotes.
+title: copy
+description: Rubrique de référence pour la copie, qui copie une image ou un groupe de pilotes.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8bb5e03a067b5f3d64364001264525a33ba921a5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7c6e5d28f4af5f3e5e4d8496f5abba1b441e9ec3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80831792"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721021"
 ---
-# <a name="copy"></a>copier
+# <a name="copy"></a>copy
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Copie une image ou un groupe de pilotes.
 

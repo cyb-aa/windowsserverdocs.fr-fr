@@ -1,6 +1,6 @@
 ---
-title: Simuler la restauration
-description: Rubrique commandes Windows pour simuler la restauration, qui teste l’implication de l’enregistreur dans les sessions de restauration sur l’ordinateur sans émettre des événements prerestauration ou PostRestore aux rédacteurs.
+title: simuler la restauration
+description: Rubrique de référence pour simuler la restauration, qui teste l’implication de l’enregistreur dans les sessions de restauration sur l’ordinateur sans émettre des événements prerestauration ou PostRestore aux rédacteurs.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 024d654864c000e44bccb9ddb167c6147444cc00
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1bab6c56cddc1d2ac95dc70205b0990b82fbfd12
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834102"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721778"
 ---
 # <a name="simulate-restore"></a>Simuler la restauration
 

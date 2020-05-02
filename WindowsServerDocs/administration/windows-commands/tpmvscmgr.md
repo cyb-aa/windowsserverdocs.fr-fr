@@ -1,6 +1,6 @@
 ---
 title: tpmvscmgr
-description: La rubrique commandes Windows pour tpmvscmgr, qui est un outil en ligne de commande qui permet aux utilisateurs disposant d’informations d’identification administratives de créer et de supprimer des cartes à puce virtuelles TPM sur un ordinateur.
+description: Rubrique de référence pour tpmvscmgr, qui est un outil de ligne de commande qui permet aux utilisateurs disposant d’informations d’identification d’administration de créer et de supprimer des cartes à puce virtuelles TPM sur un ordinateur.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4411e0ec3c75cd768b2fe32ad26b17331328e3ca
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ab0419060121033571eeba643cc0e2d42b45c743
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832732"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721303"
 ---
 # <a name="tpmvscmgr"></a>tpmvscmgr
 
-L’outil en ligne de commande Tpmvscmgr permet aux utilisateurs disposant d’informations d’identification d’administration de créer et de supprimer des cartes à puce virtuelles TPM sur un ordinateur. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+L’outil en ligne de commande Tpmvscmgr permet aux utilisateurs disposant d’informations d’identification d’administration de créer et de supprimer des cartes à puce virtuelles TPM sur un ordinateur.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -55,13 +55,13 @@ La commande destroy supprime une carte à puce virtuelle de l’ordinateur de l�
 |/instance|Spécifie l’ID d’instance de la carte à puce virtuelle à supprimer. L’instanceID a été généré comme sortie par Tpmvscmgr. exe lors de la création de la carte. Le paramètre/instance est un champ obligatoire pour la commande destroy.|
 |/?|Affiche l’aide de cette commande.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 L’appartenance au groupe **administrateurs** (ou équivalent) sur l’ordinateur cible est la condition minimale requise pour exécuter tous les paramètres de cette commande.
 
 Pour les entrées alphanumériques, le jeu ASCII complet de 127 caractères est autorisé.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 La commande suivante montre comment créer une carte à puce virtuelle qui peut être gérée par la suite par un outil de gestion des cartes à puce lancé à partir d’un autre ordinateur.
 ```
@@ -79,7 +79,7 @@ La commande suivante crée une carte à puce virtuelle avec une clé d’adminis
 ```
 tpmvscmgr.exe destroy /instance <instance ID> 
 ```
-où \<ID d’instance > correspond à la valeur imprimée à l’écran lorsque l’utilisateur a créé la carte. Plus précisément, pour la première carte créée, l’ID d’instance est ROOT\SMARTCARDREADER\0000.
+où \<ID d’instance> correspond à la valeur imprimée à l’écran lorsque l’utilisateur a créé la carte. Plus précisément, pour la première carte créée, l’ID d’instance est ROOT\SMARTCARDREADER\0000.
 
 ## <a name="additional-references"></a>Références supplémentaires
 

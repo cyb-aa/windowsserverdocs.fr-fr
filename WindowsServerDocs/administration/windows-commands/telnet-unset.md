@@ -1,6 +1,6 @@
 ---
 title: Telnet non définie
-description: Rubrique relative aux commandes Windows pour telnet unset, qui désactive les options précédemment définies.
+description: Rubrique de référence relative à la désactivation de Telnet, qui désactive les options précédemment définies.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 34d52eedb2a5547ad0e3f2912dbe2a250eaf8fc5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d88f5e479564cad8e2ec7e82dbb4f4cef35cd012
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833142"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721463"
 ---
 # <a name="telnet-unset"></a>Telnet : désactivé
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Désactive les options précédemment définies.   
 
@@ -34,10 +34,10 @@ u[nset] {bsasdel | crlf | delasbs | escape | localecho | logging | ntlm} [?]
 |delasbs|Envoie **Delete** en tant que **Delete**.|  
 |échappement|supprime le paramètre de caractère d’échappement.|  
 |localecho|Désactive l’localecho.|  
-|enregistrer|Désactive la journalisation.|  
+|journalisation|Désactive la journalisation.|  
 |ntlm|Désactive l’authentification NTLM.|  
 |?|Affiche l’aide de cette commande.|  
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre  
+## <a name="examples"></a>Exemples  
 Désactivez la journalisation.  
 ```  
 u logging  

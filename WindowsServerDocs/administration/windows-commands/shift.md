@@ -1,6 +1,6 @@
 ---
 title: déplacement
-description: Rubrique relative aux commandes Windows pour Shift, qui modifie la position des paramètres de lot dans un fichier de commandes.
+description: Rubrique de référence pour Shift, qui modifie la position des paramètres de lot dans un fichier de commandes.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9c242fe90a8bf32eda5a3db511910e3d7aa4610f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 617d7f712ccae13c522bc65db147c12c526b4efb
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834262"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721829"
 ---
 # <a name="shift"></a>déplacement
 
 Modifie la position des paramètres de lot dans un fichier de commandes.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,18 +32,18 @@ shift [/n <N>]
 
 |Paramètre|Description|
 |---------|-----------|
-|/n \<N >|Spécifie de commencer le décalage au *N*ième argument, où *N* est une valeur comprise entre 0 et 8. Requiert des extensions de commande, qui sont activées par défaut.|
+|/n \<n>|Spécifie de commencer le décalage au *N*ième argument, où *N* est une valeur comprise entre 0 et 8. Requiert des extensions de commande, qui sont activées par défaut.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 - La commande **Shift** modifie les valeurs des paramètres de lot **%0** à **%9** en copiant chaque paramètre dans le précédent : la valeur **%1** est copiée dans **%0**, la valeur **%2** est copiée dans **%1**, et ainsi de suite. Cela est utile pour écrire un fichier de commandes qui effectue la même opération sur un nombre quelconque de paramètres.
 - Si les extensions de commande sont activées, la commande **Shift** prend en charge l’option de ligne de commande **/n** . L’option **/n** spécifie de commencer le décalage au nième argument, où **n** est une valeur comprise entre 0 et 8. Par exemple, **Shift/2** déplace **%3** vers **%2**, **%4** vers **%3**, et ainsi de suite, et laisse **%0** et **%1** non affectés. Les extensions de commande sont activées par défaut.
-- Vous pouvez utiliser la commande **Shift** pour créer un fichier de commandes qui peut accepter plus de 10 paramètres batch. Si vous spécifiez plus de 10 paramètres sur la ligne de commande, ceux qui apparaissent après le dixième ( **%9**) sont décalés un à la fois dans **%9**.
-- La commande **Shift** n’a aucun effet sur le paramètre batch **%\\** *.
-- Il n’y a pas de commande de **décalage vers** l’arrière. Après avoir implémenté la commande **Shift** , vous ne pouvez pas récupérer le paramètre batch ( **%0**) qui existait avant le décalage.
+- Vous pouvez utiliser la commande **Shift** pour créer un fichier de commandes qui peut accepter plus de 10 paramètres batch. Si vous spécifiez plus de 10 paramètres sur la ligne de commande, ceux qui apparaissent après le dixième (**%9**) sont décalés un à la fois dans **%9**.
+- La commande **Shift** n’a aucun effet sur ** % **le paramètre * batch.
+- Il n’y a pas de commande de **décalage vers** l’arrière. Après avoir implémenté la commande **Shift** , vous ne pouvez pas récupérer le paramètre batch (**%0**) qui existait avant le décalage.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Les lignes suivantes d’un exemple de fichier de commandes nommé Mycopy. bat montrent comment utiliser **Shift** avec un nombre quelconque de paramètres de lot. Dans cet exemple, Mycopy. bat copie une liste de fichiers dans un répertoire spécifique. Les paramètres de lot sont représentés par les arguments de nom de fichier et de répertoire.
 ```

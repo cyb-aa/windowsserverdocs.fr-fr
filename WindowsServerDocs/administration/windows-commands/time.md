@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5b6efff57a512a2e0519b3294c51c073f1f44d8d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e27b260bdaa8896ad3cf0ad58294467bbb63e1c2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832832"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721363"
 ---
 # <a name="time"></a>time
 
@@ -22,7 +22,7 @@ ms.locfileid: "80832832"
 
 Affiche ou définit l’heure système. S’il est utilisé sans paramètres, l' **heure** affiche l’heure système actuelle et vous invite à entrer une nouvelle heure.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,11 +34,11 @@ time [/t | [<HH>[:<MM>[:<SS>]] [am|pm]]]
 
 |Paramètre|Description|
 |---------|-----------|
-|\<HH > [ :\<MM > [ :\<SS > [.\<NN >]]] [AM\|PM]|Définit l’heure système sur la nouvelle heure spécifiée, où *hh* est en heures (obligatoire), *mm* est en minutes et *SS* est en secondes. *Nn* peut être utilisé pour spécifier les centièmes de seconde. Si **am** ou **PM** n’est pas spécifié, l' **heure** utilise le format 24 heures par défaut.|
+|\<HH> [ :\<mm> [ :\<SS> [.\< NN>]]] [AM\|PM]|Définit l’heure système sur la nouvelle heure spécifiée, où *hh* est en heures (obligatoire), *mm* est en minutes et *SS* est en secondes. *Nn* peut être utilisé pour spécifier les centièmes de seconde. Si **am** ou **PM** n’est pas spécifié, l' **heure** utilise le format 24 heures par défaut.|
 |/t|Affiche l’heure actuelle sans vous demander une nouvelle heure.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Pour modifier l’heure actuelle, vous devez disposer d’informations d’identification d’administration.
 -   Vous devez séparer les valeurs des valeurs *hh*, *mm*et *SS* par des signes deux-points ( :). *SS* et *nn* doivent être séparés par un point (.).

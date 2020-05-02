@@ -1,6 +1,6 @@
 ---
 title: Copy-DriverGroup
-description: La rubrique commandes Windows pour Copy-DriverGroup, qui duplique un groupe de pilotes existant sur le serveur, y compris les filtres, les packages de pilotes et l’état activé/désactivé.
+description: Rubrique de référence pour Copy-DriverGroup, qui duplique un groupe de pilotes existant sur le serveur, y compris les filtres, les packages de pilotes et l’état activé/désactivé.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 277903150a25555b03b51c980436250656c597b1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dc157e9ef6d07a45efe2a19221fb3a046b2f65c1
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80831732"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721013"
 ---
 # <a name="copy-drivergroup"></a>Copy-DriverGroup
 
@@ -30,11 +30,11 @@ WDSUTIL /Copy-DriverGroup [/Server:<Server name>] /DriverGroup:<Source Group Nam
 
 |Paramètre|Description|
 |---------|-----------|
-|[/Server :\<nom du serveur >]|Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
-|/DriverGroup :\<nom du groupe source >|Spécifie le nom du groupe de pilotes source.|
-|/GroupName :\<nom du nouveau groupe >|Spécifie le nom du nouveau groupe de pilotes.|
+|[/Server :\<nom du serveur>]|Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
+|/DriverGroup :\<nom du groupe source>|Spécifie le nom du groupe de pilotes source.|
+|/GroupName :\<nouveau nom de groupe>|Spécifie le nom du nouveau groupe de pilotes.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour copier un groupe de pilotes, tapez l’un des éléments suivants :
 ```

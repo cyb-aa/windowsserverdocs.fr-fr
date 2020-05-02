@@ -1,6 +1,6 @@
 ---
 title: sfc
-description: La rubrique commandes Windows pour SFC, qui analyse et vérifie l’intégrité de tous les fichiers système protégés et remplace les versions incorrectes par les versions appropriées.
+description: Rubrique de référence pour SFC, qui analyse et vérifie l’intégrité de tous les fichiers système protégés et remplace les versions incorrectes par les versions appropriées.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7663c8e3527995e2d3ec874dff6fa972e7e83ddd
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1319a688ea0e145857b5c36652b5fb007fcf53c8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834322"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721842"
 ---
 # <a name="sfc"></a>sfc
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Analyse et vérifie l’intégrité de tous les fichiers système protégés et remplace les versions incorrectes par les versions appropriées.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -35,20 +34,20 @@ sfc [/scannow] [/verifyonly] [/scanfile=<file>] [/verifyfile=<file>] [/offwindir
 |/scannow|Analyse l’intégrité de tous les fichiers système protégés et répare les fichiers avec des problèmes lorsque cela est possible.|
 |/verifyonly|Analyse l’intégrité de tous les fichiers système protégés. Aucune opération de réparation n’est effectuée.|
 |/scanfile|Analyse l’intégrité du fichier spécifié et répare le fichier si des problèmes sont détectés, dans la mesure du possible.|
-|fichier de \<>|Chemin d’accès complet et nom de fichier spécifiés|
+|\<> de fichiers|Chemin d’accès complet et nom de fichier spécifiés|
 |/verifyfile|vérifie l’intégrité du fichier spécifié. Aucune opération de réparation n’est effectuée.|
 |/offwindir|Spécifie l’emplacement du répertoire Windows hors connexion, pour la réparation hors connexion.|
 |/offbootdir|Spécifie l’emplacement du répertoire de démarrage hors connexion pour Offline|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 -   Vous devez avoir ouvert une session en tant que membre du groupe administrateurs pour exécuter **SFC. exe**.
 -   Si **SFC** découvre qu’un fichier protégé a été remplacé, il récupère la version correcte du fichier à partir du dossier **systemroot\system32\dllcache** , puis remplace le fichier incorrect.
 -   Il existe des différences fonctionnelles entre **SFC** sur windows Server 2003, windows Server 2008 et windows Server 2008 R2 :
 -   Pour plus d’informations sur **SFC** sur Windows Server 2003, voir l' [article 310747](https://go.microsoft.com/fwlink/?LinkId=227069) de la base de connaissances Microsoft.
 -   Pour plus d’informations sur **SFC** sur windows Server 2008 et windows Server 2008 R2, consultez l' [outil de vérification des fichiers système](https://go.microsoft.com/fwlink/?LinkId=227071).
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 Pour vérifier le **fichier Kernel32. dll**, tapez :
 ```
 sfc /verifyfile=c:\windows\system32\kernel32.dll

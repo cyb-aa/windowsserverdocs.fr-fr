@@ -1,6 +1,6 @@
 ---
 title: tsecimp
-description: La rubrique commandes Windows pour Tsecimp, qui importe les informations d’affectation d’un fichier Extensible Markup Language (XML) dans le fichier de sécurité du serveur TAPI (sect. ini).
+description: Rubrique de référence pour Tsecimp, qui importe les informations d’affectation d’un fichier Extensible Markup Language (XML) dans le fichier de sécurité du serveur TAPI (sect. ini).
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 30a097bcd25e981f72a421b81b80b595343404ba
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: afd38f7081a9b4674eb6cac26f52849794b8d5e6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832502"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721251"
 ---
 # <a name="tsecimp"></a>tsecimp
 
@@ -31,13 +31,13 @@ tsecimp /d
 
 |Paramètre|Description|
 |---------|-----------|
-|/f \<nom du fichier >|Obligatoire. Spécifie le nom du fichier XML qui contient les informations d’affectation que vous souhaitez importer.|
+|/f \<nom de fichier>|Obligatoire. Spécifie le nom du fichier XML qui contient les informations d’affectation que vous souhaitez importer.|
 |/v|Valide la structure du fichier XML sans importer les informations dans le fichier sect. ini.|
-|/u|Vérifie si chaque utilisateur est membre du domaine spécifié dans le fichier XML. L’ordinateur sur lequel vous utilisez ce paramètre doit être connecté au réseau. Ce paramètre peut ralentir considérablement les performances si vous traitez une grande quantité d’informations d’attribution de l’utilisateur.|
+|/U|Vérifie si chaque utilisateur est membre du domaine spécifié dans le fichier XML. L’ordinateur sur lequel vous utilisez ce paramètre doit être connecté au réseau. Ce paramètre peut ralentir considérablement les performances si vous traitez une grande quantité d’informations d’attribution de l’utilisateur.|
 |/d|Affiche la liste des fournisseurs de téléphonie installés. Pour chaque fournisseur de téléphonie, les périphériques de ligne associés sont répertoriés, ainsi que les adresses et les utilisateurs associés à chaque périphérique de ligne.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Le fichier XML à partir duquel vous souhaitez importer les informations d’attribution doit suivre la structure décrite ci-dessous.  
     -   Élément **UserList**

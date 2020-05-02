@@ -1,6 +1,6 @@
 ---
 title: Add-DriverPackage
-description: Rubrique relative aux commandes Windows pour Add-DriverPackage, qui ajoute un package de pilotes au serveur.
+description: Rubrique de référence pour Add-DriverPackage, qui ajoute un package de pilotes au serveur.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e2ccdfcddd2f605eccd9cd32fed7b8c6921297fc
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 12d7f7078cf3dde10f834a4d4c7784ecc1d9bdf2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832012"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721094"
 ---
 # <a name="add-driverpackage"></a>Add-DriverPackage
 
@@ -30,13 +30,13 @@ WDSUTIL /Add-DriverPackage /InfFile:<Inf File path> [/Server:<Server name>] [/Ar
 
 |          Paramètre           |                                                              Description                                                              |
 |------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-|   InfFile :\<chemin d’accès du fichier INF >   |                                           Spécifie le chemin d’accès complet du fichier. inf à ajouter.                                            |
-|    /Server : nom du serveur\<>    | Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé. |
+|   InfFile :\<chemin d’accès du fichier INF>   |                                           Spécifie le chemin d’accès complet du fichier. inf à ajouter.                                            |
+|    /Server :\<nom du serveur>    | Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé. |
 |      /Architecture : {x86      |                                                                 ia64                                                                  |
-| [/DriverGroup : nom de groupe\<>] |                             Spécifie le nom du groupe de pilotes auquel le package doit être ajouté.                              |
-|   [/Name :\<nom convivial >]   |                                           Indique le nom convivial du package de pilotes.                                            |
+| [/DriverGroup :\<nom de groupe>] |                             Spécifie le nom du groupe de pilotes auquel le package doit être ajouté.                              |
+|   [/Name :\<nom convivial>]   |                                           Indique le nom convivial du package de pilotes.                                            |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour ajouter un package de pilotes, tapez l’un des éléments suivants :
 ```

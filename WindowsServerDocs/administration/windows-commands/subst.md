@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 43cbc57aba29ea0b9150dccdfc566a93017a09a5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 62ba0de33e69998e7d3e343b1e53c1de7e630e10
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833642"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721610"
 ---
 # <a name="subst"></a>subst
 
@@ -22,7 +22,7 @@ ms.locfileid: "80833642"
 
 Associe un chemin d’accès à une lettre de lecteur. En cas d’utilisation sans paramètre, **subst** affiche le nom des lecteurs virtuels en vigueur.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -35,12 +35,12 @@ subst <Drive1>: /d
 
 |Paramètre|Description|
 |---------|-----------|
-|\<Lecteur1 >:|Spécifie le lecteur virtuel auquel vous souhaitez affecter un chemin d’accès.|
-|[\<lecteur2 >:]\<chemin d’accès >|Spécifie le lecteur physique et le chemin d’accès que vous souhaitez affecter à un lecteur virtuel.|
+|\<> lecteur1 :|Spécifie le lecteur virtuel auquel vous souhaitez affecter un chemin d’accès.|
+|[\<Lecteur2> :] \<Chemin d’accès>|Spécifie le lecteur physique et le chemin d’accès que vous souhaitez affecter à un lecteur virtuel.|
 |/d|Supprime un lecteur (virtuel) substitué.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Les commandes suivantes ne fonctionnent pas et ne doivent pas être utilisées sur les lecteurs spécifiés dans la commande **subst** :
 

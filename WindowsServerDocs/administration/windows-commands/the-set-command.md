@@ -1,6 +1,6 @@
 ---
 title: set
-description: La rubrique commandes Windows pour Set, qui définit les propriétés et les attributs des serveurs des services de déploiement Windows, des ordinateurs, des images, des groupes d’images et des serveurs de transport Windows.
+description: Rubrique de référence pour Set, qui définit des propriétés et des attributs pour les serveurs des services de déploiement Windows, les ordinateurs, les images, les groupes d’images et les serveurs de transport.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2e47a90137a94d4ada149135ee0b593e0ade0ae3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dd406a04fdb704ec8e2ee1e9aa3548c130e1089c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833052"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721421"
 ---
 # <a name="set"></a>set
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Définit les propriétés et les attributs pour les serveurs des services de déploiement Windows, les ordinateurs prédéfinis, les images, les groupes d’images et les serveurs de transport.
 

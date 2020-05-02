@@ -1,6 +1,6 @@
 ---
 title: systeminfo
-description: La rubrique commandes Windows pour SystemInfo, qui affiche des informations de configuration détaillées sur un ordinateur et son système d’exploitation, notamment la configuration du système d’exploitation, les informations de sécurité, l’ID de produit et les propriétés matérielles (telles que la RAM, l’espace disque et les cartes réseau).
+description: Rubrique de référence pour SystemInfo, qui affiche des informations de configuration détaillées sur un ordinateur et son système d’exploitation, notamment la configuration du système d’exploitation, les informations de sécurité, l’ID de produit et les propriétés matérielles (telles que la RAM, l’espace disque et les cartes réseau).
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 41c2a499bc10f5b44f250958471b90f4b88dfede
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6e95a61e4312e37288bc587264cf35240920abd3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833572"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721583"
 ---
 # <a name="systeminfo"></a>systeminfo
 
 Affiche des informations de configuration détaillées sur un ordinateur et son système d’exploitation, notamment la configuration du système d’exploitation, les informations de sécurité, l’ID de produit et les propriétés matérielles (telles que la RAM, l’espace disque et les cartes réseau).
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,14 +32,14 @@ Systeminfo [/s <Computer> [/u <Domain>\<UserName> [/p <Password>]]] [/fo {TABLE 
 
 |Paramètre|Description|
 |---------|-----------|
-|/s \<> de l’ordinateur|Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.|
-|/u \<domaine >\<nom d’utilisateur >|Exécute la commande avec les autorisations de compte du compte d’utilisateur spécifié. Si l’option **/u** n’est pas spécifiée, cette commande utilise les autorisations de l’utilisateur actuellement connecté à l’ordinateur qui émet la commande.|
-|/p \<mot de passe >|Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .|
-|/FO \<format >|Spécifie le format de sortie avec l’une des valeurs suivantes :</br>TABLE : affiche la sortie dans une table.</br>LIST : affiche la sortie dans une liste.</br>CSV : affiche la sortie au format de valeurs séparées par des virgules.|
+|/s \<ordinateur>|Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.|
+|/u \<domaine>\<nom d’utilisateur>|Exécute la commande avec les autorisations de compte du compte d’utilisateur spécifié. Si l’option **/u** n’est pas spécifiée, cette commande utilise les autorisations de l’utilisateur actuellement connecté à l’ordinateur qui émet la commande.|
+|/p \<mot de passe>|Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .|
+|/FO \<format>|Spécifie le format de sortie avec l’une des valeurs suivantes :</br>TABLE : affiche la sortie dans une table.</br>LIST : affiche la sortie dans une liste.</br>CSV : affiche la sortie au format de valeurs séparées par des virgules.|
 |/NH|Supprime les en-têtes de colonnes dans la sortie. Valide lorsque le paramètre **/FO** est défini sur table ou CSV.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour afficher les informations de configuration d’un ordinateur nommé Srvmain, tapez :
 
@@ -51,7 +51,7 @@ Pour afficher à distance les informations de configuration d’un ordinateur no
 
 Pour afficher à distance les informations de configuration (sous forme de liste) pour un ordinateur nommé Srvmain2 qui se trouve sur le domaine maindol, tapez :
 
-**SystemInfo/s Srvmain2/u maindom\hiropln/p p@ssW23/FO list**
+**SystemInfo/s Srvmain2/u maindom\hiropln/p p@ssW23 /FO list**
 
 ## <a name="additional-references"></a>Références supplémentaires
 

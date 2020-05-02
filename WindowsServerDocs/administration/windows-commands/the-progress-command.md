@@ -1,6 +1,6 @@
 ---
-title: avancement
-description: Rubrique relative aux commandes Windows pour la progression, qui affiche la progression pendant l’exécution d’une commande.
+title: progress
+description: Rubrique de référence pour la progression, qui affiche la progression pendant l’exécution d’une commande.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9957174203df8f2f5c02bf3ab8a4f3406701a8da
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3fcb06304df22208cef013d73a4ebf0af1991f88
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833122"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721432"
 ---
-# <a name="progress"></a>avancement
+# <a name="progress"></a>progress
 
 Affiche la progression pendant l’exécution d’une commande. Vous pouvez utiliser **/Progress** avec les autres commandes WDSUTIL que vous exécutez. Notez que vous devez spécifier **/Verbose** et **/Progress** directement après **WDSUTIL**.
 

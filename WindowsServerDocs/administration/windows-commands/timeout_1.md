@@ -1,6 +1,6 @@
 ---
-title: timeout
-description: Rubrique relative aux commandes Windows pour le délai d’expiration, qui suspend le processeur de commande pendant le nombre de secondes spécifié.
+title: délai d'expiration
+description: Rubrique de référence pour Timeout, qui suspend le processeur de commandes pendant le nombre de secondes spécifié.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bd0a43e49e8a7567ac975333b04a9e6f549a0fd8
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ed66342c4f0bbe22e9d2dc6440d291941c769cd7
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832812"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721347"
 ---
-# <a name="timeout"></a>timeout
+# <a name="timeout"></a>délai d'expiration
 
 Suspend le processeur de commandes pendant le nombre de secondes spécifié.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,17 +32,17 @@ timeout /t <TimeoutInSeconds> [/nobreak]
 
 |Paramètre|Description|
 |---------|-----------|
-|/t \<TimeoutInSeconds >|Spécifie le nombre de secondes (entre-1 et 99999) à attendre avant que le processeur de commande continue le traitement. La valeur-1 provoque l’attente indéfinie de l’ordinateur pour une séquence de touches.|
+|/t \<TimeoutInSeconds>|Spécifie le nombre de secondes (entre-1 et 99999) à attendre avant que le processeur de commande continue le traitement. La valeur-1 provoque l’attente indéfinie de l’ordinateur pour une séquence de touches.|
 |/nobreak|Spécifie d’ignorer les frappes de touches utilisateur.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   La commande **timeout** est généralement utilisée dans les fichiers de commandes.
 -   Une séquence de touches utilisateur reprend immédiatement l’exécution du processeur de commandes, même si le délai d’expiration n’a pas expiré.
 -   Lorsqu’il est utilisé conjointement avec la commande **Sleep** , le **délai d’attente** est semblable à celui de la commande **Pause** .
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour suspendre le processeur de commandes pendant dix secondes, tapez :
 ```

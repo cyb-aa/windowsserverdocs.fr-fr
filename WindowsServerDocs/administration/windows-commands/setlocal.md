@@ -1,6 +1,6 @@
 ---
 title: setlocal
-description: La rubrique commandes Windows pour setlocal, qui démarre la localisation des variables d’environnement dans un fichier de commandes.
+description: Rubrique de référence pour setlocal, qui démarre la localisation des variables d’environnement dans un fichier de commandes.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 24ed41289bb517d41db11fd3ebc41e5751b7afd9
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: def4e8c58399af498e3c097f53e526fbedf9de0d
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834362"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721863"
 ---
 # <a name="setlocal"></a>setlocal
 
 Démarre la localisation des variables d’environnement dans un fichier de commandes. La localisation se poursuit jusqu’à ce qu’une commande **endlocal** correspondante soit rencontrée ou que la fin du fichier de commandes soit atteinte.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -38,7 +38,7 @@ setlocal [enableextensions | disableextensions] [enabledelayedexpansion | disabl
 |disabledelayedexpansion|Désactive l’expansion de la variable d’environnement différée jusqu’à ce que la commande **endlocal** correspondante soit rencontrée, quel que soit le paramètre avant l’exécution de la commande **setlocal** .|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Utilisation de **setlocal**
 
@@ -51,15 +51,15 @@ setlocal [enableextensions | disableextensions] [enabledelayedexpansion | disabl
     Vous pouvez avoir plusieurs commandes **setlocal** ou **endlocal** dans un programme de traitement par lots (c’est-à-dire, des commandes imbriquées).
 -   Test des extensions de commande dans les fichiers de commandes
 
-    La commande **setlocal** définit la variable ERRORLEVEL. Si vous transmettez {**enableextensions** | **DISABLEEXTENSIONS**} ou {**ENABLEDELAYEDEXPANSION** | **disabledelayedexpansion**}, la variable ERRORLEVEL est définie sur **0** (zéro). Dans le cas contraire, elle a la valeur **1**. Vous pouvez utiliser ces informations dans des scripts batch pour déterminer si les extensions sont disponibles, comme illustré dans l’exemple suivant :  
+    La commande **setlocal** définit la variable ERRORLEVEL. Si vous transmettez {**ENABLEEXTENSIONS** | **DISABLEEXTENSIONS**} ou {**ENABLEDELAYEDEXPANSION** | **disabledelayedexpansion**}, la variable ERRORLEVEL est définie sur **0** (zéro). Dans le cas contraire, elle a la valeur **1**. Vous pouvez utiliser ces informations dans des scripts batch pour déterminer si les extensions sont disponibles, comme illustré dans l’exemple suivant :  
     ```
     setlocal enableextensions
     verify other 2>nul
     if errorlevel 1 echo Unable to enable extensions
     ```  
-    Comme **cmd** ne définit pas la variable ERRORLEVEL lorsque les extensions de commande sont désactivées, la commande **verify** initialise la variable ERRORLEVEL à une valeur différente de zéro quand vous l’utilisez avec un argument non valide. En outre, si vous utilisez la commande **setlocal** avec les arguments {**ENABLEEXTENSIONS** | **disableextensions**} ou {**ENABLEDELAYEDEXPANSION** | **disabledelayedexpansion**} et qu’elle n’affecte pas la valeur **1**à la variable ERRORLEVEL, les extensions de commande ne sont pas disponibles.
+    Comme **cmd** ne définit pas la variable ERRORLEVEL lorsque les extensions de commande sont désactivées, la commande **verify** initialise la variable ERRORLEVEL à une valeur différente de zéro quand vous l’utilisez avec un argument non valide. En outre, si vous utilisez la commande **setlocal** avec les arguments {**ENABLEEXTENSIONS** | **DISABLEEXTENSIONS**} ou {**ENABLEDELAYEDEXPANSION** | **disabledelayedexpansion**} et qu’elle n’affecte pas la valeur **1**à la variable ERRORLEVEL, les extensions de commande ne sont pas disponibles.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Vous pouvez localiser les variables d’environnement dans un fichier de commandes, comme indiqué dans l’exemple de script suivant :
 ```

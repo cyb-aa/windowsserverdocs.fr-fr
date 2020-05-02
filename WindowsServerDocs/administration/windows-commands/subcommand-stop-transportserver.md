@@ -1,6 +1,6 @@
 ---
 title: Sous-commande Stop-TransportServer
-description: Rubrique relative aux commandes Windows pour STOP-TransportServer
+description: Rubrique de référence pour STOP-TransportServer
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 44d62332307ffda4dcfa6af286c7b95cb12423dc
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4321ec991b2c20911f992e4c3c38e5c9cfa5f165
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833702"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721619"
 ---
 # <a name="subcommand-stop-transportserver"></a>Sous-commande : Stop-TransportServer
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Arrête tous les services sur un serveur de transport.
 ## <a name="syntax"></a>Syntaxe
@@ -36,9 +36,9 @@ wdsutil /Stop-TransportServer
 wdsutil /verbose /Stop-TransportServer /Server:MyWDSServer
 ```
 ## <a name="additional-references"></a>Références supplémentaires
-- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-[à l’aide de la commande disable-TransportServer](using-the-disable-transportserver-command.md)
-[à l’aide de la commande Enable-TransportServer](using-the-enable-transportserver-command.md)
-[à l’aide de la commande TransportServer](using-the-get-transportserver-command.md)
-sous- [commande : Set-TransportServer](subcommand-set-transportserver.md)
-sous- [commande : Start-TransportServer](subcommand-start-transportserver.md)
+- [Clé](command-line-syntax-key.md)
+de syntaxe de ligne de commande à l'
+[aide de la commande Disable-TransportServer](using-the-disable-transportserver-command.md)à l’aide de la
+[commande Enable-TransportServer](using-the-enable-transportserver-command.md)[à l’aide de la](using-the-get-transportserver-command.md)
+sous-commande de commande TransportServer[: Set-TransportServer](subcommand-set-transportserver.md)
+sous-[commande : Start-TransportServer](subcommand-start-transportserver.md)
