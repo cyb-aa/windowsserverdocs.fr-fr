@@ -1,6 +1,6 @@
 ---
-title: filtrage
-description: Rubrique relative aux commandes Windows pour * * * *-
+title: masque
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a1cb92caacb955449c1baaad411fdbe4cdf05b73
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 816bcd932091b33ed897add5a13603e3a1eea925
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839642"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724017"
 ---
-# <a name="mask"></a>filtrage
+# <a name="mask"></a>masque
 
 
 
-supprime les clichés instantanés matériels importés à l’aide de la commande **Importer** .
+Supprime les clichés instantanés matériels importés à l’aide de la commande **Importer** .
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,11 +36,11 @@ mask <ShadowSetID>
 |---------|-----------|
 |ShadowSetID|Supprime les clichés instantanés qui appartiennent à l’ID du jeu de clichés instantanés spécifié.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Vous pouvez utiliser un alias existant ou une variable d’environnement à la place de *ShadowSetID*. Utilisez **Ajouter** sans paramètres pour afficher les alias existants.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour supprimer le cliché instantané importé% Import_1%, tapez :
 ```

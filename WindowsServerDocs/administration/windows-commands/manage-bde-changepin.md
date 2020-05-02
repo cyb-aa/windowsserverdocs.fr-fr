@@ -1,6 +1,6 @@
 ---
 title: Manage-bde changepin
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e91efddd723a5311fe60d96d782d1629a170be08
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: bbf53372488db76689be9d2a4d513553f4ad0de3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80840142"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724187"
 ---
 # <a name="manage-bde-changepin"></a>Manage-bde : changepin
 
 
 
-Modifie le code confidentiel d’un lecteur de système d’exploitation. L’utilisateur est invité à entrer un nouveau code confidentiel. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Modifie le code confidentiel d’un lecteur de système d’exploitation. L’utilisateur est invité à entrer un nouveau code confidentiel.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,15 +32,15 @@ manage-bde -changepin [<Drive>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 
 |Paramètre|Description|
 |---------|-----------|
-|Lecteur \<>|Représente une lettre de lecteur suivie par un signe deux-points.|
+|\<Lecteur>|Représente une lettre de lecteur suivie par un signe deux-points.|
 |-ComputerName|Spécifie que Manage-bde. exe sera utilisé pour modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **-CN** comme version abrégée de cette commande.|
-|Nom de l' \<>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
+|\<Name>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
 |-? ou /?|Affiche une brève aide à l’invite de commandes.|
 |-Help ou-h|Affiche l’aide complète à l’invite de commandes.|
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant illustre l’utilisation de la commande **-changepin** pour modifier le code confidentiel utilisé avec BitLocker sur le lecteur C.
+Pour illustrer l’utilisation de la commande **-changepin** pour modifier le code confidentiel utilisé avec BitLocker sur le lecteur C.
 ```
 manage-bde –changepin C:
 ```

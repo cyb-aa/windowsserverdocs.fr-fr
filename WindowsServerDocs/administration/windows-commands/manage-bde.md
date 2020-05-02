@@ -1,6 +1,6 @@
 ---
 title: manage-bde
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 816e20152ec40ce54c1192f3075c6f4556aed3db
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 567e0ed45f6bef42e82c3a68b3c0cbbb352b12d9
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839692"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724031"
 ---
 # <a name="manage-bde"></a>manage-bde
 
 
 
-Utilisé pour activer ou désactiver BitLocker, spécifier les mécanismes de déverrouillage, mettre à jour les méthodes de récupération et déverrouiller les lecteurs de données protégés par BitLocker. Cet outil en ligne de commande peut être utilisé à la place du **chiffrement de lecteur BitLocker** élément du panneau de configuration. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Utilisé pour activer ou désactiver BitLocker, spécifier les mécanismes de déverrouillage, mettre à jour les méthodes de récupération et déverrouiller les lecteurs de données protégés par BitLocker. Cet outil en ligne de commande peut être utilisé à la place du **chiffrement de lecteur BitLocker** élément du panneau de configuration.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -44,27 +44,27 @@ manage-bde [-status] [–on] [–off] [–pause] [–resume] [–lock] [–unloc
 |[Manage-bde: protectors](manage-bde-protectors.md)|Gère les méthodes de protection pour la clé de chiffrement.|
 |[Manage-bde: tpm](manage-bde-tpm.md)|Configure le Module de plateforme sécurisée (TPM) de l’ordinateur (TPM). Cette commande n’est pas prise en charge sur les ordinateurs exécutant Windows 8 ou **win8_server_2**. Pour gérer le module de plateforme sécurisée sur ces ordinateurs, utilisez le composant logiciel enfichable MMC Gestion du module de plateforme sécurisée ou les applets de commande de gestion du module de plateforme sécurisée pour Windows PowerShell.|
 |[Manage-bde: setidentifier](manage-bde-setidentifier.md)|Définit le champ d’identificateur de lecteur sur le lecteur à la valeur spécifiée dans le paramètre **fournir les identificateurs uniques pour votre organisation** stratégie de groupe.|
-|[Manage-bde : ForceRecovery](manage-bde-forcerecovery.md)|Force un lecteur protégé par BitLocker en mode de récupération au redémarrage. Cette commande supprime tous les protecteurs de clé liés au module de plateforme sécurisée du lecteur. Lorsque l’ordinateur redémarre, seul un mot de passe de récupération ou une clé de récupération peut être utilisé pour déverrouiller le lecteur.|
+|[Manage-bde: ForceRecovery](manage-bde-forcerecovery.md)|Force un lecteur protégé par BitLocker en mode de récupération au redémarrage. Cette commande supprime tous les protecteurs de clé liés au module de plateforme sécurisée du lecteur. Lorsque l’ordinateur redémarre, seul un mot de passe de récupération ou une clé de récupération peut être utilisé pour déverrouiller le lecteur.|
 |[Manage-bde: changepassword](manage-bde-changepassword.md)|Modifie le mot de passe d’un lecteur de données.|
 |[Manage-bde: changepin](manage-bde-changepin.md)|Modifie le code confidentiel d’un lecteur de système d’exploitation.|
 |[Manage-bde: changekey](manage-bde-changekey.md)|Modifie la clé de démarrage pour un lecteur de système d’exploitation.|
-|[Manage-bde : keypackage](manage-bde-keypackage.md)|Génère un package de clé pour un lecteur.|
+|[Manage-bde: KeyPackage](manage-bde-keypackage.md)|Génère un package de clé pour un lecteur.|
 |[Manage-bde: upgrade](manage-bde-upgrade.md)|Met à niveau la version de BitLocker.|
-|[Manage-bde : WipeFreeSpace](manage-bde-wipefreespace.md)|Nettoie l’espace libre sur un lecteur.|
+|[Manage-bde: WipeFreeSpace](manage-bde-wipefreespace.md)|Nettoie l’espace libre sur un lecteur.|
 |-? ou /?|Affiche une brève aide à l’invite de commandes.|
 |-Help ou-h|Affiche l’aide complète à l’invite de commandes.|
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant affiche les lecteurs sur l’ordinateur et indique s’ils sont protégés par BitLocker et l’état de chiffrement actuel.
+Pour afficher les lecteurs de l’ordinateur et identifier s’ils sont protégés par BitLocker et l’état de chiffrement actuel.
 ```
 manage-bde -status
 ```
-L’exemple suivant illustre l’activation de BitLocker sur le lecteur C avec l’option de mot de passe de récupération. Le mot de passe de récupération sera généré par BitLocker et affiché à l’écran afin que vous puissiez l’enregistrer.
+Pour illustre l’activation de BitLocker sur le lecteur C avec l’option de mot de passe de récupération. Le mot de passe de récupération sera généré par BitLocker et affiché à l’écran afin que vous puissiez l’enregistrer.
 ```
 manage-bde –on C: -recoverypassword
 ```
-L’exemple suivant illustre le déverrouillage d’un lecteur protégé par BitLocker à l’aide d’un mot de passe de récupération.
+Illustre le déverrouillage d’un lecteur protégé par BitLocker à l’aide d’un mot de passe de récupération.
 ```
 manage-bde –unlock E: -recoverypassword 111111-222222-333333-444444-555555-666666-777777-888888
 ```

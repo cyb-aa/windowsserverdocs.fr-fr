@@ -1,6 +1,6 @@
 ---
 title: online
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7b77e123a6e99c857ddb18cd0f2e2ccc6a4d6d42
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a0e7582bdaebb5f3e5180d1baace980d3006b2e9
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837832"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723403"
 ---
 # <a name="online"></a>online
 

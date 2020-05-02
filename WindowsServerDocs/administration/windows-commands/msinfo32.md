@@ -1,6 +1,6 @@
 ---
 title: msinfo32
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a77cf9ae4c5f054e66839ff5b5b057e031b36ff
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0db8a4549ac26ef61d4aa8f435a01d3224501a77
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839112"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723844"
 ---
 # <a name="msinfo32"></a>msinfo32
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ouvre l’outil informations système pour afficher une vue complète du matériel, des composants système et de l’environnement logiciel sur l’ordinateur local. 
 ## <a name="syntax"></a>Syntaxe
@@ -41,9 +41,9 @@ msinfo32 [/pch] [/nfo <path>] [/report <path>] [/computer <computerName>] [/show
 |   /categories   |                          démarre les informations système uniquement lorsque la catégorie ou les catégories spécifiées sont affichées. Il limite également la sortie à la catégorie ou aux catégories sélectionnées. Utilisez **/showcategories** pour afficher une liste des ID de catégorie disponibles.                          |
 |       /?        |                                                                                                                     Affiche l'aide à l'invite de commandes.                                                                                                                     |
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 Certaines catégories d’informations système contiennent de grandes quantités de données. Vous pouvez utiliser la commande **start/wait** pour optimiser les performances de création de rapports pour ces catégories. Pour plus d’informations, consultez [informations système](https://technet.microsoft.com/library/cc783305(v=ws.10).aspx).
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+## <a name="examples"></a>Exemples
 Pour répertorier les ID de catégorie disponibles, tapez :
 ```
 msinfo32 /showcategories

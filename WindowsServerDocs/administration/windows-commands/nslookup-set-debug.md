@@ -1,6 +1,6 @@
 ---
 title: nslookup set debug
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6a960be031dd5259906ba53c43c57f29b1a7b300
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 92a6f53105c682500d68fa7bf07fdcbacea75f34
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838542"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723633"
 ---
 # <a name="nslookup-set-debug"></a>nslookup set debug
 
@@ -34,9 +34,9 @@ set [no]debug
 |-------------|--------------------------------------------------------------|
 | **nodebug** | Désactive le mode de débogage. La syntaxe par défaut est **nodebug**. |
 |  **Debug**  |                   Active le mode de débogage.                   |
-|  \*\*{Help  |                            ?}\*\*                            |
+|  \*\*{aide  |                            ?}\*\*                            |
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Lorsque le mode de débogage est activé, des informations supplémentaires sont imprimées sur le paquet envoyé au serveur et sur la réponse obtenue.
 

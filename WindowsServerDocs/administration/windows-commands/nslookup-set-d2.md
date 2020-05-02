@@ -1,6 +1,6 @@
 ---
 title: nslookup set d2
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 27b4b7c59f44dc61e6458293b7b3bb5b821eaf13
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 462c96e2144f4139ee9267358b8d8c8d5370c070
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838562"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723644"
 ---
 # <a name="nslookup-set-d2"></a>nslookup set d2
 
@@ -33,7 +33,7 @@ set [no]d2
 | Paramètre |                             Description                              |
 |-----------|----------------------------------------------------------------------|
 | **NOD2**  | Désactive le mode de débogage exhaustif. La syntaxe par défaut est **NOD2**. |
-|  **D2**   |                 Active le mode de débogage exhaustif.                  |
+|  **d2**   |                 Active le mode de débogage exhaustif.                  |
 |   {aide   |                                  ?}                                  |
 
 ## <a name="additional-references"></a>Références supplémentaires

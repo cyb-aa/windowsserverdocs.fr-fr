@@ -1,6 +1,6 @@
 ---
 title: gérer-TPM BDE
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b6495bfbfedea7219ae175145f72fc12314ce7ae
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: afb3859a1795959c90e71391b2926164165ef9ce
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839762"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724077"
 ---
 # <a name="manage-bde-tpm"></a>Manage-bde : TPM
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 > 
 > [!IMPORTANT]
 > Cette commande n’est pas prise en charge pour une utilisation sur des ordinateurs exécutant Windows 8, Windows Server 2012 ou des systèmes d’exploitation ultérieurs. Pour ces ordinateurs, vous pouvez utiliser les [applets de commande de gestion du module de plateforme sécurisée pour Windows PowerShell](https://docs.microsoft.com/powershell/module/trustedplatformmodule/).
-> Si vous utilisez cette commande sur un ordinateur exécutant Windows 7 ou Windows Server 2008, vous pouvez toujours configurer le Module de plateforme sécurisée (TPM) de l’ordinateur à l’aide de cette commande. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+> Si vous utilisez cette commande sur un ordinateur exécutant Windows 7 ou Windows Server 2008, vous pouvez toujours configurer le Module de plateforme sécurisée (TPM) de l’ordinateur à l’aide de cette commande.
 > ## <a name="syntax"></a>Syntaxe
 > ```
 > manage-bde -tpm [-turnon] [-takeownership <OwnerPassword>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
@@ -39,12 +39,12 @@ ms.locfileid: "80839762"
 > |    -? ou /?     |                                                               Affiche une brève aide à l’invite de commandes.                                                               |
 > |   -Help ou-h   |                                                             Affiche l’aide complète à l’invite de commandes.                                                              |
 > 
-> ## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
-> L’exemple suivant illustre l’utilisation de la commande **-TPM** pour activer le module de plateforme sécurisée.
+> ## <a name="examples"></a>Exemples
+> Pour illustrer l’utilisation de la commande **-TPM** pour activer le module de plateforme sécurisée.
 > ```
 > manage-bde  tpm -turnon
 > ```
-> L’exemple suivant illustre l’utilisation de la commande **TPM** pour prendre possession du module de plateforme sécurisée et définir le mot de passe du propriétaire sur 0wnerP@ss.
+> Pour illustrer l’utilisation de la commande **TPM** pour prendre possession du module de plateforme sécurisée et 0wnerP@ssdéfinir le mot de passe du propriétaire sur.
 > ```
 > manage-bde  tpm  takeownership 0wnerP@ss
 > ```

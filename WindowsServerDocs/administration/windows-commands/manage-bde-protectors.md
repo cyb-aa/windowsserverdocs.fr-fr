@@ -1,6 +1,6 @@
 ---
 title: gérer-protecteurs BDE
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/06/2018
-ms.openlocfilehash: 1a2e2c851ec9bc93ec434a35f14c6f92ec831876
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e01049a5fb3dc419e219fe4ec8b11dcdc790f919
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839952"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724116"
 ---
 # <a name="manage-bde-protectors"></a>Manage-bde : protecteurs
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+> S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Gère les méthodes de protection utilisées pour la clé de chiffrement BitLocker. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Gère les méthodes de protection utilisées pour la clé de chiffrement BitLocker.
 ## <a name="syntax"></a>Syntaxe
 ```
 manage-bde -protectors [{-get|-add|-delete|-disable|-enable|-adbackup|-aadbackup}] <Drive> [-computername <Name>] [{-?|/?}] [{-help|-h}]
@@ -84,7 +84,7 @@ manage-bde  -protectors  -delete <Drive> [-type {recoverypassword|externalkey|ce
 |         -type          |                               Identifie le protecteur de clé à supprimer. Vous pouvez également utiliser **-t** comme version abrégée de cette commande.                               |
 |    RecoveryPassword    |                                                 Spécifie que tous les protecteurs de clé de mot de passe de récupération doivent être supprimés.                                                 |
 |      externalkey       |                                        Spécifie que tous les protecteurs de clé externe associés au lecteur doivent être supprimés.                                         |
-|      certificate       |                                       Spécifie que tous les protecteurs de clé de certificat associés au lecteur doivent être supprimés.                                       |
+|      certificat       |                                       Spécifie que tous les protecteurs de clé de certificat associés au lecteur doivent être supprimés.                                       |
 |          TPM           |                                        Spécifie que tous les protecteurs de clés TPM uniquement associés au lecteur doivent être supprimés.                                         |
 |    tpmandstartupkey    |                                Spécifie que tous les protecteurs de clés de module de plateforme sécurisée et de clé de démarrage associés au lecteur doivent être supprimés.                                |
 |       tpmandpin        |                                    Spécifie que tous les protecteurs de clés TPM et PIN associés au lecteur doivent être supprimés.                                    |
@@ -112,24 +112,24 @@ manage-bde  -protectors  -disable <Drive> [-RebootCount <integer 0 - 15>] [-comp
 |   -? ou /?    |                                                                                                                                                                                                    Affiche une brève aide à l’invite de commandes.                                                                                                                                                                                                    |
 |  -Help ou-h  |                                                                                                                                                                                                  Affiche l’aide complète à l’invite de commandes.                                                                                                                                                                                                   |
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
-L’exemple suivant illustre l’utilisation de la commande **-protections** pour ajouter un protecteur de clé de certificat identifié par un fichier de certificat au lecteur E.
+## <a name="examples"></a>Exemples
+Pour illustrer l’utilisation de la commande **-** Protectors pour ajouter un protecteur de clé de certificat identifié par un fichier de certificat au lecteur E.
 ```
 manage-bde  -protectors  -add E: -certificate  -cf c:\File Folder\Filename.cer
 ```
-L’exemple suivant illustre l’utilisation de la commande **-protections** pour ajouter un protecteur de clé **adaccountorgroup** identifié par le nom de domaine et le nom d’utilisateur au lecteur E.
+Pour illustrer l’utilisation de la commande **-Protectors** pour ajouter un protecteur de clé **adaccountorgroup** identifié par le nom de domaine et le nom d’utilisateur au lecteur E.
 ```
 manage-bde  -protectors  -add E: -sid DOMAIN\user
 ```
-L’exemple suivant illustre l’utilisation de la commande **Protectors** pour désactiver la protection jusqu’à ce que l’ordinateur ait redémarré 3 fois.
+Pour illustrer l’utilisation de la commande des **protecteurs** pour désactiver la protection jusqu’à ce que l’ordinateur ait redémarré 3 fois.
 ```
 manage-bde  -protectors  -disable C: -rc 3
 ```
-L’exemple suivant illustre l’utilisation de la commande **-Protectors** pour supprimer tous les protecteurs de clés TPM et de clé de démarrage sur le lecteur C.
+Pour illustrer l’utilisation de la commande **-Protectors** pour supprimer tous les protecteurs de clés TPM et de clé de démarrage sur le lecteur C.
 ```
 manage-bde  -protectors -delete C: -type tpmandstartupkey
 ```
-L’exemple suivant illustre l’utilisation de la commande **-Protectors** pour sauvegarder toutes les informations de récupération du lecteur C sur AD DS.
+Pour illustrer l’utilisation de la commande **-Protectors** pour sauvegarder toutes les informations de récupération du lecteur C sur AD DS.
 ```
 manage-bde  -protectors  -adbackup C:
 ```

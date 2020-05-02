@@ -1,6 +1,6 @@
 ---
 title: PowerShell_ise
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b6ae96dcd40c894e0a528c06b461173f626fb2d2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5fb143c3d365b47f66aee5c64bfdc7dc26e5794f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837392"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723282"
 ---
 # <a name="powershell_ise"></a>PowerShell_ise
 
@@ -55,7 +55,7 @@ Vous pouvez utiliser **PowerShell_ISE. exe** pour démarrer et terminer une sess
 
 Pour plus d’informations sur les autres façons de démarrer Windows PowerShell ISE, consultez [démarrage de Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=135259).
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 Windows PowerShell s’exécute sur l’option d’installation minimale des systèmes d’exploitation Windows Server. Toutefois, étant donné que Windows PowerShell ISE nécessite une interface graphique utilisateur, il ne s’exécute pas sur les installations minimales.
 
@@ -63,5 +63,5 @@ Windows PowerShell s’exécute sur l’option d’installation minimale des sys
 
 [about_PowerShell_Ise. exe](https://go.microsoft.com/fwlink/?LinkId=256512)
 [about_PowerShell. exe](https://go.microsoft.com/fwlink/?LinkID=113439)
-l' [écriture de scripts](https://technet.microsoft.com/scriptcenter/dd742419) [Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=107116)
-avec Windows PowerShell, voir aussi
+scripts[Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=107116)
+[avec Windows PowerShell](https://technet.microsoft.com/scriptcenter/dd742419) Voir aussi

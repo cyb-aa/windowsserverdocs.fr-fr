@@ -1,6 +1,6 @@
 ---
 title: nslookup
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 15062d81992ee1b6e55d47cb9e49822350e4f2bc
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 35f790a3a537959501afe7c3173317f22b934ec6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838092"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723491"
 ---
 # <a name="nslookup"></a>nslookup
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche des informations que vous pouvez utiliser pour diagnostiquer l’infrastructure DNS (Domain Name System). Avant d’utiliser cet outil, vous devez vous familiariser avec le fonctionnement du service DNS. L’outil de ligne de commande nslookup est disponible uniquement si vous avez installé le protocole TCP/IP.
 ## <a name="syntax"></a>Syntaxe
@@ -84,7 +84,7 @@ nslookup /view <FileName>
 |         [nslookup set vc](nslookup-set-vc.md)         |                                                                     Spécifie d’utiliser ou non un circuit virtuel lors de l’envoi de requêtes au serveur.                                                                      |
 |           [nslookup view](nslookup-view.md)           |                                                                          Trie et répertorie la sortie de la sous-commande ou des commandes **ls** précédente.                                                                          |
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 - Si *computerTofind* est une adresse IP et que la requête est pour un type d’enregistrement de ressource a ou PTR, le nom de l’ordinateur est retourné. Si *computerTofind* est un nom et n’a pas de période de fin, le nom de domaine DNS par défaut est ajouté au nom. Ce comportement dépend de l’état des sous- **commandes Set** suivantes : **Domain**, **srchlist**, **defname**et **Search**.
 - Si vous tapez un trait d’Union (-) à la place de *computerTofind*, l’invite de commandes passe en mode interactif **nslookup** .
 - La longueur de la ligne de commande doit être inférieure à 256 caractères.
@@ -93,7 +93,7 @@ nslookup /view <FileName>
   Si vous avez besoin de Rechercher plusieurs éléments de données, vous pouvez utiliser le mode interactif. tapez un trait d’Union (-) pour le premier paramètre et le nom ou l’adresse IP d’un serveur de noms DNS pour le deuxième paramètre. Ou omettez les deux paramètres et **nslookup** utilise le serveur de noms DNS par défaut. Voici quelques conseils sur l’utilisation du mode interactif :
   -   Pour interrompre les commandes interactives à tout moment, appuyez sur CTRL + B.
   -   Pour quitter, tapez **Exit**.
-  -   Pour traiter une commande intégrée comme un nom d’ordinateur, faites-le précéder du caractère d’échappement (\\).
+  -   Pour traiter une commande intégrée comme un nom d’ordinateur, faites-le précéder du caractère d'\\échappement ().
   -   Une commande non reconnue est interprétée comme un nom d’ordinateur.
 - Si la demande de recherche échoue, **nslookup** imprime un message d’erreur. Le tableau suivant répertorie les messages d’erreur possibles.
   |**Message d’erreur**|**Description**|
@@ -112,5 +112,5 @@ nslookup /view <FileName>
   - Larson, M. et C. Liu. 2001. *DNS sur Windows 2000*. Sebastopol, Californie : O’Reilly et Associates, Inc.
     #### <a name="examples"></a>Exemples
     Chaque option de ligne de commande se compose d’un trait d’Union (-) suivi immédiatement du nom de commande et, dans certains cas, d’un signe égal (=), puis d’une valeur. Par exemple, pour modifier le type de requête par défaut en informations sur l’hôte (ordinateur) et le délai d’expiration initial à 10 secondes, tapez : **nslookup-QueryType = HINFO-Timeout = 10**
-    ## <a name="see-also"></a>Voir aussi
+    ## <a name="see-also"></a> Voir aussi
     - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

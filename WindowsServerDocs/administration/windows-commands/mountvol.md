@@ -1,6 +1,6 @@
 ---
 title: mountvol
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 34a98a273274f7982bfdd970710c04178fed4f5a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ca3e4320499161194f87ceaca4f693ff997f3ba2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839382"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723922"
 ---
 # <a name="mountvol"></a>mountvol
 
 
 
 Crée, supprime ou répertorie un point de montage de volume.
-
-Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -40,8 +38,8 @@ mountvol <Drive>: /s
 
 |Paramètre|Description|
 |---------|-----------|
-|[lecteur\<>:]<Path>|Spécifie le répertoire NTFS existant dans lequel se trouve le point de montage.|
-|\<nom_volume >|Spécifie le nom du volume qui est la cible du point de montage. Le nom du volume utilise la syntaxe suivante, où *GUID* est un identificateur global unique :</br>`\\\\?\Volume\{GUID}\`</br>Les crochets {} sont requis.|
+|[\<Lecteur> :]<Path>|Spécifie le répertoire NTFS existant dans lequel se trouve le point de montage.|
+|\<Nom_volume>|Spécifie le nom du volume qui est la cible du point de montage. Le nom du volume utilise la syntaxe suivante, où *GUID* est un identificateur global unique :</br>`\\\\?\Volume\{GUID}\`</br>Les crochets {} sont requis.|
 |/d|Supprime le point de montage de volume du dossier spécifié.|
 |/l|Répertorie le nom du volume monté pour le dossier spécifié.|
 |/p|Supprime le point de montage de volume du répertoire spécifié, démonte le volume de base et met le volume de base hors connexion, ce qui le rend non montable. Si d’autres processus utilisent le volume, **mountvol** ferme tous les descripteurs ouverts avant de démonter le volume.|
@@ -51,13 +49,13 @@ mountvol <Drive>: /s
 |/s|Monte la partition système EFI sur le lecteur spécifié.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   **Mountvol** vous permet de lier des volumes sans nécessiter de lettre de lecteur.
 -   Les volumes démontés à l’aide de **/p** sont répertoriés dans la liste des volumes comme non montés jusqu’à ce qu’un point de montage de volume soit créé. Si le volume a plusieurs points de montage, utilisez **/d** pour supprimer les points de montage supplémentaires avant d’utiliser **/p**. Vous pouvez rendre le volume de base montable à nouveau en affectant un point de montage de volume.
--   Si vous devez étendre votre espace de volume sans reformater ou remplacer un disque dur, vous pouvez ajouter un chemin d’accès de montage à un autre volume. L’avantage de l’utilisation d’un seul volume avec plusieurs chemins de montage est que vous pouvez accéder à tous les volumes locaux à l’aide d’une seule lettre de lecteur (par exemple `C:`). Vous n’avez pas besoin de vous souvenir du volume qui correspond à la lettre de lecteur, même si vous pouvez toujours monter des volumes locaux et leur attribuer des lettres de lecteur.
+-   Si vous devez étendre votre espace de volume sans reformater ou remplacer un disque dur, vous pouvez ajouter un chemin d’accès de montage à un autre volume. L’avantage de l’utilisation d’un seul volume avec plusieurs chemins de montage est que vous pouvez accéder à tous les volumes locaux à l’aide `C:`d’une seule lettre de lecteur (par exemple,). Vous n’avez pas besoin de vous souvenir du volume qui correspond à la lettre de lecteur, même si vous pouvez toujours monter des volumes locaux et leur attribuer des lettres de lecteur.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour créer un point de montage, tapez :
 ```

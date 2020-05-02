@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cb77cac3871dcf4a411638409de68d038a317d24
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 52d4a99d21574f9cae3120201dcd4db0cd9a2202
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837712"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723375"
 ---
 # <a name="path"></a>path
 
@@ -22,7 +22,7 @@ ms.locfileid: "80837712"
 
 Définit le chemin d’accès de la commande dans la variable d’environnement PATH (l’ensemble de répertoires utilisés pour rechercher des fichiers exécutables). S’il est utilisé sans paramètres, **path** affiche le chemin d’accès à la commande actuelle.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -35,12 +35,12 @@ path ;
 
 |     Paramètre     |                                                                                                     Description                                                                                                      |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [lecteur\<>:]<Path> |                                                                            Spécifie le lecteur et le répertoire à définir dans le chemin d’accès de la commande.                                                                             |
+| [\<Lecteur> :]<Path> |                                                                            Spécifie le lecteur et le répertoire à définir dans le chemin d’accès de la commande.                                                                             |
 |         ;         | Sépare les répertoires dans le chemin d’accès de la commande. S’il est utilisé sans autre **paramètre,** efface les chemins d’accès aux commandes existants de la variable d’environnement PATH et indique à cmd. exe de rechercher uniquement dans le répertoire actif. |
 |      D       |                                                         Ajoute le chemin d’accès de commande à l’ensemble existant de répertoires figurant dans la variable d’environnement PATH.                                                         |
 |        /?         |                                                                                         Affiche l'aide à l'invite de commandes.                                                                                         |
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Lorsque vous incluez **% path%** dans la syntaxe, cmd. exe le remplace par les valeurs de chemin d’accès de commande trouvées dans la variable d’environnement PATH, ce qui évite d’avoir à entrer manuellement ces valeurs à l’invite de commandes.
 -   Le répertoire actif est toujours recherché avant les répertoires spécifiés dans le chemin d’accès de la commande.

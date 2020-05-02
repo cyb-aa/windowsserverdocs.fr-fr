@@ -1,6 +1,6 @@
 ---
 title: nfsstat
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 94eb389fdd694c08dcd1d77325f145a81e59ea0f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4e2c02fdfeb9923993a1d4471862a6c8487c9d86
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838882"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723752"
 ---
 # <a name="nfsstat"></a>nfsstat
 

@@ -1,6 +1,6 @@
 ---
 title: netstat
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: afd34cca2ecd3caa7ac480b380b85ba6d2a19fcb
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7b1dbe232ce297e987118616681b82332e81e930
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839012"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723779"
 ---
 # <a name="netstat"></a>netstat
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche les connexions TCP actives, les ports sur lesquels l’ordinateur écoute, les statistiques Ethernet, la table de routage IP, les statistiques IPv4 (pour les protocoles IP, ICMP, TCP et UDP) et les statistiques IPv6 (pour les protocoles IPv6, ICMPv6, TCP sur IPv6 et UDP sur IPv6). Utilisé sans paramètres, **netstat** affiche les connexions TCP actives. 
 
@@ -32,17 +32,17 @@ netstat [-a] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<Interval>]
 |   Paramètre   |                                                                                                                                              Description                                                                                                                                              |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |      -a       |                                                                                                   Affiche toutes les connexions TCP actives et les ports TCP et UDP sur lesquels l’ordinateur est à l’écoute.                                                                                                   |
-|      -e       |                                                                                 Affiche des statistiques Ethernet, telles que le nombre d’octets et de paquets envoyés et reçus. Ce paramètre peut être combiné avec **-s**.                                                                                  |
+|      -E       |                                                                                 Affiche des statistiques Ethernet, telles que le nombre d’octets et de paquets envoyés et reçus. Ce paramètre peut être combiné avec **-s**.                                                                                  |
 |      -n       |                                                                               Affiche les connexions TCP actives, mais les adresses et les numéros de port sont exprimés numériquement et aucune tentative n’est faite pour déterminer les noms.                                                                               |
 |      -o       |                          Affiche les connexions TCP actives et comprend l’ID de processus (PID) de chaque connexion. Vous pouvez trouver l’application en fonction du PID sous l’onglet processus du gestionnaire des tâches de Windows. Ce paramètre peut être combiné avec **-a**, **-n**et **-p**.                           |
-| -p <Protocol> |               Affiche les connexions pour le protocole spécifié par le *protocole*. Dans ce cas, le *protocole* peut être TCP, UDP, TCPv6 ou UDPv6. Si ce paramètre est utilisé avec **-s** pour afficher les statistiques par protocole, le *protocole* peut être TCP, UDP, ICMP, IP, TCPv6, UDPv6, ICMPv6 ou IPv6.                |
-|      -s       | Affiche les statistiques par protocole. Par défaut, les statistiques sont affichées pour les protocoles TCP, UDP, ICMP et IP. Si le protocole IPv6 est installé, les statistiques sont affichées pour les protocoles TCP sur IPv6, UDP sur IPv6, ICMPv6 et IPv6. Le paramètre **-p** peut être utilisé pour spécifier un ensemble de protocoles. |
+| -p<Protocol> |               Affiche les connexions pour le protocole spécifié par le *protocole*. Dans ce cas, le *protocole* peut être TCP, UDP, TCPv6 ou UDPv6. Si ce paramètre est utilisé avec **-s** pour afficher les statistiques par protocole, le *protocole* peut être TCP, UDP, ICMP, IP, TCPv6, UDPv6, ICMPv6 ou IPv6.                |
+|      -S       | Affiche les statistiques par protocole. Par défaut, les statistiques sont affichées pour les protocoles TCP, UDP, ICMP et IP. Si le protocole IPv6 est installé, les statistiques sont affichées pour les protocoles TCP sur IPv6, UDP sur IPv6, ICMPv6 et IPv6. Le paramètre **-p** peut être utilisé pour spécifier un ensemble de protocoles. |
 |      -r       |                                                                                                     Affiche le contenu de la table de routage IP. Cela équivaut à la commande route print.                                                                                                     |
 |  <Interval>   |                                                        Affiche à nouveau les informations sélectionnées chaque *intervalle* en secondes. Appuyez sur CTRL + C pour arrêter le réaffichage. Si ce paramètre est omis, **netstat** n’imprime les informations sélectionnées qu’une seule fois.                                                         |
 |      /?       |                                                                                                                                 Affiche l'aide à l'invite de commandes.                                                                                                                                  |
 
-## <a name="remarks"></a>Notes
--   Les paramètres utilisés avec cette commande doivent être précédés d’un trait d’Union ( **-** ) et non d’une barre oblique ( **/** ).
+## <a name="remarks"></a>Notes 
+-   Les paramètres utilisés avec cette commande doivent être précédés d’un**-** trait d’Union () et**/** non d’une barre oblique ().
 -   **netstat** fournit des statistiques pour les éléments suivants :
     -   Proto nom du protocole (TCP ou UDP).
     -   Adresse locale adresse IP de l’ordinateur local et numéro de port utilisé. Le nom de l’ordinateur local qui correspond à l’adresse IP et le nom du port s’affichent sauf si le paramètre **-n** est spécifié. Si le port n’est pas encore établi, le numéro de port est affiché sous la forme d’un astérisque (*).
@@ -50,7 +50,7 @@ netstat [-a] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<Interval>]
     -   Département Indique l’état d’une connexion TCP. Les États possibles sont les suivants : CLOSE_WAIT fermé FIN_WAIT_1 FIN_WAIT_2 LAST_ACK écouter SYN_RECEIVED SYN_SEND timeD_WAIT pour plus d’informations sur les États d’une connexion TCP, consultez la RFC 793.
 -   Cette commande est disponible uniquement si le protocole TCP/IP (Internet Protocol) est installé en tant que composant dans les propriétés d’une carte réseau dans connexions réseau.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+## <a name="examples"></a>Exemples
 Pour afficher à la fois les statistiques Ethernet et les statistiques de tous les protocoles, tapez :
 ```
 netstat -e -s

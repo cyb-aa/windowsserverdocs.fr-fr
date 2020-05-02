@@ -1,6 +1,6 @@
 ---
 title: perfmon
-description: Rubrique relative aux commandes Windows pour Perfmon
+description: Rubrique de référence pour Perfmon
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/25/2018
-ms.openlocfilehash: 7a832416b5b00292a6249f3824644db1b727cfb2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5742b51ffd4fca16c1054e373636afbe39968c96
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837602"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723324"
 ---
 # <a name="perfmon"></a>perfmon
 

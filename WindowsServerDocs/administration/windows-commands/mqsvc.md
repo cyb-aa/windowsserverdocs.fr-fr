@@ -1,6 +1,6 @@
 ---
 title: mqsvc
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2c6db0d1161bacb456305ba33be6d4142277206d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9edc7d594e1fe38b99ba37f01e1c6d79c431859d
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839302"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723892"
 ---
 # <a name="mqsvc"></a>mqsvc
 
@@ -30,7 +30,7 @@ Mqsvc.exe
 
 #### <a name="parameters"></a>Paramètres
 
-Aucune
+None
 
 ## <a name="additional-references"></a>Références supplémentaires
 

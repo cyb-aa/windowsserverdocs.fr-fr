@@ -1,6 +1,6 @@
 ---
 title: makecab
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 46efbae1d59a85071622df51fc018d0bf73dc504
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5a0bf4afda09f0e0e8416777a2cfd1404d4bf59a
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80840262"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724220"
 ---
 # <a name="makecab"></a>makecab
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Empaquetez les fichiers existants dans un fichier cabinet (. cab).
 ## <a name="syntax"></a>Syntaxe
@@ -32,13 +32,13 @@ makecab [/v[<n>]] [/d var=<value> ...] /f <directives_file> [...]
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 |       <source>       |                                                                     Fichier à compresser.                                                                     |
 |    <destination>     | Nom de fichier pour fournir un fichier compressé. En cas d’omission, le dernier caractère du nom du fichier source est remplacé par un trait de soulignement (_) et utilisé comme destination. |
-| /f < directives_file > |                                                   Un fichier avec des directives **makecab** (peut être répété).                                                   |
+| /f <directives_file> |                                                   Un fichier avec des directives **makecab** (peut être répété).                                                   |
 |    /d var =<value>    |                                                          Définit la variable avec la valeur spécifiée.                                                           |
-|       /l <dir>       |                                               Emplacement de destination de la destination (le répertoire par défaut est le répertoire actif).                                               |
+|       /l<dir>       |                                               Emplacement de destination de la destination (le répertoire par défaut est le répertoire actif).                                               |
 |       /v [<n>]        |                                                    Définissez le niveau de détail du débogage (0 = aucun,..., 3 = complet).                                                     |
 |          /?          |                                                           Affiche l'aide à l'invite de commandes.                                                            |
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 -   Reportez-vous au [format Microsoft Cabinet](https://go.microsoft.com/fwlink/?LinkId=226852) sur MSDN pour plus d’informations sur directive_file.
 
 ## <a name="additional-references"></a>Références supplémentaires

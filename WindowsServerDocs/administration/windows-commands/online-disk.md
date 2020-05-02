@@ -1,6 +1,6 @@
 ---
 title: disque en ligne
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c61d852ba71329c3d7345d74fd352a6c19436cec
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 110a73a46712e3cbe5b5ff22b7e4343afb103966
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837892"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723411"
 ---
 # <a name="online-disk"></a>disque en ligne
 
@@ -42,7 +42,7 @@ online disk [noerr]
 |---------|-----------|
 |noerr|À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   En cas d’utilisation sans paramètre dans Windows Vista, cette commande fonctionne sur un groupe de disques. Pour les disques de base, il n’y a jamais plus d’un disque par groupe. Pour les disques dynamiques, le groupe comprend tous les disques dynamiques non étrangers.
 -   Pour les disques de base, cette commande tente de mettre en ligne le disque sélectionné et tous les volumes de ce disque.
@@ -51,7 +51,7 @@ online disk [noerr]
 -   Si le groupe d’un disque sélectionné contient des volumes en miroir ou RAID-5, cette commande resynchronise également ces volumes.
 -   Pour que cette commande aboutisse, vous devez sélectionner un disque. Utilisez la commande **Sélectionner le disque** pour sélectionner un disque et lui déplacer le focus.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour mettre le disque avec le focus en ligne, tapez :
 ```

@@ -1,6 +1,6 @@
 ---
 title: gérer-bde désactivé
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ca74049ac287f8d0bbabfe281284b4650880f534
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 588ce453cfca72a029d907be894b142567a43ab5
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80840032"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724143"
 ---
 # <a name="manage-bde-off"></a>Manage-bde : OFF
 
 
 
-Déchiffre le lecteur et désactive BitLocker. Tous les protecteurs de clé sont supprimés lorsque le déchiffrement est terminé. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Déchiffre le lecteur et désactive BitLocker. Tous les protecteurs de clé sont supprimés lorsque le déchiffrement est terminé.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,15 +32,15 @@ manage-bde -off [<Volume>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 
 |Paramètre|Description|
 |---------|-----------|
-|> du volume \<|Lettre de lecteur suivie d’un signe deux-points, d’un chemin d’accès de GUID de volume ou d’un volume monté.|
+|\<> du volume|Lettre de lecteur suivie d’un signe deux-points, d’un chemin d’accès de GUID de volume ou d’un volume monté.|
 |-ComputerName|Spécifie que Manage-bde. exe sera utilisé pour modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **-CN** comme version abrégée de cette commande.|
-|Nom de l' \<>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
+|\<Name>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
 |-? ou /?|Affiche une brève aide à l’invite de commandes.|
 |-Help ou-h|Affiche l’aide complète à l’invite de commandes.|
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant illustre l’utilisation de la commande **-off** pour désactiver BitLocker sur le lecteur C.
+Pour illustrer l’utilisation de la commande **-off** pour désactiver BitLocker sur le lecteur C.
 ```
 manage-bde –off C:
 ```

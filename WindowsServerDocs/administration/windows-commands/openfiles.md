@@ -1,6 +1,6 @@
 ---
 title: openfiles
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f684acc48fbb279ced8ce1dfb3a930ff15f3bf13
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 050e3f31435949ecce2a9a06a70d86eacd745687
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837822"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723389"
 ---
 # <a name="openfiles"></a>openfiles
 
@@ -41,13 +41,13 @@ openfiles /disconnect [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]]
 
 |            Paramètre             |                                                                                                                                 Description                                                                                                                                  |
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|           /s \<système >           | Spécifie le système distant auquel se connecter (par nom ou adresse IP). N’utilisez pas de barres obliques inverses. Si vous n’utilisez pas l’option **/s** , la commande est exécutée sur l’ordinateur local par défaut. Ce paramètre s’applique à tous les fichiers et dossiers spécifiés dans la commande. |
-|    /u [\<> de domaine\]<UserName>     |                                                          Exécute la commande en utilisant les autorisations du compte d’utilisateur spécifié. Si vous n’utilisez pas l’option **/u** , les autorisations système sont utilisées par défaut.                                                           |
+|           > \<système/s           | Spécifie le système distant auquel se connecter (par nom ou adresse IP). N’utilisez pas de barres obliques inverses. Si vous n’utilisez pas l’option **/s** , la commande est exécutée sur l’ordinateur local par défaut. Ce paramètre s’applique à tous les fichiers et dossiers spécifiés dans la commande. |
+|    /u [\<domaine>\]<UserName>     |                                                          Exécute la commande en utilisant les autorisations du compte d’utilisateur spécifié. Si vous n’utilisez pas l’option **/u** , les autorisations système sont utilisées par défaut.                                                           |
 |         /p [\<> de mot de passe]         |                                               Spécifie le mot de passe du compte d’utilisateur spécifié dans l’option **/u** . Si vous n’utilisez pas l’option **/p** , une invite de mot de passe s’affiche lorsque la commande est exécutée.                                                |
-|        /ID \<OpenFileID >         |                                       Déconnecte les fichiers ouverts par l’ID de fichier spécifié. Le caractère générique ( **&#42;** ) peut être utilisé avec ce paramètre.</br>Remarque : vous pouvez utiliser la commande **openfiles/Query** pour Rechercher l’ID du fichier.                                       |
-|         /a \<AccessedBy >         |                                                Déconnecte tous les fichiers ouverts associés au nom d’utilisateur spécifié dans le paramètre *AccessedBy* . Le caractère générique ( **&#42;** ) peut être utilisé avec ce paramètre.                                                 |
-| /o {lecture \| écriture \| lecture/écriture} |                                               Déconnecte tous les fichiers ouverts avec la valeur de mode d’ouverture spécifiée. Les valeurs valides sont lecture, écriture ou lecture/écriture. Le caractère générique ( **&#42;** ) peut être utilisé avec ce paramètre.                                                |
-|         /op \<OpenFile >          |                                                           Déconnecte toutes les connexions de fichiers ouvertes créées par un nom de fichier ouvert spécifique. Le caractère générique ( **&#42;** ) peut être utilisé avec ce paramètre.                                                           |
+|        /ID \<OpenFileID>         |                                       Déconnecte les fichiers ouverts par l’ID de fichier spécifié. Le caractère générique (**&#42;**) peut être utilisé avec ce paramètre.</br>Remarque : vous pouvez utiliser la commande **openfiles/Query** pour Rechercher l’ID du fichier.                                       |
+|         /a \<AccessedBy>         |                                                Déconnecte tous les fichiers ouverts associés au nom d’utilisateur spécifié dans le paramètre *AccessedBy* . Le caractère générique (**&#42;**) peut être utilisé avec ce paramètre.                                                 |
+| /o {lecture \| \| /écriture en lecture/écriture} |                                               Déconnecte tous les fichiers ouverts avec la valeur de mode d’ouverture spécifiée. Les valeurs valides sont lecture, écriture ou lecture/écriture. Le caractère générique (**&#42;**) peut être utilisé avec ce paramètre.                                                |
+|         /op \<OpenFile>          |                                                           Déconnecte toutes les connexions de fichiers ouvertes créées par un nom de fichier ouvert spécifique. Le caractère générique (**&#42;**) peut être utilisé avec ce paramètre.                                                           |
 |                /?                |                                                                                                                     Affiche l'aide à l'invite de commandes.                                                                                                                     |
 
 ### <a name="examples"></a>Exemples
@@ -64,7 +64,7 @@ Pour déconnecter tous les fichiers et répertoires ouverts en mode lecture/écr
 ```
 openfiles /disconnect /o read/write
 ```
-Pour déconnecter le répertoire avec le nom de fichier ouvert C:\TestShare\,, quelle que soit la personne qui y accède, tapez :
+Pour déconnecter le répertoire avec le nom de fichier\, ouvert C:\TestShare, quelle que soit la personne qui y accède, tapez :
 ```
 openfiles /disconnect /a * /op c:\testshare\
 ```
@@ -87,10 +87,10 @@ openfiles /query [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]] [/fo
 
 |          Paramètre           |                                                                                                                                 Description                                                                                                                                  |
 |------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         /s \<système >         | Spécifie le système distant auquel se connecter (par nom ou adresse IP). N’utilisez pas de barres obliques inverses. Si vous n’utilisez pas l’option **/s** , la commande est exécutée sur l’ordinateur local par défaut. Ce paramètre s’applique à tous les fichiers et dossiers spécifiés dans la commande. |
-|  /u [\<> de domaine\]<UserName>   |                                                          Exécute la commande en utilisant les autorisations du compte d’utilisateur spécifié. Si vous n’utilisez pas l’option **/u** , les autorisations système sont utilisées par défaut.                                                           |
+|         > \<système/s         | Spécifie le système distant auquel se connecter (par nom ou adresse IP). N’utilisez pas de barres obliques inverses. Si vous n’utilisez pas l’option **/s** , la commande est exécutée sur l’ordinateur local par défaut. Ce paramètre s’applique à tous les fichiers et dossiers spécifiés dans la commande. |
+|  /u [\<domaine>\]<UserName>   |                                                          Exécute la commande en utilisant les autorisations du compte d’utilisateur spécifié. Si vous n’utilisez pas l’option **/u** , les autorisations système sont utilisées par défaut.                                                           |
 |       /p [\<> de mot de passe]       |                                               Spécifie le mot de passe du compte d’utilisateur spécifié dans l’option **/u** . Si vous n’utilisez pas l’option **/p** , une invite de mot de passe s’affiche lorsque la commande est exécutée.                                                |
-| [/FO {TABLE \| LIST \| CSV}] |                             Affiche la sortie dans le format spécifié. Les valeurs valides pour le *format* sont :</br>TABLE : affiche la sortie dans une table.</br>LIST : affiche la sortie dans une liste.</br>CSV : affiche la sortie au format de valeurs séparées par des virgules.                              |
+| [/FO {TABLE \| List \| csv}] |                             Affiche la sortie dans le format spécifié. Les valeurs valides pour le *format* sont :</br>TABLE : affiche la sortie dans une table.</br>LIST : affiche la sortie dans une liste.</br>CSV : affiche la sortie au format de valeurs séparées par des virgules.                              |
 |             /NH              |                                                                                Supprime l’en-tête de colonne dans la sortie. Valide uniquement lorsque le paramètre **/FO** est défini sur **table** ou **CSV**.                                                                                 |
 |              /v              |                                                                                                       Spécifie que des informations détaillées doivent être affichées dans la sortie.                                                                                                        |
 |              /?              |                                                                                                                     Affiche l'aide à l'invite de commandes.                                                                                                                     |
@@ -134,7 +134,7 @@ openfiles /local [on | off]
 |[on \| OFF]|Active ou désactive l’indicateur global gérer les objets de la liste des objets, qui effectue le suivi des descripteurs de fichiers locaux.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-### <a name="remarks"></a>Notes
+### <a name="remarks"></a>Notes 
 
 -   L’activation de l’indicateur global gérer la liste d’objets peut ralentir votre système.
 -   Les modifications apportées à l’aide de l’option **activé** ou **désactivé** ne prennent effet qu’après le redémarrage du système.

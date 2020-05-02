@@ -1,6 +1,6 @@
 ---
 title: mqbkup
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5ff6fc2f483bceb99b970cd0c48f56985ecd485b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 25bc5a0b5da0c78ccc68cf7b8fc70a5b4ec11a1f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839352"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723907"
 ---
 # <a name="mqbkup"></a>mqbkup
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Sauvegarde les fichiers de messages et les paramètres de Registre MSMQ sur un dispositif de stockage et restaure les messages et paramètres précédemment stockés.   
 La sauvegarde et l’opération de restauration interrompent le service MSMQ local. Si le service MSMQ a été démarré au préalable, l’utilitaire tente de redémarrer le service MSMQ à la fin de la sauvegarde ou de l’opération de restauration. Si le service a déjà été arrêté avant l’exécution de l’utilitaire, aucune tentative de redémarrage du service n’est effectuée.  
@@ -32,9 +32,9 @@ mqbkup {/b | /r} <folder path_to_storage_device>
 |-------|--------|  
 |/b|Spécifie l’opération de sauvegarde|  
 |/r|Spécifie l’opération de restauration|  
-|dossier < path_to_storage\_périphérique >|Spécifie le chemin d’accès de stockage des fichiers de messages et des paramètres de Registre MSMQ|  
+|Dossier <path_to_storage\_de l’appareil>|Spécifie le chemin d’accès de stockage des fichiers de messages et des paramètres de Registre MSMQ|  
 |/?|Affiche l'aide à l'invite de commandes.|  
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre  
+## <a name="examples"></a>Exemples  
 Pour sauvegarder tous les fichiers de messages MSMQ et les paramètres du Registre, et les stocker dans le dossier *Msmqbkup* sur votre lecteur C :.  
 ```  
 mqbkup /b c:\msmqbkup  

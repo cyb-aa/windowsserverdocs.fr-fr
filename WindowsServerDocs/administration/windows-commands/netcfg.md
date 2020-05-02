@@ -1,6 +1,6 @@
 ---
 title: netcfg
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4895928ffdd5d923d370f82e699d69f42c0f81a5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a5945da45ee01fd5bf5f89a7835c4bae0b5534c4
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838932"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723803"
 ---
 # <a name="netcfg"></a>netcfg
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Installe le environnement de préinstallation Windows (WinPE) (WinPE), une version allégée de Windows utilisée pour déployer des stations de travail.
 ## <a name="syntax"></a>Syntaxe
@@ -32,13 +32,13 @@ netcfg [/v] [/e] [/winpe] [/l ] /c /i
 |/e|Utiliser les variables d' **environnement** de maintenance lors de l’installation et de la désinstallation|
 |/winpe|Installe TCP/IP, NetBIOS et client Microsoft pour l’environnement de préinstallation Windows (WinPE)|
 |/l|Fournit l' **emplacement** du fichier INF|
-|/c|Fournit la **classe** du composant à installer ; Protocole, service ou client|
+|/C|Fournit la **classe** du composant à installer ; Protocole, service ou client|
 |/i|Fournit l' **ID** du composant.|
 |/s|Fournit le type de composants à **Afficher**.<p>\ta = adaptateurs, n = composants réseau|
 |/b|Affiche les **chemins**d’accès de liaison, lorsqu’ils sont suivis d’une chaîne contenant le nom du chemin d’accès.|
 |/?|Affiche l' **aide** à l’invite de commandes.|
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour installer l' *exemple* de protocole à l’aide de c:\oemdir\example.inf :
 ```
