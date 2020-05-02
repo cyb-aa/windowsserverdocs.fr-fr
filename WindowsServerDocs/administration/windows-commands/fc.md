@@ -1,6 +1,6 @@
 ---
 title: fc
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4b358b8c1bf44b5b7942cef05bd09fa8cac850a3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 372e8b6a605bd96f6287a005004fd2f1532dfe4f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844742"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725643"
 ---
 # <a name="fc"></a>fc
 
@@ -22,7 +22,7 @@ ms.locfileid: "80844742"
 
 Compare deux fichiers ou ensembles de fichiers et affiche les différences entre eux.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -37,20 +37,20 @@ fc /b [<Drive1:>][<Path1>]<FileName1> [<Drive2:>][<Path2>]<FileName2>
 |----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                /a                |                                                 Abrégé la sortie d’une comparaison ASCII. Au lieu d’afficher toutes les lignes qui sont différentes, **FC** affiche uniquement la première et la dernière ligne pour chaque ensemble de différences.                                                  |
 |                /b                |             Compare les deux fichiers en mode binaire, octet par octet, et ne tente pas de resynchroniser les fichiers après la détection d’une incompatibilité. Il s’agit du mode par défaut pour comparer les fichiers qui ont les extensions de fichier suivantes :. exe,. com,. sys,. obj,. lib ou. bin.              |
-|                /c                |                                                                                                                               Ignore la casse.                                                                                                                               |
+|                /C                |                                                                                                                               Ignore la casse.                                                                                                                               |
 |                /l                |               Compare les fichiers en mode ASCII, ligne par ligne, et tente de resynchroniser les fichiers après la détection d’une incompatibilité. Il s’agit du mode par défaut pour comparer les fichiers, à l’exception des fichiers portant les extensions de fichier suivantes :. exe,. com,. sys,. obj,. lib ou. bin.                |
-|             /lb\<N >              |                         Définit le nombre de lignes de la mémoire tampon interne sur *N*. La longueur par défaut de la mémoire tampon de ligne est de 100 lignes. Si les fichiers que vous comparez ont plus de 100 lignes consécutives différentes, **FC** annule la comparaison.                         |
+|             /lb\<N>              |                         Définit le nombre de lignes de la mémoire tampon interne sur *N*. La longueur par défaut de la mémoire tampon de ligne est de 100 lignes. Si les fichiers que vous comparez ont plus de 100 lignes consécutives différentes, **FC** annule la comparaison.                         |
 |                /n                |                                                                                                                Affiche les numéros de ligne pendant une comparaison ASCII.                                                                                                                 |
 |            /OFF [ligne]            |                                                                                                               N’ignore pas les fichiers dont l’attribut offline est défini.                                                                                                               |
 |                /t                |                                                                    Empêche **FC** de convertir les tabulations en espaces. Le comportement par défaut consiste à traiter les tabulations comme des espaces, avec des arrêts à chaque huitième position de caractère.                                                                    |
-|                /u                |                                                                                                                        Compare les fichiers en tant que fichiers texte Unicode.                                                                                                                         |
+|                /U                |                                                                                                                        Compare les fichiers en tant que fichiers texte Unicode.                                                                                                                         |
 |                /w                |         Compresse les espaces blancs (c’est-à-dire les tabulations et les espaces) au cours de la comparaison. Si une ligne contient un grand nombre d’espaces ou de tabulations consécutifs, **/w** traite ces caractères comme un seul espace. Lorsqu’il est utilisé avec **/w**, **FC** ignore les espaces blancs au début et à la fin d’une ligne.         |
-|             /\<NNNN >             | Spécifie le nombre de lignes consécutives qui doivent correspondre à la suite d’une incompatibilité, avant que **FC** considère que les fichiers doivent être resynchronisés. Si le nombre de lignes correspondantes dans les fichiers est inférieur à *nnnn*, **FC** affiche les lignes correspondantes comme des différences. La valeur par défaut est 2. |
-| [\<Lecteur1 >:] [<Path1>]<FileName1> |                                                                                        Spécifie l’emplacement et le nom du premier fichier ou ensemble de fichiers à comparer. *NomFichier1* est obligatoire.                                                                                        |
-| [\<lecteur2 >:] [<Path2>]<FileName2> |                                                                                       Spécifie l’emplacement et le nom du deuxième fichier ou ensemble de fichiers à comparer. *NomFichier2* est requis.                                                                                        |
+|             /\<NNNN>             | Spécifie le nombre de lignes consécutives qui doivent correspondre à la suite d’une incompatibilité, avant que **FC** considère que les fichiers doivent être resynchronisés. Si le nombre de lignes correspondantes dans les fichiers est inférieur à *nnnn*, **FC** affiche les lignes correspondantes comme des différences. La valeur par défaut est 2. |
+| [\<Lecteur1> :] [<Path1>]<FileName1> |                                                                                        Spécifie l’emplacement et le nom du premier fichier ou ensemble de fichiers à comparer. *NomFichier1* est obligatoire.                                                                                        |
+| [\<Lecteur2> :] [<Path2>]<FileName2> |                                                                                       Spécifie l’emplacement et le nom du deuxième fichier ou ensemble de fichiers à comparer. *NomFichier2* est requis.                                                                                        |
 |                /?                |                                                                                                                         Affiche l'aide à l'invite de commandes.                                                                                                                         |
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Cette commande est implemeted par c:\WINDOWS\fc.exe. Vous pouvez utiliser cette commande dans PowerShell, mais veillez à épeler l’exécutable complet (FC. exe), car « FC » est un alias pour format-Custom.
 
@@ -72,7 +72,7 @@ fc /b [<Drive1:>][<Path1>]<FileName1> [<Drive2:>][<Path2>]<FileName2>
     La valeur de *xxxxxxxx* spécifie l’adresse hexadécimale relative pour la paire d’octets, mesurée à partir du début du fichier. Les adresses commencent à 00000000. Les valeurs hexadécimales pour *YY* et *ZZ* représentent respectivement les octets incompatibles de *NomFichier1* et *NomFichier2*.
 -   Utilisation de caractères génériques
 
-    Vous pouvez utiliser des caractères génériques **&#42;** (et **?** ) dans *NomFichier1* et *NomFichier2*. Si vous utilisez un caractère générique dans *NomFichier1*, **FC** compare tous les fichiers spécifiés au fichier ou à l’ensemble de fichiers spécifié par *NomFichier2*. Si vous utilisez un caractère générique dans *NomFichier2*, **FC** utilise la valeur correspondante de *NomFichier1*.
+    Vous pouvez utiliser des caractères génériques (**&#42;** et **?**) dans *NomFichier1* et *NomFichier2*. Si vous utilisez un caractère générique dans *NomFichier1*, **FC** compare tous les fichiers spécifiés au fichier ou à l’ensemble de fichiers spécifié par *NomFichier2*. Si vous utilisez un caractère générique dans *NomFichier2*, **FC** utilise la valeur correspondante de *NomFichier1*.
 -   Utilisation de la mémoire
 
     Lors de la comparaison de fichiers ASCII, **FC** utilise une mémoire tampon interne (suffisamment grande pour contenir 100 lignes) en tant que stockage. Si les fichiers sont plus volumineux que le tampon, **FC** compare ce qu’il peut charger dans la mémoire tampon. Si **FC** ne trouve pas de correspondance dans les portions chargées des fichiers, il s’arrête et affiche le message suivant :
@@ -81,7 +81,7 @@ fc /b [<Drive1:>][<Path1>]<FileName1> [<Drive2:>][<Path2>]<FileName2>
 
     Lors de la comparaison de fichiers binaires plus grands que la mémoire disponible, **FC** compare complètement les deux fichiers, en superposant les portions de la mémoire avec les portions suivantes du disque. La sortie est la même que pour les fichiers qui tiennent entièrement dans la mémoire.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour effectuer une comparaison ASCII de deux fichiers texte, Monthly. rpt et Sales. rpt, et afficher les résultats dans un format abrégé, tapez :
 ```

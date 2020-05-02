@@ -1,6 +1,6 @@
 ---
 title: bell_1 FTP
-description: Rubrique relative aux commandes Windows pour FTP bell_1
+description: Rubrique de référence pour les bell_1 FTP
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 527b000f971cd3b4fc2b98772dc918d66c8d4b42
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8efed1dcafb1076a6440a9c3a9519a16b86890c8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843732"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725381"
 ---
 # <a name="ftp-bell_1"></a>FTP : bell_1
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Bascule un son audible pour qu’il se produise après la fin de chaque commande de transfert de fichiers.   
 ## <a name="syntax"></a>Syntaxe  
@@ -26,10 +26,10 @@ Bascule un son audible pour qu’il se produise après la fin de chaque commande
 bell  
 ```  
 #### <a name="parameters"></a>Paramètres  
-aucune  
-## <a name="remarks"></a>Notes  
+Aucun  
+## <a name="remarks"></a>Notes   
 Par défaut, cloche est désactivé.  
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre  
+## <a name="examples"></a>Exemples  
 Basculer un son audible pour qu’il se produise après la fin de chaque commande de transfert de fichiers.  
 ```  
 bell  

@@ -1,6 +1,6 @@
 ---
-title: find
-description: Rubrique relative aux commandes Windows pour * * * *-
+title: trouver
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 82b966db4117e9273ae6aed8d30baec76362de2f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3cd731ef64912644965ef6bb96d060a46f0a6067
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844692"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725623"
 ---
-# <a name="find"></a>find
+# <a name="find"></a>trouver
 
 
 
 Recherche une chaîne de texte dans un ou des fichiers et affiche des lignes de texte qui contiennent la chaîne spécifiée.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,16 +34,16 @@ find [/v] [/c] [/n] [/i] [/off[line]] <String> [[<Drive>:][<Path>]<FileName>[...
 
 |           Paramètre           |                                              Description                                               |
 |-------------------------------|--------------------------------------------------------------------------------------------------------|
-|              /v               |                    Affiche toutes les lignes qui ne contiennent pas la chaîne de \<spécifiée >.                     |
-|              /c               |              Compte les lignes qui contiennent la chaîne de \<spécifiée > et affiche le total.              |
+|              /v               |                    Affiche toutes les lignes qui ne contiennent pas la \<chaîne spécifiée>.                     |
+|              /C               |              Compte les lignes qui contiennent la chaîne \<spécifiée>et affiche le total.              |
 |              /n               |                            Précède chaque ligne avec le numéro de ligne du fichier.                             |
 |              /i               |                            Spécifie que la recherche ne respecte pas la casse.                            |
 |         [/OFF [Line]]          |                        N’ignore pas les fichiers dont l’attribut offline est défini.                        |
-|          Chaîne \<>          | Obligatoire. Spécifie le groupe de caractères (entre guillemets) que vous souhaitez rechercher. |
-| [\<> de lecteur :] [<Path>]<FileName> |        Spécifie l’emplacement et le nom du fichier dans lequel rechercher la chaîne spécifiée.        |
+|          \<> de chaîne          | Obligatoire. Spécifie le groupe de caractères (entre guillemets) que vous souhaitez rechercher. |
+| [\<Lecteur> :] [<Path>]<FileName> |        Spécifie l’emplacement et le nom du fichier dans lequel rechercher la chaîne spécifiée.        |
 |              /?               |                                  Affiche l'aide à l'invite de commandes.                                  |
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Spécification d’une chaîne
 
@@ -58,7 +58,7 @@ find [/v] [/c] [/n] [/i] [/off[line]] <String> [[<Drive>:][<Path>]<FileName>[...
     Vous pouvez taper des paramètres et des options de ligne de commande pour la commande **Find** dans n’importe quel ordre.
 -   Utilisation de caractères génériques
 
-    Vous ne pouvez pas utiliser de **&#42;** caractères génériques (et **?** ) dans les noms de fichiers ou les extensions que vous spécifiez avec la commande **Find** . Pour rechercher une chaîne dans un ensemble de fichiers que vous spécifiez à l’aide de caractères génériques, vous pouvez utiliser la commande **Find** dans une commande **for** .
+    Vous ne pouvez pas utiliser de caractères génériques (**&#42;** et **?**) dans les noms de fichiers ou les extensions que vous spécifiez avec la commande **Find** . Pour rechercher une chaîne dans un ensemble de fichiers que vous spécifiez à l’aide de caractères génériques, vous pouvez utiliser la commande **Find** dans une commande **for** .
 -   Utilisation de **/v** ou **/n** avec **/c**
 
     Si vous utilisez **/c** et **/v** dans la même ligne de commande, **Find** affiche le nombre de lignes qui ne contiennent pas la chaîne spécifiée. Si vous spécifiez **/c** et **/n** dans la même ligne de commande, l’option **Rechercher** ignore **/n**.
@@ -66,7 +66,7 @@ find [/v] [/c] [/n] [/i] [/off[line]] <String> [[<Drive>:][<Path>]<FileName>[...
 
     La commande **Find** ne reconnaît pas les retours chariot. Lorsque vous utilisez **Rechercher** pour rechercher du texte dans un fichier qui comprend des retours chariot, vous devez limiter la chaîne de recherche au texte qui se trouve entre les retours chariot (c’est-à-dire une chaîne qui n’est pas susceptible d’être interrompue par un retour chariot). Par exemple, **Find** ne signale pas de correspondance pour le fichier de taxes de chaîne si un retour chariot se produit entre les mots Tax et file.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour afficher toutes les lignes de Pencil.ad qui contiennent la chaîne de crayon, tapez :
 ```

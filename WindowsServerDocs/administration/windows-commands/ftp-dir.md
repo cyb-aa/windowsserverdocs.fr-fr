@@ -1,6 +1,6 @@
 ---
 title: répertoire FTP
-description: Rubrique commandes Windows pour le répertoire FTP
+description: Rubrique de référence pour le répertoire FTP
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 64f227ea9806f169c2df1698382cfce6e7ac3257
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0f2b9c610abe50bf662439a84d9bcbcb17b1a5bb
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843572"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725314"
 ---
 # <a name="ftp-dir"></a>FTP : Rép
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche la liste des fichiers de répertoire et des sous-répertoires d’un ordinateur distant.   
 ## <a name="syntax"></a>Syntaxe  
@@ -30,7 +30,7 @@ dir [<remotedirectory>] [<LocalFile>]
 |-------|--------|  
 |[<remotedirectory>]|Spécifie le répertoire dont vous souhaitez afficher la liste. Si aucun répertoire n’est spécifié, le répertoire de travail actuel sur l’ordinateur distant est utilisé.|  
 |[<LocalFile>]|Spécifie un fichier local dans lequel stocker la liste des répertoires. Si aucun fichier local n’est spécifié, les résultats s’affichent à l’écran.|  
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre  
+## <a name="examples"></a>Exemples  
 Affichez une liste de répertoires pour **dir1** sur l’ordinateur distant.  
 ```  
 dir dir1  

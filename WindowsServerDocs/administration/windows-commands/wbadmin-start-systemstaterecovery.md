@@ -1,6 +1,6 @@
 ---
 title: Wbadmin start systemstaterecovery
-description: La rubrique commandes Windows pour Wbadmin start systemstaterecovery, qui effectue une récupération de l’état du système vers un emplacement, et à partir d’une sauvegarde, que vous spécifiez.
+description: Rubrique de référence pour Wbadmin start systemstaterecovery, qui effectue une récupération de l’état du système vers un emplacement, et à partir d’une sauvegarde que vous spécifiez.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 581ad6fe3591e549c3f89e4c95d2f8ab0cde059c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: fa111934f93bf7fea5aade1f39b4fc6a014d6c9e
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829492"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725874"
 ---
 # <a name="wbadmin-start-systemstaterecovery"></a>Wbadmin start systemstaterecovery
 
@@ -27,7 +27,7 @@ Effectue une récupération de l’état du système vers un emplacement et à p
 
 Pour effectuer une récupération de l’état du système avec cette sous-commande, vous devez être membre du groupe **opérateurs de sauvegarde** ou **administrateurs** , ou l’autorisation appropriée doit vous avoir été déléguée. En outre, vous devez exécuter **Wbadmin** à partir d’une invite de commandes avec élévation de privilèges. (Pour ouvrir une invite de commandes avec élévation de privilèges, cliquez avec le bouton droit sur **invite de commandes**, puis cliquez sur **exécuter en tant qu’administrateur**.)
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -68,13 +68,13 @@ wbadmin start systemstaterecovery
 |-redémarrage|Spécifie de redémarrer le système à la fin de l’opération de récupération de l’état du système. Ce paramètre est valide uniquement pour une récupération à l’emplacement d’origine. Nous vous déconseillons d’utiliser ce paramètre si vous devez effectuer des étapes après l’opération de récupération.|
 |-quiet|Exécute la sous-commande sans invite à l’utilisateur.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 - Pour effectuer une récupération de l’état du système de la sauvegarde à partir de 03/31/2013 à 9:00 A.M., tapez :  
   ```
   wbadmin start systemstaterecovery -version:03/31/2013-09:00
   ```  
-- Pour effectuer une récupération de l’état du système de la sauvegarde à partir de 04/30/2013 à 9:00 h 00 qui est stockée sur la ressource partagée \\\\servername\share pour Serveur01, tapez :  
+- Pour effectuer une récupération de l’état du système de la sauvegarde à partir de 04/30/2013 à 9:00 h 00 qui est stocké sur la ressource \\ \\partagée servername\share pour Serveur01, tapez :  
   ```
   wbadmin start systemstaterecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
   ```

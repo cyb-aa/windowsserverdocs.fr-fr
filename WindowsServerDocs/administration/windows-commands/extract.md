@@ -1,6 +1,6 @@
 ---
 title: extract
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d66682126f1cc3c924c42b4605a537a997e8ac52
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1cca89a356530e49fbf2b0610ff3ced1c5733847
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844772"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725653"
 ---
 # <a name="extract"></a>extract
 

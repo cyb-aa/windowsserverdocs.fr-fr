@@ -1,6 +1,6 @@
 ---
 title: optimiser l’accès aux disques
-description: La rubrique commandes Windows pour Wbadmin obtenir des disques, qui répertorie les disques internes et externes actuellement en ligne pour l’ordinateur local.
+description: Rubrique de référence pour Wbadmin obtenir des disques, qui répertorie les disques internes et externes actuellement en ligne pour l’ordinateur local.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0243edce77febddccc3497df34685113f2a1b48f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 42c96ab4ca57f07f180a24da4991e6491f26ff64
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829762"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725945"
 ---
 # <a name="wbadmin-get-disks"></a>optimiser l’accès aux disques
 

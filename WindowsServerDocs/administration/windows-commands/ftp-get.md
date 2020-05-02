@@ -1,6 +1,6 @@
 ---
 title: récupération FTP
-description: Rubrique relative aux commandes Windows pour FTP obtenir
+description: Rubrique de référence pour la récupération FTP
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c0b4dc41ec29edfb94661176a5ccaf651584fc43
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 37423f81fd72e79cebcdf169160ad3e8033b69b2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843482"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725295"
 ---
 # <a name="ftp-get"></a>FTP : obtient
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Copie un fichier distant sur l’ordinateur local à l’aide du type de transfert de fichier actuel.   
 ## <a name="syntax"></a>Syntaxe  
@@ -32,9 +32,9 @@ get <remoteFile> [<LocalFile>]
 | <remoteFile>  |                                                   Spécifie le fichier distant à copier.                                                   |
 | [<LocalFile>] | Spécifie le nom du fichier à utiliser sur l’ordinateur local. Si *fichier_local* n’est pas spécifié, le fichier reçoit le nom *remoteFile* . |
 
-## <a name="remarks"></a>Notes  
+## <a name="remarks"></a>Notes   
 La commande d' **extraction** est identique à la commande **recv** .  
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre  
+## <a name="examples"></a>Exemples  
 Copiez **test. txt** sur l’ordinateur local à l’aide du type de transfert de fichier actuel.  
 ```  
 get test.txt  

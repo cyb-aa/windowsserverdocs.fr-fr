@@ -1,6 +1,6 @@
 ---
 title: findstr
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dbdc1b741b5934f53340bda773909fb5035e449b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 97cc58d2b87190c43137e8b193f0217fb98c006c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844632"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725601"
 ---
 # <a name="findstr"></a>findstr
 
@@ -35,7 +35,7 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 |/b|Correspond au modèle de texte s’il se trouve au début d’une ligne.|
 |/e|Correspond au modèle de texte s’il se trouve à la fin d’une ligne.|
 |/l|Traite les chaînes de recherche littéralement.|
-|/r|Traite les chaînes de recherche en tant qu’expressions régulières. Il s’agit du paramètre par défaut.|
+|/r|Traite les chaînes de recherche en tant qu’expressions régulières. Il s'agit du paramètre par défaut.|
 |/s|Recherche le répertoire actif et tous ses sous-répertoires.|
 |/i|Ignore la casse des caractères lors de la recherche de la chaîne.|
 |/x|Imprime les lignes qui correspondent exactement.|
@@ -45,16 +45,16 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 |/o|Imprime le décalage de caractère avant chaque ligne correspondante.|
 |/p|Ignore les fichiers avec des caractères non imprimables.|
 |/OFF [ligne]|N’ignore pas les fichiers dont l’attribut offline est défini.|
-|/f :\<> de fichier|Obtient une liste de fichiers à partir du fichier spécifié.|
-|/c :\<chaîne >|Utilise le texte spécifié comme chaîne de recherche littérale.|
-|/g :\<> de fichier|Obtient les chaînes de recherche à partir du fichier spécifié.|
-|/d :\<DirList >|Recherche la liste de répertoires spécifiée. Chaque répertoire doit être séparé par un point-virgule (;), par exemple `dir1;dir2;dir3`.|
-|/a :\<ColorAttribute >|Spécifie des attributs de couleur avec deux chiffres hexadécimaux. Pour plus d’informations, tapez `color /?`.|
-|Chaînes de \<>|Spécifie le texte à rechercher dans *filename*. Obligatoire.|
-|[\<> de lecteur :] [<Path>]<FileName>[...]|Spécifie l’emplacement et les fichiers à rechercher. Au moins un nom de fichier est requis.|
+|/f :\<> de fichiers|Obtient une liste de fichiers à partir du fichier spécifié.|
+|/c :\<String>|Utilise le texte spécifié comme chaîne de recherche littérale.|
+|/g :\<fichier>|Obtient les chaînes de recherche à partir du fichier spécifié.|
+|/d :\<DirList>|Recherche la liste de répertoires spécifiée. Chaque répertoire doit être séparé par un point-virgule (;), `dir1;dir2;dir3`par exemple.|
+|/a :\<ColorAttribute>|Spécifie des attributs de couleur avec deux chiffres hexadécimaux. Pour `color /?` plus d’informations, tapez.|
+|\<Chaînes>|Spécifie le texte à rechercher dans *filename*. Obligatoire.|
+|[\<Lecteur> :] [<Path>]<FileName>[ ...]|Spécifie l’emplacement et les fichiers à rechercher. Au moins un nom de fichier est requis.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 - Toutes les options de ligne de commande **findstr** doivent précéder les *chaînes* et le *nom de fichier* dans la chaîne de commande.
 - Les expressions régulières utilisent à la fois des caractères littéraux et des métacaractères pour rechercher des modèles de texte, plutôt que des chaînes exactes de caractères. Un caractère littéral est un caractère qui n’a pas de signification particulière dans la syntaxe d’expression régulière ; il correspond à une occurrence de ce caractère. Par exemple, les lettres et les nombres sont des caractères littéraux. Un métacaractère est un symbole avec une signification spéciale (un opérateur ou un délimiteur) dans la syntaxe d’expression régulière.
@@ -71,8 +71,8 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
   |[^ classe]|Classe inverse : tout caractère ne figurant pas dans un jeu|
   |[x-y]|Plage : tous les caractères de la plage spécifiée|
   |\x|Escape : utilisation littérale d’un métacaractère x|
-  |chaîne de < \\|Position du mot : début du mot|
-  |\> de chaîne|Position du mot : fin du mot|
+  |\\Chaîne<|Position du mot : début du mot|
+  |string\>|Position du mot : fin du mot|
 
   Les caractères spéciaux de la syntaxe des expressions régulières sont le plus puissant lorsque vous les utilisez ensemble. Par exemple, utilisez la combinaison suivante des caractères génériques (.) et REPEAT (*) pour faire correspondre n’importe quelle chaîne de caractères :
 

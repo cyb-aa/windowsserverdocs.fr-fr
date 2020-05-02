@@ -1,6 +1,6 @@
 ---
 title: forfiles
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: 196da88dfd4ebe2be5a5c673e5afee3224432cb4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 21cbc24028af5c4194d36258aecdd5432fb4069f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844482"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725573"
 ---
 # <a name="forfiles"></a>forfiles
 
@@ -22,7 +22,7 @@ ms.locfileid: "80844482"
 
 Sélectionne et exécute une commande sur un fichier ou un ensemble de fichiers. Cette commande est utile pour le traitement par lots.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -35,14 +35,14 @@ forfiles [/p <Path>] [/m <SearchMask>] [/s] [/c <Command>] [/d [{+|-}][{<Date>|<
 
 |                     Paramètre                      |                                                                                                                                                                                                                                                                                                    Description                                                                                                                                                                                                                                                                                                     |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                     /p \<chemin d’accès >                     |                                                                                                                                                                                                                                                 Spécifie le chemin d’accès à partir duquel commencer la recherche. Par défaut, la recherche commence dans le répertoire de travail actuel.                                                                                                                                                                                                                                                  |
-|                  /m \<SearchMask >                  |                                                                                                                                                                                                                                                           Recherche les fichiers en fonction du masque de recherche spécifié. Le masque de recherche par défaut est **\*.\\** \*.                                                                                                                                                                                                                                                           |
+|                     > \<du chemin d’accès/p                     |                                                                                                                                                                                                                                                 Spécifie le chemin d’accès à partir duquel commencer la recherche. Par défaut, la recherche commence dans le répertoire de travail actuel.                                                                                                                                                                                                                                                  |
+|                  /m \<SearchMask>                  |                                                                                                                                                                                                                                                           Recherche les fichiers en fonction du masque de recherche spécifié. Le masque de recherche par défaut est ** \*.\\ ** \*.                                                                                                                                                                                                                                                           |
 |                         /s                         |                                                                                                                                                                                                                                                                   Indique à la commande **Forfiles** d’effectuer une recherche dans les sous-répertoires de manière récursive.                                                                                                                                                                                                                                                                    |
-|                  Commande/c \<>                   |                                                                                                                                                                                                                                  Exécute la commande spécifiée sur chaque fichier. Les chaînes de commande doivent être mises entre guillemets. La commande par défaut est **cmd/c echo @file** .                                                                                                                                                                                                                                   |
-| /d&nbsp;[{+\|-}]&#8288;[{\<Date > &#8288;\|\<jours >}] | Sélectionne les fichiers dont la date de dernière modification est comprise dans le laps de temps spécifié.</br>-Sélectionne les fichiers dont la date de dernière modification est ultérieure ou égale à ( **+** ) ou antérieure ou égale à ( **-** ) la date spécifiée, où la *Date* est au format mm/jj/aaaa.</br>-Sélectionne les fichiers dont la date de dernière modification est ultérieure ou égale à ( **+** ) la date actuelle plus le nombre de jours spécifié, ou antérieur ou égal à ( **-** ) la date actuelle moins le nombre de jours spécifié.</br>-Les valeurs valides pour les *jours* incluent un nombre compris entre 0 et 32768. Si aucun signe n’est spécifié, **+** est utilisé par défaut. |
+|                  > \<de commande/c                   |                                                                                                                                                                                                                                  Exécute la commande spécifiée sur chaque fichier. Les chaînes de commande doivent être mises entre guillemets. La commande par défaut est **cmd/c @fileEcho **.                                                                                                                                                                                                                                   |
+| /d&nbsp;[{+\|-}] &#8288; [{\<date>\|&#8288;\<jours>}] | Sélectionne les fichiers dont la date de dernière modification est comprise dans le laps de temps spécifié.</br>-Sélectionne les fichiers dont la date de dernière modification est ultérieure ou égale**+** à () ou antérieure ou égale à**-**() la date spécifiée, où la *Date* est au format mm/jj/aaaa.</br>-Sélectionne les fichiers dont la date de dernière modification est ultérieure ou égale**+** à () la date actuelle plus le nombre de jours spécifié, ou antérieur ou égal à**-**() la date actuelle moins le nombre de jours spécifié.</br>-Les valeurs valides pour les *jours* incluent un nombre compris entre 0 et 32768. Si aucun signe n’est spécifié **+** , est utilisé par défaut. |
 |                         /?                         |                                                                                                                                                                                                                                                                                        Affiche l'aide à l'invite de commandes.                                                                                                                                                                                                                                                                                        |
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   **Forfiles** est le plus souvent utilisé dans les fichiers de commandes.
 -   **Forfiles/s** est similaire à **dir/s.**
@@ -63,12 +63,12 @@ forfiles [/p <Path>] [/m <SearchMask>] [/s] [/c <Command>] [/d [{+|-}][{<Date>|<
 -   Avec **Forfiles**, vous pouvez exécuter une commande sur ou passer des arguments à plusieurs fichiers. Par exemple, vous pouvez exécuter la commande **type** sur tous les fichiers d’une arborescence avec l’extension de nom de fichier. txt. Vous pouvez aussi exécuter chaque fichier de commandes (*. bat) sur le lecteur C, avec le nom de fichier MyInput. txt comme premier argument.
 -   Avec **Forfiles**, vous pouvez effectuer l’une des opérations suivantes :  
     -   Sélectionnez les fichiers en fonction d’une date absolue ou d’une date relative à l’aide du paramètre **/d** .
-    -   Créer une arborescence d’archive de fichiers à l’aide de variables telles que @FSIZE et @FDATE.
-    -   Différenciez les fichiers des répertoires à l’aide de la variable @ISDIR.
+    -   Créer une arborescence d’archive de fichiers à l’aide de @FSIZE variables @FDATEtelles que et.
+    -   Différenciez les fichiers des répertoires @ISDIR à l’aide de la variable.
     -   Incluez des caractères spéciaux dans la ligne de commande en utilisant le code hexadécimal du caractère, au format 0x*hh* (par exemple, 0x09 pour un onglet).
 -   **Forfiles** fonctionne en implémentant l’indicateur de sous **-répertoires recurse** sur les outils conçus pour traiter un seul fichier.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour répertorier tous les fichiers de commandes sur le lecteur C, tapez :
 ```

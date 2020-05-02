@@ -1,6 +1,6 @@
 ---
 title: développer vdisk
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 272714372a35f7f205b5a2e70cb2f2669b3a0634
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c2380045de45397888777f58e3420c75bb6915ae
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844892"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725691"
 ---
 # <a name="expand-vdisk"></a>développer vdisk
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 développe un disque dur virtuel (VHD) à la taille que vous spécifiez.
 > [!NOTE]
@@ -33,16 +33,16 @@ développe un disque dur virtuel (VHD) à la taille que vous spécifiez.
 > |-------------|-------------------------------------------------------|
 > | maximum =<n> | Spécifie la nouvelle taille du disque dur virtuel en mégaoctets (Mo). |
 > 
-> ## <a name="remarks"></a>Notes
+> ## <a name="remarks"></a>Notes 
 > - Pour que cette opération aboutisse, vous devez sélectionner et détacher un disque dur virtuel. Utilisez la commande **Select vdisk** pour sélectionner un volume et le déplacer vers le focus.
->   ## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+>   ## <a name="examples"></a>Exemples
 >   Pour développer le disque dur virtuel sélectionné à 20 Go, tapez :
 >   ```
 >   expand vdisk maximum=20000
 >   ```
 >   ## <a name="additional-references"></a>Références supplémentaires
 > - - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-> - [attacher vdisk](attach-vdisk.md)
+> - [attach vdisk](attach-vdisk.md)
 > - [Compact vdisk](compact-vdisk.md)
 
 -   [Détacher vdisk](detach-vdisk.md)

@@ -9,19 +9,19 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: cf3685bae9ed76ede4da6df244139437d92250c0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3b35938c21180199aabb74431d20a31167aea706
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844332"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725532"
 ---
 # <a name="fsutil-dirty"></a>Fsutil Dirty
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Interroge ou définit le bit d’intégrité d’un volume. Lorsque le bit d’intégrité d’un volume est défini, **Autochk** vérifie automatiquement si le volume ne comporte pas d’erreurs lors du prochain redémarrage de l’ordinateur.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -35,9 +35,9 @@ fsutil dirty {query | set} <VolumePath>
 |---------------|--------------------------------------------------------------------------------------------------------------|
 |     query     |                                  Interroge le bit d’intégrité du volume spécifié.                                   |
 |      set      |                                    Définit le bit d’intégrité du volume spécifié.                                    |
-| \<VolumePath > | Spécifie le nom du lecteur suivi d’un signe deux-points ou d’un GUID au format suivant : **volume {** <em>GUID</em> **}** . |
+| \<VolumePath> | Spécifie le nom du lecteur suivi d’un signe deux-points ou d’un GUID au format suivant : **volume {**<em>GUID</em>**}**. |
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Le bit d’intégrité d’un volume indique que le système de fichiers est peut-être dans un état incohérent. Le bit d’intégrité peut être défini pour les raisons suivantes :
 

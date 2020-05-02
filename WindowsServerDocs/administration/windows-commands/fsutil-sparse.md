@@ -9,19 +9,19 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 70c881cc02f31614160920766d32d73a3a939315
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3d0df4e8e8dc16818273393062989ef7c0455c51
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844062"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725450"
 ---
 # <a name="fsutil-sparse"></a>Fsutil sparse
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Gère les fichiers partiellement alloués.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -44,7 +44,7 @@ fsutil sparse [setrange] <FileName> <BeginningOffset> <Length>
 | <BeginningOffset> |                              Spécifie le décalage dans le fichier à marquer comme étant fragmenté.                              |
 |     <Length>      |                 Spécifie la longueur de la région dans le fichier à marquer comme étant partiellement allouée (en octets).                 |
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Un fichier partiellement alloué est un fichier contenant une ou plusieurs régions de données non allouées. Un programme voit ces régions non allouées comme contenant des octets ayant la valeur zéro, mais aucun espace disque n’est utilisé pour représenter ces zéros. Toutes les données significatives ou non nulles sont allouées, alors que toutes les données sans signification (grandes chaînes de données composées de zéros) ne sont pas allouées. Lorsqu’un fichier partiellement alloué est lu, les données allouées sont retournées comme stockées et les données non allouées sont retournées, par défaut, comme des zéros, conformément à la spécification de la spécification de sécurité C2. La prise en charge des fichiers partiellement alloués permet de libérer les données de n’importe où dans le fichier.
 

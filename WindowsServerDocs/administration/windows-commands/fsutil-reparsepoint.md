@@ -9,19 +9,19 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 0b819f15e473738996484283bceac439f482a13d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 05c203ef610dda0443ddc845245a4072e617f7a6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844152"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725435"
 ---
 # <a name="fsutil-reparsepoint"></a>Fsutil reparsepoint
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
 
 Interroge ou supprime des points d’analyse.  La commande **fsutil reparsepoint** est généralement utilisée par les professionnels du support technique.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -35,10 +35,10 @@ fsutil reparsepoint [delete] <FileName>
 | Paramètre  |                                                                Description                                                                |
 |------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 |   query    |            Récupère les données du point d’analyse associées au fichier ou au répertoire identifié par le handle spécifié.             |
-|   delete   | Supprime un point d’analyse du fichier ou du répertoire identifié par le handle spécifié, mais ne supprime pas le fichier ou le répertoire. |
+|   supprimer   | Supprime un point d’analyse du fichier ou du répertoire identifié par le handle spécifié, mais ne supprime pas le fichier ou le répertoire. |
 | <FileName> |             Spécifie le chemin d’accès complet au fichier, y compris le nom de fichier et l’extension, par exemple C:\documents\filename.txt.             |
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Les points d’analyse sont des objets de système de fichiers NTFS qui ont un attribut définissable qui contient des données définies par l’utilisateur, et ils sont utilisés pour étendre les fonctionnalités dans le sous-système d’entrée/sortie (e/s).
 

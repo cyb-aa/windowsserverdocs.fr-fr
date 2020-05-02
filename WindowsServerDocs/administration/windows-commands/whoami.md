@@ -1,6 +1,6 @@
 ---
 title: whoami
-description: La rubrique commandes Windows pour whoami, qui affiche des informations d’utilisateur, de groupe et de privilèges pour l’utilisateur actuellement connecté au système local.
+description: Rubrique de référence pour whoami, qui affiche des informations d’utilisateur, de groupe et de privilèges pour l’utilisateur actuellement connecté au système local.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9ff45ed95b35215859f2f83aec75b33570ef46d2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2d672b3aaa20125c5c1da10fa3a5811fb5060d11
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829272"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725808"
 ---
 # <a name="whoami"></a>whoami
 
@@ -22,7 +22,7 @@ ms.locfileid: "80829272"
 
 Affiche des informations sur l’utilisateur, le groupe et les privilèges de l’utilisateur actuellement connecté au système local. En cas d’utilisation sans paramètre, **whoami** affiche le domaine et le nom d’utilisateur actuels.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -42,12 +42,12 @@ whoami /all [/fo <Format>] [/nh]
 |/User|Affiche le domaine et le nom d’utilisateur actuels et l’identificateur de sécurité (SID).|
 |/groups|Affiche les groupes d’utilisateurs auxquels appartient l’utilisateur actuel.|
 |/priv|Affiche les privilèges de sécurité de l’utilisateur actuel.|
-|/FO \<format >|Spécifie le format de sortie. Les valeurs valides sont les suivantes :</br>**table** Affiche la sortie dans une table. Il s'agit de la valeur par défaut.</br>**liste** Affiche la sortie dans une liste.</br>fichier **CSV** Affiche la sortie au format CSV (valeurs séparées par des virgules).|
+|/FO \<format>|Spécifie le format de sortie. Les valeurs valides sont les suivantes :</br>**table** Affiche la sortie dans une table. Il s’agit de la valeur par défaut.</br>**liste** Affiche la sortie dans une liste.</br>fichier **CSV** Affiche la sortie au format CSV (valeurs séparées par des virgules).|
 |/all|Affiche toutes les informations du jeton d’accès actuel, y compris le nom d’utilisateur actuel, les identificateurs de sécurité (SID), les privilèges et les groupes auxquels l’utilisateur actuel appartient.|
 |/NH|Spécifie que l’en-tête de colonne ne doit pas être affiché dans la sortie. Cela est valide uniquement pour les formats table et CSV.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour afficher le domaine et le nom d’utilisateur de la personne qui est actuellement connectée à cet ordinateur, tapez :
 ```

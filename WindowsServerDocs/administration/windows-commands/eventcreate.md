@@ -1,6 +1,6 @@
 ---
 title: eventcreate
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 79b10963abef9918e5962fdaf7d387a129873452
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 797298622ba1021caef3d04e2f2f06f016ef6a70
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845092"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725760"
 ---
 # <a name="eventcreate"></a>eventcreate
 
 
 
-Permet à un administrateur de créer un événement personnalisé dans un journal des événements spécifié. Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+Permet à un administrateur de créer un événement personnalisé dans un journal des événements spécifié. 
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,21 +32,21 @@ eventcreate [/s <Computer> [/u <Domain\User> [/p <Password>]] {[/l {APPLICATION|
 
 |Paramètre|Description|
 |---------|-----------|
-|/s \<> de l’ordinateur|Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.|
-|/u \<domaine\utilisateur >|Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par \<utilisateur > ou < domaine\utilisateur >. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande.|
-|/p \<mot de passe >|Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .|
-|/l {APPLICATION\|système}|Spécifie le nom du journal des événements dans lequel l’événement sera créé. Les noms de journaux valides sont APPLICATION et système.|
-|/So \<NomSource >|Spécifie la source à utiliser pour l’événement. Une source valide peut être n’importe quelle chaîne et doit représenter l’application ou le composant qui génère l’événement.|
-|/t {ERROR\|WARNING\|des informations\|</br>SUCCESSAUDIT\|FAILUREAUDIT}|Spécifie le type d’événement à créer. Les types valides sont ERROR, WARNING, INFORMATION, SUCCESSAUDIT et FAILUREAUDIT.|
-|/ID \<EventID >|Spécifie l’ID d’événement de l’événement. Un ID valide est un nombre compris entre 1 et 1000.|
-|Description \</d >|Spécifie la description à utiliser pour l’événement nouvellement créé.|
+|/s \<ordinateur>|Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.|
+|/u \<domaine\utilisateur>|Exécute la commande avec les autorisations de compte de l’utilisateur spécifié \<par l’utilisateur> ou <domaine\utilisateur>. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande.|
+|/p \<mot de passe>|Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .|
+|/l {système\|d’applications}|Spécifie le nom du journal des événements dans lequel l’événement sera créé. Les noms de journaux valides sont APPLICATION et système.|
+|/So \<NomSource>|Spécifie la source à utiliser pour l’événement. Une source valide peut être n’importe quelle chaîne et doit représenter l’application ou le composant qui génère l’événement.|
+|/t {informations\|d'\|avertissement d’erreur\|</br>SUCCESSAUDIT\|FailureAudit}|Spécifie le type d’événement à créer. Les types valides sont ERROR, WARNING, INFORMATION, SUCCESSAUDIT et FAILUREAUDIT.|
+|/ID \<EventID>|Spécifie l’ID d’événement de l’événement. Un ID valide est un nombre compris entre 1 et 1000.|
+|/d \<Description>|Spécifie la description à utiliser pour l’événement nouvellement créé.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Les événements personnalisés ne peuvent pas être écrits dans le journal de sécurité.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Les exemples suivants illustrent la façon dont vous pouvez utiliser la commande eventcreate :
 ```
