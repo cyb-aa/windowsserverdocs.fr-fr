@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 6662cb7fb00b7d21311fef2ca127ba89591a00b2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4b3aedc341dfcee094e20f43e39f34dc6fd08109
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837132"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722792"
 ---
 # <a name="prompt"></a>prompt
 
 
 
-Modifie l’invite de commandes de cmd. exe. S’il est utilisé sans paramètres, l' **invite** de commandes rétablit la valeur par défaut de l’invite de commandes, qui est la lettre de lecteur et le répertoire actuels suivis du symbole supérieur à ( **>** ).
+Modifie l’invite de commandes de cmd. exe. En cas d’utilisation sans paramètres, **prompt** rétablit la valeur par défaut de l’invite de commandes, qui est la lettre de lecteur et le répertoire actuels**>** suivis du signe supérieur à ().
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,10 +34,10 @@ prompt [<Text>]
 
 |Paramètre|Description|
 |---------|-----------|
-|Texte \<>|Spécifie le texte et les informations que vous souhaitez inclure dans l’invite de commandes.|
+|\<Texte>|Spécifie le texte et les informations que vous souhaitez inclure dans l’invite de commandes.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 Vous pouvez personnaliser l’invite de commandes pour afficher le texte de votre choix, y compris des informations telles que le nom du répertoire actif, la date et l’heure, ainsi que le numéro de version de Microsoft Windows.
 
@@ -46,7 +46,7 @@ Le tableau suivant répertorie les combinaisons de caractères que vous pouvez i
 | Caractère |                                 Description                                 |
 |-----------|-----------------------------------------------------------------------------|
 |    $q     |                               = (signe égal)                                |
-|    $$     |                               $ (signe dollar)                               |
+|    $$     |                               $ (signe $)                               |
 |    $t     |                                Heure actuelle                                 |
 |    $d     |                                Date actuelle                                 |
 |    $p     |                           Lecteur et chemin d’accès actuels                            |
@@ -54,7 +54,7 @@ Le tableau suivant répertorie les combinaisons de caractères que vous pouvez i
 |    $n     |                                Lecteur actuel                                |
 |    $g     |                            > (signe supérieur à)                            |
 |    $l     |                             < (signe inférieur à)                              |
-|    $b     |                              \| (symbole de barre verticale)                               |
+|    $b     |                              \|(symbole de barre verticale)                               |
 |    $_     |                               ENTRÉE-SAUT DE LA CASSE                                |
 |    $e     |                         Code d’échappement ANSI (code 27)                          |
 |    $h     | Retour arrière (pour supprimer un caractère qui a été écrit sur la ligne de commande) |
@@ -67,7 +67,7 @@ Lorsque les extensions de commande sont activées (autrement dit, la valeur par 
 
 |Caractère|Description|
 |---------|-----------|
-|$+|Zéro, un ou plusieurs caractères de signe plus ( **+** ), en fonction de la profondeur de la pile de répertoires **pushd** (un caractère pour chaque niveau poussé).|
+|$+|Zéro, un ou plusieurs caractères**+** signe plus (), en fonction de la profondeur de la pile de répertoires **pushd** (un caractère pour chaque niveau poussé).|
 |$m|Nom distant associé à la lettre de lecteur en cours ou à la chaîne vide si le lecteur actuel n’est pas un lecteur réseau.|
 
 Si vous incluez le caractère **$p** dans le paramètre text, votre disque est lu après l’entrée de chaque commande (pour déterminer le lecteur et le chemin d’accès actuels). Cela peut prendre du temps supplémentaire, en particulier pour les lecteurs de disquette.
@@ -83,7 +83,7 @@ L’invite est modifiée comme suit, où la date et l’heure sont actuelles :
 Fri 06/01/2007  13:53:28.91
 >
 ```
-Pour définir l’invite de commandes pour qu’elle s’affiche sous forme de flèche (`-->`), tapez :
+Pour définir l’invite de commandes pour qu’elle s’affiche`-->`sous forme de flèche (), tapez :
 ```
 prompt --$g
 ```

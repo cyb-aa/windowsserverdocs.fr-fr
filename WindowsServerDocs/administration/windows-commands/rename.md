@@ -1,6 +1,6 @@
 ---
-title: rename
-description: Rubrique relative aux commandes Windows pour * * * *-
+title: renommer
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fa88a7c1b5cc3104ae6fd772d102165794e1d673
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 96f70e0f4130b0bc2c2d85462ee0d2eabb7a7888
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80836002"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722413"
 ---
-# <a name="rename"></a>rename
+# <a name="rename"></a>renommer
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Il s’agit de la même chose que la commande **ren** .
 Consultez [ren](ren.md) pour connaître la syntaxe et les paramètres.

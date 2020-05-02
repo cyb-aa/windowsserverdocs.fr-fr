@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 03450a370c84eb4659b9ebfde0729fee52e6c1f6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4212951a5aee46be893069c15dba4b210aca253d
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835552"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722281"
 ---
 # <a name="rpcinfo"></a>rpcinfo
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Répertorie les programmes installés sur des ordinateurs distants. L’utilitaire de ligne de commande **rpcinfo** effectue un appel de procédure distante (RPC) sur un serveur RPC et signale ce qu’il trouve. 
 
@@ -30,13 +30,13 @@ rpcinfo [/p [<Node>]] [/b <Program version>] [/t <Node Program> [<version>]] [/u
 #### <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-|/p [\<> de nœud]|répertorie tous les programmes inscrits avec le mappeur de port sur l’ordinateur hôte spécifié. Si vous ne spécifiez pas de nom de nœud (ordinateur), le programme interroge le mappeur de port sur l’hôte local.|
-|/b \<version du programme >|Demande une réponse de tous les nœuds réseau qui ont le programme et la version spécifiés inscrits auprès du mappeur de port. Vous devez spécifier un nom de programme ou un numéro de version, ainsi qu’un numéro de version.|
-|/t \<du nœud programme > [\<version >]|Utilise le protocole de transport TCP pour appeler le programme spécifié. Vous devez spécifier à la fois un nom de nœud (ordinateur) et un nom de programme. Si vous ne spécifiez pas de version, le programme appelle toutes les versions.|
-|/u \<nœud programme > [\<version >]|Utilise le protocole de transport UDP pour appeler le programme spécifié. Vous devez spécifier à la fois un nom de nœud (ordinateur) et un nom de programme. Si vous ne spécifiez pas de version, le programme appelle toutes les versions.|
+|/p [\<nœud>]|répertorie tous les programmes inscrits avec le mappeur de port sur l’ordinateur hôte spécifié. Si vous ne spécifiez pas de nom de nœud (ordinateur), le programme interroge le mappeur de port sur l’hôte local.|
+|/b \<version du programme>|Demande une réponse de tous les nœuds réseau qui ont le programme et la version spécifiés inscrits auprès du mappeur de port. Vous devez spécifier un nom de programme ou un numéro de version, ainsi qu’un numéro de version.|
+|/t \<> de programme de\<nœud [version>]|Utilise le protocole de transport TCP pour appeler le programme spécifié. Vous devez spécifier à la fois un nom de nœud (ordinateur) et un nom de programme. Si vous ne spécifiez pas de version, le programme appelle toutes les versions.|
+|/u \<node> [\<version>]|Utilise le protocole de transport UDP pour appeler le programme spécifié. Vous devez spécifier à la fois un nom de nœud (ordinateur) et un nom de programme. Si vous ne spécifiez pas de version, le programme appelle toutes les versions.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="examples"></a><a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a>Exemples
 Pour répertorier tous les programmes inscrits avec le mappeur de port, tapez :
 ```
 rpcinfo /p [<Node>]

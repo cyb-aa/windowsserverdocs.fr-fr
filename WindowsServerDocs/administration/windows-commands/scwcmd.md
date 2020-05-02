@@ -1,6 +1,6 @@
 ---
 title: Scwcmd
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 014bb8b26f6eebaefa3a9997a71fbaaf543a75dc
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f08a8396219924ac6660828464e035c7744729b1
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835042"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722098"
 ---
 # <a name="scwcmd"></a>Scwcmd
 
-> S’applique à : Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server 2012 R2, Windows Server 2012
 
 L’outil en ligne de commande Scwcmd. exe inclus dans l’Assistant Configuration de la sécurité (SCW) peut être utilisé pour effectuer les tâches suivantes :
 -   Configurez un ou plusieurs serveurs avec une stratégie générée par SCW.
@@ -40,7 +40,7 @@ scwcmd <command> [<subcommand>]
 
 |Sous-commande|Description|
 |----------|-----------|
-|/Analyze|Détermine si un ordinateur est conforme à une stratégie.</br>Consultez [scwcmd : Analyze](scwcmd-analyze.md) pour connaître la syntaxe et les options.|
+|/analyze|Détermine si un ordinateur est conforme à une stratégie.</br>Consultez [scwcmd : Analyze](scwcmd-analyze.md) pour connaître la syntaxe et les options.|
 |/configure|Applique une stratégie de sécurité générée par SCW à un ordinateur.</br>Pour connaître la syntaxe et les options, consultez [scwcmd : configure](scwcmd-configure.md) .|
 |/Register|Étend ou personnalise la base de données de configuration de la sécurité du SCW en inscrivant un fichier de base de données de configuration de sécurité qui contient des définitions de rôle, de tâche, de service ou de port.</br>Consultez [scwcmd : Register](scwcmd-register.md) pour connaître la syntaxe et les options.|
 |/Rollback|Applique la stratégie de restauration la plus récente disponible, puis supprime cette stratégie de restauration.</br>Consultez [scwcmd : Rollback](scwcmd-rollback.md) pour connaître la syntaxe et les options.|

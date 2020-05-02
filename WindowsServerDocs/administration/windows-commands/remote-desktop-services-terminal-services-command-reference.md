@@ -1,6 +1,6 @@
 ---
 title: Référence des commandes des services Bureau à distance (services Terminal Server)
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b2e188be84c657688a971a75788942d4acf598d7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 630b2274e96e446af07f7630d95056b40858209f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80836062"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722440"
 ---
 # <a name="remote-desktop-services-terminal-services-command-reference"></a>Référence des commandes des services Bureau à distance (services Terminal Server)
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 La liste suivante répertorie les Services Bureau à distance outils en ligne de commande.
 > [!NOTE]
-> Sous Windows Server 2008 R2, les services Terminal Server sont appelés Services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
+> Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
 > 
 > |                 Commande                 |                                                      Description                                                       |
 > |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------|
@@ -40,7 +40,7 @@ La liste suivante répertorie les Services Bureau à distance outils en ligne de
 > |          [qappsrv](qappsrv.md)          |                             Affiche la liste de tous les serveurs hôtes de session Bureau à distance sur le réseau.                             |
 > |         [qprocess](qprocess.md)         |                  Affiche des informations sur les processus qui s’exécutent sur un serveur hôte de session Bureau à distance.                   |
 > |            [requête](query.md)            |                      Affiche des informations sur les processus, les sessions et les serveurs hôtes de session Bureau à distance.                      |
-> |    [processus de requête](query-process.md)    |                  Affiche des informations sur les processus qui s’exécutent sur un serveur hôte de session Bureau à distance.                   |
+> |    [query process](query-process.md)    |                  Affiche des informations sur les processus qui s’exécutent sur un serveur hôte de session Bureau à distance.                   |
 > |    [session de requête](query-session.md)    |                           Affiche des informations sur les sessions sur un serveur hôte de session Bureau à distance.                            |
 > | [requête termserver](query-termserver.md) |                             Affiche la liste de tous les serveurs hôtes de session Bureau à distance sur le réseau.                             |
 > |       [interroger l’utilisateur](query-user.md)       |                         Affiche des informations sur les sessions utilisateur sur un serveur hôte de session Bureau à distance.                         |

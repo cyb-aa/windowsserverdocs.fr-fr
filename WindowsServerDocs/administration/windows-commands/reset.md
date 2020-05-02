@@ -1,6 +1,6 @@
 ---
-title: réinitialiser
-description: Rubrique relative aux commandes Windows pour * * * *-
+title: reset
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5c27ddd93d06670a30f797bd58dd396a9e7ce70a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0701324ad1ee94cc645c7519d81fef7357b6a34a
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835782"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722354"
 ---
-# <a name="reset"></a>réinitialiser
+# <a name="reset"></a>reset
 
 
 

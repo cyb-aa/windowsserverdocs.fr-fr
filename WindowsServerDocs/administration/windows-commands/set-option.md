@@ -1,6 +1,6 @@
 ---
 title: Option Set
-description: La rubrique commandes Windows pour set option, qui définit les options de création de clichés instantanés.
+description: Rubrique de référence relative à l’option Set, qui définit les options de création de clichés instantanés.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a956c74619f3a6c33dfcaa62ee4c810cd93b21f1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a4aba049e29cd74450467cf28057a2ff4e4a7094
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834492"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721900"
 ---
 # <a name="set-option"></a>Option Set
 

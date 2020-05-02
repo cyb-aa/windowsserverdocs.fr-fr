@@ -1,6 +1,6 @@
 ---
 title: relancer l'analyse
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aae3d33984dd64c5140bcdde2f2b2a253bafcce7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4f79162b78a4fa9b28390bdd9c61b7c3b1d6f73f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835862"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722373"
 ---
 # <a name="rescan"></a>relancer l'analyse
 

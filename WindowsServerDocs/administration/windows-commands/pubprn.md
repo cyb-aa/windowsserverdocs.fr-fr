@@ -1,6 +1,6 @@
 ---
 title: pubprn
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8696a372902f36f703670cf514bddf75cf4cc7e3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 17ca9e98ef9e3423521b03c5c21be4b3f1538b62
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837102"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722777"
 ---
 # <a name="pubprn"></a>pubprn
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Publie une imprimante sur les services de domaine Active Directory.
 
@@ -31,28 +31,28 @@ LDAP://CN=<Container>,DC=<Container>
 ### <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-|\<ServerName >|Spécifie le nom du serveur Windows Server qui héberge l’imprimante que vous souhaitez publier. Si vous ne spécifiez pas d’ordinateur, l’ordinateur local est utilisé.|
-|\<UNCprinterpath >|Chemin d’accès UNC (Universal Naming Convention) à l’imprimante partagée que vous souhaitez publier.|
+|\<Nom du serveur>|Spécifie le nom du serveur Windows Server qui héberge l’imprimante que vous souhaitez publier. Si vous ne spécifiez pas d’ordinateur, l’ordinateur local est utilisé.|
+|\<UNCprinterpath>|Chemin d’accès UNC (Universal Naming Convention) à l’imprimante partagée que vous souhaitez publier.|
 |LDAP://CN =<Container>, DC =<Container>|Spécifie le chemin d’accès au conteneur dans les services de domaine Active Directory où vous souhaitez publier l’imprimante.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
--   La commande **Pubprn** est un script Visual Basic situé dans le répertoire%windir%\system32\ printing_Admin_Scripts\\<language>. Pour utiliser cette commande, à l’invite de commandes, tapez **cscript** suivi du chemin d’accès complet au fichier Pubprn ou accédez au dossier approprié. Par exemple :
+## <a name="remarks"></a>Notes 
+-   La commande **Pubprn** est un script Visual Basic situé dans le répertoire%windir%\system32\\\ <language> printing_Admin_Scripts. Pour utiliser cette commande, à l’invite de commandes, tapez **cscript** suivi du chemin d’accès complet au fichier Pubprn ou accédez au dossier approprié. Par exemple :
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\pubprn
     ```
--   Si les informations que vous fournissez contiennent des espaces, utilisez des guillemets autour du texte (par exemple, `computer Name`).
+-   Si les informations que vous fournissez contiennent des espaces, utilisez des guillemets autour du texte ( `computer Name`par exemple,).
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
-Pour publier toutes les imprimantes sur l’ordinateur \\\Server1 dans le conteneur MyContainer du domaine MyDomain.company.Com, tapez :
+## <a name="examples"></a>Exemples
+Pour publier toutes les imprimantes sur \\l’ordinateur \Server1 dans le conteneur mycontainer du domaine mydomain.Company.com, tapez :
 ```
 cscript Ppubprn Server1 LDAP://CN=MyContainer,DC=MyDomain,DC=company,DC=Com
 ```
-Pour publier l’imprimante Laserprinter1 sur le serveur \\\Server1 sur le conteneur MyContainer dans le domaine MyDomain.company.Com, tapez :
+Pour publier l’imprimante Laserprinter1 sur le \\serveur \Server1 sur le conteneur mycontainer dans le domaine mydomain.Company.com, tapez :
 ```
 cscript Ppubprn \\Server1\Laserprinter1 LDAP://CN=MyContainer,DC=MyDomain,DC=company,DC=Com
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
-- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-[référence de commande d’impression](print-command-reference.md)
+- [Référence des](command-line-syntax-key.md)
+[commandes d’impression](print-command-reference.md) de la clé de syntaxe de ligne de commande

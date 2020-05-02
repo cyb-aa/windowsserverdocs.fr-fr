@@ -1,6 +1,6 @@
 ---
 title: regsvr32
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d3b775b0c49e4191a9fee6dc9e2e91f968142085
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: beadc9e9e614e2fe4cffad5dc263cfb1d4aecf67
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80836212"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722476"
 ---
 # <a name="regsvr32"></a>regsvr32
 
@@ -22,7 +22,7 @@ ms.locfileid: "80836212"
 
 Inscrit les fichiers. dll en tant que composants de commande dans le registre.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,14 +34,14 @@ regsvr32 [/u] [/s] [/n] [/i[:cmdline]] <DllName>
 
 |Paramètre|Description|
 |---------|-----------|
-|/u|Annule l’inscription du serveur.|
+|/U|Annule l’inscription du serveur.|
 |/s|Exécute **regsvr32** sans afficher de messages.|
 |/n|Exécute **regsvr32** sans appeler **DllRegisterServer**. (Requiert le paramètre **/i** .)|
-|/i :\<cmdline >|Passe une chaîne de ligne de commande (*cmdline*) facultative à **DllInstall**. Si vous utilisez ce paramètre conjointement avec le paramètre **/u** , il appelle **DllUninstall**.|
-|\<DllName >|Nom du fichier. dll qui sera inscrit.|
+|/i :\<cmdline>|Passe une chaîne de ligne de commande (*cmdline*) facultative à **DllInstall**. Si vous utilisez ce paramètre conjointement avec le paramètre **/u** , il appelle **DllUninstall**.|
+|\<> DllName|Nom du fichier. dll qui sera inscrit.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour inscrire le fichier. dll pour le schéma de Active Directory, tapez :
 ```

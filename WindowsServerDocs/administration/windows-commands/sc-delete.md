@@ -1,6 +1,6 @@
 ---
 title: SC supprimer
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 05b276de04d4250cc03e4b2976bf8c1330ef82ce
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dd40b5eb82def3b3c437cbdb5b60d279529d25a0
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835382"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722190"
 ---
 # <a name="sc-delete"></a>SC supprimer
 
@@ -34,11 +34,11 @@ sc [<ServerName>] delete [<ServiceName>]
 
 |Paramètre|Description|
 |---------|-----------|
-|\<ServerName >|Spécifie le nom du serveur distant sur lequel se trouve le service. Le nom doit utiliser le format UNC (Universal Naming Convention) (par exemple, \\\\MyServer). Pour exécuter SC. exe localement, omettez ce paramètre.|
-|\<ServiceName >|Spécifie le nom du service retourné par l’opération **getkeyname** .|
+|\<Nom du serveur>|Spécifie le nom du serveur distant sur lequel se trouve le service. Le nom doit utiliser le format UNC (Universal Naming Convention) (par exemple, \\ \\monserveur). Pour exécuter SC. exe localement, omettez ce paramètre.|
+|\<> ServiceName|Spécifie le nom du service retourné par l’opération **getkeyname** .|
 |?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 Utilisez **Ajout/suppression de programmes** dans le **panneau de configuration** pour supprimer DHCP, DNS ou tout autre service de système d’exploitation intégré. Notez que l' **Ajout/suppression de programmes** supprimera non seulement la sous-clé du Registre pour le service, mais désinstallera également le service et supprimera les raccourcis qui y sont associés.
 

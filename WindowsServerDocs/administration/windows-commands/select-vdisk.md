@@ -1,6 +1,6 @@
 ---
 title: sélectionner vdisk
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 65e186413bebbf467cd4c2033d274badd1fbea80
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 68f60f8f43a33d498c40daa3b9994887f12037bb
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834742"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722001"
 ---
 # <a name="select-vdisk"></a>sélectionner vdisk
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-sélectionne le disque dur virtuel spécifié \(\) VHD et décale le focus vers celui-ci.  
+sélectionne le disque dur virtuel de \(disque\) dur virtuel spécifié et lui décale le focus.  
   
 > [!NOTE]  
 > Cette commande s’applique uniquement à Windows 7 et Windows Server 2008 R2.  
@@ -35,10 +35,10 @@ select vdisk file=<full path> [noerr]
   
 |Paramètre|Description|  
 |-------|--------|  
-|<full path> de\=de fichiers|Spécifie le chemin d’accès complet et le nom de fichier d’un fichier VHD existant.|  
+|txt\=<full path>|Spécifie le chemin d’accès complet et le nom de fichier d’un fichier VHD existant.|  
 |noerr|Utilisé uniquement pour les scripts. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.|  
   
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre  
+## <a name="examples"></a>Exemples  
 Pour déplacer le focus sur le disque dur virtuel nommé test. vhd, tapez :  
   
 ```  
@@ -49,7 +49,7 @@ select vdisk file=c:\test\test.vhd
   
 -   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
   
--   [attacher vdisk](attach-vdisk.md)  
+-   [attach vdisk](attach-vdisk.md)  
   
 -   [Compact vdisk](compact-vdisk.md)  
   

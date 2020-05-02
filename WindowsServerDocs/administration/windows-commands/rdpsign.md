@@ -9,22 +9,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: c9df46ab09b758cbd86334d5b418c876c41f0eff
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4245ea533238d31457563f4d3521fdb09ff1f255
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80836672"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722627"
 ---
 # <a name="rdpsign"></a>rdpsign
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous permet de signer numériquement un fichier protocole RDP (Remote Desktop Protocol) (. RDP).
-pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
+
 
 > [!NOTE]
-> Sous Windows Server 2008 R2, les services Terminal Server sont appelés Services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
+> Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -35,14 +35,14 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 
 |Paramètre|Description|
 |-------|--------|
-|/SHA1 \<> de hachage|Spécifie l’empreinte, qui est le hachage Secure Hash Algorithm 1 (SHA1) du certificat de signature inclus dans le magasin de certificats. Utilisé dans Windows Server 2012 R2 et versions antérieures.|
-|/SHA256 \<> de hachage|Spécifie l’empreinte numérique, qui est le hachage de l’algorithme de hachage sécurisé 256 (SHA256) du certificat de signature inclus dans le magasin de certificats. Remplace/SHA1 dans Windows Server 2016 et versions ultérieures.|
+|> \<de hachage/SHA1|Spécifie l’empreinte, qui est le hachage Secure Hash Algorithm 1 (SHA1) du certificat de signature inclus dans le magasin de certificats. Utilisé dans Windows Server 2012 R2 et versions antérieures.|
+|> \<de hachage/SHA256|Spécifie l’empreinte numérique, qui est le hachage de l’algorithme de hachage sécurisé 256 (SHA256) du certificat de signature inclus dans le magasin de certificats. Remplace/SHA1 dans Windows Server 2016 et versions ultérieures.|
 |/q|Mode silencieux. Aucune sortie lorsque la commande réussit et une sortie minimale si la commande échoue.|
-|/v|Mode détaillé. Affiche tous les avertissements, messages et États.|
+|/v|mode détaillé. Affiche tous les avertissements, messages et États.|
 |/l|Teste les résultats de la signature et de la sortie sans remplacer les fichiers d’entrée.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 -   L’empreinte numérique du certificat SHA1 ou SHA256 doit représenter un éditeur de fichiers. RDP approuvé. Pour obtenir l’empreinte numérique du certificat, ouvrez le composant logiciel enfichable Certificats, double-cliquez sur le certificat que vous souhaitez utiliser (dans le magasin de certificats de l’ordinateur local ou dans votre magasin de certificats personnel), cliquez sur l’onglet **Détails** , puis dans la liste **champ** , cliquez sur **empreinte numérique**.
 
     > [!NOTE]
@@ -67,6 +67,6 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
   ```
   rdpsign /sha1 hash file1.rdp file2.rdp file3.rdp
   ```
-  ## <a name="see-also"></a>Voir aussi
+  ## <a name="see-also"></a> Voir aussi
   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-  la [référence de commande services Bureau à distance (services Terminal Server)](remote-desktop-services-terminal-services-command-reference.md)
+  [services Bureau à distance la référence de commande (services Terminal Server)](remote-desktop-services-terminal-services-command-reference.md)

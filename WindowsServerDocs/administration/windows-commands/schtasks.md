@@ -1,6 +1,6 @@
 ---
 title: schtasks
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2b50ca62aea7a46f9246fb8d5089c0ef41aa1316
-ms.sourcegitcommit: d669d4af166b9018bcf18dc79cb621a5fee80042
+ms.openlocfilehash: a723025846a0e1725c72d5880d1ecc97579e1a69
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82037168"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722169"
 ---
 # <a name="schtasks"></a>schtasks
 
@@ -340,7 +340,7 @@ Dans une planification quotidienne, le paramètre **/SC Daily** est requis. Le p
 
 #### <a name="to-schedule-a-task-that-runs-every-day"></a>Pour planifier une tâche qui s’exécute tous les jours
 
-L’exemple suivant planifie l’exécution du programme MonApp une fois par jour, tous les jours, à 8:00 h 00. jusqu’au 31 décembre 2002. Étant donné qu’il omet le paramètre **/Mo** , l’intervalle par défaut de 1 est utilisé pour exécuter la commande tous les jours.
+Pour planifier l’exécution du programme MonApp une fois par jour, tous les jours, à 8:00 h 00 jusqu’au 31 décembre 2002. Étant donné qu’il omet le paramètre **/Mo** , l’intervalle par défaut de 1 est utilisé pour exécuter la commande tous les jours.
 
 Dans cet exemple, comme le système de l’ordinateur local est défini sur l’option **anglais (Royaume-Uni)** dans **Options régionales et linguistiques** du **panneau de configuration**, le format de la date de fin est jj/mm/aaaa (31/12/2002)
 ```
@@ -349,7 +349,7 @@ schtasks /create /tn My App /tr c:\apps\myapp.exe /sc daily /st 08:00 /ed 31/12/
 
 #### <a name="to-schedule-a-task-that-runs-every-12-days"></a>Pour planifier une tâche qui s’exécute tous les 12 jours
 
-L’exemple suivant planifie l’exécution du programme MonApp tous les douze jours à 1:00 h 00. (13:00) à partir du 31 décembre 2002. La commande utilise le paramètre **/Mo** pour spécifier un intervalle de deux (2) jours et les paramètres **/SD** et **/St** pour spécifier la date et l’heure.
+Pour planifier l’exécution du programme MonApp tous les douze jours à 1:00 h 00 (13:00) à partir du 31 décembre 2002. La commande utilise le paramètre **/Mo** pour spécifier un intervalle de deux (2) jours et les paramètres **/SD** et **/St** pour spécifier la date et l’heure.
 
 Dans cet exemple, étant donné que le système est défini sur l’option **anglais (Zimbabwe)** dans **Options régionales et linguistiques** du **panneau de configuration**, le format de la date de fin est MM/JJ/AAAA (12/31/2002)
 ```

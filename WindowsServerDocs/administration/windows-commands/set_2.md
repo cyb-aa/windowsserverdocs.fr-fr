@@ -1,6 +1,6 @@
 ---
 title: set_2
-description: La rubrique commandes Windows pour set_2, qui définit le contexte, les options, le mode détaillé et le fichier de métadonnées pour la création de clichés instantanés.
+description: Rubrique de référence pour set_2, qui définit le contexte, les options, le mode détaillé et le fichier de métadonnées pour la création de clichés instantanés.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fa467625997824a11b2303572a063d591f59bdd6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 655f379dd8c2d633aad0cbb470b17c6ccb90c4f7
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834382"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721871"
 ---
 # <a name="set_2"></a>set_2
 
@@ -34,10 +34,10 @@ set metadata <MetaData.cab>
 
 |Sous-commande|Description|
 |-----------|-----------|
-|context|Définit le contexte pour la création de clichés instantanés. Consultez [définir le contexte](set-context.md) pour la syntaxe et les paramètres.|
+|contexte|Définit le contexte pour la création de clichés instantanés. Consultez [définir le contexte](set-context.md) pour la syntaxe et les paramètres.|
 |Option|Définit des options pour la création de clichés instantanés. Pour connaître la syntaxe et les paramètres, consultez [set option](set-option.md) .|
-|commentaires|Active ou désactive le mode de sortie détaillé. Consultez [définir verbose](set-verbose.md) pour la syntaxe et les paramètres.|
-|métadonnées|Définit le nom et l’emplacement du fichier de métadonnées de création de clichés instantanés. Consultez [définir les métadonnées](set-metadata.md) pour la syntaxe et les paramètres.|
+|verbose|Active ou désactive le mode de sortie détaillé. Consultez [définir verbose](set-verbose.md) pour la syntaxe et les paramètres.|
+|metadata|Définit le nom et l’emplacement du fichier de métadonnées de création de clichés instantanés. Consultez [définir les métadonnées](set-metadata.md) pour la syntaxe et les paramètres.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="additional-references"></a>Références supplémentaires

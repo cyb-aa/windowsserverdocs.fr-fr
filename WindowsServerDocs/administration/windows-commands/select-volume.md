@@ -1,6 +1,6 @@
 ---
 title: select volume
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b9337d7e4b37adcc22084249e53fb272335bf4f3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a3885d5d40e35e975ebe1cc28ddc26d4c1e78e24
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834702"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721993"
 ---
 # <a name="select-volume"></a>select volume
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 sélectionne le volume spécifié et lui déplace le focus. Cette commande peut également être utilisée pour afficher le volume qui a actuellement le focus sur le disque sélectionné.  
   
@@ -37,7 +37,7 @@ select volume={<n>|<d>}
 |    <n>    | Numéro du volume devant recevoir le focus. Vous pouvez afficher les numéros de tous les volumes sur le disque actuellement sélectionné à l’aide de la commande **List volume** dans DiskPart. |
 |    <d>    |                                                 Lettre de lecteur ou chemin d’accès du point de montage du volume qui doit recevoir le focus.                                                 |
   
-## <a name="remarks"></a>Notes  
+## <a name="remarks"></a>Notes   
   
 -   Si aucun volume n’est spécifié, cette commande affiche le volume qui a actuellement le focus sur le disque sélectionné.  
   
@@ -47,7 +47,7 @@ select volume={<n>|<d>}
   
 -   Si une partition est sélectionnée avec un volume correspondant, le volume est sélectionné automatiquement.  
   
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre  
+## <a name="examples"></a>Exemples  
 Pour déplacer le focus vers le volume 2, tapez :  
   
 ```  

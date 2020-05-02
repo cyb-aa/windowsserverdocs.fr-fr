@@ -1,6 +1,6 @@
 ---
 title: repair-bde
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2107e5b7ef0339fc4f682632f3ef5a593578680a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 501ab801e76980f7e94e88213dd3aa42ee04d4d7
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835962"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722396"
 ---
 # <a name="repair-bde"></a>repair-bde
 
@@ -29,7 +29,7 @@ Les limitations suivantes existent pour l’outil en ligne de commande Repair-bd
 -   Repair-bde ne peut pas réparer un lecteur qui a échoué lors du processus de chiffrement ou de déchiffrement.
 -   Repair-bde suppose que si le lecteur possède un chiffrement, le lecteur a été entièrement chiffré.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -41,8 +41,8 @@ repair-bde <InputVolume> <OutputVolumeorImage> [-rk] [–rp] [-pw] [–kp] [–l
 
 |Paramètre|Description|
 |---------|-----------|
-|\<InputVolume >|Identifie la lettre de lecteur du lecteur chiffré par BitLocker que vous souhaitez réparer. La lettre de lecteur doit inclure un signe deux-points ; par exemple : **C :** .|
-|\<OutputVolumeorImage >|Identifie le lecteur sur lequel stocker le contenu du lecteur réparé. Toutes les informations sur le lecteur de sortie seront remplacées.|
+|\<InputVolume>|Identifie la lettre de lecteur du lecteur chiffré par BitLocker que vous souhaitez réparer. La lettre de lecteur doit inclure un signe deux-points ; par exemple : **C :**.|
+|\<OutputVolumeorImage>|Identifie le lecteur sur lequel stocker le contenu du lecteur réparé. Toutes les informations sur le lecteur de sortie seront remplacées.|
 |-RK|Identifie l’emplacement de la clé de récupération à utiliser pour déverrouiller le volume. Cette commande peut également être spécifiée en tant que **-RecoveryKey**.|
 |-RP|Identifie le mot de passe de récupération numérique qui doit être utilisé pour déverrouiller le volume. Cette commande peut également être spécifiée en tant que **-RecoveryPassword**.|
 |-PW|Identifie le mot de passe qui doit être utilisé pour déverrouiller le volume. Cette commande peut également être spécifiée en tant que **-Password**|
@@ -51,25 +51,25 @@ repair-bde <InputVolume> <OutputVolumeorImage> [-rk] [–rp] [-pw] [–kp] [–l
 |-f|Force le démontage d’un volume, même s’il ne peut pas être verrouillé. Cette commande peut également être spécifiée en tant que **force**.|
 |-? ou /?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 Si le chemin d’accès à un package de clé n’est pas spécifié, la commande **Repair-bde** recherche un package de clés sur le lecteur. Toutefois, si le disque dur a été endommagé, **Repair-bde** peut ne pas être en mesure de trouver le package et vous invitera à fournir le chemin d’accès.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant tente de réparer le lecteur C et d’écrire le contenu du lecteur C sur le lecteur D à l’aide du fichier de clé de récupération (RecoveryKey. bek) stocké sur le lecteur F et écrit les résultats de cette tentative dans le fichier journal (log. txt) sur le lecteur Z.
+Pour tenter de réparer le lecteur C et d’écrire le contenu du lecteur C sur le lecteur D à l’aide du fichier de clé de récupération (RecoveryKey. bek) stocké sur le lecteur F, puis écrit les résultats de cette tentative dans le fichier journal (log. txt) sur le lecteur Z.
 ```
 repair-bde C: D: -rk F:\RecoveryKey.bek –lf Z:\log.txt
 ```
-L’exemple suivant tente de réparer le lecteur C et d’écrire le contenu sur le lecteur C sur le lecteur D en utilisant le mot de passe de récupération à 48 chiffres spécifié. Le mot de passe de récupération doit être tapé dans huit blocs de six chiffres, un trait d’Union séparant chaque bloc.
+Pour tenter de réparer le lecteur C et d’écrire le contenu sur le lecteur C sur le lecteur D en utilisant le mot de passe de récupération à 48 chiffres spécifié. Le mot de passe de récupération doit être tapé dans huit blocs de six chiffres, un trait d’Union séparant chaque bloc.
 ```
 repair-bde C: D: -rp 111111-222222-333333-444444-555555-666666-777777-888888
 ```
-L’exemple suivant force le démontage du lecteur C, puis tente de réparer le lecteur C et d’écrire le contenu sur le lecteur C sur le lecteur D en utilisant le package de clé de récupération et le fichier de clé de récupération (RecoveryKey. bek) stockés sur le lecteur F.
+Pour forcer le démontage du lecteur C, puis tente de réparer le lecteur C et d’écrire le contenu sur le lecteur C sur le lecteur D à l’aide du package de clé de récupération et du fichier de clé de récupération (RecoveryKey. bek) stockés sur le lecteur F.
 ```
 repair-bde C: D: -kp F:\RecoveryKeyPackage -rk F:\RecoveryKey.bek -f
 ```
-L’exemple suivant tente de réparer le lecteur C et d’écrire le contenu du lecteur C sur le lecteur D, et vous devez taper un mot de passe pour déverrouiller le lecteur C : lorsque vous y êtes invité :
+Pour tenter de réparer le lecteur C et d’écrire le contenu du lecteur C sur le lecteur D, vous devez taper un mot de passe pour déverrouiller le lecteur C : lorsque vous y êtes invité :
 ```
 repair-bde C: D: -pw
 ```

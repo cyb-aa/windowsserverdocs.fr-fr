@@ -1,6 +1,6 @@
 ---
 title: Définir les métadonnées
-description: La rubrique commandes Windows pour définir les métadonnées, qui définit le nom et l’emplacement du fichier de métadonnées de création de clichés instantanés utilisé pour transférer des clichés instantanés d’un ordinateur à un autre.
+description: Rubrique de référence sur la définition des métadonnées, qui définit le nom et l’emplacement du fichier de métadonnées de création de clichés instantanés utilisé pour transférer des clichés instantanés d’un ordinateur à un autre.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b5bd728650cf163f98a82ff1e6f88755c4cc1aea
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 683e54a7efc072d8709d6257771ba6bc5bde206e
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834522"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721914"
 ---
 # <a name="set-metadata"></a>Définir les métadonnées
 
@@ -30,8 +30,8 @@ set metadata [<Drive>:][<Path>]<MetaData.cab>
 
 |Paramètre|Description|
 |---------|-----------|
-|[\<> de lecteur :] [<Path>]|Spécifie l’emplacement où créer le fichier de métadonnées.|
-|\<MetaData. cab >|Spécifie le nom du fichier CAB pour stocker les métadonnées de création de clichés instantanés.|
+|[\<Lecteur> :] [<Path>]|Spécifie l’emplacement où créer le fichier de métadonnées.|
+|\<MetaData. cab>|Spécifie le nom du fichier CAB pour stocker les métadonnées de création de clichés instantanés.|
 
 ## <a name="additional-references"></a>Références supplémentaires
 

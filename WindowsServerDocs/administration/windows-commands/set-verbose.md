@@ -1,6 +1,6 @@
 ---
 title: Définir les commentaires
-description: Rubrique relative aux commandes Windows pour Set verbose, qui spécifie si la sortie détaillée est fournie lors de la création de clichés instantanés.
+description: Rubrique de référence pour Set verbose, qui spécifie si la sortie détaillée est fournie lors de la création de clichés instantanés.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f06400259004095fcc4ec81b2ed3cb25678a4b7d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: db31192037e57ee471d04480e0c9333b39e44980
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834462"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721891"
 ---
 # <a name="set-verbose"></a>Définir les commentaires
 
@@ -32,7 +32,7 @@ set verbose {on | off}
 |-----------|-------------|
 |    {On    |    off}     |
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Si le mode détaillé est activé, **Set** fournit des détails sur l’inclusion ou l’exclusion du writer et les détails de la compression et de l’extraction des métadonnées.
 

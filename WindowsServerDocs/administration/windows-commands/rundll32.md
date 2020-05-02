@@ -1,6 +1,6 @@
 ---
 title: rundll32
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 391607f6e744fe88a60cb556067cf2699eee25f5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b0639206b26ea58c4ec8473c0a736fda3c435021
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835432"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722240"
 ---
 # <a name="rundll32"></a>rundll32
 
@@ -30,13 +30,13 @@ Vous devez exécuter la commande **rundll32** à partir d’une invite de comman
 Rundll32 <DLLname>
 ```
 
-## <a name="commands"></a>Commands
+## <a name="commands"></a>Commandes
 
 |Paramètre|Description|
 |---------|-----------|
 |[Rundll32 printui. dll, PrintUIEntry](rundll32-printui.md)|Affiche l’interface utilisateur de l’imprimante|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 Rundll32 peut uniquement appeler des fonctions d’une DLL écrite explicitement pour être appelée par rundll32.
 

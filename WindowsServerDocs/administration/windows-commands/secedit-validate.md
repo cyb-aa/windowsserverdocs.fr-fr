@@ -1,6 +1,6 @@
 ---
 title: 'secedit : valider'
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b9425f7a1fb821f4ecbaa7c1689c3baabbff6223
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3043a4af6c2ac4a6c58b973cca5abd066109eac5
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834872"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722037"
 ---
 # <a name="seceditvalidate"></a>secedit : valider
 
 
 
-Valide les paramètres de sécurité stockés dans un modèle de sécurité (fichier. inf). Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Valide les paramètres de sécurité stockés dans un modèle de sécurité (fichier. inf).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -35,7 +35,7 @@ Secedit /validate <configuration file name>
 |---------|-----------|
 |Nom du fichier de configuration|Obligatoire.</br>Spécifie le chemin d’accès et le nom de fichier pour le modèle de sécurité qui sera validé.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 La validation des modèles de sécurité peut vous aider si l’une d’elles est endommagée ou définie de manière inappropriée.
 
@@ -45,7 +45,7 @@ Le fichier journal ne sera pas mis à jour.
 
 Dans Windows Server 2008, `Secedit /refreshpolicy` a été remplacé par `gpupdate`. Pour plus d’informations sur la façon d’actualiser les paramètres de sécurité, consultez [gpupdate](gpupdate.md).
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Une fois la restauration effectuée sur un modèle de sécurité, vous devez vérifier que le fichier INF de restauration, secRBKcontoso. inf, est valide.
 ```

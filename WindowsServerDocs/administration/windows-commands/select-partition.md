@@ -1,6 +1,6 @@
 ---
 title: sélectionner une partition
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 97145d73cbbe1bdc9b27e545b047b78fe89e4984
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 55b06f247c8e9f183a2971278a8f16ac237e9cfe
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834802"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722013"
 ---
 # <a name="select-partition"></a>sélectionner une partition
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 sélectionne la partition spécifiée et lui déplace le focus. Cette commande peut également être utilisée pour afficher la partition qui a actuellement le focus sur le disque sélectionné.  
   
@@ -34,9 +34,9 @@ select partition=<n>
   
 |   Paramètre    |                                                                                    Description                                                                                    |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| partition\=<n> | Numéro de la partition qui doit recevoir le focus. Vous pouvez afficher les numéros de toutes les partitions sur le disque actuellement sélectionné à l’aide de la commande **List partition** dans DiskPart. |
+| non\=<n> | Numéro de la partition qui doit recevoir le focus. Vous pouvez afficher les numéros de toutes les partitions sur le disque actuellement sélectionné à l’aide de la commande **List partition** dans DiskPart. |
   
-## <a name="remarks"></a>Notes  
+## <a name="remarks"></a>Notes   
   
 -   Avant de pouvoir sélectionner une partition, vous devez d’abord sélectionner un disque à l’aide de la commande **Sélectionner le disque** .  
   
@@ -46,7 +46,7 @@ select partition=<n>
   
 -   Si une partition est sélectionnée avec un volume correspondant, le volume est sélectionné automatiquement.  
   
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre  
+## <a name="examples"></a>Exemples  
 Pour déplacer le focus vers la partition 3, tapez :  
   
 ```  

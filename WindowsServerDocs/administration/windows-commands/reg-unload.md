@@ -1,6 +1,6 @@
 ---
 title: reg unload
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour la commande reg unload, qui supprime une section du Registre chargée à l’aide de l’opération de chargement de Reg.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e5fd1436ed1122a09eea11d358a3711aedddf2c1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 029b9225f8a437be18c3056d97e153075d9df7c9
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80836272"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722500"
 ---
 # <a name="reg-unload"></a>reg unload
 
@@ -22,7 +22,7 @@ ms.locfileid: "80836272"
 
 Supprime une section du Registre qui a été chargée à l’aide de l’opération de **chargement de Reg** .
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,19 +34,19 @@ reg unload <KeyName>
 
 |Paramètre|Description|
 |---------|-----------|
-|\<KeyName >|Spécifie le chemin d’accès complet de la sous-clé à décharger. Pour spécifier des ordinateurs distants, incluez le nom de l’ordinateur (au format \\\\ComputerName\) dans le *nom*de l’ordinateur. Si vous omettez \\\\ComputerName \, l’opération est effectuée par défaut sur l’ordinateur local. Le *keyName* doit inclure une clé racine valide. Les clés racines valides pour l’ordinateur local sont HKLM, HKCU, HKCR, HKU et HKCC. Si un ordinateur distant est spécifié, les clés racines valides sont HKLM et HKU.|
+|\<KeyName>|Spécifie le chemin d’accès complet de la sous-clé à décharger. Pour spécifier des ordinateurs distants, incluez le nom de \\ \\l'\) ordinateur (au format ComputerName dans le cadre du *keyName*. \\ \\Si vous omettez ComputerName \, l’opération est effectuée par défaut sur l’ordinateur local. Le *keyName* doit inclure une clé racine valide. Les clés racines valides pour l’ordinateur local sont HKLM, HKCU, HKCR, HKU et HKCC. Si un ordinateur distant est spécifié, les clés racines valides sont HKLM et HKU.|
 |/?|Affiche l’aide de **reg unload** à l’invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 Le tableau suivant répertorie les valeurs renvoyées pour l’option **reg unload** .
 
 |Valeur|Description|
 |-----|-----------|
-|0|Opération réussie|
+|0|Succès|
 |1|Échec|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour décharger le TempHive Hive dans le fichier HKLM, tapez :
 ```
@@ -59,3 +59,5 @@ REG UNLOAD HKLM\TempHive
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande reg Load](reg-load.md)

@@ -1,6 +1,6 @@
 ---
 title: pushd
-description: Rubrique relative aux commandes Windows pour * * * *-
+description: Rubrique de référence pour * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e7866a54e83bd57c8689512a1b75b151f74cb93c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e64c4f5090183b7d7b29dc7e040ffd94dc9d57ce
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837092"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722774"
 ---
 # <a name="pushd"></a>pushd
 
@@ -22,7 +22,7 @@ ms.locfileid: "80837092"
 
 Stocke le répertoire actif pour une utilisation par la commande **popd** , puis passe au répertoire spécifié.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,10 +34,10 @@ pushd [<Path>]
 
 |Paramètre|Description|
 |---------|-----------|
-|Chemin de \<>|Spécifie le répertoire dans lequel créer le répertoire actif. Cette commande prend en charge les chemins d’accès relatifs.|
+|\<Chemin d’accès>|Spécifie le répertoire dans lequel créer le répertoire actif. Cette commande prend en charge les chemins d’accès relatifs.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Chaque fois que vous utilisez la commande **pushd** , un seul répertoire est stocké pour votre utilisation. Toutefois, vous pouvez stocker plusieurs répertoires à l’aide de la commande **pushd** plusieurs fois.
 
@@ -47,9 +47,9 @@ pushd [<Path>]
 -   Si les extensions de commande sont activées, la commande **pushd** accepte un chemin d’accès réseau ou une lettre de lecteur local et un chemin d’accès.
 -   Si vous spécifiez un chemin d’accès réseau, la commande **pushd** affecte temporairement la lettre de lecteur inutilisée la plus élevée (à partir de Z :) vers la ressource réseau spécifiée. La commande remplace ensuite le lecteur et le répertoire en cours par le répertoire spécifié sur le lecteur qui vient d’être affecté. Si vous utilisez la commande **popd** avec les extensions de commande activées, la commande **popd** supprime l’attribution de lettre de lecteur créée par **pushd**.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant montre comment vous pouvez utiliser la commande **pushd** et la commande **popd** dans un programme de traitement par lots pour modifier le répertoire actif de celui dans lequel le programme batch a été exécuté, puis le modifier de nouveau :
+Pour illustrer l’utilisation de la commande **pushd** et de la commande **popd** dans un programme de traitement par lots pour modifier le répertoire actif de celui dans lequel le programme de traitement par lots a été exécuté, puis le modifier de nouveau :
 ```
 @echo off
 rem This batch file deletes all .txt files in a specified directory
