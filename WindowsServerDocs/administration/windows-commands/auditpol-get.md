@@ -1,6 +1,6 @@
 ---
 title: récupération d’Auditpol
-description: Rubrique relative aux commandes Windows pour **Auditpol obtenir**, qui récupère les objets stratégie système, stratégie par utilisateur, options d’audit et objet descripteur de sécurité d’audit.
+description: Rubrique de référence pour la commande Auditpol obtenir, qui récupère les objets stratégie système, stratégie par utilisateur, options d’audit et objet descripteur de sécurité d’audit.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,23 +9,25 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fe2b1bd060f128e39fa1c687ec963c964798fe1b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 859ea9e2e42af0fe7f34f4e378166685f8316b9e
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851192"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719137"
 ---
 # <a name="auditpol-get"></a>récupération d’Auditpol
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server, 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Récupère la stratégie système, la stratégie par utilisateur, les options d’audit et l’objet descripteur de sécurité d’audit.
+
+Pour effectuer des opérations d' *extraction* sur les stratégies *système* et *par utilisateur* , vous devez disposer de l’autorisation de **lecture** pour cet objet défini dans le descripteur de sécurité. Vous pouvez également effectuer des opérations de *récupération* si vous disposez du droit **d’utilisateur gérer le journal d’audit et de sécurité** (SeSecurityPrivilege). Toutefois, ce droit autorise un accès supplémentaire qui n’est pas nécessaire pour effectuer les opérations d' *extraction* globale.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-auditpol /get 
+auditpol /get
 [/user[:<username>|<{sid}>]]
 [/category:*|<name>|<{guid}>[,:<name|<{guid}> ]]
 [/subcategory:*|<name>|<{guid}>[,:<name|<{guid}> ]]
@@ -46,12 +48,11 @@ auditpol /get
 | /r | Affiche la sortie au format de rapport, valeur séparée par des virgules (CSV). |
 | /? | Affiche l'aide à l'invite de commandes. |
 
-## <a name="remarks"></a>Notes
+### <a name="remarks"></a>Notes 
 
 Toutes les catégories et sous-catégories peuvent être spécifiées par le GUID ou le nom entre guillemets ("). Les utilisateurs peuvent être spécifiés par le SID ou le nom.
-pour toutes les opérations d’extraction pour la stratégie système et la stratégie par utilisateur, vous devez disposer de l’autorisation de lecture sur cet objet défini dans le descripteur de sécurité. Vous pouvez également effectuer des opérations de récupération en possédant le droit **d’utilisateur gérer le journal d’audit et de sécurité** (SeSecurityPrivilege). Toutefois, ce droit autorise un accès supplémentaire qui n’est pas nécessaire pour effectuer l’opération d’extraction.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour récupérer la stratégie d’audit par utilisateur pour le compte invité et afficher la sortie pour le système, le suivi détaillé et les catégories d’accès aux objets, tapez :
 
@@ -60,7 +61,7 @@ auditpol /get /user:{S-1-5-21-1443922412-3030960370-963420232-51} /category:Syst
 ```
 
 > [!NOTE]
-> Cette commande est utile dans deux scénarios. Lorsque vous surveillez un compte d’utilisateur spécifique pour une activité suspecte, vous pouvez utiliser la commande/Get pour récupérer les résultats dans des catégories spécifiques à l’aide d’une stratégie d’inclusion pour activer des audits supplémentaires. Ou, si les paramètres d’audit d’un compte consignent de nombreux événements mais superflus, vous pouvez utiliser la commande/Get pour filtrer les événements superflus de ce compte avec une stratégie d’exclusion. Pour obtenir la liste de toutes les catégories, utilisez la commande Auditpol/List/Category.
+> Cette commande est utile dans deux scénarios. 1) lors de l’analyse d’un compte d’utilisateur spécifique pour une activité suspecte, vous pouvez utiliser la `/get` commande pour récupérer les résultats dans des catégories spécifiques à l’aide d’une stratégie d’inclusion pour activer des audits supplémentaires. 2) si les paramètres d’audit d’un compte consignent de nombreux événements, mais superflus `/get` , vous pouvez utiliser la commande pour filtrer les événements superflus pour ce compte avec une stratégie d’exclusion. Pour obtenir la liste de toutes les catégories, `auditpol /list /category` utilisez la commande.
 
 Pour récupérer la stratégie d’audit par utilisateur pour une catégorie et une sous-catégorie particulière, qui signalent les paramètres inclusifs et exclusifs de cette sous-catégorie sous la catégorie système du compte invité, tapez :
 
@@ -105,4 +106,7 @@ auditpol /get /option:CrashOnAuditFail /r
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
+
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commandes Auditpol](auditpol.md)

@@ -1,6 +1,6 @@
 ---
 title: bcdedit
-description: La rubrique commandes Windows pour **bcdedit**, qui crée de nouveaux magasins, modifie des magasins existants et ajoute des paramètres du menu de démarrage.
+description: Rubrique de référence pour la commande bcdedit, qui crée de nouveaux magasins, modifie les magasins existants et ajoute les paramètres du menu de démarrage.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/27/2018
-ms.openlocfilehash: f5bd39fa29dc99bba0d3600fc8609a355ffe540c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: df68c2c1b1087f7e32dbe270657a54e072261c46
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851072"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718699"
 ---
 # <a name="bcdedit"></a>bcdedit
 
@@ -36,12 +36,12 @@ BCDEdit est limité aux types de données standard et est conçu principalement 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-BCDEdit /Command [<Argument1>] [<Argument2>] ...
+bcdedit /command [<argument1>] [<argument2>] ...
 ```
 
 ### <a name="parameters"></a>Paramètres
 
-### <a name="general-bcdedit-command-line-option"></a>Option de ligne de commande générale BCDEdit
+### <a name="general-bcdedit-command-line-options"></a>Options générales de ligne de commande BCDEdit
 
 | Option | Description |
 | ------ | ----------- |
@@ -76,7 +76,7 @@ BCDEdit /Command [<Argument1>] [<Argument2>] ...
 | Paramètre | Description |
 | ------ | ----------- |
 | /enum All | Répertorie les entrées d’un magasin. L’option **/enum** étant la valeur par défaut de BCEdit, l’exécution de la commande **bcdedit** sans paramètre équivaut à exécuter la commande **active bcdedit/enum** . |
-| /v | Mode détaillé. En règle générale, tous les identificateurs d’entrée connus sont représentés par leur forme abrégée conviviale. Si vous spécifiez **/v** en tant qu’option de ligne de commande, tous les identificateurs sont intégralement affichés. L’exécution de la commande **bcdedit/v** en soi revient à exécuter la commande **bcdedit/enum active/v** . |
+| /v | Mode documenté. En règle générale, tous les identificateurs d’entrée connus sont représentés par leur forme abrégée conviviale. Si vous spécifiez **/v** en tant qu’option de ligne de commande, tous les identificateurs sont intégralement affichés. L’exécution de la commande **bcdedit/v** en soi revient à exécuter la commande **bcdedit/enum active/v** . |
 
 #### <a name="parameters-that-control-the-boot-manager"></a>Paramètres qui contrôlent le gestionnaire de démarrage
 
@@ -101,10 +101,10 @@ BCDEdit /Command [<Argument1>] [<Argument2>] ...
 | Paramètre | Description |
 | ------ | ----------- |
 | /bootdebug | Active ou désactive le débogueur de démarrage pour une entrée de démarrage spécifiée. Bien que cette commande fonctionne pour n’importe quelle entrée de démarrage, elle est effective uniquement pour les applications de démarrage. |
-| /dbgsettings | Spécifie ou affiche les paramètres globaux du débogueur pour le système. Cette commande n’est pas enablepose. Pour définir un paramètre de débogueur global individuel, utilisez la commande **bcdedit/set** `<dbgsettings> <type> <value>`. |
+| /dbgsettings | Spécifie ou affiche les paramètres globaux du débogueur pour le système. Cette commande n’est pas enablepose. Pour définir un paramètre de débogueur global individuel, utilisez la commande **bcdedit/set** `<dbgsettings> <type> <value>` . |
 | /debug | Active ou désactive le débogueur de noyau pour une entrée de démarrage spécifiée. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="additional-references"></a>Références supplémentaires
 
 Pour obtenir des exemples d’utilisation de BCDEdit, consultez l’article de référence sur les [options bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcd-boot-options-reference) .
 

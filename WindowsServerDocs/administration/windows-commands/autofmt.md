@@ -1,6 +1,6 @@
 ---
 title: autofmt
-description: La rubrique commandes Windows pour **autofmt**, qui met en forme un lecteur ou une partition quand elle est appelée à partir de la console de récupération Windows.
+description: Rubrique de référence pour la commande autofmt, qui met en forme un lecteur ou une partition quand elle est appelée à partir de la console de récupération Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,23 +9,24 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 59aec4b42652f3a42f336be81f1ba99bee128140
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b7b82d940f2d8bd54d023a2a105208d1a18fc4c8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851102"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718755"
 ---
 # <a name="autofmt"></a>autofmt
 
-Met en forme un lecteur ou une partition quand il est appelé à partir de la console de récupération Windows.
+Démarre l’utilitaire de formatage automatique du système de fichiers, qui met en forme un lecteur ou une partition quand il est appelé à partir de la console de récupération Windows.
 
-## <a name="remarks"></a>Notes
-
-Vous ne pouvez pas exécuter **Autofmt** directement à partir de la ligne de commande.
+> [!IMPORTANT]
+> Vous ne pouvez pas exécuter **autofmt** directement à partir de la ligne de commande.
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
-- [Utilisation des systèmes de fichiers](https://go.microsoft.com/fwlink/?LinkId=4509)
+- [Environnement de récupération Windows (WinRE)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference)
+
+- [Comment utiliser l’environnement de récupération Windows (WinRE) pour résoudre les problèmes de démarrage courants](https://support.microsoft.com/help/4026030/how-to-use-windows-recovery-environment-winre-to-troubleshoot-common-s)

@@ -1,6 +1,6 @@
 ---
 title: auditpol
-description: La rubrique commandes Windows pour **Auditpol**, qui affiche des informations sur et exécute des fonctions pour manipuler les stratégies d’audit.
+description: Rubrique de référence pour la commande Auditpol, qui affiche des informations sur et exécute des fonctions pour manipuler les stratégies d’audit.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,30 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 00365b0e46b8bff761cf991dbdbd09d8f5e9c687
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 89fee7ccd3b6671a6f2633c3b5d15d0cbee261fa
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851132"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718830"
 ---
 # <a name="auditpol"></a>auditpol
 
-Affiche des informations sur et exécute des fonctions pour manipuler les stratégies d’audit.
+Affiche des informations sur et exécute des fonctions pour manipuler les stratégies d’audit, notamment :
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez la section exemples dans chaque rubrique.
+- Définition et interrogation d’une stratégie d’audit du système.
+
+- Définition et interrogation d’une stratégie d’audit par utilisateur.
+
+- Définition et interrogation des options d’audit.
+
+- Définition et interrogation du descripteur de sécurité utilisé pour déléguer l’accès à une stratégie d’audit.
+
+- Création de rapports ou sauvegarde d’une stratégie d’audit dans un fichier texte de valeurs séparées par des virgules (CSV).
+
+- Chargement d’une stratégie d’audit à partir d’un fichier texte CSV.
+
+- Configuration des listes SACL de ressources globales.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -28,7 +40,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez la sectio
 auditpol command [<sub-command><options>]
 ```
 
-#### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 | Sous-commande | Description |
 | ----------- | ----------- |
@@ -41,24 +53,6 @@ auditpol command [<sub-command><options>]
 | /remove | Supprime tous les paramètres de stratégie d’audit par utilisateur et désactive tous les paramètres de stratégie d’audit système. Pour plus d’informations, consultez l’outil [Auditpol Remove](auditpol-remove.md) pour la syntaxe et les options. |
 | /resourceSACL | Configure les listes de contrôle d’accès (SACL) du système de ressources globales. **Remarque :** S’applique uniquement à Windows 7 et Windows Server 2008 R2. Pour plus d’informations, consultez [Auditpol resourceSACL](auditpol-resourcesacl.md). |
 | /?| Affiche l'aide à l'invite de commandes. |
-
-## <a name="remarks"></a>Notes
-
-L’outil en ligne de commande de la stratégie d’audit peut être utilisé pour :
-
-- Définir et interroger une stratégie d’audit du système.
-
-- Définir et interroger une stratégie d’audit par utilisateur.
-
-- Définissez et interrogez les options d’audit.
-
-- Définir et interroger le descripteur de sécurité utilisé pour déléguer l’accès à une stratégie d’audit.
-
-- Créez un rapport ou sauvegardez une stratégie d’audit dans un fichier texte de valeurs séparées par des virgules (CSV).
-
-- Charger une stratégie d’audit à partir d’un fichier texte CSV.
-
-- Configurer des listes SACL de ressources globales.
 
 ## <a name="additional-references"></a>Références supplémentaires
 

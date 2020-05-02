@@ -1,6 +1,6 @@
 ---
 title: cible BdeHdCfg
-description: La rubrique commandes Windows pour la **cible BdeHdCfg**, qui prépare une partition à utiliser comme lecteur système par BitLocker et la récupération Windows.
+description: Rubrique de référence pour la commande cible BdeHdCfg, qui prépare une partition à utiliser comme lecteur système par BitLocker et la récupération Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,23 +9,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d0f3e90fbb8725360cf8db335e79721e2328ab3a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b7f98f42675a49ab34ca1cf759efb9d40a69c38a
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851012"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718595"
 ---
 # <a name="bdehdcfg-target"></a>BdeHdCfg : cible
 
 Prépare une partition à utiliser comme lecteur système par BitLocker et la récupération Windows. Par défaut, cette partition est créée sans lettre de lecteur.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
-
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bdehdcfg -target {default|unallocated|<DriveLetter> shrink|<DriveLetter> merge}
+bdehdcfg -target {default|unallocated|<drive_letter> shrink|<drive_letter> merge}
 ```
 
 #### <a name="parameters"></a>Paramètres
@@ -34,12 +32,12 @@ bdehdcfg -target {default|unallocated|<DriveLetter> shrink|<DriveLetter> merge}
 | --------- | ----------- |
 | default | Indique que l'outil en ligne de commande suivra le même processus que l'Assistant d'installation BitLocker. |
 | unallocated | Crée la partition système hors de l'espace non alloué disponible sur le disque. |
-| réduire `<DriveLetter>` | Réduit le lecteur spécifié selon la quantité nécessaire pour créer une partition système active. Pour utiliser cette commande, le lecteur spécifié doit avoir au moins 5 pour cent d'espace libre. |
-| fusion `<DriveLetter>` | Utilise le lecteur spécifié comme partition système active. Le lecteur de système d'exploitation ne peut pas être une cible pour la fusion. |
+| `<drive_letter>`réduire | Réduit le lecteur spécifié selon la quantité nécessaire pour créer une partition système active. Pour utiliser cette commande, le lecteur spécifié doit avoir au moins 5 pour cent d'espace libre. |
+| `<drive_letter>`fusion | Utilise le lecteur spécifié comme partition système active. Le lecteur de système d'exploitation ne peut pas être une cible pour la fusion. |
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant illustre l’utilisation de la commande **target** pour désigner un lecteur existant (P) comme lecteur système.
+Pour désigner un lecteur existant (P) comme lecteur système :
 
 ```
 bdehdcfg -target P: merge
@@ -49,4 +47,4 @@ bdehdcfg -target P: merge
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
-- [BdeHdCfg](bdehdcfg.md)
+- [bdehdcfg](bdehdcfg.md)

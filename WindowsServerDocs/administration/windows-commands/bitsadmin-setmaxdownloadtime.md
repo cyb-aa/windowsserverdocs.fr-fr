@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin setmaxdownloadtime
-description: Rubrique relative aux commandes Windows pour **Bitsadmin setmaxdownloadtime**, qui définit le délai d’attente de téléchargement en secondes.
+title: bitsadmin setmaxdownloadtime
+description: Rubrique de référence pour la commande Bitsadmin setmaxdownloadtime, qui définit le délai d’attente de téléchargement en secondes.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f07931dfb9fabaec272384dced6d60f1335b6a94
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 8192826570c9dae6aa9d286596336c3e589c9cbd
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122914"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719689"
 ---
-# <a name="bitsadmin-setmaxdownloadtime"></a>Bitsadmin setmaxdownloadtime
+# <a name="bitsadmin-setmaxdownloadtime"></a>bitsadmin setmaxdownloadtime
 
 Définit le délai d’attente de téléchargement en secondes.
 
@@ -30,17 +30,19 @@ bitsadmin /setmaxdownloadtime <job> <timeout>
 
 | Paramètre | Description |
 | --------- | ----------- |
-| le travail | Nom complet ou GUID du travail. |
-| timeout | Longueur du délai d’attente du téléchargement, en secondes. |
+| travail | Nom complet ou GUID du travail. |
+| délai d'expiration | Longueur du délai d’attente du téléchargement, en secondes. |
 
 ## <a name="examples"></a>Exemples
 
-L’exemple suivant définit le délai d’attente pour la tâche nommée *myDownloadJob* sur 10 secondes.
+Pour définir le délai d’expiration de la tâche nommée *myDownloadJob* sur 10 secondes.
 
 ```
-C:\>bitsadmin /setmaxdownloadtime myDownloadJob 10
+bitsadmin /setmaxdownloadtime myDownloadJob 10
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

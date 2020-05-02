@@ -1,6 +1,6 @@
 ---
 title: suppression d’Auditpol
-description: La rubrique commandes Windows pour **Auditpol Remove**, qui supprime la stratégie d’audit par utilisateur pour un compte spécifié ou tous les comptes.
+description: Rubrique de référence pour la commande Auditpol Remove, qui supprime la stratégie d’audit par utilisateur pour un compte spécifié ou tous les comptes.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1eda43d6708a31b2966022d2ae2c162bbfc888cb
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9aedde39d44c7640e6aa2516465e1c8ec7d022c2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851172"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719087"
 ---
 # <a name="auditpol-remove"></a>suppression d’Auditpol
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Supprime la stratégie d’audit par utilisateur pour un compte spécifié ou tous les comptes.
+
+Pour effectuer des opérations de *suppression* sur la stratégie *par utilisateur* , vous devez disposer des autorisations d' **écriture** ou de **contrôle total** pour cet objet défini dans le descripteur de sécurité. Vous pouvez également effectuer des opérations de *suppression* si vous disposez du droit **d’utilisateur gérer le journal d’audit et de sécurité** (SeSecurityPrivilege). Toutefois, ce droit autorise un accès supplémentaire qui n’est pas nécessaire pour effectuer les opérations de *suppression* générales.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -37,11 +39,7 @@ auditpol /remove [/user[:<username>|<{SID}>]]
 | /ALLUSERS | Supprime la stratégie d’audit par utilisateur pour tous les utilisateurs. |
 | /? | Affiche l'aide à l'invite de commandes. |
 
-## <a name="remarks"></a>Notes
-
-Pour les opérations de suppression pour la stratégie par utilisateur, vous devez disposer de l’autorisation d’écriture ou de contrôle total sur cet objet défini dans le descripteur de sécurité. Vous pouvez également effectuer des opérations de suppression en possédant le droit **d’utilisateur gérer le journal d’audit et de sécurité** (SeSecurityPrivilege). Toutefois, ce droit autorise un accès supplémentaire qui n’est pas nécessaire pour effectuer l’opération de suppression.
-
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour supprimer la stratégie d’audit par utilisateur pour l’utilisateur Mikedan par nom, tapez :
 
@@ -64,3 +62,5 @@ auditpol /remove /allusers
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commandes Auditpol](auditpol.md)

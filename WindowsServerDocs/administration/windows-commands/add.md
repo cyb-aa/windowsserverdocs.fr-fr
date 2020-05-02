@@ -1,6 +1,6 @@
 ---
 title: add
-description: La rubrique relative aux commandes Windows pour **Add**, qui ajoute des volumes à l’ensemble des volumes qui doivent être des clichés instantanés, ou ajoute des alias à l’environnement des alias.
+description: Rubrique de référence pour la commande Add, qui ajoute des volumes à l’ensemble des volumes qui doivent être des clichés instantanés ou ajoute des alias à l’environnement alias.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9895082cc10223fd08cff6916c20c3af5613e947
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9b621a3061c4e3366085c5cc44f91f26dd33d4e3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851342"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719006"
 ---
 # <a name="add"></a>add
 
@@ -23,25 +23,23 @@ Ajoute des volumes à l’ensemble des volumes qui doivent être des clichés in
 > [!NOTE]
 > Les alias ne sont pas ajoutés à l’environnement d’alias tant que le cliché instantané n’a pas été créé. Vous devez ajouter immédiatement les alias dont vous avez besoin à l’aide de l' **Ajout d’alias**.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
-
 ## <a name="syntax"></a>Syntaxe
 
 ```
-add 
-add volume <Volume> [provider <ProviderID>] 
-add alias <AliasName> <AliasValue>
+add
+add volume <volume> [provider <providerid>]
+add alias <aliasname> <aliasvalue>
 ```
 
-## <a name="add-subcommands"></a>Ajouter des sous-commandes
+### <a name="parameters"></a>Paramètres
 
-| Sous-commande | Description |
+| Paramètre | Description |
 | ---------- | ----------- |
 | volume | Ajoute un volume au jeu de clichés instantanés, qui est l’ensemble des volumes pour lesquels des clichés instantanés sont ajoutés. Consultez [Ajouter un volume](add-volume.md) pour connaître la syntaxe et les paramètres. |
 | alias | Ajoute le nom et la valeur donnés à l’environnement d’alias. Consultez [Ajouter un alias](add-alias.md) pour la syntaxe et les paramètres. |
-| `/?` | Affiche l’aide sur la ligne de commande. |
+| /? | Affiche l’aide sur la ligne de commande. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour afficher les volumes ajoutés et les alias qui se trouvent actuellement dans l’environnement, tapez :
 

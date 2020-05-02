@@ -1,6 +1,6 @@
 ---
-title: détail
-description: Commande Windows pour plus d’informations, qui affiche des informations sur le disque, la partition, le volume ou le disque dur virtuel sélectionné (VHD).
+title: détails
+description: Référence pour plus de détails, qui affiche des informations sur le disque, la partition, le volume ou le disque dur virtuel sélectionné (VHD).
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 71f4f72b5a11e7af9c245b0491902687cb352b66
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4601e637f9e087dfa9647d633cee6a1dbc80638f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846372"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719607"
 ---
-# <a name="detail"></a>détail
+# <a name="detail"></a>détails
 
 Affiche des informations sur le disque, la partition, le volume ou le disque dur virtuel sélectionné (VHD).
 

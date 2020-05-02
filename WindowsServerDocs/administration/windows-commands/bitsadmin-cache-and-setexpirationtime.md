@@ -1,6 +1,6 @@
 ---
-title: cache Bitsadmin et setexpirationtime
-description: Rubrique relative aux commandes Windows pour le **cache Bitsadmin et setexpirationtime**, qui définit le délai d’expiration du cache.
+title: bitsadmin cache and setexpirationtime
+description: Rubrique de référence pour le cache Bitsadmin et la commande setexpirationtime, qui définit le délai d’expiration du cache.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bf283a0a8b94fd55c591609e3dcd1d127a2be81a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 84679eadc750637fb720a458d9663219dc1492a4
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850882"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718306"
 ---
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-# <a name="bitsadmin-cache-and-setexpirationtime"></a>cache Bitsadmin et setexpirationtime
+# <a name="bitsadmin-cache-and-setexpirationtime"></a>bitsadmin cache and setexpirationtime
 
 Définit le délai d’expiration du cache.
 
@@ -34,14 +34,16 @@ bitsadmin /cache /setexpirationtime secs
 | -------------- | -------------- |
 | secs | Nombre de secondes avant l’expiration du cache. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant fait expirer le cache en 60 secondes.
+Pour définir l’expiration du cache dans 60 secondes :
 
 ```
-C:\>bitsadmin /cache / setexpirationtime 60
+bitsadmin /cache / setexpirationtime 60
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande de cache Bitsadmin](bitsadmin-cache.md)

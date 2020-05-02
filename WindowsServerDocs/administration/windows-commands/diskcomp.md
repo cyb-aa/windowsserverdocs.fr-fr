@@ -1,6 +1,6 @@
 ---
 title: diskcomp
-description: La rubrique commandes Windows pour diskcomp, qui compare le contenu de deux disquettes.
+description: Rubrique de référence pour diskcomp, qui compare le contenu de deux disquettes.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,17 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e36e644616e25659c1a2a5ca684e975fd06fc19f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e1b15e9b6669a22ac95693e635bae1642c307e09
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845552"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719482"
 ---
 # <a name="diskcomp"></a>diskcomp
 
 Compare le contenu de deux disquettes. En cas d’utilisation sans paramètre, **diskcomp** utilise le lecteur actuel pour comparer les deux disques.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,11 +31,11 @@ diskcomp [<Drive1>: [<Drive2>:]]
 
 |Paramètre|Description|
 |---------|-----------|
-|\<Lecteur1 >|Spécifie le lecteur contenant l’une des disquettes.|
-|\<lecteur2 >|Spécifie le lecteur contenant l’autre disquette.|
+|\<Lecteur1>|Spécifie le lecteur contenant l’une des disquettes.|
+|\<> lecteur2|Spécifie le lecteur contenant l’autre disquette.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 - Utilisation de disques
 
@@ -103,7 +102,7 @@ diskcomp [<Drive1>: [<Drive2>:]]
 
   Pour traiter les codes de sortie retournés par **diskcomp**, vous pouvez utiliser la variable d’environnement errorlevel sur la ligne de commande **If** dans un programme de traitement par lots.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Si votre ordinateur ne possède qu’un seul lecteur de disquette (par exemple, le lecteur A) et que vous souhaitez comparer deux disques, tapez :
 ```
@@ -111,7 +110,7 @@ diskcomp a: a:
 ```
 **Diskcomp** vous invite à insérer chaque disque, si nécessaire.
 
-L’exemple suivant illustre le traitement d’un code de sortie **diskcomp** dans un programme de traitement par lots qui utilise la variable d’environnement errorlevel sur la ligne de commande **If** :
+Pour illustrer le traitement d’un code de sortie **diskcomp** dans un programme de traitement par lots qui utilise la variable d’environnement errorlevel sur la ligne de commande **If** :
 ```
 rem Checkout.bat compares the disks in drive A and B 
 echo off 

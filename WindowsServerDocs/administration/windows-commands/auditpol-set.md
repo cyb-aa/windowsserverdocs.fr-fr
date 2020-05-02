@@ -1,6 +1,6 @@
 ---
 title: Auditpol défini
-description: La rubrique commandes Windows pour **Auditpol Set**, qui définit la stratégie d’audit par utilisateur, la stratégie d’audit du système ou les options d’audit.
+description: Rubrique de référence pour la commande d’ensemble Auditpol, qui définit la stratégie d’audit par utilisateur, la stratégie d’audit du système ou les options d’audit.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0773a0a9ae9237b39293bae80001616d00630436
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 73868d6044d8742d4d9e0ce76e0668402f230f86
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851142"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718886"
 ---
 # <a name="auditpol-set"></a>Auditpol défini
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Définit la stratégie d’audit par utilisateur, la stratégie d’audit du système ou les options d’audit.
+
+Pour effectuer des opérations de *définition* sur les stratégies *système* et *par utilisateur* , vous devez disposer de l’autorisation d' **écriture** ou de **contrôle total** pour cet objet défini dans le descripteur de sécurité. Vous pouvez également effectuer des opérations de *définition* si vous disposez du droit **d’utilisateur gérer le journal d’audit et de sécurité** (SeSecurityPrivilege). Toutefois, ce droit autorise un accès supplémentaire qui n’est pas nécessaire pour effectuer les opérations de *jeu* global.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -49,11 +51,7 @@ auditpol /set
 | /SD | Définit le descripteur de sécurité utilisé pour déléguer l’accès à la stratégie d’audit. Le descripteur de sécurité doit être spécifié à l’aide du langage SDDL (Security Descriptor Definition Language). Le descripteur de sécurité doit avoir une liste de contrôle d’accès discrétionnaire (DACL). |
 | /? | Affiche l'aide à l'invite de commandes. |
 
-## <a name="remarks"></a>Notes
-
-Pour toutes les opérations de définition pour la stratégie système et la stratégie par utilisateur, vous devez disposer de l’autorisation d’écriture ou de contrôle total sur cet objet défini dans le descripteur de sécurité. Vous pouvez également effectuer des opérations de définition en possédant le droit **d’utilisateur gérer le journal d’audit et de sécurité** (SeSecurityPrivilege). Toutefois, ce droit autorise un accès supplémentaire qui n’est pas nécessaire pour effectuer l’opération de définition.
-
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour définir la stratégie d’audit par utilisateur pour toutes les sous-catégories de la catégorie suivi détaillé pour l’utilisateur Mikedan afin que toutes les tentatives réussies de l’utilisateur soient auditées, tapez :
 
@@ -97,3 +95,5 @@ auditpol /set /option:CrashOnAuditFail /value:enable
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commandes Auditpol](auditpol.md)

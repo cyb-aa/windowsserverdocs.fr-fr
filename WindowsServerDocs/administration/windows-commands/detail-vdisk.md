@@ -1,6 +1,6 @@
 ---
 title: détailler vdisk
-description: La rubrique commandes Windows pour le disque de détail, qui affiche les propriétés du disque dur virtuel (VHD) sélectionné.
+description: Rubrique de référence sur le disque de détail, qui affiche les propriétés du disque dur virtuel (VHD) sélectionné.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ba4a13762da4039459c2fa422ecf83b277fcd4d6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ed07639132fcf770036d5955a4e6cc54415b71e1
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846402"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719629"
 ---
 # <a name="detail-vdisk"></a>détailler vdisk
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche les propriétés du disque dur virtuel (VHD) sélectionné.  
   
@@ -32,7 +32,7 @@ detail vdisk
   
 -   Vous devez sélectionner un disque dur virtuel pour que cette opération aboutisse. Utilisez la commande **Select vdisk** pour sélectionner un vdisk et lui déplacer le focus.  
   
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre  
+## <a name="examples"></a>Exemples  
 Pour afficher les détails sur le disque dur virtuel sélectionné, tapez :  
   
 ```  
@@ -43,7 +43,7 @@ detail vdisk
   
 -   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
   
--   [attacher vdisk](attach-vdisk.md)  
+-   [attach vdisk](attach-vdisk.md)  
   
 -   [Compact vdisk](compact-vdisk.md)
   

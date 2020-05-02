@@ -1,6 +1,6 @@
 ---
 title: Dfsdiag
-description: La rubrique commandes Windows pour Dfsdiag, qui fournit des informations de diagnostic pour les espaces de noms DFS.
+description: Rubrique de référence pour Dfsdiag, qui fournit des informations de diagnostic pour les espaces de noms DFS.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2c895dabbbafbe8ea253920d3bc6de17f42918e6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2d5a9b147994628ccad6a723311decbccbe82ec6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846192"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719549"
 ---
 # <a name="dfsdiag"></a>Dfsdiag
 

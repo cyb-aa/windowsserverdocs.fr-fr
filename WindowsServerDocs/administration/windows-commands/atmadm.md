@@ -1,6 +1,6 @@
 ---
 title: atmadm
-description: La rubrique commandes Windows pour **atmadm**, qui surveille les connexions et les adresses enregistrées par le gestionnaire d’appels atM sur un réseau ATM (Asynchronous Transfer Mode).
+description: Rubrique de référence pour la commande atmadm qui surveille les connexions et les adresses enregistrées par le gestionnaire d’appels atM sur un réseau atM (Asynchronous Transfer Mode).
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cbfb787c472eaad4cbef5f86e7546f7b6f1da305
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 32dad00e5a4d03c905f95c48e112f512a9dbc2e5
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851272"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718917"
 ---
 # <a name="atmadm"></a>atmadm
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Analyse les connexions et les adresses qui sont enregistrées par le gestionnaire d’appels atM sur un réseau atM (Asynchronous Transfer Mode). Vous pouvez utiliser **atmadm** pour afficher des statistiques sur les appels entrants et sortants sur les adaptateurs atM. Utilisé sans paramètres, **atmadm** affiche des statistiques pour surveiller l’état des connexions atM actives. 
+Analyse les connexions et les adresses qui sont enregistrées par le gestionnaire d’appels atM sur un réseau atM (Asynchronous Transfer Mode). Vous pouvez utiliser **atmadm** pour afficher des statistiques sur les appels entrants et sortants sur les adaptateurs atM. Utilisé sans paramètres, **atmadm** affiche des statistiques pour surveiller l’état des connexions atM actives.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,12 +32,12 @@ atmadm [/c][/a][/s]
 
 | Paramètre | Description |
 | ------- | -------- |
-| /c | Affiche des informations sur les appels pour toutes les connexions en cours à la carte réseau atM installée sur cet ordinateur. |
+| /C | Affiche des informations sur les appels pour toutes les connexions en cours à la carte réseau atM installée sur cet ordinateur. |
 | /a | Affiche l’adresse du point d’accès du service réseau atM (NSAP) inscrit pour chaque carte installée sur cet ordinateur. |
 | /s | Affiche des statistiques pour surveiller l’état des connexions atM actives. |
 | /? | Affiche l'aide à l'invite de commandes. |
 
-## <a name="remarks"></a>Notes
+### <a name="remarks"></a>Notes 
 
 - La commande **atmadm/c** produit une sortie similaire à ce qui suit :
 
@@ -83,8 +83,8 @@ atmadm [/c][/a][/s]
     | PVC | La connexion est sur un circuit virtuel permanent. |
     | Informations VPI/VCI | VPI/VCI | Chemin d’accès virtuel et canal virtuel de l’appel entrant ou sortant. |
     | Paramètres d’adresse/de média distants | 47000580FFE1000000F21A2E180000C110081500 | Adresse NSAP du périphérique atM appelant **(in)** ou appelé **(out)** . |
-    | Émetteur | Le paramètre **TX** comprend les trois éléments suivants :<p>-Type de taux de bits par défaut ou spécifié (UBR, CBR, VBR ou ABR)<p>-Vitesse de ligne par défaut ou spécifiée<p>-Taille de l’unité de données de service (SDU) spécifiée. |
-    | RX | Le paramètre **RX** comprend les trois éléments suivants :<p>-Type de taux de bits par défaut ou spécifié (UBR, CBR, VBR ou ABR)<p>-Vitesse de ligne par défaut ou spécifiée<p>-Taille de SDU spécifiée. |
+    | Émetteur | Le paramètre **TX** comprend les trois éléments suivants :<ul><li>Type de taux de bits par défaut ou spécifié (UBR, CBR, VBR ou ABR)</li><li>Vitesse de ligne par défaut ou spécifiée</li><li>Taille de l’unité de données de service (SDU) spécifiée.</li></ul> |
+    | Rx | Le paramètre **RX** comprend les trois éléments suivants :<ul><li>Type de taux de bits par défaut ou spécifié (UBR, CBR, VBR ou ABR)</li><li>Vitesse de ligne par défaut ou spécifiée</li><li>Taille de SDU spécifiée.</li></ul> |
 
 - La commande **atmadm/a** produit une sortie similaire à ce qui suit :
 
@@ -124,7 +124,7 @@ atmadm [/c][/a][/s]
     | Paquets de signalisation et ILMI envoyés | Nombre de paquets de l’interface de gestion locale (ILMI) intégrés envoyés au commutateur auquel cet ordinateur tente de se connecter. |
     | Paquets de signalisation et ILMI reçus | Nombre de paquets ILMI reçus du commutateur atM. |
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour afficher les informations d’appel de toutes les connexions en cours à la carte réseau atM installée sur cet ordinateur, tapez :
 

@@ -1,6 +1,6 @@
 ---
 title: diskraid
-description: La rubrique commandes Windows pour DiskRAID, outil en ligne de commande qui vous permet de configurer et de gérer un tableau redondant de sous-systèmes de stockage (RAID) indépendants (ou peu onéreux).
+description: La rubrique de référence pour DiskRAID, qui est un outil de ligne de commande qui vous permet de configurer et de gérer un tableau redondant de sous-systèmes de stockage (RAID) indépendants (ou peu onéreux).
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ea71fc67420700527a3a14494c947aed7a2ec747
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 25a6a0315b74e948fd23ac1257072ac583f311d0
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845402"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719441"
 ---
 # <a name="diskraid"></a>diskraid
 
@@ -37,21 +37,21 @@ Pour afficher la syntaxe de la commande, cliquez sur une commande :
 -   [magie](#BKMK_3)
 -   [break](#BKMK_4)
 -   [chap](#BKMK_5)
--   [créés](#BKMK_6)
+-   [create](#BKMK_6)
 -   [delete](#BKMK_7)
 -   [détail](#BKMK_8)
 -   [dissocier](#BKMK_9)
 -   [exit](#BKMK_10)
--   [extend](#BKMK_11)
+-   [étendre](#BKMK_11)
 -   [flushcache](#BKMK_12)
 -   [help](#BKMK_13)
 -   [importtarget](#BKMK_14)
 -   [initiateur](#BKMK_15)
 -   [invalidatecache](#BKMK_16)
 -   [lbpolicy](#BKMK_18)
--   [tarifs](#BKMK_19)
+-   [list](#BKMK_19)
 -   [connexion](#BKMK_20)
--   [déconnexion](#BKMK_21)
+-   [logout](#BKMK_21)
 -   [jour](#BKMK_22)
 -   [name](#BKMK_23)
 -   [hors connexion](#BKMK_24)
@@ -60,7 +60,7 @@ Pour afficher la syntaxe de la commande, cliquez sur une commande :
 -   [réénumérer](#BKMK_27)
 -   [générer](#BKMK_28)
 -   [rem](#BKMK_29)
--   [Installez](#BKMK_30)
+-   [retirer](#BKMK_30)
 -   [replace](#BKMK_31)
 -   [reset](#BKMK_32)
 -   [sélectionné](#BKMK_33)
@@ -82,14 +82,14 @@ add tpgroup tportal=n [noerr]
 
 ##### <a name="parameters"></a>Paramètres
 
-**numéro d’unité logique de plex**=*n*
+**LUN de plex**=*n*
 
 Spécifie le numéro de LUN à ajouter en tant que Plex au LUN actuellement sélectionné.
 
 > [!CAUTION]
 > Toutes les données sur le LUN en cours d’ajout en tant que Plex seront supprimées.
 
-**TPGROUP TPORTAL =** <em>n</em>
+**TPGROUP TPORTAL =**<em>n</em>
 
 Spécifie le numéro du portail cible iSCSI à ajouter au groupe de portails cibles iSCSI actuellement sélectionné.
 
@@ -111,7 +111,7 @@ associate targets [add] <n>[,<n> [,…]]
 
 ##### <a name="parameters"></a>Paramètres
 
-**secondaires**
+**controllers**
 
 À utiliser avec les fournisseurs VDS 1,0 uniquement. Ajoute ou remplace la liste des contrôleurs associés au LUN actuellement sélectionné.
 
@@ -137,9 +137,9 @@ Pour les fournisseurs VDS 1,1, ajoute les ports de contrôleur spécifiés à la
 ```
 À utiliser avec le paramètre **ports** . Spécifie les ports de contrôleur à définir comme actifs à l’aide d’une paire numéro de contrôleur (*n*) et numéro de port (*m*).
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a> Exemple
 
-L’exemple suivant montre comment associer et ajouter des ports à un numéro d’unité logique (LUN) qui utilise un fournisseur VDS 1,1 :
+Pour montrer comment associer et ajouter des ports à un numéro d’unité logique qui utilise un fournisseur VDS 1,1 :
 ```
 DISKRAID> SEL LUN 5
 LUN 5 is now the selected LUN.
@@ -177,7 +177,7 @@ Efface les indicateurs spécifiés. Le mot clé **All** efface tous les indicate
 
 Applique les indicateurs actuels au numéro d’unité logique sélectionné.
 
-indicateur de \<>
+\<indicateur>
 
 Les indicateurs sont identifiés par des acronymes à trois lettres.
 
@@ -185,7 +185,7 @@ Les indicateurs sont identifiés par des acronymes à trois lettres.
 |----|-----------|
 |FCR|Récupération rapide après incident requise|
 |FTL|À tolérance de panne|
-|Caisse|Lire principalement|
+|MSR|Lire principalement|
 |MXD|Nombre maximal de lecteurs|
 |MXS|Taille maximale attendue|
 |RA|Alignement optimal de la lecture|
@@ -221,7 +221,7 @@ Spécifie le numéro du Plex à supprimer. Le plex et les données qu’il conti
 
 Spécifie que les échecs qui se produisent pendant l’exécution de cette opération seront ignorés. Cela est utile en mode script.
 
-#### <a name="remarks"></a>Notes
+#### <a name="remarks"></a>Notes 
 
 > [!NOTE]
 > Vous devez d’abord sélectionner un numéro d’unité logique mis en miroir avant d’utiliser la commande **break** .
@@ -263,11 +263,11 @@ Définit le secret partagé dans la cible iSCSI actuellement sélectionnée util
 
 Communique le secret CHAP d’un initiateur iSCSI à la cible iSCSI actuellement active afin que la cible puisse utiliser le secret pour s’authentifier auprès de l’initiateur pendant l’authentification CHAP mutuelle.
 
-**confidentialité**
+**secret**
 
 Spécifie le secret à utiliser. S’il est vide, le secret sera effacé.
 
-**Indicatif**
+**cible**
 
 Spécifie une cible dans le sous-système actuellement sélectionné à associer à la clé secrète. Cette option est facultative lors de la définition d’un secret sur l’initiateur et sa sortie indique que la clé secrète sera utilisée pour toutes les cibles qui n’ont pas encore de secret associé.
 
@@ -297,11 +297,11 @@ create tpgroup [noerr]
 
 Crée un numéro d’unité logique simple.
 
-**Stripe**
+**frange**
 
 Crée un LUN agrégé par bandes.
 
-**SOLUTION**
+**RAID**
 
 Crée un LUN agrégé par bandes avec parité.
 
@@ -313,7 +313,7 @@ Crée un LUN mis en miroir.
 
 Crée un numéro d’unité logique à l’aide des indicateurs *automagic* actuellement en vigueur. Pour plus d’informations, consultez la sous-commande **automagic** .
 
-**taille**=
+**corps**=
 
 Spécifie la taille totale des LUN en mégaoctets. Si le paramètre **Size =** n’est pas spécifié, le numéro d’unité logique (LUN) créé sera la plus grande taille possible autorisée par tous les lecteurs spécifiés.
 
@@ -327,7 +327,7 @@ Pour spécifier la taille à l’aide d’autres unités, utilisez l’un des su
 -   **To** pour téraoctet.
 -   **PB** pour pétaoctet.
 
-**lecteurs**=
+**durs**=
 
 Spécifie le *drive_number* pour les lecteurs à utiliser pour créer un numéro d’unité logique. Si le paramètre **Size =** n’est pas spécifié, le numéro d’unité logique (LUN) créé est la plus grande taille possible autorisée par tous les lecteurs spécifiés. Si le paramètre **Size =** est spécifié, les fournisseurs sélectionnent les lecteurs dans la liste de lecteurs spécifiée pour créer le numéro d’unité logique. Les fournisseurs tentent d’utiliser les lecteurs dans l’ordre spécifié lorsque cela est possible.
 
@@ -343,7 +343,7 @@ Pour spécifier la taille à l’aide d’autres unités, utilisez l’un des su
 -   **To** pour téraoctet.
 -   **PB** pour pétaoctet.
 
-**Indicatif**
+**cible**
 
 Crée une nouvelle cible iSCSI sur le sous-système actuellement sélectionné.
 
@@ -363,7 +363,7 @@ Crée un nouveau groupe de portails cibles iSCSI sur la cible actuellement séle
 
 Spécifie que les échecs qui se produisent pendant l’exécution de cette opération seront ignorés. Cela est utile en mode script.
 
-#### <a name="remarks"></a>Notes
+#### <a name="remarks"></a>Notes 
 
 -   Le paramètre **Size**= ou **Drives**= doit être spécifié. Elles peuvent également être utilisées ensemble.
 -   La taille d’entrelacement d’un numéro d’unité logique ne peut pas être modifiée après la création.
@@ -390,7 +390,7 @@ Supprime l’unité logique actuellement sélectionnée et toutes les données q
 
 Spécifie que le disque sur le système local associé au numéro d’unité logique est nettoyé avant la suppression de l’unité logique.
 
-**Indicatif**
+**cible**
 
 Supprime la cible iSCSI actuellement sélectionnée si aucun numéro d’unité logique n’est associé à la cible.
 
@@ -438,7 +438,7 @@ Répertorie des informations détaillées sur le sous-système actuellement sél
 
 Répertorie des informations détaillées sur le contrôleur actuellement sélectionné.
 
-**importer**
+**port**
 
 Répertorie des informations détaillées sur le port de contrôleur actuellement sélectionné.
 
@@ -454,7 +454,7 @@ Répertorie des informations détaillées sur le numéro d’unité logique actu
 
 Répertorie des informations détaillées sur le portail cible iSCSI actuellement sélectionné.
 
-**Indicatif**
+**cible**
 
 Répertorie des informations détaillées sur la cible iSCSI actuellement sélectionnée.
 
@@ -480,7 +480,7 @@ dissociate targets <n> [,<n> [,…]]
 
 #### <a name="parameter"></a>Paramètre
 
-**secondaires**
+**controllers**
 
 À utiliser avec les fournisseurs VDS 1,0 uniquement. Supprime les contrôleurs de la liste des contrôleurs associés au LUN actuellement sélectionné.
 
@@ -500,7 +500,7 @@ dissociate targets <n> [,<n> [,…]]
 ```
 À utiliser avec le paramètre **ports** . Spécifie les ports du contrôleur à définir comme inactifs à l’aide d’une paire numéro de contrôleur (*n*) et numéro de port (*m*).
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a> Exemple
 
 ```
 DISKRAID> SEL LUN 5
@@ -555,15 +555,15 @@ Pour spécifier la taille à l’aide d’autres unités, utilisez l’un des su
 
 **lecteurs =**
 
-Spécifie le > de drive_number \<pour les lecteurs à utiliser lors de la création d’un numéro d’unité logique. Si le paramètre **Size =** n’est pas spécifié, le numéro d’unité logique (LUN) créé est la plus grande taille possible autorisée par tous les lecteurs spécifiés. Les fournisseurs utilisent les lecteurs dans l’ordre spécifié dans la mesure du possible.
+Spécifie \<le drive_number> pour les lecteurs à utiliser lors de la création d’un numéro d’unité logique. Si le paramètre **Size =** n’est pas spécifié, le numéro d’unité logique (LUN) créé est la plus grande taille possible autorisée par tous les lecteurs spécifiés. Les fournisseurs utilisent les lecteurs dans l’ordre spécifié dans la mesure du possible.
 
 **noerr**
 
 Spécifie que les échecs qui se produisent lors de l’exécution de cette opération doivent être ignorés. Cela est utile en mode script.
 
-#### <a name="remarks"></a>Notes
+#### <a name="remarks"></a>Notes 
 
-Vous devez spécifier la *taille* ou le paramètre de > du lecteur \<. Elles peuvent également être utilisées ensemble.
+Vous devez *size* spécifier la taille \<ou le paramètre de> du lecteur. Elles peuvent également être utilisées ensemble.
 
 ### <a name="flushcache"></a><a name=BKMK_12></a>flushcache
 
@@ -636,7 +636,7 @@ lbpolicy set lun paths=<path>-{primary | <weight>}[,<path>-{primary | <weight>}[
 
 **type**
 
-Spécifie la stratégie d’équilibrage de charge. Si le type n’est pas spécifié, le paramètre **path** doit être spécifié. Le type peut être l’un des suivants :
+Spécifie la stratégie d’équilibrage de charge. Si le type n’est pas spécifié, le paramètre **path** doit être spécifié. Type peut avoir l’une des valeurs suivantes :
 
 **Basculement**: utilise un chemin d’accès principal avec d’autres chemins d’accès de sauvegarde.
 
@@ -654,7 +654,7 @@ Spécifie la stratégie d’équilibrage de charge. Si le type n’est pas spéc
 
 **trajet**
 
-Spécifie si un chemin d’accès est **principal** ou a un > de poids \<particulier. Les chemins d’accès non spécifiés sont implicitement définis comme sauvegarde. Tous les chemins d’accès figurant dans la liste doivent être l’un des chemins d’accès de l’unité logique actuellement sélectionnée.
+Spécifie si un chemin d’accès est **principal** ou \<a une> de poids particulière. Les chemins d’accès non spécifiés sont implicitement définis comme sauvegarde. Tous les chemins d’accès figurant dans la liste doivent être l’un des chemins d’accès de l’unité logique actuellement sélectionnée.
 
 ### <a name="list"></a><a name=BKMK_19></a>tarifs
 
@@ -680,7 +680,7 @@ Répertorie des informations récapitulatives sur tous les adaptateurs d’initi
 
 Répertorie des informations récapitulatives sur tous les portails de l’initiateur iSCSI dans la carte initiatrice actuellement sélectionnée. Le portail initiateur actuellement sélectionné est marqué d’un astérisque (*).
 
-**éditeurs**
+**fournisseurs**
 
 Répertorie des informations récapitulatives sur chaque fournisseur connu de VDS. Le fournisseur actuellement sélectionné est marqué d’un astérisque (*).
 
@@ -688,7 +688,7 @@ Répertorie des informations récapitulatives sur chaque fournisseur connu de VD
 
 Répertorie des informations récapitulatives sur chaque sous-système du système. Le sous-système actuellement sélectionné est marqué par un astérisque (*).
 
-**secondaires**
+**controllers**
 
 Répertorie des informations récapitulatives sur chaque contrôleur dans le sous-système actuellement sélectionné. Le contrôleur actuellement sélectionné est marqué d’un astérisque (*).
 
@@ -750,7 +750,7 @@ Spécifie un portail cible facultatif dans le sous-système actuellement sélect
 
 Spécifie un portail initiateur facultatif dans la carte initiatrice spécifiée à utiliser pour la connexion.
 
-indicateur de \<>
+\<indicateur>
 
 Identifié par trois caractères :
 
@@ -762,7 +762,7 @@ Identifié par trois caractères :
 
 **EDD**: activer le résumé des données
 
-### <a name="logout"></a><a name=BKMK_21></a>déconnexion
+### <a name="logout"></a><a name=BKMK_21></a>logout
 
 Journalise la carte d’initiateur iSCSI spécifiée à partir de la cible iSCSI actuellement sélectionnée.
 
@@ -790,11 +790,11 @@ maintenance <object operation> [count=<iteration>]
 
 ##### <a name="parameters"></a>Paramètres
 
-objet \<>
+\<> d’objets
 
 Spécifie le type d’objet sur lequel effectuer l’opération. Le type d' *objet* peut être un **sous-système**, un **contrôleur**, un **port, un lecteur** ou un numéro d' **unité logique**.
 
-opération de \<>
+\<> de l’opération
 
 Spécifie l’opération de maintenance à effectuer. Le type d' *opération* peut être **spinup**, **SpinDown**, **Blink**, **Beep** ou **ping**. Une *opération* doit être spécifiée.
 
@@ -814,7 +814,7 @@ name {subsystem | lun | target} [<name>]
 
 #### <a name="parameter"></a>Paramètre
 
-nom de l' \<>
+\<nom>
 
 Spécifie un nom pour le sous-système, le numéro d’unité logique ou la cible. La longueur du nom doit être inférieure à 64 caractères. Si aucun nom n’est fourni, le nom existant, le cas échéant, est supprimé.
 
@@ -830,9 +830,9 @@ offline <object>
 
 #### <a name="parameter"></a>Paramètre
 
-objet \<>
+\<> d’objets
 
-Spécifie le type d’objet sur lequel effectuer cette opération. Objet \<>
+Spécifie le type d’objet sur lequel effectuer cette opération. \<Objet>
 
 le type peut être **sous-système**, **contrôleur**, **lecteur**, **numéro d’unité logique**ou **TPORTAL**.
 
@@ -848,9 +848,9 @@ online <object>
 
 #### <a name="parameter"></a>Paramètre
 
-objet \<>
+\<> d’objets
 
-Spécifie le type d’objet sur lequel effectuer cette opération. Objet \<>
+Spécifie le type d’objet sur lequel effectuer cette opération. \<Objet>
 
 le type peut être **HBAPORT**, **Subsystem**, **Controller**, **Drive**, **lun**ou **TPORTAL**.
 
@@ -916,7 +916,7 @@ remove tpgroup tportal=<tportal> [noerr]
 
 #### <a name="parameter"></a>Paramètre
 
-**TPGROUP TPORTAL =** \<TPORTAL >
+**TPGROUP TPORTAL =** \<TPORTAL>
 
 Spécifie le portail cible iSCSI à supprimer.
 
@@ -938,9 +938,9 @@ replace drive=<drive_number>
 
 **lecteur =**
 
-Spécifie le > de drive_number \<pour le lecteur à remplacer.
+Spécifie \<le> de drive_number pour le lecteur à remplacer.
 
-#### <a name="remarks"></a>Notes
+#### <a name="remarks"></a>Notes 
 
 -   Le lecteur spécifié n’est peut-être pas le lecteur actuellement sélectionné.
 
@@ -960,7 +960,7 @@ Reset {controller | port}
 
 Réinitialise le contrôleur.
 
-**importer**
+**port**
 
 Réinitialise le port.
 
@@ -978,59 +978,59 @@ Select {hbaport | iadapter | iportal | provider | subsystem | controller | port 
 
 **dessin**
 
-Spécifie le type d’objet à sélectionner. Le type de > objet \<peut être **Provider**, **Subsystem**, **Controller**, **Drive**ou **lun**.
+Spécifie le type d’objet à sélectionner. Le \<type d'> d’objet peut être **Provider**, **Subsystem**, **Controller**, **Drive**ou **lun**.
 
-**HBAPORT** [\<n >]
+**HBAPORT** [\<n>]
 
 Définit le focus sur le port de l’adaptateur de bus hôte local spécifié. Si aucun port HBA n’est spécifié, la commande affiche le port HBA actuellement sélectionné (le cas échéant). Si vous spécifiez un index de port HBA non valide, le port HBA est inactif. La sélection d’un port HBA désélectionne les adaptateurs initiateurs et les portails de l’initiateur sélectionnés.
 
-**IADAPTER** [\<n >]
+**IADAPTER** [\<n>]
 
 Définit le focus sur l’adaptateur d’initiateur iSCSI local spécifié. Si aucun adaptateur d’initiateur n’est spécifié, la commande affiche la carte initiatrice actuellement sélectionnée (le cas échéant). La spécification d’un index d’adaptateur initiateur non valide entraîne l’absence d’un adaptateur initiateur en cours. La sélection d’un adaptateur d’initiateur désélectionne les ports HBA et les portails de l’initiateur sélectionnés.
 
-**IPORTAL** [\<n >]
+**IPORTAL** [\<n>]
 
 Définit le focus sur le portail de l’initiateur iSCSI local spécifié au sein de la carte de l’initiateur iSCSI sélectionnée. Si aucun portail initiateur n’est spécifié, la commande affiche le portail initiateur actuellement sélectionné (le cas échéant). Si vous spécifiez un index du portail de l’initiateur non valide, aucun portail initiateur n’est sélectionné.
 
-**fournisseur** [\<n >]
+**fournisseur** [\<n>]
 
 Définit le focus sur le fournisseur spécifié. Si aucun fournisseur n’est spécifié, la commande affiche le fournisseur actuellement sélectionné (le cas échéant). La spécification d’un index de fournisseur non valide entraîne l’absence de fournisseur en cours.
 
-**sous-système** [\<n >]
+**sous-système** [\<n>]
 
 Définit le focus sur le sous-système spécifié. Si aucun sous-système n’est spécifié, la commande affiche le sous-système avec le focus (le cas échéant). La spécification d’un index de sous-système non valide n’entraîne pas de sous-système in-focus. La sélection d’un sous-système sélectionne implicitement son fournisseur associé.
 
-**contrôleur** [\<n >]
+**contrôleur** [\<n>]
 
 Définit le focus sur le contrôleur spécifié dans le sous-système actuellement sélectionné. Si aucun contrôleur n’est spécifié, la commande affiche le contrôleur actuellement sélectionné (le cas échéant). Si vous spécifiez un index de contrôleur non valide, aucun contrôleur n’est actif. La sélection d’un contrôleur désélectionne les ports de contrôleur, les lecteurs, les numéros d’unités logiques, les portails cibles, les cibles et les groupes de portails cibles sélectionnés.
 
-**port** [\<n >]
+**port** [\<n>]
 
 Définit le focus sur le port de contrôleur spécifié au sein du contrôleur actuellement sélectionné. Si aucun port n’est spécifié, la commande affiche le port actuellement sélectionné (le cas échéant). Si vous spécifiez un index de port non valide, aucun port n’est sélectionné.
 
-**lecteur** [\<n >]
+**lecteur** [\<n>]
 
 Définit le focus sur le lecteur spécifié, ou sur l’axe physique, dans le sous-système actuellement sélectionné. Si aucun lecteur n’est spécifié, la commande affiche le lecteur actuellement sélectionné (le cas échéant). Si vous spécifiez un index de lecteur non valide, aucun lecteur n’est actif. La sélection d’un lecteur désélectionne les contrôleurs, les ports de contrôleur, les numéros d’unités logiques, les portails cibles, les cibles et les groupes de portails cibles sélectionnés.
 
-**lun** [\<n >]
+**lun** [\<n>]
 
 Définit le focus sur le numéro d’unité logique spécifié dans le sous-système actuellement sélectionné. Si aucun numéro d’unité logique n’est spécifié, la commande affiche le numéro d’unité logique actuellement sélectionné (le cas échéant). Si vous spécifiez un index de LUN non valide, aucun numéro d’unité logique n’est sélectionné. La sélection d’un numéro d’unité logique désélectionne les contrôleurs, les ports de contrôleur, les lecteurs, les portails cibles, les cibles et les groupes de portails cibles sélectionnés.
 
-**TPORTAL** [\<n >]
+**TPORTAL** [\<n>]
 
 Définit le focus sur le portail cible iSCSI spécifié dans le sous-système actuellement sélectionné. Si aucun portail cible n’est spécifié, la commande affiche le portail cible actuellement sélectionné (le cas échéant). Si vous spécifiez un index de portail cible non valide, aucun portail cible n’est sélectionné. La sélection d’un portail cible désélectionne les contrôleurs, les ports de contrôleur, les lecteurs, les numéros d’unités logiques, les cibles et les groupes de portails cibles.
 
-**cible** [\<n >]
+**cible** [\<n>]
 
 Définit le focus sur la cible iSCSI spécifiée dans le sous-système actuellement sélectionné. Si aucune cible n’est spécifiée, la commande affiche la cible actuellement sélectionnée (le cas échéant). La spécification d’un index cible non valide n’entraîne aucune cible sélectionnée. La sélection d’une cible désélectionne les contrôleurs, les ports de contrôleur, les lecteurs, les numéros d’unités logiques, les portails cibles et les groupes de portails cibles.
 
-**TPGROUP** [\<n >]
+**TPGROUP** [\<n>]
 
 Définit le focus sur le groupe de portails cibles iSCSI spécifié au sein de la cible iSCSI actuellement sélectionnée. Si aucun groupe de portails cible n’est spécifié, la commande affiche le groupe de portails cibles actuellement sélectionné (le cas échéant). Si vous spécifiez un index de groupe de portails cible non valide, aucun groupe de portails cibles n’est actif.
 
-[\<n >]
+[\<n>]
 
-Spécifie le numéro d’objet \<> à sélectionner. Si le <object number> spécifié n’est pas valide, toutes les sélections existantes pour les objets du type spécifié sont effacées. Si aucun <object number> n’est spécifié, l’objet actuel est affiché.
+Spécifie \<le numéro d’objet> à sélectionner. Si le <object number> spécifié n’est pas valide, toutes les sélections existantes pour les objets du type spécifié sont effacées. Si aucun <object number> n’est spécifié, l’objet actuel est affiché.
 
 ### <a name="setflag"></a><a name=BKMK_34></a>setflag
 
@@ -1052,7 +1052,7 @@ Sélectionne le lecteur actuellement sélectionné en tant que disque de secours
 
 Désélectionne le lecteur actuellement sélectionné en tant que disque de secours à chaud.
 
-#### <a name="remarks"></a>Notes
+#### <a name="remarks"></a>Notes 
 
 Les disques d’échange à chaud ne peuvent pas être utilisés pour les opérations de liaison de LUN ordinaires. Elles sont réservées à la gestion des erreurs uniquement. Le lecteur ne doit pas être actuellement lié à un numéro d’unité logique existante.
 
@@ -1111,7 +1111,7 @@ Spécifie que le numéro d’unité logique doit être rendu accessible à parti
 > [!IMPORTANT]
 > Vous devez déconnecter la cible avant d’exécuter la commande démasquer tout.
 
-**None**
+**Aucune**
 
 Spécifie que le numéro d’unité logique ne doit pas être accessible à un hôte.
 
@@ -1144,7 +1144,7 @@ Par défaut, DiskRAID arrête le traitement des commandes et retourne un code d�
 
 ### <a name="diskraid-error-codes"></a>Codes d’erreur DiskRAID
 
-|Code d'erreur|Description de l'erreur|
+|Code d'erreur|Description de l’erreur|
 |----------|-----------------|
 |0|Aucune erreur ne s'est produite. L’ensemble du script s’est exécuté sans échec.|
 |1|Une exception irrécupérable s’est produite.|
@@ -1159,7 +1159,7 @@ Si vous souhaitez afficher l’état du sous-système 0 sur votre ordinateur, ta
 ```
 diskraid
 ```
-Appuyez sur ENTRÉE. Les éléments suivants s’affichent :
+Appuyez sur Entrée. Les éléments suivants s’affichent :
 ```
 Microsoft Diskraid version 5.2.xxxx
 Copyright (©) 2003 Microsoft Corporation
@@ -1169,7 +1169,7 @@ Pour sélectionner le sous-système 0, tapez la commande suivante à l’invite 
 ```
 select subsystem 0
 ```
-Appuyez sur ENTRÉE. Une sortie similaire à ce qui suit s’affiche :
+Appuyez sur Entrée. Une sortie similaire à la suivante s’affiche à l’écran :
 ```
 Subsystem 0 is now the selected subsystem.
 

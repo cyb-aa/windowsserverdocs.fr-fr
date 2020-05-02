@@ -1,6 +1,6 @@
 ---
 title: bdehdcfg
-description: La rubrique commandes Windows pour **BdeHdCfg**, qui prépare un disque dur avec les partitions nécessaires pour chiffrement de lecteur BitLocker.
+description: Rubrique de référence pour la commande BdeHdCfg, qui prépare un disque dur avec les partitions nécessaires pour Chiffrement de lecteur BitLocker.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c9adf8bbfb655e0820fcff6385d3663fc7abbd9a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3bcc901847bb8d687d59bc3270dab39de0af8d60
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851002"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718569"
 ---
 # <a name="bdehdcfg"></a>bdehdcfg
 
@@ -33,12 +33,10 @@ Prépare un disque dur avec les partitions nécessaires pour Chiffrement de lect
 >
 >- Lorsque ce paramètre de stratégie est appliqué, un disque dur ne peut pas être repartitionné car le lecteur est protégé. Si vous mettez à niveau des ordinateurs de votre organisation d'une version précédente de Windows et ces ordinateurs ont été configurés avec une partition unique, vous devez créer la partition de système BitLocker requise avant d'appliquer le paramètre de stratégie aux ordinateurs.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
-
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bdehdcfg [–driveinfo <DriveLetter>] [-target {default|unallocated|<DriveLetter> shrink|<DriveLetter> merge}] [–newdriveletter] [–size <SizeinMB>] [-quiet]
+bdehdcfg [–driveinfo <drive_letter>] [-target {default|unallocated|<drive_letter> shrink|<drive_letter> merge}] [–newdriveletter] [–size <size_in_mb>] [-quiet]
 ```
 
 #### <a name="parameters"></a>Paramètres
@@ -52,20 +50,6 @@ bdehdcfg [–driveinfo <DriveLetter>] [-target {default|unallocated|<DriveLetter
 | [BdeHdCfg : quiet](bdehdcfg-quiet.md) | Empêche l’affichage de toutes les actions et erreurs dans l’interface de ligne de commande et indique à BdeHdCfg d’utiliser la réponse oui à toute invite de oui/non qui peut se produire lors de la préparation du lecteur suivant. |
 | [BdeHdCfg : redémarrer](bdehdcfg-restart.md) | Indique à l’ordinateur de redémarrer une fois la préparation du lecteur terminée. |
 | /? | Affiche l'aide à l'invite de commandes. |
-
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
-
-L’exemple suivant illustre l’utilisation de BdeHdCfg avec le lecteur par défaut pour créer une partition système de 500 Mo. Étant donné qu’aucune lettre de lecteur n’est spécifiée, la nouvelle partition système n’a pas de lettre de lecteur.
-
-```
-bdehdcfg -target default -size 500
-```
-
-L’exemple suivant illustre l’utilisation de BdeHdCfg avec le lecteur par défaut pour créer une partition système (P :) de la taille par défaut de 300 Mo de l’espace non alloué sur le lecteur. L’outil ne demande pas à l’utilisateur d’entrer d’autres informations et aucune erreur ne s’affiche. Une fois le lecteur système créé, l’ordinateur redémarre automatiquement.
-
-```
-bdehdcfg -target unallocated –newdriveletter P: -quiet -restart
-```
 
 ## <a name="additional-references"></a>Références supplémentaires
 

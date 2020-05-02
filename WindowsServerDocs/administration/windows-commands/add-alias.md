@@ -1,6 +1,6 @@
 ---
 title: Ajouter un alias
-description: Rubrique relative aux commandes Windows pour **Ajouter un alias**, qui ajoute des alias à l’environnement d’alias.
+description: Rubrique de référence pour la commande Add alias, qui ajoute des alias à l’environnement alias.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ebffc1504f502711dab30f6f9b120ad20e64ae9d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 807981c3581eea328291f2389e08065edbd280d3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851362"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719028"
 ---
 # <a name="add-alias"></a>Ajouter un alias
 
-Ajoute des alias à l’environnement d’alias. S’il est utilisé sans paramètres, l’option **Ajouter un alias** affiche l’aide à l’invite de commandes.
-
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+Ajoute des alias à l’environnement d’alias. S’il est utilisé sans paramètres, l’option **Ajouter un alias** affiche l’aide à l’invite de commandes. Les alias sont enregistrés dans le fichier de métadonnées et sont chargés à l’aide de la commande **charger les métadonnées** .
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -30,17 +28,13 @@ add alias <AliasName> <AliasValue>
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|`<AliasName>`|Indique le nom de l'alias.|
-|`<AliasValue>`|Spécifie la valeur de l’alias.|
-|`/?`|Affiche l'aide à l'invite de commandes.|
+| Paramètre | Description |
+| --------- | ----------- |
+| `<AliasName>` | Indique le nom de l'alias. |
+| `<AliasValue>` | Spécifie la valeur de l’alias. |
+| `/?` | Affiche l'aide à l'invite de commandes. |
 
-## <a name="remarks"></a>Notes
-
--   Les alias sont enregistrés dans le fichier de métadonnées et sont chargés à l’aide de la commande **charger les métadonnées** .
-
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour répertorier toutes les ombres, y compris leurs alias, tapez :
 
@@ -70,3 +64,5 @@ add alias System1 {ff47165a-1946-4a0c-b7f4-80f46a309278}
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [charger les métadonnées, commande](load-metadata.md)

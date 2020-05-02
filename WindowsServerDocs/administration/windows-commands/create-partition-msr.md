@@ -1,6 +1,6 @@
 ---
 title: créer une partition MSR
-description: La rubrique commandes Windows pour Create partition MSR, qui crée une partition MSR (Microsoft Reserved) sur un disque GPT (GUID partition table).
+description: Rubrique de référence pour Create partition MSR, qui crée une partition MSR (Microsoft Reserved) sur un disque GPT (GUID partition table).
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a0f0390cd3b9f390e1f65b034fecd00d8ff41079
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 964f57b08a23867c01d3e90e9b8283c7b4fff6e5
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80847012"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719216"
 ---
 # <a name="create-partition-msr"></a>créer une partition MSR
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Crée une partition MSR (Microsoft Reserved) sur un disque GPT (GUID partition table).
   
@@ -35,13 +35,13 @@ create partition msr [size=<n>] [offset=<n>] [noerr]
   
 |  Paramètre  |                                                                                                                         Description                                                                                                                         |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  taille\=<n>  |               Taille de la partition en mégaoctets \(Mo\). La partition est au moins aussi longue en octets que le nombre spécifié par <n>. Si aucune taille n’est indiquée, la partition se poursuit jusqu’à ce qu’il n’y ait plus d’espace libre dans la région actuelle.               |
-| décalage\=<n> | Spécifie le décalage en kilo-octets \(Ko\), à partir duquel la partition est créée. Le décalage est arrondi à l’entier pour remplir complètement la taille de secteur utilisée. Si aucun décalage n’est spécifié, la partition est placée dans la première étendue de disque qui est suffisamment grande pour la contenir. |
-|    noerr    |                            À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.                             |
+|  corps\=<n>  |               Taille de la partition en mégaoctets ( \(Mo\)). La partition est au moins aussi longue en octets que le nombre spécifié par <n>. Si aucune taille n’est indiquée, la partition se poursuit jusqu’à ce qu’il n’y ait plus d’espace libre dans la région actuelle.               |
+| décalage\=<n> | Spécifie l’offset en kilo \(-\)octets (Ko), à partir duquel la partition est créée. Le décalage est arrondi à l’entier pour remplir complètement la taille de secteur utilisée. Si aucun décalage n’est spécifié, la partition est placée dans la première étendue de disque qui est suffisamment grande pour la contenir. |
+|    noerr    |                            à des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.                             |
   
-## <a name="remarks"></a>Notes  
+## <a name="remarks"></a>Notes   
   
--   Sur les disques GPT utilisés pour démarrer le système d’exploitation Windows, le Extensible Firmware Interface \(EFI\) partition système est la première partition sur le disque, suivie de la partition réservée Microsoft. les disques GPT utilisés uniquement pour le stockage de données n’ont pas de partition système EFI, auquel cas la partition réservée Microsoft est la première partition.  
+-   Sur les disques GPT utilisés pour démarrer le système d’exploitation Windows, la partition \(système\) extensible firmware interface EFI est la première partition sur le disque, suivie de la partition réservée Microsoft. les disques GPT utilisés uniquement pour le stockage de données n’ont pas de partition système EFI, auquel cas la partition réservée Microsoft est la première partition.  
   
 -   Windows ne monte pas les partitions réservées Microsoft. Vous ne pouvez pas y stocker des données et vous ne pouvez pas les supprimer.  
   
@@ -49,7 +49,7 @@ create partition msr [size=<n>] [offset=<n>] [noerr]
   
 -   Vous devez sélectionner un disque GPT de base pour que cette opération aboutisse. Utilisez la commande **Sélectionner le disque** pour sélectionner un disque GPT de base et décaler le focus vers celui-ci.  
   
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre  
+## <a name="examples"></a>Exemples  
 Pour créer une partition réservée Microsoft d’une taille de 1000 mégaoctets, tapez :  
   
 ```  

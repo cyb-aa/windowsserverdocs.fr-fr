@@ -1,6 +1,6 @@
 ---
 title: bitsadmin addfile
-description: La rubrique commandes Windows pour **Bitsadmin AddFile**, qui ajoute un fichier au travail spécifié.
+description: Rubrique de référence pour la commande Bitsadmin AddFile, qui ajoute un fichier au travail spécifié.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 330e79eb2ba5a824cea54094f64ceb6f9cfd66b9
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: eaa7d77c9d6160bbd2bdf6a1431232af22bc3e37
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850962"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718495"
 ---
 # <a name="bitsadmin-addfile"></a>bitsadmin addfile
 
@@ -23,25 +23,29 @@ Ajoute un fichier au travail spécifié.
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /AddFile <Job> <RemoteURL> <LocalName>
+bitsadmin /addfile <job> <remoteURL> <localname>
 ```
 
-#### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 | Paramètre | Description |
 | --------- | ----------- |
-| Tâche | Nom complet ou GUID du travail. |
-| RemoteURL | URL du fichier sur le serveur. |
-| LocalName | Nom du fichier sur l’ordinateur local. *LocalName* doit contenir un chemin d’accès absolu au fichier. |
+| travail | Nom complet ou GUID du travail. |
+| remoteURL | URL du fichier sur le serveur. |
+| localname | Nom du fichier sur l’ordinateur local. *LocalName* doit contenir un chemin d’accès absolu au fichier. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-Ajoutez un fichier au travail. Répétez cet appel pour chaque fichier que vous souhaitez ajouter. Si plusieurs travaux utilisent *myDownloadJob* comme nom, vous devez remplacer *MYDOWNLOADJOB* par le GUID du travail pour identifier le travail de façon unique.
+Pour ajouter un fichier à la tâche :
 
 ```
-C:\>bitsadmin /addfile myDownloadJob http://downloadsrv/10mb.zip c:\10mb.zip
+bitsadmin /addfile myDownloadJob http://downloadsrv/10mb.zip c:\10mb.zip
 ```
+
+Répétez cet appel pour chaque fichier à ajouter. Si plusieurs travaux utilisent *myDownloadJob* comme nom, vous devez remplacer *MYDOWNLOADJOB* par le GUID du travail pour identifier le travail de façon unique.
 
 ## <a name="additional-references"></a>Références supplémentaires
 
-- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)&copy;
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

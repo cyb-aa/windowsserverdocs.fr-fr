@@ -1,6 +1,6 @@
 ---
-title: cache Bitsadmin et aide
-description: Rubrique relative aux commandes Windows pour le **cache Bitsadmin et l’aide**, qui affiche l’utilisation de la ligne de commande pour les commutateurs de **cache** .
+title: bitsadmin cache and help
+description: Rubrique de référence pour le cache Bitsadmin et la commande help, qui affiche l’utilisation de la ligne de commande pour les commutateurs de **cache** .
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c636210d9c4631bd82028e681274e67d16a81931
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 79d8dd2ce5af1e1160692f13974c56842fb163cd
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850912"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718355"
 ---
-# <a name="bitsadmin-cache-and-help"></a>cache Bitsadmin et aide
+# <a name="bitsadmin-cache-and-help"></a>bitsadmin cache and help
 
 Affiche l’utilisation de la ligne de commande pour les commutateurs de **cache** .
 
@@ -26,9 +26,9 @@ Affiche l’utilisation de la ligne de commande pour les commutateurs de **cache
 bitsadmin /cache /help
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-La commande suivante affiche l’aide de la ligne de commande pour les commutateurs de **cache** .
+Pour afficher l’aide de la ligne de commande pour les commutateurs de **cache** .
 
 ```
 bitsadmin /cache /help
@@ -37,3 +37,5 @@ bitsadmin /cache /help
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande de cache Bitsadmin](bitsadmin-cache.md)

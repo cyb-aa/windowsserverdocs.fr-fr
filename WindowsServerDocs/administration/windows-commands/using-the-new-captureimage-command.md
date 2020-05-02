@@ -1,6 +1,6 @@
 ---
 title: New-CaptureImage
-description: Rubrique relative aux commandes Windows pour New-CaptureImage, qui crée une image de capture à partir d’une image de démarrage existante.
+description: Rubrique de référence pour New-CaptureImage, qui crée une image de capture à partir d’une image de démarrage existante.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9d8847888b87dfadb25cbb79dc172bf9b721b819
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 32c895792701630d6cfa849a298dc7a55f18a5a6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80830742"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719704"
 ---
 # <a name="new-captureimage"></a>New-CaptureImage
 
-crée une image de capture à partir d’une image de démarrage existante. Les images de capture sont des images de démarrage qui démarrent l’utilitaire de capture des services de déploiement Windows au lieu de démarrer le programme d’installation. Lorsque vous démarrez un ordinateur de référence (qui a été préparé avec Sysprep) dans une image de capture, un Assistant crée une image d’installation de l’ordinateur de référence et l’enregistre sous la forme d’un fichier image Windows (. wim). Vous pouvez également ajouter l’image au média (par exemple, un CD, un DVD ou un lecteur USB), puis démarrer un ordinateur à partir de ce média. Après avoir créé l’image d’installation, vous pouvez ajouter l’image au serveur pour le déploiement de démarrage PXE. Pour plus d’informations, consultez Création d’images ([https://go.microsoft.com/fwlink/?LinkId=115311](https://go.microsoft.com/fwlink/?LinkId=115311)).
+Crée une image de capture à partir d’une image de démarrage existante. Les images de capture sont des images de démarrage qui démarrent l’utilitaire de capture des services de déploiement Windows au lieu de démarrer le programme d’installation. Lorsque vous démarrez un ordinateur de référence (qui a été préparé avec Sysprep) dans une image de capture, un Assistant crée une image d’installation de l’ordinateur de référence et l’enregistre sous la forme d’un fichier image Windows (. wim). Vous pouvez également ajouter l’image au média (par exemple, un CD, un DVD ou un lecteur USB), puis démarrer un ordinateur à partir de ce média. Après avoir créé l’image d’installation, vous pouvez ajouter l’image au serveur pour le déploiement de démarrage PXE. Pour plus d’informations, consultez Création d'[https://go.microsoft.com/fwlink/?LinkId=115311](https://go.microsoft.com/fwlink/?LinkId=115311)images ().
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -39,13 +39,13 @@ WDSUTIL [Options] /New-CaptureImage [/Server:<Server name>]
 
 |        Paramètre         |                                                                                                                                                                                                                         Description                                                                                                                                                                                                                          |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [/Server :\<nom du serveur >] |                                                                                                                                       Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.                                                                                                                                        |
-|   /Image :\<le nom de l’image >   |                                                                                                                                                                                                         Spécifie le nom de l’image de démarrage source.                                                                                                                                                                                                         |
+| [/Server :\<nom du serveur>] |                                                                                                                                       Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.                                                                                                                                        |
+|   /Image :\<nom de l’image>   |                                                                                                                                                                                                         Spécifie le nom de l’image de démarrage source.                                                                                                                                                                                                         |
 |   /Architecture : {x86    |                                                                                                                                                                                                                             ia64                                                                                                                                                                                                                             |
-| [/Filename : \<nom de fichier >] |                                                                                                                                                                            Si l’image ne peut pas être identifiée de manière unique par son nom, vous devez utiliser cette option pour spécifier le nom du fichier.                                                                                                                                                                            |
-|    /DestinationImage     | Spécifie les paramètres de l’image de destination. Vous spécifiez les paramètres à l’aide des options suivantes :</br>-/FilePath. : \<chemin d’accès et nom de fichier > définit le chemin de fichier complet de la nouvelle image de capture.</br>-[/Name : \<name >]-définit le nom d’affichage de l’image. Si aucun nom complet n’est spécifié, le nom complet de l’image source est utilisé.</br>-[/Description : \<Description >]-définit la description de l’image.</br>-[/Overwrite : {Oui |
+| [/Filename : \<nom de fichier>] |                                                                                                                                                                            Si l’image ne peut pas être identifiée de manière unique par son nom, vous devez utiliser cette option pour spécifier le nom du fichier.                                                                                                                                                                            |
+|    /DestinationImage     | Spécifie les paramètres de l’image de destination. Vous spécifiez les paramètres à l’aide des options suivantes :</br>-/FilePath. : \<chemin d’accès et nom du fichier> définit le chemin de fichier complet de la nouvelle image de capture.</br>-[/Name : \<Name>]-définit le nom d’affichage de l’image. Si aucun nom complet n’est spécifié, le nom complet de l’image source est utilisé.</br>-[/Description : \<Description>]-définit la description de l’image.</br>-[/Overwrite : {Oui |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour créer une image de capture et la nommer WinPECapture. wim, tapez :
 ```

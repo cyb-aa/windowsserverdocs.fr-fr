@@ -1,6 +1,6 @@
 ---
 title: Dfsdiag TestDCs
-description: La rubrique commandes Windows pour Dfsdiag TestDCs, qui vérifie la configuration des contrôleurs de domaine dans le domaine spécifié.
+description: Rubrique de référence pour Dfsdiag TestDCs, qui vérifie la configuration des contrôleurs de domaine dans le domaine spécifié.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 092ce3710eb6d209f596683bd4ad054dadd11aa3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6ac7fe1a7bae6a7b3dab9004b6212b7d93774ade
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846314"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719592"
 ---
 # <a name="dfsdiag-testdcs"></a>Dfsdiag TestDCs
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vérifie la configuration des contrôleurs de domaine en effectuant les tests suivants sur chaque contrôleur de domaine dans le domaine spécifié :  
   
@@ -38,13 +38,13 @@ dfsdiag /TestDCs [/Domain:<Domain name>]
   
 |Paramètre|Description|  
 |-------|--------|  
-|/Domain :`<domain_name>`|Domaine que vous souhaitez vérifier.|  
+|Domain`<domain_name>`|Domaine que vous souhaitez vérifier.|  
   
-## <a name="remarks"></a>Notes  
+## <a name="remarks"></a>Notes   
 
 /Domain est un paramètre facultatif. La valeur par défaut est le domaine local auquel l’hôte local est joint.  
   
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre  
+## <a name="examples"></a>Exemples  
 Pour vérifier la configuration des contrôleurs de domaine dans le domaine Contoso.com, tapez :  
   
 ```  

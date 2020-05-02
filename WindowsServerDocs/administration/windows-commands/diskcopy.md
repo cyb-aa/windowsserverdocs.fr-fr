@@ -1,6 +1,6 @@
 ---
 title: diskcopy
-description: Rubrique relative aux commandes Windows pour diskcopy, qui copie le contenu de la disquette dans le lecteur source sur une disquette formatée ou non dans le lecteur de destination.
+description: Rubrique de référence pour diskcopy, qui copie le contenu de la disquette dans le lecteur source sur une disquette formatée ou non formatée dans le lecteur de destination.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/07/2018
-ms.openlocfilehash: 675694503cab207f05fd6b48e0d17c23196f85d0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b5c9186a539a58ed0d3362ba83d7a3bcedcaabad
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845542"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719468"
 ---
 # <a name="diskcopy"></a>diskcopy
 
 Copie le contenu de la disquette dans le lecteur source vers une disquette formatée ou non formatée dans le lecteur de destination. En cas d’utilisation sans paramètre, **diskcopy** utilise le lecteur actif pour le disque source et le disque de destination.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 > [!NOTE]
 > Cette commande n’est pas incluse dans Windows 10.
@@ -35,12 +35,12 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
 |Paramètre|Description|
 |---------|-----------|
-|\<Lecteur1 >|Spécifie le lecteur qui contient le disque source.|
-|\<lecteur2 >|Spécifie le lecteur qui contient le disque de destination.|
+|\<Lecteur1>|Spécifie le lecteur qui contient le disque source.|
+|\<> lecteur2|Spécifie le lecteur qui contient le disque de destination.|
 |/v|Vérifie que les informations sont copiées correctement. Cette option ralentit le processus de copie.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 -   Utilisation de disques
 
@@ -92,7 +92,7 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
     To process the exit codes that are returned by **diskcomp**, you can use the *ERRORLEVEL* environment variable on the **if** command line in a batch program.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour copier le disque du lecteur B sur le disque du lecteur A, tapez :
 ```

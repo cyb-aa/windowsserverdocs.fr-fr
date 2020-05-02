@@ -1,6 +1,6 @@
 ---
 title: taille de BdeHdCfg
-description: La rubrique commandes Windows pour **BdeHdCfg Size**, qui spécifie la taille de la partition système lors de la création d’un nouveau lecteur système.
+description: Rubrique de référence pour la commande BdeHdCfg Size, qui spécifie la taille de la partition système lors de la création d’un nouveau lecteur système.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,41 +9,35 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c72bdfd0b8bf4dfd0aa36885ceb7fd249a18c332
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 27662a46045a8701b40697198cddf1dcb1b51c1e
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851022"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718612"
 ---
 # <a name="bdehdcfg-size"></a>BdeHdCfg : taille
 
-Spécifie la taille de la partition système lors de la création d’un nouveau lecteur système.
+Spécifie la taille de la partition système lors de la création d’un nouveau lecteur système. Si vous ne spécifiez pas de taille, l'outil utilisera la valeur par défaut de 300 Mo La taille minimale du lecteur système est 100 Mo Si vous stockez les outils de récupération système ou d'autres outils système sur la partition système, vous devez augmenter la taille en conséquence.
 
-Pour obtenir un exemple de la façon dont cette commande peut être utilisée, consultez [exemples](#BKMK_Examples).
+> [!NOTE]
+> La commande **Size** ne peut pas être combinée `target <drive_letter> merge` avec la commande.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bdehdcfg -target {default|unallocated|<DriveLetter> shrink} -size <SizeinMB>
+bdehdcfg -target {default|unallocated|<drive_letter> shrink} -size <size_in_mb>
 ```
 
 #### <a name="parameters"></a>Paramètres
 
 | Paramètre | Description |
 | --------- | ----------- |
-| `<SizeinMB>` | Indique le nombre de mégaoctets (Mo) à utiliser pour la nouvelle partition. |
+| `<size_in_mb>` | Indique le nombre de mégaoctets (Mo) à utiliser pour la nouvelle partition. |
 
-## <a name="remarks"></a>Notes
+## <a name="examples"></a>Exemples
 
-Si vous ne spécifiez pas de taille, l'outil utilisera la valeur par défaut de 300 Mo La taille minimale du lecteur système est 100 Mo Si vous stockez les outils de récupération système ou d'autres outils système sur la partition système, vous devez augmenter la taille en conséquence.
-
-> [!NOTE]
-> La commande **Size** ne peut pas être combinée avec la commande `<DriveLetter>` de **fusion** **cible** .
-
-## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
-
-L’exemple suivant illustre l’utilisation de la commande **Size** pour allouer 500 Mo au lecteur système par défaut.
+Pour allouer 500 Mo sur le lecteur système par défaut :
 
 ```
 bdehdcfg -target default -size 500
@@ -53,4 +47,4 @@ bdehdcfg -target default -size 500
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
-- [BdeHdCfg](bdehdcfg.md)
+- [bdehdcfg](bdehdcfg.md)

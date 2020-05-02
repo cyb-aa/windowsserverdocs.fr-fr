@@ -1,6 +1,6 @@
 ---
-title: cache et liste Bitsadmin
-description: Rubrique relative aux commandes Windows pour le **cache et la liste Bitsadmin**, qui répertorie toutes les entrées de cache.
+title: bitsadmin cache and list
+description: Rubrique de référence pour le cache Bitsadmin et la commande list, qui répertorie toutes les entrées de cache.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8400c0111f88f9f20a0766bbeb682db76b9d1444
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6c621e4ae85d24cbadcec009b60c68ecc4c8ac18
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850862"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718329"
 ---
-# <a name="bitsadmin-cache-and-list"></a>cache et liste Bitsadmin
+# <a name="bitsadmin-cache-and-list"></a>bitsadmin cache and list
 
 Répertorie toutes les entrées de cache.
 
@@ -26,14 +26,16 @@ Répertorie toutes les entrées de cache.
 bitsadmin /cache /list [/verbose]
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant répertorie toutes les entrées de cache dans un format détaillé.
+Pour répertorier toutes les entrées de cache dans un format détaillé.
 
 ```
-C:\> bitsadmin /cache /list /verbose
+bitsadmin /cache /list /verbose
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande de cache Bitsadmin](bitsadmin-cache.md)

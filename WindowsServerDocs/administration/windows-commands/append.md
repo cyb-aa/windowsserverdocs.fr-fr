@@ -1,6 +1,6 @@
 ---
 title: append
-description: La rubrique commandes Windows pour **Append**, qui permet aux programmes d’ouvrir des fichiers de données dans les répertoires spécifiés, comme s’ils étaient dans le répertoire actif.
+description: Rubrique de référence pour la commande Append, qui permet aux programmes d’ouvrir des fichiers de données dans les répertoires spécifiés, comme s’ils se trouvaient dans le répertoire actif.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 95bbc607ef297e7cf67da2e388884882356ef744
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 562a13c6b1a47e43bb66548902f0b8e57e789a34
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851322"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718996"
 ---
 # <a name="append"></a>append
 
@@ -23,12 +23,10 @@ Permet aux programmes d’ouvrir des fichiers de données dans les répertoires 
 > [!NOTE]
 > Cette commande n’est pas prise en charge dans Windows 10.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
-
 ## <a name="syntax"></a>Syntaxe
 
 ```
-append [[<Drive>:]<Path>[;...]] [/x[:on|:off]] [/path:[:on|:off] [/e] 
+append [[<drive>:]<path>[;...]] [/x[:on|:off]] [/path:[:on|:off] [/e]
 append ;
 ```
 
@@ -36,16 +34,16 @@ append ;
 
 | Paramètre | Description |
 | --------- | ----------- |
-| `[\<Drive>:]<Path>` | Spécifie un lecteur et un répertoire à ajouter. |
-| `/x:on` | Applique les répertoires ajoutés aux recherches de fichiers et le lancement d’applications. |
-| `/x:off` | Applique les répertoires ajoutés uniquement aux demandes d’ouverture de fichiers. L’option **/x : OFF** est le paramètre par défaut. |
-| `/path:on` | Applique des répertoires ajoutés aux demandes de fichier qui spécifient déjà un chemin d’accès. **/Path : on** est le paramètre par défaut. |
-| `/path:off` | Désactive l’effet de **/Path : on**. |
-| `/e` | Stocke une copie de la liste des répertoires ajoutés dans une variable d’environnement nommée APPEND. **/e** peut être utilisé uniquement la première fois que vous utilisez **Append** après le démarrage de votre système. |
-| `;` | Efface la liste des répertoires ajoutés. |
-| `/?` | Affiche l'aide à l'invite de commandes. |
+| `[\<drive>:]<path>` | Spécifie un lecteur et un répertoire à ajouter. |
+| /x : activé | Applique les répertoires ajoutés aux recherches de fichiers et le lancement d’applications. |
+| /x : désactivé | Applique les répertoires ajoutés uniquement aux demandes d’ouverture de fichiers. L’option **/x : OFF** est le paramètre par défaut. |
+| /Path : activé | Applique des répertoires ajoutés aux demandes de fichier qui spécifient déjà un chemin d’accès. **/Path : on** est le paramètre par défaut. |
+| /Path : désactivé | Désactive l’effet de **/Path : on**. |
+| /e | Stocke une copie de la liste des répertoires ajoutés dans une variable d’environnement nommée APPEND. **/e** peut être utilisé uniquement la première fois que vous utilisez **Append** après le démarrage de votre système. |
+| ; | Efface la liste des répertoires ajoutés. |
+| /? | Affiche l'aide à l'invite de commandes. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour effacer la liste des répertoires ajoutés, tapez :
 
@@ -53,7 +51,7 @@ Pour effacer la liste des répertoires ajoutés, tapez :
 append ;
 ```
 
-Pour stocker une copie du répertoire ajouté à une variable d’environnement nommée APPEND, tapez :
+Pour stocker une copie du répertoire ajouté à une variable d’environnement nommée *Append*, tapez :
 
 ```
 append /e

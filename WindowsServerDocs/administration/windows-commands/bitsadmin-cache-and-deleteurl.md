@@ -1,6 +1,6 @@
 ---
-title: cache Bitsadmin et DeleteUrl
-description: Rubrique relative aux commandes Windows pour le **cache Bitsadmin et DeleteUrl**, qui supprime toutes les entrées de cache pour l’URL donnée.
+title: cache Bitsadmin et deleteURL
+description: Rubrique de référence pour le cache Bitsadmin et la commande deleteURL, qui supprime toutes les entrées de cache pour l’URL donnée.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,37 +9,39 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 70099e795d0f05d0fcf75fbf6b82f5466d1c0c55
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 075c48e5c8c205cbbf3fe476260ec7909edcc3e6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850932"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718446"
 ---
-# <a name="bitsadmin-cache-and-deleteurl"></a>cache Bitsadmin et DeleteUrl
+# <a name="bitsadmin-cache-and-deleteurl"></a>cache Bitsadmin et deleteURL
 
 Supprime toutes les entrées de cache pour l’URL donnée.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /deleteURL url
+bitsadmin /deleteURL URL
 ```
 
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Description |
 | -------------- | -------------- |
-| url | Uniform Resource Locator qui identifie un fichier distant. |
+| URL | Uniform Resource Locator qui identifie un fichier distant. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant supprime toutes les entrées de cache pour `https://www.contoso.com/en/us/default.aspx`
+Pour supprimer toutes les entrées de `https://www.contoso.com/en/us/default.aspx`cache pour :
 
 ```
-C:\>bitsadmin /deleteURL https://www.contoso.com/en/us/default.aspx 
+bitsadmin /deleteURL https://www.contoso.com/en/us/default.aspx 
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande de cache Bitsadmin](bitsadmin-cache.md)

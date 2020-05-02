@@ -1,6 +1,6 @@
 ---
 title: bcdboot
-description: Rubrique relative aux commandes Windows pour **BCDboot**, qui permet de configurer rapidement une partition système, ou de réparer l’environnement de démarrage situé sur la partition système.
+description: Rubrique de référence pour la commande BCDboot, qui permet de configurer rapidement une partition système, ou de réparer l’environnement de démarrage situé sur la partition système.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 637170cbd8ee4f3c11ee1dc77a0cd49b5dfa3038
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cde91738f524350f72f0278495e4bd46a3960e6f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851082"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718709"
 ---
 # <a name="bcdboot"></a>bcdboot
 
@@ -34,7 +34,7 @@ bcdboot <source> [/l] [/s]
 | /l | Spécifie les paramètres régionaux. Les paramètres régionaux par défaut sont anglais (États-Unis). |
 | /s | Spécifie la lettre de volume de la partition système. La valeur par défaut est la partition système identifiée par le microprogramme. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour plus d’informations sur l’emplacement de BCDboot et des exemples d’utilisation de cette commande, consultez la rubrique [options de ligne de commande BCDboot](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh824874(v=win.10)x) .
 

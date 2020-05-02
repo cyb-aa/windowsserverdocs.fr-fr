@@ -1,6 +1,6 @@
 ---
 title: assoc
-description: La rubrique commandes Windows pour Assoc, qui affiche ou modifie les associations d’extension de nom de fichier.
+description: Rubrique de référence pour la commande Assoc, qui affiche ou modifie les associations d’extension de nom de fichier.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 442ba244a7325425df29a1ebdcdb8bc107095ebe
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f637e1f744ec412899320cfbb368633b222da8d3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851292"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718954"
 ---
 # <a name="assoc"></a>assoc
 
@@ -23,12 +23,10 @@ Affiche ou modifie les associations d’extension de nom de fichier. S’il est 
 > [!NOTE]
 > Cette commande est uniquement prise en charge dans CMD. EXE et n’est pas disponible à partir de PowerShell.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
-
 ## <a name="syntax"></a>Syntaxe
 
 ```
-assoc [<.ext>[=[<FileType>]]]
+assoc [<.ext>[=[<filetype>]]]
 ```
 
 ### <a name="parameters"></a>Paramètres
@@ -36,18 +34,18 @@ assoc [<.ext>[=[<FileType>]]]
 | Paramètre | Description |
 | --------- | ----------- |
 | `<.ext>` | Spécifie l’extension de nom de fichier. |
-| `<FileType>` | Spécifie le type de fichier à associer à l’extension de nom de fichier spécifiée. |
-| `/?` | Affiche l'aide à l'invite de commandes. |
+| `<filetype>` | Spécifie le type de fichier à associer à l’extension de nom de fichier spécifiée. |
+| /? | Affiche l'aide à l'invite de commandes. |
 
-## <a name="remarks"></a>Notes
+### <a name="remarks"></a>Notes 
 
 - Pour supprimer l’Association de types de fichiers pour une extension de nom de fichier, ajoutez un espace après le signe égal en appuyant sur la barre d’espace.
 
 - Pour afficher les types de fichiers actuels qui ont des chaînes de commande ouvertes définies, utilisez la commande **ftype** .
 
-- Pour rediriger la sortie d' **Assoc** vers un fichier texte, utilisez l’opérateur de redirection **>** .
+- Pour rediriger la sortie d' **Assoc** vers un fichier texte, utilisez l' `>` opérateur de redirection.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour afficher l’Association de type de fichier actuelle pour l’extension de nom de fichier. txt, tapez :
 
@@ -79,3 +77,5 @@ assoc>assoc.txt
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande FTYPE](ftype.md)

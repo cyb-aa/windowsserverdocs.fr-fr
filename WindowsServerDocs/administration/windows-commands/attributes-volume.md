@@ -1,6 +1,6 @@
 ---
 title: volume des attributs
-description: La rubrique relative aux commandes Windows pour le **volume d’attributs**, qui affiche, définit ou efface les attributs d’un volume.
+description: Rubrique de référence pour la commande attributs volume, qui affiche, définit ou efface les attributs d’un volume.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 00991cdba57f0728cfa348dea2b0916ad758b34a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: bbe1d66584216875daa82a7e250f3d2f525c2280
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851232"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719187"
 ---
 # <a name="attributes-volume"></a>volume des attributs
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche, définit ou efface les attributs d’un volume.
 
@@ -33,14 +33,14 @@ attributes volume [{set | clear}] [{hidden | readonly | nodefaultdriveletter | s
 | Paramètre | Description |  
 | ------- | -------- |  
 | set | Définit l’attribut spécifié du volume avec le focus. |  
-| non activée | Efface l’attribut spécifié du volume qui a le focus. |  
+| clear | Efface l’attribut spécifié du volume qui a le focus. |  
 | readonly | Spécifie que le volume est en lecture seule. |  
-| masquer | Spécifie que le volume est masqué. |  
+| hidden | Spécifie que le volume est masqué. |  
 | nodefaultdriveletter | Spécifie que le volume ne reçoit pas de lettre de lecteur par défaut. |  
 | cliché | Spécifie que le volume est un volume de clichés instantanés. |  
 | noerr | À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur. |  
   
-## <a name="remarks"></a>Notes  
+### <a name="remarks"></a>Notes   
   
 - Sur les disques d’enregistrement de démarrage principal (MBR) de base, les paramètres **Hidden**, **ReadOnly**et **nodefaultdriveletter** s’appliquent à tous les volumes sur le disque.  
   
@@ -48,7 +48,7 @@ attributes volume [{set | clear}] [{hidden | readonly | nodefaultdriveletter | s
   
 - Vous devez sélectionner un volume pour que la commande **attributs volume** aboutisse. Utilisez la commande **Sélectionner un volume** pour sélectionner un volume et lui déplacer le focus.  
   
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour afficher les attributs actuels sur le volume sélectionné, tapez :  
   
@@ -71,3 +71,5 @@ attributes volume clear hidden readonly
 ## <a name="additional-references"></a>Références supplémentaires  
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande SELECT volume](select-volume.md)

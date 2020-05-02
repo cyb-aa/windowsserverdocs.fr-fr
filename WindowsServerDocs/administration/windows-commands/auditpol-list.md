@@ -1,6 +1,6 @@
 ---
 title: liste d’Auditpol
-description: La rubrique commandes Windows pour la **liste d’Auditpol**, qui répertorie les catégories et sous-catégories de stratégie d’audit, ou répertorie les utilisateurs pour lesquels une stratégie d’audit par utilisateur est définie.
+description: La rubrique de référence pour la commande de liste Auditpol, qui répertorie les catégories et sous-catégories de stratégie d’audit, ou répertorie les utilisateurs pour lesquels une stratégie d’audit par utilisateur est définie.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9e0aff46e62ea4e4259360b78aae223dfcd66ef7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 96ee4388c716c066a2e9b55b57dd2e70b4b4f69c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851182"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719095"
 ---
 # <a name="auditpol-list"></a>liste d’Auditpol
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Répertorie les catégories et/ou sous-catégories de stratégie d’audit, ou répertorie les utilisateurs pour lesquels une stratégie d’audit par utilisateur est définie.
+Répertorie les catégories et sous-catégories de stratégie d’audit, ou répertorie les utilisateurs pour lesquels une stratégie d’audit par utilisateur est définie.
+
+Pour effectuer des opérations de *liste* sur la stratégie *par utilisateur* , vous devez disposer de l’autorisation de **lecture** pour cet objet défini dans le descripteur de sécurité. Vous pouvez également effectuer des opérations de *liste* si vous disposez du droit **d’utilisateur gérer le journal d’audit et de sécurité** (SeSecurityPrivilege). Toutefois, ce droit autorise un accès supplémentaire qui n’est pas nécessaire pour effectuer les opérations de *liste* globale.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -41,11 +43,7 @@ auditpol /list
 | /r | Affiche la sortie sous la forme d’un rapport au format de valeurs séparées par des virgules (CSV). |
 | /? | Affiche l'aide à l'invite de commandes. |
 
-## <a name="remarks"></a>Notes
-
-Pour toutes les opérations de liste pour la stratégie par utilisateur, vous devez disposer de l’autorisation de lecture sur cet objet défini dans le descripteur de sécurité. Vous pouvez également effectuer des opérations de liste en possédant le droit **d’utilisateur gérer le journal d’audit et de sécurité** (SeSecurityPrivilege). Toutefois, ce droit autorise un accès supplémentaire qui n’est pas nécessaire pour effectuer l’opération de liste.
-
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour répertorier tous les utilisateurs qui ont une stratégie d’audit définie, tapez :
 
@@ -74,3 +72,5 @@ auditpol /list /subcategory:detailed Tracking,DS Access
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commandes Auditpol](auditpol.md)
