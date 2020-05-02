@@ -1,6 +1,6 @@
 ---
 title: del
-description: La rubrique commandes Windows pour del, qui supprime un ou plusieurs fichiers.
+description: Rubrique de référence pour del, qui supprime un ou plusieurs fichiers.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7069ee50a810296d31e1a034b24955299918020a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 703597ae422518a5b401b656ace0b4cd73418be8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846662"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82716748"
 ---
 # <a name="del"></a>del
 
 Supprime un ou plusieurs fichiers. Cette commande est identique à la commande **Erase** .
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -33,15 +33,15 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 
 |Paramètre|Description|
 |---------|-----------|
-|Noms de \<>|Spécifie une liste d’un ou plusieurs fichiers ou répertoires. Les caractères génériques peuvent être utilisés pour supprimer plusieurs fichiers. Si un répertoire est spécifié, tous les fichiers du répertoire sont supprimés.|
+|\<Noms>|Spécifie une liste d’un ou plusieurs fichiers ou répertoires. Les caractères génériques peuvent être utilisés pour supprimer plusieurs fichiers. Si un répertoire est spécifié, tous les fichiers du répertoire sont supprimés.|
 |/p|Demande confirmation avant de supprimer le fichier spécifié.|
 |/f|Force la suppression des fichiers en lecture seule.|
 |/s|Supprime les fichiers spécifiés du répertoire actif et de tous ses sous-répertoires. Affiche les noms des fichiers au fur et à mesure de leur suppression.|
 |/q|Spécifie le mode silencieux. Vous n’êtes pas invité à confirmer la suppression.|
-|/a [ :]\<les attributs >|Supprime les fichiers en fonction des attributs de fichier suivants :</br>fichiers en lecture seule **r**</br>fichiers masqués **h**</br>**je** ne trouve pas les fichiers indexés</br>fichiers système **s**</br>**fichiers prêts** pour l’archivage</br>points d’analyse **l**</br>-Le préfixe signifie « not »|
+|/a [ :]\<attributs>|Supprime les fichiers en fonction des attributs de fichier suivants :</br>fichiers en lecture seule **r**</br>fichiers masqués **h**</br>**je** ne trouve pas les fichiers indexés</br>fichiers système **s**</br>**fichiers prêts** pour l’archivage</br>points d’analyse **l**</br>-Le préfixe signifie « not »|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 > [!CAUTION]
 > Si vous utilisez **del** pour supprimer un fichier de votre disque, vous ne pouvez pas le récupérer.
@@ -56,7 +56,7 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
   ```
   del \work
   ```  
-- Vous pouvez utiliser des caractères génériques **&#42;** (et **?** ) pour supprimer plusieurs fichiers à la fois. Toutefois, pour éviter la suppression accidentelle de fichiers, vous devez utiliser des caractères génériques avec prudence avec la commande **del** . Par exemple, si vous tapez la commande suivante :  
+- Vous pouvez utiliser des caractères génériques (**&#42;** et **?**) pour supprimer plusieurs fichiers à la fois. Toutefois, pour éviter la suppression accidentelle de fichiers, vous devez utiliser des caractères génériques avec prudence avec la commande **del** . Par exemple, si vous tapez la commande suivante :  
   ```
   del *.*
   ```  
@@ -71,7 +71,7 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 
 -   La commande **del** , avec des paramètres différents, est disponible à partir de la console de récupération.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour supprimer tous les fichiers d’un dossier nommé test sur le lecteur C, tapez l’un des éléments suivants :
 ```

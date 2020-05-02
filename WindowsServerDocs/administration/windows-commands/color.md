@@ -1,6 +1,6 @@
 ---
 title: color
-description: La rubrique de commandes Windows pour Color, qui modifie les couleurs de premier plan et d’arrière-plan dans la fenêtre d’invite de commandes pour la session active.
+description: Rubrique de référence pour la commande Color, qui modifie les couleurs de premier plan et d’arrière-plan dans la fenêtre d’invite de commandes pour la session active.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,68 +9,74 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0e89c20d90a3b812fa67b597c4c205d34e725785
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 94b5a1e4ca4d4a01ea714adc45e64a6efaa32aa6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80847482"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82711936"
 ---
 # <a name="color"></a>color
 
 Modifie les couleurs de premier plan et d’arrière-plan dans la fenêtre d’invite de commandes pour la session active. En cas d’utilisation sans paramètre, **Color** restaure les couleurs de premier plan et d’arrière-plan de la fenêtre d’invite de commandes par défaut.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
-
 ## <a name="syntax"></a>Syntaxe
 
 ```
-color [[<B>]<F>]
+color [[<b>]<f>]
 ```
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|\<B >|Spécifie la couleur d'arrière-plan.|
-|\<F >|Spécifie la couleur de premier plan.|
-|/?|Affiche l'aide à l'invite de commandes.|
+| Paramètre | Description |
+| --------- | ----------- |
+| `<b>` | Spécifie la couleur d'arrière-plan. |
+| `<f>` | Spécifie la couleur de premier plan. |
+| /? | Affiche l'aide à l'invite de commandes. |
 
-## <a name="remarks"></a>Notes
+Où :
 
--   Le tableau suivant répertorie les chiffres hexadécimaux valides que vous pouvez utiliser comme valeurs pour *B* et *F*.
+Le tableau suivant répertorie les chiffres hexadécimaux valides que vous pouvez utiliser comme `<b>` valeurs `<f>`pour et :
 
-|Valeur|Couleur|
-|-----|-----|
-|0|Black|
-|1|Bleu|
-|2|Vert|
-|3|Aqua|
-|4|Rouge|
-|5|Violet|
-|6|Jaune|
-|7|Blanc|
-|8|Gris|
-|9|Bleu clair|
-|A|Vert clair|
-|B|Cyan clair|
-|C|Rouge clair|
-|D|Violet clair|
-|E|Jaune clair|
-|F|Blanc brillant|
-    
--   N’utilisez pas de caractères d’espace entre *B* et *F*.
--   Si vous spécifiez un seul chiffre hexadécimal, la couleur correspondante est utilisée comme couleur de premier plan et la couleur d’arrière-plan est définie sur la couleur par défaut.
--   Pour définir la couleur par défaut de la fenêtre d’invite de commandes, cliquez sur l’angle supérieur gauche de la fenêtre d’invite de commandes, cliquez sur **valeurs par défaut**, cliquez sur l’onglet **couleurs** , puis cliquez sur les couleurs que vous souhaitez utiliser pour le **texte** et l' **arrière-plan**de l’écran.
--   Si *B* et *F* sont identiques, la commande **Color** affecte à ErrorLevel la valeur 1 et aucune modification n’est apportée à la couleur de premier plan ou d’arrière-plan.
+| Valeur | Couleur |
+| ----- | ----- |
+| 0 | Noir |
+| 1 | Bleu |
+| 2 | Vert |
+| 3 | Aqua |
+| 4 | Rouge |
+| 5 | Violet |
+| 6 | Jaune |
+| 7 | White |
+| 8 | Gris |
+| 9 | Bleu clair |
+| a | Vert clair |
+| b | Cyan clair |
+| c | Rouge clair |
+| d | Violet clair |
+| e | Jaune clair |
+| f | Blanc brillant |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+#### <a name="remarks"></a>Notes 
+
+- N’utilisez pas de caractères `<b>` d' `<f>`espace entre et.
+
+- Si vous spécifiez un seul chiffre hexadécimal, la couleur correspondante est utilisée comme couleur de premier plan et la couleur d’arrière-plan est définie sur la couleur par défaut.
+
+- Pour définir la couleur de la fenêtre d’invite de commandes par défaut, sélectionnez l’angle supérieur gauche de la fenêtre d' **invite de commandes** , sélectionnez **valeurs par défaut**, sélectionnez l’onglet **couleurs** , puis sélectionnez les couleurs que vous souhaitez utiliser pour le texte de l' **écran** et l' **arrière-plan**de l’écran.
+
+- Si `<b>` et `<f>` ont la même valeur de couleur, ERRORLEVEL a la valeur `1`et aucune modification n’est apportée à la couleur de premier plan ou d’arrière-plan.
+
+## <a name="examples"></a>Exemples
 
 Pour modifier la couleur d’arrière-plan de la fenêtre d’invite de commandes en gris et la couleur de premier plan en rouge, tapez :
+
 ```
 color 84
 ```
+
 Pour modifier la couleur de premier plan de la fenêtre d’invite de commandes en jaune clair, tapez :
+
 ```
 color e
 ```

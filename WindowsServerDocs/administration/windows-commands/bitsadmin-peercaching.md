@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin-cache
-description: La rubrique commandes Windows pour Bitsadmin de la **cache**de la liste, qui répertorie les commutateurs/peercaching.
+title: bitsadmin peercaching
+description: Rubrique de référence pour la commande Bitsadmin de la mémoire en cache, qui répertorie les commutateurs/peercaching.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,19 +9,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c8bb2a5a56c6a25b12cb6d015f1958a02923fa51
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a70ad9927a77c07fa4fd638d359cfcfda53d4005
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850092"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717216"
 ---
-# <a name="bitsadmin-peercaching"></a>Bitsadmin-cache
+# <a name="bitsadmin-peercaching"></a>bitsadmin peercaching
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Répertorie les commutateurs/peercaching.
-g
+
+Répertorie les commutateurs/peercaching.
+
 ## <a name="syntax"></a>Syntaxe
 
 ```
@@ -41,3 +43,5 @@ bitsadmin /peercaching /getconfigurationflags
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

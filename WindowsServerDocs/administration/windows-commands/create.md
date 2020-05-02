@@ -1,6 +1,6 @@
 ---
-title: créer
-description: La rubrique commandes Windows pour Create, qui crée une partition sur un disque, un volume sur un ou plusieurs disques ou un disque dur virtuel (VHD).
+title: create
+description: Rubrique de référence pour Create, qui crée une partition sur un disque, un volume sur un ou plusieurs disques ou un disque dur virtuel (VHD).
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 76ff641757de78a10980b10a1ba4921dd2a57f0c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8d1e0f11a2e7011792da9c9d81d592fcfd7aa307
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846842"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82716848"
 ---
-# <a name="create"></a>créer
+# <a name="create"></a>create
 
 Crée une partition sur un disque, un volume sur un ou plusieurs disques ou un disque dur virtuel (VHD).
 

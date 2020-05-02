@@ -1,6 +1,6 @@
 ---
 title: Clé de syntaxe de ligne de commande
-description: La rubrique commandes Windows pour la clé de syntaxe de ligne de commande, qui décrit la notation utilisée pour indiquer la syntaxe de la ligne de commande.
+description: Rubrique de référence pour la clé de syntaxe de ligne de commande, qui décrit la notation utilisée pour indiquer la syntaxe de la ligne de commande.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,22 +9,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 81fdd24a5810f1ead3ef27201f1ab4cfdff020e4
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 3a3c78b6081733164be3a656e67c35dd3e2b5e2d
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81123148"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82711949"
 ---
 # <a name="command-line-syntax-key"></a>Clé de syntaxe de ligne de commande
 
 Le tableau suivant décrit la notation utilisée pour indiquer la syntaxe de la ligne de commande.
 
-| Conventions | Description |
+| Notation | Description |
 | -------- | ----------- |
 | Texte sans crochets ou accolades | Éléments que vous devez taper comme indiqué. |
 | `<Text inside angle brackets>` | Espace réservé pour lequel vous devez fournir une valeur. |
-| `[Text inside square brackets]` | Éléments facultatifs |
+| `[Text inside square brackets]` | Éléments facultatifs. |
 | `{Text inside braces}` | Ensemble d’éléments requis. Vous devez en choisir un. |
-| `(|)` de barre verticale| Séparateur pour les éléments qui s’excluent mutuellement. Vous devez en choisir un. |
-| Points de suspension `(…)` | Éléments qui peuvent être répétés et utilisés plusieurs fois. |
+| Barre verticale`(|)`| Séparateur pour les éléments qui s’excluent mutuellement. Vous devez en choisir un. |
+| Suspension`(…)` | Éléments qui peuvent être répétés et utilisés plusieurs fois. |

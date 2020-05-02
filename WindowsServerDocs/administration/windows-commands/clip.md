@@ -1,6 +1,6 @@
 ---
 title: clip
-description: La rubrique commandes Windows pour clip, qui redirige la sortie de commande de la ligne de commande vers le presse-papiers Windows.
+description: Rubrique de référence pour la commande clip, qui redirige la sortie de commande de la ligne de commande vers le presse-papiers Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,49 +9,48 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0d997154a382cf39aa2b877d7a2b84f4ff34157d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 61c905e3dcce52f3a3d35adeac55fc5df574f664
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80847642"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82712788"
 ---
 # <a name="clip"></a>clip
 
-Redirige la sortie de commande de la ligne de commande vers le presse-papiers Windows. Vous pouvez ensuite coller cette sortie de texte dans d’autres programmes.
-
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+Redirige la sortie de commande de la ligne de commande vers le presse-papiers Windows. Vous pouvez utiliser cette commande pour copier des données directement dans une application qui peut recevoir du texte à partir du presse-papiers. Vous pouvez également coller cette sortie de texte dans d’autres programmes.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-<Command> | clip
-clip < <FileName>
+<command> | clip
+clip < <filename>
 ```
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|> de commande \<|Spécifie une commande dont vous souhaitez envoyer la sortie dans le presse-papiers Windows.|
-|Nom de fichier \<>|Spécifie un fichier dont vous souhaitez envoyer le contenu dans le presse-papiers Windows.|
-|/?|Affiche l'aide à l'invite de commandes.|
+| Paramètre | Description |
+| --------- | ----------- |
+| `<command>` | Spécifie une commande dont vous souhaitez envoyer la sortie dans le presse-papiers Windows. |
+| `<filename>` | Spécifie un fichier dont vous souhaitez envoyer le contenu dans le presse-papiers Windows. |
+| /? | Affiche l'aide à l'invite de commandes. |
 
-## <a name="remarks"></a>Notes
-
-Vous pouvez utiliser la commande **clip** pour copier des données directement dans une application qui peut recevoir du texte à partir du presse-papiers.
-
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour copier la liste de répertoires active dans le presse-papiers Windows, tapez :
+
 ```
 dir | clip
 ```
-Pour copier la sortie d’un programme appelé Generic. awk dans le presse-papiers Windows, tapez :
+
+Pour copier la sortie d’un programme appelé *Generic. awk* dans le presse-papiers Windows, tapez :
+
 ```
 awk -f generic.awk input.txt | clip
 ```
-Pour copier le contenu d’un fichier nommé Readme. txt dans le presse-papiers Windows, tapez :
+
+Pour copier le contenu d’un fichier nommé *Readme. txt* dans le presse-papiers Windows, tapez :
+
 ```
 clip < readme.txt
 ```

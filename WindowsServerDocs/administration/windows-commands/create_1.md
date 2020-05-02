@@ -1,6 +1,6 @@
 ---
-title: créer
-description: Commande Windows pour Create, qui démarre le processus de création de clichés instantanés, à l’aide du contexte et des paramètres d’option actuels.
+title: create
+description: Rubrique de référence pour Create, qui démarre le processus de création de clichés instantanés, à l’aide du contexte et des paramètres d’option actuels.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4d29285517ca678a15828079c95663fc4d501eaf
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cfddbebd5744d8cd222d67e46690ce8b5d2e0fde
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846832"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82716834"
 ---
-# <a name="create"></a>créer
+# <a name="create"></a>create
 
 Démarre le processus de création de clichés instantanés à l’aide du contexte et des paramètres d’option actuels. Nécessite au moins un volume dans le jeu de clichés instantanés.
 

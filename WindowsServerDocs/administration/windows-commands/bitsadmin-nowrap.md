@@ -1,6 +1,6 @@
 ---
 title: bitsadmin nowrap
-description: La rubrique commandes Windows pour **Bitsadmin nowrap**, qui tronque toute ligne de texte de sortie qui s’étend au-delà du bord le plus à droite de la fenêtre de commande.
+description: Rubrique de référence pour la commande Bitsadmin nowrap, qui tronque toute ligne de texte de sortie qui s’étend au-delà du bord le plus à droite de la fenêtre de commande.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f9f1db370d8a8917aa03a414a27623a1024df192
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2aac604ec3e13026e322d7cb7a9364df46266a0c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850182"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717332"
 ---
 # <a name="bitsadmin-nowrap"></a>bitsadmin nowrap
 
@@ -26,14 +26,16 @@ Tronque toute ligne de texte de sortie qui s’étend au-delà du bord le plus �
 bitsadmin /nowrap
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant récupère l’état de la tâche nommée *myDownloadJob* et n’inclut pas la sortie dans un wrapper.
+Pour récupérer l’état de la tâche nommée *myDownloadJob* sans encapsuler la sortie :
 
 ```
-C:\>bitsadmin /nowrap /getstate myDownloadJob
+bitsadmin /nowrap /getstate myDownloadJob
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

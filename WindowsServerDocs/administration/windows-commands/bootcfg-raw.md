@@ -1,6 +1,6 @@
 ---
 title: bootcfg raw
-description: La rubrique commandes Windows pour bootcfg RAW, qui ajoute des options de chargement du système d’exploitation, spécifiées sous forme de chaîne, à une entrée du système d’exploitation dans la section système d’exploitation du fichier Boot. ini.
+description: Rubrique de référence pour la commande bootcfg RAW, qui ajoute des options de chargement du système d’exploitation, spécifiées sous forme de chaîne, à une entrée du système d’exploitation dans la section système d’exploitation du fichier Boot. ini.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,45 +9,56 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fd5137187c5ba1dc1b410d728f1c2930ddcbc3cc
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b9127b278a41bb8f1f36f7b45c544bf09f5c4ff7
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80848512"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82708953"
 ---
 # <a name="bootcfg-raw"></a>bootcfg raw
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ajoute des options de chargement du système d’exploitation spécifiées sous forme de chaîne à une entrée du système d’exploitation dans la section **[Operating Systems]** du fichier Boot. ini.
+Ajoute des options de chargement du système d’exploitation spécifiées sous forme de chaîne à une entrée du système d’exploitation dans la section [Operating Systems] du fichier Boot. ini. Cette commande remplace toutes les options d’entrée existantes du système d’exploitation.
 
 ## <a name="syntax"></a>Syntaxe
+
 ```
-bootcfg /raw [/s <computer> [/u <Domain>\<User> /p <Password>]] <OSLoadOptionsString> [/id <OSEntryLineNum>] [/a]
+bootcfg /raw [/s <computer> [/u <domain>\<user> /p <password>]] <osloadoptionsstring> [/id <osentrylinenum>] [/a]
 ```
+
 ### <a name="parameters"></a>Paramètres
 
-|         Terme          |                                                                                                            Définition                                                                                                             |
-|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     /s <computer>     |                                                        Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                                         |
-| /u <Domain> \\<User>  |               Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User> ou <Domain>\\<User>. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande.                |
-|     /p <Password>     |                                                                       Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .                                                                       |
-| <OSLoadOptionsString> | Spécifie les options de chargement du système d’exploitation à ajouter à l’entrée du système d’exploitation. Ces options de chargement remplacent les options de chargement existantes associées à l’entrée du système d’exploitation. Aucune validation de <OSLoadOptions> n’est effectuée. |
-| /ID <OSEntryLineNum>  |                       Spécifie le numéro de ligne d’entrée du système d’exploitation dans la section [Operating Systems] du fichier Boot. ini à mettre à jour. La première ligne après l’en-tête de la section [Operating Systems] est 1.                       |
-|          /a           |                                                       Spécifie que les options de système d’exploitation ajoutées doivent être ajoutées aux options existantes du système d’exploitation.                                                        |
-|          /?           |                                                                                               Affiche l'aide à l'invite de commandes.                                                                                                |
+| Paramètre | Description |
+| --------- | ----------- |
+| `/s <computer>` | Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local. |
+| `/u <domain>\<user>`  | Exécute la commande avec les autorisations de compte de l’utilisateur spécifié `<user>` par `<domain>\<user>`ou. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande. |
+| `/p <password>` | Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** . |
+| `<osloadoptionsstring>` | Spécifie les options de chargement du système d’exploitation à ajouter à l’entrée du système d’exploitation. Ces options de chargement remplacent les options de chargement existantes associées à l’entrée du système d’exploitation. Il n’y a aucune validation `<osloadoptions>` par rapport au paramètre.
+| `/id <osentrylinenum>` | Spécifie le numéro de ligne d’entrée du système d’exploitation dans la section [Operating Systems] du fichier Boot. ini auquel les options de chargement du système d’exploitation sont ajoutées. La première ligne après l’en-tête de la section [Operating Systems] est 1. |
+| /a | Spécifie les options de système d’exploitation qui doivent être ajoutées aux options existantes du système d’exploitation. |
+| /? | Affiche l'aide à l'invite de commandes. |
 
-##### <a name="remarks"></a>Notes
-- **bootcfg RAW** est utilisé pour ajouter du texte à la fin d’une entrée de système d’exploitation, en remplaçant toutes les options d’entrée existantes du système d’exploitation. Ce texte doit contenir des options de chargement de système d’exploitation valides telles que **/Debug**, **/fastdetect**, **/nodebug**, **/baudrate**, **/crashdebug**et **/SOS**. Par exemple, la commande suivante ajoute **/debug/fastdetect** à la fin de la première entrée du système d’exploitation, en remplaçant toutes les options d’entrée précédentes du système d’exploitation :
-  ```
-  bootcfg /raw /debug /fastdetect /id 1
-  ```
-  ## <a name="examples"></a><a name=BKMK_examples></a>Illustre
-  Les exemples suivants illustrent la façon dont vous pouvez utiliser la commande **bootcfg/RAW** :
-  ```
-  bootcfg /raw /debug /sos /id 2
-  bootcfg /raw /s srvmain /u maindom\hiropln /p p@ssW23 /crashdebug  /id 2
-  ```
-  ## <a name="additional-references"></a>Références supplémentaires
-  - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+## <a name="examples"></a>Exemples
+
+Ce texte doit contenir des options de chargement de système d’exploitation valides telles que **/Debug**, **/fastdetect**, **/nodebug**, **/baudrate**, **/crashdebug**et **/SOS**.
+
+Pour ajouter **/debug/fastdetect** à la fin de la première entrée du système d’exploitation, en remplaçant toutes les options d’entrée précédentes du système d’exploitation :
+
+```
+bootcfg /raw /debug /fastdetect /id 1
+```
+
+Pour utiliser la commande **bootcfg/RAW** :
+
+```
+bootcfg /raw /debug /sos /id 2
+bootcfg /raw /s srvmain /u maindom\hiropln /p p@ssW23 /crashdebug  /id 2
+```
+
+## <a name="additional-references"></a>Références supplémentaires
+
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande bootcfg](bootcfg.md)

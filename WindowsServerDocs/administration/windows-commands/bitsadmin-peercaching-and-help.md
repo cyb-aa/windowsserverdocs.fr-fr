@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin et aide
-description: Rubrique relative aux commandes Windows pour la **Bitsadmin** et l' **aide**sur la ligne de commande, qui affiche l’utilisation de la ligne de commande pour les commutateurs/peercaching.
+title: bitsadmin peercaching and help
+description: Rubrique de référence pour la **Bitsadmin** et l' **aide**sur la ligne de commande, qui affiche l’utilisation de la ligne de commande pour les commutateurs/peercaching.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 29d530d721b9e82eff180abcbed8cf60bf8c9281
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 08cb792989470d7492ff2da4b63ddd686b35b232
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850162"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717250"
 ---
-# <a name="bitsadmin-peercaching-and-help"></a>Bitsadmin et aide
+# <a name="bitsadmin-peercaching-and-help"></a>bitsadmin peercaching and help
 
 Affiche l’utilisation de la ligne de commande pour les commutateurs **/peercaching** .
 
@@ -26,14 +26,18 @@ Affiche l’utilisation de la ligne de commande pour les commutateurs **/peercac
 bitsadmin /peercaching /help
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-La commande suivante affiche l’aide de la ligne de commande pour les commutateurs de la fonction de **cache** .
+Pour afficher l’aide de la ligne de commande pour les commutateurs **/peercaching** :
 
 ```
-C:\> bitsadmin /peercaching /help
+bitsadmin /peercaching /help
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)
+
+- [commande Bitsadmin de la surcache](bitsadmin-peercaching.md)

@@ -1,6 +1,6 @@
 ---
 title: defrag
-description: La rubrique commandes Windows pour Defrag, qui localise et consolide les fichiers fragmentés sur des volumes locaux pour améliorer les performances du système.
+description: Rubrique de référence sur la défragmentation, qui localise et consolide les fichiers fragmentés sur les volumes locaux pour améliorer les performances du système.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f8723afc936fa1ea311e275a58a85b20988f92a2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 47a19ec697da29b1eff152de8fc5930516d5b806
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846712"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82716768"
 ---
 # <a name="defrag"></a>defrag
 
->S’applique à : Windows 10, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+> S’applique à : Windows 10, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Localise et consolide les fichiers fragmentés sur les volumes locaux pour améliorer les performances du système.
 
@@ -36,11 +36,11 @@ defrag <volume> [/<Parameter>]*
 |Paramètre|Description|
 |-------|--------|
 |`<volume>`|Spécifie la lettre de lecteur ou le chemin d’accès du point de montage du volume à défragmenter ou à analyser.|
-|A|Effectuer une analyse sur les volumes spécifiés.|
+|Un|Effectuer une analyse sur les volumes spécifiés.|
 |C|Effectuez l’opération sur tous les volumes.|
 |D|Effectuer une défragmentation traditionnelle (il s’agit de la valeur par défaut). En revanche, sur un volume hiérarchisé, la défragmentation traditionnelle est exécutée uniquement sur le niveau de capacité.|
 |E|Effectuez l’opération sur tous les volumes, à l’exception de ceux spécifiés.|
-|I|Optimisez les niveaux de stockage sur les volumes spécifiés.|
+|G|Optimisez les niveaux de stockage sur les volumes spécifiés.|
 |H|Exécutez l’opération en priorité normale (la valeur par défaut est Low).|
 |I n|L’optimisation du niveau s’exécuterait pendant au plus n secondes sur chaque volume.|
 |K|Effectuez la consolidation des sections sur les volumes spécifiés.|
@@ -53,7 +53,7 @@ defrag <volume> [/<Parameter>]*
 |X|Effectuez une consolidation de l’espace libre sur les volumes spécifiés.|
 |?|Affiche ces informations d’aide.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 - Vous ne pouvez pas défragmenter des types spécifiques de volumes ou de lecteurs de système de fichiers :
   -   Vous ne pouvez pas défragmenter des volumes verrouillés par le système de fichiers.
   -   Vous ne pouvez pas défragmenter des volumes marqués comme modifiés par le système de fichiers, ce qui indique une éventuelle altération. Vous devez exécuter **chkdsk** sur un volume endommagé pour pouvoir le défragmenter. Vous pouvez déterminer si un volume est modifié à l’aide de la commande **fsutil** Dirty Query. Pour plus d’informations sur **chkdsk** et sur **fsutil** Dirty, consultez [Références supplémentaires](defrag.md#BKMK_additionalRef).
@@ -61,15 +61,15 @@ defrag <volume> [/<Parameter>]*
   -   Vous ne pouvez pas défragmenter les cdROM.
   -   Vous ne pouvez pas défragmenter des volumes de système de fichiers qui ne sont pas **NTFS**, **ReFS**, **FAT** ou **FAT32**.
 - Avec Windows Server 2008 R2, Windows Server 2008 et, Windows Vista, vous pouvez planifier la défragmentation d’un volume. Toutefois, vous ne pouvez pas planifier la défragmentation d’un disque SSD (Solid State Drive) ou d’un volume sur un disque dur virtuel (VHD) qui réside sur un disque SSD.
-- Pour réaliser cette procédure, vous devez être membre du groupe Administrateurs sur l'ordinateur local ou bien disposer de l'autorité appropriée. Si l'ordinateur est joint à un domaine, les membres du groupe Administrateurs du domaine doivent pouvoir suivre cette procédure. Pour des raisons de sécurité, envisagez d’utiliser **exécuter en tant que** pour effectuer cette procédure.
+- Pour effectuer cette procédure, vous devez être membre du groupe Administrateurs sur l'ordinateur local, ou l'autorité appropriée doit vous avoir été déléguée. Si l'ordinateur est joint à un domaine, les membres du groupe Admins du domaine peuvent être en mesure d'effectuer cette procédure. Pour des raisons de sécurité, envisagez d’utiliser **exécuter en tant que** pour effectuer cette procédure.
 - Un volume doit disposer d’au moins 15% d’espace **libre pour être** défragmenté complètement et correctement défragmenté. **Defrag** utilise cet espace comme zone de tri pour les fragments de fichier. Si un volume dispose de moins de 15% d’espace libre, **Defrag** ne le défragmentera que partiellement. Pour augmenter l’espace libre sur un volume, supprimez les fichiers superflus ou déplacez-les sur un autre disque.
 - Alors que **Defrag** analyse et défragmente un volume, il affiche un curseur clignotant. Lorsque **Defrag** a fini d’analyser et de défragmenter le volume, il affiche le rapport d’analyse, le rapport de défragmentation, ou les deux rapports, puis se ferme à l’invite de commandes.
 - Par défaut, **Defrag** affiche un résumé des rapports d’analyse et de défragmentation si vous ne spécifiez pas les paramètres **/a** ou **/v** .
-- Vous pouvez envoyer les rapports vers un fichier texte en tapant **>** <em>nom_fichier. txt</em>, où *nom_fichier. txt* est un nom de fichier que vous spécifiez. Par exemple : `defrag volume /v > FileName.txt`
+- Vous pouvez envoyer les rapports vers un fichier texte en tapant **>** <em>filename. txt</em>, où *filename. txt* est un nom de fichier que vous spécifiez. Par exemple : `defrag volume /v > FileName.txt`
 - Pour interrompre le processus de défragmentation, sur la ligne de commande, appuyez sur **Ctrl + C**.
 - L’exécution de la commande **Defrag** et du défragmenteur de disque s’exclut mutuellement. Si vous utilisez le Défragmenteur de disque pour défragmenter un volume et que vous exécutez la commande **Defrag** sur une ligne de commande, la commande **Defrag** échoue. À l’inverse, si vous exécutez la commande **Defrag** et que vous ouvrez le Défragmenteur de disque, les options de défragmentation du défragmenteur de disque ne sont pas disponibles.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 Pour défragmenter le volume sur le lecteur C tout en fournissant la progression et la sortie détaillée, tapez :
 ```
 defrag C: /U /V

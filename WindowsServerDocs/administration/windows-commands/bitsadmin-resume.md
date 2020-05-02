@@ -1,6 +1,6 @@
 ---
 title: bitsadmin resume
-description: La rubrique commandes Windows pour **Bitsadmin Resume**, qui active un travail nouveau ou suspendu dans la file d’attente de transfert.
+description: Rubrique de référence pour la commande Bitsadmin Resume, qui active un travail nouveau ou suspendu dans la file d’attente de transfert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e81bd80232cd4ec8fbba70c86cd97bb9695680f8
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: ba4cd57ddeeb3c35ca0871c2953fd409ddb57e73
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81123078"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82716992"
 ---
 # <a name="bitsadmin-resume"></a>bitsadmin resume
 
-Active une tâche nouvelle ou suspendue dans la file d’attente de transfert.
+Active une tâche nouvelle ou suspendue dans la file d’attente de transfert. Si vous avez redémarré votre travail par erreur ou si vous avez simplement besoin de suspendre votre travail, vous pouvez utiliser le commutateur de [suspension Bitsadmin](bitsadmin-suspend.md) pour interrompre le travail.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -30,16 +30,20 @@ bitsadmin /resume <job>
 
 | Paramètre | Description |
 | -------------- | -------------- |
-| le travail | Nom complet ou GUID du travail. |
+| travail | Nom complet ou GUID du travail. |
 
 ## <a name="examples"></a>Exemples
 
-L’exemple suivant reprend la tâche nommée *myDownloadJob*.
+Pour reprendre la tâche nommée *myDownloadJob*:
 
 ```
-C:\>bitsadmin /resume myDownloadJob
+bitsadmin /resume myDownloadJob
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin suspend](bitsadmin-suspend.md)
+
+- [commande Bitsadmin](bitsadmin.md)

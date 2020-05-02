@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin et Clear
-description: La rubrique commandes Windows pour les **homologues Bitsadmin** et **Clear**, qui efface la liste des homologues.
+title: bitsadmin peers and clear
+description: Rubrique de référence pour les homologues Bitsadmin et la commande Clear, qui efface la liste des homologues.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 87c33d011f38e0ebda2383fc468cad9b30ab22c5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 445ce0db00abb3d46f2dc7379c066624cef7afae
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850022"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717204"
 ---
-# <a name="bitsadmin-peers-and-clear"></a>Bitsadmin et Clear
+# <a name="bitsadmin-peers-and-clear"></a>bitsadmin peers and clear
 
 Efface la liste d’homologues.
 
@@ -26,14 +26,18 @@ Efface la liste d’homologues.
 bitsadmin /peers /clear
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant efface la liste d’homologues.
+Pour effacer la liste d’homologues.
 
 ```
-C:\>bitsadmin /peers /clear
+bitsadmin /peers /clear
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)
+
+- [commande Bitsadmin pairs](bitsadmin-peers.md)

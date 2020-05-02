@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin util et aide
-description: Rubrique relative aux commandes Windows pour **Bitsadmin util et Help**, qui affiche l’utilisation de la ligne de commande pour les commutateurs util.
+title: bitsadmin util and help
+description: Rubrique de référence pour l’utilitaire Bitsadmin Utility et la commande help, qui affiche l’utilisation de la ligne de commande pour les commutateurs/util.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3cbfcb5a630d6670202551a433ca3acc4b9b7fa0
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: a4f43e35242627cb66156e839722aea2e2078118
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122481"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82707631"
 ---
-# <a name="bitsadmin-util-and-help"></a>Bitsadmin util et aide
+# <a name="bitsadmin-util-and-help"></a>bitsadmin util and help
 
-Affiche l’utilisation de la ligne de commande pour les commutateurs **util** .
+Affiche l’utilisation de la ligne de commande pour les commutateurs **/util** .
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -28,12 +28,16 @@ bitsadmin /util /help
 
 ## <a name="examples"></a>Exemples
 
-La commande suivante affiche l’aide de la ligne de commande pour les commutateurs **util** .
+Pour afficher l’aide de la ligne de commande pour les commutateurs **/util** :
 
 ```
-C:\>bitsadmin /util /help
+bitsadmin /util /help
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin util](bitsadmin-util.md)
+
+- [commande Bitsadmin](bitsadmin.md)

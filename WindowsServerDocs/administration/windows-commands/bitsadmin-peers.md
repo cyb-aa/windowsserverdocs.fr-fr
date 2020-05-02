@@ -1,6 +1,6 @@
 ---
-title: homologues Bitsadmin
-description: La rubrique commandes Windows pour **Bitsadmin Peers**, qui répertorie les commutateurs/Peers.
+title: bitsadmin peers
+description: Rubrique de référence pour la commande Bitsadmin pairs, qui répertorie les commutateurs/Peers.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7b7dc04997ae914c259f93b0418c77aef2828e7e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: fa2929b842b64841b7b2d50578133dd040475c80
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849952"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717108"
 ---
-# <a name="bitsadmin-peers"></a>homologues Bitsadmin
+# <a name="bitsadmin-peers"></a>bitsadmin peers
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+
+Répertorie les commutateurs/Peers disponibles.
 
 Répertorie les commutateurs/Peers disponibles.
 
@@ -40,3 +42,5 @@ bitsadmin /peers /list
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

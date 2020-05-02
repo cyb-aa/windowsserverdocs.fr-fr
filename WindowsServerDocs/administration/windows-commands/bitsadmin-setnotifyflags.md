@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setnotifyflags
-description: La rubrique commandes Windows pour **Bitsadmin setnotifyflags**, qui définit les indicateurs de notification d’événement pour le travail spécifié.
+description: Rubrique de référence pour la commande Bitsadmin setnotifyflags, qui définit les indicateurs de notification d’événement pour le travail spécifié.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 73c088ce2bae8d2ad99b313417c14449ddd822b5
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 00b704bf0943790ef01bbfbdbcbbde4dfd1845c6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122799"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717279"
 ---
 # <a name="bitsadmin-setnotifyflags"></a>bitsadmin setnotifyflags
 
@@ -30,17 +30,19 @@ bitsadmin /setnotifyflags <job> <notifyflags>
 
 | Paramètre | Description |
 | --------- | ----------- |
-| le travail | Nom complet ou GUID du travail. |
+| travail | Nom complet ou GUID du travail. |
 | notifyflags | Peut inclure un ou plusieurs des indicateurs de notification suivants, notamment :<ul><li>**1.** génère un événement lorsque tous les fichiers du travail ont été transférés.</li><li>**2.** génère un événement lorsqu’une erreur se produit.</li><li>**3.** génère un événement lorsque tous les fichiers ont été transférés ou lorsqu’une erreur se produit.</li><li>**4.** désactive les notifications.</li></ul> |
 
 ## <a name="examples"></a>Exemples
 
-L’exemple suivant définit les indicateurs de notification pour générer un événement lorsqu’une erreur se produit, pour un travail nommé *myDownloadJob*.
+Pour définir les indicateurs de notification afin de générer un événement lorsqu’une erreur se produit, pour un travail nommé *myDownloadJob*:
 
 ```
-C:\>bitsadmin /setnotifyflags myDownloadJob 2
+bitsadmin /setnotifyflags myDownloadJob 2
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

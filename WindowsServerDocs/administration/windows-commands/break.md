@@ -1,6 +1,6 @@
 ---
 title: break
-description: La rubrique relative aux commandes Windows pour Break, qui interrompt le volume en miroir avec le focus en deux volumes simples.
+description: Rubrique de référence pour la commande Break, qui divise le volume en miroir avec le focus en deux volumes simples.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,13 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ef9156940212de9ca8518dd481ef47f13411dd53
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b39e405d57992f03a28536725e3138e21cfdbdf1
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80848372"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82708834"
 ---
 # <a name="break"></a>break
 
 Divise le volume en miroir avec le focus en deux volumes simples.
-

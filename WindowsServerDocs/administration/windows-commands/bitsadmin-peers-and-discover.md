@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin et découvrir
-description: La rubrique commandes Windows pour **Bitsadmin Peers** et **Discover**, qui découvre à nouveau les homologues.
+title: bitsadmin peers and discover
+description: Rubrique de référence pour la commande Bitsadmin pairs et Discover, qui découvre à nouveau les homologues.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f6f25ed65f58c12374c43953a0f6276c20b1a06
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 094580bcf27b0968ebfab2d064a4a74dc8358a74
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850012"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717167"
 ---
-# <a name="bitsadmin-peers-and-discover"></a>Bitsadmin et découvrir
+# <a name="bitsadmin-peers-and-discover"></a>bitsadmin peers and discover
 
 Découvre à nouveau les homologues.
 
@@ -26,14 +26,18 @@ Découvre à nouveau les homologues.
 bitsadmin /peers /discover
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
-L’exemple suivant Découvre des homologues.
+Pour découvrir à nouveau les homologues :
 
 ```
-C:\>bitsadmin /peers /discover
+bitsadmin /peers /discover
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)
+
+- [commande Bitsadmin pairs](bitsadmin-peers.md)

@@ -1,6 +1,6 @@
 ---
-title: cls
-description: La rubrique relative aux commandes Windows pour CLS, qui efface la fenêtre d’invite de commandes.
+title: sécurité au niveau des colonnes
+description: Rubrique de référence pour la commande CLS, qui efface la fenêtre d’invite de commandes.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1c00c97ff8d703f30c17c9d3f126a1711d951da1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a30c48bb95f2a8f95acd10c9cdea1a90d324e674
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80847632"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82712649"
 ---
-# <a name="cls"></a>cls
+# <a name="cls"></a>sécurité au niveau des colonnes
 
 Efface la fenêtre d’invite de commandes.
-
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -30,15 +28,16 @@ cls
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|/?|Affiche l'aide à l'invite de commandes.|
+| Paramètre | Description |
+| --------- | ----------- |
+| /? | Affiche l'aide à l'invite de commandes. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Illustre
+## <a name="examples"></a>Exemples
 
 Pour effacer toutes les informations qui s’affichent dans la fenêtre d’invite de commandes et revenir à une fenêtre vide, tapez :
+
 ```
-cls 
+cls
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires

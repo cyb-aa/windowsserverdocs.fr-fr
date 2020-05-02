@@ -1,6 +1,6 @@
 ---
 title: bitsadmin
-description: La rubrique commandes Windows pour **Bitsadmin**, qui est un outil de ligne de commande utilisé pour créer, télécharger ou télécharger des travaux et surveiller leur progression.
+description: Rubrique de référence pour la commande Bitsadmin, qui est un outil de ligne de commande utilisé pour créer, télécharger ou télécharger des travaux et surveiller leur progression.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7a9cbf715474621b7102d0baf0c448e0ee578bf9
-ms.sourcegitcommit: 1d83ca198c50eef83d105151551c6be6f308ab94
+ms.openlocfilehash: 94a829ce21c4571188fb5ffeb9a0a1d991637d07
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82605559"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82710043"
 ---
 # <a name="bitsadmin"></a>bitsadmin
 
-> **S’applique à**: Windows Server (canal semi-annuel), windows server 2016, windows server 2012 R2, windows server 2012, Windows 10
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10
 
 Bitsadmin est un outil de ligne de commande utilisé pour créer, télécharger ou télécharger des travaux et surveiller leur progression. L’outil Bitsadmin utilise des commutateurs pour identifier le travail à effectuer. Vous pouvez appeler `bitsadmin /?` ou `bitsadmin /help` pour obtenir une liste de commutateurs.
 

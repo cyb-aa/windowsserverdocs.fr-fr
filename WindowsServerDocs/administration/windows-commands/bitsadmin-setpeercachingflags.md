@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin setpeercachingflags
-description: La rubrique commandes Windows pour **Bitsadmin setpeercachingflags**, qui définit des indicateurs qui déterminent si les fichiers du travail peuvent être mis en cache et servis aux homologues et si le travail peut télécharger du contenu à partir de pairs.
+title: bitsadmin setpeercachingflags
+description: Rubrique de référence pour la commande Bitsadmin setpeercachingflags, qui définit des indicateurs qui déterminent si les fichiers du travail peuvent être mis en cache et desservis à des homologues et si le travail peut télécharger du contenu à partir de pairs.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1b4a7807975fb46440301e30b1fdbd01784d7c85
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 8b66b169c38ac050ecaaf6546365547148faa9cf
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122777"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717266"
 ---
-# <a name="bitsadmin-setpeercachingflags"></a>Bitsadmin setpeercachingflags
+# <a name="bitsadmin-setpeercachingflags"></a>bitsadmin setpeercachingflags
 
 Définit des indicateurs qui déterminent si les fichiers du travail peuvent être mis en cache et desservis aux homologues et si le travail peut télécharger du contenu à partir de pairs.
 
@@ -30,17 +30,19 @@ bitsadmin /setpeercachingflags <job> <value>
 
 | Paramètre | Description |
 | --------- | ----------- |
-| le travail | Nom complet ou GUID du travail. |
-| valeur | Entier non signé, y compris :<ul><li>**1.** le travail peut télécharger du contenu à partir de pairs.</li><li>**2.** les fichiers du travail peuvent être mis en cache et pris en charge par les homologues.</li></ul> |
+| travail | Nom complet ou GUID du travail. |
+| value | Entier non signé, y compris :<ul><li>**1.** le travail peut télécharger du contenu à partir de pairs.</li><li>**2.** les fichiers du travail peuvent être mis en cache et pris en charge par les homologues.</li></ul> |
 
 ## <a name="examples"></a>Exemples
 
-L’exemple suivant définit des indicateurs pour le travail nommé *myDownloadJob*, ce qui lui permet de télécharger du contenu à partir de pairs.
+Pour autoriser la tâche nommée *myDownloadJob* à télécharger le contenu à partir d’homologues :
 
 ```
-C:\>bitsadmin /setpeercachingflags myDownloadJob 1
+bitsadmin /setpeercachingflags myDownloadJob 1
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)

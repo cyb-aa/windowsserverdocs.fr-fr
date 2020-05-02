@@ -1,6 +1,6 @@
 ---
 title: bitsadmin reset
-description: La rubrique commandes Windows pour **Bitsadmin Reset**, qui annule tous les travaux de la file d’attente de transfert détenues par l’utilisateur actuel.
+description: Rubrique de référence pour la commande de réinitialisation Bitsadmin, qui annule toutes les tâches de la file d’attente de transfert détenues par l’utilisateur actuel.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,19 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b73bd3b9c66b24330a0f9444836b9c8bd1730722
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: a6aea1d3cb0a89def1e23f42272bf0503022ac54
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81123081"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717007"
 ---
 # <a name="bitsadmin-reset"></a>bitsadmin reset
 
-Annule toutes les tâches de la file d’attente de transfert détenues par l’utilisateur actuel. > Vous ne pouvez pas réinitialiser les travaux créés par le système local. Au lieu de cela, vous devez être administrateur et utiliser le planificateur de tâches pour planifier cette commande en tant que tâche à l’aide des informations d’identification du système local.
+Annule toutes les tâches de la file d’attente de transfert détenues par l’utilisateur actuel. Vous ne pouvez pas réinitialiser les travaux créés par le système local. Au lieu de cela, vous devez être administrateur et utiliser le planificateur de tâches pour planifier cette commande en tant que tâche à l’aide des informations d’identification du système local.
 
 > [!NOTE]
-> Dans BITSAdmin 1,5 et les versions antérieures, si vous disposez de privilèges d’administrateur, le commutateur/Reset annule tous les travaux de la file d’attente. En outre, l’option/ALLUSERS n’est pas prise en charge.
+> Si vous disposez de privilèges d’administrateur dans BITSAdmin 1,5 et versions antérieures, le commutateur/Reset annule tous les travaux de la file d’attente. En outre, l’option/ALLUSERS n’est pas prise en charge.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -33,16 +33,18 @@ bitsadmin /reset [/allusers]
 
 | Paramètre | Description |
 | -------------- | -------------- |
-| /ALLUSERS | Ce paramètre est facultatif. Annule toutes les tâches de la file d’attente détenues par l’utilisateur actuel. Vous devez disposer de privilèges d’administrateur pour utiliser ce paramètre. |
+| /ALLUSERS | facultatif. Annule toutes les tâches de la file d’attente détenues par l’utilisateur actuel. Vous devez disposer de privilèges d’administrateur pour utiliser ce paramètre. |
 
 ## <a name="examples"></a>Exemples
 
-L’exemple suivant annule tous les travaux de la file d’attente de transfert pour l’utilisateur actuel.
+Pour annuler toutes les tâches de la file d’attente de transfert pour l’utilisateur actuel.
 
 ```
-C:\>bitsadmin /reset
+bitsadmin /reset
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+
+- [commande Bitsadmin](bitsadmin.md)
