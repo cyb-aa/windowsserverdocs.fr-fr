@@ -8,14 +8,14 @@ ms.assetid: 262701a6-8a97-4c4e-bfbf-9f8007c308d6
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 29db78fdf38a6fab23d9a5ec5539c0606e2fbbaa
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b947ca49a82c18fd7a6c1da71b1e4b43ea741b41
+ms.sourcegitcommit: f247065941508b913c31828944978d3e721e2110
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80814482"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82876414"
 ---
-# <a name="azure-site-recovery-services-integration"></a>Intégration des services Azure Site Recovery
+# <a name="azure-site-recovery-services-integration"></a>Intégration des services Azure Site Recovery 
 
 >S’applique à : Windows Server 2016 Essentials
 
@@ -39,7 +39,7 @@ Une fois l’abonnement et la sélection de la région sélectionnés, un nouvel
 
 ### <a name="enabling-guest-virtual-machines-for-protection"></a>Activation des machines virtuelles invitées pour la protection
 
-Lors de la sélection d’une machine virtuelle présente dans la fenêtre de récupération Azure, vous pouvez cliquer sur **activer la réplication vers Azure** sur le côté droit du tableau de bord pour préparer et copier l’image de l’ordinateur virtuel &trade;s dans Azure :
+Lors de la sélection d’une machine virtuelle présente dans la fenêtre de récupération Azure, vous pouvez cliquer sur **activer la réplication vers Azure** sur le côté droit du tableau de bord &trade;pour préparer et copier l’image de l’ordinateur virtuel dans Azure :
 
 ![Capture d’écran montrant la boîte de dialogue Activer la réplication vers Azure. Une barre de progression s’affiche lorsqu’un ordinateur hôte est en cours d’ajout.](media/azure-site-recovery-5.PNG)
 

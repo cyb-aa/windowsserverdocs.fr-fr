@@ -3,16 +3,16 @@ title: Créer des plug-ins avec un modèle d’évaluation des risques AD FS 20
 author: billmath
 ms.author: billmath
 manager: mtillman
-ms.date: 04/16/2019
+ms.date: 05/05/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6433513f525572254e4aaef65e2bfc992a7c5280
-ms.sourcegitcommit: 41dc7f487d282895a242e788049285363dd19eeb
+ms.openlocfilehash: c9795ea1b945d5da773b8d257434f216d842799d
+ms.sourcegitcommit: f0f447193a0bd14d9a623aaead80329b95bf1f47
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82169174"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82842838"
 ---
 # <a name="build-plug-ins-with-ad-fs-2019-risk-assessment-model"></a>Créer des plug-ins avec un modèle d’évaluation des risques AD FS 2019
 
@@ -297,7 +297,7 @@ La méthode retourne le [score de risque](https://docs.microsoft.com/dotnet/api/
 >[!NOTE]
 >Pour que le plug-in fonctionne, la classe principale (dans ce cas UserRiskAnalyzer) doit dériver la classe abstraite [ThreatDetectionModule](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule?view=adfs-2019) et doit implémenter au moins l’une des trois interfaces décrites ci-dessus. Une fois la dll inscrite, AD FS vérifie les interfaces qui sont implémentées et les appelle à l’étape appropriée dans le pipeline.
 
-### <a name="faqs"></a>FAQ
+### <a name="faqs"></a>Foire aux questions
 
 **Pourquoi dois-je créer ces plug-ins ?**</br>
 **R :** Ces plug-ins vous offrent non seulement des fonctionnalités supplémentaires pour sécuriser votre environnement contre les attaques telles que les attaques par pulvérisation de mot de passe, mais également la possibilité de créer votre propre logique d’évaluation des risques en fonction de vos besoins. 
@@ -313,6 +313,7 @@ La méthode retourne le [score de risque](https://docs.microsoft.com/dotnet/api/
 
 **Quels sont les autres plug-ins d’exemples disponibles ?**</br>
 **R :** Les exemples de plug-ins suivants sont disponibles :
+
 |Nom|Description| 
 |-----|-----|
 |[Plug-in utilisateur à risque](https://github.com/microsoft/adfs-sample-block-user-on-adfs-marked-risky-by-AzureAD-IdentityProtection)|Exemple de plug-in qui bloque l’authentification ou applique l’authentification MFA en fonction du niveau de risque de l’utilisateur déterminé par Azure AD Identity Protection.| 

@@ -1,6 +1,6 @@
 ---
-title: SC supprimer
-description: Rubrique de référence pour * * * *-
+title: SC. exe supprimer
+description: Découvrez comment annuler l’inscription des services à l’aide de l’utilitaire SC. exe
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dd40b5eb82def3b3c437cbdb5b60d279529d25a0
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 284012cf6799df52832e62c3eea1b2f0fcd84805
+ms.sourcegitcommit: 95b60384b0b070263465eaffb27b8e3bb052a4de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722190"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82850110"
 ---
-# <a name="sc-delete"></a>SC supprimer
-
-
+# <a name="scexe-delete"></a>SC. exe supprimer
 
 Supprime une sous-clé de service du Registre. Si le service est en cours d’exécution ou si un autre processus a un descripteur ouvert pour le service, le service est marqué pour suppression.
 
@@ -27,7 +25,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 ## <a name="syntax"></a>Syntaxe
 
 ```
-sc [<ServerName>] delete [<ServiceName>]
+sc.exe [<ServerName>] delete [<ServiceName>]
 ```
 
 ### <a name="parameters"></a>Paramètres
@@ -40,13 +38,13 @@ sc [<ServerName>] delete [<ServiceName>]
 
 ## <a name="remarks"></a>Notes 
 
-Utilisez **Ajout/suppression de programmes** dans le **panneau de configuration** pour supprimer DHCP, DNS ou tout autre service de système d’exploitation intégré. Notez que l' **Ajout/suppression de programmes** supprimera non seulement la sous-clé du Registre pour le service, mais désinstallera également le service et supprimera les raccourcis qui y sont associés.
+Il n’est pas recommandé d’utiliser SC. exe pour supprimer des services de système d’exploitation intégrés tels que DHCP, DNS ou Internet Information Services. Pour installer, supprimer ou reconfigurer des rôles, des services et des composants de système d’exploitation, consultez [installer ou désinstaller des rôles, des services de rôle ou des fonctionnalités](/WindowsServerDocs/administration/server-manager/install-or-uninstall-roles-role-services-or-features.md)
 
 ## <a name="examples"></a>Exemples
 
 Pour supprimer la sous-clé de service **NewServ** du Registre sur l’ordinateur local, tapez :
 ```
-sc delete newserv
+sc.exe delete newserv
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
