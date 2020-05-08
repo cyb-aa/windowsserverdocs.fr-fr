@@ -1,6 +1,6 @@
 ---
 ms.assetid: 1a443181-7ded-4912-8e40-5aa447faf00c
-title: Paramètres d’authentification unique ADFS2016
+title: Paramètres d’authentification unique AD FS 2016
 author: billmath
 ms.author: billmath
 manager: femila
@@ -8,12 +8,12 @@ ms.date: 08/17/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: bad6ad9a95618239825366187c8083c1fe77ae94
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cdd35ccc7800616f7803937738c942e68bf04c00
+ms.sourcegitcommit: 67116322915066b85decb4261d47cedec2cfe12f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860082"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82903441"
 ---
 # <a name="ad-fs-single-sign-on-settings"></a>AD FS les paramètres d’authentification unique
 
@@ -102,7 +102,7 @@ Il est important de noter que, en fournissant des périodes relativement longues
 ## <a name="psso-revocation"></a>Révocation PSSO  
  Pour protéger la sécurité, AD FS rejette tout cookie SSO persistant précédemment émis lorsque les conditions suivantes sont remplies. Cela oblige l’utilisateur à fournir ses informations d’identification pour s’authentifier auprès de AD FS. 
   
-- Modification du mot de passe par l’utilisateur  
+- L’utilisateur change le mot de passe  
   
 - Le paramètre SSO persistant est désactivé dans AD FS  
   
@@ -153,13 +153,13 @@ Pour résumer :
 
   <tr align="center">
     <th></th>
-    <th>NON</th>
+    <th>Non</th>
     <th>NON, mais KMSI</th>
-    <th>OUI</th>
+    <th>YES</th>
     <th></th>
-    <th>NON</th>
+    <th>Non</th>
     <th>NON, mais KMSI</th>
-    <th>OUI</th>
+    <th>YES</th>
   </tr>
  <tr align="center">
     <td>SSO =&gt;définir le jeton d’actualisation =&gt;</td>
@@ -201,6 +201,10 @@ Pour résumer :
 QUE
  - [x] l’administrateur a activé la fonctionnalité KMSI [et]
  - [x] l’utilisateur clique sur la case à cocher KMSI sur la page de connexion aux formulaires
+ 
+  
+ADFS émet un nouveau jeton d’actualisation uniquement si la validité du jeton d’actualisation le plus récent est supérieure au jeton précédent. La durée de vie maximale d’un jeton est de 84 jours, mais AD FS garde le jeton valide sur une fenêtre glissante de 14 jours. Si le jeton d’actualisation est valide pendant 8 heures, ce qui correspond à l’heure d’authentification unique standard, un nouveau jeton d’actualisation n’est pas émis. 
+ 
  
 **Bon à savoir :** <br>
 Les utilisateurs fédérés qui n’ont pas l’attribut **LastPasswordChangeTimestamp** synchronisé reçoivent des cookies de session et des jetons d’actualisation qui ont une **valeur d’âge maximale de 12 heures**.<br>
