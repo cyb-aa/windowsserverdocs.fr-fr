@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2958c82b1dfc3b99d0e15690ef9857e7d83b244f
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: eac3749304a06ea4cc11bf90a3220f5e24f9b5ae
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719616"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993016"
 ---
 # <a name="detail-volume"></a>volume de détail
 
-Affiche les disques sur lesquels le volume actuel réside.
+Affiche les disques sur lesquels le volume actuel réside. Avant de commencer, vous devez sélectionner un volume pour que cette opération aboutisse. Utilisez la commande [Sélectionner un volume](select-volume.md) pour sélectionner un volume et lui déplacer le focus. Les détails du volume ne s’appliquent pas aux volumes en lecture seule, tels qu’un lecteur de CD-ROM ou de DVD-ROM.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -26,14 +26,10 @@ Affiche les disques sur lesquels le volume actuel réside.
 detail volume
 ```
 
-## <a name="remarks"></a>Notes
-
--   Vous devez sélectionner un volume pour que cette opération aboutisse. Utilisez la commande **Sélectionner un volume** pour sélectionner un volume et lui déplacer le focus.
--   Les détails du volume ne s’appliquent pas aux volumes en lecture seule, tels qu’un lecteur de CD-ROM ou de DVD-ROM.
-
 ## <a name="examples"></a>Exemples
 
 Pour afficher tous les disques dans lesquels le volume actuel réside, tapez :
+
 ```
 detail volume
 ```
@@ -42,3 +38,6 @@ detail volume
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
+- [select volume](select-volume.md)
+
+- [commande détaillée](detail.md)

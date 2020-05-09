@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8fa956124e0c227d048d4c6eec844154187d5861
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 4878377225f9c58e40256a3d151d0d8f3761afca
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725052"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993338"
 ---
 # <a name="ftp"></a>ftp
 
 > S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Transfère les fichiers vers et à partir d’un ordinateur exécutant un service de serveur protocole FTP (FTP). **FTP** peut être utilisé de manière interactive ou en mode batch en traitant des fichiers texte ASCII. 
+Transfère les fichiers vers et à partir d’un ordinateur exécutant un service de serveur protocole FTP (FTP). **FTP** peut être utilisé de manière interactive ou en mode batch en traitant des fichiers texte ASCII.
 ## <a name="syntax"></a>Syntaxe
 ```
 ftp [-v] [-d] [-i] [-n] [-g] [-s:<FileName>] [-a] [-A] [-x:<SendBuffer>] [-r:<RecvBuffer>] [-b:<AsyncBuffers>][-w:<WindowsSize>]  [-?] [<Host>]

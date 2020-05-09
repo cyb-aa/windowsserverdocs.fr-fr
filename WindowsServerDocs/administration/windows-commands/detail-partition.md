@@ -1,6 +1,6 @@
 ---
 title: partition de détail
-description: Rubrique de référence sur la partition de détail, qui affiche les propriétés de la partition sélectionnée.
+description: Rubrique de référence pour la commande Detail partition, qui affiche les propriétés de la partition sélectionnée.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9ac71e27f5008d6eda0f4c67a7a8129a3bea6365
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 28a5730fc035dab86c4f0f6b28ea2fca47e37d04
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719637"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993062"
 ---
 # <a name="detail-partition"></a>partition de détail
 
-Affiche les propriétés de la partition sélectionnée.
+Affiche les propriétés de la partition sélectionnée. Avant de commencer, vous devez sélectionner une partition pour que cette opération aboutisse. Utilisez la commande [Sélectionner une partition](select-partition.md) pour sélectionner une partition et y déplacer le focus.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -26,13 +26,10 @@ Affiche les propriétés de la partition sélectionnée.
 detail partition
 ```
 
-## <a name="remarks"></a>Notes
-
--   Une partition doit être sélectionnée pour que cette opération aboutisse. Utilisez la commande **Sélectionner une partition** pour sélectionner une partition et y déplacer le focus.
-
 ## <a name="examples"></a>Exemples
 
 Pour afficher les propriétés de la partition sélectionnée, tapez :
+
 ```
 detail partition
 ```
@@ -41,3 +38,4 @@ detail partition
 
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
+- [commande détaillée](detail.md)

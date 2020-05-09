@@ -9,15 +9,15 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1b1103286859f1ab7c790ed20ae14f034d4030bb
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 4f1262952cc8a3c33e6fce3cd5287bb6797bc611
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719253"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993298"
 ---
 # <a name="cprofile"></a>cprofile
 
 Cprofile est déconseillé et n’est pas nécessairement pris en charge dans les versions futures de Windows.
 
-Cprofile. exe : nettoyer le profil. Les services Terminal Server ont été mis à jour pour Services Bureau à distance. Pour plus d’informations, consultez [Bienvenue dans services Bureau à distance](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/welcome-to-rds).
+Les services Terminal Server ont été mis à jour pour Services Bureau à distance. Pour plus d’informations, consultez [Bienvenue dans services Bureau à distance](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/welcome-to-rds).

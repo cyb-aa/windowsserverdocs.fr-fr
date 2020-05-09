@@ -1,6 +1,6 @@
 ---
 title: diskperf
-description: Rubrique de référence pour diskperf, qui peut être utilisée pour activer ou désactiver à distance des compteurs de performances de disque logique ou physique sur des ordinateurs exécutant Windows 2000.
+description: Rubrique de référence pour la commande Diskperf, qui peut être utilisée pour activer ou désactiver à distance des compteurs de performances de disque logique ou physique sur des ordinateurs exécutant Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,34 +9,36 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c8f505d924ee1de311f2f2736ff65be844c3f2ea
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 092518f414d6e27436c46ffd6f9f15b6e6c0407e
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719444"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82992428"
 ---
 # <a name="diskperf"></a>diskperf
 
-Dans Windows 2000, les compteurs de performances de disque logique et physique ne sont pas activés par défaut.
-
-**Diskperf** est inclus dans Windows XP, windows Server 2003, windows Server 2008, Windows Vista, windows Server 2008 R2 et Windows 7 afin qu’il puisse être utilisé pour activer ou désactiver à distance des compteurs de performances de disque logique ou physique sur des ordinateurs exécutant Windows 2000.
+La commande **diskperf** active ou désactive à distance les compteurs de performance des disques physiques ou logiques sur les ordinateurs exécutant Windows.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-diskperf [-Y[D|V] | -N[D|V]] [\\computername]
+diskperf [-y[d|v] | -n[d|v]] [\\computername]
 ```
 
 ## <a name="options"></a>Options
 
-|Option|Description|
-|------|-----------|
-|-?|Affiche l’aide contextuelle.|
-|-y|Démarrez tous les compteurs de performances de disque au redémarrage de l’ordinateur.|
-|-YD|Activez les compteurs de performances de disque pour les lecteurs physiques au redémarrage de l’ordinateur.|
-|-YV|Activez les compteurs de performances de disque pour les lecteurs logiques ou les volumes de stockage au redémarrage de l’ordinateur.|
-|-n|Désactivez tous les compteurs de performances de disque au redémarrage de l’ordinateur.|
-|-ND|Désactivez les compteurs de performances de disque pour les lecteurs physiques au redémarrage de l’ordinateur.|
-|-NV|Désactivez les compteurs de performances de disque pour les lecteurs logiques ou les volumes de stockage au redémarrage de l’ordinateur.|
-|\\\\*\<nom de l'>*|Spécifiez le nom de l’ordinateur sur lequel vous souhaitez activer ou désactiver les compteurs de performances de disque.|
+| Option | Description |
+| ------ | ----------- |
+| -y | Démarre tous les compteurs de performances de disque au redémarrage de l’ordinateur. |
+| -YD | Active les compteurs de performances de disque pour les lecteurs physiques au redémarrage de l’ordinateur. |
+| -yv | Active les compteurs de performances de disque pour les lecteurs logiques ou les volumes de stockage au redémarrage de l’ordinateur. |
+| -n | Désactive tous les compteurs de performances de disque au redémarrage de l’ordinateur. |
+| -ND | Désactivez les compteurs de performances de disque pour les lecteurs physiques au redémarrage de l’ordinateur. |
+| -NV | Désactivez les compteurs de performances de disque pour les lecteurs logiques ou les volumes de stockage au redémarrage de l’ordinateur. |
+| `\\<computername>` | Spécifie le nom de l’ordinateur sur lequel vous souhaitez activer ou désactiver les compteurs de performances de disque. |
+| -? | Affiche l’aide contextuelle. |
+
+## <a name="additional-references"></a>Références supplémentaires
+
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
