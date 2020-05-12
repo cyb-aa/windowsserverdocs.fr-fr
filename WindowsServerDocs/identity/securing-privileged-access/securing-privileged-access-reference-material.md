@@ -606,7 +606,7 @@ Définitions des colonnes :
 Les symboles utilisés dans ce tableau ont la signification suivante :
 
 - (-) indique que les informations d’identification ne sont pas exposées.
-- (-) indique que les informations d’identification sont exposées.
+- (v) indique que les informations d’identification sont exposées.
 
 Pour les applications de gestion qui ne figurent pas dans ce tableau, vous pouvez déterminer le type d’ouverture de session à partir du champ correspondant dans Auditer les événements de connexion. Pour plus d’informations, voir [Auditer les événements de connexion](https://technet.microsoft.com/library/cc787567(v=ws.10).aspx).
 
